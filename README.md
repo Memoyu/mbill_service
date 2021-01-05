@@ -10,7 +10,7 @@
 
 **知行合一**
 
-[![.NET5](https://img.shields.io/badge/.NET5.0.0-3963bc.svg)](https://dotnet.microsoft.com/download)[![.NET5](https://img.shields.io/badge/Memoyu.Core-.NET5-red)](https://github.com/Memoyu/Memoyu.Core)[![](https://img.shields.io/badge/license-MIT-3963bc.svg)](LICENSE)
+[![.NET5](https://img.shields.io/badge/.NET5.0.0-3963bc.svg)](https://dotnet.microsoft.com/download)&ensp;[![.NET5](https://img.shields.io/badge/Memoyu.Core-.NET5-red)](https://github.com/Memoyu/Memoyu.Core)&ensp;[![](https://img.shields.io/badge/license-MIT-3963bc.svg)](LICENSE)
 
 &nbsp;
 
