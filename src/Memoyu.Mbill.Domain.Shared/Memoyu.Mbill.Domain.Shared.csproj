@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FreeSql" Version="2.0.105" />
+    <PackageReference Include="FreeSql.DbContext" Version="2.0.105" />
+    <PackageReference Include="FreeSql.Provider.MySqlConnector" Version="2.0.105" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="2.0.105" />
+    <PackageReference Include="FreeSql.Provider.SqlServer" Version="2.0.105" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Memoyu.Mbill.ToolKits\Memoyu.Mbill.ToolKits.csproj" />
+  </ItemGroup>
+
+</Project>

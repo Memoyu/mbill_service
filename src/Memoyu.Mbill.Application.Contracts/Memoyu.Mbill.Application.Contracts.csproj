@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Caching.CSRedis" Version="3.6.50" />
+    <PackageReference Include="CSRedisCore" Version="3.6.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Memoyu.Mbill.Domain\Memoyu.Mbill.Domain.csproj" />
+    <ProjectReference Include="..\Memoyu.Mbill.ToolKits\Memoyu.Mbill.ToolKits.csproj" />
+  </ItemGroup>
+
+</Project>
