@@ -25,7 +25,7 @@
 ## 相关项目
 
 - [ ] 采用Wepy实现的小程序前端  [Memoyu/mbill_app](https://github.com/Memoyu/mbill_app)
-- [ ] 采用Blazor+Ant Blazor实现后端管理  [Memoyu/blazor_admin](https://github.com/Memoyu/blazor_admin)
+- [ ] 采用Blazor+Ant Blazor实现后端管理  [Memoyu/mbill_blazor_admin](https://github.com/Memoyu/mbill_blazor_admin)
 
 &nbsp;
 
