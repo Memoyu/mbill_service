@@ -1,7 +1,7 @@
 ﻿/**************************************************************************  
 *   =================================
 *   CLR版本  ：4.0.30319.42000
-*   命名空间 ：Memoyu.Mbill.Application.Contracts.Mapper.Test
+*   命名空间 ：Memoyu.Mbill.Application.Contracts.Mapper.User
 *   文件名称 ：TestMapper.cs
 *   =================================
 *   创 建 者 ：Memoyu
@@ -10,16 +10,17 @@
 *   功能描述 ：
 ***************************************************************************/
 using AutoMapper;
-using Memoyu.Mbill.Application.Contracts.Test;
-using Memoyu.Mbill.Domain.Entities;
+using Memoyu.Mbill.Application.Contracts.Dtos.User;
+using Memoyu.Mbill.Domain.Entities.User;
 
-namespace Memoyu.Mbill.Application.Contracts.Mapper.Test
+namespace Memoyu.Mbill.Application.Contracts.Mapper.User
 {
-    public class TestMapper : Profile
+    public class UserMapper : Profile
     {
-        public TestMapper()
+        public UserMapper()
         {
-            CreateMap<ModifyTestDto, TestEntity>();
+            CreateMap<ModifyUserDto, UserEntity>();
+            CreateMap<UserEntity, UserDto>();
         }
     }
 }

@@ -1,20 +1,23 @@
 ﻿/**************************************************************************  
 *   =================================
 *   CLR版本  ：4.0.30319.42000
-*   命名空间 ：Memoyu.Mbill.Domain.IRepositories.Category
-*   文件名称 ：ICategoryRepository.cs
+*   命名空间 ：Memoyu.Mbill.Application.Contracts.Dtos.Statement
+*   文件名称 ：ModifyStatementDto.cs
 *   =================================
 *   创 建 者 ：Memoyu
-*   创建日期 ：2021-01-06 21:06:06
+*   创建日期 ：2021-01-06 23:48:08
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using Memoyu.Mbill.Domain.Entities.Category;
-using Memoyu.Mbill.Domain.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Domain.IRepositories.Category
+namespace Memoyu.Mbill.Application.Contracts.Dtos.Statement
 {
-    public interface ICategoryRepository : IAuditBaseRepository<CategoryEntity>
+    class ModifyStatementDto
     {
     }
 }

@@ -18,6 +18,10 @@ namespace Memoyu.Mbill.Domain.Entities.Asset
     /// 资产信息实体
     /// </summary>
     [Table(Name = "mbill_asset")]
+    [Index("index_asset_on_amount", "Amount", true)]
+    [Index("index_asset_on_sort", "Sort", true)]
+    [Index("index_asset_on_parent_id", "ParentId", true)]
+    [Index("index_asset_on_type", "Type", true)]
     public class AssetEntity : FullAduitEntity
     {
         /// <summary>

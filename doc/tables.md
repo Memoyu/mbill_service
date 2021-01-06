@@ -54,7 +54,7 @@ index ["year", "month", "day", "time"], name: "index_statements_on_year_and_mont
 | DeleteUserId |   long   |        |  √   |            删除人Id            |
 |  DeleteTime  | datetime |        |  √   |            删除时间            |
 
-**索引：
+**索引：**
 
 ```
 index ["order"], name: "index_categories_on_order"

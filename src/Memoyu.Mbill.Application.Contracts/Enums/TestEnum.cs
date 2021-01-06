@@ -17,6 +17,7 @@ namespace Memoyu.Mbill.Application.Contracts.Enums
     /// </summary>
     public enum SexEnum
     {
+        未知 = 0,
         男 = 1,
         女 = 2
     }

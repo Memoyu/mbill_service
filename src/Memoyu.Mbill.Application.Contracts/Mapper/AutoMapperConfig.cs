@@ -10,7 +10,10 @@
 *   功能描述 ：
 ***************************************************************************/
 using AutoMapper;
-using Memoyu.Mbill.Application.Contracts.Mapper.Test;
+using Memoyu.Mbill.Application.Contracts.Mapper.Asset;
+using Memoyu.Mbill.Application.Contracts.Mapper.Category;
+using Memoyu.Mbill.Application.Contracts.Mapper.Statement;
+using Memoyu.Mbill.Application.Contracts.Mapper.User;
 
 namespace Memoyu.Mbill.Application.Contracts.Mapper
 {
@@ -23,7 +26,10 @@ namespace Memoyu.Mbill.Application.Contracts.Mapper
         {
             return new MapperConfiguration(cfg =>
             {
-                new TestMapper();
+                new AssetMapper();
+                new CategoryMapper();
+                new StatementMapper();
+                new UserMapper();
             });
         }
     }

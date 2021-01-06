@@ -18,6 +18,9 @@ namespace Memoyu.Mbill.Domain.Entities.Category
     /// 分类实体
     /// </summary>
     [Table(Name = "mbill_category")]
+    [Index("index_category_on_sort", "Sort", true)]
+    [Index("index_category_on_parent_id", "ParentId", true)]
+    [Index("index_category_on_type", "Type", true)]
     public class CategoryEntity : FullAduitEntity
     {
         /// <summary>

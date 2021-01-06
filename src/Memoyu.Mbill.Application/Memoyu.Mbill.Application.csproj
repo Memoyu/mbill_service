@@ -8,11 +8,4 @@
     <ProjectReference Include="..\Memoyu.Mbill.Application.Contracts\Memoyu.Mbill.Application.Contracts.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Asset\" />
-    <Folder Include="Category\" />
-    <Folder Include="Statement\" />
-    <Folder Include="User\" />
-  </ItemGroup>
-
 </Project>

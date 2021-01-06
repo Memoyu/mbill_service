@@ -52,3 +52,13 @@
 2021-01-06 14:19:57.592 +08:00 [INF] Application started. Press Ctrl+C to shut down.
 2021-01-06 14:19:57.592 +08:00 [INF] Hosting environment: Development
 2021-01-06 14:19:57.593 +08:00 [INF] Content root path: D:\Profile\mbill\mbill_service\src\Memoyu.Mbill.WebApi
+2021-01-06 20:57:43.710 +08:00 [INF] init main
+2021-01-06 20:57:45.486 +08:00 [INF] Starting the processing server.
+2021-01-06 20:57:45.532 +08:00 [INF] ### CAP started!
+2021-01-06 20:57:45.720 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-06 20:57:45.721 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-06 20:57:45.721 +08:00 [INF] Hosting environment: Development
+2021-01-06 20:57:45.721 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-06 21:00:18.617 +08:00 [INF] Application is shutting down...
+2021-01-06 21:00:18.665 +08:00 [INF] Shutting down the processing server...
+2021-01-06 21:00:18.667 +08:00 [INF] ### CAP shutdown!
