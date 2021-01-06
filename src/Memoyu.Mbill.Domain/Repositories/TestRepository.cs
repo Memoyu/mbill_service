@@ -12,7 +12,7 @@
 using FreeSql;
 using Memoyu.Mbill.Domain.Entities;
 using Memoyu.Mbill.Domain.IRepositories;
-using Memoyu.Mbill.Domain.Shared.Base.Impl;
+using Memoyu.Mbill.Domain.Base.Impl;
 using Memoyu.Mbill.Domain.Shared.Security;
 
 namespace Memoyu.Mbill.Domain.Repositories

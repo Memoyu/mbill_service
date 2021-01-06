@@ -1,7 +1,7 @@
 ﻿/**************************************************************************  
 *   =================================
 *   CLR版本  ：4.0.30319.42000
-*   命名空间 ：Memoyu.Mbill.Domain.Shared.Base.Impl
+*   命名空间 ：Memoyu.Mbill.Domain.Base.Impl
 *   文件名称 ：AuditBaseRepository.cs
 *   =================================
 *   创 建 者 ：Memoyu
@@ -18,7 +18,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Domain.Shared.Base.Impl
+namespace Memoyu.Mbill.Domain.Base.Impl
 {
     public class AuditBaseRepository<TEntity> : AuditBaseRepository<TEntity, Guid>, IAuditBaseRepository<TEntity> where TEntity : class, new()
     {

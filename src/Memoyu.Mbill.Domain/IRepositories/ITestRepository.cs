@@ -10,7 +10,7 @@
 *   功能描述 ：
 ***************************************************************************/
 using Memoyu.Mbill.Domain.Entities;
-using Memoyu.Mbill.Domain.Shared.Base;
+using Memoyu.Mbill.Domain.Base;
 
 namespace Memoyu.Mbill.Domain.IRepositories
 {

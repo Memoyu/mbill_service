@@ -11,7 +11,7 @@
 ***************************************************************************/
 using FreeSql;
 using Memoyu.Application.Base;
-using Memoyu.Mbill.Domain.Shared.Base;
+using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
 using System.Collections.Generic;
 using System.Linq;

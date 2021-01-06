@@ -1,7 +1,7 @@
 ﻿/**************************************************************************  
 *   =================================
 *   CLR版本  ：4.0.30319.42000
-*   命名空间 ：Memoyu.Mbill.Domain.Shared.Base
+*   命名空间 ：Memoyu.Mbill.Domain.Base
 *   文件名称 ：ReflexUtil.cs
 *   =================================
 *   创 建 者 ：Memoyu
@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using FreeSql.DataAnnotations;
 using System.Reflection;
 
-namespace Memoyu.Mbill.Domain.Shared.Base
+namespace Memoyu.Mbill.Domain.Base
 {
     public class ReflexUtil
     {

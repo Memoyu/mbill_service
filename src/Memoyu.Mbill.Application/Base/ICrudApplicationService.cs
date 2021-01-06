@@ -9,7 +9,7 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using Memoyu.Mbill.Domain.Shared.Base;
+using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
 using System.Threading.Tasks;
 

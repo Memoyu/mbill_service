@@ -12,7 +12,7 @@
 using Memoyu.Mbill.Application.Base.Impl;
 using Memoyu.Mbill.Application.Contracts.Test;
 using Memoyu.Mbill.Domain.Entities;
-using Memoyu.Mbill.Domain.Shared.Base;
+using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Shared.Exceptions;
 using Memoyu.Mbill.ToolKits.Base.Page;
 using System;

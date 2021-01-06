@@ -17,7 +17,7 @@
       {
         "Name": "File",
         "Args": {
-          "path": "Logs/los/log.txt",
+          "path": "Logs/logs/log.txt",
           "rollingInterval": "Day"
         }
       },
