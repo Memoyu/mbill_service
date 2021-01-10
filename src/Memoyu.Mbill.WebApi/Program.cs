@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.WebApi

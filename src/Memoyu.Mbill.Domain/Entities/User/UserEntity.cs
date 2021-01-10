@@ -11,26 +11,30 @@
 ***************************************************************************/
 using FreeSql.DataAnnotations;
 using Memoyu.Mbill.Domain.Base;
+using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Shared.Const;
+using System;
+using System.Collections.Generic;
 
 namespace Memoyu.Mbill.Domain.Entities.User
 {
     /// <summary>
     /// 用户实体
     /// </summary>
-    [Table(Name = "mbill_user")]
+    [Table(Name = SystemConst.DbTablePrefix + "_user")]
     public class UserEntity : FullAduitEntity
     {
         /// <summary>
         /// 用户名
         /// </summary>
         [Column(StringLength = 20, IsNullable = false)]
-        public string Name { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// 昵称
         /// </summary>
         [Column(StringLength = 20, IsNullable = false)]
-        public string NickName { get; set; }
+        public string Nickname { get; set; }
 
         /// <summary>
         /// 性别，0：未知，1：男，2：女
@@ -78,5 +82,37 @@ namespace Memoyu.Mbill.Domain.Entities.User
         /// </summary>
         [Column(StringLength = 100)]
         public string AvatarUrl { get; set; }
+
+        /// <summary>
+        /// 最后一次登录的时间
+        /// </summary>
+        public DateTime LastLoginTime { get; set; }
+
+        /// <summary>
+        /// JWT 登录，保存生成的随机token值。
+        /// </summary>
+        [Column(StringLength = 200)]
+        public string RefreshToken { get; set; }
+
+
+        [Navigate(ManyToMany = typeof(UserRoleEntity))]
+        public virtual IEnumerable<RoleEntity> Roles { get; set; }
+
+        [Navigate("UserId")]
+        public virtual ICollection<UserRoleEntity> UserRoles { get; set; }
+
+        [Navigate("CreateUserId")]
+        public virtual ICollection<UserIdentityEntity> UserIdentitys { get; set; }
+
+
+        /// <summary>
+        /// 登录后用户状态变化
+        /// </summary>
+        /// <param name="refreshToken"></param>
+        public void ChangeLoginStatus(string refreshToken)
+        {
+            LastLoginTime = DateTime.Now;
+            RefreshToken = refreshToken;
+        }
     }
 }

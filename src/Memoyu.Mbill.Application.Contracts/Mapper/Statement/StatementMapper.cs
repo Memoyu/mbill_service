@@ -10,8 +10,8 @@
 *   功能描述 ：
 ***************************************************************************/
 using AutoMapper;
-using Memoyu.Mbill.Application.Contracts.Dtos.Statement;
-using Memoyu.Mbill.Domain.Entities.Statement;
+using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement;
+using Memoyu.Mbill.Domain.Entities.Bill.Statement;
 
 namespace Memoyu.Mbill.Application.Contracts.Mapper.Statement
 {

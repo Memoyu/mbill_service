@@ -9,7 +9,6 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using Memoyu.Mbill.Application.Contracts.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.User
@@ -20,20 +19,19 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.User
         /// 用户名
         /// </summary>
         [Required(ErrorMessage = "必须传入用户名")]
-        public string Name { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// 昵称
         /// </summary>
         [Required(ErrorMessage = "必须传入昵称")]
-        public string NickName { get; set; }
+        public string Nickname { get; set; }
 
         /// <summary>
         /// 性别，0：未知，1：男，2：女
         /// </summary>
         [Required(ErrorMessage = "必须传入昵称")]
-        [EnumDataType(typeof(SexEnum), ErrorMessage = "性别应为0(未知)，1(男)，2(女)")]
-        public SexEnum Gender { get; set; }
+        public int Gender { get; set; }
 
         /// <summary>
         /// 邮箱

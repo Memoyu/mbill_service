@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Memoyu.Mbill.Application.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Memoyu.Mbill.Application.Contracts.Attributes.TransactionalAttribute">
+            <summary>
+            事务
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Attributes.TransactionalAttribute.Propagation">
+            <summary>
+            事务传播方式
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Attributes.TransactionalAttribute.IsolationLevel">
+            <summary>
+            事务隔离级别
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Base.DomainReflexUtil.GetTypesByTableAttribute">
+            <summary>
+            扫描 IEntity类所在程序集，反射得到类上有特性标签为TableAttribute 的所有类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Base.DomainReflexUtil.GetAssemblyPermissionAttributes">
+            <summary>
+            获取WebApi程序集下的所有Controller下的所有Action的权限信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Base.DomainReflexUtil.GetMethodHttpAttribute(System.Reflection.MethodInfo)">
+            <summary>
+            获取Method的http特性
+            </summary>
+            <param name="methodInfo">method信息</param>
+            <returns></returns>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Core.LoginInputDto.Username">
+            <summary>
+            登录名
+            </summary>
+            <example>
+            admin
+            </example>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Core.LoginInputDto.Password">
+            <summary>
+            密码
+            </summary>
+            <example>
+            123456
+            </example>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Street">
+            <summary>
+            街道
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Street">
+            <summary>
+            街道
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="F:Memoyu.Mbill.Application.Contracts.Exceptions.KnownException._statusCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="F:Memoyu.Mbill.Application.Contracts.Exceptions.KnownException._errorCode">
+            <summary>
+            错误码，当为1时，代表正常
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Exceptions.KnownException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Exceptions.KnownException.GetStatusCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Memoyu.Mbill.Application.Contracts.Filter.LogActionFilterAttribute">
+            <summary>
+            全局日志记录
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Filter.LogActionFilterAttribute.parseTemplate(System.String,Memoyu.Mbill.Domain.Shared.Security.ICurrentUser,Microsoft.AspNetCore.Http.HttpRequest,Microsoft.AspNetCore.Http.HttpResponse)">
+            <summary>
+            转换成模板
+            </summary>
+            <param name="template">模板</param>
+            <param name="userInfo">当前用户信息</param>
+            <param name="request">请求上下文</param>
+            <param name="response">响应上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Filter.LogActionFilterAttribute.extractProperty(System.String,Memoyu.Mbill.Domain.Shared.Security.ICurrentUser,Microsoft.AspNetCore.Http.HttpRequest,Microsoft.AspNetCore.Http.HttpResponse)">
+            <summary>
+            获取模板中属性对应的值
+            </summary>
+            <param name="item"></param>
+            <param name="userInfo"></param>
+            <param name="request"></param>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Application.Contracts.Filter.LogActionFilterAttribute.getValueByPropName``1(``0,System.String)">
+            <summary>
+            反射获取属性值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Memoyu.Mbill.Application.Contracts.Filter.PermissionAuthorizeAttribute">
+            <summary>
+             自定义固定权限编码给动态角色及用户，支持验证登录，指定角色、Policy
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.Application.Contracts.Mapper.AutoMapperConfig">
+            <summary>
+            静态全局 AutoMapper 配置文件
+            </summary>
+        </member>
+    </members>
+</doc>

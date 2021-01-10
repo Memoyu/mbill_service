@@ -19,6 +19,15 @@ namespace Memoyu.Mbill.ToolKits.Base
     /// </summary>
     public class ServiceResult
     {
+        public ServiceResult()
+        {
+
+        }
+        public ServiceResult(ServiceResultCode code, string message)
+        {
+            Code = code;
+            Message = message;
+        }
         /// <summary>
         /// 响应码
         /// </summary>
@@ -39,7 +48,7 @@ namespace Memoyu.Mbill.ToolKits.Base
         /// 响应成功
         /// </summary>
         /// <param name="message"></param>
-        public void IsSuccess(string message ="")
+        public void IsSuccess(string message = "")
         {
             Message = message;
             Code = ServiceResultCode.Succeed;

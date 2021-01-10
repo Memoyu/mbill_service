@@ -29,9 +29,27 @@ namespace Memoyu.Mbill.Domain.Shared.Configurations
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
                 .Build();
         }
-        #region Db
+        #region System
 
-        public static IConfiguration Configuration =>_configuration;
+        public static IConfiguration Configuration => _configuration;
+
+        /// <summary>
+        /// 接口版本
+        /// </summary>
+        public static string ApiVersion => _configuration["ApiVersion"];
+
+        #endregion
+
+        #region Authentication
+
+        /// <summary>
+        /// 是否开启IdentityServer4
+        /// </summary>
+        public static bool IdentityServer4Enable => Convert.ToBoolean(_configuration["Service:UseIdentityServer4"] ?? "false");
+
+        #endregion
+
+        #region Db
 
         /// <summary>
         /// 获取配置默认Db Code
@@ -47,6 +65,7 @@ namespace Memoyu.Mbill.Domain.Shared.Configurations
         /// 获取配置默认Db ConnectionString 
         /// </summary>
         public static string DbConnectionString(string dbTypeCode) => _configuration[$"ConnectionStrings:{dbTypeCode}"];
+
         #endregion
 
         #region Cache
@@ -80,11 +99,6 @@ namespace Memoyu.Mbill.Domain.Shared.Configurations
         #endregion
 
         #region CAP
-
-        /// <summary>
-        /// Cap默认存储表前缀
-        /// </summary>
-        public static string CapStorageTablePrefix => _configuration["CAP:TableNamePrefix"];
 
         /// <summary>
         /// Cap默认存储

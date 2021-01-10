@@ -1,0 +1,613 @@
+2021-01-10 00:00:20.670 +08:00 [INF] init main
+2021-01-10 00:00:22.127 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 00:00:22.129 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 00:00:22.135 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 00:00:22.136 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 00:00:22.336 +08:00 [INF] Starting the processing server.
+2021-01-10 00:00:22.382 +08:00 [INF] ### CAP started!
+2021-01-10 00:00:22.566 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 00:00:22.567 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 00:00:22.568 +08:00 [INF] Hosting environment: Development
+2021-01-10 00:00:22.568 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 00:00:24.528 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 00:00:24.609 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 83.9553ms
+2021-01-10 00:00:24.860 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 00:00:24.862 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 00:00:24.875 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 00:00:24.876 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 13.5290ms
+2021-01-10 00:00:24.931 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 71.7655ms
+2021-01-10 00:00:28.936 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 00:00:28.936 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 0.8553ms
+2021-01-10 00:00:28.991 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 00:00:28.993 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.3887ms
+2021-01-10 00:00:28.996 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 00:00:28.997 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 00:00:28.997 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 1.2861ms
+2021-01-10 00:00:35.410 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 00:00:35.423 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 13.2963ms
+2021-01-10 00:00:37.612 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-10 00:00:37.614 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 2.4805ms
+2021-01-10 00:00:39.994 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 00:00:39.996 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1.6832ms
+2021-01-10 00:01:58.179 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 00:01:58.183 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 7.8612ms
+2021-01-10 00:01:58.319 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 01:05:05.548 +08:00 [INF] init main
+2021-01-10 01:05:06.958 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 01:05:06.960 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 01:05:06.965 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 01:05:06.966 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 01:05:07.146 +08:00 [INF] Starting the processing server.
+2021-01-10 01:05:07.189 +08:00 [INF] ### CAP started!
+2021-01-10 01:05:07.358 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 01:05:07.359 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 01:05:07.359 +08:00 [INF] Hosting environment: Development
+2021-01-10 01:05:07.360 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 01:05:10.265 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:05:10.346 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 83.6791ms
+2021-01-10 01:05:10.436 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 01:05:10.445 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:05:10.458 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:05:10.459 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 13.5585ms
+2021-01-10 01:05:10.514 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.9800ms
+2021-01-10 01:05:13.246 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:05:13.258 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 12.1285ms
+2021-01-10 01:05:16.025 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-10 01:05:16.028 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 3.2733ms
+2021-01-10 01:05:17.969 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 01:05:17.972 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.9849ms
+2021-01-10 01:05:25.626 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:05:25.627 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%89%8D%E5%8F%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 1.4002ms
+2021-01-10 01:05:25.706 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 01:05:46.725 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:05:46.727 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 21020.6186ms
+2021-01-10 01:05:46.730 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:05:46.732 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 21022.8918ms
+2021-01-10 01:05:50.587 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:06:08.890 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:06:08.892 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 18304.9478ms
+2021-01-10 01:06:08.892 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 2.8169ms
+2021-01-10 01:06:09.030 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:06:09.383 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:06:09.383 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 353.0357ms
+2021-01-10 01:06:09.384 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:06:09.386 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 3.1162ms
+2021-01-10 01:06:54.575 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:06:54.577 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 3.1727ms
+2021-01-10 01:06:54.635 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:06:54.641 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:06:54.643 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:07:18.255 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 23613.0018ms
+2021-01-10 01:07:18.263 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 23627.7087ms
+2021-01-10 01:08:00.750 +08:00 [INF] init main
+2021-01-10 01:08:02.113 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 01:08:02.114 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 01:08:02.120 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 01:08:02.121 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 01:08:02.294 +08:00 [INF] Starting the processing server.
+2021-01-10 01:08:02.337 +08:00 [INF] ### CAP started!
+2021-01-10 01:08:02.502 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 01:08:02.503 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 01:08:02.504 +08:00 [INF] Hosting environment: Development
+2021-01-10 01:08:02.504 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 01:08:04.693 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:08:04.783 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 92.8355ms
+2021-01-10 01:08:04.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:08:04.913 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:08:04.929 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:08:04.929 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 15.8465ms
+2021-01-10 01:08:09.553 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 4642.2516ms
+2021-01-10 01:08:17.845 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:08:17.846 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 1.2297ms
+2021-01-10 01:08:17.923 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:10:03.297 +08:00 [INF] init main
+2021-01-10 01:10:04.614 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 01:10:04.615 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 01:10:04.620 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 01:10:04.621 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 01:10:04.801 +08:00 [INF] Starting the processing server.
+2021-01-10 01:10:04.846 +08:00 [INF] ### CAP started!
+2021-01-10 01:10:05.052 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 01:10:05.053 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 01:10:05.053 +08:00 [INF] Hosting environment: Development
+2021-01-10 01:10:05.054 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 01:10:10.109 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:10:10.192 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 86.1765ms
+2021-01-10 01:10:10.323 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:10:10.325 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:10:10.338 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:10:10.339 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 13.8926ms
+2021-01-10 01:10:13.006 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 2683.3724ms
+2021-01-10 01:10:18.066 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-10 01:10:22.834 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 4768.3217ms
+2021-01-10 01:11:21.302 +08:00 [INF] init main
+2021-01-10 01:11:22.699 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 01:11:22.701 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 01:11:22.706 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 01:11:22.708 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 01:11:22.890 +08:00 [INF] Starting the processing server.
+2021-01-10 01:11:22.942 +08:00 [INF] ### CAP started!
+2021-01-10 01:11:23.134 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 01:11:23.135 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 01:11:23.135 +08:00 [INF] Hosting environment: Development
+2021-01-10 01:11:23.135 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 01:11:26.015 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 01:11:26.096 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 84.2842ms
+2021-01-10 01:11:26.223 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-10 01:11:26.225 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 01:11:26.238 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 01:11:26.238 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 12.6852ms
+2021-01-10 01:11:28.260 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 2036.9772ms
+2021-01-10 01:11:32.072 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 01:11:33.679 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 1607.4993ms
+2021-01-10 12:45:03.367 +08:00 [INF] init main
+2021-01-10 12:45:05.063 +08:00 [ERR] System.Exception: 不可添加，实体没有主键：(Administrator, 超级管理员, True, 0)
+   at FreeSql.DbSet`1.CanAdd(TEntity data, Boolean isThrow)
+   at FreeSql.DbSet`1.CanAdd(IEnumerable`1 data, Boolean isThrow)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at FreeSql.DbSet`1.CanAdd(TEntity data, Boolean isThrow)
+   at FreeSql.DbSet`1.CanAdd(IEnumerable`1 data, Boolean isThrow)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77不可添加，实体没有主键：(Administrator, 超级管理员, True, 0)
+2021-01-10 12:45:05.257 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 12:45:05.259 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 12:45:05.264 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 12:45:05.265 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 12:45:05.505 +08:00 [INF] Starting the processing server.
+2021-01-10 12:45:05.550 +08:00 [INF] ### CAP started!
+2021-01-10 12:45:05.744 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 12:45:05.745 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 12:45:05.746 +08:00 [INF] Hosting environment: Development
+2021-01-10 12:45:05.746 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 12:48:46.188 +08:00 [INF] init main
+2021-01-10 12:48:47.749 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 12:48:47.905 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 12:48:47.907 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 12:48:47.913 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 12:48:47.914 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 12:48:48.087 +08:00 [INF] Starting the processing server.
+2021-01-10 12:48:48.132 +08:00 [INF] ### CAP started!
+2021-01-10 12:48:48.293 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 12:48:48.294 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 12:48:48.297 +08:00 [INF] Hosting environment: Development
+2021-01-10 12:48:48.297 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 12:49:05.373 +08:00 [INF] init main
+2021-01-10 12:49:06.800 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 12:49:06.959 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 12:49:06.960 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 12:49:06.966 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 12:49:06.967 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 12:49:07.169 +08:00 [INF] Starting the processing server.
+2021-01-10 12:49:07.213 +08:00 [INF] ### CAP started!
+2021-01-10 12:49:07.386 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 12:49:07.387 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 12:49:07.388 +08:00 [INF] Hosting environment: Development
+2021-01-10 12:49:07.388 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 12:51:25.090 +08:00 [INF] init main
+2021-01-10 12:51:35.226 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 12:51:35.228 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 12:51:35.232 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 12:51:35.233 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 12:51:35.412 +08:00 [INF] Starting the processing server.
+2021-01-10 12:51:35.456 +08:00 [INF] ### CAP started!
+2021-01-10 12:51:35.616 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 12:51:35.617 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 12:51:35.617 +08:00 [INF] Hosting environment: Development
+2021-01-10 12:51:35.618 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 12:51:55.601 +08:00 [INF] init main
+2021-01-10 12:51:57.128 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 12:51:57.289 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 12:51:57.291 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 12:51:57.298 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 12:51:57.299 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 12:51:57.525 +08:00 [INF] Starting the processing server.
+2021-01-10 12:51:57.572 +08:00 [INF] ### CAP started!
+2021-01-10 12:51:57.749 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 12:51:57.750 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 12:51:57.751 +08:00 [INF] Hosting environment: Development
+2021-01-10 12:51:57.751 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 12:54:47.788 +08:00 [INF] init main
+2021-01-10 12:54:49.403 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 12:54:49.554 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 12:54:49.555 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 12:54:49.561 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 12:54:49.562 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 12:54:49.760 +08:00 [INF] Starting the processing server.
+2021-01-10 12:54:49.806 +08:00 [INF] ### CAP started!
+2021-01-10 12:54:49.969 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 12:54:49.971 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 12:54:49.972 +08:00 [INF] Hosting environment: Development
+2021-01-10 12:54:49.975 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 13:06:19.948 +08:00 [INF] init main
+2021-01-10 13:06:21.481 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 13:06:21.623 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 13:06:21.625 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 13:06:21.630 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 13:06:21.631 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 13:06:21.838 +08:00 [INF] Starting the processing server.
+2021-01-10 13:06:21.882 +08:00 [INF] ### CAP started!
+2021-01-10 13:06:22.042 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 13:06:22.043 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 13:06:22.044 +08:00 [INF] Hosting environment: Development
+2021-01-10 13:06:22.044 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 13:15:06.919 +08:00 [INF] init main
+2021-01-10 13:15:16.391 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 13:15:16.548 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 13:15:16.549 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 13:15:16.556 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 13:15:16.558 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 13:15:16.757 +08:00 [INF] Starting the processing server.
+2021-01-10 13:15:16.805 +08:00 [INF] ### CAP started!
+2021-01-10 13:15:16.967 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 13:15:16.968 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 13:15:16.970 +08:00 [INF] Hosting environment: Development
+2021-01-10 13:15:16.971 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 13:18:36.079 +08:00 [INF] init main
+2021-01-10 13:18:47.260 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 13:18:47.261 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 13:18:47.266 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 13:18:47.267 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 13:18:47.458 +08:00 [INF] Starting the processing server.
+2021-01-10 13:18:47.501 +08:00 [INF] ### CAP started!
+2021-01-10 13:18:47.662 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 13:18:47.663 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 13:18:47.663 +08:00 [INF] Hosting environment: Development
+2021-01-10 13:18:47.664 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 13:27:21.712 +08:00 [INF] init main
+2021-01-10 13:27:23.366 +08:00 [ERR] System.MissingMethodException: No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77   at System.RuntimeType.CreateInstanceDefaultCtorSlow(Boolean publicOnly, Boolean wrapExceptions, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic, Boolean wrapExceptions)
+   at System.Activator.CreateInstance(Type type)
+   at FreeSql.DbSet`1.CreateEntityState(TEntity data)
+   at FreeSql.DbSet`1.<>c__DisplayClass43_0.<AttachRange>b__0(String k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at FreeSql.DbSet`1.AttachRange(IEnumerable`1 data)
+   at FreeSql.DbSet`1.Attach(TEntity data)
+   at FreeSql.DbSet`1.AddPriv(TEntity data, Boolean isCheck)
+   at FreeSql.DbSet`1.AddRange(IEnumerable`1 data)
+   at FreeSql.BaseRepository`1.Insert(IEnumerable`1 entitys)
+   at FreeSql.Extensions.EfCoreFluentApi.EfCoreTableFluent`1.<>c__DisplayClass17_0.<HasData>b__1(Object s, SyncStructureAfterEventArgs e)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(TypeAndName[] objects)
+   at FreeSql.Internal.CommonProvider.CodeFirstProvider.SyncStructure(Type[] entityTypes)
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 77No parameterless constructor defined for type 'Memoyu.Mbill.Domain.Entities.System.RoleEntity'.
+2021-01-10 13:27:23.524 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 13:27:23.526 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 13:27:23.532 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 13:27:23.533 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 13:27:23.730 +08:00 [INF] Starting the processing server.
+2021-01-10 13:27:23.778 +08:00 [INF] ### CAP started!
+2021-01-10 13:27:23.962 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 13:27:23.963 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 13:27:23.964 +08:00 [INF] Hosting environment: Development
+2021-01-10 13:27:23.964 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 13:34:16.789 +08:00 [INF] init main
+2021-01-10 13:34:18.464 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 13:34:18.465 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 13:34:18.470 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 13:34:18.471 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 13:34:18.668 +08:00 [INF] Starting the processing server.
+2021-01-10 13:34:18.712 +08:00 [INF] ### CAP started!
+2021-01-10 13:34:18.880 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 13:34:18.881 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 13:34:18.882 +08:00 [INF] Hosting environment: Development
+2021-01-10 13:34:18.882 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:13:16.604 +08:00 [INF] init main
+2021-01-10 16:13:18.210 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 16:13:18.211 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 16:13:18.217 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 16:13:18.218 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 16:13:18.399 +08:00 [INF] Starting the processing server.
+2021-01-10 16:13:18.442 +08:00 [INF] ### CAP started!
+2021-01-10 16:13:18.598 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 16:13:18.599 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 16:13:18.599 +08:00 [INF] Hosting environment: Development
+2021-01-10 16:13:18.599 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:13:58.425 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2021-01-10 16:13:58.472 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 301 0 - 50.6844ms
+2021-01-10 16:13:58.481 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-01-10 16:13:58.527 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 46.7554ms
+2021-01-10 16:13:58.637 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 16:14:10.239 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Memoyu.Mbill.WebApi.Aop.Filter.SwaggerDocumentFilter.Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Aop\Filter\SwaggerDocumentFilter.cs:line 51
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-01-10 16:14:10.280 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 500 - text/plain 11643.3342ms
+2021-01-10 16:14:32.629 +08:00 [INF] init main
+2021-01-10 16:14:34.425 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 16:14:34.426 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 16:14:34.431 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 16:14:34.432 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 16:14:34.644 +08:00 [INF] Starting the processing server.
+2021-01-10 16:14:34.689 +08:00 [INF] ### CAP started!
+2021-01-10 16:14:34.848 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 16:14:34.849 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 16:14:34.850 +08:00 [INF] Hosting environment: Development
+2021-01-10 16:14:34.850 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:14:36.009 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-01-10 16:14:36.090 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 84.8294ms
+2021-01-10 16:14:36.142 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-10 16:14:36.143 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 16:14:36.158 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 16:14:36.159 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 15.7448ms
+2021-01-10 16:14:36.171 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 29.0019ms
+2021-01-10 16:14:41.380 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-10 16:14:41.381 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 1.0653ms
+2021-01-10 16:14:43.104 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 16:14:43.150 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 45.6995ms
+2021-01-10 16:15:32.609 +08:00 [INF] init main
+2021-01-10 16:15:43.908 +08:00 [INF] init main
+2021-01-10 16:15:45.440 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 16:15:45.441 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 16:15:45.447 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 16:15:45.448 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 16:15:45.638 +08:00 [INF] Starting the processing server.
+2021-01-10 16:15:45.681 +08:00 [INF] ### CAP started!
+2021-01-10 16:15:45.853 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 16:15:45.854 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 16:15:45.855 +08:00 [INF] Hosting environment: Development
+2021-01-10 16:15:45.855 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:15:50.805 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 16:15:50.887 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 85.4339ms
+2021-01-10 16:15:51.025 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 16:15:51.026 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 16:15:51.039 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 16:15:51.040 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 13.7379ms
+2021-01-10 16:15:51.098 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 73.8094ms
+2021-01-10 16:16:50.330 +08:00 [INF] init main
+2021-01-10 16:16:52.145 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 16:16:52.147 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 16:16:52.152 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 16:16:52.153 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 16:16:52.331 +08:00 [INF] Starting the processing server.
+2021-01-10 16:16:52.372 +08:00 [INF] ### CAP started!
+2021-01-10 16:16:52.548 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 16:16:52.549 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 16:16:52.549 +08:00 [INF] Hosting environment: Development
+2021-01-10 16:16:52.549 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:16:53.094 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-10 16:16:53.176 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 85.1032ms
+2021-01-10 16:16:53.311 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-10 16:16:53.313 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-10 16:16:53.325 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-10 16:16:53.326 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 12.8083ms
+2021-01-10 16:16:53.378 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 66.5213ms
+2021-01-10 16:16:59.512 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 40
+2021-01-10 16:16:59.627 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-10 16:19:16.342 +08:00 [INF] init main
+2021-01-10 16:19:17.924 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 16:19:17.926 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 16:19:17.931 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 16:19:17.932 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 16:19:18.111 +08:00 [INF] Starting the processing server.
+2021-01-10 16:19:18.154 +08:00 [INF] ### CAP started!
+2021-01-10 16:19:18.346 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 16:19:18.348 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 16:19:18.348 +08:00 [INF] Hosting environment: Development
+2021-01-10 16:19:18.348 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:19:20.330 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 40
+2021-01-10 16:19:20.463 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-10 16:24:02.481 +08:00 [INF] init main
+2021-01-10 16:24:04.083 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-10 16:24:04.085 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-10 16:24:04.090 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-10 16:24:04.091 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-10 16:24:04.275 +08:00 [INF] Starting the processing server.
+2021-01-10 16:24:04.319 +08:00 [INF] ### CAP started!
+2021-01-10 16:24:04.502 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-10 16:24:04.503 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-10 16:24:04.504 +08:00 [INF] Hosting environment: Development
+2021-01-10 16:24:04.504 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-10 16:24:05.373 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 40
+2021-01-10 16:24:05.507 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'

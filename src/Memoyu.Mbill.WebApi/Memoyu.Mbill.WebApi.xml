@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Memoyu.Mbill.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Memoyu.Mbill.WebApi.Aop.CacheIntercept.GenerateCacheKey(System.String,Castle.DynamicProxy.IInvocation)">
+            <summary>
+            获取规则生成的缓存Key
+            </summary>
+            <param name="cacheKey"></param>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Aop.Filter.LocalExceptionFilter">
+            <summary>
+            出现异常时，如KnownException业务异常，会先执行方法过滤器 （LogActionFilterAttribute）的OnActionExecuted才会执行此异常过滤器。
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Aop.Filter.SwaggerDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            对应Controller的API文档描述信息
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Aop.UnitOfWorkAsyncInterceptor.InterceptAsynchronous(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            拦截结果返回Task的方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Memoyu.Mbill.WebApi.Aop.UnitOfWorkAsyncInterceptor.InterceptAsynchronous``1(Castle.DynamicProxy.IInvocation)" -->
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
+            <summary>
+            账户相关
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login(Memoyu.Mbill.Application.Contracts.Dtos.Core.LoginInputDto)">
+             <summary>
+             登录接口
+             </summary>
+            <example>
+             用户名：admin，密码：123456
+             </example>
+        </member>
+        <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.UrlPrefix">
+            <summary>
+            URL前缀
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.OpenApiInfo">
+            <summary>
+            可配置参数
+            </summary>
+        </member>
+        <member name="F:Memoyu.Mbill.WebApi.Data.Swagger.ApiInfo.version">
+            <summary>
+            当前API版本，从appsettings.json获取
+            </summary>
+        </member>
+        <member name="F:Memoyu.Mbill.WebApi.Data.Swagger.ApiInfo.description">
+            <summary>
+            Swagger描述信息
+            </summary>
+        </member>
+        <member name="F:Memoyu.Mbill.WebApi.Data.Swagger.ApiInfo.ApiInfos">
+            <summary>
+            Swagger分组信息
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.AutoMapperSetup">
+            <summary>
+            注册Automapper 服务
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.CapSetup">
+            <summary>
+            配置注册CAP
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Extensions.CapSetup.UseCapOptions(DotNetCore.CAP.CapOptions)">
+            <summary>
+            根据配置文件配置Cap
+            </summary>
+            <param name="options"></param>
+            <param name="Configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.ControllerSetup">
+            <summary>
+            控制器配置注册
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.CsRedisCoreSetup">
+            <summary>
+            配置注册CSRedis
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.IpRateLimitingSetup">
+            <summary>
+            Ip限流服务配置注册
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Extensions.IpRateLimitingSetup.AddIpRateLimiting(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            配置限流依赖的服务
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.MiniProfilerSetup">
+            <summary>
+            限流服务
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.SwaggerSetup">
+            <summary>
+            配置注册Swagger
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Middleware.ExceptionHandlerMiddleware">
+            <summary>
+            异常处理中间件
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Middleware.IPLogMilddleware">
+            <summary>
+            中间件：记录请求IP
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Middleware.IPLogMilddleware.GetWeek">
+            <summary>
+            获取当前星期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Middleware.IPLogMilddleware.GetClientIP(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取客户端IP
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -11,10 +11,26 @@
 ***************************************************************************/
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.Base;
+using System.Threading.Tasks;
+using System;
+using System.Linq.Expressions;
 
 namespace Memoyu.Mbill.Domain.IRepositories.User
 {
     public interface IUserRepository : IAuditBaseRepository<UserEntity>
     {
+        /// <summary>
+        /// 根据条件得到用户信息
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        Task<UserEntity> GetUserAsync(Expression<Func<UserEntity, bool>> expression);
+
+        /// <summary>
+        /// 根据用户Id更新用户的最后登录时间
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        Task UpdateLastLoginTimeAsync(long userId);
     }
 }

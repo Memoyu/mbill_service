@@ -13,6 +13,7 @@
 using Autofac;
 using Memoyu.Mbill.Domain.Shared.Security;
 using Memoyu.Mbill.Domain.Shared.Security.Impl;
+using Memoyu.Mbill.WebApi.Data;
 using Microsoft.AspNetCore.Http;
 
 namespace Memoyu.Mbill.WebApi.Modules
@@ -24,6 +25,9 @@ namespace Memoyu.Mbill.WebApi.Modules
             builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>().SingleInstance();
 
             builder.RegisterType<CurrentUser>().As<ICurrentUser>().InstancePerDependency();
+
+            builder.RegisterType<MigrationStartupTask>().SingleInstance();
+            builder.RegisterBuildCallback(async (c) => await c.Resolve<MigrationStartupTask>().StartAsync());
         }
     }
 }

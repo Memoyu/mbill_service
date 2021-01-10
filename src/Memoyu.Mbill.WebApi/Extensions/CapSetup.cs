@@ -12,6 +12,7 @@
 using DotNetCore.CAP;
 using DotNetCore.CAP.Messages;
 using Memoyu.Mbill.Domain.Shared.Configurations;
+using Memoyu.Mbill.Domain.Shared.Const;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Microsoft.Extensions.DependencyInjection;
 using Savorboard.CAP.InMemoryMessageQueue;
@@ -78,7 +79,7 @@ namespace Memoyu.Mbill.WebApi.Extensions
                         options.UseMySql(opt=> 
                         {
                             opt.ConnectionString = AppSettings.MySqlCon;
-                            opt.TableNamePrefix = AppSettings.CapStorageTablePrefix;
+                            opt.TableNamePrefix = SystemConst.DbTablePrefix;
                         });
                         break;
                     default:

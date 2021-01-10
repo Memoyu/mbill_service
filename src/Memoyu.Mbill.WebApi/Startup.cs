@@ -52,8 +52,7 @@ namespace Memoyu.Mbill.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Memoyu.Web v1"));
+                app.UseSwagger().UseSwaggerUI();
             }
             // IpÏÞÁ÷
             app.UseIpLimitMilddleware();

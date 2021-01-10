@@ -12,7 +12,9 @@
 using Autofac;
 using FreeSql;
 using FreeSql.Internal;
+using Memoyu.Mbill.Application.Contracts.Base;
 using Memoyu.Mbill.Domain.Base;
+using Memoyu.Mbill.Domain.Data;
 using Memoyu.Mbill.Domain.Shared.Configurations;
 using Memoyu.Mbill.Domain.Shared.Extensions;
 using Serilog;
@@ -74,7 +76,8 @@ namespace Memoyu.Mbill.WebApi.Modules
             try
             {
                 fsql.CodeFirst
-                    .SyncStructure(ReflexUtil.GetTypesByTableAttribute());
+                    .SeedData()
+                    .SyncStructure(DomainReflexUtil.GetTypesByTableAttribute());
             }
             catch (Exception e)
             {

@@ -11,15 +11,29 @@
 ***************************************************************************/
 using FreeSql.DataAnnotations;
 using Memoyu.Mbill.Domain.Base;
+using Memoyu.Mbill.Domain.Shared.Const;
+using System;
 
 namespace Memoyu.Mbill.Domain.Entities.System
 {
     /// <summary>
     /// 权限表
     /// </summary>
-    [Table(Name = "mbill_permission")]
+    [Table(Name = SystemConst.DbTablePrefix + "_permission")]
     public class PermissionEntity : FullAduitEntity
     {
+        public PermissionEntity()
+        {
+
+        }
+
+        public PermissionEntity(string name, string module, string router)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Module = module ?? throw new ArgumentNullException(nameof(module));
+            Router = router ?? throw new ArgumentNullException(nameof(router));
+        }
+
         /// <summary>
         /// 所属权限、权限名称，例如：访问首页
         /// </summary>
