@@ -112,6 +112,11 @@
             <param name="services"></param>
             <returns></returns>
         </member>
+        <member name="T:Memoyu.Mbill.WebApi.Extensions.JwtBearerSetup">
+            <summary>
+            配置Token
+            </summary>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Extensions.MiniProfilerSetup">
             <summary>
             限流服务

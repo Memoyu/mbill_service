@@ -4,16 +4,9 @@ using Memoyu.Mbill.WebApi.Middleware;
 using Memoyu.Mbill.WebApi.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.WebApi
 {
@@ -29,6 +22,7 @@ namespace Memoyu.Mbill.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddController();//配置注册Controller
+            services.AddJwtBearer();//配置Jwt
             services.AddSwagger();//配置注册Swagger
             services.AddCap();//配置CAP
             services.AddAutoMapper();//配置实体映射
@@ -60,9 +54,6 @@ namespace Memoyu.Mbill.WebApi
             // 记录ip请求
             app.UseMiddleware<IPLogMilddleware>();
 
-
-            app.UseRouting();
-
             ////异常处理中间件
             //app.UseMiddleware<ExceptionHandlerMiddleware>();
 
@@ -71,7 +62,9 @@ namespace Memoyu.Mbill.WebApi
             // 性能分析
             app.UseMiniProfiler();
 
-            app.UseEndpoints(endpoints =>
+            app.UseRouting()
+                .UseAuthorization()
+                .UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");

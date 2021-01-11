@@ -47,6 +47,49 @@ namespace Memoyu.Mbill.Domain.Shared.Configurations
         /// </summary>
         public static bool IdentityServer4Enable => Convert.ToBoolean(_configuration["Service:UseIdentityServer4"] ?? "false");
 
+        /// <summary>
+        /// Ids4 服务地址
+        /// </summary>
+        public static string Authority => _configuration["Service:Authority"];
+
+        /// <summary>
+        /// 是否使用Https
+        /// </summary>
+        public static bool IsUseHttps => Convert.ToBoolean(_configuration["Service:UseHttps"]);
+
+        /// <summary>
+        /// ClientName
+        /// </summary>
+        public static string ClientName => _configuration["Service:ClientName"];
+
+
+        /// <summary>
+        /// Jwt Token Config
+        /// </summary>
+        public class JwtBearer
+        {
+            /// <summary>
+            /// 密钥
+            /// </summary>
+            public static string SecurityKey => _configuration["Authentication:JwtBearer:SecurityKey"];
+
+            /// <summary>
+            /// Audience
+            /// </summary>
+            public static string Audience => _configuration["Authentication:JwtBearer:Audience"];
+
+            /// <summary>
+            /// 过期时间(分钟)
+            /// </summary>
+            public static double Expires => Convert.ToDouble(_configuration["Authentication:JwtBearer:Expires"]);
+
+            /// <summary>
+            /// 签发者
+            /// </summary>
+            public static string Issuer =>_configuration["Authentication:JwtBearer:Issuer"];
+        }
+
+
         #endregion
 
         #region Db

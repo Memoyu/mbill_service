@@ -11,10 +11,13 @@
 ***************************************************************************/
 using Autofac;
 using Memoyu.Mbill.Application.Contracts.Dtos.Core;
+using Memoyu.Mbill.Application.Contracts.Exceptions;
 using Memoyu.Mbill.Application.Core.Account;
 using Memoyu.Mbill.Application.Core.Account.Impl;
 using Memoyu.Mbill.Domain.Shared.Configurations;
 using Memoyu.Mbill.Domain.Shared.Const;
+using Memoyu.Mbill.ToolKits.Base.Enum.Base;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -24,7 +27,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Core
     /// 账户相关
     /// </summary>
     [Route("api/account")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
     public class AccountController : ApiControllerBase
     {
         private readonly ITokenService _tokenService;
@@ -46,6 +49,27 @@ namespace Memoyu.Mbill.WebApi.Controllers.Core
         public async Task<TokenDto> Login(LoginInputDto loginInputDto)
         {
             return await _tokenService.LoginAsync(loginInputDto);
+        }
+
+        /// <summary>
+        /// 刷新用户的token
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("refresh")]
+        public async Task<TokenDto> GetRefreshToken()
+        {
+            string refreshToken;
+            string authorization = Request.Headers["Authorization"];
+
+            if (authorization != null && authorization.StartsWith(JwtBearerDefaults.AuthenticationScheme))//判断请求是否带Token
+            {
+                refreshToken = authorization.Substring(JwtBearerDefaults.AuthenticationScheme.Length + 1).Trim();//获取refreshToken
+            }
+            else
+            {
+                throw new KnownException(" 请先登录.", ServiceResultCode.RefreshTokenError);
+            }
+            return await _tokenService.GetTokenByRefreshAsync(refreshToken);
         }
 
     }

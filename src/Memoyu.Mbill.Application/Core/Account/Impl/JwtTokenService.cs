@@ -15,6 +15,7 @@ using Memoyu.Mbill.Application.Contracts.Exceptions;
 using Memoyu.Mbill.Application.User;
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.IRepositories.User;
+using Memoyu.Mbill.Domain.Shared.Configurations;
 using Memoyu.Mbill.Domain.Shared.Security;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Microsoft.Extensions.Logging;
@@ -63,9 +64,24 @@ namespace Memoyu.Mbill.Application.Core.Account.Impl
             return tokens;
         }
 
-        public Task<TokenDto> GetTokenByRefreshAsync(string refreshToken)
+        public async Task<TokenDto> GetTokenByRefreshAsync(string refreshToken)
         {
-            throw new NotImplementedException();
+            UserEntity user = await _userRepository.GetUserAsync(r => r.RefreshToken == refreshToken);//获取用户信息记录的refreshToken
+
+            if (user.IsNull())
+            {
+                throw new KnownException("该refreshToken无效!");
+            }
+
+            if (DateTime.Compare(user.LastLoginTime, DateTime.Now) > TimeSpan.FromMinutes(AppSettings.JwtBearer.Expires).Ticks)//如果登陆时长已超过Token过期时间，则直接返回异常重新登陆
+            {
+                throw new KnownException("请重新登录", ServiceResultCode.RefreshTokenError);
+            }
+
+            TokenDto tokens = await CreateTokenAsync(user);
+            _logger.LogInformation($"用户{user.Username},Jwt RefreshToken 刷新-登录成功");
+
+            return tokens;
         }
 
         /// <summary>

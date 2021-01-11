@@ -55,6 +55,23 @@ namespace Memoyu.Mbill.ToolKits.Base.Enum.Base
         [Description("参数错误")]
         ParameterError = 10030,
 
+        #region Token
+        /// <summary>
+        /// 令牌失效
+        /// </summary>
+        [Description("令牌失效")]
+        TokenInvalidation = 10040,
+
+        /// <summary>
+        /// 令牌过期
+        /// </summary>
+        TokenExpired = 10050,
+
+        /// <summary>
+        /// refreshToken异常
+        /// </summary>
+        RefreshTokenError = 10100, 
+        #endregion
 
     }
 }
