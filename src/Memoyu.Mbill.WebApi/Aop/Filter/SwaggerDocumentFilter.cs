@@ -33,9 +33,9 @@ namespace Memoyu.Mbill.WebApi.Aop.Filter
 
                     new OpenApiTag
                     {
-                        Name = "Auth",
-                        Description = "认证授权",
-                        ExternalDocs = new OpenApiExternalDocs { Description = "授权认证" }
+                        Name = "Account",
+                        Description = "账户操作",
+                        ExternalDocs = new OpenApiExternalDocs { Description = "获取Token/RefreshToken" }
                     },
                     new OpenApiTag
                     {

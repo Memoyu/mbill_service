@@ -29,6 +29,11 @@
             <param name="invocation"></param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Memoyu.Mbill.WebApi.Aop.UnitOfWorkAsyncInterceptor.InterceptAsynchronous``1(Castle.DynamicProxy.IInvocation)" -->
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
             <summary>
             账户相关
@@ -41,6 +46,17 @@
             <example>
              用户名：admin，密码：123456
              </example>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.AccountController.GetRefreshToken">
+            <summary>
+            刷新用户的token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.User.UserController">
+            <summary>
+            用户管理
+            </summary>
         </member>
         <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.UrlPrefix">
             <summary>
