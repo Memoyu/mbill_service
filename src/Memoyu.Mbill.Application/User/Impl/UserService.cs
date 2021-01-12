@@ -10,8 +10,15 @@
 *   功能描述 ：
 ***************************************************************************/
 using Memoyu.Mbill.Application.Base.Impl;
+using Memoyu.Mbill.Application.Contracts.Attributes;
 using Memoyu.Mbill.Application.Contracts.Dtos.User;
+using Memoyu.Mbill.Application.Contracts.Exceptions;
+using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Entities.User;
+using Memoyu.Mbill.Domain.IRepositories.User;
+using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
+using Memoyu.Mbill.ToolKits.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +29,47 @@ namespace Memoyu.Mbill.Application.User.Impl
 {
     public class UserService : ApplicationService, IUserService
     {
-        public Task CreateAsync(ModifyUserDto inputDto)
+        private readonly IUserRepository _userRepository;
+        public UserService(IUserRepository userRepository)
         {
-            throw new NotImplementedException();
+            _userRepository = userRepository;
+        }
+
+        [Transactional]
+        public async Task CreateAsync(UserEntity user, List<long> roleIds, string password)
+        {
+            if (!string.IsNullOrEmpty(user.Username))
+            {
+                bool isRepeatName = await _userRepository.Select.AnyAsync(r => r.Username == user.Username);
+                if (isRepeatName)//用户名重复
+                {
+                    throw new KnownException("用户名重复，请重新输入", ServiceResultCode.RepeatField);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(user.Email.Trim()))
+            {
+                var isRepeatEmail = await _userRepository.Select.AnyAsync(r => r.Email == user.Email.Trim());
+                if (isRepeatEmail)//邮箱重复
+                {
+                    throw new KnownException("注册邮箱重复，请重新输入", ServiceResultCode.RepeatField);
+                }
+            }
+
+            user.UserRoles = new List<UserRoleEntity>();
+            roleIds?.ForEach(roleId =>//遍历构建赋值角色
+            {
+                user.UserRoles.Add(new UserRoleEntity()
+                {
+                    RoleId = roleId
+                });
+            });
+
+            user.UserIdentitys = new List<UserIdentityEntity>()//构建赋值用户身份认证登录信息
+            {
+                new UserIdentityEntity(UserIdentityEntity.Password,user.Username,EncryptUtil.Encrypt(password),DateTime.Now)
+            };
+            await _userRepository.InsertAsync(user);
         }
 
         public Task DeleteAsync(Guid id)

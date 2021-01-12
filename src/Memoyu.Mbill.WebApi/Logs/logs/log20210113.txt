@@ -1,0 +1,101 @@
+2021-01-13 00:00:52.098 +08:00 [INF] init main
+2021-01-13 00:00:53.560 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:00:53.562 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:00:53.567 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:00:53.568 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:00:53.712 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:00:53.800 +08:00 [INF] Starting the processing server.
+2021-01-13 00:00:53.847 +08:00 [INF] ### CAP started!
+2021-01-13 00:00:54.029 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:00:54.030 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:00:54.030 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:00:54.030 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:01:03.607 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242
+2021-01-13 00:01:03.896 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242 - 401 - application/json 292.4652ms
+2021-01-13 00:02:42.960 +08:00 [INF] init main
+2021-01-13 00:02:44.459 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:02:44.460 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:02:44.466 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:02:44.467 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:02:44.630 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:02:44.712 +08:00 [INF] Starting the processing server.
+2021-01-13 00:02:44.757 +08:00 [INF] ### CAP started!
+2021-01-13 00:02:44.900 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:02:44.901 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:02:44.901 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:02:44.901 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:02:54.952 +08:00 [INF] init main
+2021-01-13 00:02:56.441 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:02:56.443 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:02:56.448 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:02:56.449 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:02:56.588 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:02:56.665 +08:00 [INF] Starting the processing server.
+2021-01-13 00:02:56.706 +08:00 [INF] ### CAP started!
+2021-01-13 00:02:56.847 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:02:56.847 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:02:56.847 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:02:56.847 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:03:08.108 +08:00 [INF] init main
+2021-01-13 00:03:09.682 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:03:09.684 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:03:09.689 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:03:09.690 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:03:09.831 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:03:09.917 +08:00 [INF] Starting the processing server.
+2021-01-13 00:03:09.959 +08:00 [INF] ### CAP started!
+2021-01-13 00:03:10.106 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:03:10.106 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:03:10.106 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:03:10.107 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:03:12.202 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242
+2021-01-13 00:03:12.482 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242 - 401 - application/json 282.8321ms
+2021-01-13 00:04:00.561 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242
+2021-01-13 00:05:51.367 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242 - 401 - application/json 110805.7441ms
+2021-01-13 00:07:36.294 +08:00 [INF] init main
+2021-01-13 00:07:37.837 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:07:37.839 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:07:37.845 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:07:37.846 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:07:38.006 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:07:38.106 +08:00 [INF] Starting the processing server.
+2021-01-13 00:07:38.153 +08:00 [INF] ### CAP started!
+2021-01-13 00:07:38.322 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:07:38.322 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:07:38.322 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:07:38.322 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:07:38.631 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242
+2021-01-13 00:08:45.340 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242 - 401 - application/json 66711.5994ms
+2021-01-13 00:08:48.916 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242
+2021-01-13 00:10:15.709 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242 - 401 - application/json 86793.6460ms
+2021-01-13 00:13:30.496 +08:00 [INF] init main
+2021-01-13 00:13:32.062 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:13:32.063 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:13:32.069 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:13:32.070 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:13:32.216 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:13:32.294 +08:00 [INF] Starting the processing server.
+2021-01-13 00:13:32.339 +08:00 [INF] ### CAP started!
+2021-01-13 00:13:32.483 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:13:32.483 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:13:32.483 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:13:32.483 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:14:17.160 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242
+2021-01-13 00:14:41.921 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242 - 401 - application/json 24763.7885ms
+2021-01-13 00:14:49.304 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242
+2021-01-13 00:14:53.788 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242 - 401 - application/json 4484.1215ms
+2021-01-13 00:14:58.887 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242
+2021-01-13 00:14:58.889 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242 - 401 - application/json 2.7576ms
+2021-01-13 00:15:14.704 +08:00 [INF] init main
+2021-01-13 00:15:16.341 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 00:15:16.342 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 00:15:16.347 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 00:15:16.348 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 00:15:16.493 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 00:15:16.577 +08:00 [INF] Starting the processing server.
+2021-01-13 00:15:16.620 +08:00 [INF] ### CAP started!
+2021-01-13 00:15:16.774 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 00:15:16.774 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 00:15:16.774 +08:00 [INF] Hosting environment: Development
+2021-01-13 00:15:16.775 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 00:15:22.838 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json 242

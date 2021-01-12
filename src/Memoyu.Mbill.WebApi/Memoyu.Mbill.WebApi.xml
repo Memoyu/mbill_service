@@ -58,6 +58,12 @@
             用户管理
             </summary>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.User.UserController.CreateAsync(Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto)">
+            <summary>
+            超级管理员新增用户
+            </summary>
+            <param name="userInput"></param>
+        </member>
         <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.UrlPrefix">
             <summary>
             URL前缀

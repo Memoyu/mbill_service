@@ -82,15 +82,15 @@ namespace Memoyu.Mbill.WebApi.Extensions
                 {
                     OnAuthenticationFailed = context =>
                     {
-                         //Token 过期
-                         if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        //Token 过期
+                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                         {
-                            context.Response.Headers.Add("Token-Expired", "true");
+                        context.Response.Headers.Add("Token-Expired", "true");
                         }
 
                         return Task.CompletedTask;
                     },
-                    OnChallenge = async context =>
+                    OnChallenge = async context =>//此处为权限验证失败后触发的事件
                     {
                         //此处代码为终止.Net Core默认的返回类型和数据结果，这个很重要哦
                         context.HandleResponse();

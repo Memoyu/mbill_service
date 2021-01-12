@@ -49,11 +49,19 @@ namespace Memoyu.Mbill.ToolKits.Base.Enum.Base
         /// </summary>
         NotFound = 10020,
 
+        #region Parameter
         /// <summary>
         /// 参数错误
         /// </summary>
         [Description("参数错误")]
         ParameterError = 10030,
+
+        /// <summary>
+        /// 字段重复
+        /// </summary>
+        RepeatField = 10060, 
+        #endregion
+
 
         #region Token
         /// <summary>

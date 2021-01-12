@@ -104,6 +104,21 @@
             头像地址
             </summary>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.ConfirmPassword">
+            <summary>
+            确认密码
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.ModifyUserDto.RoleIds">
+            <summary>
+            权限
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Username">
             <summary>
             用户名

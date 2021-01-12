@@ -12,7 +12,9 @@
 using Memoyu.Mbill.WebApi.Aop.Filter;
 using Memoyu.Mbill.WebApi.Data.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System;
@@ -28,6 +30,7 @@ namespace Memoyu.Mbill.WebApi.Extensions
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
+        
             services.AddSwaggerGen(opt =>
             {
                 //遍历应用Swagger分组信息
@@ -110,9 +113,10 @@ namespace Memoyu.Mbill.WebApi.Extensions
                 #endregion
 
                 #endregion
-                opt.OperationFilter<AddResponseHeadersFilter>();
-                opt.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
-                opt.OperationFilter<SecurityRequirementsOperationFilter>();
+
+                //opt.OperationFilter<AddResponseHeadersFilter>();
+                //opt.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+                //opt.OperationFilter<SecurityRequirementsOperationFilter>();
 
                 // 应用Controller的API文档描述信息
                 opt.DocumentFilter<SwaggerDocumentFilter>();
