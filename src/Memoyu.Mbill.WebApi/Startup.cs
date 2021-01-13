@@ -57,7 +57,8 @@ namespace Memoyu.Mbill.WebApi
             ////异常处理中间件
             //app.UseMiddleware<ExceptionHandlerMiddleware>();
 
-            app.UseAuthorization();
+            //认证中间件
+            app.UseAuthentication();
 
             // 性能分析
             app.UseMiniProfiler();

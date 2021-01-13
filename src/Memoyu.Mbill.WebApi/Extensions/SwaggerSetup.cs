@@ -12,11 +12,8 @@
 using Memoyu.Mbill.WebApi.Aop.Filter;
 using Memoyu.Mbill.WebApi.Data.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;

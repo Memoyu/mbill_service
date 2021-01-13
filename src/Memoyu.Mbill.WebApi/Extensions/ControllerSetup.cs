@@ -45,10 +45,9 @@ namespace Memoyu.Mbill.WebApi.Extensions
                     //    }
                     //};
                 })
-                .ConfigureApiBehaviorOptions(options =>
+                .ConfigureApiBehaviorOptions(options =>//自定义BadRequest响应
                 {
                     options.SuppressConsumesConstraintForFormFileParameters = true;
-                    //自定义 BadRequest 响应
                     options.InvalidModelStateResponseFactory = context =>
                     {
                         var problemDetails = new ValidationProblemDetails(context.ModelState);

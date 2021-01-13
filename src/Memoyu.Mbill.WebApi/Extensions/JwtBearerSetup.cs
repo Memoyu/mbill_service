@@ -73,7 +73,7 @@ namespace Memoyu.Mbill.WebApi.Extensions
                     ValidateLifetime = true,
 
                     //偏移设置为了0s,用于测试过期策略,完全按照access_token的过期时间策略，默认原本为5分钟
-                    //ClockSkew = TimeSpan.Zero
+                    ClockSkew = TimeSpan.Zero
                 };
 
 
