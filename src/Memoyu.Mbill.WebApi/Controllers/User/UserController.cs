@@ -37,9 +37,8 @@ namespace Memoyu.Mbill.WebApi.Controllers.User
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyUserDto userInput)
         {
-            ServiceResult ser;
             await _userService.CreateAsync(_mapper.Map<UserEntity>(userInput), userInput.RoleIds, userInput.Password);
-            return ser = ServiceResult.Successed("用户创建成功");
+            return ServiceResult.Successed("用户创建成功");
         }
     }
 }

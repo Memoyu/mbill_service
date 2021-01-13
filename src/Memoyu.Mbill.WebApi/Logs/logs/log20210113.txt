@@ -320,3 +320,28 @@
 2021-01-13 11:42:31.232 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242 - 403 0 - 22.3460ms
 2021-01-13 11:42:42.688 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242
 2021-01-13 11:42:42.704 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/user/register application/json-patch+json 242 - 403 0 - 15.7568ms
+2021-01-13 23:40:06.963 +08:00 [INF] init main
+2021-01-13 23:40:08.782 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-13 23:40:08.784 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-13 23:40:08.790 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-13 23:40:08.791 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-13 23:40:08.943 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-13 23:40:09.040 +08:00 [INF] Starting the processing server.
+2021-01-13 23:40:09.084 +08:00 [INF] ### CAP started!
+2021-01-13 23:40:09.249 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-13 23:40:09.249 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-13 23:40:09.249 +08:00 [INF] Hosting environment: Development
+2021-01-13 23:40:09.249 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-13 23:40:09.791 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-01-13 23:40:09.882 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 93.2587ms
+2021-01-13 23:40:09.985 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-13 23:40:10.000 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-13 23:40:10.014 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-13 23:40:10.014 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 28.6529ms
+2021-01-13 23:40:10.014 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 14.3695ms
+2021-01-13 23:40:12.711 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-13 23:40:12.753 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 41.8842ms
+2021-01-13 23:40:16.678 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 40
+2021-01-13 23:40:16.816 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-13 23:40:17.186 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-13 23:40:17.196 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 40 - 200 832 application/json;+charset=utf-8 518.2790ms

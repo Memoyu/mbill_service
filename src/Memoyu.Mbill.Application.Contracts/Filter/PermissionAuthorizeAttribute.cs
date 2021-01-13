@@ -59,9 +59,6 @@ namespace Memoyu.Mbill.Application.Contracts.Filter
             AuthorizationResult authorizationResult = await authorizationService.AuthorizeAsync(context.HttpContext.User, null, new OperationAuthorizationRequirement() { Name = Permission });
             if (!authorizationResult.Succeeded)
             {
-                //通过报业务异常，统一返回结果，平均执行速度在500ms以上，直接返回无权限，则除第一次访问慢外，基本在80ms左右。
-                //throw new LinCmsException("权限不够，请联系超级管理员获得权限", ErrorCode.AuthenticationFailed, StatusCodes.Status401Unauthorized);
-
                 HandlerAuthenticationFailed(context, $"您没有权限：{Module}-{Permission}", ServiceResultCode.NoPermission);
             }
         }
