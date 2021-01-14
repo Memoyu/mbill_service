@@ -19,7 +19,7 @@ namespace Memoyu.Mbill.Domain.Shared.Security
         long? Id { get; }
 
         string UserName { get; }
-        long[] Groups { get; }
+        long[] Roles { get; }
 
 
         Claim FindClaim(string claimType);

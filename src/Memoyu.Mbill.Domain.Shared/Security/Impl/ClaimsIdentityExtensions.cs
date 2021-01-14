@@ -29,7 +29,7 @@ namespace Memoyu.Mbill.Domain.Shared.Security.Impl
 
         public static bool? IsAdmin(this ClaimsPrincipal principal)
         {
-            Claim isAdminOrNull = principal.Claims?.FirstOrDefault(c => c.Type == LocalClaimTypes.IsAdmin);
+            Claim isAdminOrNull = principal.Claims?.FirstOrDefault(c => c.Type == CoreClaimTypes.IsAdmin);
             if (isAdminOrNull == null || string.IsNullOrWhiteSpace(isAdminOrNull.Value))
             {
                 return null;

@@ -2,23 +2,20 @@
 *   =================================
 *   CLR版本  ：4.0.30319.42000
 *   命名空间 ：Memoyu.Mbill.Application.Contracts.Dtos.Core
-*   文件名称 ：RoleDto.cs
+*   文件名称 ：ModifyPermissionDto.cs
 *   =================================
 *   创 建 者 ：Memoyu
-*   创建日期 ：2021-01-10 15:22:29
+*   创建日期 ：2021-01-14 22:53:10
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using Memoyu.Mbill.Domain.Entities.Core;
-using System.Collections.Generic;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Core
 {
-    public class RoleDto
+    public class ModifyPermissionDto
     {
-        public List<PermissionEntity> Permissions { get; set; }
         public string Name { get; set; }
-        public string Info { get; set; }
-        public bool IsStatic { get; set; }
+        public string Module { get; set; }
+        public string Router { get; set; }
     }
 }

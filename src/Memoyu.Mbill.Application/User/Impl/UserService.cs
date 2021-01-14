@@ -13,7 +13,7 @@ using Memoyu.Mbill.Application.Base.Impl;
 using Memoyu.Mbill.Application.Contracts.Attributes;
 using Memoyu.Mbill.Application.Contracts.Dtos.User;
 using Memoyu.Mbill.Application.Contracts.Exceptions;
-using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.IRepositories.User;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;

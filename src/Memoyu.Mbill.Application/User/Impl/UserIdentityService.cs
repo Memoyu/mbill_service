@@ -10,7 +10,7 @@
 *   功能描述 ：
 ***************************************************************************/
 using Memoyu.Mbill.Domain.Base;
-using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.ToolKits.Utils;
 using System;
 using System.Collections.Generic;

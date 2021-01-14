@@ -1,7 +1,7 @@
 ﻿/**************************************************************************  
 *   =================================
 *   CLR版本  ：4.0.30319.42000
-*   命名空间 ：Memoyu.Mbill.Domain.Entities.System
+*   命名空间 ：Memoyu.Mbill.Domain.Entities.Core
 *   文件名称 ：LogEntity.cs
 *   =================================
 *   创 建 者 ：Memoyu
@@ -13,7 +13,7 @@ using FreeSql.DataAnnotations;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Shared.Const;
 
-namespace Memoyu.Mbill.Domain.Entities.System
+namespace Memoyu.Mbill.Domain.Entities.Core
 {
     /// <summary>
     /// 日志表

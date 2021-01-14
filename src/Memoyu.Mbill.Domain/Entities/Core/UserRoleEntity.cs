@@ -14,7 +14,7 @@ using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.Shared.Const;
 
-namespace Memoyu.Mbill.Domain.Entities.System
+namespace Memoyu.Mbill.Domain.Entities.Core
 {
     /// <summary>
     /// 用户角色表

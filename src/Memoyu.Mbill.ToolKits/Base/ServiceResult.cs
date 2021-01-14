@@ -127,7 +127,7 @@ namespace Memoyu.Mbill.ToolKits.Base
         /// 响应成功(静态返回实例)
         /// </summary>
         /// <param name="message"></param>
-        public static ServiceResult Successed(T result = null, string message = "")
+        public static ServiceResult<T> Successed(T result = null, string message = "")
         {
             var res = new ServiceResult<T>();
             res.Message = message;

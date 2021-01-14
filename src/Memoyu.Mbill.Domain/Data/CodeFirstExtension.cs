@@ -10,7 +10,7 @@
 *   功能描述 ：
 ***************************************************************************/
 using FreeSql;
-using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.Shared.Const;
 using Memoyu.Mbill.ToolKits.Utils;

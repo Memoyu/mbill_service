@@ -12,9 +12,4 @@
     <ProjectReference Include="..\Memoyu.Mbill.Domain.Shared\Memoyu.Mbill.Domain.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="IRepositories\Core\" />
-    <Folder Include="Repositories\Core\" />
-  </ItemGroup>
-
 </Project>

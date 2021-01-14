@@ -14,7 +14,7 @@ namespace Memoyu.Mbill.Domain.Shared.Security
 {
     public static class CoreClaimTypes
     {
-        public static string Groups { get; set; } = "CoreClaimTypes.Groups";
+        public static string Roles { get; set; } = "CoreClaimTypes.Roles";
         public static string IsAdmin { get; set; } = "CoreClaimTypes.IsAdmin";
     }
 }

@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Shared.Security;
-using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Entities.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;

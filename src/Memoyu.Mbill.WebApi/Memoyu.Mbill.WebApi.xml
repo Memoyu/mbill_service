@@ -53,6 +53,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.PermissionController">
+            <summary>
+            权限管理
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions">
+            <summary>
+            查询所有可分配的权限
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.User.UserController">
             <summary>
             用户管理

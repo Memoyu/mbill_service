@@ -29,7 +29,7 @@ namespace Memoyu.Mbill.Domain.Shared.Security.Impl
         public string UserName => _claimsPrincipal?.FindUserName();
         public string Nickname => _claimsPrincipal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.GivenName)?.Value;
         public string Email => _claimsPrincipal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-        public long[] Groups => FindClaims(LocalClaimTypes.Groups).Select(c => long.Parse(c.Value)).ToArray();
+        public long[] Roles => FindClaims(CoreClaimTypes.Roles).Select(c => long.Parse(c.Value)).ToArray();
 
         public virtual Claim FindClaim(string claimType)
         {
@@ -48,7 +48,7 @@ namespace Memoyu.Mbill.Domain.Shared.Security.Impl
 
         public bool IsInGroup(long groupId)
         {
-            return FindClaims(LocalClaimTypes.Groups).Any(c => long.Parse(c.Value) == groupId);
+            return FindClaims(CoreClaimTypes.Roles).Any(c => long.Parse(c.Value) == groupId);
         }
 
     }

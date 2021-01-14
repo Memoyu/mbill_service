@@ -1,0 +1,107 @@
+2021-01-14 23:43:50.923 +08:00 [INF] init main
+2021-01-14 23:43:52.829 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-14 23:43:52.831 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-14 23:43:52.875 +08:00 [INF] 操 作 权 限 表：新增了1条数据
+2021-01-14 23:43:52.876 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-14 23:43:53.015 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-14 23:43:53.114 +08:00 [INF] Starting the processing server.
+2021-01-14 23:43:53.156 +08:00 [INF] ### CAP started!
+2021-01-14 23:43:53.317 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-14 23:43:53.318 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-14 23:43:53.318 +08:00 [INF] Hosting environment: Development
+2021-01-14 23:43:53.318 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-14 23:44:07.325 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-01-14 23:44:07.410 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 87.4323ms
+2021-01-14 23:44:07.517 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-14 23:44:07.542 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 24.5677ms
+2021-01-14 23:44:10.411 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-14 23:44:10.468 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 56.4765ms
+2021-01-14 23:44:15.116 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-14 23:44:15.120 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 3.7633ms
+2021-01-14 23:44:17.003 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-14 23:44:17.007 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 4.7124ms
+2021-01-14 23:45:53.127 +08:00 [INF] Application is shutting down...
+2021-01-14 23:45:53.188 +08:00 [INF] Shutting down the processing server...
+2021-01-14 23:45:53.190 +08:00 [INF] ### CAP shutdown!
+2021-01-14 23:46:03.912 +08:00 [INF] init main
+2021-01-14 23:46:05.691 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-14 23:46:05.693 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-14 23:46:05.717 +08:00 [INF] 操 作 权 限 表：新增了1条数据
+2021-01-14 23:46:05.718 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-14 23:46:05.870 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-14 23:46:05.981 +08:00 [INF] Starting the processing server.
+2021-01-14 23:46:06.031 +08:00 [INF] ### CAP started!
+2021-01-14 23:46:06.185 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-14 23:46:06.185 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-14 23:46:06.186 +08:00 [INF] Hosting environment: Development
+2021-01-14 23:46:06.186 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-14 23:47:07.503 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/admin/user/register application/json-patch+json 253
+2021-01-14 23:47:13.087 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/admin/user/register application/json-patch+json 253 - 401 - application/json 5586.3185ms
+2021-01-14 23:47:19.575 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-14 23:47:19.637 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 62.0967ms
+2021-01-14 23:47:31.639 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 48
+2021-01-14 23:47:31.648 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:47:32.038 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:47:32.044 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 48 - 200 862 application/json;+charset=utf-8 405.2097ms
+2021-01-14 23:47:45.467 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-14 23:47:45.490 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 23.0183ms
+2021-01-14 23:47:50.850 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/admin/user/register application/json-patch+json 253
+2021-01-14 23:47:50.896 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-14 23:47:51.073 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-14 23:47:51.074 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/admin/user/register application/json-patch+json 253 - 200 82 application/json;+charset=utf-8 224.1883ms
+2021-01-14 23:47:59.259 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-14 23:47:59.262 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 2.9984ms
+2021-01-14 23:48:16.119 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 41
+2021-01-14 23:48:16.125 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:48:16.150 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:48:16.151 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json-patch+json 41 - 200 851 application/json;+charset=utf-8 32.6959ms
+2021-01-14 23:48:30.672 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-14 23:48:30.677 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 4.9182ms
+2021-01-14 23:48:41.920 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/permission - -
+2021-01-14 23:48:41.927 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:48:41.936 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:48:41.937 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/permission - - - 401 - application/json;+charset=utf-8 16.7041ms
+2021-01-14 23:48:51.439 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/permission - -
+2021-01-14 23:48:51.442 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:48:51.443 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:48:51.444 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/permission - - - 401 - application/json;+charset=utf-8 4.4516ms
+2021-01-14 23:51:00.402 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-14 23:51:00.409 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 7.6635ms
+2021-01-14 23:51:15.340 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login text/plain 53
+2021-01-14 23:51:15.344 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:15.355 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:15.356 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login text/plain 53 - 415 175 application/problem+json;+charset=utf-8 16.4158ms
+2021-01-14 23:51:36.982 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 53
+2021-01-14 23:51:36.991 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:37.014 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:37.015 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 53 - 200 851 application/json;+charset=utf-8 33.8095ms
+2021-01-14 23:51:40.615 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 48
+2021-01-14 23:51:40.618 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:40.674 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:40.675 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 48 - 400 - application/json 62.1662ms
+2021-01-14 23:51:42.887 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 48
+2021-01-14 23:51:42.889 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:42.920 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:42.921 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 48 - 400 - application/json 34.4867ms
+2021-01-14 23:51:53.738 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 52
+2021-01-14 23:51:53.741 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:53.756 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-14 23:51:53.757 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 52 - 200 832 application/json;+charset=utf-8 18.6312ms
+2021-01-14 23:52:03.355 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-14 23:52:03.360 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 5.3903ms
+2021-01-14 23:52:16.868 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/permission - -
+2021-01-14 23:52:16.875 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:52:16.876 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:52:16.876 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/permission - - - 401 - application/json;+charset=utf-8 8.1329ms
+2021-01-14 23:52:18.519 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/permission - -
+2021-01-14 23:52:18.523 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:52:18.524 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:52:18.524 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/permission - - - 401 - application/json;+charset=utf-8 5.1780ms
+2021-01-14 23:52:19.467 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/permission - -
+2021-01-14 23:52:19.472 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:52:19.473 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:52:19.474 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/permission - - - 401 - application/json;+charset=utf-8 6.4910ms
+2021-01-14 23:53:11.127 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/permission - -
+2021-01-14 23:53:11.135 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:57:37.446 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.PermissionController.GetAllPermissions (Memoyu.Mbill.WebApi)'
+2021-01-14 23:57:37.448 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/permission - - - 401 - application/json;+charset=utf-8 266321.0381ms

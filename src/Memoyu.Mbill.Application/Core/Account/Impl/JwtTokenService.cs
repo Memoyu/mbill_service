@@ -101,7 +101,7 @@ namespace Memoyu.Mbill.Application.Core.Account.Impl
             user.Roles?.ForEach(r =>
             {
                 claims.Add(new Claim(ClaimTypes.Role, r.Name));
-                claims.Add(new Claim(CoreClaimTypes.Groups, r.Id.ToString()));
+                claims.Add(new Claim(CoreClaimTypes.Roles, r.Id.ToString()));
             });
 
             string token = _jsonWebTokenService.Encode(claims);

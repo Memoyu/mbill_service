@@ -11,7 +11,7 @@
 ***************************************************************************/
 using FreeSql;
 using Memoyu.Mbill.Domain.Base;
-using Memoyu.Mbill.Domain.Entities.System;
+using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.Domain.Shared.Const;
 using Memoyu.Mbill.Domain.Shared.Security;
 using Memoyu.Mbill.ToolKits.Base.Dependency;
