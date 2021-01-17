@@ -36,7 +36,7 @@ namespace Memoyu.Mbill.Application.User
         Task<PagedDto<UserDto>> GetListAsync(PagingDto pageDto);
 
         /// <summary>
-        /// 通过token识别用户
+        /// 通过token获取用户信息
         /// </summary>
         /// <returns></returns>
         Task<UserDto> GetAsync();

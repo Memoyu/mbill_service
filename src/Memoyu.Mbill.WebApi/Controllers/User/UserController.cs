@@ -1,4 +1,15 @@
-﻿using AutoMapper;
+﻿/**************************************************************************  
+*   =================================
+*   CLR版本  ：4.0.30319.42000
+*   命名空间 ：Memoyu.Mbill.WebApi.Controllers.User
+*   文件名称 ：UserController.cs
+*   =================================
+*   创 建 者 ：Memoyu
+*   创建日期 ：2021-01-06 23:51:28
+*   邮箱     ：mmy6076@outlook.com
+*   功能描述 ：
+***************************************************************************/
+using AutoMapper;
 using Memoyu.Mbill.Application.Contracts.Attributes;
 using Memoyu.Mbill.Application.Contracts.Dtos.User;
 using Memoyu.Mbill.Application.User;
