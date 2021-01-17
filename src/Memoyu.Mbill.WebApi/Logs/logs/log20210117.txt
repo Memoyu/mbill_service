@@ -1,0 +1,617 @@
+2021-01-17 00:05:38.629 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 00:05:38.636 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:05:38.643 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:05:38.644 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 14.5796ms
+2021-01-17 00:05:51.309 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 00:05:51.313 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:05:51.317 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:05:51.318 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 8.1184ms
+2021-01-17 00:14:51.268 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 00:14:51.270 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:14:51.278 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:14:51.278 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 10.2929ms
+2021-01-17 00:22:43.027 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 00:22:43.029 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:22:43.038 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:22:43.038 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 11.4673ms
+2021-01-17 00:22:53.726 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 00:22:53.728 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:22:53.733 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:22:53.733 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 7.1128ms
+2021-01-17 00:30:22.252 +08:00 [INF] init main
+2021-01-17 00:30:23.100 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:30:23.101 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:30:23.107 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:30:23.108 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:30:23.213 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:30:23.263 +08:00 [INF] Starting the processing server.
+2021-01-17 00:30:23.304 +08:00 [INF] ### CAP started!
+2021-01-17 00:30:23.390 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:30:23.391 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:30:23.391 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:30:23.391 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:31:00.464 +08:00 [INF] init main
+2021-01-17 00:31:01.323 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:31:01.325 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:31:01.331 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:31:01.332 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:31:01.452 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:31:01.502 +08:00 [INF] Starting the processing server.
+2021-01-17 00:31:01.541 +08:00 [INF] ### CAP started!
+2021-01-17 00:31:01.621 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:31:01.621 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:31:01.621 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:31:01.622 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:33:37.345 +08:00 [INF] init main
+2021-01-17 00:33:38.207 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:33:38.208 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:33:38.214 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:33:38.215 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:33:38.319 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:33:38.373 +08:00 [INF] Starting the processing server.
+2021-01-17 00:33:38.415 +08:00 [INF] ### CAP started!
+2021-01-17 00:33:38.493 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:33:38.493 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:33:38.493 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:33:38.494 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:33:42.006 +08:00 [INF] init main
+2021-01-17 00:33:42.857 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:33:42.858 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:33:42.864 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:33:42.865 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:33:42.956 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:33:43.007 +08:00 [INF] Starting the processing server.
+2021-01-17 00:33:43.046 +08:00 [INF] ### CAP started!
+2021-01-17 00:33:43.119 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:33:43.119 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:33:43.119 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:33:43.119 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:34:36.532 +08:00 [INF] init main
+2021-01-17 00:34:37.318 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:34:37.320 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:34:37.325 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:34:37.327 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:34:37.435 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:34:37.482 +08:00 [INF] Starting the processing server.
+2021-01-17 00:34:37.522 +08:00 [INF] ### CAP started!
+2021-01-17 00:34:37.600 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:34:37.600 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:34:37.600 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:34:37.600 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:37:47.663 +08:00 [INF] init main
+2021-01-17 00:37:48.465 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:37:48.466 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:37:48.472 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:37:48.473 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:37:48.580 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:37:48.629 +08:00 [INF] Starting the processing server.
+2021-01-17 00:37:48.672 +08:00 [INF] ### CAP started!
+2021-01-17 00:37:48.758 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:37:48.759 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:37:48.759 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:37:48.759 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:37:52.658 +08:00 [INF] init main
+2021-01-17 00:37:55.968 +08:00 [INF] init main
+2021-01-17 00:37:56.780 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:37:56.781 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:37:56.787 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:37:56.788 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:37:56.903 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:37:56.952 +08:00 [INF] Starting the processing server.
+2021-01-17 00:37:56.995 +08:00 [INF] ### CAP started!
+2021-01-17 00:37:57.077 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:37:57.078 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:37:57.078 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:37:57.078 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:38:16.182 +08:00 [INF] init main
+2021-01-17 00:38:16.953 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:38:16.954 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:38:16.960 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:38:16.961 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:38:17.078 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:38:17.129 +08:00 [INF] Starting the processing server.
+2021-01-17 00:38:17.171 +08:00 [INF] ### CAP started!
+2021-01-17 00:38:17.254 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:38:17.254 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:38:17.255 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:38:17.255 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:40:05.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-01-17 00:40:05.173 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 70.7037ms
+2021-01-17 00:40:05.373 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-17 00:40:05.377 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-17 00:40:05.386 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-17 00:40:05.386 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 9.0546ms
+2021-01-17 00:40:05.440 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 66.9102ms
+2021-01-17 00:40:11.583 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-17 00:40:11.595 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 12.2076ms
+2021-01-17 00:41:01.140 +08:00 [INF] init main
+2021-01-17 00:41:01.930 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 00:41:01.931 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 00:41:01.937 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 00:41:01.938 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 00:41:02.049 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 00:41:02.097 +08:00 [INF] Starting the processing server.
+2021-01-17 00:41:02.136 +08:00 [INF] ### CAP started!
+2021-01-17 00:41:02.214 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 00:41:02.215 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 00:41:02.215 +08:00 [INF] Hosting environment: Development
+2021-01-17 00:41:02.215 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 00:41:02.294 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-01-17 00:41:02.360 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 68.4359ms
+2021-01-17 00:41:02.645 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-17 00:41:02.657 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-17 00:41:02.664 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-17 00:41:02.665 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 7.5847ms
+2021-01-17 00:41:02.723 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 77.1169ms
+2021-01-17 00:41:07.834 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-17 00:41:07.843 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 8.5806ms
+2021-01-17 00:41:52.367 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 00:41:52.677 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 00:41:52.845 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 00:41:52.854 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 200 240 application/json;+charset=utf-8 487.3336ms
+2021-01-17 00:45:37.685 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:45:37.699 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 13.7855ms
+2021-01-17 00:47:22.074 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:47:22.078 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 00:47:22.085 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 00:47:22.086 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 12.0223ms
+2021-01-17 00:54:39.976 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:54:39.983 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 6.5893ms
+2021-01-17 00:55:04.571 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:55:04.575 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 3.3528ms
+2021-01-17 00:55:13.259 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 00:55:13.261 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 401 - application/json 2.7677ms
+2021-01-17 00:56:56.637 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:56:56.641 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 4.5759ms
+2021-01-17 00:57:42.378 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:57:42.382 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 4.1114ms
+2021-01-17 00:57:55.495 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:57:55.499 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 3.6733ms
+2021-01-17 00:58:16.417 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:58:16.421 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 4.0205ms
+2021-01-17 00:58:19.700 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 00:58:19.702 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:58:19.829 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 00:58:19.830 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 129.8284ms
+2021-01-17 00:58:19.890 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 00:58:19.892 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 00:58:19.894 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 00:58:19.894 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 4.0316ms
+2021-01-17 01:06:56.880 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 01:06:56.886 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 401 - application/json 6.0491ms
+2021-01-17 01:06:58.102 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 01:06:58.105 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 401 - application/json 2.4593ms
+2021-01-17 01:06:59.096 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 01:06:59.102 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 401 - application/json 6.0876ms
+2021-01-17 01:07:06.706 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60
+2021-01-17 01:07:06.708 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 01:07:06.718 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 01:07:06.719 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60 - 200 934 application/json;+charset=utf-8 12.4552ms
+2021-01-17 01:22:14.728 +08:00 [INF] Application is shutting down...
+2021-01-17 01:22:14.742 +08:00 [INF] Shutting down the processing server...
+2021-01-17 01:22:14.742 +08:00 [INF] ### CAP shutdown!
+2021-01-17 11:33:55.683 +08:00 [INF] init main
+2021-01-17 11:33:56.238 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 725
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 615
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 467
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 110
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 136
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 69
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 31
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Memoyu.Mbill.WebApi.Program.Main(String[] args) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Program.cs:line 25
+2021-01-17 11:36:41.074 +08:00 [INF] init main
+2021-01-17 11:36:41.901 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 11:36:41.903 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 11:36:41.909 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 11:36:41.910 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 11:36:41.998 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 11:36:42.064 +08:00 [INF] Starting the processing server.
+2021-01-17 11:36:42.107 +08:00 [INF] ### CAP started!
+2021-01-17 11:36:42.208 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 11:36:42.209 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 11:36:42.209 +08:00 [INF] Hosting environment: Development
+2021-01-17 11:36:42.209 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 13:18:58.946 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:18:59.213 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 272.0008ms
+2021-01-17 13:19:02.365 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:19:02.373 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 8.4101ms
+2021-01-17 13:22:22.317 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:22:22.320 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:22:22.602 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:22:22.605 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 288.2980ms
+2021-01-17 13:23:52.290 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:23:52.293 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:23:52.304 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:23:52.305 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 14.9004ms
+2021-01-17 13:24:45.337 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:24:45.340 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:24:45.349 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:24:45.350 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 12.2215ms
+2021-01-17 13:28:01.249 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:28:01.290 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:28:01.419 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:28:01.420 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 171.2269ms
+2021-01-17 13:28:07.373 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:28:07.376 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:28:07.378 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:28:07.379 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 6.0547ms
+2021-01-17 13:28:09.352 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:28:09.356 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:28:09.357 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:28:09.358 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 5.2618ms
+2021-01-17 13:32:23.558 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:32:23.560 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:32:23.569 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:32:23.569 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 11.4651ms
+2021-01-17 13:32:23.621 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:32:23.625 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:32:23.628 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:32:23.629 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 7.2123ms
+2021-01-17 13:33:02.988 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:33:02.992 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:33:02.997 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:33:02.997 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 9.2697ms
+2021-01-17 13:34:13.325 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 46
+2021-01-17 13:34:13.327 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:34:13.338 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:34:13.339 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 46 - 400 - application/json 14.0312ms
+2021-01-17 13:35:36.815 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 48
+2021-01-17 13:35:36.817 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:35:36.825 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:35:36.826 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 48 - 200 934 application/json;+charset=utf-8 10.9998ms
+2021-01-17 13:35:36.876 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:35:36.879 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:35:36.881 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:35:36.881 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.6964ms
+2021-01-17 13:35:53.732 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 61
+2021-01-17 13:35:53.734 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:35:53.737 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:35:53.737 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 61 - 400 - application/json 4.8481ms
+2021-01-17 13:37:30.280 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:37:30.283 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:37:30.286 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:37:30.287 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 7.0535ms
+2021-01-17 13:37:52.790 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 33
+2021-01-17 13:37:52.792 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:37:52.796 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:37:52.796 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 33 - 400 - application/json 6.3046ms
+2021-01-17 13:38:06.517 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:38:06.519 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:06.525 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:06.526 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 8.1237ms
+2021-01-17 13:38:06.576 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:38:06.579 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:06.581 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:06.581 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 4.7296ms
+2021-01-17 13:38:13.286 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:38:13.288 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:13.290 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:13.291 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 5.0142ms
+2021-01-17 13:38:25.869 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 36
+2021-01-17 13:38:25.870 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:25.874 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:25.874 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 36 - 400 - application/json 5.2793ms
+2021-01-17 13:38:31.060 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:38:31.062 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:31.067 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:31.067 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 7.0825ms
+2021-01-17 13:38:31.119 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:38:31.122 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:31.124 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:38:31.124 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 240 application/json;+charset=utf-8 4.8854ms
+2021-01-17 13:52:50.062 +08:00 [INF] init main
+2021-01-17 13:52:50.915 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 13:52:50.916 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 13:52:50.922 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 13:52:50.923 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 13:52:51.029 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 13:52:51.080 +08:00 [INF] Starting the processing server.
+2021-01-17 13:52:51.121 +08:00 [INF] ### CAP started!
+2021-01-17 13:52:51.202 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 13:52:51.202 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 13:52:51.202 +08:00 [INF] Hosting environment: Development
+2021-01-17 13:52:51.203 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 13:52:58.065 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 13:52:58.183 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:52:58.460 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 13:52:58.473 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 410.6638ms
+2021-01-17 13:52:58.534 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 13:52:58.578 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:52:58.679 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 13:52:58.681 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 247 application/json;+charset=utf-8 147.6340ms
+2021-01-17 14:33:18.815 +08:00 [INF] init main
+2021-01-17 14:33:21.963 +08:00 [INF] init main
+2021-01-17 14:33:24.770 +08:00 [INF] init main
+2021-01-17 14:33:25.571 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 14:33:25.572 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 14:33:25.578 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 14:33:25.579 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 14:33:25.683 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 14:33:25.732 +08:00 [INF] Starting the processing server.
+2021-01-17 14:33:25.773 +08:00 [INF] ### CAP started!
+2021-01-17 14:33:25.852 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 14:33:25.852 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 14:33:25.853 +08:00 [INF] Hosting environment: Development
+2021-01-17 14:33:25.853 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 14:34:08.308 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60
+2021-01-17 14:34:08.431 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 14:34:08.734 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 14:34:08.747 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60 - 200 934 application/json;+charset=utf-8 441.3118ms
+2021-01-17 14:34:20.472 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 14:34:20.519 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:34:20.669 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:34:20.671 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 500 - application/json 198.4617ms
+2021-01-17 14:35:04.831 +08:00 [INF] Application is shutting down...
+2021-01-17 14:35:04.842 +08:00 [INF] Shutting down the processing server...
+2021-01-17 14:35:04.843 +08:00 [INF] ### CAP shutdown!
+2021-01-17 14:35:09.554 +08:00 [INF] init main
+2021-01-17 14:35:11.315 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 14:35:11.317 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 14:35:11.324 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 14:35:11.325 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 14:35:11.475 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 14:35:11.562 +08:00 [INF] Starting the processing server.
+2021-01-17 14:35:11.605 +08:00 [INF] ### CAP started!
+2021-01-17 14:35:11.761 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 14:35:11.761 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 14:35:11.762 +08:00 [INF] Hosting environment: Development
+2021-01-17 14:35:11.762 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 14:35:17.061 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 14:35:17.428 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:35:26.523 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:35:26.538 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 500 - application/json 9479.2971ms
+2021-01-17 14:35:31.445 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 14:35:31.451 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:37:13.003 +08:00 [INF] init main
+2021-01-17 14:37:14.764 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 14:37:14.766 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 14:37:14.771 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 14:37:14.773 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 14:37:14.921 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 14:37:15.009 +08:00 [INF] Starting the processing server.
+2021-01-17 14:37:15.054 +08:00 [INF] ### CAP started!
+2021-01-17 14:37:15.215 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 14:37:15.216 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 14:37:15.216 +08:00 [INF] Hosting environment: Development
+2021-01-17 14:37:15.216 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 14:37:15.530 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 14:37:15.897 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:37:43.767 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:37:43.780 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 200 264 application/json;+charset=utf-8 28253.0329ms
+2021-01-17 14:38:23.310 +08:00 [INF] init main
+2021-01-17 14:38:24.979 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 14:38:24.980 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 14:38:24.986 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 14:38:24.987 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 14:38:25.132 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 14:38:25.223 +08:00 [INF] Starting the processing server.
+2021-01-17 14:38:25.266 +08:00 [INF] ### CAP started!
+2021-01-17 14:38:25.424 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 14:38:25.425 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 14:38:25.425 +08:00 [INF] Hosting environment: Development
+2021-01-17 14:38:25.425 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 14:38:26.298 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-17 14:38:26.662 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:38:26.891 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 14:38:26.904 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 200 268 application/json;+charset=utf-8 609.7078ms
+2021-01-17 14:38:44.249 +08:00 [INF] init main
+2021-01-17 14:38:45.024 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 14:38:45.025 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 14:38:45.031 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 14:38:45.032 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 14:38:45.133 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 14:38:45.181 +08:00 [INF] Starting the processing server.
+2021-01-17 14:38:45.219 +08:00 [INF] ### CAP started!
+2021-01-17 14:38:45.292 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 14:38:45.292 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 14:38:45.292 +08:00 [INF] Hosting environment: Development
+2021-01-17 14:38:45.292 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 14:58:06.082 +08:00 [INF] init main
+2021-01-17 14:58:06.879 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-17 14:58:06.880 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-17 14:58:06.886 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-17 14:58:06.887 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-17 14:58:06.998 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-17 14:58:07.046 +08:00 [INF] Starting the processing server.
+2021-01-17 14:58:07.090 +08:00 [INF] ### CAP started!
+2021-01-17 14:58:07.165 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-17 14:58:07.165 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-17 14:58:07.165 +08:00 [INF] Hosting environment: Development
+2021-01-17 14:58:07.165 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-17 15:03:09.119 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:03:09.397 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:03:09.587 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:03:09.601 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 484.5392ms
+2021-01-17 15:03:20.463 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:03:20.471 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:03:20.476 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:03:20.477 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 14.1896ms
+2021-01-17 15:05:35.952 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:05:35.956 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:05:35.961 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:05:35.961 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 8.6901ms
+2021-01-17 15:07:18.198 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:07:18.202 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:07:18.209 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:07:18.210 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 12.3622ms
+2021-01-17 15:07:19.283 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:07:19.285 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:07:19.287 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:07:19.288 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.1339ms
+2021-01-17 15:12:38.775 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:12:38.780 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:38.790 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:38.790 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 14.9813ms
+2021-01-17 15:12:40.332 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:12:40.334 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:40.336 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:40.337 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.2743ms
+2021-01-17 15:12:42.136 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:12:42.138 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:42.140 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:42.141 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.8641ms
+2021-01-17 15:12:44.912 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:12:44.914 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:44.916 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:44.917 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.5992ms
+2021-01-17 15:12:47.206 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:12:47.208 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:47.212 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:12:47.212 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 6.2495ms
+2021-01-17 15:13:13.813 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:13:13.817 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:13:13.821 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:13:13.822 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 8.4924ms
+2021-01-17 15:13:15.584 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:13:15.586 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:13:15.589 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:13:15.589 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.0208ms
+2021-01-17 15:15:32.389 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 15:15:32.391 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:15:32.521 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:15:32.521 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 132.5097ms
+2021-01-17 15:15:32.580 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:15:32.582 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:15:32.585 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:15:32.585 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.3655ms
+2021-01-17 15:15:34.927 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:15:34.931 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:15:34.933 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:15:34.934 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 6.9400ms
+2021-01-17 15:16:45.838 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:16:45.842 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:16:45.846 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:16:45.847 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 8.3805ms
+2021-01-17 15:17:09.030 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:17:09.033 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:17:09.037 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:17:09.038 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 7.8433ms
+2021-01-17 15:22:18.338 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:22:18.341 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:22:18.346 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:22:18.346 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 8.0967ms
+2021-01-17 15:22:35.373 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:22:35.375 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:22:35.378 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:22:35.378 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.2230ms
+2021-01-17 15:23:53.261 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:23:53.264 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:23:53.270 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:23:53.270 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 9.0975ms
+2021-01-17 15:24:36.343 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:24:36.346 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:24:36.350 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:24:36.351 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 7.5668ms
+2021-01-17 15:26:46.523 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:26:46.526 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:26:46.531 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:26:46.532 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 8.7056ms
+2021-01-17 15:28:20.801 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:28:20.805 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:28:20.810 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:28:20.811 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 9.4528ms
+2021-01-17 15:30:33.843 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:30:33.845 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:30:33.850 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:30:33.851 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 7.9884ms
+2021-01-17 15:30:58.564 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:30:58.572 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 7.7081ms
+2021-01-17 15:31:00.748 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:31:00.750 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 2.2149ms
+2021-01-17 15:31:03.085 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:31:03.086 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 401 - application/json 1.8171ms
+2021-01-17 15:31:31.243 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 15:31:31.246 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:31:31.255 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:31:31.256 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 12.6456ms
+2021-01-17 15:31:31.305 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:31:31.307 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:31:31.309 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:31:31.310 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.7721ms
+2021-01-17 15:31:33.251 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:31:33.254 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:31:33.256 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:31:33.256 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.1112ms
+2021-01-17 15:32:12.792 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 15:32:12.794 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:32:12.802 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:32:12.803 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 10.5592ms
+2021-01-17 15:32:12.849 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:32:12.851 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:32:12.854 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:32:12.854 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.2745ms
+2021-01-17 15:32:13.867 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:32:13.869 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:32:13.872 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:32:13.872 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.1450ms
+2021-01-17 15:33:09.466 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 15:33:09.468 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:09.476 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:09.476 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 9.8288ms
+2021-01-17 15:33:09.521 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:33:09.523 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:09.525 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:09.526 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.8348ms
+2021-01-17 15:33:11.482 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:33:11.483 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:11.486 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:11.486 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.9181ms
+2021-01-17 15:33:23.118 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 15:33:23.120 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:23.126 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:23.127 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 8.3540ms
+2021-01-17 15:33:23.169 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:33:23.171 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:23.174 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:23.174 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 5.4556ms
+2021-01-17 15:33:24.951 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:33:24.953 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:24.955 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:33:24.955 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.3977ms
+2021-01-17 15:47:27.386 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 15:47:27.388 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:47:27.397 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 15:47:27.397 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 11.7172ms
+2021-01-17 15:47:27.447 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 15:47:27.448 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:47:27.450 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 15:47:27.451 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.3868ms
+2021-01-17 16:07:36.666 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 16:07:36.669 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 16:07:36.673 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 16:07:36.673 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 7.3327ms
+2021-01-17 16:08:09.179 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-17 16:08:09.182 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 16:08:09.192 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-17 16:08:09.192 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 13.0702ms
+2021-01-17 16:08:09.247 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json -
+2021-01-17 16:08:09.249 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 16:08:09.251 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-17 16:08:09.251 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get application/json - - 200 254 application/json;+charset=utf-8 4.4414ms
+2021-01-17 22:01:29.398 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/chart/overview_header?date=2021%20-%201 application/json -
+2021-01-17 22:01:29.404 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/chart/overview_statements?date=2021%20-%201 application/json -
+2021-01-17 22:01:29.410 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/chart/overview_statements?date=2021%20-%201 application/json - - 404 0 - 6.4725ms
+2021-01-17 22:01:29.411 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/chart/overview_header?date=2021%20-%201 application/json - - 404 0 - 13.1017ms
+2021-01-17 22:01:29.418 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/chart/week_trend application/json -
+2021-01-17 22:01:29.420 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/chart/week_trend application/json - - 404 0 - 2.1378ms
+2021-01-17 22:01:29.427 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/chart/month_trend application/json -
+2021-01-17 22:01:29.429 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/chart/month_trend application/json - - 404 0 - 1.6398ms
+2021-01-17 22:01:29.528 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/chart/rate?date=2021%20-%201&type=expend application/json -
+2021-01-17 22:01:29.530 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/chart/rate?date=2021%20-%201&type=expend application/json - - 404 0 - 1.9963ms
+2021-01-17 22:01:29.571 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/chart/category_statements?date=2021%20-%201 application/json -
+2021-01-17 22:01:29.573 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/chart/category_statements?date=2021%20-%201 application/json - - 404 0 - 2.5186ms
+2021-01-17 22:01:29.604 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/super_chart/get_pie_data?date=2021%20-%201 application/json -
+2021-01-17 22:01:29.606 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/super_chart/get_pie_data?date=2021%20-%201 application/json - - 404 0 - 1.7945ms

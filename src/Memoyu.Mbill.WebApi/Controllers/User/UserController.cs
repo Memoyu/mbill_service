@@ -16,7 +16,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.User
     /// 用户管理
     /// </summary>
     [Route("api/admin/user")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public class UserController : ApiControllerBase
     {
         private readonly IMapper _mapper;
@@ -35,10 +34,22 @@ namespace Memoyu.Mbill.WebApi.Controllers.User
         [Logger("超级管理员新建了一个用户")]
         [HttpPost("register")]
         [Authorize(Roles = RoleEntity.Administrator)]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyUserDto userInput)
         {
             await _userService.CreateAsync(_mapper.Map<UserEntity>(userInput), userInput.RoleIds, userInput.Password);
             return ServiceResult.Successed("用户创建成功");
+        }
+
+        /// <summary>
+        /// 获取用户信息，By Toekn
+        /// </summary>
+        [HttpGet("get")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
+        public async Task<ServiceResult<UserDto>> GetByTokenAsync()
+        {
+            return ServiceResult<UserDto>.Successed(await _userService.GetAsync());
         }
     }
 }

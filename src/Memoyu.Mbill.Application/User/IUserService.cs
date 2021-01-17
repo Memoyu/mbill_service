@@ -35,9 +35,13 @@ namespace Memoyu.Mbill.Application.User
         /// <returns></returns>
         Task<PagedDto<UserDto>> GetListAsync(PagingDto pageDto);
 
-        Task<UserDto> GetAsync(Guid id);
+        /// <summary>
+        /// 通过token识别用户
+        /// </summary>
+        /// <returns></returns>
+        Task<UserDto> GetAsync();
 
-      
+        Task<UserDto> GetAsync(Guid id);
 
         Task UpdateAsync(Guid id, ModifyUserDto inputDto);
 

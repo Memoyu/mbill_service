@@ -75,6 +75,11 @@
             </summary>
             <param name="userInput"></param>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync">
+            <summary>
+            获取用户信息，By Toekn
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.UrlPrefix">
             <summary>
             URL前缀

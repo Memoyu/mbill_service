@@ -77,6 +77,11 @@ namespace Memoyu.Mbill.Application.User.Impl
             throw new NotImplementedException();
         }
 
+        public async Task<UserDto> GetAsync()
+        {
+            return Mapper.Map<UserDto>(await _userRepository.Where(r => r.Id == CurrentUser.Id).FirstAsync());
+        }
+
         public Task<UserDto> GetAsync(Guid id)
         {
             throw new NotImplementedException();

@@ -11,6 +11,7 @@
 ***************************************************************************/
 using AutoMapper;
 using Memoyu.Mbill.Application.Contracts.Dtos.User;
+using Memoyu.Mbill.Application.Contracts.Mapper.Converter;
 using Memoyu.Mbill.Domain.Entities.User;
 
 namespace Memoyu.Mbill.Application.Contracts.Mapper.User
@@ -20,7 +21,7 @@ namespace Memoyu.Mbill.Application.Contracts.Mapper.User
         public UserMapper()
         {
             CreateMap<ModifyUserDto, UserEntity>();
-            CreateMap<UserEntity, UserDto>();
+            CreateMap<UserEntity, UserDto>().ForMember(d => d.Gender, opt => opt.ConvertUsing<GenderFormatter, int>());
         }
     }
 }

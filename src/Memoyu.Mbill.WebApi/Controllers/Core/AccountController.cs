@@ -16,6 +16,7 @@ using Memoyu.Mbill.Application.Core.Account;
 using Memoyu.Mbill.Application.Core.Account.Impl;
 using Memoyu.Mbill.Domain.Shared.Configurations;
 using Memoyu.Mbill.Domain.Shared.Const;
+using Memoyu.Mbill.ToolKits.Base;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
@@ -46,9 +47,9 @@ namespace Memoyu.Mbill.WebApi.Controllers.Core
         /// 用户名：admin，密码：123456
         /// </example>
         [HttpPost("login")]
-        public async Task<TokenDto> Login(LoginInputDto loginInputDto)
+        public async Task<ServiceResult<TokenDto>> Login(LoginInputDto loginInputDto)
         {
-            return await _tokenService.LoginAsync(loginInputDto);
+            return ServiceResult<TokenDto>.Successed(await _tokenService.LoginAsync(loginInputDto));
         }
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Core
         /// </summary>
         /// <returns></returns>
         [HttpGet("refresh")]
-        public async Task<TokenDto> GetRefreshToken()
+        public async Task<ServiceResult<TokenDto>> GetRefreshToken()
         {
             string refreshToken;
             string authorization = Request.Headers["Authorization"];
@@ -69,7 +70,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Core
             {
                 throw new KnownException(" 请先登录.", ServiceResultCode.RefreshTokenError);
             }
-            return await _tokenService.GetTokenByRefreshAsync(refreshToken);
+            return ServiceResult<TokenDto>.Successed(await _tokenService.GetTokenByRefreshAsync(refreshToken));
         }
 
     }
