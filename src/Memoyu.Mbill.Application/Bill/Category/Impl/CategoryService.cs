@@ -9,6 +9,12 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
+using Memoyu.Mbill.Application.Base.Impl;
+using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category;
+using Memoyu.Mbill.Application.Contracts.Exceptions;
+using Memoyu.Mbill.Domain.Base;
+using Memoyu.Mbill.Domain.Entities.Bill.Category;
+using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +23,49 @@ using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Application.Bill.Category.Impl
 {
-    class CategoryService
+    public class CategoryService : ApplicationService, ICategoryService
     {
+        private readonly IAuditBaseRepository<CategoryEntity, long> _categoryRepository;
+        public CategoryService(IAuditBaseRepository<CategoryEntity , long> categoryRepository)
+        {
+            _categoryRepository = categoryRepository;
+        }
+        public Task DeleteAsync(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CategoryDto> GetAsync(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CategoryDto>> GetClassificationAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CategoryDto>> GetListAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task InsertAsync(CategoryEntity entity)
+        {
+            if (!string.IsNullOrEmpty(entity.Name))
+            {
+                bool isRepeatName = await _categoryRepository.Select.AnyAsync(r => r.Name == entity.Name);
+                if (isRepeatName)//分类名重复
+                {
+                    throw new KnownException("分类名重复，请重新输入", ServiceResultCode.RepeatField);
+                }
+            }
+            await _categoryRepository.InsertAsync(entity);
+        }
+
+        public Task UpdateAsync(long id, CategoryEntity inputDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

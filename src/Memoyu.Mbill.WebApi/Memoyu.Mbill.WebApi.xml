@@ -29,6 +29,17 @@
             <param name="invocation"></param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Memoyu.Mbill.WebApi.Aop.UnitOfWorkAsyncInterceptor.InterceptAsynchronous``1(Castle.DynamicProxy.IInvocation)" -->
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController">
+            <summary>
+            账单分类管理
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto)">
+            <summary>
+            新增账单分类
+            </summary>
+            <param name="categoryInput"></param>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController">
             <summary>
             用户管理

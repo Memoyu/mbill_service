@@ -41,10 +41,10 @@ namespace Memoyu.Mbill.Application.User
         /// <returns></returns>
         Task<UserDto> GetAsync();
 
-        Task<UserDto> GetAsync(Guid id);
+        Task<UserDto> GetAsync(long id);
 
-        Task UpdateAsync(Guid id, ModifyUserDto inputDto);
+        Task UpdateAsync(long id, UserEntity entity);
 
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(long id);
     }
 }

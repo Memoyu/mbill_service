@@ -16,16 +16,16 @@ using Memoyu.Mbill.Domain.Shared.Const;
 namespace Memoyu.Mbill.Domain.Entities.Bill.Category
 {
     /// <summary>
-    /// 分类实体
+    /// 账单分类实体
     /// </summary>
     [Table(Name = SystemConst.DbTablePrefix + "_category")]
-    [Index("index_category_on_sort", "Sort", true)]
-    [Index("index_category_on_parent_id", "ParentId", true)]
-    [Index("index_category_on_type", "Type", true)]
+    [Index("index_category_on_sort", "Sort", false)]
+    [Index("index_category_on_parent_id", "ParentId", false)]
+    [Index("index_category_on_type", "Type", false)]
     public class CategoryEntity : FullAduitEntity
     {
         /// <summary>
-        /// 分类名
+        /// 账单分类名
         /// </summary>
         [Column(StringLength = 20, IsNullable = false)]
         public string Name { get; set; }

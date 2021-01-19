@@ -9,6 +9,8 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
+using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category;
+using Memoyu.Mbill.Domain.Entities.Bill.Category;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +21,32 @@ namespace Memoyu.Mbill.Application.Bill.Category
 {
     public interface ICategoryService
     {
+        /// <summary>
+        /// 新增账目分类
+        /// </summary>
+        /// <param name="inputDto">数据源</param>
+        /// <returns></returns>
+        Task InsertAsync( CategoryEntity inputDto);
+
+        /// <summary>
+        /// 更新账目分类
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="inputDto"></param>
+        /// <returns></returns>
+        Task UpdateAsync(long id, CategoryEntity inputDto);
+
+        Task DeleteAsync(long id);
+
+        /// <summary>
+        /// 获取分级后的组合类别数据
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<CategoryDto>> GetClassificationAsync();
+
+        Task<IEnumerable<CategoryDto>> GetListAsync();
+
+        Task<CategoryDto> GetAsync(long id);
+
     }
 }

@@ -144,12 +144,12 @@
         </member>
         <member name="T:Memoyu.Mbill.Domain.Entities.Bill.Category.CategoryEntity">
             <summary>
-            分类实体
+            账单分类实体
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Category.CategoryEntity.Name">
             <summary>
-            分类名
+            账单分类名
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Category.CategoryEntity.ParentId">

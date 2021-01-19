@@ -26,7 +26,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.User
     /// <summary>
     /// 用户管理
     /// </summary>
-    [Route("api/admin/user")]
+    [Route("api/user")]
     public class UserController : ApiControllerBase
     {
         private readonly IMapper _mapper;

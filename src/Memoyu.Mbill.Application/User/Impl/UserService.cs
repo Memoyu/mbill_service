@@ -72,7 +72,7 @@ namespace Memoyu.Mbill.Application.User.Impl
             await _userRepository.InsertAsync(user);
         }
 
-        public Task DeleteAsync(Guid id)
+        public Task DeleteAsync(long id)
         {
             throw new NotImplementedException();
         }
@@ -82,7 +82,7 @@ namespace Memoyu.Mbill.Application.User.Impl
             return Mapper.Map<UserDto>(await _userRepository.Where(r => r.Id == CurrentUser.Id).FirstAsync());
         }
 
-        public Task<UserDto> GetAsync(Guid id)
+        public Task<UserDto> GetAsync(long id)
         {
             throw new NotImplementedException();
         }
@@ -92,7 +92,7 @@ namespace Memoyu.Mbill.Application.User.Impl
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Guid id, ModifyUserDto inputDto)
+        public Task UpdateAsync(long id, UserEntity inputDto)
         {
             throw new NotImplementedException();
         }

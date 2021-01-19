@@ -1,0 +1,72 @@
+2021-01-20 00:04:11.503 +08:00 [INF] init main
+2021-01-20 00:04:12.361 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-20 00:04:12.362 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-20 00:04:12.369 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-20 00:04:12.370 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-20 00:04:12.473 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-20 00:04:12.522 +08:00 [INF] Starting the processing server.
+2021-01-20 00:04:12.561 +08:00 [INF] ### CAP started!
+2021-01-20 00:04:12.637 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-20 00:04:12.638 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-20 00:04:12.638 +08:00 [INF] Hosting environment: Development
+2021-01-20 00:04:12.638 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-20 00:04:17.444 +08:00 [INF] init main
+2021-01-20 00:04:18.252 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-20 00:04:18.254 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-20 00:04:18.259 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-20 00:04:18.260 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-20 00:04:18.365 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-20 00:04:18.412 +08:00 [INF] Starting the processing server.
+2021-01-20 00:04:18.451 +08:00 [INF] ### CAP started!
+2021-01-20 00:04:18.525 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-20 00:04:18.525 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-20 00:04:18.525 +08:00 [INF] Hosting environment: Development
+2021-01-20 00:04:18.525 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-20 00:04:27.913 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:04:28.168 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:04:28.360 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:04:28.374 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 500 - application/json 463.6264ms
+2021-01-20 00:05:14.511 +08:00 [INF] init main
+2021-01-20 00:05:15.385 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-20 00:05:15.386 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-20 00:05:15.392 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-20 00:05:15.393 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-20 00:05:15.495 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-20 00:05:15.545 +08:00 [INF] Starting the processing server.
+2021-01-20 00:05:15.586 +08:00 [INF] ### CAP started!
+2021-01-20 00:05:15.661 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-20 00:05:15.662 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-20 00:05:15.662 +08:00 [INF] Hosting environment: Development
+2021-01-20 00:05:15.662 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-20 00:05:24.251 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:05:24.503 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:05:24.689 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:05:24.702 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 453.5684ms
+2021-01-20 00:05:29.081 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:05:29.086 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:05:29.097 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:05:29.098 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 400 - application/json 16.7828ms
+2021-01-20 00:05:43.190 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:05:43.192 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:05:43.198 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:05:43.198 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 8.6246ms
+2021-01-20 00:06:10.545 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:06:10.548 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:10.562 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:10.562 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 17.2336ms
+2021-01-20 00:06:18.749 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:06:18.751 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:18.756 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:18.756 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 7.4563ms
+2021-01-20 00:06:36.912 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:06:36.914 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:36.923 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:36.924 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 11.9217ms
+2021-01-20 00:06:49.988 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:06:49.990 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:49.995 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:06:49.996 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 7.6856ms
+2021-01-20 00:07:03.311 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76
+2021-01-20 00:07:03.313 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:07:03.318 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-20 00:07:03.319 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/category/create application/json-patch+json 76 - 200 88 application/json;+charset=utf-8 7.5978ms

@@ -38,6 +38,31 @@
             <param name="methodInfo">method信息</param>
             <returns></returns>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.Name">
+            <summary>
+            账单分类名
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.ParentId">
+            <summary>
+            父级Id，默认0
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.Type">
+            <summary>
+            分类类型：支出、收入
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.Budget">
+            <summary>
+            预算金额
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.IconUrl">
+            <summary>
+            图标地址
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Core.LoginInputDto.Username">
             <summary>
             登录名
