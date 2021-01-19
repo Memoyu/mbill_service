@@ -1,0 +1,25 @@
+2021-01-19 10:27:27.393 +08:00 [INF] init main
+2021-01-19 10:27:29.232 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-19 10:27:29.234 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-19 10:27:29.310 +08:00 [INF] 操 作 权 限 表：新增了1条数据
+2021-01-19 10:27:29.312 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-19 10:27:29.550 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-19 10:27:29.681 +08:00 [INF] Starting the processing server.
+2021-01-19 10:27:29.766 +08:00 [INF] ### CAP started!
+2021-01-19 10:27:29.946 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-19 10:27:29.947 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-19 10:27:29.949 +08:00 [INF] Hosting environment: Development
+2021-01-19 10:27:29.951 +08:00 [INF] Content root path: D:\Profile\mbill\mbill_service\src\Memoyu.Mbill.WebApi
+2021-01-19 10:27:36.255 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-19 10:27:36.980 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 401 - application/json 735.6839ms
+2021-01-19 10:27:44.584 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60
+2021-01-19 10:27:44.593 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-19 10:27:45.034 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-19 10:27:45.046 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60 - 200 934 application/json;+charset=utf-8 462.9750ms
+2021-01-19 10:27:59.439 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/admin/user/get - -
+2021-01-19 10:27:59.471 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-19 10:27:59.719 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-19 10:27:59.722 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/admin/user/get - - - 200 268 application/json;+charset=utf-8 282.5859ms
+2021-01-19 14:03:52.567 +08:00 [INF] Application is shutting down...
+2021-01-19 14:03:52.732 +08:00 [INF] Shutting down the processing server...
+2021-01-19 14:03:52.736 +08:00 [INF] ### CAP shutdown!
