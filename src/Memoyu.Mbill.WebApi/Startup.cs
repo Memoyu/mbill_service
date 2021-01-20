@@ -48,6 +48,9 @@ namespace Memoyu.Mbill.WebApi
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger().UseSwaggerUI();
             }
+            //静态文件
+            app.UseStaticFiles();
+
             // Ip限流
             app.UseIpLimitMilddleware();
 

@@ -10,9 +10,18 @@
 *   功能描述 ：
 ***************************************************************************/
 
+using Memoyu.Mbill.Domain.Entities.Bill.Statement;
+using System.Threading.Tasks;
+
 namespace Memoyu.Mbill.Application.Bill.Statement
 {
     public interface IStatementService
     {
+        /// <summary>
+        /// 新增账单
+        /// </summary>
+        /// <param name="input">数据源</param>
+        /// <returns></returns>
+        Task InsertAsync(StatementEntity statement);
     }
 }

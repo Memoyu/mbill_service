@@ -17,7 +17,28 @@ using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
-    class StatementDto
+    public class StatementDto
     {
+        public long AssetId { get; set; }
+
+        public long? TargetAssetId { get; set; }
+
+        public decimal Amount { get; set; }
+
+        public decimal AssetResidue { get; set; }
+
+        public string Type { get; set; }
+
+        public string Description { get; set; }
+
+        public string Location { get; set; }
+
+        public int Year { get; set; }
+
+        public int Month { get; set; }
+
+        public int Day { get; set; }
+
+        public string Time { get; set; }
     }
 }

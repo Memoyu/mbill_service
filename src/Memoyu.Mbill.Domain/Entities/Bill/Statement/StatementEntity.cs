@@ -19,11 +19,11 @@ namespace Memoyu.Mbill.Domain.Entities.Bill.Statement
     /// 流水记录实体
     /// </summary>
     [Table(Name = SystemConst.DbTablePrefix + "_statement")]
-    [Index("index_statement_on_type", "Type", true)]
-    [Index("index_statement_on_create_user_id_and_type", "Sort,CreateUserId", true)]
-    [Index("index_statement_on_create_user_id_and_category_id", "CategoryId,CreateUserId", true)]
-    [Index("index_statement_on_create_user_id_and_asset_id", "AssetId,CreateUserId", true)]
-    [Index("index_statement_on_year_and_month_and_day_and_time", "Year,Month,Day,Time", true)]
+    [Index("index_statement_on_type", "Type", false)]
+    [Index("index_statement_on_create_user_id_and_type", "Sort,CreateUserId", false)]
+    [Index("index_statement_on_create_user_id_and_category_id", "CategoryId,CreateUserId", false)]
+    [Index("index_statement_on_create_user_id_and_asset_id", "AssetId,CreateUserId", false)]
+    [Index("index_statement_on_year_and_month_and_day_and_time", "Year,Month,Day,Time", false)]
     public class StatementEntity : FullAduitEntity
     {
         /// <summary>

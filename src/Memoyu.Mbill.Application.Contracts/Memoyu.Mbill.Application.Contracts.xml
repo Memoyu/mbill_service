@@ -38,6 +38,36 @@
             <param name="methodInfo">method信息</param>
             <returns></returns>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.Name">
+            <summary>
+            资产分类名
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.ParentId">
+            <summary>
+            父级Id，默认0
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.Type">
+            <summary>
+            资产分类类型：存款、负债
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.Amount">
+            <summary>
+            资产金额
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.IconUrl">
+            <summary>
+            图标地址
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.Name">
             <summary>
             账单分类名
@@ -61,6 +91,66 @@
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.IconUrl">
             <summary>
             图标地址
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category.ModifyCategoryDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.AssetId">
+            <summary>
+            资产Id
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.TargetAssetId">
+            <summary>
+            目标资产Id
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.AssetResidue">
+            <summary>
+            账户余额
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Type">
+            <summary>
+            记录类型：支出、收入、转账、还款
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Location">
+            <summary>
+            地点
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Year">
+            <summary>
+            记录日期：年
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Month">
+            <summary>
+            记录日期：月
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Day">
+            <summary>
+            记录日期：日
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Time">
+            <summary>
+            记录日期：时间
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Core.LoginInputDto.Username">

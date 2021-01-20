@@ -50,20 +50,20 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
             throw new NotImplementedException();
         }
 
-        public async Task InsertAsync(CategoryEntity entity)
+        public async Task InsertAsync(CategoryEntity categroy)
         {
-            if (!string.IsNullOrEmpty(entity.Name))
+            if (!string.IsNullOrEmpty(categroy.Name))
             {
-                bool isRepeatName = await _categoryRepository.Select.AnyAsync(r => r.Name == entity.Name);
+                bool isRepeatName = await _categoryRepository.Select.AnyAsync(r => r.Name == categroy.Name);
                 if (isRepeatName)//分类名重复
                 {
-                    throw new KnownException("分类名重复，请重新输入", ServiceResultCode.RepeatField);
+                    throw new KnownException("分类名称重复，请重新输入", ServiceResultCode.RepeatField);
                 }
             }
-            await _categoryRepository.InsertAsync(entity);
+            await _categoryRepository.InsertAsync(categroy);
         }
 
-        public Task UpdateAsync(long id, CategoryEntity inputDto)
+        public Task UpdateAsync(long id, CategoryEntity categroy)
         {
             throw new NotImplementedException();
         }

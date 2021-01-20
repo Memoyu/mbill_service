@@ -19,7 +19,7 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category
         /// <summary>
         /// 账单分类名
         /// </summary>
-        [Required(ErrorMessage = "必须传入分类名")]
+        [Required(ErrorMessage = "必须传入分类名称")]
         public string Name { get; set; }
 
         /// <summary>
@@ -42,5 +42,10 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category
         /// 图标地址
         /// </summary>
         public string IconUrl { get; set; }
+
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get; set; }
     }
 }

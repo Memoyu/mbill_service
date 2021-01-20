@@ -9,15 +9,19 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category
 {
     public class CategoryDto
     {
+        public string Name { get; set; }
+
+        public long ParentId { get; set; }
+
+        public string Type { get; set; }
+
+        public decimal Budget { get; set; }
+
+        public string IconUrl { get; set; }
     }
 }

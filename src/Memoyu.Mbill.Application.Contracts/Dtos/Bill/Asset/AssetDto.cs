@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset
 {
-    class AssetDto
+    public class AssetDto
     {
     }
 }

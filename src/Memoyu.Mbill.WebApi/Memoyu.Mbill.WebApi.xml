@@ -29,6 +29,17 @@
             <param name="invocation"></param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Memoyu.Mbill.WebApi.Aop.UnitOfWorkAsyncInterceptor.InterceptAsynchronous``1(Castle.DynamicProxy.IInvocation)" -->
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.AssetController">
+            <summary>
+            资产分类管理
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.CreateAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto)">
+            <summary>
+            新增资产分类
+            </summary>
+            <param name="dto">资产分类</param>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController">
             <summary>
             账单分类管理
@@ -38,12 +49,18 @@
             <summary>
             新增账单分类
             </summary>
-            <param name="categoryInput"></param>
+            <param name="dto">账单分类</param>
         </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController">
             <summary>
-            用户管理
+            账单管理
             </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto)">
+            <summary>
+            新增账单
+            </summary>
+            <param name="dto">账单</param>
         </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
             <summary>

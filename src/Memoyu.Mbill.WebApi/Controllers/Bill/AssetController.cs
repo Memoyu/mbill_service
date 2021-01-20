@@ -1,11 +1,46 @@
-﻿using System;
+﻿using AutoMapper;
+using Memoyu.Mbill.Application.Bill.Asset;
+using Memoyu.Mbill.Application.Contracts.Attributes;
+using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset;
+using Memoyu.Mbill.Domain.Entities.Bill.Asset;
+using Memoyu.Mbill.Domain.Shared.Const;
+using Memoyu.Mbill.ToolKits.Base;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.WebApi.Controllers.Bill
 {
-    public class AssetController
+    /// <summary>
+    /// 资产分类管理
+    /// </summary>
+    [Route("api/asset")]
+    public class AssetController : ApiControllerBase
     {
+        private readonly IMapper _mapper;
+        private readonly IAssetService _assetService;
+
+        public AssetController(IAssetService assetService , IMapper mapper)
+        {
+            _mapper = mapper;
+            _assetService = assetService;
+        }
+
+        /// <summary>
+        /// 新增资产分类
+        /// </summary>
+        /// <param name="dto">资产分类</param>
+        [Logger("用户新建了一个资产分类")]
+        [HttpPost("create")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult> CreateAsync([FromBody] ModifyAssetDto dto)
+        {
+            await _assetService.InsertAsync(_mapper.Map<AssetEntity>(dto));
+            return ServiceResult.Successed("资产分类创建成功");
+        }
     }
 }

@@ -22,19 +22,19 @@ namespace Memoyu.Mbill.Application.Bill.Category
     public interface ICategoryService
     {
         /// <summary>
-        /// 新增账目分类
+        /// 新增账单分类
         /// </summary>
-        /// <param name="inputDto">数据源</param>
+        /// <param name="categroy">数据源</param>
         /// <returns></returns>
-        Task InsertAsync( CategoryEntity inputDto);
+        Task InsertAsync( CategoryEntity categroy);
 
         /// <summary>
-        /// 更新账目分类
+        /// 更新账单分类
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="inputDto"></param>
+        /// <param name="categroy"></param>
         /// <returns></returns>
-        Task UpdateAsync(long id, CategoryEntity inputDto);
+        Task UpdateAsync(long id, CategoryEntity categroy);
 
         Task DeleteAsync(long id);
 

@@ -109,12 +109,12 @@
         </member>
         <member name="T:Memoyu.Mbill.Domain.Entities.Bill.Asset.AssetEntity">
             <summary>
-            资产信息实体
+            资产分类实体
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Asset.AssetEntity.Name">
             <summary>
-            资产名
+            资产分类名
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Asset.AssetEntity.ParentId">
@@ -124,7 +124,7 @@
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Asset.AssetEntity.Type">
             <summary>
-            资产类型：存款、负债
+            资产分类类型：存款、负债
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Asset.AssetEntity.Amount">

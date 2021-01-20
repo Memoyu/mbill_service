@@ -45,14 +45,14 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// <summary>
         /// 新增账单分类
         /// </summary>
-        /// <param name="categoryInput"></param>
+        /// <param name="dto">账单分类</param>
         [Logger("用户新建了一个账单分类")]
         [HttpPost("create")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult> CreateAsync([FromBody] ModifyCategoryDto categoryInput)
+        public async Task<ServiceResult> CreateAsync([FromBody] ModifyCategoryDto dto)
         {
-            await _categoryService.InsertAsync(_mapper.Map<CategoryEntity>(categoryInput));
+            await _categoryService.InsertAsync(_mapper.Map<CategoryEntity>(dto));
             return ServiceResult.Successed("账单分类创建成功");
         }
     }
