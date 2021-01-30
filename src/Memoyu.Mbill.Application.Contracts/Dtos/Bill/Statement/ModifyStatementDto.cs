@@ -9,12 +9,19 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
     public class ModifyStatementDto
     {
+        /// <summary>
+        /// 分类Id
+        /// </summary>
+        [Required(ErrorMessage = "必须传入账单分类Id")]
+        public long CategoryId { get; set; }
+
         /// <summary>
         /// 资产Id
         /// </summary>
@@ -53,28 +60,33 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
         /// <summary>
         /// 地点
         /// </summary>
-        public string Location { get; set; }
+        public string Address { get; set; }
 
         /// <summary>
-        /// 记录日期：年
+        /// 地点:省
         /// </summary>
-        [Required(ErrorMessage = "必须传入记录日期：年")]
-        [Range(1997, 3030, ErrorMessage = "日期年应该在1997-3030之间")]
-        public int Year { get; set; }
+        public string Province { get; set; }
 
         /// <summary>
-        /// 记录日期：月
+        /// 地点:市
         /// </summary>
-        [Required(ErrorMessage = "必须传入记录日期：月")]
-        [Range(1, 12, ErrorMessage = "日期月应该在1-12之间")]
-        public int Month { get; set; }
+        public string City { get; set; }
 
         /// <summary>
-        /// 记录日期：日
+        /// 地点:区/县
         /// </summary>
-        [Required(ErrorMessage = "必须传入记录日期：日")]
-        [Range(1, 31, ErrorMessage = "日期日应该在1-31之间")]
-        public int Day { get; set; }
+        public string District { get; set; }
+
+        /// <summary>
+        /// 地点:街道/镇
+        /// </summary>
+        public string Street { get; set; }
+
+        /// <summary>
+        /// 记录日期：日期
+        /// </summary>
+        [Required(ErrorMessage = "必须传入记录日期")]
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// 记录日期：时间

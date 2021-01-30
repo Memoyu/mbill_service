@@ -10,9 +10,9 @@
 *   功能描述 ：
 ***************************************************************************/
 using AutoMapper;
-using Memoyu.Mbill.Application.Contracts.Mapper.Asset;
-using Memoyu.Mbill.Application.Contracts.Mapper.Category;
-using Memoyu.Mbill.Application.Contracts.Mapper.Statement;
+using Memoyu.Mbill.Application.Contracts.Mapper.Bill.Asset;
+using Memoyu.Mbill.Application.Contracts.Mapper.Bill.Category;
+using Memoyu.Mbill.Application.Contracts.Mapper.Bill.Statement;
 using Memoyu.Mbill.Application.Contracts.Mapper.User;
 
 namespace Memoyu.Mbill.Application.Contracts.Mapper

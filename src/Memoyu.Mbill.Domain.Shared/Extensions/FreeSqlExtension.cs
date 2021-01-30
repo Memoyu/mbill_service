@@ -10,14 +10,17 @@
 *   功能描述 ：
 ***************************************************************************/
 using FreeSql;
+using Memoyu.Mbill.ToolKits.Base.Page;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Domain.Shared.Extensions
 {
@@ -26,6 +29,65 @@ namespace Memoyu.Mbill.Domain.Shared.Extensions
     /// </summary>
     public static class FreeSqlExtension
     {
+        public static ISelect<TEntity> ToPage<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
+        {
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size);
+        }
+
+        /// <summary>
+        /// 分页处理，同步
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="pageDto"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static List<TEntity> ToPageList<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
+        {
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToList();
+        }
+
+        /// <summary>
+        /// 分页处理，异步
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="pageDto"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static Task<List<TEntity>> ToPageListAsync<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
+        {
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToListAsync();
+        }
+
+        /// <summary>
+        /// 分页处理并映射Dto，同步
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="pageDto"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static List<TResult> ToPageList<TEntity, TResult>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
+        {
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToList<TResult>();
+        }
+
+        /// <summary>
+        /// 分页处理并映射Dto，异步
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="pageDto"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static Task<List<TResult>> ToPageListAsync<TEntity, TResult>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
+        {
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToListAsync<TResult>();
+        }
+
         public static FreeSqlBuilder UseConnectionString(this FreeSqlBuilder builder, IConfiguration configuration)
         {
             IConfigurationSection dbTypeCode = configuration.GetSection("ConnectionStrings:DefaultDB");

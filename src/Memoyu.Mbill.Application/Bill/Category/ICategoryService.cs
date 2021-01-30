@@ -41,8 +41,9 @@ namespace Memoyu.Mbill.Application.Bill.Category
         /// <summary>
         /// 获取分级后的组合类别数据
         /// </summary>
+        /// <param name="type"></param>
         /// <returns></returns>
-        Task<IEnumerable<CategoryDto>> GetClassificationAsync();
+        Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(string type);
 
         Task<IEnumerable<CategoryDto>> GetListAsync();
 

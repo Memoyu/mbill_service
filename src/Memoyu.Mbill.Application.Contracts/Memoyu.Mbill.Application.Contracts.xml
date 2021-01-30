@@ -38,6 +38,11 @@
             <param name="methodInfo">method信息</param>
             <returns></returns>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Base.EntityDto`1.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset.ModifyAssetDto.Name">
             <summary>
             资产分类名
@@ -98,6 +103,11 @@
             排序
             </summary>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.AssetId">
             <summary>
             资产Id
@@ -128,24 +138,34 @@
             说明
             </summary>
         </member>
-        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Location">
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Address">
             <summary>
             地点
             </summary>
         </member>
-        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Year">
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Province">
             <summary>
-            记录日期：年
+            地点:省
             </summary>
         </member>
-        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Month">
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.City">
             <summary>
-            记录日期：月
+            地点:市
             </summary>
         </member>
-        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Day">
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.District">
             <summary>
-            记录日期：日
+            地点:区/县
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Street">
+            <summary>
+            地点:街道/镇
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Date">
+            <summary>
+            记录日期：日期
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Time">

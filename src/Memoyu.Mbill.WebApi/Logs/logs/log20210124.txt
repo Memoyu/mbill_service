@@ -1,0 +1,1058 @@
+2021-01-24 00:01:43.449 +08:00 [INF] init main
+2021-01-24 00:01:44.455 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 00:01:44.456 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 00:01:44.463 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 00:01:44.464 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 00:01:44.595 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 00:01:44.656 +08:00 [INF] Starting the processing server.
+2021-01-24 00:01:44.704 +08:00 [INF] ### CAP started!
+2021-01-24 00:01:44.825 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 00:01:44.826 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 00:01:44.826 +08:00 [INF] Hosting environment: Development
+2021-01-24 00:01:44.826 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 00:01:50.390 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-01-24 00:01:50.461 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 73.9184ms
+2021-01-24 00:01:50.489 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui-standalone-preset.js - -
+2021-01-24 00:01:50.491 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui-bundle.js - -
+2021-01-24 00:01:50.507 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-01-24 00:01:50.509 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 20.0513ms
+2021-01-24 00:01:50.510 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-01-24 00:01:50.511 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui-bundle.js - - - 200 986342 application/javascript 20.2769ms
+2021-01-24 00:01:50.735 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-24 00:01:50.736 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-24 00:01:50.736 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 1.4427ms
+2021-01-24 00:02:26.379 +08:00 [INF] init main
+2021-01-24 00:02:27.281 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 00:02:27.283 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 00:02:27.289 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 00:02:27.290 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 00:02:27.405 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 00:02:27.463 +08:00 [INF] Starting the processing server.
+2021-01-24 00:02:27.504 +08:00 [INF] ### CAP started!
+2021-01-24 00:02:27.589 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 00:02:27.590 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 00:02:27.590 +08:00 [INF] Hosting environment: Development
+2021-01-24 00:02:27.590 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 00:02:27.849 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-01-24 00:02:27.916 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 70.8268ms
+2021-01-24 00:02:28.150 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-24 00:02:28.153 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-01-24 00:02:28.160 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-01-24 00:02:28.161 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 7.9678ms
+2021-01-24 00:02:28.235 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 85.3209ms
+2021-01-24 00:03:16.352 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarylLaueD4pXx4tBKAS 2202
+2021-01-24 00:03:16.549 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarylLaueD4pXx4tBKAS 2202 - 401 - application/json 196.8868ms
+2021-01-24 00:03:36.650 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarybFrYbD9Y9GM99y3A 2202
+2021-01-24 00:03:36.750 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:03:36.874 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:03:36.879 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarybFrYbD9Y9GM99y3A 2202 - 200 264 application/json;+charset=utf-8 228.7166ms
+2021-01-24 00:06:35.535 +08:00 [INF] init main
+2021-01-24 00:06:36.378 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 00:06:36.379 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 00:06:36.385 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 00:06:36.386 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 00:06:36.500 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 00:06:36.554 +08:00 [INF] Starting the processing server.
+2021-01-24 00:06:36.601 +08:00 [INF] ### CAP started!
+2021-01-24 00:06:36.697 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 00:06:36.697 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 00:06:36.698 +08:00 [INF] Hosting environment: Development
+2021-01-24 00:06:36.698 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 00:06:43.969 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryAOPcjI9eCZIWwucH 144
+2021-01-24 00:06:44.254 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:06:44.324 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:06:44.335 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryAOPcjI9eCZIWwucH 144 - 500 - application/json 369.1644ms
+2021-01-24 00:07:04.467 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarydGSJHmswGB5DU4gn 2202
+2021-01-24 00:07:04.474 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:07:04.546 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:07:04.552 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarydGSJHmswGB5DU4gn 2202 - 200 242 application/json;+charset=utf-8 85.1221ms
+2021-01-24 00:08:00.384 +08:00 [INF] init main
+2021-01-24 00:08:01.314 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 00:08:01.316 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 00:08:01.321 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 00:08:01.323 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 00:08:01.443 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 00:08:01.506 +08:00 [INF] Starting the processing server.
+2021-01-24 00:08:01.551 +08:00 [INF] ### CAP started!
+2021-01-24 00:08:01.644 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 00:08:01.644 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 00:08:01.644 +08:00 [INF] Hosting environment: Development
+2021-01-24 00:08:01.644 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 00:08:09.401 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryNqB3pCA1yAMZJP8W 2202
+2021-01-24 00:08:09.683 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:08:09.797 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:08:09.814 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryNqB3pCA1yAMZJP8W 2202 - 200 254 application/json;+charset=utf-8 415.4271ms
+2021-01-24 00:09:33.978 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryqmNhSPSJ8aZ2BSZP 2202
+2021-01-24 00:09:33.987 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:09:34.005 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:09:34.008 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryqmNhSPSJ8aZ2BSZP 2202 - 200 254 application/json;+charset=utf-8 29.6615ms
+2021-01-24 00:11:30.304 +08:00 [INF] Application is shutting down...
+2021-01-24 00:11:30.327 +08:00 [INF] Shutting down the processing server...
+2021-01-24 00:11:30.328 +08:00 [INF] ### CAP shutdown!
+2021-01-24 00:11:38.603 +08:00 [INF] init main
+2021-01-24 00:11:40.425 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 00:11:40.428 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 00:11:40.436 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 00:11:40.437 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 00:11:40.592 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 00:11:40.680 +08:00 [INF] Starting the processing server.
+2021-01-24 00:11:40.727 +08:00 [INF] ### CAP started!
+2021-01-24 00:11:40.902 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 00:11:40.903 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 00:11:40.903 +08:00 [INF] Hosting environment: Development
+2021-01-24 00:11:40.904 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 00:11:42.887 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarydvwjz7QI3jZqs7Xi 2202
+2021-01-24 00:11:43.287 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:11:43.420 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:11:43.442 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarydvwjz7QI3jZqs7Xi 2202 - 200 254 application/json;+charset=utf-8 558.1589ms
+2021-01-24 00:11:54.784 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryIwNAt4aEPKVSARij 2202
+2021-01-24 00:11:54.790 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:13:35.724 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 00:13:35.727 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryIwNAt4aEPKVSARij 2202 - 200 254 application/json;+charset=utf-8 100943.1736ms
+2021-01-24 09:46:11.173 +08:00 [INF] init main
+2021-01-24 09:46:11.771 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 725
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 615
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 467
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 110
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 198
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 131
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 31
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Memoyu.Mbill.WebApi.Program.Main(String[] args) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Program.cs:line 25
+2021-01-24 09:47:04.490 +08:00 [INF] init main
+2021-01-24 09:47:05.386 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 09:47:05.387 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 09:47:05.393 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 09:47:05.394 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 09:47:05.492 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 09:47:05.558 +08:00 [INF] Starting the processing server.
+2021-01-24 09:47:05.602 +08:00 [INF] ### CAP started!
+2021-01-24 09:47:05.719 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 09:47:05.720 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 09:47:05.720 +08:00 [INF] Hosting environment: Development
+2021-01-24 09:47:05.720 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 09:48:39.697 +08:00 [INF] init main
+2021-01-24 09:48:40.538 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 09:48:40.540 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 09:48:40.546 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 09:48:40.547 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 09:48:40.655 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 09:48:40.706 +08:00 [INF] Starting the processing server.
+2021-01-24 09:48:40.750 +08:00 [INF] ### CAP started!
+2021-01-24 09:48:40.835 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 09:48:40.835 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 09:48:40.835 +08:00 [INF] Hosting environment: Development
+2021-01-24 09:48:40.836 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 09:48:40.847 +08:00 [INF] Application is shutting down...
+2021-01-24 09:48:40.866 +08:00 [INF] Shutting down the processing server...
+2021-01-24 09:48:40.868 +08:00 [INF] ### CAP shutdown!
+2021-01-24 09:48:46.658 +08:00 [INF] init main
+2021-01-24 09:48:48.460 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 09:48:48.462 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 09:48:48.472 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 09:48:48.474 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 09:48:48.637 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 09:48:48.726 +08:00 [INF] Starting the processing server.
+2021-01-24 09:48:48.777 +08:00 [INF] ### CAP started!
+2021-01-24 09:48:48.943 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 09:48:48.944 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 09:48:48.944 +08:00 [INF] Hosting environment: Development
+2021-01-24 09:48:48.944 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 09:48:50.262 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2021-01-24 09:48:50.307 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 301 0 - 48.6246ms
+2021-01-24 09:48:50.317 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-01-24 09:48:50.363 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 45.8754ms
+2021-01-24 09:48:51.303 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-24 09:48:51.391 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 88.3927ms
+2021-01-24 09:49:04.187 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60
+2021-01-24 09:49:04.355 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-24 09:49:04.775 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-24 09:49:04.789 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60 - 200 934 application/json;+charset=utf-8 601.5532ms
+2021-01-24 09:49:37.226 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-01-24 09:49:37.244 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 17.9523ms
+2021-01-24 09:50:01.969 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryRDFTAdiH3GWnPtd6 2202
+2021-01-24 09:50:02.032 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 09:51:22.671 +08:00 [WRN] Get messages of type 'MediumMessage' failed. Retrying...
+MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 956
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 371
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 110
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 868
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at DotNetCore.CAP.MySql.DbConnectionExtensions.ExecuteReader[T](IDbConnection connection, String sql, Func`2 readerFunc, Object[] sqlParams)
+   at DotNetCore.CAP.MySql.MySqlDataStorage.GetMessagesOfNeedRetryAsync(String tableName)
+   at DotNetCore.CAP.MySql.MySqlDataStorage.GetMessagesOfNeedRetryAsync(String tableName)
+   at DotNetCore.CAP.MySql.MySqlDataStorage.GetReceivedMessagesOfNeedRetry()
+   at DotNetCore.CAP.Processor.MessageNeedToRetryProcessor.GetSafelyAsync[T](Func`1 getMessagesAsync)
+2021-01-24 09:51:22.673 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 09:51:22.731 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryRDFTAdiH3GWnPtd6 2202 - 200 254 application/json;+charset=utf-8 80762.5263ms
+2021-01-24 09:55:14.182 +08:00 [INF] init main
+2021-01-24 09:55:15.677 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 09:55:15.679 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 09:55:15.685 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 09:55:15.686 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 09:55:15.824 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 09:55:15.898 +08:00 [INF] Starting the processing server.
+2021-01-24 09:55:15.942 +08:00 [INF] ### CAP started!
+2021-01-24 09:55:16.091 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 09:55:16.091 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 09:55:16.091 +08:00 [INF] Hosting environment: Development
+2021-01-24 09:55:16.092 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 09:55:26.931 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryfUerR6oxmpQc5dy1 2202
+2021-01-24 09:55:27.294 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 09:55:39.137 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 09:55:39.153 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundaryfUerR6oxmpQc5dy1 2202 - 200 254 application/json;+charset=utf-8 12225.0047ms
+2021-01-24 09:55:47.226 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarypdvoHoiroWPQfbrd 2202
+2021-01-24 09:55:47.233 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 09:55:47.242 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile (Memoyu.Mbill.WebApi)'
+2021-01-24 09:55:47.243 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/file/upload?type=asset multipart/form-data;+boundary=----WebKitFormBoundarypdvoHoiroWPQfbrd 2202 - 200 254 application/json;+charset=utf-8 17.0725ms
+2021-01-24 10:21:50.316 +08:00 [INF] Application is shutting down...
+2021-01-24 10:21:50.355 +08:00 [INF] Shutting down the processing server...
+2021-01-24 10:21:50.356 +08:00 [INF] ### CAP shutdown!
+2021-01-24 10:25:14.979 +08:00 [INF] init main
+2021-01-24 10:25:15.789 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 10:25:15.791 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 10:25:15.796 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 10:25:15.797 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 10:25:15.901 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 10:25:15.949 +08:00 [INF] Starting the processing server.
+2021-01-24 10:25:15.989 +08:00 [INF] ### CAP started!
+2021-01-24 10:25:16.072 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 10:25:16.072 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 10:25:16.072 +08:00 [INF] Hosting environment: Development
+2021-01-24 10:25:16.073 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 10:27:21.545 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 10:27:21.813 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 10:27:21.999 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 10:27:22.015 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 472.8063ms
+2021-01-24 10:27:22.030 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - -
+2021-01-24 10:27:22.030 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - -
+2021-01-24 10:27:22.031 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - -
+2021-01-24 10:27:22.032 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - -
+2021-01-24 10:27:22.033 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_alipay_64.png - -
+2021-01-24 10:27:22.034 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_wechat_64.png - -
+2021-01-24 10:27:22.034 +08:00 [INF] The file /core/images/asset/icon_jd_64.png was not modified
+2021-01-24 10:27:22.034 +08:00 [INF] The file /core/images/asset/icon_bank_card_64.png was not modified
+2021-01-24 10:27:22.034 +08:00 [INF] The file /core/images/asset/icon_huabei_64.png was not modified
+2021-01-24 10:27:22.034 +08:00 [INF] The file /core/images/asset/icon_alipay_64.png was not modified
+2021-01-24 10:27:22.034 +08:00 [INF] The file /core/images/asset/icon_credit_card_64.png was not modified
+2021-01-24 10:27:22.035 +08:00 [INF] The file /core/images/asset/icon_wechat_64.png was not modified
+2021-01-24 10:27:22.035 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - - - 304 - image/png 5.3153ms
+2021-01-24 10:27:22.035 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - - - 304 - image/png 5.3148ms
+2021-01-24 10:27:22.035 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - - - 304 - image/png 4.0884ms
+2021-01-24 10:27:22.035 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_alipay_64.png - - - 304 - image/png 2.6139ms
+2021-01-24 10:27:22.035 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - - - 304 - image/png 3.2924ms
+2021-01-24 10:27:22.036 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_wechat_64.png - - - 304 - image/png 1.3847ms
+2021-01-24 10:27:23.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 10:27:23.732 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 10:27:23.764 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 10:27:23.766 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 3266 application/json;+charset=utf-8 38.9011ms
+2021-01-24 11:44:33.642 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 11:44:33.655 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 11:44:33.662 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 11:44:33.663 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 20.8042ms
+2021-01-24 11:44:33.692 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_pizza_64.png - -
+2021-01-24 11:44:33.694 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 11:44:33.694 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_champagne_Bottle_64.png - -
+2021-01-24 11:44:33.695 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_grape_64.png - -
+2021-01-24 11:44:33.696 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_confetti_64.png - -
+2021-01-24 11:44:33.698 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - -
+2021-01-24 11:44:33.699 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_confetti_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_confetti_64.png'
+2021-01-24 11:44:33.699 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_mushroom_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_mushroom_64.png'
+2021-01-24 11:44:33.699 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_bus_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_bus_64.png'
+2021-01-24 11:44:33.699 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_champagne_Bottle_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_champagne_Bottle_64.png'
+2021-01-24 11:44:33.699 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_pizza_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_pizza_64.png'
+2021-01-24 11:44:33.699 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_grape_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_grape_64.png'
+2021-01-24 11:44:33.699 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_confetti_64.png - - - 200 2685 image/png 2.9655ms
+2021-01-24 11:44:33.699 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 200 2153 image/png 5.6408ms
+2021-01-24 11:44:33.699 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - - - 200 4145 image/png 1.7896ms
+2021-01-24 11:44:33.700 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_champagne_Bottle_64.png - - - 200 2393 image/png 5.3398ms
+2021-01-24 11:44:33.700 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_pizza_64.png - - - 200 3918 image/png 7.6371ms
+2021-01-24 11:44:33.700 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_grape_64.png - - - 200 2840 image/png 5.2102ms
+2021-01-24 11:44:33.706 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - -
+2021-01-24 11:44:33.706 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - -
+2021-01-24 11:44:33.706 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_subway_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_subway_64.png'
+2021-01-24 11:44:33.706 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_taxi_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_taxi_64.png'
+2021-01-24 11:44:33.706 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - - - 200 2334 image/png 0.8905ms
+2021-01-24 11:44:33.706 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_makeup_64.png - -
+2021-01-24 11:44:33.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - -
+2021-01-24 11:44:33.707 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - - - 200 3339 image/png 1.0291ms
+2021-01-24 11:44:33.707 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_makeup_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_makeup_64.png'
+2021-01-24 11:44:33.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - -
+2021-01-24 11:44:33.707 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_nail_polish_64.png - -
+2021-01-24 11:44:33.707 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_facial_mask_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_facial_mask_64.png'
+2021-01-24 11:44:33.708 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_makeup_64.png - - - 200 3120 image/png 1.1505ms
+2021-01-24 11:44:33.708 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_lipstick_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_lipstick_64.png'
+2021-01-24 11:44:33.708 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - - - 200 2756 image/png 1.4998ms
+2021-01-24 11:44:33.708 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_nail_polish_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_nail_polish_64.png'
+2021-01-24 11:44:33.708 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - - - 200 1459 image/png 1.2514ms
+2021-01-24 11:44:33.709 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_nail_polish_64.png - - - 200 2285 image/png 1.4552ms
+2021-01-24 11:44:33.711 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_pill_64.png - -
+2021-01-24 11:44:33.711 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_syringe_64.png - -
+2021-01-24 11:44:33.712 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_pill_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_pill_64.png'
+2021-01-24 11:44:33.712 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_syringe_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_syringe_64.png'
+2021-01-24 11:44:33.712 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_pill_64.png - - - 200 2416 image/png 0.8395ms
+2021-01-24 11:44:33.712 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_syringe_64.png - - - 200 1950 image/png 0.8788ms
+2021-01-24 11:44:33.713 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - -
+2021-01-24 11:44:33.714 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_movies_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_movies_64.png'
+2021-01-24 11:44:33.714 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - - - 200 1252 image/png 0.8642ms
+2021-01-24 11:44:33.716 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_imac_64.png - -
+2021-01-24 11:44:33.716 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - -
+2021-01-24 11:44:33.717 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_imac_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_imac_64.png'
+2021-01-24 11:44:33.717 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_game_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_game_64.png'
+2021-01-24 11:44:33.717 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_imac_64.png - - - 200 1414 image/png 1.1038ms
+2021-01-24 11:44:33.718 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - - - 200 1858 image/png 1.2691ms
+2021-01-24 11:44:33.722 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - -
+2021-01-24 11:44:33.723 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - -
+2021-01-24 11:44:33.723 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_cycling_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_cycling_64.png'
+2021-01-24 11:44:33.723 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_t_shirt_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_t_shirt_64.png'
+2021-01-24 11:44:33.724 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - - - 200 4865 image/png 1.1517ms
+2021-01-24 11:44:33.724 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - - - 200 1557 image/png 0.9753ms
+2021-01-24 11:44:33.725 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - -
+2021-01-24 11:44:33.725 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shorts_64.png - -
+2021-01-24 11:44:33.726 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_cap_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_cap_64.png'
+2021-01-24 11:44:33.726 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_shorts_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_shorts_64.png'
+2021-01-24 11:44:33.726 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - -
+2021-01-24 11:44:33.726 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_purse_64.png - -
+2021-01-24 11:44:33.726 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - - - 200 1791 image/png 0.8836ms
+2021-01-24 11:44:33.726 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shorts_64.png - - - 200 2071 image/png 1.1160ms
+2021-01-24 11:44:33.727 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_shoes_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_shoes_64.png'
+2021-01-24 11:44:33.727 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_purse_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_purse_64.png'
+2021-01-24 11:44:33.727 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - - - 200 1610 image/png 1.3700ms
+2021-01-24 11:44:33.728 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_purse_64.png - - - 200 2222 image/png 1.4923ms
+2021-01-24 11:44:33.738 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_book_64.png - -
+2021-01-24 11:44:33.738 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_browser_64.png - -
+2021-01-24 11:44:33.738 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_book_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_book_64.png'
+2021-01-24 11:44:33.739 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_browser_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_browser_64.png'
+2021-01-24 11:44:33.739 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_book_64.png - - - 200 1597 image/png 0.9682ms
+2021-01-24 11:44:33.739 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_browser_64.png - - - 200 2130 image/png 0.8773ms
+2021-01-24 11:44:33.752 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - -
+2021-01-24 11:44:33.753 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_house_64.png - -
+2021-01-24 11:44:33.753 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_read_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_read_64.png'
+2021-01-24 11:44:33.754 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - - - 200 3988 image/png 1.1496ms
+2021-01-24 11:44:33.754 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_house_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_house_64.png'
+2021-01-24 11:44:33.754 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_house_64.png - - - 200 947 image/png 1.0709ms
+2021-01-24 11:44:33.755 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - -
+2021-01-24 11:44:33.756 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_tissue_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_tissue_64.png'
+2021-01-24 11:44:33.756 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - - - 200 2765 image/png 0.8801ms
+2021-01-24 11:44:33.758 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - -
+2021-01-24 11:44:33.759 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_bill_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_bill_64.png'
+2021-01-24 11:44:33.759 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - - - 200 2727 image/png 1.2203ms
+2021-01-24 11:44:33.838 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - -
+2021-01-24 11:44:33.838 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - -
+2021-01-24 11:44:33.839 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_wage_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_wage_64.png'
+2021-01-24 11:44:33.839 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_bill2_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_bill2_64.png'
+2021-01-24 11:44:33.840 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - - - 200 4157 image/png 1.3119ms
+2021-01-24 11:44:33.840 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - - - 200 3554 image/png 1.5422ms
+2021-01-24 11:44:33.850 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - -
+2021-01-24 11:44:33.850 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_investment_64.png - -
+2021-01-24 11:44:33.850 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - -
+2021-01-24 11:44:33.850 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_work_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_work_64.png'
+2021-01-24 11:44:33.850 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_investment_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_investment_64.png'
+2021-01-24 11:44:33.851 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - - - 200 7444 image/png 1.0913ms
+2021-01-24 11:44:33.851 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_red_envelope_64.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\category\icon_red_envelope_64.png'
+2021-01-24 11:44:33.851 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_investment_64.png - - - 200 1200 image/png 0.8142ms
+2021-01-24 11:44:33.851 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - - - 200 2182 image/png 1.1043ms
+2021-01-24 11:45:46.378 +08:00 [INF] init main
+2021-01-24 11:45:47.209 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 11:45:47.211 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 11:45:47.216 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 11:45:47.218 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 11:45:47.323 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 11:45:47.373 +08:00 [INF] Starting the processing server.
+2021-01-24 11:45:47.414 +08:00 [INF] ### CAP started!
+2021-01-24 11:45:47.497 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 11:45:47.497 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 11:45:47.497 +08:00 [INF] Hosting environment: Development
+2021-01-24 11:45:47.497 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 11:53:29.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg_533x300.png - -
+2021-01-24 11:53:29.151 +08:00 [INF] Sending file. Request path: '/core/images/other/index_bg_533x300.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\other\index_bg_533x300.png'
+2021-01-24 11:53:29.157 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg_533x300.png - - - 200 180344 image/png 54.9372ms
+2021-01-24 11:57:21.128 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg2_533x300.png - -
+2021-01-24 11:57:21.130 +08:00 [INF] Sending file. Request path: '/core/images/other/index_bg2_533x300.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\other\index_bg2_533x300.png'
+2021-01-24 11:57:21.131 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg2_533x300.png - - - 200 257698 image/png 2.8032ms
+2021-01-24 11:57:36.586 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 11:57:36.588 +08:00 [INF] Sending file. Request path: '/core/images/other/index_bg3_533x300.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\other\index_bg3_533x300.png'
+2021-01-24 11:57:36.589 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 200 288553 image/png 2.5133ms
+2021-01-24 11:58:40.978 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 11:58:41.234 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 11:58:41.426 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 11:58:41.436 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 458.0847ms
+2021-01-24 11:58:41.454 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 11:58:41.455 +08:00 [INF] The file /core/images/category/icon_mushroom_64.png was not modified
+2021-01-24 11:58:41.456 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 304 - image/png 2.2459ms
+2021-01-24 11:58:41.459 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - -
+2021-01-24 11:58:41.459 +08:00 [INF] The file /core/images/category/icon_bus_64.png was not modified
+2021-01-24 11:58:41.459 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - - - 304 - image/png 0.9437ms
+2021-01-24 11:58:41.461 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - -
+2021-01-24 11:58:41.461 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - -
+2021-01-24 11:58:41.461 +08:00 [INF] The file /core/images/category/icon_subway_64.png was not modified
+2021-01-24 11:58:41.462 +08:00 [INF] The file /core/images/category/icon_taxi_64.png was not modified
+2021-01-24 11:58:41.462 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - - - 304 - image/png 0.8734ms
+2021-01-24 11:58:41.462 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - - - 304 - image/png 1.2198ms
+2021-01-24 11:58:41.465 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - -
+2021-01-24 11:58:41.465 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - -
+2021-01-24 11:58:41.466 +08:00 [INF] The file /core/images/category/icon_facial_mask_64.png was not modified
+2021-01-24 11:58:41.466 +08:00 [INF] The file /core/images/category/icon_lipstick_64.png was not modified
+2021-01-24 11:58:41.466 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - - - 304 - image/png 1.0035ms
+2021-01-24 11:58:41.466 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - - - 304 - image/png 0.8287ms
+2021-01-24 11:58:41.472 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - -
+2021-01-24 11:58:41.473 +08:00 [INF] The file /core/images/category/icon_movies_64.png was not modified
+2021-01-24 11:58:41.473 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - - - 304 - image/png 0.8275ms
+2021-01-24 11:58:41.473 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - -
+2021-01-24 11:58:41.474 +08:00 [INF] The file /core/images/category/icon_game_64.png was not modified
+2021-01-24 11:58:41.474 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - - - 304 - image/png 0.6053ms
+2021-01-24 11:58:41.474 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - -
+2021-01-24 11:58:41.474 +08:00 [INF] The file /core/images/category/icon_cycling_64.png was not modified
+2021-01-24 11:58:41.475 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - -
+2021-01-24 11:58:41.475 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - - - 304 - image/png 0.8686ms
+2021-01-24 11:58:41.475 +08:00 [INF] The file /core/images/category/icon_t_shirt_64.png was not modified
+2021-01-24 11:58:41.476 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - - - 304 - image/png 1.0197ms
+2021-01-24 11:58:41.477 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - -
+2021-01-24 11:58:41.478 +08:00 [INF] The file /core/images/category/icon_cap_64.png was not modified
+2021-01-24 11:58:41.478 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - -
+2021-01-24 11:58:41.478 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - - - 304 - image/png 0.7101ms
+2021-01-24 11:58:41.478 +08:00 [INF] The file /core/images/category/icon_shoes_64.png was not modified
+2021-01-24 11:58:41.478 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - - - 304 - image/png 0.6453ms
+2021-01-24 11:58:41.486 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - -
+2021-01-24 11:58:41.487 +08:00 [INF] The file /core/images/category/icon_read_64.png was not modified
+2021-01-24 11:58:41.487 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - - - 304 - image/png 0.9309ms
+2021-01-24 11:58:41.488 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - -
+2021-01-24 11:58:41.489 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - -
+2021-01-24 11:58:41.489 +08:00 [INF] The file /core/images/category/icon_tissue_64.png was not modified
+2021-01-24 11:58:41.489 +08:00 [INF] The file /core/images/category/icon_bill_64.png was not modified
+2021-01-24 11:58:41.490 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - - - 304 - image/png 1.1547ms
+2021-01-24 11:58:41.490 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - - - 304 - image/png 0.7915ms
+2021-01-24 11:58:41.513 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - -
+2021-01-24 11:58:41.513 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - -
+2021-01-24 11:58:41.513 +08:00 [INF] The file /core/images/category/icon_bill2_64.png was not modified
+2021-01-24 11:58:41.513 +08:00 [INF] The file /core/images/category/icon_wage_64.png was not modified
+2021-01-24 11:58:41.514 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - - - 304 - image/png 0.8583ms
+2021-01-24 11:58:41.514 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - - - 304 - image/png 0.9262ms
+2021-01-24 11:58:41.514 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - -
+2021-01-24 11:58:41.514 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - -
+2021-01-24 11:58:41.515 +08:00 [INF] The file /core/images/category/icon_work_64.png was not modified
+2021-01-24 11:58:41.515 +08:00 [INF] The file /core/images/category/icon_red_envelope_64.png was not modified
+2021-01-24 11:58:41.515 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - - - 304 - image/png 0.7165ms
+2021-01-24 11:58:41.515 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - - - 304 - image/png 0.6415ms
+2021-01-24 12:00:32.369 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:00:32.375 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:00:32.381 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:00:32.382 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 13.1411ms
+2021-01-24 12:00:32.414 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 12:00:32.415 +08:00 [INF] The file /core/images/category/icon_mushroom_64.png was not modified
+2021-01-24 12:00:32.415 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 304 - image/png 0.8366ms
+2021-01-24 12:00:37.554 +08:00 [INF] Application is shutting down...
+2021-01-24 12:00:37.586 +08:00 [INF] Shutting down the processing server...
+2021-01-24 12:00:37.586 +08:00 [INF] ### CAP shutdown!
+2021-01-24 12:00:45.534 +08:00 [INF] init main
+2021-01-24 12:00:47.407 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 12:00:47.409 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 12:00:47.415 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 12:00:47.417 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 12:00:47.567 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 12:00:47.649 +08:00 [INF] Starting the processing server.
+2021-01-24 12:00:47.693 +08:00 [INF] ### CAP started!
+2021-01-24 12:00:47.852 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 12:00:47.853 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 12:00:47.853 +08:00 [INF] Hosting environment: Development
+2021-01-24 12:00:47.853 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 12:00:51.999 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:00:52.388 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:00:58.888 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:00:58.901 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 6905.6414ms
+2021-01-24 12:01:41.741 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 12:01:41.755 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 12:01:41.756 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 15.3611ms
+2021-01-24 12:01:44.159 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:01:44.168 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:01:46.597 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:01:46.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 2443.5828ms
+2021-01-24 12:01:59.696 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:01:59.700 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:01:59.708 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:01:59.710 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 13.3018ms
+2021-01-24 12:03:05.676 +08:00 [INF] init main
+2021-01-24 12:03:07.173 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 12:03:07.175 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 12:03:07.181 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 12:03:07.182 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 12:03:07.362 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 12:03:07.446 +08:00 [INF] Starting the processing server.
+2021-01-24 12:03:07.490 +08:00 [INF] ### CAP started!
+2021-01-24 12:03:07.639 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 12:03:07.640 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 12:03:07.640 +08:00 [INF] Hosting environment: Development
+2021-01-24 12:03:07.640 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 12:03:09.704 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:03:10.080 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:03:17.358 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:03:17.371 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 7670.8683ms
+2021-01-24 12:03:17.391 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 12:03:17.400 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - -
+2021-01-24 12:03:17.401 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - -
+2021-01-24 12:03:17.403 +08:00 [INF] The file /core/images/category/icon_lipstick_64.png was not modified
+2021-01-24 12:03:17.403 +08:00 [INF] The file /core/images/category/icon_mushroom_64.png was not modified
+2021-01-24 12:03:17.403 +08:00 [INF] The file /core/images/category/icon_facial_mask_64.png was not modified
+2021-01-24 12:03:17.406 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - - - 304 - image/png 4.8234ms
+2021-01-24 12:03:17.406 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - - - 304 - image/png 5.5317ms
+2021-01-24 12:03:17.406 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 304 - image/png 14.8922ms
+2021-01-24 12:03:17.410 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - -
+2021-01-24 12:03:17.410 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - -
+2021-01-24 12:03:17.415 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - -
+2021-01-24 12:03:17.415 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - -
+2021-01-24 12:03:17.415 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - -
+2021-01-24 12:03:17.416 +08:00 [INF] The file /core/images/category/icon_movies_64.png was not modified
+2021-01-24 12:03:17.416 +08:00 [INF] The file /core/images/category/icon_game_64.png was not modified
+2021-01-24 12:03:17.417 +08:00 [INF] The file /core/images/category/icon_cap_64.png was not modified
+2021-01-24 12:03:17.418 +08:00 [INF] The file /core/images/category/icon_shoes_64.png was not modified
+2021-01-24 12:03:17.419 +08:00 [INF] The file /core/images/category/icon_t_shirt_64.png was not modified
+2021-01-24 12:03:17.420 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - - - 304 - image/png 10.1061ms
+2021-01-24 12:03:17.421 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - - - 304 - image/png 10.9921ms
+2021-01-24 12:03:17.421 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - - - 304 - image/png 6.4346ms
+2021-01-24 12:03:17.422 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - - - 304 - image/png 7.2762ms
+2021-01-24 12:03:17.424 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - -
+2021-01-24 12:03:17.432 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - - - 304 - image/png 17.3707ms
+2021-01-24 12:03:17.435 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - -
+2021-01-24 12:03:17.436 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - -
+2021-01-24 12:03:17.437 +08:00 [INF] The file /core/images/category/icon_read_64.png was not modified
+2021-01-24 12:03:17.438 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - -
+2021-01-24 12:03:17.439 +08:00 [INF] The file /core/images/category/icon_bill_64.png was not modified
+2021-01-24 12:03:17.440 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - -
+2021-01-24 12:03:17.444 +08:00 [INF] The file /core/images/category/icon_tissue_64.png was not modified
+2021-01-24 12:03:17.445 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - - - 304 - image/png 20.9178ms
+2021-01-24 12:03:17.446 +08:00 [INF] The file /core/images/category/icon_bill2_64.png was not modified
+2021-01-24 12:03:17.447 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - - - 304 - image/png 11.2222ms
+2021-01-24 12:03:17.448 +08:00 [INF] The file /core/images/category/icon_wage_64.png was not modified
+2021-01-24 12:03:17.449 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - - - 304 - image/png 12.7509ms
+2021-01-24 12:03:17.450 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - -
+2021-01-24 12:03:17.451 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - - - 304 - image/png 12.7390ms
+2021-01-24 12:03:17.453 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - - - 304 - image/png 13.4222ms
+2021-01-24 12:03:17.456 +08:00 [INF] The file /core/images/category/icon_work_64.png was not modified
+2021-01-24 12:03:17.459 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - -
+2021-01-24 12:03:17.461 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - - - 304 - image/png 10.9511ms
+2021-01-24 12:03:17.462 +08:00 [INF] The file /core/images/category/icon_red_envelope_64.png was not modified
+2021-01-24 12:03:17.464 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - - - 304 - image/png 4.5538ms
+2021-01-24 12:03:50.746 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 12:03:50.752 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 12:03:50.752 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 6.6256ms
+2021-01-24 12:03:53.639 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:03:53.651 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:03:57.635 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:03:57.642 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 4003.6557ms
+2021-01-24 12:05:34.117 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:05:34.127 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:05:34.139 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:05:34.139 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 23.5400ms
+2021-01-24 12:05:34.166 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 12:05:34.167 +08:00 [INF] The file /core/images/category/icon_mushroom_64.png was not modified
+2021-01-24 12:05:34.167 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 304 - image/png 1.3421ms
+2021-01-24 12:05:34.189 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - -
+2021-01-24 12:05:34.189 +08:00 [INF] The file /core/images/category/icon_cycling_64.png was not modified
+2021-01-24 12:05:34.191 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - - - 304 - image/png 2.0245ms
+2021-01-24 12:06:53.782 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 12:06:53.821 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 12:06:53.822 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 43.4260ms
+2021-01-24 12:06:56.070 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:06:56.076 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:06:56.088 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:06:56.090 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 19.6975ms
+2021-01-24 12:07:29.651 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:07:29.660 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:07:29.671 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:07:29.672 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 23.7959ms
+2021-01-24 12:07:29.714 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - -
+2021-01-24 12:07:29.717 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - -
+2021-01-24 12:07:29.717 +08:00 [INF] The file /core/images/category/icon_bus_64.png was not modified
+2021-01-24 12:07:29.718 +08:00 [INF] The file /core/images/category/icon_subway_64.png was not modified
+2021-01-24 12:07:29.721 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - -
+2021-01-24 12:07:29.722 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - - - 304 - image/png 8.4326ms
+2021-01-24 12:07:29.724 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - - - 304 - image/png 7.3055ms
+2021-01-24 12:07:29.726 +08:00 [INF] The file /core/images/category/icon_taxi_64.png was not modified
+2021-01-24 12:07:29.728 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - - - 304 - image/png 6.5406ms
+2021-01-24 12:07:29.735 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - -
+2021-01-24 12:07:29.736 +08:00 [INF] The file /core/images/category/icon_game_64.png was not modified
+2021-01-24 12:07:29.739 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - - - 304 - image/png 3.4349ms
+2021-01-24 12:07:29.771 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - -
+2021-01-24 12:07:29.771 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - -
+2021-01-24 12:07:29.773 +08:00 [INF] The file /core/images/category/icon_read_64.png was not modified
+2021-01-24 12:07:29.774 +08:00 [INF] The file /core/images/category/icon_tissue_64.png was not modified
+2021-01-24 12:07:29.775 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - - - 304 - image/png 4.5926ms
+2021-01-24 12:07:29.776 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - - - 304 - image/png 5.0870ms
+2021-01-24 12:07:29.855 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - -
+2021-01-24 12:07:29.859 +08:00 [INF] The file /core/images/category/icon_red_envelope_64.png was not modified
+2021-01-24 12:07:29.860 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - - - 304 - image/png 5.1395ms
+2021-01-24 12:07:39.530 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups application/json -
+2021-01-24 12:07:39.533 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:07:39.539 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:07:39.540 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups application/json - - 200 5350 application/json;+charset=utf-8 10.4345ms
+2021-01-24 12:07:39.573 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - -
+2021-01-24 12:07:39.573 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - -
+2021-01-24 12:07:39.575 +08:00 [INF] The file /core/images/category/icon_facial_mask_64.png was not modified
+2021-01-24 12:07:39.578 +08:00 [INF] The file /core/images/category/icon_lipstick_64.png was not modified
+2021-01-24 12:07:39.579 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - - - 304 - image/png 6.3686ms
+2021-01-24 12:07:39.583 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - - - 304 - image/png 7.4141ms
+2021-01-24 12:07:39.589 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - -
+2021-01-24 12:07:39.592 +08:00 [INF] The file /core/images/category/icon_t_shirt_64.png was not modified
+2021-01-24 12:07:39.595 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - - - 304 - image/png 5.8797ms
+2021-01-24 12:07:39.627 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - -
+2021-01-24 12:07:39.629 +08:00 [INF] The file /core/images/category/icon_work_64.png was not modified
+2021-01-24 12:07:39.630 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - - - 304 - image/png 3.4837ms
+2021-01-24 12:08:21.568 +08:00 [INF] init main
+2021-01-24 12:08:23.257 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 12:08:23.258 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 12:08:23.264 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 12:08:23.265 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 12:08:23.405 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 12:08:23.487 +08:00 [INF] Starting the processing server.
+2021-01-24 12:08:23.532 +08:00 [INF] ### CAP started!
+2021-01-24 12:08:23.695 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 12:08:23.696 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 12:08:23.696 +08:00 [INF] Hosting environment: Development
+2021-01-24 12:08:23.696 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 12:08:34.267 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-01-24 12:08:34.396 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 131.3649ms
+2021-01-24 12:08:35.482 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-01-24 12:08:35.497 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 15.4885ms
+2021-01-24 12:08:47.496 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - -
+2021-01-24 12:08:47.825 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:08:48.048 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:08:48.061 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - - - 200 76 application/json;+charset=utf-8 564.8451ms
+2021-01-24 12:09:21.231 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - -
+2021-01-24 12:09:21.244 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:09:21.257 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:09:21.259 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - - - 200 76 application/json;+charset=utf-8 32.7245ms
+2021-01-24 12:10:02.534 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - -
+2021-01-24 12:10:02.541 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:10:02.556 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:10:02.558 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - - - 200 76 application/json;+charset=utf-8 26.1760ms
+2021-01-24 12:10:05.259 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - -
+2021-01-24 12:10:05.261 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:10:05.268 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:10:05.269 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=expend - - - 200 76 application/json;+charset=utf-8 10.9263ms
+2021-01-24 12:10:21.716 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend - -
+2021-01-24 12:10:21.722 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:10:21.780 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:10:21.781 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend - - - 200 4698 application/json;+charset=utf-8 65.3078ms
+2021-01-24 12:21:03.597 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 12:21:03.613 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 12:21:03.615 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 17.9508ms
+2021-01-24 12:21:06.526 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json -
+2021-01-24 12:21:06.536 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:21:06.554 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:21:06.555 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json - - 200 4698 application/json;+charset=utf-8 29.8380ms
+2021-01-24 12:21:06.583 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 12:21:06.585 +08:00 [INF] The file /core/images/category/icon_mushroom_64.png was not modified
+2021-01-24 12:21:06.585 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 304 - image/png 2.7047ms
+2021-01-24 12:21:06.588 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - -
+2021-01-24 12:21:06.589 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - -
+2021-01-24 12:21:06.589 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - -
+2021-01-24 12:21:06.589 +08:00 [INF] The file /core/images/category/icon_bus_64.png was not modified
+2021-01-24 12:21:06.589 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - -
+2021-01-24 12:21:06.590 +08:00 [INF] The file /core/images/category/icon_subway_64.png was not modified
+2021-01-24 12:21:06.591 +08:00 [INF] The file /core/images/category/icon_taxi_64.png was not modified
+2021-01-24 12:21:06.595 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - -
+2021-01-24 12:21:06.595 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - - - 304 - image/png 7.7915ms
+2021-01-24 12:21:06.598 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - - - 304 - image/png 9.5742ms
+2021-01-24 12:21:06.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - - - 304 - image/png 13.3797ms
+2021-01-24 12:21:06.605 +08:00 [INF] The file /core/images/category/icon_facial_mask_64.png was not modified
+2021-01-24 12:21:06.606 +08:00 [INF] The file /core/images/category/icon_lipstick_64.png was not modified
+2021-01-24 12:21:06.607 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - -
+2021-01-24 12:21:06.610 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - -
+2021-01-24 12:21:06.612 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - -
+2021-01-24 12:21:06.613 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - - - 304 - image/png 23.1328ms
+2021-01-24 12:21:06.613 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - - - 304 - image/png 18.1451ms
+2021-01-24 12:21:06.615 +08:00 [INF] The file /core/images/category/icon_game_64.png was not modified
+2021-01-24 12:21:06.615 +08:00 [INF] The file /core/images/category/icon_cycling_64.png was not modified
+2021-01-24 12:21:06.616 +08:00 [INF] The file /core/images/category/icon_movies_64.png was not modified
+2021-01-24 12:21:06.618 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - -
+2021-01-24 12:21:06.619 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - - - 304 - image/png 11.4565ms
+2021-01-24 12:21:06.619 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - -
+2021-01-24 12:21:06.620 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - - - 304 - image/png 9.9301ms
+2021-01-24 12:21:06.620 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - - - 304 - image/png 8.5937ms
+2021-01-24 12:21:06.622 +08:00 [INF] The file /core/images/category/icon_t_shirt_64.png was not modified
+2021-01-24 12:21:06.627 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - -
+2021-01-24 12:21:06.630 +08:00 [INF] The file /core/images/category/icon_cap_64.png was not modified
+2021-01-24 12:21:06.633 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - - - 304 - image/png 14.7430ms
+2021-01-24 12:21:06.634 +08:00 [INF] The file /core/images/category/icon_shoes_64.png was not modified
+2021-01-24 12:21:06.634 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - - - 304 - image/png 15.7258ms
+2021-01-24 12:21:06.636 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - - - 304 - image/png 8.3606ms
+2021-01-24 12:21:06.711 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - -
+2021-01-24 12:21:06.712 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - -
+2021-01-24 12:21:06.712 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - -
+2021-01-24 12:21:06.714 +08:00 [INF] The file /core/images/category/icon_read_64.png was not modified
+2021-01-24 12:21:06.714 +08:00 [INF] The file /core/images/category/icon_tissue_64.png was not modified
+2021-01-24 12:21:06.716 +08:00 [INF] The file /core/images/category/icon_bill_64.png was not modified
+2021-01-24 12:21:06.719 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - - - 304 - image/png 7.5652ms
+2021-01-24 12:21:06.720 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - - - 304 - image/png 8.0047ms
+2021-01-24 12:21:06.721 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - - - 304 - image/png 8.8695ms
+2021-01-24 12:21:06.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - -
+2021-01-24 12:21:06.729 +08:00 [INF] The file /core/images/category/icon_bill2_64.png was not modified
+2021-01-24 12:21:06.729 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - - - 304 - image/png 1.9981ms
+2021-01-24 12:23:00.940 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json -
+2021-01-24 12:23:00.951 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:23:00.963 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:23:00.964 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json - - 200 4698 application/json;+charset=utf-8 24.7768ms
+2021-01-24 12:23:07.646 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=income application/json -
+2021-01-24 12:23:07.652 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:23:07.657 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:23:07.658 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=income application/json - - 200 727 application/json;+charset=utf-8 11.6710ms
+2021-01-24 12:23:07.682 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - -
+2021-01-24 12:23:07.682 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - -
+2021-01-24 12:23:07.684 +08:00 [INF] The file /core/images/category/icon_wage_64.png was not modified
+2021-01-24 12:23:07.684 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - -
+2021-01-24 12:23:07.685 +08:00 [INF] The file /core/images/category/icon_work_64.png was not modified
+2021-01-24 12:23:07.685 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - - - 304 - image/png 3.7020ms
+2021-01-24 12:23:07.688 +08:00 [INF] The file /core/images/category/icon_red_envelope_64.png was not modified
+2021-01-24 12:23:07.688 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - - - 304 - image/png 6.2093ms
+2021-01-24 12:23:07.695 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - - - 304 - image/png 10.6827ms
+2021-01-24 12:23:12.074 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json -
+2021-01-24 12:23:12.077 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:23:12.083 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 12:23:12.084 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json - - 200 76 application/json;+charset=utf-8 10.1672ms
+2021-01-24 13:36:08.756 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 13:36:08.760 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 13:36:08.763 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 8.9235ms
+2021-01-24 13:40:09.618 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json -
+2021-01-24 13:40:09.633 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:40:09.644 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:40:09.646 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json - - 200 76 application/json;+charset=utf-8 28.0511ms
+2021-01-24 13:40:50.607 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json -
+2021-01-24 13:40:50.619 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:40:50.630 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:40:50.631 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json - - 200 76 application/json;+charset=utf-8 24.3127ms
+2021-01-24 13:41:18.005 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json -
+2021-01-24 13:41:18.016 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:41:22.959 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:41:22.961 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json - - 200 76 application/json;+charset=utf-8 4956.1816ms
+2021-01-24 13:41:42.394 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json -
+2021-01-24 13:41:42.401 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:41:42.406 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:41:42.407 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json - - 200 76 application/json;+charset=utf-8 12.9518ms
+2021-01-24 13:41:50.462 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json -
+2021-01-24 13:41:50.465 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:42:01.948 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:42:01.950 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=null application/json - - 200 76 application/json;+charset=utf-8 11487.1169ms
+2021-01-24 13:48:36.547 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 13:48:36.550 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 13:48:36.551 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 5.1958ms
+2021-01-24 13:48:41.266 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 13:48:41.275 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:48:46.575 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:48:46.576 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 5311.0593ms
+2021-01-24 13:48:46.608 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - -
+2021-01-24 13:48:46.610 +08:00 [INF] The file /core/images/asset/icon_bank_card_64.png was not modified
+2021-01-24 13:48:46.611 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - - - 304 - image/png 2.3784ms
+2021-01-24 13:48:46.611 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - -
+2021-01-24 13:48:46.615 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - -
+2021-01-24 13:48:46.615 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - -
+2021-01-24 13:48:46.617 +08:00 [INF] The file /core/images/asset/icon_huabei_64.png was not modified
+2021-01-24 13:48:46.618 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_alipay_64.png - -
+2021-01-24 13:48:46.620 +08:00 [INF] The file /core/images/asset/icon_credit_card_64.png was not modified
+2021-01-24 13:48:46.621 +08:00 [INF] The file /core/images/asset/icon_jd_64.png was not modified
+2021-01-24 13:48:46.624 +08:00 [INF] The file /core/images/asset/icon_alipay_64.png was not modified
+2021-01-24 13:48:46.629 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - - - 304 - image/png 14.2717ms
+2021-01-24 13:48:46.630 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_wechat_64.png - -
+2021-01-24 13:48:46.630 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - - - 304 - image/png 14.6860ms
+2021-01-24 13:48:46.634 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_alipay_64.png - - - 304 - image/png 16.4044ms
+2021-01-24 13:48:46.636 +08:00 [INF] The file /core/images/asset/icon_wechat_64.png was not modified
+2021-01-24 13:48:46.637 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - - - 304 - image/png 26.0589ms
+2021-01-24 13:48:46.639 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_wechat_64.png - - - 304 - image/png 9.2142ms
+2021-01-24 13:48:53.415 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=debt application/json -
+2021-01-24 13:48:53.419 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:48:53.426 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:48:53.428 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=debt application/json - - 200 576 application/json;+charset=utf-8 12.9828ms
+2021-01-24 13:48:55.876 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=deposit application/json -
+2021-01-24 13:48:55.880 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:48:55.887 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:48:55.888 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=deposit application/json - - 200 721 application/json;+charset=utf-8 12.0517ms
+2021-01-24 13:50:39.000 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 13:50:39.013 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:50:39.024 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:50:39.025 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 25.0190ms
+2021-01-24 13:50:42.239 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=debt application/json -
+2021-01-24 13:50:42.248 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:50:42.254 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 13:50:42.256 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=debt application/json - - 200 576 application/json;+charset=utf-8 16.3951ms
+2021-01-24 14:13:21.625 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 14:13:21.634 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 14:13:21.639 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 14.4907ms
+2021-01-24 14:16:30.226 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=income application/json -
+2021-01-24 14:16:30.237 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:16:30.247 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:16:30.248 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=income application/json - - 200 727 application/json;+charset=utf-8 22.6428ms
+2021-01-24 14:16:30.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - -
+2021-01-24 14:16:30.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - -
+2021-01-24 14:16:30.277 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - -
+2021-01-24 14:16:30.277 +08:00 [INF] The file /core/images/category/icon_wage_64.png was not modified
+2021-01-24 14:16:30.278 +08:00 [INF] The file /core/images/category/icon_work_64.png was not modified
+2021-01-24 14:16:30.279 +08:00 [INF] The file /core/images/category/icon_red_envelope_64.png was not modified
+2021-01-24 14:16:30.280 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_wage_64.png - - - 304 - image/png 6.7833ms
+2021-01-24 14:16:30.281 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_work_64.png - - - 304 - image/png 7.6830ms
+2021-01-24 14:16:30.282 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_red_envelope_64.png - - - 304 - image/png 5.3638ms
+2021-01-24 14:16:37.597 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 14:16:37.600 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:16:37.607 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:16:37.608 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 11.2249ms
+2021-01-24 14:16:47.082 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 196
+2021-01-24 14:16:47.086 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:16:47.184 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:16:47.185 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 196 - 200 88 application/json;+charset=utf-8 103.0962ms
+2021-01-24 14:20:10.528 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 14:20:10.538 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:20:10.554 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:20:10.555 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 26.7262ms
+2021-01-24 14:20:13.844 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 14:20:13.847 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:20:13.852 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 14:20:13.853 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 9.1260ms
+2021-01-24 20:23:38.972 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 20:23:38.976 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 20:23:38.979 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 7.0462ms
+2021-01-24 20:48:14.817 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 20:48:14.861 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 20:48:14.876 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 20:48:14.877 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 59.8819ms
+2021-01-24 20:48:14.907 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - -
+2021-01-24 20:48:14.909 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - -
+2021-01-24 20:48:14.910 +08:00 [INF] The file /core/images/asset/icon_bank_card_64.png was not modified
+2021-01-24 20:48:14.912 +08:00 [INF] The file /core/images/asset/icon_huabei_64.png was not modified
+2021-01-24 20:48:14.915 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - - - 304 - image/png 7.9467ms
+2021-01-24 20:48:14.918 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - - - 304 - image/png 9.2814ms
+2021-01-24 20:48:14.919 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - -
+2021-01-24 20:48:14.920 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - -
+2021-01-24 20:48:14.920 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_alipay_64.png - -
+2021-01-24 20:48:14.924 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_wechat_64.png - -
+2021-01-24 20:48:14.926 +08:00 [INF] The file /core/images/asset/icon_credit_card_64.png was not modified
+2021-01-24 20:48:14.927 +08:00 [INF] The file /core/images/asset/icon_jd_64.png was not modified
+2021-01-24 20:48:14.928 +08:00 [INF] The file /core/images/asset/icon_alipay_64.png was not modified
+2021-01-24 20:48:14.929 +08:00 [INF] The file /core/images/asset/icon_wechat_64.png was not modified
+2021-01-24 20:48:14.930 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - - - 304 - image/png 10.2490ms
+2021-01-24 20:48:14.931 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - - - 304 - image/png 11.8229ms
+2021-01-24 20:48:14.938 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_alipay_64.png - - - 304 - image/png 17.8010ms
+2021-01-24 20:48:14.939 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_wechat_64.png - - - 304 - image/png 15.3195ms
+2021-01-24 21:36:32.802 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 21:36:32.806 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 21:36:32.807 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 5.5526ms
+2021-01-24 21:36:38.924 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 21:36:38.941 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:36:38.958 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:36:38.960 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 36.5884ms
+2021-01-24 21:36:41.055 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 21:36:41.059 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:36:41.065 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:36:41.066 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 10.4382ms
+2021-01-24 21:39:35.582 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 21:39:35.593 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:39:35.608 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:39:35.609 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 27.3915ms
+2021-01-24 21:39:37.752 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 21:39:37.756 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:39:37.765 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:39:37.766 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 13.5886ms
+2021-01-24 21:39:46.047 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 127
+2021-01-24 21:39:46.052 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:39:46.063 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 21:39:46.064 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 127 - 200 88 application/json;+charset=utf-8 17.5738ms
+2021-01-24 22:36:48.134 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 22:36:48.139 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-24 22:36:48.140 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 5.4040ms
+2021-01-24 22:44:31.571 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 22:44:31.593 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 401 - application/json 22.2719ms
+2021-01-24 22:44:39.259 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-24 22:44:39.262 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:39.444 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:39.447 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 187.8078ms
+2021-01-24 22:44:39.504 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/user/get application/json -
+2021-01-24 22:44:39.507 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:39.581 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:39.582 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/user/get application/json - - 200 311 application/json;+charset=utf-8 78.6539ms
+2021-01-24 22:44:39.607 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/avatar/default_avatar.png - -
+2021-01-24 22:44:39.617 +08:00 [INF] Sending file. Request path: '/core/images/avatar/default_avatar.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\avatar\default_avatar.png'
+2021-01-24 22:44:39.618 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/avatar/default_avatar.png - - - 200 4873 image/png 10.9367ms
+2021-01-24 22:44:44.712 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 22:44:44.716 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:44.721 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:44.722 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 10.1740ms
+2021-01-24 22:44:47.721 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 22:44:47.727 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:47.732 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:44:47.733 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 12.3648ms
+2021-01-24 22:45:05.556 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 128
+2021-01-24 22:45:05.560 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:45:05.569 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 22:45:05.571 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 128 - 200 88 application/json;+charset=utf-8 15.2399ms
+2021-01-24 23:01:13.325 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:01:13.334 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:01:13.349 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:01:13.350 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 25.1272ms
+2021-01-24 23:01:16.250 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:01:16.254 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:01:16.262 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:01:16.263 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 13.4690ms
+2021-01-24 23:04:30.764 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:04:30.772 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:04:30.792 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:04:30.793 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 28.9298ms
+2021-01-24 23:04:30.817 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - -
+2021-01-24 23:04:30.819 +08:00 [INF] The file /core/images/asset/icon_bank_card_64.png was not modified
+2021-01-24 23:04:30.819 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - -
+2021-01-24 23:04:30.820 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_bank_card_64.png - - - 304 - image/png 2.8693ms
+2021-01-24 23:04:30.821 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - -
+2021-01-24 23:04:30.821 +08:00 [INF] The file /core/images/asset/icon_huabei_64.png was not modified
+2021-01-24 23:04:30.822 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - -
+2021-01-24 23:04:30.823 +08:00 [INF] The file /core/images/asset/icon_jd_64.png was not modified
+2021-01-24 23:04:30.824 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_huabei_64.png - - - 304 - image/png 5.1884ms
+2021-01-24 23:04:30.826 +08:00 [INF] The file /core/images/asset/icon_credit_card_64.png was not modified
+2021-01-24 23:04:30.826 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_jd_64.png - - - 304 - image/png 5.7643ms
+2021-01-24 23:04:30.834 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/asset/icon_credit_card_64.png - - - 304 - image/png 11.8546ms
+2021-01-24 23:04:32.709 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:04:32.715 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:04:32.723 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:04:32.725 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 15.2290ms
+2021-01-24 23:04:39.957 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 136
+2021-01-24 23:04:39.961 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:04:39.968 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:04:39.970 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 136 - 200 88 application/json;+charset=utf-8 13.4733ms
+2021-01-24 23:06:22.460 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=deposit application/json -
+2021-01-24 23:06:22.472 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:06:22.486 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:06:22.489 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=deposit application/json - - 200 721 application/json;+charset=utf-8 29.3456ms
+2021-01-24 23:06:24.492 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=debt application/json -
+2021-01-24 23:06:24.496 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:06:24.504 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:06:24.505 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups?type=debt application/json - - 200 576 application/json;+charset=utf-8 13.6276ms
+2021-01-24 23:06:39.211 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 136
+2021-01-24 23:06:39.217 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:06:39.224 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:06:39.226 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 136 - 200 88 application/json;+charset=utf-8 15.1703ms
+2021-01-24 23:12:14.843 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json -
+2021-01-24 23:12:14.852 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:12:14.868 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:12:14.870 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json - - 200 4698 application/json;+charset=utf-8 27.6336ms
+2021-01-24 23:12:14.900 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - -
+2021-01-24 23:12:14.903 +08:00 [INF] The file /core/images/category/icon_mushroom_64.png was not modified
+2021-01-24 23:12:14.904 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_mushroom_64.png - - - 304 - image/png 3.9692ms
+2021-01-24 23:12:14.907 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - -
+2021-01-24 23:12:14.908 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - -
+2021-01-24 23:12:14.911 +08:00 [INF] The file /core/images/category/icon_bus_64.png was not modified
+2021-01-24 23:12:14.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - -
+2021-01-24 23:12:14.912 +08:00 [INF] The file /core/images/category/icon_subway_64.png was not modified
+2021-01-24 23:12:14.916 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bus_64.png - - - 304 - image/png 9.5824ms
+2021-01-24 23:12:14.917 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - -
+2021-01-24 23:12:14.918 +08:00 [INF] The file /core/images/category/icon_taxi_64.png was not modified
+2021-01-24 23:12:14.921 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - -
+2021-01-24 23:12:14.921 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - -
+2021-01-24 23:12:14.925 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - -
+2021-01-24 23:12:14.925 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_taxi_64.png - - - 304 - image/png 13.9011ms
+2021-01-24 23:12:14.925 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_subway_64.png - - - 304 - image/png 18.2235ms
+2021-01-24 23:12:14.925 +08:00 [INF] The file /core/images/category/icon_lipstick_64.png was not modified
+2021-01-24 23:12:14.933 +08:00 [INF] The file /core/images/category/icon_movies_64.png was not modified
+2021-01-24 23:12:14.937 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_lipstick_64.png - - - 304 - image/png 15.8345ms
+2021-01-24 23:12:14.941 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - -
+2021-01-24 23:12:14.941 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - -
+2021-01-24 23:12:14.944 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - -
+2021-01-24 23:12:14.948 +08:00 [INF] The file /core/images/category/icon_t_shirt_64.png was not modified
+2021-01-24 23:12:14.951 +08:00 [INF] The file /core/images/category/icon_cap_64.png was not modified
+2021-01-24 23:12:14.952 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_movies_64.png - - - 304 - image/png 31.5210ms
+2021-01-24 23:12:14.954 +08:00 [INF] The file /core/images/category/icon_facial_mask_64.png was not modified
+2021-01-24 23:12:14.957 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cap_64.png - - - 304 - image/png 13.6848ms
+2021-01-24 23:12:14.958 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_t_shirt_64.png - - - 304 - image/png 17.7419ms
+2021-01-24 23:12:14.964 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - -
+2021-01-24 23:12:14.964 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_facial_mask_64.png - - - 304 - image/png 47.7429ms
+2021-01-24 23:12:14.966 +08:00 [INF] The file /core/images/category/icon_game_64.png was not modified
+2021-01-24 23:12:14.966 +08:00 [INF] The file /core/images/category/icon_cycling_64.png was not modified
+2021-01-24 23:12:14.969 +08:00 [INF] The file /core/images/category/icon_shoes_64.png was not modified
+2021-01-24 23:12:14.970 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_game_64.png - - - 304 - image/png 45.2967ms
+2021-01-24 23:12:14.971 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_cycling_64.png - - - 304 - image/png 30.5393ms
+2021-01-24 23:12:14.972 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_shoes_64.png - - - 304 - image/png 8.4084ms
+2021-01-24 23:12:15.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - -
+2021-01-24 23:12:15.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - -
+2021-01-24 23:12:15.106 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - -
+2021-01-24 23:12:15.107 +08:00 [INF] The file /core/images/category/icon_read_64.png was not modified
+2021-01-24 23:12:15.108 +08:00 [INF] The file /core/images/category/icon_tissue_64.png was not modified
+2021-01-24 23:12:15.111 +08:00 [INF] The file /core/images/category/icon_bill_64.png was not modified
+2021-01-24 23:12:15.111 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_read_64.png - - - 304 - image/png 6.4188ms
+2021-01-24 23:12:15.112 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_tissue_64.png - - - 304 - image/png 6.7099ms
+2021-01-24 23:12:15.114 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill_64.png - - - 304 - image/png 8.0365ms
+2021-01-24 23:12:15.127 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - -
+2021-01-24 23:12:15.128 +08:00 [INF] The file /core/images/category/icon_bill2_64.png was not modified
+2021-01-24 23:12:15.139 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/category/icon_bill2_64.png - - - 304 - image/png 12.8098ms
+2021-01-24 23:12:18.019 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:12:18.022 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:12:18.029 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:12:18.031 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 12.4996ms
+2021-01-24 23:12:27.251 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 284
+2021-01-24 23:12:27.255 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:12:27.265 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:12:27.266 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 284 - 200 88 application/json;+charset=utf-8 14.9384ms
+2021-01-24 23:15:38.160 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:15:38.190 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:15:38.203 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:15:38.205 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 46.5178ms
+2021-01-24 23:15:44.503 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json -
+2021-01-24 23:15:44.507 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:15:44.513 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:15:44.516 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/asset/groups application/json - - 200 1657 application/json;+charset=utf-8 13.0210ms
+2021-01-24 23:16:02.494 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 147
+2021-01-24 23:16:02.499 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:16:02.510 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.CreateAsync (Memoyu.Mbill.WebApi)'
+2021-01-24 23:16:02.511 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/statement/create application/json 147 - 200 88 application/json;+charset=utf-8 17.5223ms
+2021-01-24 23:34:39.343 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-24 23:34:39.367 +08:00 [INF] Sending file. Request path: '/core/images/other/index_bg3_533x300.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\other\index_bg3_533x300.png'
+2021-01-24 23:34:39.369 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 200 288553 image/png 26.1423ms
+2021-01-24 23:35:22.722 +08:00 [INF] Application is shutting down...
+2021-01-24 23:35:31.954 +08:00 [INF] init main
+2021-01-24 23:35:48.593 +08:00 [INF] init main
+2021-01-24 23:35:49.473 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-24 23:35:49.475 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-24 23:35:49.481 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-24 23:35:49.482 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-24 23:35:49.589 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-24 23:35:49.660 +08:00 [INF] Starting the processing server.
+2021-01-24 23:35:49.703 +08:00 [INF] ### CAP started!
+2021-01-24 23:35:49.794 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-24 23:35:49.794 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-24 23:35:49.794 +08:00 [INF] Hosting environment: Development
+2021-01-24 23:35:49.795 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-24 23:38:53.221 +08:00 [INF] Application is shutting down...
+2021-01-24 23:38:53.237 +08:00 [INF] Shutting down the processing server...
+2021-01-24 23:38:53.238 +08:00 [INF] ### CAP shutdown!
+2021-01-24 23:55:57.047 +08:00 [INF] init main
+2021-01-24 23:55:57.547 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 725
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 615
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 467
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 110
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 198
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 131
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 31
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Memoyu.Mbill.WebApi.Program.Main(String[] args) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Program.cs:line 25

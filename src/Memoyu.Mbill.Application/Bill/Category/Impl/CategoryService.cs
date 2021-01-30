@@ -14,6 +14,7 @@ using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category;
 using Memoyu.Mbill.Application.Contracts.Exceptions;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Entities.Bill.Category;
+using Memoyu.Mbill.Domain.IRepositories.Core;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using System;
 using System.Collections.Generic;
@@ -26,9 +27,12 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
     public class CategoryService : ApplicationService, ICategoryService
     {
         private readonly IAuditBaseRepository<CategoryEntity, long> _categoryRepository;
-        public CategoryService(IAuditBaseRepository<CategoryEntity , long> categoryRepository)
+        private readonly IFileRepository _fileRepository;
+
+        public CategoryService(IAuditBaseRepository<CategoryEntity, long> categoryRepository , IFileRepository fileRepository)
         {
             _categoryRepository = categoryRepository;
+            _fileRepository = fileRepository;
         }
         public Task DeleteAsync(long id)
         {
@@ -40,9 +44,32 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CategoryDto>> GetClassificationAsync()
+        public async Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(string type)
         {
-            throw new NotImplementedException();
+            List<CategoryEntity> entities = await _categoryRepository
+                .Select
+                .Where(c => c.IsDeleted == false)
+                .WhereIf(type.IsNotNullOrEmpty() ,c=> c.Type.Equals(type))
+                .ToListAsync();
+            List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0);
+            List<CategoryGroupDto> dtos = parents
+                .Select(c =>
+                {
+                    var dto = new CategoryGroupDto();
+                    dto.Name = c.Name;
+                    dto.Childs = entities
+                        .FindAll(d => d.ParentId == c.Id)
+                        .Select(d => 
+                        {
+                            var s = Mapper.Map<CategoryDto>(d);
+                            s.IconUrl = _fileRepository.GetFileUrl(s.IconUrl);
+                            return s;
+                        })
+                        .ToList();
+                    return dto;
+                })
+                .ToList();
+            return dtos;
         }
 
         public Task<IEnumerable<CategoryDto>> GetListAsync()

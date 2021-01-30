@@ -40,6 +40,12 @@
             </summary>
             <param name="dto">资产分类</param>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync(System.String)">
+            <summary>
+            获取分组后的资产
+            </summary>
+            <param name="type">资产类型</param>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController">
             <summary>
             账单分类管理
@@ -50,6 +56,12 @@
             新增账单分类
             </summary>
             <param name="dto">账单分类</param>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync(System.String)">
+            <summary>
+            获取分组后的账单分类
+            </summary>
+            <param name="type">账单类型</param>
         </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController">
             <summary>
@@ -80,6 +92,27 @@
             刷新用户的token
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+            <summary>
+            单文件上传，键为file
+            </summary>
+            <param name="file"></param>
+            <param name="type"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.FileController.UploadFiles(System.String)">
+            <summary>
+            多文件上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.FileController.ValidFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            校验上传文件
+            </summary>
+            <param name="file"></param>
         </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.PermissionController">
             <summary>

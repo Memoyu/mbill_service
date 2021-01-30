@@ -1,0 +1,62 @@
+2021-01-25 00:02:18.351 +08:00 [INF] init main
+2021-01-25 00:02:19.286 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-25 00:02:19.287 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-25 00:02:19.293 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-25 00:02:19.294 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-25 00:02:19.389 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-25 00:02:19.453 +08:00 [INF] Starting the processing server.
+2021-01-25 00:02:19.495 +08:00 [INF] ### CAP started!
+2021-01-25 00:02:19.600 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-25 00:02:19.601 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-25 00:02:19.601 +08:00 [INF] Hosting environment: Development
+2021-01-25 00:02:19.601 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi
+2021-01-25 00:02:24.079 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json -
+2021-01-25 00:02:24.290 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/category/groups?type=expend application/json - - 401 - application/json 213.7825ms
+2021-01-25 00:02:30.109 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40
+2021-01-25 00:02:30.113 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-25 00:02:30.340 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.Core.AccountController.Login (Memoyu.Mbill.WebApi)'
+2021-01-25 00:02:30.344 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 234.9449ms
+2021-01-25 00:02:30.396 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/user/get application/json -
+2021-01-25 00:02:30.436 +08:00 [INF] Executing endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-25 00:02:30.573 +08:00 [INF] Executed endpoint 'Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync (Memoyu.Mbill.WebApi)'
+2021-01-25 00:02:30.574 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/user/get application/json - - 200 311 application/json;+charset=utf-8 177.3889ms
+2021-01-25 00:02:30.632 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/avatar/default_avatar.png - -
+2021-01-25 00:02:30.639 +08:00 [INF] Sending file. Request path: '/core/images/avatar/default_avatar.png'. Physical path: 'D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\wwwroot\core\images\avatar\default_avatar.png'
+2021-01-25 00:02:30.640 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/avatar/default_avatar.png - - - 200 4873 image/png 8.2130ms
+2021-01-25 00:57:42.830 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - -
+2021-01-25 00:57:42.837 +08:00 [INF] The file /core/images/other/index_bg3_533x300.png was not modified
+2021-01-25 00:57:42.838 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/core/images/other/index_bg3_533x300.png - - - 304 - image/png 8.5859ms
+2021-01-25 23:36:59.693 +08:00 [INF] init main
+2021-01-25 23:37:00.177 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 725
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 615
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 467
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 110
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 198
+   at Memoyu.Mbill.Domain.Shared.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.Domain.Shared\Extensions\FreeSqlExtension.cs:line 131
+   at Memoyu.Mbill.WebApi.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Modules\FreeSqlModule.cs:line 31
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Memoyu.Mbill.WebApi.Program.Main(String[] args) in D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi\Program.cs:line 25
+2021-01-25 23:37:08.375 +08:00 [INF] init main
+2021-01-25 23:37:09.145 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-01-25 23:37:09.146 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-01-25 23:37:09.151 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-01-25 23:37:09.152 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-01-25 23:37:09.251 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-25 23:37:09.308 +08:00 [INF] Starting the processing server.
+2021-01-25 23:37:09.346 +08:00 [INF] ### CAP started!
+2021-01-25 23:37:09.435 +08:00 [INF] Now listening on: http://localhost:5000
+2021-01-25 23:37:09.435 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-01-25 23:37:09.435 +08:00 [INF] Hosting environment: Development
+2021-01-25 23:37:09.435 +08:00 [INF] Content root path: D:\个人记账\Service\Memoyu.Mbill\src\Memoyu.Mbill.WebApi

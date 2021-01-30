@@ -28,6 +28,7 @@ namespace Memoyu.Mbill.Domain.Shared.Configurations
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
                 .Build();
+   
         }
         #region System
 

@@ -10,9 +10,11 @@
 *   功能描述 ：
 ***************************************************************************/
 
+using Memoyu.Mbill.Application.Contracts.Dtos.Base;
+
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category
 {
-    public class CategoryDto
+    public class CategoryDto : EntityDto
     {
         public string Name { get; set; }
 

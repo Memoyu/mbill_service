@@ -31,13 +31,17 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 
         public string Description { get; set; }
 
-        public string Location { get; set; }
+        public string Province { get; set; }
 
-        public int Year { get; set; }
+        public string City { get; set; }
 
-        public int Month { get; set; }
+        public string District { get; set; }
 
-        public int Day { get; set; }
+        public string Street { get; set; }
+
+        public string Address { get; set; }
+
+        public string Date { get; set; }
 
         public string Time { get; set; }
     }

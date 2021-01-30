@@ -14,29 +14,6 @@ using System;
 
 namespace Memoyu.Mbill.Domain.Base
 {
-    #region EntityDto
-    public interface IEntityDto
-    {
-    }
-
-    public interface IEntityDto<TKey> : IEntityDto
-    {
-        TKey Id { get; set; }
-    }
-
-    public abstract class EntityDto<TKey> : IEntityDto<TKey>
-    {
-        /// <summary>
-        /// 主键Id
-        /// </summary>
-        public TKey Id { get; set; }
-    }
-
-    public abstract class EntityDto : EntityDto<long>
-    {
-    }
-    #endregion EntityDto
-
     #region Entity
     public abstract class Entity<TKey> : IEntity<TKey>
     {

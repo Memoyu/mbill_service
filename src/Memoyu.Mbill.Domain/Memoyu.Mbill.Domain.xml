@@ -4,11 +4,6 @@
         <name>Memoyu.Mbill.Domain</name>
     </assembly>
     <members>
-        <member name="P:Memoyu.Mbill.Domain.Base.EntityDto`1.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
         <member name="P:Memoyu.Mbill.Domain.Base.Entity`1.Id">
             <summary>
             主键Id
@@ -217,9 +212,29 @@
             说明
             </summary>
         </member>
-        <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.Location">
+        <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.Address">
             <summary>
             地点
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.Province">
+            <summary>
+            地点:省
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.City">
+            <summary>
+            地点:市
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.District">
+            <summary>
+            地点:区/县
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.Street">
+            <summary>
+            地点:街道/镇
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.Domain.Entities.Bill.Statement.StatementEntity.Year">
@@ -290,6 +305,41 @@
         <member name="P:Memoyu.Mbill.Domain.Entities.Core.BaseTypeEntity.Sort">
             <summary>
             排序码
+            </summary>
+        </member>
+        <member name="T:Memoyu.Mbill.Domain.Entities.Core.FileEntity">
+            <summary>
+            上传文件表
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Core.FileEntity.Extension">
+            <summary>
+            后缀
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Core.FileEntity.Md5">
+            <summary>
+            图片md5值，防止上传重复图片
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Core.FileEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Core.FileEntity.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Core.FileEntity.Size">
+            <summary>
+            大小
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.Core.FileEntity.Type">
+            <summary>
+            1 local
             </summary>
         </member>
         <member name="T:Memoyu.Mbill.Domain.Entities.Core.LogEntity">

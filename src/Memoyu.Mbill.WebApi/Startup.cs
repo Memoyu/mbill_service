@@ -30,6 +30,7 @@ namespace Memoyu.Mbill.WebApi
             services.AddMiniProfiler();//ÅäÖÃ×¢²á¼à¿Ø
             services.AddIpRateLimiting();//ÅäÖÃ×¢²áÏŞÁ÷
             services.AddHealthChecks();//ÅäÖÃ×¢²á½¡¿µ¼ì²é
+            services.AddConfigurationOption(Configuration);
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

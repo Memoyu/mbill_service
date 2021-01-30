@@ -10,7 +10,11 @@
 *   功能描述 ：
 ***************************************************************************/
 
+using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement;
 using Memoyu.Mbill.Domain.Entities.Bill.Statement;
+using Memoyu.Mbill.ToolKits.Base.Page;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Application.Bill.Statement
@@ -23,5 +27,12 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         /// <param name="input">数据源</param>
         /// <returns></returns>
         Task InsertAsync(StatementEntity statement);
+
+        /// <summary>
+        /// 获取分页账单数据
+        /// </summary>
+        /// <param name="pageDto">分页查询</param>
+        /// <returns></returns>
+        Task<PagedDto<StatementDto>> GetPageAsync(StatementPagingDto pageDto);
     }
 }

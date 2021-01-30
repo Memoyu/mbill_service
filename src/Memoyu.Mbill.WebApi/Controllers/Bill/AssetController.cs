@@ -42,5 +42,17 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
             await _assetService.InsertAsync(_mapper.Map<AssetEntity>(dto));
             return ServiceResult.Successed("资产分类创建成功");
         }
+
+        /// <summary>
+        /// 获取分组后的资产
+        /// </summary>
+        /// <param name="type">资产类型</param>
+        [HttpGet("groups")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync(string type)
+        {
+            return ServiceResult<IEnumerable<AssetGroupDto>>.Successed(await _assetService.GetGroupsAsync(type));
+        }
     }
 }

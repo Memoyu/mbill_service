@@ -36,7 +36,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
 
-        public CategoryController(ICategoryService categoryService ,IMapper mapper)
+        public CategoryController(ICategoryService categoryService, IMapper mapper)
         {
             _categoryService = categoryService;
             _mapper = mapper;
@@ -54,6 +54,18 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         {
             await _categoryService.InsertAsync(_mapper.Map<CategoryEntity>(dto));
             return ServiceResult.Successed("账单分类创建成功");
+        }
+
+        /// <summary>
+        /// 获取分组后的账单分类
+        /// </summary>
+        /// <param name="type">账单类型</param>
+        [HttpGet("groups")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupAsync([FromQuery] string type)
+        {
+            return ServiceResult<IEnumerable<CategoryGroupDto>>.Successed(await _categoryService.GetGroupsAsync(type));
         }
     }
 }

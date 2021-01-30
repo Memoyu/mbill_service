@@ -13,6 +13,9 @@ using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Memoyu.Mbill.Application.Core.Account;
 using Memoyu.Mbill.Application.Core.Account.Impl;
+using Memoyu.Mbill.Application.Core.Files;
+using Memoyu.Mbill.Application.Core.Files.Impl;
+using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.WebApi.Aop;
 using System;
 using System.Collections.Generic;
@@ -52,6 +55,10 @@ namespace Memoyu.Mbill.WebApi.Modules
                 .EnableInterfaceInterceptors();
 
             //使用名称进行实现注册
+            //存储文件
+            builder.RegisterType<LocalFileService>().Named<IFileService>(FileEntity.LocalFileService).InstancePerLifetimeScope();
+
+            //授权
             builder.RegisterType<IdentityServer4Service>().Named<ITokenService>(typeof(IdentityServer4Service).Name).InstancePerLifetimeScope();
             builder.RegisterType<JwtTokenService>().Named<ITokenService>(typeof(JwtTokenService).Name).InstancePerLifetimeScope();
 

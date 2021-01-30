@@ -69,7 +69,31 @@ namespace Memoyu.Mbill.Domain.Entities.Bill.Statement
         /// 地点
         /// </summary>
         [Column(StringLength = 200)]
-        public string Location { get; set; }
+        public string Address { get; set; }
+
+        /// <summary>
+        /// 地点:省
+        /// </summary>
+        [Column(StringLength = 50)]
+        public string Province { get; set; }
+
+        /// <summary>
+        /// 地点:市
+        /// </summary>
+        [Column(StringLength = 50)]
+        public string City { get; set; }
+
+        /// <summary>
+        /// 地点:区/县
+        /// </summary>
+        [Column(StringLength = 50)]
+        public string District { get; set; }
+
+        /// <summary>
+        /// 地点:街道/镇
+        /// </summary>
+        [Column(StringLength = 70)]
+        public string Street { get; set; }
 
         /// <summary>
         /// 记录日期：年

@@ -15,6 +15,7 @@ using Memoyu.Mbill.Application.Contracts.Dtos.User;
 using Memoyu.Mbill.Application.Contracts.Exceptions;
 using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.Domain.Entities.User;
+using Memoyu.Mbill.Domain.IRepositories.Core;
 using Memoyu.Mbill.Domain.IRepositories.User;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
@@ -30,9 +31,12 @@ namespace Memoyu.Mbill.Application.User.Impl
     public class UserService : ApplicationService, IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
+        private readonly IFileRepository _fileRepository;
+
+        public UserService(IUserRepository userRepository , IFileRepository fileRepository)
         {
             _userRepository = userRepository;
+            _fileRepository = fileRepository;
         }
 
         [Transactional]
@@ -79,7 +83,9 @@ namespace Memoyu.Mbill.Application.User.Impl
 
         public async Task<UserDto> GetAsync()
         {
-            return Mapper.Map<UserDto>(await _userRepository.Where(r => r.Id == CurrentUser.Id).FirstAsync());
+            var user = await _userRepository.Where(r => r.Id == CurrentUser.Id).FirstAsync();
+            user.AvatarUrl = _fileRepository.GetFileUrl(user.AvatarUrl);
+            return Mapper.Map<UserDto>(user);
         }
 
         public Task<UserDto> GetAsync(long id)

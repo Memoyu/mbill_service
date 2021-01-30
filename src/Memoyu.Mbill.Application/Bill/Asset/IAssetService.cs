@@ -9,6 +9,7 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
+using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Asset;
 using Memoyu.Mbill.Domain.Entities.Bill.Asset;
 using System;
 using System.Collections.Generic;
@@ -26,5 +27,12 @@ namespace Memoyu.Mbill.Application.Bill.Asset
         /// <param name="input">数据源</param>
         /// <returns></returns>
         Task InsertAsync(AssetEntity asset);
+
+        /// <summary>
+        /// 获取分级后的组合类别数据
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(string type);
     }
 }

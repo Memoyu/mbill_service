@@ -51,7 +51,7 @@ namespace Memoyu.Mbill.Domain.Entities.Bill.Asset
         /// <summary>
         /// 图标地址
         /// </summary>
-        [Column(StringLength = 10)]
+        [Column(StringLength = 100)]
         public string IconUrl { get; set; }
 
         /// <summary>

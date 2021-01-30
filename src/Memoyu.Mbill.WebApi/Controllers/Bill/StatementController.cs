@@ -17,6 +17,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
     /// <summary>
     /// 账单管理
     /// </summary>
+    [Route("api/statement")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public class StatementController : ApiControllerBase
     {
@@ -33,7 +34,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// 新增账单
         /// </summary>
         /// <param name="dto">账单</param>
-        [Logger("用户新建了一个账单分类")]
+        [Logger("用户新建了一条账单记录")]
         [HttpPost("create")]
         [Authorize]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyStatementDto dto)
