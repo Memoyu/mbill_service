@@ -74,6 +74,18 @@
             </summary>
             <param name="dto">账单</param>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetDetailAsync(System.Int32)">
+            <summary>
+            获取账单详情
+            </summary>
+            <param name="id">账单id</param>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetStatementPagesAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementPagingDto)">
+            <summary>
+            获取账单分页信息
+            </summary>
+            <param name="pagingDto">分页条件</param>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
             <summary>
             账户相关

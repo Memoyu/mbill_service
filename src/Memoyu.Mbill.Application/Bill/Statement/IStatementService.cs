@@ -24,15 +24,23 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         /// <summary>
         /// 新增账单
         /// </summary>
-        /// <param name="input">数据源</param>
+        /// <param name="statement">数据源</param>
         /// <returns></returns>
         Task InsertAsync(StatementEntity statement);
+
+        /// <summary>
+        /// 获取账单详情
+        /// </summary>
+        /// <param name="id">账单id</param>
+        /// <returns></returns>
+        Task<StatementDetailDto> GetDetailAsync(int id);
 
         /// <summary>
         /// 获取分页账单数据
         /// </summary>
         /// <param name="pageDto">分页查询</param>
         /// <returns></returns>
-        Task<PagedDto<StatementDto>> GetPageAsync(StatementPagingDto pageDto);
+        Task<PagedDto<StatementDto>> GetPagesAsync(StatementPagingDto pageDto);
+
     }
 }

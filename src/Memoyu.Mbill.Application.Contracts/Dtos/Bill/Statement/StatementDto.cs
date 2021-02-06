@@ -9,16 +9,22 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
     public class StatementDto
     {
+        public long Id { get; set; }
+        public string CategoryName { get; set; }
+
+        public string CategoryIconPath { get; set; }
+
+        public string AssetName { get; set; }
+
+        public string TargetAssetName { get; set; }
+
+        public long CategoryId { get; set; }
+
         public long AssetId { get; set; }
 
         public long? TargetAssetId { get; set; }
@@ -41,7 +47,11 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 
         public string Address { get; set; }
 
-        public string Date { get; set; }
+        public int Year { get; set; }
+
+        public int Month { get; set; }
+
+        public int Day { get; set; }
 
         public string Time { get; set; }
     }

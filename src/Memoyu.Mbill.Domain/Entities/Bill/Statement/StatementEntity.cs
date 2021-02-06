@@ -29,7 +29,7 @@ namespace Memoyu.Mbill.Domain.Entities.Bill.Statement
         /// <summary>
         /// 分类Id
         /// </summary>
-        public long CategoryId { get; set; }
+        public long? CategoryId { get; set; }
 
         /// <summary>
         /// 资产Id

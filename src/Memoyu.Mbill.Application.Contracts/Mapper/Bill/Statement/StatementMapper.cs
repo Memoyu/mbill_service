@@ -24,9 +24,7 @@ namespace Memoyu.Mbill.Application.Contracts.Mapper.Bill.Statement
                 .ForMember(dest => dest.Month, opt => opt.MapFrom(src => src.Date.Month))
                 .ForMember(dest => dest.Day, opt => opt.MapFrom(src => src.Date.Day));
 
-            CreateMap<StatementEntity, StatementDto>()
-                .ForMember(dest => dest.Date, opt => opt.MapFrom(src => string.Format("{0}-{1}-{2}", src.Year, src.Month, src.Day)))
-                .ForMember(dest => dest.Address, opt => opt.MapFrom(src =>  src.Address));
+            CreateMap<StatementEntity, StatementDto>();
         }
     }
 }
