@@ -342,4 +342,4 @@ healthchecksdb
 !.template/*.nupkg
 !Memoyu.Core.WebApi.Template.*.nupkg
 
-/Logs/
+/src/Memoyu.Mbill.WebApi/Logs/
