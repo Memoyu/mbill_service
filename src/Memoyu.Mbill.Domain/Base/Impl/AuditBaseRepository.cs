@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Domain.Base.Impl
 {
-    public class AuditBaseRepository<TEntity> : AuditBaseRepository<TEntity, Guid>, IAuditBaseRepository<TEntity> where TEntity : class, new()
+    public class AuditBaseRepository<TEntity> : AuditBaseRepository<TEntity, long>, IAuditBaseRepository<TEntity> where TEntity : class, new()
     {
         public AuditBaseRepository(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
         {

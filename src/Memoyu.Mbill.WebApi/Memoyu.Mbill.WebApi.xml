@@ -40,6 +40,18 @@
             </summary>
             <param name="dto">资产分类</param>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetAsync(System.Int64)">
+            <summary>
+            获取资产
+            </summary>
+            <param name="id">资产id</param>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetParentAsync(System.Int64)">
+            <summary>
+            获取资产父项
+            </summary>
+            <param name="id">资产id</param>
+        </member>
         <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.AssetController.GetGroupAsync(System.String)">
             <summary>
             获取分组后的资产
@@ -56,6 +68,18 @@
             新增账单分类
             </summary>
             <param name="dto">账单分类</param>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetAsync(System.Int64)">
+            <summary>
+            获取分类
+            </summary>
+            <param name="id">分类id</param>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetParentAsync(System.Int64)">
+            <summary>
+            获取分类父项
+            </summary>
+            <param name="id">分类id</param>
         </member>
         <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.CategoryController.GetGroupAsync(System.String)">
             <summary>

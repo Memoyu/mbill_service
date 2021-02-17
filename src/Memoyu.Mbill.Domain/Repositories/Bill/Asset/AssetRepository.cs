@@ -14,6 +14,7 @@ using Memoyu.Mbill.Domain.Base.Impl;
 using Memoyu.Mbill.Domain.Shared.Security;
 using Memoyu.Mbill.Domain.Entities.Bill.Asset;
 using Memoyu.Mbill.Domain.IRepositories.Bill.Asset;
+using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Domain.Repositories.Bill.Asset
 {
@@ -23,6 +24,18 @@ namespace Memoyu.Mbill.Domain.Repositories.Bill.Asset
         public AssetRepository(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
         {
             _currentUser = currentUser;
+        }
+
+        public async Task<AssetEntity> GetAssetAsync(long id)
+        {
+            return await GetAsync(id);
+        }
+
+        public async Task<AssetEntity> GetAssetParentAsync(long id)
+        {
+            var asset = await GetAsync(id);
+            if (asset == null) return null;
+            return await GetAsync(asset.ParentId);
         }
     }
 }

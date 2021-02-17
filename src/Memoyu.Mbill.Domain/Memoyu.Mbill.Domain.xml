@@ -568,6 +568,34 @@
             </summary>
             <param name="refreshToken"></param>
         </member>
+        <member name="M:Memoyu.Mbill.Domain.IRepositories.Bill.Asset.IAssetRepository.GetAssetAsync(System.Int64)">
+            <summary>
+            获取资产信息 By Id
+            </summary>
+            <param name="id">资产Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Domain.IRepositories.Bill.Asset.IAssetRepository.GetAssetParentAsync(System.Int64)">
+            <summary>
+            获取资产父项信息 By 子项 Id
+            </summary>
+            <param name="id">资产子项Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Domain.IRepositories.Bill.Category.ICategoryRepository.GetCategoryAsync(System.Int64)">
+            <summary>
+            获取分类信息 By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Memoyu.Mbill.Domain.IRepositories.Bill.Category.ICategoryRepository.GetCategoryParentAsync(System.Int64)">
+            <summary>
+            获取分类父项 By 子项 Id
+            </summary>
+            <param name="id">分类子项Id</param>
+            <returns></returns>
+        </member>
         <member name="M:Memoyu.Mbill.Domain.IRepositories.User.IUserRepository.GetUserAsync(System.Linq.Expressions.Expression{System.Func{Memoyu.Mbill.Domain.Entities.User.UserEntity,System.Boolean}})">
             <summary>
             根据条件得到用户信息

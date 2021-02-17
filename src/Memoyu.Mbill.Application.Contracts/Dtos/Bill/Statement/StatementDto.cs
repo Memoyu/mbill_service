@@ -12,16 +12,9 @@
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
-    public class StatementDto
+    public class StatementDto:MapDto
     {
         public long Id { get; set; }
-        public string CategoryName { get; set; }
-
-        public string CategoryIconPath { get; set; }
-
-        public string AssetName { get; set; }
-
-        public string TargetAssetName { get; set; }
 
         public long CategoryId { get; set; }
 

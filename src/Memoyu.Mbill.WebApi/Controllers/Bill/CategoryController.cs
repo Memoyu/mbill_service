@@ -57,6 +57,30 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         }
 
         /// <summary>
+        /// 获取分类
+        /// </summary>
+        /// <param name="id">分类id</param>
+        [HttpGet("get")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<CategoryDto>> GetAsync([FromQuery] long id)
+        {
+            return ServiceResult<CategoryDto>.Successed(await _categoryService.GetAsync(id));
+        }
+
+        /// <summary>
+        /// 获取分类父项
+        /// </summary>
+        /// <param name="id">分类id</param>
+        [HttpGet("parent/get")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<CategoryDto>> GetParentAsync([FromQuery] long id)
+        {
+            return ServiceResult<CategoryDto>.Successed(await _categoryService.GetParentAsync(id));
+        }
+
+        /// <summary>
         /// 获取分组后的账单分类
         /// </summary>
         /// <param name="type">账单类型</param>

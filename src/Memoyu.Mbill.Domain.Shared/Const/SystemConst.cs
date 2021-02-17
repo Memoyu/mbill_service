@@ -63,5 +63,22 @@ namespace Memoyu.Mbill.Domain.Shared.Const
             /// </summary>
             public static int User = 3;
         }
+
+
+        /// <summary>
+        /// 选取器
+        /// </summary>
+        public class Switcher 
+        {
+            public static string StatementType(string type) => type switch
+            {
+                "expend" => "支出",
+                "income" => "收入",
+                "transfer" => "转账",
+                "repayment" => "还款",
+                _ => "",
+            };
+        }
+       
     }
 }

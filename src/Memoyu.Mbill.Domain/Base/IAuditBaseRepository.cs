@@ -14,7 +14,7 @@ using System;
 
 namespace Memoyu.Mbill.Domain.Base
 {
-    public interface IAuditBaseRepository<TEntity> : IBaseRepository<TEntity, Guid> where TEntity : class
+    public interface IAuditBaseRepository<TEntity> : IBaseRepository<TEntity, long> where TEntity : class
     {
     }
 

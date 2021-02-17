@@ -11,10 +11,24 @@
 ***************************************************************************/
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Entities.Bill.Asset;
+using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Domain.IRepositories.Bill.Asset
 {
-    public interface IAssetRepository : IAuditBaseRepository<AssetEntity>
+    public interface IAssetRepository : IAuditBaseRepository<AssetEntity , long>
     {
+        /// <summary>
+        /// 获取资产信息 By Id
+        /// </summary>
+        /// <param name="id">资产Id</param>
+        /// <returns></returns>
+        Task<AssetEntity> GetAssetAsync(long id);
+
+        /// <summary>
+        /// 获取资产父项信息 By 子项 Id
+        /// </summary>
+        /// <param name="id">资产子项Id</param>
+        /// <returns></returns>
+        Task<AssetEntity> GetAssetParentAsync(long id);
     }
 }

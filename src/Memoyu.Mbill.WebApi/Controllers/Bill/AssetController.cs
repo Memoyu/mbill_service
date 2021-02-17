@@ -23,7 +23,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         private readonly IMapper _mapper;
         private readonly IAssetService _assetService;
 
-        public AssetController(IAssetService assetService , IMapper mapper)
+        public AssetController(IAssetService assetService, IMapper mapper)
         {
             _mapper = mapper;
             _assetService = assetService;
@@ -44,13 +44,37 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         }
 
         /// <summary>
+        /// 获取资产
+        /// </summary>
+        /// <param name="id">资产id</param>
+        [HttpGet("get")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long id)
+        {
+            return ServiceResult<AssetDto>.Successed(await _assetService.GetAsync(id));
+        }
+
+        /// <summary>
+        /// 获取资产父项
+        /// </summary>
+        /// <param name="id">资产id</param>
+        [HttpGet("parent/get")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<AssetDto>> GetParentAsync([FromQuery] long id)
+        {
+            return ServiceResult<AssetDto>.Successed(await _assetService.GetParentAsync(id));
+        }
+
+        /// <summary>
         /// 获取分组后的资产
         /// </summary>
         /// <param name="type">资产类型</param>
         [HttpGet("groups")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync(string type)
+        public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync([FromQuery] string type)
         {
             return ServiceResult<IEnumerable<AssetGroupDto>>.Successed(await _assetService.GetGroupsAsync(type));
         }

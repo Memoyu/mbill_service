@@ -14,6 +14,7 @@ using Memoyu.Mbill.Domain.Base.Impl;
 using Memoyu.Mbill.Domain.Shared.Security;
 using Memoyu.Mbill.Domain.Entities.Bill.Category;
 using Memoyu.Mbill.Domain.IRepositories.Bill.Category;
+using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Domain.Repositories.Bill.Category
 {
@@ -23,6 +24,18 @@ namespace Memoyu.Mbill.Domain.Repositories.Bill.Category
         public CategoryRepository(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
         {
             _currentUser = currentUser;
+        }
+
+        public async Task<CategoryEntity> GetCategoryAsync(long id)
+        {
+            return await GetAsync(id);
+        }
+
+        public async Task<CategoryEntity> GetCategoryParentAsync(long id)
+        {
+            var asset = await GetAsync(id);
+            if (asset == null) return null;
+            return await GetAsync(asset.ParentId);
         }
     }
 }

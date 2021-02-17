@@ -9,11 +9,13 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
+using AutoMapper;
 using Memoyu.Mbill.Application.Base.Impl;
 using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Category;
 using Memoyu.Mbill.Application.Contracts.Exceptions;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Entities.Bill.Category;
+using Memoyu.Mbill.Domain.IRepositories.Bill.Category;
 using Memoyu.Mbill.Domain.IRepositories.Core;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using System;
@@ -26,20 +28,17 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
 {
     public class CategoryService : ApplicationService, ICategoryService
     {
-        private readonly IAuditBaseRepository<CategoryEntity, long> _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IFileRepository _fileRepository;
+        private readonly IMapper _mapper;
 
-        public CategoryService(IAuditBaseRepository<CategoryEntity, long> categoryRepository , IFileRepository fileRepository)
+        public CategoryService(ICategoryRepository categoryRepository, IFileRepository fileRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
             _fileRepository = fileRepository;
+            _mapper = mapper;
         }
         public Task DeleteAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<CategoryDto> GetAsync(long id)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +48,7 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
             List<CategoryEntity> entities = await _categoryRepository
                 .Select
                 .Where(c => c.IsDeleted == false)
-                .WhereIf(type.IsNotNullOrEmpty() ,c=> c.Type.Equals(type))
+                .WhereIf(type.IsNotNullOrEmpty(), c => c.Type.Equals(type))
                 .ToListAsync();
             List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0);
             List<CategoryGroupDto> dtos = parents
@@ -59,7 +58,7 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
                     dto.Name = c.Name;
                     dto.Childs = entities
                         .FindAll(d => d.ParentId == c.Id)
-                        .Select(d => 
+                        .Select(d =>
                         {
                             var s = Mapper.Map<CategoryDto>(d);
                             s.IconUrl = _fileRepository.GetFileUrl(s.IconUrl);
@@ -72,9 +71,22 @@ namespace Memoyu.Mbill.Application.Bill.Category.Impl
             return dtos;
         }
 
-        public Task<IEnumerable<CategoryDto>> GetListAsync()
+        public async Task<IEnumerable<CategoryDto>> GetListAsync()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<CategoryDto> GetAsync(long id)
+        {
+           var category = await _categoryRepository.GetCategoryAsync(id) ?? throw new KnownException("分类信息不存在或已删除！", ServiceResultCode.NotFound);
+            return _mapper.Map<CategoryDto>(category);
+        }
+
+        public async Task<CategoryDto> GetParentAsync(long id)
+        {
+            var category = await _categoryRepository.GetCategoryAsync(id) ?? throw new KnownException("分类信息不存在或已删除！", ServiceResultCode.NotFound);
+            var categoryParent = await _categoryRepository.GetCategoryAsync(category.ParentId) ?? throw new KnownException("分类父项信息不存在或已删除！", ServiceResultCode.NotFound);
+            return _mapper.Map<CategoryDto>(categoryParent);
         }
 
         public async Task InsertAsync(CategoryEntity categroy)

@@ -25,6 +25,8 @@ namespace Memoyu.Mbill.Application.Contracts.Mapper.Bill.Statement
                 .ForMember(dest => dest.Day, opt => opt.MapFrom(src => src.Date.Day));
 
             CreateMap<StatementEntity, StatementDto>();
+
+            CreateMap<StatementEntity, StatementDetailDto>();
         }
     }
 }

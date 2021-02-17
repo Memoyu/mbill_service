@@ -47,7 +47,19 @@ namespace Memoyu.Mbill.Application.Bill.Category
 
         Task<IEnumerable<CategoryDto>> GetListAsync();
 
+        /// <summary>
+        /// 获取分类
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Task<CategoryDto> GetAsync(long id);
+
+        /// <summary>
+        /// 获取父项 by 子项 id
+        /// </summary>
+        /// <param name="id">分类子项Id</param>
+        /// <returns></returns>
+        Task<CategoryDto> GetParentAsync(long id);
 
     }
 }
