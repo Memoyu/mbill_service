@@ -11,6 +11,7 @@
 ***************************************************************************/
 using Memoyu.Mbill.Application.Base.Impl;
 using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement;
+using Memoyu.Mbill.Application.Contracts.Exceptions;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Entities.Bill.Asset;
 using Memoyu.Mbill.Domain.Entities.Bill.Category;
@@ -21,6 +22,7 @@ using Memoyu.Mbill.Domain.IRepositories.Bill.Statement;
 using Memoyu.Mbill.Domain.IRepositories.Core;
 using Memoyu.Mbill.Domain.Shared.Enums;
 using Memoyu.Mbill.Domain.Shared.Extensions;
+using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
 using System;
 using System.Collections.Generic;
@@ -54,7 +56,21 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             await _statementRepository.InsertAsync(statement);
         }
 
-        public async Task<StatementDetailDto> GetDetailAsync(int id)
+        public async Task DeleteAsync(long id)
+        {
+            var exist = await _statementRepository.Select.AnyAsync(s => s.Id == id && !s.IsDeleted);
+            if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
+            await _statementRepository.DeleteAsync(id);
+        }
+
+        public async Task UpdateAsync(StatementEntity statement)
+        {
+            var exist = await _statementRepository.Select.AnyAsync(s => s.Id == statement.Id && !s.IsDeleted);
+            if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
+            await _statementRepository.UpdateAsync(statement);
+        }
+
+        public async Task<StatementDetailDto> GetDetailAsync(long id)
         {
             var statement = await _statementRepository.GetAsync(id);
             var dto = MapToDto<StatementDetailDto>(statement);
@@ -133,8 +149,5 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
 
             return dto;
         }
-
-
-
     }
 }

@@ -16,6 +16,7 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
     public class ModifyStatementDto
     {
+        public long Id { get; set; }
         /// <summary>
         /// 分类Id
         /// </summary>

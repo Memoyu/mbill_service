@@ -33,7 +33,22 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         /// </summary>
         /// <param name="id">账单id</param>
         /// <returns></returns>
-        Task<StatementDetailDto> GetDetailAsync(int id);
+        Task<StatementDetailDto> GetDetailAsync(long id);
+
+
+        /// <summary>
+        /// 删除账单信息
+        /// </summary>
+        /// <param name="id">账单id</param>
+        /// <returns></returns>
+        Task DeleteAsync(long id);
+
+        /// <summary>
+        /// 更新账单信息
+        /// </summary>
+        /// <param name="statement">账单信息</param>
+        /// <returns></returns>
+        Task UpdateAsync(StatementEntity statement);
 
         /// <summary>
         /// 获取分页账单数据

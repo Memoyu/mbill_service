@@ -41,19 +41,45 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyStatementDto dto)
         {
             await _statementService.InsertAsync(_mapper.Map<StatementEntity>(dto));
-            return ServiceResult.Successed("账单分类创建成功");
+            return ServiceResult.Successed("账单分类创建成功！");
         }
 
         /// <summary>
         /// 获取账单详情
         /// </summary>
         /// <param name="id">账单id</param>
-        [HttpGet("detail")]
+        [HttpGet("detail/{id}")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult<StatementDetailDto>> GetDetailAsync([FromQuery] int id)
+        public async Task<ServiceResult<StatementDetailDto>> GetAsync(int id)
         {
             return ServiceResult<StatementDetailDto>.Successed(await _statementService.GetDetailAsync(id));
+        }
+
+        /// <summary> 
+        /// 删除账单信息
+        /// </summary>
+        /// <param name="id">账单id</param>
+        [HttpDelete("delete/{id}")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult> DeleteAsync(int id)
+        {
+            await _statementService.DeleteAsync(id);
+            return ServiceResult.Successed("账单删除成功！");
+        }
+
+        /// <summary>
+        /// 更新账单信息
+        /// </summary>
+        /// <param name="dto">账单信息</param>
+        [HttpPut("update")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult> UpdateAsync([FromBody] ModifyStatementDto dto)
+        {
+            await _statementService.UpdateAsync(_mapper.Map<StatementEntity>(dto));
+            return ServiceResult.Successed("账单更新成功！");
         }
 
         /// <summary>
