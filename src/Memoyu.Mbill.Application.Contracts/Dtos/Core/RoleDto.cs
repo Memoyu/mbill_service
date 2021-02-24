@@ -20,5 +20,6 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Core
         public string Name { get; set; }
         public string Info { get; set; }
         public bool IsStatic { get; set; }
+        public int Sort { get; set; }
     }
 }
