@@ -34,7 +34,7 @@ namespace Memoyu.Mbill.Application.Contracts.Exceptions
             _statusCode = 400;
         }
 
-        public KnownException(string message = "服务器繁忙，请稍后再试!", ServiceResultCode errorCode = ServiceResultCode.Failed, int statusCode = 400) : base(message)
+        public KnownException(string message = "服务器繁忙，请稍后再试!", ServiceResultCode errorCode = ServiceResultCode.Failed, int statusCode = 200) : base(message)
         {
             this._errorCode = errorCode;
             _statusCode = statusCode;

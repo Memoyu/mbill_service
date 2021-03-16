@@ -48,10 +48,10 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// 获取账单详情
         /// </summary>
         /// <param name="id">账单id</param>
-        [HttpGet("detail/{id}")]
+        [HttpGet("detail")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult<StatementDetailDto>> GetAsync(int id)
+        public async Task<ServiceResult<StatementDetailDto>> GetAsync([FromQuery]long id)
         {
             return ServiceResult<StatementDetailDto>.Successed(await _statementService.GetDetailAsync(id));
         }
@@ -60,10 +60,10 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// 删除账单信息
         /// </summary>
         /// <param name="id">账单id</param>
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("delete")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult> DeleteAsync(int id)
+        public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
         {
             await _statementService.DeleteAsync(id);
             return ServiceResult.Successed("账单删除成功！");

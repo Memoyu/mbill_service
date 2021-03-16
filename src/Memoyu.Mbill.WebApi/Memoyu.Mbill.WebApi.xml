@@ -98,13 +98,13 @@
             </summary>
             <param name="dto">账单</param>
         </member>
-        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetAsync(System.Int32)">
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetAsync(System.Int64)">
             <summary>
             获取账单详情
             </summary>
             <param name="id">账单id</param>
         </member>
-        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.DeleteAsync(System.Int32)">
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.DeleteAsync(System.Int64)">
             <summary> 
             删除账单信息
             </summary>
