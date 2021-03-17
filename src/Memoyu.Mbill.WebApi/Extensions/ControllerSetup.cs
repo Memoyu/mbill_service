@@ -9,6 +9,7 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
+using Memoyu.Mbill.Application.Contracts.Filter;
 using Memoyu.Mbill.ToolKits.Base;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Memoyu.Mbill.WebApi.Aop.Filter;
@@ -26,7 +27,8 @@ namespace Memoyu.Mbill.WebApi.Extensions
         {
             services.AddControllers(options =>
                 {
-                    options.Filters.Add<LocalExceptionFilter>();
+                    options.Filters.Add<LogActionFilterAttribute>(); // 添加请求方法时的日志记录过滤器
+                    options.Filters.Add<LocalExceptionFilter>();//全局异常 
                 })
                 .AddNewtonsoftJson(opt =>
                 {

@@ -19,10 +19,7 @@ namespace Memoyu.Mbill.Application.Contracts.Mapper.Bill.Statement
     {
         public StatementMapper()
         {
-            CreateMap<ModifyStatementDto, StatementEntity>()
-                .ForMember(dest => dest.Year, opt => opt.MapFrom(src => src.Date.Year))
-                .ForMember(dest => dest.Month, opt => opt.MapFrom(src => src.Date.Month))
-                .ForMember(dest => dest.Day, opt => opt.MapFrom(src => src.Date.Day));
+            CreateMap<ModifyStatementDto, StatementEntity>();
 
             CreateMap<StatementEntity, StatementDto>();
 

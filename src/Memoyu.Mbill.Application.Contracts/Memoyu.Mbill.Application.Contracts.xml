@@ -163,7 +163,7 @@
             地点:街道/镇
             </summary>
         </member>
-        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Date">
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.ModifyStatementDto.Year">
             <summary>
             记录日期：日期
             </summary>

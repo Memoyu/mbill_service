@@ -88,6 +88,7 @@ namespace Memoyu.Mbill.Application.Contracts.Filter
             }
 
             _logRepository.Insert(logEntity);
+
             base.OnActionExecuted(context);
         }
 

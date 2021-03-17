@@ -38,10 +38,10 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         [Logger("用户新建了一条账单记录")]
         [HttpPost("create")]
         [Authorize]
-        public async Task<ServiceResult> CreateAsync([FromBody] ModifyStatementDto dto)
+        public async Task<ServiceResult<StatementDto>> CreateAsync([FromBody] ModifyStatementDto dto)
         {
-            await _statementService.InsertAsync(_mapper.Map<StatementEntity>(dto));
-            return ServiceResult.Successed("账单分类创建成功！");
+            var result = await _statementService.InsertAsync(_mapper.Map<StatementEntity>(dto));
+            return ServiceResult<StatementDto>.Successed(result, "账单分类创建成功！");
         }
 
         /// <summary>

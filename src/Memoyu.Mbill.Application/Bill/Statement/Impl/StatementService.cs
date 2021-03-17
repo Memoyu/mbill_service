@@ -42,7 +42,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
         public StatementService(
             IStatementRepository statementRepository,
             ICategoryRepository categoryRepository,
-            IAssetRepository assetRepository,
+                IAssetRepository assetRepository,
             IFileRepository fileRepository)
         {
             _statementRepository = statementRepository;
@@ -51,9 +51,12 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             _fileRepository = fileRepository;
         }
 
-        public async Task InsertAsync(StatementEntity statement)
+        public async Task<StatementDto> InsertAsync(StatementEntity statement)
         {
-            await _statementRepository.InsertAsync(statement);
+            var entity = await _statementRepository.InsertAsync(statement);
+            if (entity == null) throw new KnownException("新增账单失败！", ServiceResultCode.Failed);
+            var statementDto = MapToDto<StatementDto>(entity);
+            return statementDto;
         }
 
         public async Task DeleteAsync(long id)

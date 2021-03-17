@@ -20,8 +20,7 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
         /// <summary>
         /// 分类Id
         /// </summary>
-        [Required(ErrorMessage = "必须传入账单分类Id")]
-        public long CategoryId { get; set; }
+        public long? CategoryId { get; set; }
 
         /// <summary>
         /// 资产Id
@@ -86,8 +85,17 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
         /// <summary>
         /// 记录日期：日期
         /// </summary>
-        [Required(ErrorMessage = "必须传入记录日期")]
-        public DateTime Date { get; set; }
+        [Required(ErrorMessage = "必须传入记录日期-年")]
+        [Range(1997, 10000, ErrorMessage = "年份应该大于1997")]
+        public int Year { get; set; }
+
+        [Required(ErrorMessage = "必须传入记录日期-月")]
+        [Range(1, 12, ErrorMessage = "月份应该在1-12之间")]
+        public int Month { get; set; }
+
+        [Required(ErrorMessage = "必须传入记录日期-日")]
+        [Range(1, 31, ErrorMessage = "月份应该在1-31之间")]
+        public int Day { get; set; }
 
         /// <summary>
         /// 记录日期：时间

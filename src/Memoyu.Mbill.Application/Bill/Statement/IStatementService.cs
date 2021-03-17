@@ -26,7 +26,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         /// </summary>
         /// <param name="statement">数据源</param>
         /// <returns></returns>
-        Task InsertAsync(StatementEntity statement);
+        Task<StatementDto> InsertAsync(StatementEntity statement);
 
         /// <summary>
         /// 获取账单详情

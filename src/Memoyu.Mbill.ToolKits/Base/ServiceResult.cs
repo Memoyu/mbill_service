@@ -105,7 +105,10 @@ namespace Memoyu.Mbill.ToolKits.Base
         }
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this,Formatting.Indented, new JsonSerializerSettings
+            {
+                ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
+            });
         }
     }
 
