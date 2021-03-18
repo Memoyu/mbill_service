@@ -27,7 +27,7 @@
 
 ## 相关项目
 
-✨ [采用Wepy实现的小程序前端 - Memoyu/mbill_wechat_app](https://github.com/Memoyu/mbill_wechat_app)
+✨ [采用uni-app实现的小程序前端 - Memoyu/mbill_wechat_app](https://github.com/Memoyu/mbill_wechat_app)
 
 ✨ [采用Blazor+Ant Blazor实现后端管理 - Memoyu/mbill_blazor_admin](https://github.com/Memoyu/mbill_blazor_admin)
 
@@ -37,7 +37,7 @@
 
 ## TODO
 
-- [ ] 实现基本记账接口
+- [x] 实现基本记账接口
 - [ ] 实现账目统计
 - [ ] 使用盛派微信SDK实现公众号对接记账
 - [ ] ......
