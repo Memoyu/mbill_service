@@ -94,5 +94,18 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
             return ServiceResult<PagedDto<StatementDto>>.Successed(await _statementService.GetPagesAsync(pagingDto));
         }
 
+        /// <summary>
+        /// 获取账单月各类型账单金额统计
+        /// </summary>
+        /// <param name="year">年</param>
+        /// <param name="month">月</param>
+        [HttpGet("statistics/total")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<StatementTotalDto>> GetMonthStatisticsAsync([FromQuery] StatementTotalInputDto input)
+        {
+            return ServiceResult<StatementTotalDto>.Successed(await _statementService.GetMonthStatisticsAsync(input));
+        }
+
     }
 }

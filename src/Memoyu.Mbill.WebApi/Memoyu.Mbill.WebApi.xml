@@ -122,6 +122,13 @@
             </summary>
             <param name="pagingDto">分页条件</param>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetMonthStatisticsAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementTotalInputDto)">
+            <summary>
+            获取账单月各类型账单金额统计
+            </summary>
+            <param name="year">年</param>
+            <param name="month">月</param>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
             <summary>
             账户相关

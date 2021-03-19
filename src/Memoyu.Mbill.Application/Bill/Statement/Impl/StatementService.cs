@@ -86,18 +86,14 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
 
         public async Task<PagedDto<StatementDto>> GetPagesAsync(StatementPagingDto pageDto)
         {
-
-            int? year = pageDto.Date?.Year;
-            int? month = pageDto.Date?.Month;
-            int? day = pageDto.Date?.Day;
-
+            pageDto.UserId = pageDto.UserId ?? CurrentUser.Id;
             var statements = await _statementRepository
                 .Select
                 .Where(s => s.IsDeleted == false)
-                .WhereIf(pageDto.UserId != null, s => s.CreateUserId == pageDto.UserId)
-                .WhereIf(year != null, s => s.Year == year)
-                .WhereIf(month != null, s => s.Month == month)
-                .WhereIf(day != null, s => s.Day == day)
+                .Where(s => s.CreateUserId == pageDto.UserId)
+                .WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
+                .WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
+                .WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
                 .WhereIf(pageDto.Type.IsNotNullOrEmpty(), s => s.Type == pageDto.Type)
                 .WhereIf(pageDto.CategoryId != null, s => s.CategoryId == pageDto.CategoryId)
                 .WhereIf(pageDto.AssetId != null, s => s.AssetId == pageDto.AssetId)
@@ -113,6 +109,55 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
                 .ToList();
 
             return new PagedDto<StatementDto>(statementDtos, totalCount);
+        }
+        public async Task<StatementTotalDto> GetMonthStatisticsAsync(StatementTotalInputDto input)
+        {
+            var userId = input.UserId ?? CurrentUser.Id;
+            var statements =  await _statementRepository
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == userId)
+               .WhereIf(input.Year != null, s => s.Year == input.Year)
+               .WhereIf(input.Month != null, s => s.Month == input.Month)
+               .ToListAsync();
+            var dto = new StatementTotalDto();
+            statements.ForEach(s =>
+            {
+                switch (s.Type)
+                {
+                    case "expend":
+                        dto.MonthExpend += s.Amount;
+                        break;
+                    case "income":
+                        dto.MonthIcome += s.Amount;
+                        break;
+                    case "repayment":
+                        dto.MonthRepayment += s.Amount;
+                        break;
+                    case "transfer":
+                        dto.MonthTransfer += s.Amount;
+                        break;
+                }
+                if (input.Day != null && input.Day == s.Day)
+                {
+                    switch (s.Type)
+                    {
+                        case "expend":
+                            dto.DayExpend += s.Amount;
+                            break;
+                        case "income":
+                            dto.DayIcome += s.Amount;
+                            break;
+                        case "repayment":
+                            dto.DayRepayment += s.Amount;
+                            break;
+                        case "transfer":
+                            dto.DayTransfer += s.Amount;
+                            break;
+                    }
+                }
+            });
+            return dto;
         }
 
         /// <summary>
@@ -152,5 +197,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
 
             return dto;
         }
+
+     
     }
 }
