@@ -86,11 +86,11 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
 
         public async Task<PagedDto<StatementDto>> GetPagesAsync(StatementPagingDto pageDto)
         {
-            pageDto.UserId = pageDto.UserId ?? CurrentUser.Id;
+            // pageDto.UserId = pageDto.UserId ?? CurrentUser.Id;
             var statements = await _statementRepository
                 .Select
                 .Where(s => s.IsDeleted == false)
-                .Where(s => s.CreateUserId == pageDto.UserId)
+                .WhereIf(pageDto.UserId != null , s => s.CreateUserId == pageDto.UserId)
                 .WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
                 .WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
                 .WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
@@ -112,11 +112,11 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
         }
         public async Task<StatementTotalDto> GetMonthStatisticsAsync(StatementTotalInputDto input)
         {
-            var userId = input.UserId ?? CurrentUser.Id;
+            // var userId = input.UserId ?? CurrentUser.Id;
             var statements =  await _statementRepository
                .Select
                .Where(s => s.IsDeleted == false)
-               .Where(s => s.CreateUserId == userId)
+               .WhereIf(input.UserId != null , s => s.CreateUserId == input.UserId)
                .WhereIf(input.Year != null, s => s.Year == input.Year)
                .WhereIf(input.Month != null, s => s.Month == input.Month)
                .ToListAsync();
