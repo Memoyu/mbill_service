@@ -95,16 +95,39 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         }
 
         /// <summary>
-        /// 获取账单月各类型账单金额统计
+        /// 获取指定日期各类型账单金额统计
         /// </summary>
-        /// <param name="year">年</param>
-        /// <param name="month">月</param>
+        /// <param name="input">入参</param>
         [HttpGet("statistics/total")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult<StatementTotalDto>> GetMonthStatisticsAsync([FromQuery] StatementTotalInputDto input)
+        public async Task<ServiceResult<StatementTotalDto>> GetMonthStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
             return ServiceResult<StatementTotalDto>.Successed(await _statementService.GetMonthStatisticsAsync(input));
+        }
+
+        /// <summary>
+        /// 获取指定日期支出分类统计
+        /// </summary>
+        /// <param name="input">年</param>
+        [HttpGet("statistics/expend/category")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<StatementExpendCategoryDto>> GetExpendCategoryStatisticsAsync([FromQuery] StatementDateInputDto input)
+        {
+            return ServiceResult<StatementExpendCategoryDto>.Successed(await _statementService.GetExpendCategoryStatisticsAsync(input));
+        }
+
+        /// <summary>
+        /// 获取指定月份支出每周统计
+        /// </summary>
+        /// <param name="input">年</param>
+        [HttpGet("statistics/expend/week")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<StatementExpendCategoryDto>> GetExpendWeekStatisticsAsync([FromQuery] StatementDateInputDto input)
+        {
+            return ServiceResult<StatementExpendCategoryDto>.Successed(await _statementService.GetExpendCategoryStatisticsAsync(input));
         }
 
     }

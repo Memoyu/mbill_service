@@ -90,7 +90,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             var statements = await _statementRepository
                 .Select
                 .Where(s => s.IsDeleted == false)
-                .WhereIf(pageDto.UserId != null , s => s.CreateUserId == pageDto.UserId)
+                .WhereIf(pageDto.UserId != null, s => s.CreateUserId == pageDto.UserId)
                 .WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
                 .WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
                 .WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
@@ -110,15 +110,17 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
 
             return new PagedDto<StatementDto>(statementDtos, totalCount);
         }
-        public async Task<StatementTotalDto> GetMonthStatisticsAsync(StatementTotalInputDto input)
+
+        public async Task<StatementTotalDto> GetMonthStatisticsAsync(StatementDateInputDto input)
         {
             // var userId = input.UserId ?? CurrentUser.Id;
-            var statements =  await _statementRepository
+            var statements = await _statementRepository
                .Select
                .Where(s => s.IsDeleted == false)
-               .WhereIf(input.UserId != null , s => s.CreateUserId == input.UserId)
+               .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
                .WhereIf(input.Year != null, s => s.Year == input.Year)
                .WhereIf(input.Month != null, s => s.Month == input.Month)
+               .WhereIf(input.Day != null, s => s.Day == input.Day)
                .ToListAsync();
             var dto = new StatementTotalDto();
             statements.ForEach(s =>
@@ -160,6 +162,50 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             return dto;
         }
 
+        public async Task<StatementExpendCategoryDto> GetExpendCategoryStatisticsAsync(StatementDateInputDto input)
+        {
+            var dto = new StatementExpendCategoryDto();
+            var statements = await _statementRepository
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.Type.Equals("expend"))
+               .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
+               .WhereIf(input.Year != null, s => s.Year == input.Year)
+               .WhereIf(input.Month != null, s => s.Month == input.Month)
+               .WhereIf(input.Day != null, s => s.Day == input.Day)
+               .ToListAsync();
+            decimal total = 0;
+            // 根据CategoryId分组，并统计总额
+            var childs = statements.GroupBy(s => s.CategoryId).Select(g => new
+            {
+                CategoryId = g.Key,
+                Amount = g.Sum(s => s.Amount)
+            });
+
+            var childDtos = new List<StatisticsDto>();
+            var parents = childs.Select(s =>
+            {
+                var childDto = new StatisticsDto();
+                var info = _categoryRepository.GetAsync(s.CategoryId.Value).Result;
+                var parentInfo = _categoryRepository.GetCategoryParentAsync(s.CategoryId.Value).Result;
+                childDto.Name = info.Name;
+                childDto.Value = s.Amount;
+                total += s.Amount;
+                childDtos.Add(childDto);
+                return new { Id = parentInfo.Id, Name = parentInfo.Name, Amount = s.Amount };
+            });
+            var parentDtos = parents.GroupBy(p => new { p.Id, p.Name }).Select(g => new StatisticsDto
+            {
+                Name = g.Key.Name,
+                Value = Math.Round(g.Sum(s => s.Amount) / total, 4) * 100
+            });
+            dto.ParentCategoryStas = parentDtos;
+            dto.ChildCategoryStas = childDtos;
+            return dto;
+        }
+
+        #region Private
+
         /// <summary>
         /// 映射Dto
         /// </summary>
@@ -198,6 +244,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             return dto;
         }
 
-     
+        #endregion
+
     }
 }

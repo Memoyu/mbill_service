@@ -58,11 +58,18 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         Task<PagedDto<StatementDto>> GetPagesAsync(StatementPagingDto pageDto);
 
         /// <summary>
-        /// 获取月各类型账单总额统计
+        /// 获取指定日期各类型账单总额统计
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<StatementTotalDto> GetMonthStatisticsAsync(StatementTotalInputDto input);
+        Task<StatementTotalDto> GetMonthStatisticsAsync(StatementDateInputDto input);
+
+        /// <summary>
+        /// 获取指定日期支出分类统计
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<StatementExpendCategoryDto> GetExpendCategoryStatisticsAsync(StatementDateInputDto input);
 
     }
 }
