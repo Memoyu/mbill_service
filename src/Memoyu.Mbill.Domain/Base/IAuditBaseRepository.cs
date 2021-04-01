@@ -11,15 +11,19 @@
 ***************************************************************************/
 using FreeSql;
 using System;
+using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Memoyu.Mbill.Domain.Base
 {
     public interface IAuditBaseRepository<TEntity> : IBaseRepository<TEntity, long> where TEntity : class
     {
+        Task<int> UpdateWithIgnoreAsync(TEntity entity, Expression<Func<TEntity, object>> ignoreExp, CancellationToken cancellationToken = default(CancellationToken));
     }
 
     public interface IAuditBaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey> where TEntity : class
     {
-
+        Task<int> UpdateWithIgnoreAsync(TEntity entity, Expression<Func<TEntity, object>> ignoreExp, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

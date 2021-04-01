@@ -11,11 +11,12 @@
 ***************************************************************************/
 
 using Memoyu.Mbill.Application.Contracts.Dtos.Core;
+using Memoyu.Mbill.Domain.Base;
 using System.Collections.Generic;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.User
 {
-    public class UserDto
+    public class UserDto : FullAduitEntity
     {
         public long Id { get; set; }
         /// <summary>

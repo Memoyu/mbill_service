@@ -12,7 +12,7 @@
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
-    public class StatementDto:MapDto
+    public class StatementDto : MapDto
     {
         public long Id { get; set; }
 

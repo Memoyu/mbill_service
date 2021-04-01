@@ -1,4 +1,6 @@
-﻿namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
+﻿using Memoyu.Mbill.Domain.Base;
+
+namespace Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement
 {
     public class MapDto
     {

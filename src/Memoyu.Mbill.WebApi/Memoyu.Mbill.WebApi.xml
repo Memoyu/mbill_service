@@ -134,6 +134,12 @@
             </summary>
             <param name="input">年</param>
         </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetExpendWeekStatisticsAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementDateInputDto)">
+            <summary>
+            获取指定月份支出每周统计
+            </summary>
+            <param name="input">年</param>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
             <summary>
             账户相关

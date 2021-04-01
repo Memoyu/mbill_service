@@ -27,6 +27,7 @@ using Memoyu.Mbill.ToolKits.Base.Page;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using static Memoyu.Mbill.Domain.Shared.Const.SystemConst;
 
@@ -70,7 +71,8 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
         {
             var exist = await _statementRepository.Select.AnyAsync(s => s.Id == statement.Id && !s.IsDeleted);
             if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
-            await _statementRepository.UpdateAsync(statement);
+            Expression<Func<StatementEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
+            await _statementRepository.UpdateWithIgnoreAsync(statement, ignoreExp);
         }
 
         public async Task<StatementDetailDto> GetDetailAsync(long id)
@@ -217,7 +219,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             T dto = Mapper.Map<T>(statement);
             if (statement.CategoryId != null)
             {
-                var category = _categoryRepository.Get(statement.CategoryId.Value);
+                var category = _categoryRepository.Get(statement.CategoryId.Value) ?? throw new KnownException("分类数据查询失败！", ServiceResultCode.NotFound);
                 dto.CategoryName = category.Name;
                 dto.CategoryIconPath = _fileRepository.GetFileUrl(category.IconUrl);
             }
@@ -232,7 +234,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
                     dto.CategoryIconPath = _fileRepository.GetFileUrl("core/images/category/icon_repayment_64.png");
                 }
             }
-            var asset = _assetRepository.Get(statement.AssetId);
+            var asset = _assetRepository.Get(statement.AssetId)??throw new KnownException("资产数据查询失败！", ServiceResultCode.NotFound);
             if (statement.TargetAssetId != null)
             {
                 var targetAsset = _assetRepository.Get(statement.TargetAssetId.Value);

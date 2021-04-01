@@ -102,6 +102,12 @@ namespace Memoyu.Mbill.Domain.Base.Impl
             return base.UpdateAsync(entity);
         }
 
+        public new Task<int> UpdateWithIgnoreAsync(TEntity entity, Expression<Func<TEntity , object>> ignoreExp, CancellationToken cancellationToken = default(CancellationToken)) 
+        {
+            BeforeUpdate(entity);
+            return Orm.Update<TEntity>().SetSource(entity).IgnoreColumns(ignoreExp).ExecuteAffrowsAsync();
+        }
+
         public override int Update(IEnumerable<TEntity> entitys)
         {
             foreach (var entity in entitys)
