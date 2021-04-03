@@ -24,6 +24,8 @@ using Memoyu.Mbill.Domain.Shared.Enums;
 using Memoyu.Mbill.Domain.Shared.Extensions;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
+using Memoyu.Mbill.ToolKits.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +91,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
         public async Task<PagedDto<StatementDto>> GetPagesAsync(StatementPagingDto pageDto)
         {
             // pageDto.UserId = pageDto.UserId ?? CurrentUser.Id;
+            pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "Time DESC" : pageDto.Sort.Replace("-", " ");
             var statements = await _statementRepository
                 .Select
                 .Where(s => s.IsDeleted == false)
@@ -99,8 +102,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
                 .WhereIf(pageDto.Type.IsNotNullOrEmpty(), s => s.Type == pageDto.Type)
                 .WhereIf(pageDto.CategoryId != null, s => s.CategoryId == pageDto.CategoryId)
                 .WhereIf(pageDto.AssetId != null, s => s.AssetId == pageDto.AssetId)
-                .OrderBy(pageDto.Sort.IsNotNullOrEmpty(), pageDto.Sort)
-                .OrderBy(pageDto.Sort.IsNullOrEmpty(), "Year DESC, Month DESC, Day DESC, Time DESC")
+                .OrderBy(pageDto.Sort)
                 .ToPageListAsync(pageDto, out long totalCount);
             List<StatementDto> statementDtos = statements
                 .Select(s =>
@@ -178,32 +180,79 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
                .ToListAsync();
             decimal total = 0;
             // 根据CategoryId分组，并统计总额
-            var childs = statements.GroupBy(s => s.CategoryId).Select(g => new
+            var childDetails = statements.GroupBy(s => s.CategoryId).Select(g =>
             {
-                CategoryId = g.Key,
-                Amount = g.Sum(s => s.Amount)
+                var info = _categoryRepository.GetAsync(g.Key.Value).Result;
+                var parentInfo = _categoryRepository.GetCategoryParentAsync(g.Key.Value).Result;
+                var amount = g.Sum(s => s.Amount);
+                total += amount;
+                return new
+                {
+                    CategoryId = g.Key,
+                    Amount = amount,
+                    Info = info,
+                    ParentInfo = parentInfo
+                };
             });
 
-            var childDtos = new List<StatisticsDto>();
-            var parents = childs.Select(s =>
+            var childDtos = new List<ChildGroupDto>();
+            var parentDtos = childDetails.GroupBy(p => new { p.ParentInfo.Id, p.ParentInfo.Name }).Select(g =>
             {
-                var childDto = new StatisticsDto();
-                var info = _categoryRepository.GetAsync(s.CategoryId.Value).Result;
-                var parentInfo = _categoryRepository.GetCategoryParentAsync(s.CategoryId.Value).Result;
-                childDto.Name = info.Name;
-                childDto.Value = s.Amount;
-                total += s.Amount;
+                var childDto = new ChildGroupDto();
+                var childTotal = g.Sum(s => s.Amount);
+                childDto.ParentName = g.Key.Name;
+                childDto.Childs = childDetails.Where(d => d.Info.ParentId == g.Key.Id).Select(d => new
+                {
+                    Id = d.Info.Id,
+                    Name = d.Info.Name,
+                    Data = d.Amount,
+                    Percent = Math.Round(d.Amount / childTotal, 4) * 100,
+                    CategoryIconPath = _fileRepository.GetFileUrl(d.Info.IconUrl)
+                });
                 childDtos.Add(childDto);
-                return new { Id = parentInfo.Id, Name = parentInfo.Name, Amount = s.Amount };
-            });
-            var parentDtos = parents.GroupBy(p => new { p.Id, p.Name }).Select(g => new StatisticsDto
-            {
-                Name = g.Key.Name,
-                Value = Math.Round(g.Sum(s => s.Amount) / total, 4) * 100
-            });
+                return new StatisticsDto
+                {
+                    Id = g.Key.Id,
+                    Name = g.Key.Name,
+                    Data = Math.Round(g.Sum(s => s.Amount) / total, 4) * 100
+                };
+            }).ToList();
             dto.ParentCategoryStas = parentDtos;
             dto.ChildCategoryStas = childDtos;
             return dto;
+        }
+
+        public async Task<IEnumerable<StatementExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(StatementDateInputDto input)
+        {
+
+            var dateList = DateTimeUtil.GetWeeksOfMonth(input.Year.Value, input.Month.Value);
+            var startDay = dateList.OrderBy(d => d.Number).FirstOrDefault().StartDate.Day;
+            var EndDay = dateList.OrderBy(d => d.Number).LastOrDefault().EndDate.Day;
+
+            var statements = await _statementRepository
+              .Select
+              .Where(s => s.IsDeleted == false)
+              .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
+              .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
+              .WhereIf(input.Year != null, s => s.Year == input.Year)
+              .WhereIf(input.Month != null, s => s.Month == input.Month)
+              .Where(s => s.Day >= startDay && s.Day <= EndDay)
+              .ToListAsync();
+
+            var dtos = dateList.Select(d => new StatementExpendTrendDto
+            {
+                Name = $"第{d.Number}周：{d.StartDate.Day}-{d.EndDate.Day}",
+                Data = statements.Where(s => s.Day >= d.StartDate.Day && s.Day <= d.EndDate.Day).Select(t => new { t.Amount }).Sum(t=>t.Amount),
+                StartDate = d.StartDate.Date,
+                EndDate = d.EndDate.Date
+            });
+
+            return dtos;
+        }
+
+        public async Task<IEnumerable<StatementExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(StatementDateInputDto input, int count)
+        {
+            throw new NotImplementedException();
         }
 
         #region Private
@@ -234,7 +283,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
                     dto.CategoryIconPath = _fileRepository.GetFileUrl("core/images/category/icon_repayment_64.png");
                 }
             }
-            var asset = _assetRepository.Get(statement.AssetId)??throw new KnownException("资产数据查询失败！", ServiceResultCode.NotFound);
+            var asset = _assetRepository.Get(statement.AssetId) ?? throw new KnownException("资产数据查询失败！", ServiceResultCode.NotFound);
             if (statement.TargetAssetId != null)
             {
                 var targetAsset = _assetRepository.Get(statement.TargetAssetId.Value);

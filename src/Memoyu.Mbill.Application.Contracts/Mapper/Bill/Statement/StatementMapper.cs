@@ -12,6 +12,7 @@
 using AutoMapper;
 using Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement;
 using Memoyu.Mbill.Domain.Entities.Bill.Statement;
+using System;
 
 namespace Memoyu.Mbill.Application.Contracts.Mapper.Bill.Statement
 {
@@ -19,11 +20,14 @@ namespace Memoyu.Mbill.Application.Contracts.Mapper.Bill.Statement
     {
         public StatementMapper()
         {
-            CreateMap<ModifyStatementDto, StatementEntity>();
+            CreateMap<ModifyStatementDto, StatementEntity>()
+                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => DateTime.Parse($"{src.Year}-{src.Month}-{src.Day} {src.Time}")));
 
-            CreateMap<StatementEntity, StatementDto>();
+            CreateMap<StatementEntity, StatementDto>()
+                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.Time.ToLongTimeString()));
 
-            CreateMap<StatementEntity, StatementDetailDto>();
+            CreateMap<StatementEntity, StatementDetailDto>()
+                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.Time.ToLongTimeString()));
         }
     }
 }

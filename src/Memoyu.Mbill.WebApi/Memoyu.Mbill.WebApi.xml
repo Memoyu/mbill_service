@@ -132,13 +132,19 @@
             <summary>
             获取指定日期支出分类统计
             </summary>
-            <param name="input">年</param>
+            <param name="input">查询入参</param>
         </member>
-        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetExpendWeekStatisticsAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementDateInputDto)">
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetWeekExpendTrendStatisticsAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementDateInputDto)">
             <summary>
-            获取指定月份支出每周统计
+            获取当前月份所有周的支出趋势统计
             </summary>
-            <param name="input">年</param>
+            <param name="input">查询入参</param>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementDateInputDto)">
+            <summary>
+            获取当前月往前5个月的支出趋势统计(共6个月)
+            </summary>
+            <param name="input">查询入参</param>
         </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.AccountController">
             <summary>

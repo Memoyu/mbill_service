@@ -12,6 +12,7 @@
 using FreeSql.DataAnnotations;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Shared.Const;
+using System;
 
 namespace Memoyu.Mbill.Domain.Entities.Bill.Statement
 {
@@ -114,7 +115,7 @@ namespace Memoyu.Mbill.Domain.Entities.Bill.Statement
         /// 记录日期：时间
         /// </summary>
         [Column(StringLength = 10)]
-        public string Time { get; set; }
+        public DateTime Time { get; set; }
 
     }
 }

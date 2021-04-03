@@ -71,5 +71,20 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         /// <returns></returns>
         Task<StatementExpendCategoryDto> GetExpendCategoryStatisticsAsync(StatementDateInputDto input);
 
+        /// <summary>
+        /// 获取当前月份所有周的支出趋势统计
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<IEnumerable<StatementExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(StatementDateInputDto input);
+
+        /// <summary>
+        /// 获取当前月往前5个月的支出趋势统计
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="count">月数</param>
+        /// <returns></returns>
+        Task<IEnumerable<StatementExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(StatementDateInputDto input, int count);
+
     }
 }

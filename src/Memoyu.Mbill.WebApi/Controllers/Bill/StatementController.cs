@@ -109,7 +109,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// <summary>
         /// 获取指定日期支出分类统计
         /// </summary>
-        /// <param name="input">年</param>
+        /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/category")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
@@ -119,15 +119,27 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         }
 
         /// <summary>
-        /// 获取指定月份支出每周统计
+        /// 获取当前月份所有周的支出趋势统计
         /// </summary>
-        /// <param name="input">年</param>
-        [HttpGet("statistics/expend/week")]
+        /// <param name="input">查询入参</param>
+        [HttpGet("statistics/expend/trend/6week")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-        public async Task<ServiceResult<StatementExpendCategoryDto>> GetExpendWeekStatisticsAsync([FromQuery] StatementDateInputDto input)
+        public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
-            return ServiceResult<StatementExpendCategoryDto>.Successed(await _statementService.GetExpendCategoryStatisticsAsync(input));
+            return ServiceResult<IEnumerable<StatementExpendTrendDto>>.Successed(await _statementService.GetWeekExpendTrendStatisticsAsync(input));
+        }
+
+        /// <summary>
+        /// 获取当前月往前5个月的支出趋势统计(共6个月)
+        /// </summary>
+        /// <param name="input">查询入参</param>
+        [HttpGet("statistics/expend/trend/6month")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
+        {
+            return ServiceResult<IEnumerable<StatementExpendTrendDto>>.Successed(await _statementService.GetMonthExpendTrendStatisticsAsync(input, 6));
         }
 
     }
