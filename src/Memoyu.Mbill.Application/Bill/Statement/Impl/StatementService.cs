@@ -226,8 +226,8 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
         {
 
             var dateList = DateTimeUtil.GetWeeksOfMonth(input.Year.Value, input.Month.Value);
-            var startDay = dateList.OrderBy(d => d.Number).FirstOrDefault().StartDate.Day;
-            var EndDay = dateList.OrderBy(d => d.Number).LastOrDefault().EndDate.Day;
+            var startDate = dateList.OrderBy(d => d.Number).FirstOrDefault().StartDate.Date;
+            var EndDate = dateList.OrderBy(d => d.Number).LastOrDefault().EndDate.Date.AddDays(1).AddSeconds(-1);// 加上23:59:59
 
             var statements = await _statementRepository
               .Select
@@ -235,14 +235,13 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
               .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
               .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
               .WhereIf(input.Year != null, s => s.Year == input.Year)
-              .WhereIf(input.Month != null, s => s.Month == input.Month)
-              .Where(s => s.Day >= startDay && s.Day <= EndDay)
+              .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate)
               .ToListAsync();
 
             var dtos = dateList.Select(d => new StatementExpendTrendDto
             {
-                Name = $"第{d.Number}周：{d.StartDate.Day}-{d.EndDate.Day}",
-                Data = statements.Where(s => s.Day >= d.StartDate.Day && s.Day <= d.EndDate.Day).Select(t => new { t.Amount }).Sum(t=>t.Amount),
+                Name = $"{d.StartDate.Month}/{d.StartDate.Day}-{d.EndDate.Month}/{d.EndDate.Day}",
+                Data = statements.Where(s => s.Time >= d.StartDate && s.Time <= d.EndDate.AddDays(1).AddSeconds(-1)).Select(t => new { t.Amount }).Sum(t => t.Amount),
                 StartDate = d.StartDate.Date,
                 EndDate = d.EndDate.Date
             });
@@ -252,7 +251,42 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
 
         public async Task<IEnumerable<StatementExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(StatementDateInputDto input, int count)
         {
-            throw new NotImplementedException();
+            var dateList = new List<WeeksOfMonth>();
+            // 获取当前月份前count个月份（包含当前月份）
+            for (int i = 0; i < count; i++)
+            {
+                var currentDate = new DateTime(input.Year.Value, input.Month.Value, 1).AddMonths(-i);
+                dateList.Add(new WeeksOfMonth
+                {
+                    Number = i + 1,
+                    StartDate = currentDate,
+                    EndDate = currentDate.AddMonths(1).AddDays(-1)
+                });
+            }
+
+            var startDate = dateList.OrderBy(d => d.Number).LastOrDefault().StartDate.Date;//获取最小的月份（Number最大）
+            var EndDate = dateList.OrderBy(d => d.Number).FirstOrDefault().EndDate.Date;
+
+            var statements = await _statementRepository
+             .Select
+             .Where(s => s.IsDeleted == false)
+             .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
+             .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
+             .WhereIf(input.Year != null, s => s.Year >= startDate.Year && s.Year <= EndDate.Year)
+             .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate.AddDays(1).AddSeconds(-1))
+             .ToListAsync();
+
+            var dtos = dateList.Select(d => new StatementExpendTrendDto
+            {
+                Name = $"{d.StartDate.Year}/{d.StartDate.Month}",
+                Data = statements.Where(s => s.Year == d.StartDate.Year && s.Month == d.StartDate.Month).Select(t => new { t.Amount }).Sum(t => t.Amount),
+                StartDate = d.StartDate.Date,
+                EndDate = d.EndDate.Date
+            });
+
+            return dtos;
+
+
         }
 
         #region Private

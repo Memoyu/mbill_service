@@ -21,14 +21,19 @@ namespace Memoyu.Mbill.ToolKits.Utils
 
             var weeksOfMonth = new List<WeeksOfMonth>();
             //当前月第一天
-            DateTime weekStart = new DateTime(year, month, 1);
+            DateTime monStart = new DateTime(year, month, 1);
             //该月的最后一天
-            DateTime monEnd = weekStart.AddMonths(1).AddDays(-1);
+            DateTime monEnd = monStart.AddMonths(1).AddDays(-1);
             int i = 1;
             //当前月第一天是星期几
-            int dayOfWeek = Convert.ToInt32(weekStart.DayOfWeek.ToString("d"));
+            int dayOfWeek = Convert.ToInt32(monStart.DayOfWeek.ToString("d"));
+            var weekStart = monStart;
+            //确认这个月第一周的第一天
+            if (dayOfWeek != 1)
+                weekStart = monStart.AddDays(-(dayOfWeek - 1));
+
             //该月第一周结束日期
-            DateTime weekEnd = dayOfWeek == 0 ? weekStart : weekStart.AddDays(7 - dayOfWeek);
+            DateTime weekEnd = dayOfWeek == 0 ? monStart : monStart.AddDays(7 - dayOfWeek);
 
             weeksOfMonth.Add(new WeeksOfMonth
             {
@@ -44,7 +49,7 @@ namespace Memoyu.Mbill.ToolKits.Utils
                 //该周的开始时间
                 weekStart = weekEnd.AddDays(1);
                 //该周结束时间
-                weekEnd = weekEnd.AddDays(7) > monEnd ? monEnd : weekEnd.AddDays(7);
+                weekEnd = weekEnd.AddDays(7);// > monEnd ? monEnd : weekEnd.AddDays(7);
 
                 weeksOfMonth.Add(new WeeksOfMonth
                 {
@@ -53,7 +58,6 @@ namespace Memoyu.Mbill.ToolKits.Utils
                     EndDate = weekEnd
                 });
             }
-
             return weeksOfMonth;
         }
 
@@ -68,7 +72,7 @@ namespace Memoyu.Mbill.ToolKits.Utils
             if (year <= 0 || month <= 0)
                 throw new ArgumentException("年、月不能小于等于0");
 
-            var weeksOfMonth = new List<WeeksOfMonth>();
+            var weeksOnlyMonth = new List<WeeksOfMonth>();
             //当前月第一天
             DateTime weekStart = new DateTime(year, month, 1);
             //该月的最后一天
@@ -79,7 +83,7 @@ namespace Memoyu.Mbill.ToolKits.Utils
             //该月第一周结束日期
             DateTime weekEnd = dayOfWeek == 0 ? weekStart : weekStart.AddDays(7 - dayOfWeek);
 
-            weeksOfMonth.Add(new WeeksOfMonth
+            weeksOnlyMonth.Add(new WeeksOfMonth
             {
                 Number = i,
                 StartDate = weekStart.Date,
@@ -95,7 +99,7 @@ namespace Memoyu.Mbill.ToolKits.Utils
                 //该周结束时间
                 weekEnd = weekEnd.AddDays(7) > monEnd ? monEnd : weekEnd.AddDays(7);
 
-                weeksOfMonth.Add(new WeeksOfMonth
+                weeksOnlyMonth.Add(new WeeksOfMonth
                 {
                     Number = i,
                     StartDate = weekStart.Date,
@@ -103,7 +107,7 @@ namespace Memoyu.Mbill.ToolKits.Utils
                 });
             }
 
-            return weeksOfMonth;
+            return weeksOnlyMonth;
         }
 
         /// <summary>

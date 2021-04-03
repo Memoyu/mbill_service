@@ -122,7 +122,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// 获取当前月份所有周的支出趋势统计
         /// </summary>
         /// <param name="input">查询入参</param>
-        [HttpGet("statistics/expend/trend/6week")]
+        [HttpGet("statistics/expend/trend/week")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
@@ -131,15 +131,15 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         }
 
         /// <summary>
-        /// 获取当前月往前5个月的支出趋势统计(共6个月)
+        /// 获取当前月往前4个月的支出趋势统计(共5个月)
         /// </summary>
         /// <param name="input">查询入参</param>
-        [HttpGet("statistics/expend/trend/6month")]
+        [HttpGet("statistics/expend/trend/5month")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
-            return ServiceResult<IEnumerable<StatementExpendTrendDto>>.Successed(await _statementService.GetMonthExpendTrendStatisticsAsync(input, 6));
+            return ServiceResult<IEnumerable<StatementExpendTrendDto>>.Successed(await _statementService.GetMonthExpendTrendStatisticsAsync(input, 5));
         }
 
     }

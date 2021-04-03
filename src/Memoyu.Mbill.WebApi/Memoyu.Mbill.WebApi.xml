@@ -142,7 +142,7 @@
         </member>
         <member name="M:Memoyu.Mbill.WebApi.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync(Memoyu.Mbill.Application.Contracts.Dtos.Bill.Statement.StatementDateInputDto)">
             <summary>
-            获取当前月往前5个月的支出趋势统计(共6个月)
+            获取当前月往前4个月的支出趋势统计(共5个月)
             </summary>
             <param name="input">查询入参</param>
         </member>
