@@ -562,6 +562,11 @@
             JWT 登录，保存生成的随机token值。
             </summary>
         </member>
+        <member name="P:Memoyu.Mbill.Domain.Entities.User.UserEntity.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
         <member name="M:Memoyu.Mbill.Domain.Entities.User.UserEntity.ChangeLoginStatus(System.String)">
             <summary>
             登录后用户状态变化

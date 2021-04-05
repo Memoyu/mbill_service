@@ -93,6 +93,22 @@ namespace Memoyu.Mbill.Domain.Shared.Configurations
 
         #endregion
 
+        #region Cors
+
+        public static class Cors 
+        {
+            /// <summary>
+            /// 跨域策略名
+            /// </summary>
+            public static string CorsName => _configuration["Cors:Name"];
+            /// <summary>
+            /// 跨域源
+            /// </summary>
+            public static string CorsOrigins => _configuration["Cors:Origins"];
+        }
+
+        #endregion
+
         #region Db
 
         /// <summary>

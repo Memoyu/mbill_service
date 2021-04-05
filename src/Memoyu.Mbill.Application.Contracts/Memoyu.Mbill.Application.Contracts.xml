@@ -299,9 +299,19 @@
             街道
             </summary>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.Address">
+            <summary>
+            地址详情
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.AvatarUrl">
             <summary>
             头像地址
+            </summary>
+        </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.IsEnable">
+            <summary>
+            是否启用
             </summary>
         </member>
         <member name="F:Memoyu.Mbill.Application.Contracts.Exceptions.KnownException._statusCode">

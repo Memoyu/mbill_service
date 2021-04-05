@@ -1,4 +1,5 @@
 using Autofac;
+using Memoyu.Mbill.Domain.Shared.Configurations;
 using Memoyu.Mbill.WebApi.Extensions;
 using Memoyu.Mbill.WebApi.Middleware;
 using Memoyu.Mbill.WebApi.Modules;
@@ -31,6 +32,8 @@ namespace Memoyu.Mbill.WebApi
             services.AddIpRateLimiting();//≈‰÷√◊¢≤·œﬁ¡˜
             services.AddHealthChecks();//≈‰÷√◊¢≤·Ω°øµºÏ≤È
             services.AddConfigurationOption(Configuration);
+            services.AddCorsConfig();//≈‰÷√øÁ”Ú
+
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -49,6 +52,8 @@ namespace Memoyu.Mbill.WebApi
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger().UseSwaggerUI();
             }
+            //øÁ”Ú
+            app.UseCors(AppSettings.Cors.CorsName);
             //æ≤Ã¨Œƒº˛
             app.UseStaticFiles();
 

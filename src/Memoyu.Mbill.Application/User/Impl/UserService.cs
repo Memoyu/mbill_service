@@ -83,8 +83,12 @@ namespace Memoyu.Mbill.Application.User.Impl
 
         public async Task<UserDto> GetAsync()
         {
-            var user = await _userRepository.Where(r => r.Id == CurrentUser.Id).FirstAsync();
+            var user = await _userRepository
+                .Select
+                .IncludeMany(u=>u.Roles)
+                .Where(r => r.Id == CurrentUser.Id).FirstAsync();
             user.AvatarUrl = _fileRepository.GetFileUrl(user.AvatarUrl);
+            //user.Roles.Select 
             return Mapper.Map<UserDto>(user);
         }
 

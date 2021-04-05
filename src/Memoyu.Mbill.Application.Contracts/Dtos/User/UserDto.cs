@@ -12,6 +12,7 @@
 
 using Memoyu.Mbill.Application.Contracts.Dtos.Core;
 using Memoyu.Mbill.Domain.Base;
+using Memoyu.Mbill.Domain.Entities.Core;
 using System.Collections.Generic;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.User
@@ -65,10 +66,20 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.User
         public string Street { get; set; }
 
         /// <summary>
+        /// 地址详情
+        /// </summary>
+        public string Address { get; set; }
+
+        /// <summary>
         /// 头像地址
         /// </summary>
         public string AvatarUrl { get; set; }
 
-        public List<RoleDto> Roles { get; set; }
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        public bool IsEnable { get; set; }
+
+        public List<RoleEntity> Roles { get; set; }
     }
 }

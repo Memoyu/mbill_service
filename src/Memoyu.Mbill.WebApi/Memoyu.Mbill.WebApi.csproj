@@ -37,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\core\images\avatar\default_avatar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\core\images\defaultAvatar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

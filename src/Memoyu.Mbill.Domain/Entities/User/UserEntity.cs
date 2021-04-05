@@ -94,6 +94,11 @@ namespace Memoyu.Mbill.Domain.Entities.User
         [Column(StringLength = 200)]
         public string RefreshToken { get; set; }
 
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        public bool IsEnable { get; set; } = true;
+
 
         [Navigate(ManyToMany = typeof(UserRoleEntity))]
         public virtual IEnumerable<RoleEntity> Roles { get; set; }
