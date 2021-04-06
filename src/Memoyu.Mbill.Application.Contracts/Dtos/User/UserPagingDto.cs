@@ -10,7 +10,7 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.User
 
         public string Nickname { get; set; }
 
-        public bool? IsEnable { get; set; }
+        public int? IsEnable { get; set; }
 
         public long? RoleId { get; set; }
 

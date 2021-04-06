@@ -96,12 +96,18 @@ namespace Memoyu.Mbill.Application.User.Impl
         public async Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pageDto)
         {
             pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "id ASC" : pageDto.Sort.Replace("-", " ");
+            bool? isEnable = pageDto.IsEnable switch
+            {
+                1 => true,
+                0 => false,
+                _ => null
+            };
             var users = await _userRepository
                 .Select
                 .IncludeMany(u => u.Roles)
                 .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Username), u => u.Username.Contains(pageDto.Username))
                 .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Nickname), u => u.Nickname.Contains(pageDto.Nickname))
-                .WhereIf(pageDto.IsEnable != null, u => u.IsEnable == pageDto.IsEnable)
+                .WhereIf(isEnable != null, u => u.IsEnable == isEnable)
                 .WhereIf(pageDto.CreateTime != null, u => u.CreateTime == pageDto.CreateTime)
                 .WhereIf(pageDto.RoleId != null, u => u.Roles.AsSelect().Any(r => r.Id == pageDto.RoleId))
                 .OrderBy(pageDto.Sort)
