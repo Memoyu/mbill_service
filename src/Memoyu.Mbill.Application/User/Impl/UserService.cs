@@ -17,6 +17,7 @@ using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.IRepositories.Core;
 using Memoyu.Mbill.Domain.IRepositories.User;
+using Memoyu.Mbill.Domain.Shared.Extensions;
 using Memoyu.Mbill.ToolKits.Base.Enum.Base;
 using Memoyu.Mbill.ToolKits.Base.Page;
 using Memoyu.Mbill.ToolKits.Utils;
@@ -33,7 +34,7 @@ namespace Memoyu.Mbill.Application.User.Impl
         private readonly IUserRepository _userRepository;
         private readonly IFileRepository _fileRepository;
 
-        public UserService(IUserRepository userRepository , IFileRepository fileRepository)
+        public UserService(IUserRepository userRepository, IFileRepository fileRepository)
         {
             _userRepository = userRepository;
             _fileRepository = fileRepository;
@@ -81,25 +82,38 @@ namespace Memoyu.Mbill.Application.User.Impl
             throw new NotImplementedException();
         }
 
-        public async Task<UserDto> GetAsync()
+        public async Task<UserDto> GetAsync(long? id)
         {
+            var userId = id ?? CurrentUser.Id;
             var user = await _userRepository
                 .Select
-                .IncludeMany(u=>u.Roles)
-                .Where(r => r.Id == CurrentUser.Id).FirstAsync();
+                .IncludeMany(u => u.Roles)
+                .Where(r => r.Id == userId).FirstAsync();
             user.AvatarUrl = _fileRepository.GetFileUrl(user.AvatarUrl);
-            //user.Roles.Select 
             return Mapper.Map<UserDto>(user);
         }
 
-        public Task<UserDto> GetAsync(long id)
+        public async Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pageDto)
         {
-            throw new NotImplementedException();
-        }
+            pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "id ASC" : pageDto.Sort.Replace("-", " ");
+            var users = await _userRepository
+                .Select
+                .IncludeMany(u => u.Roles)
+                .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Username), u => u.Username.Contains(pageDto.Username))
+                .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Nickname), u => u.Nickname.Contains(pageDto.Nickname))
+                .WhereIf(pageDto.IsEnable != null, u => u.IsEnable == pageDto.IsEnable)
+                .WhereIf(pageDto.CreateTime != null, u => u.CreateTime == pageDto.CreateTime)
+                .WhereIf(pageDto.RoleId != null, u => u.Roles.AsSelect().Any(r => r.Id == pageDto.RoleId))
+                .OrderBy(pageDto.Sort)
+                .ToPageListAsync(pageDto, out long totalCount);
+            var userDtos = users.Select(u =>
+             {
+                 var dto = Mapper.Map<UserDto>(u);
+                 dto.AvatarUrl = _fileRepository.GetFileUrl(dto.AvatarUrl);
+                 return dto;
+             }).ToList();
 
-        public Task<PagedDto<UserDto>> GetListAsync(PagingDto pageDto)
-        {
-            throw new NotImplementedException();
+            return new PagedDto<UserDto>(userDtos, totalCount);
         }
 
         public Task UpdateAsync(long id, UserEntity inputDto)

@@ -208,9 +208,14 @@
             </summary>
             <param name="userInput"></param>
         </member>
-        <member name="M:Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByTokenAsync">
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.User.UserController.GetByIdAsync(System.Nullable{System.Int64})">
             <summary>
-            获取用户信息，By Toekn
+            获取用户信息，By Id
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.User.UserController.GetPagesAsync(Memoyu.Mbill.Application.Contracts.Dtos.User.UserPagingDto)">
+            <summary>
+            获取用户信息分页
             </summary>
         </member>
         <member name="P:Memoyu.Mbill.WebApi.Data.Swagger.SwaggerApiInfo.UrlPrefix">

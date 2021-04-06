@@ -13,6 +13,7 @@
 using Memoyu.Mbill.Application.Contracts.Dtos.Core;
 using Memoyu.Mbill.Domain.Base;
 using Memoyu.Mbill.Domain.Entities.Core;
+using System;
 using System.Collections.Generic;
 
 namespace Memoyu.Mbill.Application.Contracts.Dtos.User
@@ -74,6 +75,11 @@ namespace Memoyu.Mbill.Application.Contracts.Dtos.User
         /// 头像地址
         /// </summary>
         public string AvatarUrl { get; set; }
+
+        /// <summary>
+        /// 最后一次登录的时间
+        /// </summary>
+        public DateTime LastLoginTime { get; set; }
 
         /// <summary>
         /// 是否启用

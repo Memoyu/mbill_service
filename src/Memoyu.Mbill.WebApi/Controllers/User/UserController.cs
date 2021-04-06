@@ -17,6 +17,7 @@ using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.Domain.Entities.User;
 using Memoyu.Mbill.Domain.Shared.Const;
 using Memoyu.Mbill.ToolKits.Base;
+using Memoyu.Mbill.ToolKits.Base.Page;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -53,14 +54,25 @@ namespace Memoyu.Mbill.WebApi.Controllers.User
         }
 
         /// <summary>
-        /// 获取用户信息，By Toekn
+        /// 获取用户信息，By Id
         /// </summary>
         [HttpGet("get")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
-        public async Task<ServiceResult<UserDto>> GetByTokenAsync()
+        public async Task<ServiceResult<UserDto>> GetByIdAsync([FromQuery] long? id)
         {
-            return ServiceResult<UserDto>.Successed(await _userService.GetAsync());
+            return ServiceResult<UserDto>.Successed(await _userService.GetAsync(id));
+        }
+
+        /// <summary>
+        /// 获取用户信息分页
+        /// </summary>
+        [HttpGet("get/pages")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
+        public async Task<ServiceResult<PagedDto<UserDto>>> GetPagesAsync([FromQuery] UserPagingDto pagingDto)
+        {
+            return ServiceResult<PagedDto<UserDto>>.Successed(await _userService.GetPagesAsync(pagingDto));
         }
     }
 }

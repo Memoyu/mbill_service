@@ -29,19 +29,18 @@ namespace Memoyu.Mbill.Application.User
         Task CreateAsync(UserEntity user, List<long> roleIds, string password);
 
         /// <summary>
-        /// 
+        /// 获取用户信息，id为空时，通过Token获取
         /// </summary>
-        /// <param name="pageDto"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        Task<PagedDto<UserDto>> GetListAsync(PagingDto pageDto);
+        Task<UserDto> GetAsync(long? id);
 
         /// <summary>
-        /// 通过token获取用户信息
+        /// 获取用户分页信息
         /// </summary>
+        /// 
         /// <returns></returns>
-        Task<UserDto> GetAsync();
-
-        Task<UserDto> GetAsync(long id);
+        Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pagingDto);
 
         Task UpdateAsync(long id, UserEntity entity);
 

@@ -309,6 +309,11 @@
             头像地址
             </summary>
         </member>
+        <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.LastLoginTime">
+            <summary>
+            最后一次登录的时间
+            </summary>
+        </member>
         <member name="P:Memoyu.Mbill.Application.Contracts.Dtos.User.UserDto.IsEnable">
             <summary>
             是否启用
