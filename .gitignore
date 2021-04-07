@@ -343,3 +343,4 @@ healthchecksdb
 !Memoyu.Core.WebApi.Template.*.nupkg
 
 /src/Memoyu.Mbill.WebApi/Logs/
+src/Memoyu.Mbill.WebApi/appsettings.Production.json
