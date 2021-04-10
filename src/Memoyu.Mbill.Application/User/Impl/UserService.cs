@@ -109,7 +109,7 @@ namespace Memoyu.Mbill.Application.User.Impl
                 .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Nickname), u => u.Nickname.Contains(pageDto.Nickname))
                 .WhereIf(isEnable != null, u => u.IsEnable == isEnable)
                 .WhereIf(pageDto.CreateTime != null, u => u.CreateTime == pageDto.CreateTime)
-                .WhereIf(pageDto.RoleId != null, u => u.Roles.AsSelect().Any(r => r.Id == pageDto.RoleId))
+                .WhereIf(pageDto.RoleId > 0, u => u.Roles.AsSelect().Any(r => r.Id == pageDto.RoleId))
                 .OrderBy(pageDto.Sort)
                 .ToPageListAsync(pageDto, out long totalCount);
             var userDtos = users.Select(u =>

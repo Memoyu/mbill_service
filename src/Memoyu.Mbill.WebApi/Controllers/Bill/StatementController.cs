@@ -18,6 +18,7 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
     /// <summary>
     /// 账单管理
     /// </summary>
+    [Authorize]
     [Route("api/statement")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public class StatementController : ApiControllerBase
@@ -37,7 +38,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// <param name="dto">账单</param>
         [Logger("用户新建了一条账单记录")]
         [HttpPost("create")]
-        [Authorize]
         public async Task<ServiceResult<StatementDto>> CreateAsync([FromBody] ModifyStatementDto dto)
         {
             var result = await _statementService.InsertAsync(_mapper.Map<StatementEntity>(dto));
@@ -49,7 +49,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="id">账单id</param>
         [HttpGet("detail")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<StatementDetailDto>> GetAsync([FromQuery]long id)
         {
@@ -61,7 +60,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="id">账单id</param>
         [HttpDelete("delete")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
         {
@@ -74,7 +72,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="dto">账单信息</param>
         [HttpPut("update")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult> UpdateAsync([FromBody] ModifyStatementDto dto)
         {
@@ -87,7 +84,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="pagingDto">分页条件</param>
         [HttpGet("pages")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<PagedDto<StatementDto>>> GetStatementPagesAsync([FromQuery] StatementPagingDto pagingDto)
         {
@@ -99,11 +95,10 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="input">入参</param>
         [HttpGet("statistics/total")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<StatementTotalDto>> GetMonthStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
-            return ServiceResult<StatementTotalDto>.Successed(await _statementService.GetMonthStatisticsAsync(input));
+            return ServiceResult<StatementTotalDto>.Successed(await _statementService.GetStatisticsTotalAsync(input));
         }
 
         /// <summary>
@@ -111,7 +106,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/category")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<StatementExpendCategoryDto>> GetExpendCategoryStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
@@ -123,7 +117,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/trend/week")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
@@ -135,7 +128,6 @@ namespace Memoyu.Mbill.WebApi.Controllers.Bill
         /// </summary>
         /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/trend/5month")]
-        [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
         {

@@ -11,7 +11,7 @@
 ***************************************************************************/
 using Memoyu.Mbill.Application.Contracts.Dtos.Core;
 using Memoyu.Mbill.Application.Contracts.Filter;
-using Memoyu.Mbill.Application.Core.Permission;
+using Memoyu.Mbill.Application.Core;
 using Memoyu.Mbill.Domain.Shared.Const;
 using Memoyu.Mbill.ToolKits.Base;
 using Microsoft.AspNetCore.Mvc;

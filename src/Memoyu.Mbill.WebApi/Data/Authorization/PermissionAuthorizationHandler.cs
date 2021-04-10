@@ -9,7 +9,7 @@
 *   邮箱     ：mmy6076@outlook.com
 *   功能描述 ：
 ***************************************************************************/
-using Memoyu.Mbill.Application.Core.Permission;
+using Memoyu.Mbill.Application.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using System;

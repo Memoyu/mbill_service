@@ -13,7 +13,7 @@ using Memoyu.Mbill.Application.Contracts.Dtos.Core;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Application.Core.Files
+namespace Memoyu.Mbill.Application.Core
 {
     public interface IFileService
     {

@@ -25,7 +25,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Application.Core.Account.Impl
+namespace Memoyu.Mbill.Application.Core.Impl
 {
     public class JwtTokenService : ITokenService
     {

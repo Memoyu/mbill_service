@@ -11,10 +11,8 @@
 ***************************************************************************/
 using Autofac;
 using Autofac.Extras.DynamicProxy;
-using Memoyu.Mbill.Application.Core.Account;
-using Memoyu.Mbill.Application.Core.Account.Impl;
-using Memoyu.Mbill.Application.Core.Files;
-using Memoyu.Mbill.Application.Core.Files.Impl;
+using Memoyu.Mbill.Application.Core;
+using Memoyu.Mbill.Application.Core.Impl;
 using Memoyu.Mbill.Domain.Entities.Core;
 using Memoyu.Mbill.WebApi.Aop;
 using System;

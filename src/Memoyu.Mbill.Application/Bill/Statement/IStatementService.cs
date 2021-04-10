@@ -62,7 +62,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<StatementTotalDto> GetMonthStatisticsAsync(StatementDateInputDto input);
+        Task<StatementTotalDto> GetStatisticsTotalAsync(StatementDateInputDto input);
 
         /// <summary>
         /// 获取指定日期支出分类统计

@@ -12,8 +12,8 @@
 using Autofac;
 using Memoyu.Mbill.Application.Contracts.Dtos.Core;
 using Memoyu.Mbill.Application.Contracts.Exceptions;
-using Memoyu.Mbill.Application.Core.Account;
-using Memoyu.Mbill.Application.Core.Account.Impl;
+using Memoyu.Mbill.Application.Core;
+using Memoyu.Mbill.Application.Core.Impl;
 using Memoyu.Mbill.Domain.Shared.Configurations;
 using Memoyu.Mbill.Domain.Shared.Const;
 using Memoyu.Mbill.ToolKits.Base;

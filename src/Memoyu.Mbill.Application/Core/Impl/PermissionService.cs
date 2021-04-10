@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Application.Core.Permission.Impl
+namespace Memoyu.Mbill.Application.Core.Impl
 {
     public class PermissionService : ApplicationService, IPermissionService
     {

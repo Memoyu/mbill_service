@@ -115,7 +115,7 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
             return new PagedDto<StatementDto>(statementDtos, totalCount);
         }
 
-        public async Task<StatementTotalDto> GetMonthStatisticsAsync(StatementDateInputDto input)
+        public async Task<StatementTotalDto> GetStatisticsTotalAsync(StatementDateInputDto input)
         {
             // var userId = input.UserId ?? CurrentUser.Id;
             var statements = await _statementRepository
@@ -124,7 +124,6 @@ namespace Memoyu.Mbill.Application.Bill.Statement.Impl
                .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
                .WhereIf(input.Year != null, s => s.Year == input.Year)
                .WhereIf(input.Month != null, s => s.Month == input.Month)
-               .WhereIf(input.Day != null, s => s.Day == input.Day)
                .ToListAsync();
             var dto = new StatementTotalDto();
             statements.ForEach(s =>

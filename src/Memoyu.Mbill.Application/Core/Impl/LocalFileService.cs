@@ -23,7 +23,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Application.Core.Files.Impl
+namespace Memoyu.Mbill.Application.Core.Impl
 {
     public class LocalFileService : IFileService
     {

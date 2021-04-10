@@ -197,6 +197,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Memoyu.Mbill.WebApi.Controllers.Core.RoleController">
+            <summary>
+            权限管理
+            </summary>
+        </member>
+        <member name="M:Memoyu.Mbill.WebApi.Controllers.Core.RoleController.GetAllAsync">
+            <summary>
+            获取全部角色信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Memoyu.Mbill.WebApi.Controllers.User.UserController">
             <summary>
             用户管理

@@ -16,7 +16,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Memoyu.Mbill.Application.Core.Account.Impl
+namespace Memoyu.Mbill.Application.Core.Impl
 {
     public class IdentityServer4Service : ITokenService
     {

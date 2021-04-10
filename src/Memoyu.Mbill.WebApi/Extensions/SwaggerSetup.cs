@@ -34,8 +34,8 @@ namespace Memoyu.Mbill.WebApi.Extensions
                 ApiInfo.ApiInfos.ForEach(a => opt.SwaggerDoc(a.UrlPrefix, a.OpenApiInfo));
 
                 opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Memoyu.MBill.WebApi.xml"));
-                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Memoyu.MBill.Domain.xml"));
-                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Memoyu.MBill.Application.Contracts.xml"));
+                //opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Memoyu.MBill.Domain.xml"));
+                //opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Memoyu.MBill.Application.Contracts.xml"));
 
                 #region 小绿锁
 
