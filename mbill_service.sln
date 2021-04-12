@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.218
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{23E1214A-610A-438D-B3CA-E7EA6F569B39}"
+	ProjectSection(SolutionItems) = preProject
+		docker\Dockerfile = docker\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{80D76647-F232-44DA-9035-91A08E47BC62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9D00EEBE-0ECA-4BD5-B3A6-60D36CF3CE3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{4B5A7A13-CE91-4AD3-A1C8-203F3CFC6C59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mbill_service.Core", "src\mbill_service.Core\mbill_service.Core.csproj", "{F04C9C57-6189-400F-A886-F25122ACADE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mbill_service", "src\mbill_service\mbill_service.csproj", "{30377008-3CDA-4999-BB8E-434AC52323F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mbill_service.Service", "src\mbill_service.Service\mbill_service.Service.csproj", "{3A668B91-9808-48F6-A464-BCABE052AD27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mbill_service.Infrastructure", "src\mbill_service.Infrastructure\mbill_service.Infrastructure.csproj", "{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mbill_service.ToolKits", "src\mbill_service.ToolKits\mbill_service.ToolKits.csproj", "{D468A268-0C18-4A50-A872-7877BD9DD38C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F04C9C57-6189-400F-A886-F25122ACADE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04C9C57-6189-400F-A886-F25122ACADE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04C9C57-6189-400F-A886-F25122ACADE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04C9C57-6189-400F-A886-F25122ACADE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30377008-3CDA-4999-BB8E-434AC52323F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30377008-3CDA-4999-BB8E-434AC52323F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30377008-3CDA-4999-BB8E-434AC52323F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30377008-3CDA-4999-BB8E-434AC52323F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A668B91-9808-48F6-A464-BCABE052AD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A668B91-9808-48F6-A464-BCABE052AD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A668B91-9808-48F6-A464-BCABE052AD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A668B91-9808-48F6-A464-BCABE052AD27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D468A268-0C18-4A50-A872-7877BD9DD38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D468A268-0C18-4A50-A872-7877BD9DD38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D468A268-0C18-4A50-A872-7877BD9DD38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D468A268-0C18-4A50-A872-7877BD9DD38C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F04C9C57-6189-400F-A886-F25122ACADE9} = {80D76647-F232-44DA-9035-91A08E47BC62}
+		{30377008-3CDA-4999-BB8E-434AC52323F4} = {80D76647-F232-44DA-9035-91A08E47BC62}
+		{3A668B91-9808-48F6-A464-BCABE052AD27} = {80D76647-F232-44DA-9035-91A08E47BC62}
+		{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508} = {80D76647-F232-44DA-9035-91A08E47BC62}
+		{D468A268-0C18-4A50-A872-7877BD9DD38C} = {80D76647-F232-44DA-9035-91A08E47BC62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92900FFE-D804-41EE-81C6-BC4D855601B8}
+	EndGlobalSection
+EndGlobal

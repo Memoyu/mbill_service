@@ -1,0 +1,336 @@
+2021-04-13 00:01:00.208 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 41
+2021-04-13 00:01:00.220 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:00.417 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:00.421 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 41 - 400 84 application/json 213.2354ms
+2021-04-13 00:01:08.261 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:01:08.267 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:08.406 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:08.407 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 831 application/json;+charset=utf-8 145.4675ms
+2021-04-13 00:01:32.467 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:01:32.473 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:32.496 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:32.497 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 831 application/json;+charset=utf-8 30.0259ms
+2021-04-13 00:01:39.161 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:01:39.163 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:39.178 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:01:39.178 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 831 application/json;+charset=utf-8 17.4560ms
+2021-04-13 00:03:37.506 +08:00 [INF] init main
+2021-04-13 00:03:38.860 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-13 00:03:38.862 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-13 00:03:38.867 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-13 00:03:38.868 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-13 00:03:38.983 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-13 00:03:39.067 +08:00 [INF] Starting the processing server.
+2021-04-13 00:03:39.107 +08:00 [INF] ### CAP started!
+2021-04-13 00:03:39.249 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-13 00:03:39.249 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-13 00:03:39.250 +08:00 [INF] Hosting environment: Development
+2021-04-13 00:03:39.250 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-13 00:04:06.771 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:04:06.932 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:04:07.311 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:04:07.325 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 556.8002ms
+2021-04-13 00:04:07.343 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/user/get application/json -
+2021-04-13 00:04:07.387 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/user/get application/json - - 404 0 - 43.6461ms
+2021-04-13 00:17:07.878 +08:00 [INF] init main
+2021-04-13 00:17:09.353 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-13 00:17:09.354 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-13 00:17:09.403 +08:00 [INF] 操 作 权 限 表：新增了1条数据
+2021-04-13 00:17:09.404 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-13 00:17:09.492 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-13 00:17:09.577 +08:00 [INF] Starting the processing server.
+2021-04-13 00:17:09.616 +08:00 [INF] ### CAP started!
+2021-04-13 00:17:09.780 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-13 00:17:09.781 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-13 00:17:09.781 +08:00 [INF] Hosting environment: Development
+2021-04-13 00:17:09.781 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-13 00:17:16.084 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=undefined application/json -
+2021-04-13 00:17:16.091 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=undefined&Year=2021&Month=4&Day=13 application/json -
+2021-04-13 00:17:16.482 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:17:16.482 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:17:16.698 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:17:16.698 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:17:16.712 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=undefined application/json - - 400 128 application/json;+charset=utf-8 631.7786ms
+2021-04-13 00:17:16.712 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=undefined&Year=2021&Month=4&Day=13 application/json - - 400 128 application/json;+charset=utf-8 620.8309ms
+2021-04-13 00:17:51.389 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:17:51.398 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:17:51.580 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:17:51.583 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 193.1180ms
+2021-04-13 00:17:51.609 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/user/get application/json -
+2021-04-13 00:17:51.615 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/user/get application/json - - 404 0 - 5.4937ms
+2021-04-13 00:24:50.642 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - -
+2021-04-13 00:24:50.747 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 104.7196ms
+2021-04-13 00:24:56.767 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/get - -
+2021-04-13 00:24:56.778 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetByIdAsync (mbill_service)'
+2021-04-13 00:24:56.866 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetByIdAsync (mbill_service)'
+2021-04-13 00:24:56.867 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/get - - - 200 756 application/json;+charset=utf-8 99.8160ms
+2021-04-13 00:25:52.258 +08:00 [INF] init main
+2021-04-13 00:25:53.706 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-13 00:25:53.707 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-13 00:25:53.713 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-13 00:25:53.715 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-13 00:25:53.839 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-13 00:25:53.920 +08:00 [INF] Starting the processing server.
+2021-04-13 00:25:53.961 +08:00 [INF] ### CAP started!
+2021-04-13 00:25:54.110 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-13 00:25:54.110 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-13 00:25:54.111 +08:00 [INF] Hosting environment: Development
+2021-04-13 00:25:54.111 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-13 00:26:07.384 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:26:07.541 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:26:07.915 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:26:07.929 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 905 application/json;+charset=utf-8 548.4550ms
+2021-04-13 00:26:07.946 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/user/get application/json -
+2021-04-13 00:26:07.998 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetByIdAsync (mbill_service)'
+2021-04-13 00:26:08.194 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetByIdAsync (mbill_service)'
+2021-04-13 00:26:08.196 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/user/get application/json - - 200 734 application/json;+charset=utf-8 250.4861ms
+2021-04-13 00:26:08.303 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json -
+2021-04-13 00:26:08.308 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:26:08.336 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json -
+2021-04-13 00:26:08.343 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:26:08.378 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:26:08.381 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json - - 200 219 application/json;+charset=utf-8 45.0728ms
+2021-04-13 00:26:08.387 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:26:08.388 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json - - 200 114 application/json;+charset=utf-8 84.8155ms
+2021-04-13 00:29:41.416 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:29:41.424 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:29:41.436 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:29:41.441 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:29:41.474 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:29:41.476 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:29:41.476 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:29:41.476 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 219 application/json;+charset=utf-8 64.4946ms
+2021-04-13 00:29:41.477 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:29:41.477 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 114 application/json;+charset=utf-8 41.2631ms
+2021-04-13 00:29:41.482 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:29:41.482 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:29:41.488 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:29:41.491 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:29:41.491 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 219 application/json;+charset=utf-8 15.8383ms
+2021-04-13 00:29:41.492 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 114 application/json;+charset=utf-8 14.8745ms
+2021-04-13 00:29:48.808 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/category?Year=2021&Month=4&UserId=2 application/json -
+2021-04-13 00:29:48.811 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetExpendCategoryStatisticsAsync (mbill_service)'
+2021-04-13 00:29:48.829 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetExpendCategoryStatisticsAsync (mbill_service)'
+2021-04-13 00:29:48.829 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/category?Year=2021&Month=4&UserId=2 application/json - - 200 122 application/json;+charset=utf-8 21.5682ms
+2021-04-13 00:29:50.672 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/week?Year=2021&Month=4&Type=expend&UserId=2 application/json -
+2021-04-13 00:29:50.675 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetWeekExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:29:50.689 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetWeekExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:29:50.690 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/week?Year=2021&Month=4&Type=expend&UserId=2 application/json - - 200 562 application/json;+charset=utf-8 17.9658ms
+2021-04-13 00:29:50.716 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/5month?Year=2021&Month=4&Type=expend&UserId=2 application/json -
+2021-04-13 00:29:50.719 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:29:50.730 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:29:50.731 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/5month?Year=2021&Month=4&Type=expend&UserId=2 application/json - - 200 551 application/json;+charset=utf-8 15.2446ms
+2021-04-13 00:29:52.429 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Type=expend&Sort=Amount-DESC%2CTime-DESC&Size=10&Page=0 application/json -
+2021-04-13 00:29:52.432 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:29:52.439 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:29:52.440 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Type=expend&Sort=Amount-DESC%2CTime-DESC&Size=10&Page=0 application/json - - 200 114 application/json;+charset=utf-8 10.4029ms
+2021-04-13 00:32:02.778 +08:00 [INF] init main
+2021-04-13 00:32:04.281 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-13 00:32:04.284 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-13 00:32:04.290 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-13 00:32:04.291 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-13 00:32:04.379 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-13 00:32:04.466 +08:00 [INF] Starting the processing server.
+2021-04-13 00:32:04.507 +08:00 [INF] ### CAP started!
+2021-04-13 00:32:04.666 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-13 00:32:04.666 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-13 00:32:04.667 +08:00 [INF] Hosting environment: Development
+2021-04-13 00:32:04.667 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-13 00:32:10.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json -
+2021-04-13 00:32:10.108 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json -
+2021-04-13 00:32:10.505 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:32:10.505 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:32:10.747 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:32:10.747 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:32:10.763 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json - - 200 232 application/json;+charset=utf-8 653.8747ms
+2021-04-13 00:32:10.763 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json - - 200 114 application/json;+charset=utf-8 661.0290ms
+2021-04-13 00:32:12.354 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:32:12.363 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:32:12.372 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:32:12.374 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 19.8689ms
+2021-04-13 00:32:12.385 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:32:12.388 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:32:12.394 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:32:12.405 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:32:12.411 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:32:12.450 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 56.0510ms
+2021-04-13 00:32:12.604 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:32:12.604 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:32:12.605 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 500 2894 application/json 220.0845ms
+2021-04-13 00:32:12.608 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:32:12.667 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:32:12.670 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 500 2894 application/json 65.7168ms
+2021-04-13 00:35:24.234 +08:00 [INF] init main
+2021-04-13 00:35:25.700 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-13 00:35:25.701 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-13 00:35:25.707 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-13 00:35:25.708 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-13 00:35:25.822 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-13 00:35:25.901 +08:00 [INF] Starting the processing server.
+2021-04-13 00:35:25.946 +08:00 [INF] ### CAP started!
+2021-04-13 00:35:26.095 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-13 00:35:26.095 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-13 00:35:26.095 +08:00 [INF] Hosting environment: Development
+2021-04-13 00:35:26.096 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-13 00:35:28.790 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json -
+2021-04-13 00:35:28.790 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json -
+2021-04-13 00:35:29.191 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:35:29.191 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:29.449 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:35:29.449 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:29.466 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json - - 200 114 application/json;+charset=utf-8 679.1130ms
+2021-04-13 00:35:29.466 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json - - 200 232 application/json;+charset=utf-8 679.1307ms
+2021-04-13 00:35:31.676 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:35:31.683 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:35:31.693 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:35:31.695 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 18.9011ms
+2021-04-13 00:35:31.705 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:35:31.710 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:31.716 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:35:31.724 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:35:31.730 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:35:31.731 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 16.3397ms
+2021-04-13 00:35:31.805 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:31.806 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:35:31.808 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 4482 application/json;+charset=utf-8 102.3841ms
+2021-04-13 00:35:31.810 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:31.857 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:31.859 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 4482 application/json;+charset=utf-8 53.8111ms
+2021-04-13 00:35:34.614 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=1 application/json -
+2021-04-13 00:35:34.617 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:34.657 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:34.658 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=1 application/json - - 200 4622 application/json;+charset=utf-8 44.4871ms
+2021-04-13 00:35:35.578 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=2 application/json -
+2021-04-13 00:35:35.581 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:35.615 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:35:35.616 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=2 application/json - - 200 4425 application/json;+charset=utf-8 37.4530ms
+2021-04-13 00:35:35.647 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_red_envelope_64.png - -
+2021-04-13 00:35:35.647 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_wage_64.png - -
+2021-04-13 00:35:35.653 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_red_envelope_64.png - - - 404 0 - 6.8965ms
+2021-04-13 00:35:35.653 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_wage_64.png - - - 404 0 - 6.4020ms
+2021-04-13 00:36:37.247 +08:00 [INF] init main
+2021-04-13 00:36:38.598 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-13 00:36:38.600 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-13 00:36:38.608 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-13 00:36:38.609 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-13 00:36:38.739 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-13 00:36:38.824 +08:00 [INF] Starting the processing server.
+2021-04-13 00:36:38.867 +08:00 [INF] ### CAP started!
+2021-04-13 00:36:39.016 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-13 00:36:39.017 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-13 00:36:39.017 +08:00 [INF] Hosting environment: Development
+2021-04-13 00:36:39.017 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-13 00:36:45.838 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/other/index_bg1_533x300.png - -
+2021-04-13 00:36:45.890 +08:00 [INF] Sending file. Request path: '/core/images/other/index_bg1_533x300.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\other\index_bg1_533x300.png'
+2021-04-13 00:36:45.897 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/other/index_bg1_533x300.png - - - 200 209319 image/png 61.7060ms
+2021-04-13 00:36:54.300 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40
+2021-04-13 00:36:54.433 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:36:54.789 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-13 00:36:54.799 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 40 - 200 930 application/json;+charset=utf-8 499.2695ms
+2021-04-13 00:36:54.826 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/user/get application/json -
+2021-04-13 00:36:54.880 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetByIdAsync (mbill_service)'
+2021-04-13 00:36:55.086 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetByIdAsync (mbill_service)'
+2021-04-13 00:36:55.088 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/user/get application/json - - 200 877 application/json;+charset=utf-8 261.5788ms
+2021-04-13 00:36:55.187 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json -
+2021-04-13 00:36:55.191 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:36:55.258 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json -
+2021-04-13 00:36:55.263 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:36:55.266 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:36:55.267 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=13&Size=10&Page=0&UserId=2 application/json - - 200 114 application/json;+charset=utf-8 80.0943ms
+2021-04-13 00:36:55.282 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:36:55.282 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=13 application/json - - 200 232 application/json;+charset=utf-8 24.8588ms
+2021-04-13 00:36:56.404 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:36:56.407 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:36:56.413 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:36:56.414 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 10.5203ms
+2021-04-13 00:36:56.419 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:36:56.421 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:36:56.444 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:36:56.450 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:36:56.457 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:36:56.458 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 14.1829ms
+2021-04-13 00:36:56.509 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:36:56.510 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:36:56.510 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 4482 application/json;+charset=utf-8 91.5252ms
+2021-04-13 00:36:56.512 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:36:56.557 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:36:56.559 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 4482 application/json;+charset=utf-8 48.9792ms
+2021-04-13 00:36:56.588 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_subway_64.png - -
+2021-04-13 00:36:56.592 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_taxi_64.png - -
+2021-04-13 00:36:56.592 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_confetti_64.png - -
+2021-04-13 00:36:56.593 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_bus_64.png - -
+2021-04-13 00:36:56.593 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_transfer_64.png - -
+2021-04-13 00:36:56.594 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_taxi_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_taxi_64.png'
+2021-04-13 00:36:56.594 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_subway_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_subway_64.png'
+2021-04-13 00:36:56.594 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_repayment_64.png - -
+2021-04-13 00:36:56.595 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_confetti_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_confetti_64.png'
+2021-04-13 00:36:56.596 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_bus_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_bus_64.png'
+2021-04-13 00:36:56.596 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_subway_64.png - - - 200 2334 image/png 7.9569ms
+2021-04-13 00:36:56.597 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_taxi_64.png - - - 200 3339 image/png 6.8750ms
+2021-04-13 00:36:56.598 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_repayment_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_repayment_64.png'
+2021-04-13 00:36:56.599 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_transfer_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_transfer_64.png'
+2021-04-13 00:36:56.600 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_bus_64.png - - - 200 4145 image/png 6.9312ms
+2021-04-13 00:36:56.602 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_repayment_64.png - - - 200 4619 image/png 7.6330ms
+2021-04-13 00:36:56.602 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_mushroom_64.png - -
+2021-04-13 00:36:56.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_transfer_64.png - - - 200 4129 image/png 9.3799ms
+2021-04-13 00:36:56.604 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_confetti_64.png - - - 200 2685 image/png 11.0975ms
+2021-04-13 00:36:56.606 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_mushroom_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_mushroom_64.png'
+2021-04-13 00:36:56.607 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_mushroom_64.png - - - 200 2153 image/png 4.7867ms
+2021-04-13 00:36:58.234 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/category?Year=2021&Month=4&UserId=2 application/json -
+2021-04-13 00:36:58.237 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetExpendCategoryStatisticsAsync (mbill_service)'
+2021-04-13 00:36:58.418 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetExpendCategoryStatisticsAsync (mbill_service)'
+2021-04-13 00:36:58.419 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/category?Year=2021&Month=4&UserId=2 application/json - - 200 1448 application/json;+charset=utf-8 185.4351ms
+2021-04-13 00:36:58.440 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_champagne_Bottle_64.png - -
+2021-04-13 00:36:58.445 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_champagne_Bottle_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_champagne_Bottle_64.png'
+2021-04-13 00:36:58.446 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_pizza_64.png - -
+2021-04-13 00:36:58.446 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_champagne_Bottle_64.png - - - 200 2393 image/png 5.3140ms
+2021-04-13 00:36:58.446 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_grape_64.png - -
+2021-04-13 00:36:58.448 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_pizza_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_pizza_64.png'
+2021-04-13 00:36:58.449 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_pizza_64.png - - - 200 3918 image/png 3.6838ms
+2021-04-13 00:36:58.450 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_grape_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_grape_64.png'
+2021-04-13 00:36:58.451 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_grape_64.png - - - 200 2840 image/png 4.7722ms
+2021-04-13 00:37:00.799 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-13 00:37:00.804 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:37:00.811 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthStatisticsAsync (mbill_service)'
+2021-04-13 00:37:00.812 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 200 232 application/json;+charset=utf-8 13.7206ms
+2021-04-13 00:37:00.837 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-13 00:37:00.841 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:00.879 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:00.881 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 200 4482 application/json;+charset=utf-8 43.7137ms
+2021-04-13 00:37:01.549 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=1 application/json -
+2021-04-13 00:37:01.554 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:01.589 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:01.590 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=1 application/json - - 200 4622 application/json;+charset=utf-8 41.3674ms
+2021-04-13 00:37:02.340 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=2 application/json -
+2021-04-13 00:37:02.343 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:02.374 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:02.375 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=2 application/json - - 200 4425 application/json;+charset=utf-8 34.5700ms
+2021-04-13 00:37:02.398 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_red_envelope_64.png - -
+2021-04-13 00:37:02.398 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_wage_64.png - -
+2021-04-13 00:37:02.400 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_red_envelope_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_red_envelope_64.png'
+2021-04-13 00:37:02.400 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_wage_64.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\category\icon_wage_64.png'
+2021-04-13 00:37:02.401 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_red_envelope_64.png - - - 200 2182 image/png 2.7612ms
+2021-04-13 00:37:02.402 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_wage_64.png - - - 200 4157 image/png 3.3236ms
+2021-04-13 00:37:06.563 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/category?Year=2021&Month=4&UserId=2 application/json -
+2021-04-13 00:37:06.566 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetExpendCategoryStatisticsAsync (mbill_service)'
+2021-04-13 00:37:06.717 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetExpendCategoryStatisticsAsync (mbill_service)'
+2021-04-13 00:37:06.718 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/category?Year=2021&Month=4&UserId=2 application/json - - 200 1448 application/json;+charset=utf-8 154.6802ms
+2021-04-13 00:37:07.523 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/week?Year=2021&Month=4&Type=expend&UserId=2 application/json -
+2021-04-13 00:37:07.527 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetWeekExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:37:07.542 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetWeekExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:37:07.542 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/week?Year=2021&Month=4&Type=expend&UserId=2 application/json - - 200 567 application/json;+charset=utf-8 19.1525ms
+2021-04-13 00:37:07.570 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/5month?Year=2021&Month=4&Type=expend&UserId=2 application/json -
+2021-04-13 00:37:07.573 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:37:07.585 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync (mbill_service)'
+2021-04-13 00:37:07.586 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/expend/trend/5month?Year=2021&Month=4&Type=expend&UserId=2 application/json - - 200 556 application/json;+charset=utf-8 16.3679ms
+2021-04-13 00:37:09.755 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Type=expend&Sort=Amount-DESC%2CTime-DESC&Size=10&Page=0 application/json -
+2021-04-13 00:37:09.758 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:09.793 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:09.795 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Type=expend&Sort=Amount-DESC%2CTime-DESC&Size=10&Page=0 application/json - - 200 4694 application/json;+charset=utf-8 40.2666ms
+2021-04-13 00:37:11.132 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/avatar/default_avatar.png - -
+2021-04-13 00:37:11.135 +08:00 [INF] Sending file. Request path: '/core/images/avatar/default_avatar.png'. Physical path: 'C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\wwwroot\core\images\avatar\default_avatar.png'
+2021-04-13 00:37:11.138 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/avatar/default_avatar.png - - - 200 27216 image/png 5.5305ms
+2021-04-13 00:37:13.704 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Type=expend&Sort=Amount-DESC%2CTime-DESC&Size=10&Page=0 application/json -
+2021-04-13 00:37:13.707 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:13.739 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-13 00:37:13.740 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Type=expend&Sort=Amount-DESC%2CTime-DESC&Size=10&Page=0 application/json - - 200 4694 application/json;+charset=utf-8 35.6264ms

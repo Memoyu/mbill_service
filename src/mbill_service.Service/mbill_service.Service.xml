@@ -1,0 +1,568 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mbill_service.Service</name>
+    </assembly>
+    <members>
+        <member name="P:mbill_service.Service.Base.CrudApplicationService`7.Repository">
+            <summary>
+            仓储
+            </summary>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.InsertAsync(mbill_service.Core.Domains.Entities.Bill.AssetEntity)">
+            <summary>
+            新增资产分类
+            </summary>
+            <param name="input">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetGroupsAsync(System.String)">
+            <summary>
+            获取分级后的组合类别数据
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetAsync(System.Int64)">
+            <summary>
+            获取父项 by id
+            </summary>
+            <param name="id">资产Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetParentAsync(System.Int64)">
+            <summary>
+            获取父项 by 子项 id
+            </summary>
+            <param name="id">资产子项Id</param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.Name">
+            <summary>
+            资产分类名
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.ParentId">
+            <summary>
+            父级Id，默认0
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.Type">
+            <summary>
+            资产分类类型：存款、负债
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.Amount">
+            <summary>
+            资产金额
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.IconUrl">
+            <summary>
+            图标地址
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.InsertAsync(mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
+            <summary>
+            新增账单分类
+            </summary>
+            <param name="categroy">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.UpdateAsync(System.Int64,mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
+            <summary>
+            更新账单分类
+            </summary>
+            <param name="id"></param>
+            <param name="categroy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetGroupsAsync(System.String)">
+            <summary>
+            获取分级后的组合类别数据
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetAsync(System.Int64)">
+            <summary>
+            获取分类
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetParentAsync(System.Int64)">
+            <summary>
+            获取父项 by 子项 id
+            </summary>
+            <param name="id">分类子项Id</param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Category.Input.ModifyCategoryDto.Name">
+            <summary>
+            账单分类名
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Category.Input.ModifyCategoryDto.ParentId">
+            <summary>
+            父级Id，默认0
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Category.Input.ModifyCategoryDto.Type">
+            <summary>
+            分类类型：支出、收入
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Category.Input.ModifyCategoryDto.Budget">
+            <summary>
+            预算金额
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Category.Input.ModifyCategoryDto.IconUrl">
+            <summary>
+            图标地址
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Category.Input.ModifyCategoryDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.AssetId">
+            <summary>
+            资产Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.TargetAssetId">
+            <summary>
+            目标资产Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.AssetResidue">
+            <summary>
+            账户余额
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Type">
+            <summary>
+            记录类型：支出、收入、转账、还款
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Address">
+            <summary>
+            地点
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Province">
+            <summary>
+            地点:省
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.City">
+            <summary>
+            地点:市
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.District">
+            <summary>
+            地点:区/县
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Street">
+            <summary>
+            地点:街道/镇
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Year">
+            <summary>
+            记录日期：日期
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Time">
+            <summary>
+            记录日期：时间
+            </summary>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.InsertAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
+            <summary>
+            新增账单
+            </summary>
+            <param name="statement">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetDetailAsync(System.Int64)">
+            <summary>
+            获取账单详情
+            </summary>
+            <param name="id">账单id</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.DeleteAsync(System.Int64)">
+            <summary>
+            删除账单信息
+            </summary>
+            <param name="id">账单id</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
+            <summary>
+            更新账单信息
+            </summary>
+            <param name="statement">账单信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetPagesAsync(mbill_service.Service.Bill.Statement.Output.StatementPagingDto)">
+            <summary>
+            获取分页账单数据
+            </summary>
+            <param name="pageDto">分页查询</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetStatisticsTotalAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
+            <summary>
+            获取指定日期各类型账单总额统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetExpendCategoryStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
+            <summary>
+            获取指定日期支出分类统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetWeekExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
+            <summary>
+            获取当前月份所有周的支出趋势统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetMonthExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto,System.Int32)">
+            <summary>
+            获取当前月往前5个月的支出趋势统计
+            </summary>
+            <param name="input"></param>
+            <param name="count">月数</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.StatementService.MapToDto``1(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
+            <summary>
+            映射Dto
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="statement"></param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Input.LoginDto.Username">
+            <summary>
+            登录名
+            </summary>
+            <example>
+            admin
+            </example>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Input.LoginDto.Password">
+            <summary>
+            密码
+            </summary>
+            <example>
+            123456
+            </example>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.ITokenService.LoginAsync(mbill_service.Service.Core.Auth.Input.LoginDto)">
+            <summary>
+            登录
+            </summary>
+            <param name="loginDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.ITokenService.GetTokenByRefreshAsync(System.String)">
+            <summary>
+            刷新token
+            </summary>
+            <param name="refreshToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.JwtTokenService.CreateTokenAsync(mbill_service.Core.Domains.Entities.User.UserEntity)">
+            <summary>
+            创建Token和RefreshToken
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.JwtTokenService.GenerateToken(System.Int32)">
+            <summary>
+            生成RefreshToken
+            </summary>
+            <param name="size">长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">
+            <summary>
+            初始化超级管理员角色权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.DataSeed.IDataSeedContributor.InitPermissionAsync(System.Collections.Generic.List{mbill_service.Core.Security.PermissionDefinition})">
+            <summary>
+            初始化权限，根据PermissionAttribute生成权限，改变的则更新，否则新增
+            </summary>
+            <param name="permissions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Files.IFileService.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+            <summary>
+            单文件上传，键为file
+            </summary>
+            <param name="file"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Files.LocalFileService.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+            <summary>
+            本地文件上传，秒传（根据lin_file表中的md5,与当前文件的路径是否在本地），如果不在，重新上传，覆盖文件表记录
+            </summary>
+            <param name="file"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Files.LocalFileService.LocalUploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            本地文件上传，生成目录格式 {STORE_DIR}/{year}/{month}/{day}/{guid}.文件后缀
+            images/2022-01-12/fba73a0c-f2f7-499a-8ed8-5b10554d43b0.jpg
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.GetAllStructual">
+            <summary>
+            获取全部权限(结构化)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.CheckAsync(System.String)">
+            <summary>
+            检查当前登陆用户的分组权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Permission.IRoleService.GetAllAsync">
+            <summary>
+            获取所有角色信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Street">
+            <summary>
+            街道
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.ConfirmPassword">
+            <summary>
+            确认密码
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Input.ModifyUserDto.RoleIds">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserIdentityService.VerifyUserPasswordAsync(System.Int64,System.String)">
+            <summary>
+            验证用户密码是否正确
+            </summary>
+            <param name="userId"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserIdentityService.ChangePasswordAsync(System.Int64,System.String)">
+            <summary>
+            根据用户ID，修改用户的密码
+            </summary>
+            <param name="userId"></param>
+            <param name="newpassword"></param>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserService.CreateAsync(mbill_service.Core.Domains.Entities.User.UserEntity,System.Collections.Generic.List{System.Int64},System.String)">
+            <summary>
+            注册-新增一个用户
+            </summary>
+            <param name="user">用户</param>
+            <param name="roleIds">分组Id集合</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserService.GetAsync(System.Nullable{System.Int64})">
+            <summary>
+            获取用户信息，id为空时，通过Token获取
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserService.GetPagesAsync(mbill_service.Service.Core.User.Input.UserPagingDto)">
+            <summary>
+            获取用户分页信息
+            </summary>
+            
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserService.UpdateAsync(System.Int64,mbill_service.Core.Domains.Entities.User.UserEntity)">
+            <summary>
+            更新用户信息
+            </summary>
+            <param name="id"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserService.DeleteAsync(System.Int64)">
+            <summary>
+            删除用户（软删除）
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Street">
+            <summary>
+            街道
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.Address">
+            <summary>
+            地址详情
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.LastLoginTime">
+            <summary>
+            最后一次登录的时间
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.User.Output.UserDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.UserIdentityService.GetFirstByUserIdAsync(System.Int64)">
+            <summary>
+            通过Id获取用户信息
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
