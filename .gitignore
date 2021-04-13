@@ -339,8 +339,6 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-!.template/*.nupkg
-!Memoyu.Core.WebApi.Template.*.nupkg
 
-/src/Memoyu.Mbill.WebApi/Logs/
-src/Memoyu.Mbill.WebApi/appsettings.Production.json
+/src/mbill_service/Logs/
+src/mbill_service/appsettings.Production.json
