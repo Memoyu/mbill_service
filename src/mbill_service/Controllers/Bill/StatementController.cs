@@ -36,7 +36,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="dto">账单</param>
         [Logger("用户新建了一条账单记录")]
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<ServiceResult<StatementDto>> CreateAsync([FromBody] ModifyStatementDto dto)
         {
             var result = await _statementService.InsertAsync(_mapper.Map<StatementEntity>(dto));
@@ -58,7 +58,7 @@ namespace mbill_service.Controllers.Bill
         /// 删除账单信息
         /// </summary>
         /// <param name="id">账单id</param>
-        [HttpDelete("delete")]
+        [HttpDelete]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
         {
@@ -70,7 +70,7 @@ namespace mbill_service.Controllers.Bill
         /// 更新账单信息
         /// </summary>
         /// <param name="dto">账单信息</param>
-        [HttpPut("update")]
+        [HttpPut]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult> UpdateAsync([FromBody] ModifyStatementDto dto)
         {

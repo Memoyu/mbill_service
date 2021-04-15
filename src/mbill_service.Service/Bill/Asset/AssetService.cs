@@ -9,7 +9,7 @@ using mbill_service.Service.Bill.Asset.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace mbill_service.Service.Bill.Asset
@@ -82,6 +82,21 @@ namespace mbill_service.Service.Bill.Asset
                 }
             }
             await _assetRepo.InsertAsync(asset);
+        }
+
+        public async Task DeleteAsync(long id)
+        {
+            var exist = await _assetRepo.Select.AnyAsync(s => s.Id == id && !s.IsDeleted);
+            if (!exist) throw new KnownException("没有找到该账单分类信息", ServiceResultCode.NotFound);
+            await _assetRepo.DeleteAsync(id);
+        }
+
+        public async Task UpdateAsync(AssetEntity asset)
+        {
+            var exist = await _assetRepo.Select.AnyAsync(s => s.Id == asset.Id && !s.IsDeleted);
+            if (!exist) throw new KnownException("没有找到该资产分类信息", ServiceResultCode.NotFound);
+            Expression<Func<AssetEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
+            await _assetRepo.UpdateWithIgnoreAsync(asset, ignoreExp);
         }
     }
 }

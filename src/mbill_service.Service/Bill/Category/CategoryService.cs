@@ -9,6 +9,7 @@ using mbill_service.Service.Bill.Category.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,10 +26,6 @@ namespace mbill_service.Service.Bill.Category
             _categoryRepo = categoryRepo;
             _fileRepo = fileRepo;
             _mapper = mapper;
-        }
-        public Task DeleteAsync(long id)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(string type)
@@ -90,9 +87,19 @@ namespace mbill_service.Service.Bill.Category
             await _categoryRepo.InsertAsync(categroy);
         }
 
-        public Task UpdateAsync(long id, CategoryEntity categroy)
+        public async Task DeleteAsync(long id)
         {
-            throw new NotImplementedException();
+            var exist = await _categoryRepo.Select.AnyAsync(s => s.Id == id && !s.IsDeleted);
+            if (!exist) throw new KnownException("没有找到该账单分类信息", ServiceResultCode.NotFound);
+            await _categoryRepo.DeleteAsync(id);
+        }
+
+        public async Task UpdateAsync(CategoryEntity categroy)
+        {
+            var exist = await _categoryRepo.Select.AnyAsync(s => s.Id == categroy.Id && !s.IsDeleted);
+            if (!exist) throw new KnownException("没有找到该账单分类信息", ServiceResultCode.NotFound);
+            Expression<Func<CategoryEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
+            await _categoryRepo.UpdateWithIgnoreAsync(categroy, ignoreExp);
         }
     }
 }

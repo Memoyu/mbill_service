@@ -34,20 +34,44 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="dto">账单分类</param>
         [Logger("用户新建了一个账单分类")]
-        [HttpPost("create")]
+        [HttpPost]
         [Authorize]
-        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyCategoryDto dto)
         {
             await _categoryService.InsertAsync(_mapper.Map<CategoryEntity>(dto));
             return ServiceResult.Successed("账单分类创建成功");
         }
 
+        /// <summary> 
+        /// 删除账单分类
+        /// </summary>
+        /// <param name="id">账单分类id</param>
+        [HttpDelete]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+        public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
+        {
+            await _categoryService.DeleteAsync(id);
+            return ServiceResult.Successed("账单分类删除成功！");
+        }
+
+        /// <summary>
+        /// 更新账单分类
+        /// </summary>
+        /// <param name="dto">账单分类信息</param>
+        [HttpPut]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+        public async Task<ServiceResult> UpdateAsync([FromBody] ModifyCategoryDto dto)
+        {
+            await _categoryService.UpdateAsync(_mapper.Map<CategoryEntity>(dto));
+            return ServiceResult.Successed("账单分类更新成功！");
+        }
+
         /// <summary>
         /// 获取分类
         /// </summary>
         /// <param name="id">分类id</param>
-        [HttpGet("get")]
+        [HttpGet]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<CategoryDto>> GetAsync([FromQuery] long id)
@@ -59,7 +83,7 @@ namespace mbill_service.Controllers.Bill
         /// 获取分类父项
         /// </summary>
         /// <param name="id">分类id</param>
-        [HttpGet("parent/get")]
+        [HttpGet("parent")]
         [Authorize]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<CategoryDto>> GetParentAsync([FromQuery] long id)

@@ -44,12 +44,28 @@
             </summary>
             <param name="file"></param>
         </member>
+        <member name="T:mbill_service.Controllers.Core.LogController">
+            <summary>
+            日志管理
+            </summary>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.LogController.GetPagesAsync(mbill_service.Service.Core.Log.Input.LogPagingDto)">
+            <summary>
+            获取日志信息分页
+            </summary>
+        </member>
         <member name="T:mbill_service.Controllers.Core.PermissionController">
             <summary>
             权限管理
             </summary>
         </member>
-        <member name="M:mbill_service.Controllers.Core.PermissionController.GetAllPermissions">
+        <member name="M:mbill_service.Controllers.Core.PermissionController.GetTreePermissions">
+            <summary>
+            查询所有可分配的权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.PermissionController.GetModulePermissions">
             <summary>
             查询所有可分配的权限
             </summary>
@@ -57,12 +73,36 @@
         </member>
         <member name="T:mbill_service.Controllers.Core.RoleController">
             <summary>
-            权限管理
+            角色管理
             </summary>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.RoleController.CreateAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">
+            <summary>
+            新增角色
+            </summary>
+            <param name="dto">角色信息</param>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.RoleController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除角色
+            </summary>
+            <param name="id">角色id</param>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.RoleController.UpdateAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="dto">角色信息</param>
         </member>
         <member name="M:mbill_service.Controllers.Core.RoleController.GetAllAsync">
             <summary>
             获取全部角色信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.RoleController.GetAsync(System.Int64)">
+            <summary>
+            获取角色信息
             </summary>
             <returns></returns>
         </member>
@@ -98,6 +138,18 @@
             </summary>
             <param name="dto">资产分类</param>
         </member>
+        <member name="M:mbill_service.Controllers.Bill.AssetController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除资产分类
+            </summary>
+            <param name="id">资产分类id</param>
+        </member>
+        <member name="M:mbill_service.Controllers.Bill.AssetController.UpdateAsync(mbill_service.Service.Bill.Asset.Input.ModifyAssetDto)">
+            <summary>
+            更新资产分类
+            </summary>
+            <param name="dto">资产分类信息</param>
+        </member>
         <member name="M:mbill_service.Controllers.Bill.AssetController.GetAsync(System.Int64)">
             <summary>
             获取资产
@@ -126,6 +178,18 @@
             新增账单分类
             </summary>
             <param name="dto">账单分类</param>
+        </member>
+        <member name="M:mbill_service.Controllers.Bill.CategoryController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除账单分类
+            </summary>
+            <param name="id">账单分类id</param>
+        </member>
+        <member name="M:mbill_service.Controllers.Bill.CategoryController.UpdateAsync(mbill_service.Service.Bill.Category.Input.ModifyCategoryDto)">
+            <summary>
+            更新账单分类
+            </summary>
+            <param name="dto">账单分类信息</param>
         </member>
         <member name="M:mbill_service.Controllers.Bill.CategoryController.GetAsync(System.Int64)">
             <summary>

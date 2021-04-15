@@ -17,6 +17,20 @@ namespace mbill_service.Service.Bill.Asset
         Task InsertAsync(AssetEntity input);
 
         /// <summary>
+        /// 删除资产分类
+        /// </summary>
+        /// <param name="id">资产分类id</param>
+        /// <returns></returns>
+        Task DeleteAsync(long id);
+
+        /// <summary>
+        /// 更新资产分类
+        /// </summary>
+        /// <param name="statement">资产分类信息</param>
+        /// <returns></returns>
+        Task UpdateAsync(AssetEntity statement);
+
+        /// <summary>
         /// 获取分级后的组合类别数据
         /// </summary>
         /// <param name="type"></param>

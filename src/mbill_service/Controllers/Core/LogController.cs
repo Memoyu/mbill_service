@@ -1,8 +1,10 @@
-﻿using mbill_service.Core.Domains.Common.Consts;
+﻿using mbill_service.Core.Domains.Common;
+using mbill_service.Core.Domains.Common.Consts;
+using mbill_service.Service.Core.Log;
+using mbill_service.Service.Core.Log.Input;
+using mbill_service.Service.Core.Log.Output;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace mbill_service.Controllers.Core
@@ -14,5 +16,21 @@ namespace mbill_service.Controllers.Core
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public class LogController : ApiControllerBase
     {
+        private readonly ILogService _logService;
+        public LogController(ILogService logService)
+        {
+            _logService = logService;
+        }
+
+        /// <summary>
+        /// 获取日志信息分页
+        /// </summary>
+        [HttpGet("pages")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+        public async Task<ServiceResult<PagedDto<LogDto>>> GetPagesAsync([FromQuery] LogPagingDto pagingDto)
+        {
+            return ServiceResult<PagedDto<LogDto>>.Successed(await _logService.GetPagesAsync(pagingDto));
+        }
     }
 }

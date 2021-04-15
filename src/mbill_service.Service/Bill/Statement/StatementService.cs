@@ -284,7 +284,7 @@ namespace mbill_service.Service.Bill.Statement
             T dto = Mapper.Map<T>(statement);
             if (statement.CategoryId != null)
             {
-                var category = _categoryRepo.Get(statement.CategoryId.Value) ?? throw new KnownException("分类数据查询失败！", ServiceResultCode.NotFound);
+                var category = _categoryRepo.Get(statement.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
                 dto.CategoryName = category.Name;
                 dto.CategoryIconPath = _fileRepo.GetFileUrl(category.IconUrl);
             }
@@ -299,7 +299,7 @@ namespace mbill_service.Service.Bill.Statement
                     dto.CategoryIconPath = _fileRepo.GetFileUrl("core/images/category/icon_repayment_64.png");
                 }
             }
-            var asset = _assetRepo.Get(statement.AssetId) ?? throw new KnownException("资产数据查询失败！", ServiceResultCode.NotFound);
+            var asset = _assetRepo.Get(statement.AssetId) ?? throw new KnownException("资产分类数据查询失败！", ServiceResultCode.NotFound);
             if (statement.TargetAssetId != null)
             {
                 var targetAsset = _assetRepo.Get(statement.TargetAssetId.Value);

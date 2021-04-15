@@ -15,14 +15,20 @@ namespace mbill_service.Service.Bill.Category
         Task InsertAsync( CategoryEntity categroy);
 
         /// <summary>
-        /// 更新账单分类
+        /// 删除账单分类信息
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="categroy"></param>
         /// <returns></returns>
-        Task UpdateAsync(long id, CategoryEntity categroy);
-
         Task DeleteAsync(long id);
+
+        /// <summary>
+        /// 更新账单分类
+        /// </summary>
+        /// <param name="categroy">账单分类信息</param>
+        /// <returns></returns>
+        Task UpdateAsync(CategoryEntity categroy);
+
+
 
         /// <summary>
         /// 获取分级后的组合类别数据

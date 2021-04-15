@@ -33,8 +33,8 @@ namespace mbill_service.Controllers.Core
         /// </summary>
         /// <param name="userInput"></param>
         [Logger("超级管理员新建了一个用户")]
-        [HttpPost("register")]
-        [Authorize(Roles = RoleEntity.Administrator)]
+        [HttpPost("create")]
+        [LocalAuthorize("创建用户", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyUserDto userInput)
         {

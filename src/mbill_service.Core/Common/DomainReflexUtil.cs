@@ -51,7 +51,7 @@ namespace mbill_service.Core.Common
             //通过反射得到控制器上的权限特性标签
             assembly.ForEach(type =>
             {
-                PermissionAuthorizeAttribute permission = type.GetCustomAttribute<PermissionAuthorizeAttribute>();
+                LocalAuthorizeAttribute permission = type.GetCustomAttribute<LocalAuthorizeAttribute>();
                 RouteAttribute routerAttribute = type.GetCustomAttribute<RouteAttribute>();
                 if (permission?.Permission != null && routerAttribute?.Template != null)
                 {
@@ -71,7 +71,7 @@ namespace mbill_service.Core.Common
 
                         foreach (Attribute attribute in methodInfo.GetCustomAttributes())//
                         {
-                            if (attribute is PermissionAuthorizeAttribute permission && !string.IsNullOrEmpty(permission.Permission) && !string.IsNullOrEmpty(permission.Module))
+                            if (attribute is LocalAuthorizeAttribute permission && !string.IsNullOrEmpty(permission.Permission) && !string.IsNullOrEmpty(permission.Module))
                             {
                                 string actionHttpTemplate = methodHttpAttribute.Template != null ? "/" + methodHttpAttribute.Template + " " : " ";
                                 string router = $"{routerAttribute.Template}{actionHttpTemplate}{methodHttpAttribute.HttpMethods.FirstOrDefault()}";//"路由模板"+"Http方法模板"+" "+"http方法"

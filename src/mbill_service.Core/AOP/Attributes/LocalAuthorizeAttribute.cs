@@ -17,12 +17,12 @@ namespace mbill_service.Core.AOP.Attributes
     ///  自定义固定权限编码给动态角色及用户，支持验证登录，指定角色、Policy
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
-    public class PermissionAuthorizeAttribute : Attribute, IAsyncAuthorizationFilter
+    public class LocalAuthorizeAttribute : Attribute, IAsyncAuthorizationFilter
     {
         public string Permission { get; }
         public string Module { get; }
 
-        public PermissionAuthorizeAttribute(string permission, string module)
+        public LocalAuthorizeAttribute(string permission, string module)
         {
             Permission = permission;
             Module = module;
