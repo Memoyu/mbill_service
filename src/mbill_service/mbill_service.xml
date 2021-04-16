@@ -49,7 +49,7 @@
             日志管理
             </summary>
         </member>
-        <member name="M:mbill_service.Controllers.Core.LogController.GetPagesAsync(mbill_service.Service.Core.Log.Input.LogPagingDto)">
+        <member name="M:mbill_service.Controllers.Core.LogController.GetPagesAsync(mbill_service.Service.Core.Logger.Input.LogPagingDto)">
             <summary>
             获取日志信息分页
             </summary>

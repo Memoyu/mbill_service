@@ -8,7 +8,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "hotReloadProfile": "aspnetcore",
+      //"hotReloadProfile": "aspnetcore",
       "dotnetRunMessages": "true",
       "applicationUrl": "http://localhost:5000"
     },

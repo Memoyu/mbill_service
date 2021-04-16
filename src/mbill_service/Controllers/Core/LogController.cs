@@ -1,8 +1,8 @@
 ﻿using mbill_service.Core.Domains.Common;
 using mbill_service.Core.Domains.Common.Consts;
-using mbill_service.Service.Core.Log;
-using mbill_service.Service.Core.Log.Input;
-using mbill_service.Service.Core.Log.Output;
+using mbill_service.Service.Core.Logger;
+using mbill_service.Service.Core.Logger.Input;
+using mbill_service.Service.Core.Logger.Output;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
