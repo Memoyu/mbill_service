@@ -73,14 +73,9 @@ namespace mbill_service.Service.Bill.Asset
 
         public async Task InsertAsync(AssetEntity asset)
         {
-            if (!string.IsNullOrEmpty(asset.Name))
-            {
-                bool isRepeatName = await _assetRepo.Select.AnyAsync(r => r.Name == asset.Name);
-                if (isRepeatName)//资产名重复
-                {
-                    throw new KnownException("资产名称重复，请重新输入", ServiceResultCode.RepeatField);
-                }
-            }
+            bool isRepeatName = await _assetRepo.Select.AnyAsync(r => r.Name == asset.Name);
+            if (isRepeatName)//资产名重复
+                throw new KnownException("资产名称重复，请重新输入", ServiceResultCode.RepeatField);
             await _assetRepo.InsertAsync(asset);
         }
 
