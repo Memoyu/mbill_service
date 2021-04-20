@@ -57,9 +57,9 @@ namespace mbill_service.Service.Core.Permission
         [Transactional]
         public async Task DeleteAsync(long id)
         {
-            var dto = await GetAsync(id);
-
-            await _rolePermissionRepo.DeleteAsync(entity)
+            throw new System.NotImplementedException();
+            //var dto = await GetAsync(id);
+            //await _rolePermissionRepo.DeleteAsync(entity)
         }
 
         public Task UpdateAsync(ModifyRoleDto role)
@@ -76,7 +76,8 @@ namespace mbill_service.Service.Core.Permission
             if (role == null)
                 throw new KnownException("角色不存在！", ServiceResultCode.NotFound);
             var dto = Mapper.Map<RolePermissionDto>(role);
-            return 
+            //dto.Permissions = await _permissionRepo.Select.Where(p => p.Id == )
+            return dto;
             
         }
     }
