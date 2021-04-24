@@ -3,12 +3,10 @@
   "profiles": {
     "mbill_service": {
       "commandName": "Project",
-      "launchBrowser": false,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      //"hotReloadProfile": "aspnetcore",
       "dotnetRunMessages": "true",
       "applicationUrl": "http://localhost:5000"
     },
@@ -16,6 +14,9 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
       "publishAllPorts": true
     }
   }

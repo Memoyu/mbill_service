@@ -33,7 +33,7 @@ namespace mbill_service.Controllers.Core
         /// <param name="dto">角色信息</param>
         [Logger("新建一个角色")]
         [HttpPost]
-        [Authorize]
+        [LocalAuthorize("新增角色", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyRoleDto dto)
         {
@@ -46,6 +46,7 @@ namespace mbill_service.Controllers.Core
         /// </summary>
         /// <param name="id">角色id</param>
         [HttpDelete]
+        [LocalAuthorize("删除角色", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
         {
@@ -58,6 +59,7 @@ namespace mbill_service.Controllers.Core
         /// </summary>
         /// <param name="dto">角色信息</param>
         [HttpPut]
+        [LocalAuthorize("更新角色", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> UpdateAsync([FromBody] ModifyRoleDto dto)
         {
@@ -69,8 +71,8 @@ namespace mbill_service.Controllers.Core
         /// 获取全部角色信息
         /// </summary>
         /// <returns></returns>
-        [Authorize]
         [HttpGet("all")]
+        [LocalAuthorize("获取全部角色", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult<List<RoleDto>>> GetAllAsync()
         {
@@ -82,8 +84,8 @@ namespace mbill_service.Controllers.Core
         /// 获取角色信息
         /// </summary>
         /// <returns></returns>
-        [Authorize]
         [HttpGet("{id}")]
+        [LocalAuthorize("角色详情", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult<List<RoleDto>>> GetAsync(long id)
         {

@@ -36,6 +36,7 @@ namespace mbill_service.Controllers.Bill
         [Logger("用户新建了一个账单分类")]
         [HttpPost]
         [Authorize]
+        [LocalAuthorize("新增", "账单分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyCategoryDto dto)
         {
@@ -48,6 +49,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">账单分类id</param>
         [HttpDelete]
+        [LocalAuthorize("删除", "账单分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
         {
@@ -60,6 +62,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="dto">账单分类信息</param>
         [HttpPut]
+        [LocalAuthorize("更新", "账单分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> UpdateAsync([FromBody] ModifyCategoryDto dto)
         {
@@ -72,7 +75,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">分类id</param>
         [HttpGet]
-        [Authorize]
+        [LocalAuthorize("获取详情", "账单分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<CategoryDto>> GetAsync([FromQuery] long id)
         {
@@ -84,7 +87,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">分类id</param>
         [HttpGet("parent")]
-        [Authorize]
+        [LocalAuthorize("获取父项详情", "账单分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<CategoryDto>> GetParentAsync([FromQuery] long id)
         {
@@ -96,7 +99,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="type">账单类型</param>
         [HttpGet("groups")]
-        [Authorize]
+        [LocalAuthorize("获取分组", "账单分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupAsync([FromQuery] string type)
         {

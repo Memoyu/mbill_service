@@ -37,6 +37,7 @@ namespace mbill_service.Controllers.Bill
         /// <param name="dto">账单</param>
         [Logger("用户新建了一条账单记录")]
         [HttpPost]
+        [LocalAuthorize("新增", "账单")]
         public async Task<ServiceResult<StatementDto>> CreateAsync([FromBody] ModifyStatementDto dto)
         {
             var result = await _statementService.InsertAsync(_mapper.Map<StatementEntity>(dto));
@@ -48,6 +49,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">账单id</param>
         [HttpGet("detail")]
+        [LocalAuthorize("获取详情", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<StatementDetailDto>> GetAsync([FromQuery]long id)
         {
@@ -71,6 +73,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="dto">账单信息</param>
         [HttpPut]
+        [LocalAuthorize("更新", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult> UpdateAsync([FromBody] ModifyStatementDto dto)
         {
@@ -83,6 +86,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="pagingDto">分页条件</param>
         [HttpGet("pages")]
+        [LocalAuthorize("获取分页数据", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<PagedDto<StatementDto>>> GetStatementPagesAsync([FromQuery] StatementPagingDto pagingDto)
         {
@@ -94,6 +98,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="input">入参</param>
         [HttpGet("statistics/total")]
+        [LocalAuthorize("获取各类型金额统计", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<StatementTotalDto>> GetMonthStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
@@ -105,6 +110,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/category")]
+        [LocalAuthorize("获取日期内指定分类的数据", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<StatementExpendCategoryDto>> GetExpendCategoryStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
@@ -116,6 +122,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/trend/week")]
+        [LocalAuthorize("获取周指定分类的趋势统计", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
         {
@@ -127,6 +134,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="input">查询入参</param>
         [HttpGet("statistics/expend/trend/5month")]
+        [LocalAuthorize("获取五个月指定分类的趋势统计", "账单")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<StatementExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] StatementDateInputDto input)
         {

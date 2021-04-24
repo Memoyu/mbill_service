@@ -24,30 +24,22 @@ namespace mbill_service.Service.Core.Permission
         public async Task<List<TreePermissionDto>> GetAllTreeAsync()
         {
             var permissions = await _permissionRepo.Select.ToListAsync();
-
+            int index = 1;
             List<TreePermissionDto> treePermissionDtos = permissions.GroupBy(r => r.Module).Select(r =>
                       new TreePermissionDto
                       {
-                          Rowkey = Guid.NewGuid().ToString(),
-                          Children = new List<TreePermissionDto>(),
+                          Rowkey = index++.ToString(),
+                          Children = permissions.Where(u => u.Module == r.Key)
+                                                .Select(r => new TreePermissionDto
+                                                {
+                                                    Rowkey = index++.ToString(),
+                                                    Name = r.Name,
+                                                    Router = r.Router,
+                                                    CreateTime = r.CreateTime
+                                                })
+                                                .ToList(),
                           Name = r.Key,
                       }).ToList();
-
-
-            foreach (var permission in treePermissionDtos)
-            {
-                var childrens = permissions.Where(u => u.Module == permission.Name)
-                    .Select(r => new TreePermissionDto
-                    {
-                        Rowkey = r.Id.ToString(),
-                        Name = r.Name,
-                        Router = r.Router,
-                        CreateTime = r.CreateTime
-                    })
-                    .ToList();
-                permission.Children = childrens;
-            }
-
             return treePermissionDtos;
         }
 

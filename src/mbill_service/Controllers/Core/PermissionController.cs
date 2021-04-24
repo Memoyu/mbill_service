@@ -25,10 +25,11 @@ namespace mbill_service.Controllers.Core
         }
 
         /// <summary>
-        /// 查询所有可分配的权限
+        /// 查询权限信息（树形结构）
         /// </summary>
         /// <returns></returns>
         [HttpGet("tree")]
+        [LocalAuthorize("查询权限信息（树形结构）", "管理员")]
         public async Task<ServiceResult<List<TreePermissionDto>>> GetTreePermissions()
         {
             var result = await _permissionService.GetAllTreeAsync();

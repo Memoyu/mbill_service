@@ -1,4 +1,5 @@
-﻿using mbill_service.Core.Domains.Common;
+﻿using mbill_service.Core.AOP.Attributes;
+using mbill_service.Core.Domains.Common;
 using mbill_service.Core.Domains.Common.Consts;
 using mbill_service.Service.Core.Logger;
 using mbill_service.Service.Core.Logger.Input;
@@ -26,7 +27,7 @@ namespace mbill_service.Controllers.Core
         /// 获取日志信息分页
         /// </summary>
         [HttpGet("pages")]
-        [Authorize]
+        [LocalAuthorize("获取分页数据", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult<PagedDto<LogDto>>> GetPagesAsync([FromQuery] LogPagingDto pagingDto)
         {

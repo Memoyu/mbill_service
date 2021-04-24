@@ -6,7 +6,10 @@ using mbill_service.Core.Domains.Common.Enums.Base;
 using mbill_service.Core.Exceptions;
 using mbill_service.Service.Core.Auth;
 using mbill_service.Service.Core.Auth.Input;
+using mbill_service.Service.Core.User;
+using mbill_service.Service.Core.User.Output;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -21,11 +24,14 @@ namespace mbill_service.Controllers.Core
     {
         private readonly ITokenService _tokenService;
         private readonly IAccountService _accountService;
-        public AccountController(IComponentContext componentContext, IAccountService accountService)
+        private readonly IUserService _userService;
+
+        public AccountController(IComponentContext componentContext, IAccountService accountService, IUserService userService)
         {
             bool isIdentityServer4 = Appsettings.IdentityServer4Enable;
             _tokenService = componentContext.ResolveNamed<ITokenService>(isIdentityServer4 ? typeof(IdentityServer4Service).Name : typeof(JwtTokenService).Name);
             _accountService = accountService;
+            _userService = userService;
         }
 
         /// <summary>
@@ -38,6 +44,17 @@ namespace mbill_service.Controllers.Core
         public async Task<ServiceResult<TokenDto>> Login(LoginDto loginDto)
         {
             return ServiceResult<TokenDto>.Successed(await _tokenService.LoginAsync(loginDto));
+        }
+
+        /// <summary>
+        /// 获取用户信息，By Id
+        /// </summary>
+        [HttpGet("user")]
+        [Authorize]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
+        public async Task<ServiceResult<UserDto>> GetByIdAsync([FromQuery] long? id)
+        {
+            return ServiceResult<UserDto>.Successed(await _userService.GetAsync(id));
         }
 
         /// <summary>

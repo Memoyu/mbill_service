@@ -17,6 +17,11 @@
              用户名：admin，密码：123456
              </example>
         </member>
+        <member name="M:mbill_service.Controllers.Core.AccountController.GetByIdAsync(System.Nullable{System.Int64})">
+            <summary>
+            获取用户信息，By Id
+            </summary>
+        </member>
         <member name="M:mbill_service.Controllers.Core.AccountController.GetRefreshToken">
             <summary>
             刷新用户的token
@@ -61,7 +66,7 @@
         </member>
         <member name="M:mbill_service.Controllers.Core.PermissionController.GetTreePermissions">
             <summary>
-            查询所有可分配的权限
+            查询权限信息（树形结构）
             </summary>
             <returns></returns>
         </member>
@@ -116,11 +121,6 @@
             超级管理员新增用户
             </summary>
             <param name="userInput"></param>
-        </member>
-        <member name="M:mbill_service.Controllers.Core.UserController.GetByIdAsync(System.Nullable{System.Int64})">
-            <summary>
-            获取用户信息，By Id
-            </summary>
         </member>
         <member name="M:mbill_service.Controllers.Core.UserController.GetPagesAsync(mbill_service.Service.Core.User.Input.UserPagingDto)">
             <summary>

@@ -35,7 +35,7 @@ namespace mbill_service.Controllers.Bill
         /// <param name="dto">资产分类</param>
         [Logger("用户新建了一个资产分类")]
         [HttpPost]
-        [Authorize]
+        [LocalAuthorize("新增", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> CreateAsync([FromBody] ModifyAssetDto dto)
         {
@@ -48,6 +48,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">资产分类id</param>
         [HttpDelete]
+        [LocalAuthorize("删除", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
         {
@@ -60,6 +61,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="dto">资产分类信息</param>
         [HttpPut]
+        [LocalAuthorize("更新", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult> UpdateAsync([FromBody] ModifyAssetDto dto)
         {
@@ -72,7 +74,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">资产id</param>
         [HttpGet]
-        [Authorize]
+        [LocalAuthorize("获取性情", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long id)
         {
@@ -84,7 +86,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">资产id</param>
         [HttpGet("parent")]
-        [Authorize]
+        [LocalAuthorize("获取父项详情", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<AssetDto>> GetParentAsync([FromQuery] long id)
         {
@@ -96,7 +98,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="type">资产类型</param>
         [HttpGet("groups")]
-        [Authorize]
+        [LocalAuthorize("获取分组", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync([FromQuery] string type)
         {
