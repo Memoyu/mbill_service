@@ -28,6 +28,7 @@ namespace mbill_service.Service.Core.Files
         /// 本地文件上传，秒传（根据lin_file表中的md5,与当前文件的路径是否在本地），如果不在，重新上传，覆盖文件表记录
         /// </summary>
         /// <param name="file"></param>
+        /// <param name="type"></param>
         /// <param name="key"></param>
         /// <returns></returns>
         public async Task<FileDto> UploadAsync(IFormFile file, string type, int key = 0)
@@ -83,6 +84,7 @@ namespace mbill_service.Service.Core.Files
         /// images/2022-01-12/fba73a0c-f2f7-499a-8ed8-5b10554d43b0.jpg
         /// </summary>
         /// <param name="file"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
         private async Task<Tuple<string, long>> LocalUploadAsync(IFormFile file, string type)
         {
