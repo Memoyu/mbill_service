@@ -1,4 +1,7 @@
-﻿using mbill_service.Core.Domains.Entities.Core;
+﻿using mbill_service.Core.AOP.Attributes;
+using mbill_service.Core.Domains.Common.Enums.Base;
+using mbill_service.Core.Domains.Entities.Core;
+using mbill_service.Core.Exceptions;
 using mbill_service.Core.Interface.IRepositories.Core;
 using mbill_service.Service.Base;
 using mbill_service.Service.Core.Permission.Input;
@@ -61,6 +64,32 @@ namespace mbill_service.Service.Core.Permission
             bool existPermission = await _rolePermissionRepo.Select
                 .AnyAsync(r => roleIds.Contains(r.RoleId) && r.PermissionId == permissionEntity.Id);
             return existPermission;
+        }
+
+        [Transactional]
+        public async Task<bool> DispatchPermissionsAsync(DispatchPermissionsDto dto)
+        {
+            //去重
+            var distinctPers = dto.PermissionIds.Distinct().ToList();
+
+            var pers = await _permissionRepo.Select.ToListAsync();
+            var notExist = distinctPers.Where(p => !pers.Any(per => per.Id == p));
+            if (notExist.Any()) throw new KnownException($"Id：{string.Join(",", notExist)} 的权限不存在！", ServiceResultCode.NotFound, 200);
+            var rolePers = await _rolePermissionRepo.Select.Where(rp => rp.RoleId == dto.RoleId).ToListAsync();
+            //需要清除的权限   
+            var deletePers = rolePers.Where(r => !distinctPers.Any(p => p == r.PermissionId)).ToList();
+            //需要新增的权限
+            var addPers = distinctPers.Where(p => !rolePers.Any(r => r.PermissionId == p)).Select(p => new RolePermissionEntity
+            {
+                RoleId = dto.RoleId,
+                PermissionId = p
+            }).ToList();
+            if (deletePers.Count > 0)
+                await _rolePermissionRepo.DeleteAsync(deletePers);
+            if (addPers.Count > 0)
+                await _rolePermissionRepo.InsertAsync(addPers);
+
+            return true;
         }
     }
 }

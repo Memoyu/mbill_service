@@ -74,7 +74,7 @@ namespace mbill_service.Controllers.Bill
         /// </summary>
         /// <param name="id">资产id</param>
         [HttpGet]
-        [LocalAuthorize("获取性情", "资产分类")]
+        [LocalAuthorize("获取详情", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long id)
         {

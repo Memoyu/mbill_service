@@ -47,5 +47,19 @@ namespace mbill_service.Controllers.Core
             var result = await _permissionService.GetAllStructualAsync();
             return ServiceResult<IDictionary<string, IEnumerable<PermissionDto>>>.Successed(result);
         }
+
+        /// <summary>
+        /// 配置角色权限
+        /// </summary>
+        /// <param name="dto">角色权限</param>
+        [Logger("配置角色权限")]
+        [HttpPost("dispatch")]
+        [LocalAuthorize("配置角色权限", "管理员")]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+        public async Task<ServiceResult> DispatchPermissions([FromBody] DispatchPermissionsDto dto)
+        {
+            await _permissionService.DispatchPermissionsAsync(dto);
+            return ServiceResult.Successed("配置角色权限成功");
+        }
     }
 }

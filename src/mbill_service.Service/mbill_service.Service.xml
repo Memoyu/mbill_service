@@ -421,6 +421,16 @@
             用户当时的昵称
             </summary>
         </member>
+        <member name="P:mbill_service.Service.Core.Permission.Input.DispatchPermissionsDto.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Permission.Input.DispatchPermissionsDto.PermissionIds">
+            <summary>
+            权限Id集合
+            </summary>
+        </member>
         <member name="M:mbill_service.Service.Core.Permission.IPermissionService.GetAllTreeAsync">
             <summary>
             获取所有权限(树形结构)
@@ -438,6 +448,13 @@
             检查当前登陆用户的分组权限
             </summary>
             <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.DispatchPermissionsAsync(mbill_service.Service.Core.Permission.Input.DispatchPermissionsDto)">
+            <summary>
+            配置角色权限
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Core.Permission.IRoleService.InsertAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">

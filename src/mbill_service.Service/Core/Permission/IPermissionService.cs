@@ -25,5 +25,12 @@ namespace mbill_service.Service.Core.Permission
         /// <param name="permission"></param>
         /// <returns></returns>
         Task<bool> CheckAsync(string permission);
+
+        /// <summary>
+        /// 配置角色权限
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        Task<bool> DispatchPermissionsAsync(DispatchPermissionsDto dto);
     }
 }

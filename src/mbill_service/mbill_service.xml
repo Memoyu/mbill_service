@@ -76,6 +76,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:mbill_service.Controllers.Core.PermissionController.DispatchPermissions(mbill_service.Service.Core.Permission.Input.DispatchPermissionsDto)">
+            <summary>
+            配置角色权限
+            </summary>
+            <param name="dto">角色权限</param>
+        </member>
         <member name="T:mbill_service.Controllers.Core.RoleController">
             <summary>
             角色管理

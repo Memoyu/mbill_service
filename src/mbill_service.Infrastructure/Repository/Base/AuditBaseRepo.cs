@@ -93,7 +93,7 @@ namespace mbill_service.Infrastructure.Repository.Base
             return base.UpdateAsync(entity);
         }
 
-        public Task<int> UpdateWithIgnoreAsync(TEntity entity, Expression<Func<TEntity , object>> ignoreExp, CancellationToken cancellationToken = default(CancellationToken)) 
+        public Task<int> UpdateWithIgnoreAsync(TEntity entity, Expression<Func<TEntity, object>> ignoreExp, CancellationToken cancellationToken = default(CancellationToken))
         {
             BeforeUpdate(entity);
             return Orm.Update<TEntity>().SetSource(entity).IgnoreColumns(ignoreExp).ExecuteAffrowsAsync();
@@ -170,7 +170,7 @@ namespace mbill_service.Infrastructure.Repository.Base
 
         public override Task<int> DeleteAsync(IEnumerable<TEntity> entitys, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (entitys.Any())
+            if (entitys.Any() && entitys.FirstOrDefault() is IDeleteAduitEntity)
             {
                 Attach(entitys);
                 foreach (TEntity x1 in entitys)
