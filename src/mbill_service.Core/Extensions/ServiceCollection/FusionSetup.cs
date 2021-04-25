@@ -38,21 +38,15 @@ namespace mbill_service.Core.Extensions.ServiceCollection
         /// <summary>
         /// 配置注册监控
         /// </summary>
-        public static void AddMiniProfiler(this IServiceCollection services)
+        public static void AddMiniProfilerSetup(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
+            //services.AddMiniProfiler();
             services.AddMiniProfiler(options =>
             {
                 options.RouteBasePath = "/profiler";
-                options.PopupRenderPosition = StackExchange.Profiling.RenderPosition.Left;
-                options.PopupShowTimeWithChildren = true;
-
-                // 可以增加权限
-                //options.ResultsAuthorize = request => request.HttpContext.User.IsInRole("Admin");
-                //options.UserIdProvider = request => request.HttpContext.User.Identity.Name;
-            }
-           );
+            });
         }
 
         /// <summary>

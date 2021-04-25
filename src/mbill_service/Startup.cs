@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace mbill_service
 {
@@ -28,7 +29,7 @@ namespace mbill_service
             services.AddCap();//≈‰÷√CAP
             services.AddAutoMapper();//≈‰÷√ µÃÂ”≥…‰
             services.AddCsRedisCore();//≈‰÷√◊¢≤·Redisª∫¥Ê
-            services.AddMiniProfiler();//≈‰÷√◊¢≤·º‡øÿ
+            services.AddMiniProfilerSetup();//≈‰÷√◊¢≤·º‡øÿ
             services.AddIpRateLimiting();//≈‰÷√◊¢≤·œﬁ¡˜
             services.AddHealthChecks();//≈‰÷√◊¢≤·Ω°øµºÏ≤È
             services.AddCorsConfig();//≈‰÷√øÁ”Ú
@@ -49,7 +50,7 @@ namespace mbill_service
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger().UseSwaggerUI();
+                app.UseSwagger().UseSwaggerUI(() => GetType().GetTypeInfo().Assembly.GetManifestResourceStream("mbill_service.index.html"));
             }
             //øÁ”Ú
             app.UseCors(Appsettings.Cors.CorsName);
