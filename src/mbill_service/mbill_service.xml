@@ -133,6 +133,11 @@
             获取用户信息分页
             </summary>
         </member>
+        <member name="M:mbill_service.Controllers.Core.UserController.GetTestAsync">
+            <summary>
+            获取用户信息分页
+            </summary>
+        </member>
         <member name="T:mbill_service.Controllers.Bill.AssetController">
             <summary>
             资产分类管理
