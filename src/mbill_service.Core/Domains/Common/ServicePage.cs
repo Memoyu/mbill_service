@@ -31,7 +31,7 @@ namespace mbill_service.Core.Domains.Common
         /// <summary>
         /// 从0开始，0时取第1页，1时取第二页
         /// </summary>
-        public int Page { get; set; } = 0;
+        public int Page { get; set; } = 1;
 
         public string Sort { get; set; }
     }

@@ -74,7 +74,7 @@ namespace mbill_service.Service.Base
         {
             if (input is IPagingDto pageDto)
             {
-                return query.Page(pageDto.Page + 1, pageDto.Size);
+                return query.Page(pageDto.Page, pageDto.Size);
             }
             return query;
         }
