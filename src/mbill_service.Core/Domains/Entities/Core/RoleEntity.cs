@@ -67,5 +67,8 @@ namespace mbill_service.Core.Domains.Entities.Core
 
         [Navigate(ManyToMany = typeof(UserRoleEntity))]
         public virtual ICollection<UserEntity> Users { get; set; }
+
+        [Navigate("RoleId")]
+        public virtual ICollection<RolePermissionEntity> RolePermissions { get; set; }
     }
 }

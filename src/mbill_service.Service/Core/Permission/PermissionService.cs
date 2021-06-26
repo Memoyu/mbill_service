@@ -35,6 +35,7 @@ namespace mbill_service.Service.Core.Permission
                           Children = permissions.Where(u => u.Module == r.Key)
                                                 .Select(r => new TreePermissionDto
                                                 {
+                                                    Id = r.Id,
                                                     Rowkey = index++.ToString(),
                                                     Name = r.Name,
                                                     Router = r.Router,

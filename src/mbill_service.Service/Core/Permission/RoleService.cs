@@ -71,12 +71,12 @@ namespace mbill_service.Service.Core.Permission
         {
             var role = await _roleRepo
                 .Select
+                .IncludeMany(r => r.RolePermissions)
                 .Where(r =>r.IsDeleted == false)
                 .Where(r => r.Id == id).FirstAsync();
             if (role == null)
                 throw new KnownException("角色不存在！", ServiceResultCode.NotFound);
             var dto = Mapper.Map<RolePermissionDto>(role);
-            //dto.Permissions = await _permissionRepo.Select.Where(p => p.Id == )
             return dto;
             
         }

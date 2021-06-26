@@ -6,7 +6,7 @@ namespace mbill_service.Service.Core.Permission.Output
 {
     public class RolePermissionDto : EntityDto
     {
-        public List<PermissionEntity> Permissions { get; set; }
+        public List<RolePermissionEntity> RolePermissions { get; set; }
         public string Name { get; set; }
         public string Info { get; set; }
         public bool IsStatic { get; set; }

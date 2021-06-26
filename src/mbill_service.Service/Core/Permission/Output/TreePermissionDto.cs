@@ -5,6 +5,7 @@ namespace mbill_service.Service.Core.Permission.Output
 {
     public class TreePermissionDto
     {
+        public long Id { get; set; }
         public string Rowkey { get; set; }
         public string Name { get; set; }
         public string Router { get; set; }
