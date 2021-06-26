@@ -28,11 +28,11 @@ namespace mbill_service.Service.Core.DataSeed
 
         public async Task InitAdministratorPermissionAsync()
         {
-            bool valid = await _rolePermissionRepo.Select.AnyAsync();
-            if (valid) return;
-            List<PermissionEntity> allPermissions = await _permissionRepo.Select.ToListAsync();//获取所有权限
-            List<RolePermissionEntity> rolePermissions = allPermissions.Select(u => new RolePermissionEntity(SystemConst.Role.Administrator, u.Id)).ToList();//构建超级管理员角色权限
-            await _rolePermissionRepo.InsertAsync(rolePermissions);//插入全部的超级管理员角色权限
+            //bool valid = await _rolePermissionRepo.Select.AnyAsync();
+            //if (!valid) return;
+            //List<PermissionEntity> allPermissions = await _permissionRepo.Select.ToListAsync();//获取所有权限
+            //List<RolePermissionEntity> rolePermissions = allPermissions.Select(u => new RolePermissionEntity(SystemConst.Role.Administrator, u.Id)).ToList();//构建超级管理员角色权限
+            //await _rolePermissionRepo.InsertAsync(rolePermissions);//插入全部的超级管理员角色权限
         }
 
         public async Task InitPermissionAsync(List<PermissionDefinition> permissions)
