@@ -64,6 +64,20 @@ namespace mbill_service.Core.Domains.Common.Consts
                 "repayment" => "还款",
                 _ => "",
             };
+
+            public static string CategoryType(string type) => type switch
+            {
+                "expend" => "支出",
+                "income" => "收入",
+                _ => "",
+            };
+
+            public static string AssetType(string type) => type switch
+            {
+                "deposit" => "储蓄",
+                "debt" => "债务",
+                _ => "",
+            };
         }
     }
 }

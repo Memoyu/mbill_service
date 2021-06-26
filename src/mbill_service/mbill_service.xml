@@ -126,12 +126,13 @@
             <summary>
             超级管理员新增用户
             </summary>
-            <param name="userInput"></param>
+            <param name="userInput">用户更改</param>
         </member>
         <member name="M:mbill_service.Controllers.Core.UserController.GetPagesAsync(mbill_service.Service.Core.User.Input.UserPagingDto)">
             <summary>
             获取用户信息分页
             </summary>
+            <param name="pagingDto">分页</param>
         </member>
         <member name="T:mbill_service.Controllers.Bill.AssetController">
             <summary>
@@ -174,6 +175,12 @@
             </summary>
             <param name="type">资产类型</param>
         </member>
+        <member name="M:mbill_service.Controllers.Bill.AssetController.GetPageAsync(mbill_service.Service.Bill.Asset.Input.AssetPagingDto)">
+            <summary>
+            获取资产分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+        </member>
         <member name="T:mbill_service.Controllers.Bill.CategoryController">
             <summary>
             账单分类管理
@@ -214,6 +221,12 @@
             获取分组后的账单分类
             </summary>
             <param name="type">账单类型</param>
+        </member>
+        <member name="M:mbill_service.Controllers.Bill.CategoryController.GetPageAsync(mbill_service.Service.Bill.Category.Input.CategoryPagingDto)">
+            <summary>
+            获取账单分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
         </member>
         <member name="T:mbill_service.Controllers.Bill.StatementController">
             <summary>

@@ -37,6 +37,13 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetPageAsync(mbill_service.Service.Bill.Asset.Input.AssetPagingDto)">
+            <summary>
+            获取资产分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetAsync(System.Int64)">
             <summary>
             获取父项 by id
@@ -107,6 +114,13 @@
             获取分级后的组合类别数据
             </summary>
             <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetPageAsync(mbill_service.Service.Bill.Category.Input.CategoryPagingDto)">
+            <summary>
+            获取账单分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
             <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetAsync(System.Int64)">
@@ -589,7 +603,7 @@
             <summary>
             获取用户分页信息
             </summary>
-            
+            <param name="pagingDto">分页数据</param>
             <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Core.User.IUserService.UpdateAsync(System.Int64,mbill_service.Core.Domains.Entities.User.UserEntity)">

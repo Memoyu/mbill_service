@@ -31,7 +31,7 @@ namespace mbill_service.Controllers.Core
         /// <summary>
         /// 超级管理员新增用户
         /// </summary>
-        /// <param name="userInput"></param>
+        /// <param name="userInput">用户更改</param>
         [Logger("超级管理员新建了一个用户")]
         [HttpPost]
         [LocalAuthorize("新增用户", "管理员")]
@@ -45,6 +45,7 @@ namespace mbill_service.Controllers.Core
         /// <summary>
         /// 获取用户信息分页
         /// </summary>
+        /// <param name="pagingDto">分页</param>
         [HttpGet("pages")]
         [Authorize]
         [LocalAuthorize("获取用户分页数据", "管理员")]

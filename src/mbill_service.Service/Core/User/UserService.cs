@@ -77,10 +77,10 @@ namespace mbill_service.Service.Core.User
             return Mapper.Map<UserDto>(user);
         }
 
-        public async Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pageDto)
+        public async Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pagingDto)
         {
-            pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "id ASC" : pageDto.Sort.Replace("-", " ");
-            bool? isEnable = pageDto.IsEnable switch
+            pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
+            bool? isEnable = pagingDto.IsEnable switch
             {
                 1 => true,
                 0 => false,
@@ -89,13 +89,13 @@ namespace mbill_service.Service.Core.User
             var users = await _userRepo
                 .Select
                 .IncludeMany(u => u.Roles)
-                .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Username), u => u.Username.Contains(pageDto.Username))
-                .WhereIf(!string.IsNullOrWhiteSpace(pageDto.Nickname), u => u.Nickname.Contains(pageDto.Nickname))
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Username), u => u.Username.Contains(pagingDto.Username))
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Nickname), u => u.Nickname.Contains(pagingDto.Nickname))
                 .WhereIf(isEnable != null, u => u.IsEnable == isEnable)
-                .WhereIf(pageDto.CreateTime != null, u => u.CreateTime == pageDto.CreateTime)
-                .WhereIf(pageDto.RoleId > 0, u => u.Roles.AsSelect().Any(r => r.Id == pageDto.RoleId))
-                .OrderBy(pageDto.Sort)
-                .ToPageListAsync(pageDto, out long totalCount);
+                .WhereIf(pagingDto.CreateTime != null, u => u.CreateTime == pagingDto.CreateTime)
+                .WhereIf(pagingDto.RoleId > 0, u => u.Roles.AsSelect().Any(r => r.Id == pagingDto.RoleId))
+                .OrderBy(pagingDto.Sort)
+                .ToPageListAsync(pagingDto, out long totalCount);
             var userDtos = users.Select(u =>
              {
                  var dto = Mapper.Map<UserDto>(u);

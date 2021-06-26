@@ -8,10 +8,16 @@ using mbill_service.Service.Base;
 using mbill_service.Service.Bill.Category.Output;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using mbill_service.Core.Domains.Common;
+using mbill_service.Core.Domains.Common.Consts;
+using mbill_service.Core.Extensions;
+using mbill_service.Service.Bill.Category.Input;
+using mbill_service.Service.Core.User.Output;
 
 namespace mbill_service.Service.Bill.Category
 {
@@ -54,6 +60,33 @@ namespace mbill_service.Service.Bill.Category
                 })
                 .ToList();
             return dtos;
+        }
+
+        public async Task<PagedDto<CategoryPageDto>> GetPageAsync(CategoryPagingDto pagingDto)
+        {
+            if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
+            pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
+            var categories = await _categoryRepo
+                .Select
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.CategoryName), c=>c.Name.Contains(pagingDto.CategoryName))
+                .WhereIf(pagingDto.ParentIds != null && pagingDto.ParentIds.Any(), c=>pagingDto.ParentIds.Contains(c.ParentId))
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
+                .WhereIf(pagingDto.CreateStartTime != null, c=>c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
+                .OrderBy(pagingDto.Sort)
+                .ToPageListAsync(pagingDto, out long totalCount);
+            var categoryDtos = categories.Select( c =>
+            {
+                var dto = Mapper.Map<CategoryPageDto>(c);
+                CategoryEntity category = null;
+                if (c.ParentId != 0)
+                    category = _categoryRepo.Get(c.ParentId);
+                dto.ParentName = category?.Name;
+                dto.TypeName = SystemConst.Switcher.CategoryType(c.Type);
+                dto.IconUrl = _fileRepo.GetFileUrl(c.IconUrl);
+                return dto;
+            }).ToList();
+
+            return new PagedDto<CategoryPageDto>(categoryDtos, totalCount);
         }
 
         public async Task<IEnumerable<CategoryDto>> GetListAsync()

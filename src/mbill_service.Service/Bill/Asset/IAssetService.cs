@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using mbill_service.Core.Domains.Common;
+using mbill_service.Service.Bill.Asset.Input;
 
 namespace mbill_service.Service.Bill.Asset
 {
@@ -36,6 +38,13 @@ namespace mbill_service.Service.Bill.Asset
         /// <param name="type"></param>
         /// <returns></returns>
         Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(string type);
+
+        /// <summary>
+        /// 获取资产分类分页
+        /// </summary>
+        /// <param name="pagingDto">分页参数</param>
+        /// <returns></returns>
+        Task<PagedDto<AssetPageDto>> GetPageAsync(AssetPagingDto pagingDto);
 
         /// <summary>
         /// 获取父项 by id

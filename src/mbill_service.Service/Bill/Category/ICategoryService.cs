@@ -2,6 +2,8 @@
 using mbill_service.Service.Bill.Category.Output;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using mbill_service.Core.Domains.Common;
+using mbill_service.Service.Bill.Category.Input;
 
 namespace mbill_service.Service.Bill.Category
 {
@@ -28,14 +30,20 @@ namespace mbill_service.Service.Bill.Category
         /// <returns></returns>
         Task UpdateAsync(CategoryEntity categroy);
 
-
-
         /// <summary>
         /// 获取分级后的组合类别数据
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(string type);
+
+        /// <summary>
+        /// 获取账单分类分页
+        /// </summary>
+        /// <param name="pagingDto">分页参数</param>
+        /// <returns></returns>
+        Task<PagedDto<CategoryPageDto>> GetPageAsync(CategoryPagingDto pagingDto);
+
 
         Task<IEnumerable<CategoryDto>> GetListAsync();
 

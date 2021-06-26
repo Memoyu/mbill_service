@@ -11,6 +11,7 @@ namespace mbill_service.Service.Common.Mapper.Bill
         {
             CreateMap<ModifyAssetDto, AssetEntity>();
             CreateMap<AssetEntity, AssetDto>();
+            CreateMap<AssetEntity, AssetPageDto>();
         }
     }
 }

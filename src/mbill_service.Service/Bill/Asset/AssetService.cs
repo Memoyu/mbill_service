@@ -11,6 +11,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using mbill_service.Core.Domains.Common;
+using mbill_service.Core.Domains.Common.Consts;
+using mbill_service.Core.Extensions;
+using mbill_service.Service.Bill.Asset.Input;
 
 namespace mbill_service.Service.Bill.Asset
 {
@@ -55,6 +59,34 @@ namespace mbill_service.Service.Bill.Asset
                 .ToList();
             return dtos;
         }
+
+        public async Task<PagedDto<AssetPageDto>> GetPageAsync(AssetPagingDto pagingDto)
+        {
+            if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
+            pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
+            var categories = await _assetRepo
+                .Select
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), c => c.Name.Contains(pagingDto.AssetName))
+                .WhereIf(pagingDto.ParentIds != null && pagingDto.ParentIds.Any(), c => pagingDto.ParentIds.Contains(c.ParentId))
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
+                .WhereIf(pagingDto.CreateStartTime != null, c => c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
+                .OrderBy(pagingDto.Sort)
+                .ToPageListAsync(pagingDto, out long totalCount);
+            var categoryDtos = categories.Select(c =>
+            {
+                var dto = Mapper.Map<AssetPageDto>(c);
+                AssetEntity category = null;
+                if (c.ParentId != 0)
+                    category = _assetRepo.Get(c.ParentId);
+                dto.ParentName = category?.Name;
+                dto.TypeName = SystemConst.Switcher.AssetType(c.Type);
+                dto.IconUrl = _fileRepo.GetFileUrl(c.IconUrl);
+                return dto;
+            }).ToList();
+
+            return new PagedDto<AssetPageDto>(categoryDtos, totalCount);
+        }
+
 
         public async Task<AssetDto> GetParentAsync(long id)
         {

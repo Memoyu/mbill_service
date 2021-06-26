@@ -104,5 +104,17 @@ namespace mbill_service.Controllers.Bill
         {
             return ServiceResult<IEnumerable<AssetGroupDto>>.Successed(await _assetService.GetGroupsAsync(type));
         }
+
+        /// <summary>
+        /// 获取资产分类分页
+        /// </summary>
+        /// <param name="pagingDto">分页参数</param>
+        [HttpGet("page")]
+        [LocalAuthorize("获取分页", "管理员")]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+        public async Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync([FromQuery] AssetPagingDto pagingDto)
+        {
+            return ServiceResult<PagedDto<AssetPageDto>>.Successed(await _assetService.GetPageAsync(pagingDto));
+        }
     }
 }

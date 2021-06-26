@@ -27,7 +27,7 @@ namespace mbill_service.Service.Core.User
         /// <summary>
         /// 获取用户分页信息
         /// </summary>
-        /// 
+        /// <param name="pagingDto">分页数据</param>
         /// <returns></returns>
         Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pagingDto);
 

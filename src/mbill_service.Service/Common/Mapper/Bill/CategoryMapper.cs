@@ -11,6 +11,7 @@ namespace mbill_service.Service.Common.Mapper.Bill
         {
             CreateMap<ModifyCategoryDto, CategoryEntity>();
             CreateMap<CategoryEntity, CategoryDto>();
+            CreateMap<CategoryEntity, CategoryPageDto>();
         }
     }
 }
