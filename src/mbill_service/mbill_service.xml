@@ -169,6 +169,11 @@
             </summary>
             <param name="id">资产id</param>
         </member>
+        <member name="M:mbill_service.Controllers.Bill.AssetController.GetParentsAsync">
+            <summary>
+            获取资产父项集合
+            </summary>
+        </member>
         <member name="M:mbill_service.Controllers.Bill.AssetController.GetGroupAsync(System.String)">
             <summary>
             获取分组后的资产

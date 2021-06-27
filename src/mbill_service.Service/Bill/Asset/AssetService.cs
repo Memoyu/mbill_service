@@ -15,6 +15,7 @@ using mbill_service.Core.Domains.Common;
 using mbill_service.Core.Domains.Common.Consts;
 using mbill_service.Core.Extensions;
 using mbill_service.Service.Bill.Asset.Input;
+using Newtonsoft.Json;
 
 namespace mbill_service.Service.Bill.Asset
 {
@@ -64,27 +65,27 @@ namespace mbill_service.Service.Bill.Asset
         {
             if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
             pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
-            var categories = await _assetRepo
+            var assets = await _assetRepo
                 .Select
-                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), c => c.Name.Contains(pagingDto.AssetName))
-                .WhereIf(pagingDto.ParentIds != null && pagingDto.ParentIds.Any(), c => pagingDto.ParentIds.Contains(c.ParentId))
+                .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), a => a.Name.Contains(pagingDto.AssetName))
+                .WhereIf(pagingDto.ParentIds != null && pagingDto.ParentIds.Any(), a => pagingDto.ParentIds.Contains(a.ParentId))
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
-                .WhereIf(pagingDto.CreateStartTime != null, c => c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
+                .WhereIf(pagingDto.CreateStartTime != null, a => a.CreateTime >= pagingDto.CreateStartTime && a.CreateTime <= pagingDto.CreateEndTime)
                 .OrderBy(pagingDto.Sort)
                 .ToPageListAsync(pagingDto, out long totalCount);
-            var categoryDtos = categories.Select(c =>
+            var assetDtos = assets.Select(a =>
             {
-                var dto = Mapper.Map<AssetPageDto>(c);
+                var dto = Mapper.Map<AssetPageDto>(a);
                 AssetEntity category = null;
-                if (c.ParentId != 0)
-                    category = _assetRepo.Get(c.ParentId);
+                if (a.ParentId != 0)
+                    category = _assetRepo.Get(a.ParentId);
                 dto.ParentName = category?.Name;
-                dto.TypeName = SystemConst.Switcher.AssetType(c.Type);
-                dto.IconUrl = _fileRepo.GetFileUrl(c.IconUrl);
+                dto.TypeName = SystemConst.Switcher.AssetType(a.Type);
+                dto.IconUrl = _fileRepo.GetFileUrl(a.IconUrl);
                 return dto;
             }).ToList();
 
-            return new PagedDto<AssetPageDto>(categoryDtos, totalCount);
+            return new PagedDto<AssetPageDto>(assetDtos, totalCount);
         }
 
 
@@ -94,6 +95,17 @@ namespace mbill_service.Service.Bill.Asset
             var parentAsset = await _assetRepo.GetAssetAsync(asset.ParentId) ?? throw new KnownException("资产父项信息不存在或已删除！", ServiceResultCode.NotFound);
             return _mapeer.Map<AssetDto>(parentAsset);
 
+        }
+
+        public async Task<IEnumerable<AssetDto>> GetParentsAsync()
+        {
+            var assets = await _assetRepo
+                .Select
+                .Where(a => a.ParentId == 0)
+                .OrderBy(a => a.CreateTime)
+                .ToListAsync();
+            var assetDtos = assets.Select(a => Mapper.Map<AssetDto>(a)).ToList();
+            return assetDtos;
         }
 
         public async Task<AssetDto> GetAsync(long id)

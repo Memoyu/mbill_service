@@ -94,6 +94,17 @@ namespace mbill_service.Controllers.Bill
         }
 
         /// <summary>
+        /// 获取资产父项集合
+        /// </summary>
+        [HttpGet("parents")]
+        [LocalAuthorize("获取父项详情", "资产分类")]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<IEnumerable<AssetDto>>> GetParentsAsync()
+        {
+            return ServiceResult<IEnumerable<AssetDto>>.Successed(await _assetService.GetParentsAsync());
+        }
+
+        /// <summary>
         /// 获取分组后的资产
         /// </summary>
         /// <param name="type">资产类型</param>
@@ -109,10 +120,10 @@ namespace mbill_service.Controllers.Bill
         /// 获取资产分类分页
         /// </summary>
         /// <param name="pagingDto">分页参数</param>
-        [HttpGet("page")]
+        [HttpGet("pages")]
         [LocalAuthorize("获取分页", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-        public async Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync([FromQuery] AssetPagingDto pagingDto)
+        public async Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync([FromBody] AssetPagingDto pagingDto)
         {
             return ServiceResult<PagedDto<AssetPageDto>>.Successed(await _assetService.GetPageAsync(pagingDto));
         }

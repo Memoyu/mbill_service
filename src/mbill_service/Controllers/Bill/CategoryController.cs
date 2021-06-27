@@ -110,7 +110,7 @@ namespace mbill_service.Controllers.Bill
         /// 获取账单分类分页
         /// </summary>
         /// <param name="pagingDto">分页参数</param>
-        [HttpGet("page")]
+        [HttpGet("pages")]
         [LocalAuthorize("获取分页", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
         public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromQuery] CategoryPagingDto pagingDto)

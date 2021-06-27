@@ -11,7 +11,7 @@ namespace mbill_service.Service.Bill.Category.Input
     {
         public string CategoryName { get; set; }
 
-        public List<long> ParentIds { get; set; }
+        public string ParentIds { get; set; }
 
         public string Type { get; set; }
 

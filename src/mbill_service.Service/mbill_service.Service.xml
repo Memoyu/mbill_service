@@ -58,6 +58,12 @@
             <param name="id">资产子项Id</param>
             <returns></returns>
         </member>
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetParentsAsync">
+            <summary>
+            获取父项集合
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:mbill_service.Service.Bill.Asset.Input.ModifyAssetDto.Name">
             <summary>
             资产分类名

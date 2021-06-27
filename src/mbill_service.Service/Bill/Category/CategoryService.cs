@@ -18,6 +18,7 @@ using mbill_service.Core.Domains.Common.Consts;
 using mbill_service.Core.Extensions;
 using mbill_service.Service.Bill.Category.Input;
 using mbill_service.Service.Core.User.Output;
+using Newtonsoft.Json;
 
 namespace mbill_service.Service.Bill.Category
 {
@@ -65,11 +66,14 @@ namespace mbill_service.Service.Bill.Category
         public async Task<PagedDto<CategoryPageDto>> GetPageAsync(CategoryPagingDto pagingDto)
         {
             if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
+            var parentIds = new List<long>();
+            if (!string.IsNullOrWhiteSpace(pagingDto.ParentIds))
+                parentIds = JsonConvert.DeserializeObject<List<long>>(pagingDto.ParentIds);
             pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
             var categories = await _categoryRepo
                 .Select
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.CategoryName), c=>c.Name.Contains(pagingDto.CategoryName))
-                .WhereIf(pagingDto.ParentIds != null && pagingDto.ParentIds.Any(), c=>pagingDto.ParentIds.Contains(c.ParentId))
+                .WhereIf(parentIds != null && parentIds.Any(), c=> parentIds.Contains(c.ParentId))
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
                 .WhereIf(pagingDto.CreateStartTime != null, c=>c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
                 .OrderBy(pagingDto.Sort)
