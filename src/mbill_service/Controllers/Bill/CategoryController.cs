@@ -95,6 +95,17 @@ namespace mbill_service.Controllers.Bill
         }
 
         /// <summary>
+        /// 获取账单分类父项集合
+        /// </summary>
+        [HttpGet("parents")]
+        [LocalAuthorize("获取父项详情", "资产分类")]
+        [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+        public async Task<ServiceResult<IEnumerable<CategoryDto>>> GetParentsAsync()
+        {
+            return ServiceResult<IEnumerable<CategoryDto>>.Successed(await _categoryService.GetParentsAsync());
+        }
+
+        /// <summary>
         /// 获取分组后的账单分类
         /// </summary>
         /// <param name="type">账单类型</param>
@@ -113,7 +124,7 @@ namespace mbill_service.Controllers.Bill
         [HttpGet("pages")]
         [LocalAuthorize("获取分页", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-        public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromQuery] CategoryPagingDto pagingDto)
+        public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromBody] CategoryPagingDto pagingDto)
         {
             return ServiceResult<PagedDto<CategoryPageDto>>.Successed(await _categoryService.GetPageAsync(pagingDto));
         }

@@ -65,10 +65,13 @@ namespace mbill_service.Service.Bill.Asset
         {
             if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
             pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
+            var parentIds = new List<string>();
+            if (!string.IsNullOrWhiteSpace(pagingDto.ParentIds))
+                parentIds = pagingDto.ParentIds.Split(",").ToList();
             var assets = await _assetRepo
                 .Select
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), a => a.Name.Contains(pagingDto.AssetName))
-                .WhereIf(pagingDto.ParentIds != null && pagingDto.ParentIds.Any(), a => pagingDto.ParentIds.Contains(a.ParentId))
+                .WhereIf(parentIds != null && parentIds.Any(), a => parentIds.Contains(a.ParentId.ToString()))
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
                 .WhereIf(pagingDto.CreateStartTime != null, a => a.CreateTime >= pagingDto.CreateStartTime && a.CreateTime <= pagingDto.CreateEndTime)
                 .OrderBy(pagingDto.Sort)

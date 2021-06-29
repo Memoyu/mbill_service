@@ -2,7 +2,7 @@
 
 namespace mbill_service.Service.Bill.Category.Output
 {
-    public class CategoryDto : EntityDto
+    public class CategoryDto : FullEntityDto
     {
         public string Name { get; set; }
 

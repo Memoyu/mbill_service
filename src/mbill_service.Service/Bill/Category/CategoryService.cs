@@ -66,14 +66,14 @@ namespace mbill_service.Service.Bill.Category
         public async Task<PagedDto<CategoryPageDto>> GetPageAsync(CategoryPagingDto pagingDto)
         {
             if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
-            var parentIds = new List<long>();
+            var parentIds = new List<string>();
             if (!string.IsNullOrWhiteSpace(pagingDto.ParentIds))
-                parentIds = JsonConvert.DeserializeObject<List<long>>(pagingDto.ParentIds);
+                parentIds = pagingDto.ParentIds.Split(",").ToList();
             pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
             var categories = await _categoryRepo
                 .Select
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.CategoryName), c=>c.Name.Contains(pagingDto.CategoryName))
-                .WhereIf(parentIds != null && parentIds.Any(), c=> parentIds.Contains(c.ParentId))
+                .WhereIf(parentIds != null && parentIds.Any(), c=> parentIds.Contains(c.ParentId.ToString()))
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
                 .WhereIf(pagingDto.CreateStartTime != null, c=>c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
                 .OrderBy(pagingDto.Sort)
@@ -110,6 +110,18 @@ namespace mbill_service.Service.Bill.Category
             var categoryParent = await _categoryRepo.GetCategoryAsync(category.ParentId) ?? throw new KnownException("分类父项信息不存在或已删除！", ServiceResultCode.NotFound);
             return _mapper.Map<CategoryDto>(categoryParent);
         }
+
+        public async Task<IEnumerable<CategoryDto>> GetParentsAsync()
+        {
+            var assets = await _categoryRepo
+                .Select
+                .Where(a => a.ParentId == 0)
+                .OrderBy(a => a.CreateTime)
+                .ToListAsync();
+            var categoryDtos = assets.Select(a => Mapper.Map<CategoryDto>(a)).ToList();
+            return categoryDtos;
+        }
+
 
         public async Task InsertAsync(CategoryEntity categroy)
         {

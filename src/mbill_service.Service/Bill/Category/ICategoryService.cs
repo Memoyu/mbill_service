@@ -61,5 +61,11 @@ namespace mbill_service.Service.Bill.Category
         /// <returns></returns>
         Task<CategoryDto> GetParentAsync(long id);
 
+        /// <summary>
+        /// 获取账单分类父项集合
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<CategoryDto>> GetParentsAsync();
+
     }
 }

@@ -11,7 +11,7 @@ namespace mbill_service.Service.Bill.Asset.Input
     {
         public string AssetName { get; set; }
 
-        public List<long> ParentIds { get; set; }
+        public string ParentIds { get; set; }
 
         public string Type { get; set; }
 

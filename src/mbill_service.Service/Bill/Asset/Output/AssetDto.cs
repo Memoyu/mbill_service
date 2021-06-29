@@ -2,7 +2,7 @@
 
 namespace mbill_service.Service.Bill.Asset.Output
 {
-    public class AssetDto : EntityDto
+    public class AssetDto : FullEntityDto
     {
 
         public string Name { get; set; }
