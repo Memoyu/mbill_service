@@ -124,7 +124,7 @@ namespace mbill_service.Controllers.Bill
         [HttpGet("pages")]
         [LocalAuthorize("获取分页", "管理员")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-        public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromBody] CategoryPagingDto pagingDto)
+        public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromQuery] CategoryPagingDto pagingDto)
         {
             return ServiceResult<PagedDto<CategoryPageDto>>.Successed(await _categoryService.GetPageAsync(pagingDto));
         }
