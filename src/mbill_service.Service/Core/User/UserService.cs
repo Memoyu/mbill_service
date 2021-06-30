@@ -79,6 +79,7 @@ namespace mbill_service.Service.Core.User
 
         public async Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pagingDto)
         {
+            if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
             pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
             bool? isEnable = pagingDto.IsEnable switch
             {
@@ -92,7 +93,7 @@ namespace mbill_service.Service.Core.User
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Username), u => u.Username.Contains(pagingDto.Username))
                 .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Nickname), u => u.Nickname.Contains(pagingDto.Nickname))
                 .WhereIf(isEnable != null, u => u.IsEnable == isEnable)
-                .WhereIf(pagingDto.CreateTime != null, u => u.CreateTime == pagingDto.CreateTime)
+                .WhereIf(pagingDto.CreateStartTime != null, a => a.CreateTime >= pagingDto.CreateStartTime && a.CreateTime <= pagingDto.CreateEndTime)
                 .WhereIf(pagingDto.RoleId > 0, u => u.Roles.AsSelect().Any(r => r.Id == pagingDto.RoleId))
                 .OrderBy(pagingDto.Sort)
                 .ToPageListAsync(pagingDto, out long totalCount);

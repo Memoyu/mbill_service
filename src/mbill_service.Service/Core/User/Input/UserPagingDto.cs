@@ -13,6 +13,8 @@ namespace mbill_service.Service.Core.User.Input
 
         public long RoleId { get; set; }
 
-        public DateTime? CreateTime { get; set; }
+        public DateTime? CreateStartTime { get; set; }
+
+        public DateTime? CreateEndTime { get; set; }
     }
 }

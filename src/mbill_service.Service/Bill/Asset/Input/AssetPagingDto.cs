@@ -15,7 +15,6 @@ namespace mbill_service.Service.Bill.Asset.Input
 
         public string Type { get; set; }
 
-
         public DateTime? CreateStartTime { get; set; }
 
         public DateTime? CreateEndTime { get; set; }
