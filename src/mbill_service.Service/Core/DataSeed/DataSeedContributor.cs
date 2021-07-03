@@ -77,11 +77,11 @@ namespace mbill_service.Service.Core.DataSeed
                 }
             });
 
-            await _permissionRepo.InsertAsync(insertPermissions);
-            _logger.LogInformation($"操 作 权 限 表：新增了{insertPermissions.Count}条数据");
+           var inserts =  await _permissionRepo.InsertAsync(insertPermissions);
+            _logger.LogInformation($"操 作 权 限 表：新增了{inserts.Count()}条数据");
 
-            await _permissionRepo.UpdateAsync(updatePermissions);
-            _logger.LogInformation($"操 作 权 限 表：更新了{updatePermissions.Count}条数据");
+            var updateCount = await _permissionRepo.UpdateAsync(updatePermissions);
+            _logger.LogInformation($"操 作 权 限 表：更新了{updateCount}条数据");
 
         }
     }

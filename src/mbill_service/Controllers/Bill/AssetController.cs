@@ -97,7 +97,7 @@ namespace mbill_service.Controllers.Bill
         /// 获取资产父项集合
         /// </summary>
         [HttpGet("parents")]
-        [LocalAuthorize("获取父项详情", "资产分类")]
+        [LocalAuthorize("获取父项集合", "资产分类")]
         [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
         public async Task<ServiceResult<IEnumerable<AssetDto>>> GetParentsAsync()
         {
