@@ -122,9 +122,9 @@ namespace mbill_service.Core.Extensions.ServiceCollection
                            Appsettings.JwtBearer.Audience,
                            Appsettings.JwtBearer.Issuer
                        );
-            services.AddHash();
-            services.AddCryptography("Memoyu.Core-cryptography");
-            services.AddJsonWebToken(jsonWebTokenSettings);
+            services.AddHashService();
+            services.AddICryptographyService("Memoyu.Core-cryptography");
+            services.AddJsonWebTokenService(jsonWebTokenSettings);
             return jsonWebTokenSettings;
         }
     }

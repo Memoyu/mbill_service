@@ -38,11 +38,11 @@ namespace mbill_service
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule(new AutofacModule());//注入一些杂项
-            builder.RegisterModule(new RepositoryModule());//注入仓储
-            builder.RegisterModule(new ServiceModule());//注入服务
-            builder.RegisterModule(new DependencyModule());//自动注入，类似Abp中的继承对应的接口就会注入对应接口的生命周期
-            builder.RegisterModule(new FreeSqlModule());//注入FreeSql
+            builder.RegisterModule(new AutofacModule());//注册一些杂项
+            builder.RegisterModule(new RepositoryModule());//注册仓储
+            builder.RegisterModule(new ServiceModule());//注册服务
+            builder.RegisterModule(new DependencyModule());//自动注册，类似Abp中的继承对应的接口就会注册对应接口的生命周期
+            builder.RegisterModule(new FreeSqlModule());//注册FreeSql
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -54,6 +54,7 @@ namespace mbill_service
             }
             //跨域
             app.UseCors(Appsettings.Cors.CorsName);
+
             //静态文件
             app.UseStaticFiles();
 

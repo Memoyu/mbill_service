@@ -44,7 +44,6 @@ namespace mbill_service.Core.Extensions.ServiceCollection
         /// 根据配置文件配置Cap
         /// </summary>
         /// <param name="options"></param>
-        /// <param name="Configuration"></param>
         /// <returns></returns>
         private static CapOptions UseCapOptions(this CapOptions options)
         {
