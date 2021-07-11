@@ -1,30 +1,22 @@
 ﻿using AspNetCoreRateLimit;
-using mbill_service.Core.Common.Configs;
-using Microsoft.AspNetCore.Builder;
-using Serilog;
-using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace mbill_service.Core.AOP.Middleware
 {
-    public static class IpLimitMilddleware
+    public class IpLimitMiddleware : IpRateLimitMiddleware
     {
-        public static void UseIpLimitMilddleware(this IApplicationBuilder app)
+        public IpLimitMiddleware(RequestDelegate next, IProcessingStrategy processingStrategy, IOptions<IpRateLimitOptions> options, IRateLimitCounterStore counterStore, IIpPolicyStore policyStore, IRateLimitConfiguration config, ILogger<IpRateLimitMiddleware> logger)
+            : base(next, processingStrategy, options, counterStore, policyStore, config, logger)
         {
-            if (app == null) throw new ArgumentNullException(nameof(app));
+        }
 
-            try
-            {
-                var isEnabled = Appsettings.IpRateLimitEnable;
-                if (isEnabled)
-                {
-                    app.UseIpRateLimiting();
-                }
-            }
-            catch (Exception e)
-            {
-                Log.Error($"添加IP限流发生异常.\n{e.Message}");
-                throw;
-            }
+        public override Task ReturnQuotaExceededResponse(HttpContext httpContext, RateLimitRule rule, string retryAfter)
+        {
+            httpContext.Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            return base.ReturnQuotaExceededResponse(httpContext, rule, retryAfter);
         }
     }
 }

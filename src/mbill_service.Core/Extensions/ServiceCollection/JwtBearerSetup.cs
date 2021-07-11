@@ -71,8 +71,8 @@ namespace mbill_service.Core.Extensions.ServiceCollection
                 {
                     OnAuthenticationFailed = context =>
                     {
-                         //Token 过期
-                         if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        //Token 过期
+                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                         {
                             context.Response.Headers.Add("Token-Expired", "true");
                         }
@@ -101,7 +101,7 @@ namespace mbill_service.Core.Extensions.ServiceCollection
                         }
                         else
                         {
-                            message = "请先登录 "; 
+                            message = "请先登录 ";
                             code = ServiceResultCode.AuthenticationFailed;
                         }
 

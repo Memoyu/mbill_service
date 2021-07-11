@@ -61,9 +61,7 @@ namespace mbill_service.Core.Extensions.ServiceCollection
             //从IpRateLimiting.json获取相应配置
             services.Configure<IpRateLimitOptions>(Appsettings.IpRateLimitingConfig);
             services.Configure<IpRateLimitPolicies>(Appsettings.IpRateLimitPoliciesConfig);
-            //注入计数器和规则存储
-            services.AddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
-            services.AddSingleton<IRateLimitCounterStore, DistributedCacheRateLimitCounterStore>();
+            services.AddDistributedRateLimiting();
             //配置（计数器密钥生成器）
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 

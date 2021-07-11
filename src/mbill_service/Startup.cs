@@ -59,7 +59,7 @@ namespace mbill_service
             app.UseStaticFiles();
 
             // Ip限流
-            app.UseIpLimitMilddleware();
+            app.UseMiddleware<IpLimitMiddleware>();
 
             // 记录ip请求
             app.UseMiddleware<IPLogMilddleware>();
