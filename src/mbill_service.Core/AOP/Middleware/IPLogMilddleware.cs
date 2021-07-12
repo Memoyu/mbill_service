@@ -17,6 +17,11 @@ namespace mbill_service.Core.AOP.Middleware
     {
         //***************请求代理需要先注入IHttpContextAccessor，否者报错********************//
         private readonly RequestDelegate _requestDelegate;
+        private static readonly ILogger IpLog = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
+            .WriteTo.File(Path.Combine($"Logs/ip_log/", $"ip_log.log"), rollingInterval: RollingInterval.Infinite, outputTemplate: "{Message}{NewLine}{Exception}")
+            .CreateLogger();
 
         public IPLogMilddleware(RequestDelegate requestDelegate)
         {
@@ -30,7 +35,7 @@ namespace mbill_service.Core.AOP.Middleware
             if (isEnabled)
             {
                 // 过滤，只有接口
-                if (context.Request.Path.Value.Contains("api"))
+                if (context.Request.Path.Value != null && context.Request.Path.Value.Contains("api"))
                 {
                     context.Request.EnableBuffering();
 
@@ -40,7 +45,7 @@ namespace mbill_service.Core.AOP.Middleware
                         var request = context.Request;
                         var requestInfo = new RequestInfo()
                         {
-                            Ip = GetClientIP(context),
+                            Ip = GetClientIp(context),
                             Url = request.Path.ToString().Trim().TrimEnd('/').ToLower(),
                             Datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                             Date = DateTime.Now.ToString("yyyy-MM-dd"),
@@ -52,7 +57,7 @@ namespace mbill_service.Core.AOP.Middleware
                             // 自定义log输出
                             Parallel.For(0, 1, e =>
                             {
-                                WriteLog("RequestIpInfoLog", new string[] { requestInfo + "," }, false);
+                                WriteLog(new string[] { requestInfo + "," }, false);
                             });
 
                             request.Body.Position = 0;
@@ -81,12 +86,12 @@ namespace mbill_service.Core.AOP.Middleware
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        private static string GetClientIP(HttpContext context)
+        private static string GetClientIp(HttpContext context)
         {
             var ip = context.Request.Headers["X-Forwarded-For"].ToString();
             if (string.IsNullOrEmpty(ip))
             {
-                ip = context.Connection.RemoteIpAddress.ToString();
+                if (context.Connection.RemoteIpAddress != null) ip = context.Connection.RemoteIpAddress.ToString();
             }
             return ip;
         }
@@ -131,30 +136,21 @@ namespace mbill_service.Core.AOP.Middleware
         /// <summary>
         /// 记录日志
         /// </summary>
-        /// <param name="filename">写入日志文件名</param>
         /// <param name="messages">写入信息</param>
-        /// <param name="IsHeader">是否加头部分割线</param>
-        private static void WriteLog(string filename, string[] messages, bool IsHeader = true)
+        /// <param name="isHeader">是否加头部分割线</param>
+        private static void WriteLog(string[] messages, bool isHeader = true)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
-                .WriteTo.File(Path.Combine($"Logs/Serilog/", $"{filename}.log"), rollingInterval: RollingInterval.Infinite, outputTemplate: "{Message}{NewLine}{Exception}")
-                .CreateLogger();
-
             var now = DateTime.Now;
             string logContent = String.Join("\r\n", messages);
-            if (IsHeader)
+            if (isHeader)
             {
                 logContent = (
-                   "--------------------------------\r\n" +
-                   DateTime.Now + "|\r\n" +
-                   String.Join("\r\n", messages) + "\r\n"
-                   );
+                    "--------------------------------\r\n" +
+                    now + "|\r\n" +
+                    String.Join("\r\n", messages) + "\r\n"
+                );
             }
-
-            Log.Information(logContent);
-            Log.CloseAndFlush();
+            IpLog.Information(logContent);
         }
     }
 }
