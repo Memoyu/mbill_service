@@ -21,9 +21,8 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/docker/Dockerfile'
-        tags: |
-          $(tag)
+        containerRegistry: 'memoyu_docker'
+        repository: 'memoyu/mbillservice'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
