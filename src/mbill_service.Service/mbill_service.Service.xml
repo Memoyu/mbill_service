@@ -705,5 +705,19 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill_service.Service.Core.Wx.IWxService.GetCode2Session(System.String)">
+            <summary>
+            GetCode2Session
+            </summary>
+            <param name="code">wx.login获取到的code</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Wx.IWxService.WxLoginAsync(mbill_service.Service.Core.Wx.Input.WxUserInfoInput)">
+            <summary>
+            微信登录
+            </summary>
+            <param name="input">微信用户信息</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

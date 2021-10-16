@@ -49,7 +49,7 @@ namespace mbill_service.Service.Core.User
                     throw new KnownException("注册邮箱重复，请重新输入", ServiceResultCode.RepeatField);
                 }
             }
-
+            user.UserId = Guid.NewGuid().ToString();
             user.UserRoles = new List<UserRoleEntity>();
             roleIds?.ForEach(roleId =>//遍历构建赋值角色
             {
@@ -61,7 +61,7 @@ namespace mbill_service.Service.Core.User
 
             user.UserIdentitys = new List<UserIdentityEntity>()//构建赋值用户身份认证登录信息
             {
-                new UserIdentityEntity(UserIdentityEntity.Password,user.Username,EncryptUtil.Encrypt(password),DateTime.Now)
+                new UserIdentityEntity(UserIdentityEntity.Password,user.Username,EncryptUtil.Encrypt(password), user.UserId,DateTime.Now)
             };
             await _userRepo.InsertAsync(user);
         }

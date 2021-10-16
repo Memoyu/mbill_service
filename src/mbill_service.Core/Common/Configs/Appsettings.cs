@@ -120,7 +120,7 @@ namespace mbill_service.Core.Common.Configs
             public static string Audience => _configuration["Authentication:JwtBearer:Audience"];
 
             /// <summary>
-            /// 过期时间(分钟)
+            /// 过期时间(秒)
             /// </summary>
             public static double Expires => Convert.ToDouble(_configuration["Authentication:JwtBearer:Expires"]);
 
@@ -128,6 +128,27 @@ namespace mbill_service.Core.Common.Configs
             /// 签发者
             /// </summary>
             public static string Issuer => _configuration["Authentication:JwtBearer:Issuer"];
+        }
+
+        #endregion
+
+        #region MinPro
+
+        /// <summary>
+        /// MinPro
+        /// </summary>
+        public class MinPro
+        {
+            /// <summary>
+            /// AppID
+            /// </summary>
+            public static string AppID => _configuration["MinPro:AppID"];
+
+            /// <summary>
+            /// AppSecret
+            /// </summary>
+            public static string AppSecret => _configuration["MinPro:AppSecret"];
+
         }
 
 

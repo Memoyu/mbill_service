@@ -65,7 +65,6 @@ namespace mbill_service.Modules
             try
             {
                 fsql.CodeFirst
-                    .SeedData()
                     .SyncStructure(DomainReflexUtil.GetTypesByTableAttribute());
             }
             catch (Exception e)

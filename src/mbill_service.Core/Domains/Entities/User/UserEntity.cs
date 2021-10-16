@@ -14,6 +14,11 @@ namespace mbill_service.Core.Domains.Entities.User
     public class UserEntity : FullAduitEntity
     {
         /// <summary>
+        /// 用户唯一标识
+        /// </summary>
+        public string UserId { get; set; }
+
+        /// <summary>
         /// 用户名
         /// </summary>
         [Column(StringLength = 20, IsNullable = false)]

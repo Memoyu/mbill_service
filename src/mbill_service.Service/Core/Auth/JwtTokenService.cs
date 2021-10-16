@@ -13,22 +13,26 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace mbill_service.Service.Core.Auth
 {
     public class JwtTokenService : ITokenService
     {
         private readonly ILogger<JwtTokenService> _logger;
+        private readonly IHttpClientFactory _httpClient;
         private readonly IUserRepo _userRepo;
         private readonly IUserIdentityService _userIdentityService;
         private readonly IJsonWebTokenService _jsonWebTokenService;
-        public JwtTokenService(ILogger<JwtTokenService> logger, IUserRepo userRepo, IUserIdentityService userIdentityService, IJsonWebTokenService jsonWebTokenService)
+        public JwtTokenService(ILogger<JwtTokenService> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityService userIdentityService, IJsonWebTokenService jsonWebTokenService)
         {
             _logger = logger;
+            _httpClient = httpClient;
             _userRepo = userRepo;
             _userIdentityService = userIdentityService;
             _jsonWebTokenService = jsonWebTokenService;
         }
+
         public async Task<TokenDto> LoginAsync(LoginDto loginDto)
         {
             _logger.LogInformation("User Use JwtLogin");
@@ -60,7 +64,7 @@ namespace mbill_service.Service.Core.Auth
                 throw new KnownException("该refreshToken无效!");
             }
 
-            if (DateTime.Compare(user.LastLoginTime, DateTime.Now) > TimeSpan.FromMinutes(Appsettings.JwtBearer.Expires).Ticks)//如果登陆时长已超过Token过期时间，则直接返回异常重新登陆
+            if (DateTime.Compare(user.LastLoginTime, DateTime.Now) > TimeSpan.FromSeconds(Appsettings.JwtBearer.Expires).Ticks)//如果登陆时长已超过Token过期时间，则直接返回异常重新登陆
             {
                 throw new KnownException("请重新登录", ServiceResultCode.RefreshTokenError);
             }

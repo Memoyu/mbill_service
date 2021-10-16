@@ -104,6 +104,15 @@ namespace mbill_service.Core.Extensions.ServiceCollection
                 });
             });
         }
+
+        /// <summary>
+        /// 配置注册HttpClient
+        /// </summary>
+        /// <param name="services"></param>
+        public static void AddHttpClients(this IServiceCollection services)
+        {
+            services.AddHttpClient();
+        }
     }
 
 }

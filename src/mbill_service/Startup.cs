@@ -33,7 +33,7 @@ namespace mbill_service
             services.AddIpRateLimiting();//ÅäÖÃ×¢²áÏŞÁ÷
             services.AddHealthChecks();//ÅäÖÃ×¢²á½¡¿µ¼ì²é
             services.AddCorsConfig();//ÅäÖÃ¿çÓò
-
+            services.AddHttpClients();//ÅäÖÃHttpClient
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

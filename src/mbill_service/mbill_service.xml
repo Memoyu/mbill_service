@@ -117,6 +117,23 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:mbill_service.Controllers.Core.WxController">
+            <summary>
+            账户相关
+            </summary>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.WxController.GetCode2Session(System.String)">
+            <summary>
+            小程序 GetCode2Session
+            </summary>
+            <param name="code">wx.login获取到的code</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.WxController.WxLogin(mbill_service.Service.Core.Wx.Input.WxUserInfoInput)">
+            <summary>
+            微信登录接口
+            </summary>
+        </member>
         <member name="T:mbill_service.Controllers.Core.UserController">
             <summary>
             用户管理

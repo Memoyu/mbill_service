@@ -6,13 +6,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["src/mbill_service/mbill_service.csproj", "src/mbill_service/"]
-COPY ["src/mbill_service.Service/mbill_service.Service.csproj", "src/mbill_service.Service/"]
-COPY ["src/mbill_service.Core/mbill_service.Core.csproj", "src/mbill_service.Core/"]
-COPY ["src/mbill_service.ToolKits/mbill_service.ToolKits.csproj", "src/mbill_service.ToolKits/"]
-COPY ["src/mbill_service.Infrastructure/mbill_service.Infrastructure.csproj", "src/mbill_service.Infrastructure/"]
-RUN dotnet restore "src/mbill_service/mbill_service.csproj"
 COPY . .
+RUN dotnet restore "mbill_service.sln"
 WORKDIR "/src/src/mbill_service"
 RUN dotnet build "mbill_service.csproj" -c Release -o /app/build
 

@@ -88,7 +88,7 @@ namespace mbill_service.Core.Extensions.ServiceCollection
                         ServiceResultCode code;
                         int statusCode = StatusCodes.Status401Unauthorized;
 
-                        if (context.Error == "invalid_token" && context.ErrorDescription == "The token is expired")//Token过期
+                        if (context.Error == "invalid_token" && context.ErrorDescription.StartsWith("The token expired at"))//Token过期
                         {
                             message = "令牌过期";
                             code = ServiceResultCode.TokenExpired;
@@ -118,7 +118,7 @@ namespace mbill_service.Core.Extensions.ServiceCollection
         {
             JsonWebTokenSettings jsonWebTokenSettings = new JsonWebTokenSettings(
                            Appsettings.JwtBearer.SecurityKey,
-                           TimeSpan.FromMinutes(Appsettings.JwtBearer.Expires),
+                           TimeSpan.FromSeconds(Appsettings.JwtBearer.Expires),
                            Appsettings.JwtBearer.Audience,
                            Appsettings.JwtBearer.Issuer
                        );

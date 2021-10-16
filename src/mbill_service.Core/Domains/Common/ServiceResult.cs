@@ -86,11 +86,12 @@ namespace mbill_service.Core.Domains.Common
         /// 响应失败(静态返回实例)
         /// </summary>
         /// <param name="message"></param>
-        public void Failed(string message = "")
+        public static ServiceResult Failed(string message = "")
         {
             var result = new ServiceResult();
             result.Message = message;
             result.Code = ServiceResultCode.Failed;
+            return result;
         }
         public override string ToString()
         {
@@ -134,6 +135,18 @@ namespace mbill_service.Core.Domains.Common
             res.Result = result;
             res.Code = ServiceResultCode.Succeed;
             return res;
+        }
+
+        /// <summary>
+        /// 响应失败(静态返回实例)
+        /// </summary>
+        /// <param name="message"></param>
+        public new static ServiceResult<T> Failed(string message = "")
+        {
+            var result = new ServiceResult<T>();
+            result.Message = message;
+            result.Code = ServiceResultCode.Failed;
+            return result;
         }
     }
 }
