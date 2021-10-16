@@ -14,11 +14,6 @@ namespace mbill_service.Core.Domains.Entities.User
     public class UserEntity : FullAduitEntity
     {
         /// <summary>
-        /// 用户唯一标识
-        /// </summary>
-        public string UserId { get; set; }
-
-        /// <summary>
         /// 用户名
         /// </summary>
         [Column(StringLength = 20, IsNullable = false)]
@@ -100,7 +95,7 @@ namespace mbill_service.Core.Domains.Entities.User
         [Navigate("UserId")]
         public virtual ICollection<UserRoleEntity> UserRoles { get; set; }
 
-        [Navigate("CreateUserId")]
+        [Navigate("UserId")]
         public virtual ICollection<UserIdentityEntity> UserIdentitys { get; set; }
 
 

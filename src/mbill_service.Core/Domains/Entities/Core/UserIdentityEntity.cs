@@ -21,16 +21,18 @@ namespace mbill_service.Core.Domains.Entities.Core
         {
         }
 
-        public UserIdentityEntity(string identityType, string identifier, string credential, string userId, DateTime createTime)
+        public UserIdentityEntity(string identityType, string identifier, string credential, DateTime createTime)
         {
-            UserId = userId;
             IdentityType = identityType ?? throw new ArgumentNullException(nameof(identityType));
             Identifier = identifier;
             Credential = credential ?? throw new ArgumentNullException(nameof(credential));
             CreateTime = createTime;
         }
 
-        public string UserId { get; set; }
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public long UserId { get; set; }
 
         /// <summary>
         ///认证类型， Password，GitHub、QQ、WeiXin等

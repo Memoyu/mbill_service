@@ -33,7 +33,7 @@ namespace mbill_service.Service.Core.User
         public async Task<UserIdentityEntity> GetFirstByUserIdAsync(long userId)
         {
             return await _userIdentityRepo
-                .Where(r => r.CreateUserId == userId && r.IdentityType == UserIdentityEntity.Password)
+                .Where(r => r.UserId == userId && r.IdentityType == UserIdentityEntity.Password)
                 .ToOneAsync();
         }
     }
