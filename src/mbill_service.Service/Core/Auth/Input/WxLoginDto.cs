@@ -1,6 +1,6 @@
-﻿namespace mbill_service.Service.Core.Wx.Input
+﻿namespace mbill_service.Service.Core.Auth.Input
 {
-    public class WxUserInfoInput
+    public class WxLoginDto : BaseLoginDto
     {
         public string Nickname { get; set; }
 
@@ -16,8 +16,6 @@
 
         public string AvatarUrl { get; set; }
 
-        public string OpenId { get; set; }
-
-        public string UnionId { get; set; }
+        public string Code { get; set; }
     }
 }

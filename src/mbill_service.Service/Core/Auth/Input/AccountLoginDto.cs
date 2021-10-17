@@ -2,7 +2,7 @@
 
 namespace mbill_service.Service.Core.Auth.Input
 {
-    public class LoginDto
+    public class AccountLoginDto : BaseLoginDto
     {
         /// <summary>
         /// 登录名

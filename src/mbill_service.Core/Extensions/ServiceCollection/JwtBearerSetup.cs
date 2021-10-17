@@ -34,16 +34,6 @@ namespace mbill_service.Core.Extensions.ServiceCollection
             })
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>//配置JWT
             {
-                bool isIds4 = Appsettings.IdentityServer4Enable;
-
-                if (isIds4)
-                {
-                    //identityserver4 地址
-                    options.Authority = Appsettings.Authority;
-                }
-                options.RequireHttpsMetadata = Appsettings.IsUseHttps;
-                options.Audience = Appsettings.ClientName;
-
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     // 密钥必须匹配

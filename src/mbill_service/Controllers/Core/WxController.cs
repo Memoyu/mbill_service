@@ -1,11 +1,9 @@
 ﻿using mbill_service.Core.Domains.Common;
 using mbill_service.Core.Domains.Common.Consts;
-using mbill_service.Service.Core.Auth.Input;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using mbill_service.Service.Core.Wx;
 using mbill_service.Service.Core.Wx.Output;
-using mbill_service.Service.Core.Wx.Input;
 
 namespace mbill_service.Controllers.Core
 {
@@ -32,15 +30,6 @@ namespace mbill_service.Controllers.Core
         public async Task<ServiceResult<WxCode2SessionDto>> GetCode2Session(string code)
         {
             return await _wxSvc.GetCode2Session(code);
-        }
-
-        /// <summary>
-        /// 微信登录接口
-        /// </summary>
-        [HttpGet("wxlogin")]
-        public async Task<ServiceResult<TokenDto>> WxLogin(WxUserInfoInput input)
-        {
-            return await _wxSvc.WxLoginAsync(input);
         }
     }
 }

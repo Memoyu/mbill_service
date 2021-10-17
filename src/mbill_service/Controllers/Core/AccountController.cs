@@ -22,15 +22,12 @@ namespace mbill_service.Controllers.Core
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
     public class AccountController : ApiControllerBase
     {
-        private readonly ITokenService _tokenService;
         private readonly IAccountService _accountService;
         private readonly IUserService _userService;
         private readonly IWxService _wxSvc;
 
         public AccountController(IComponentContext componentContext, IAccountService accountService, IUserService userService, IWxService wxSvc)
         {
-            bool isIdentityServer4 = Appsettings.IdentityServer4Enable;
-            _tokenService = componentContext.ResolveNamed<ITokenService>(isIdentityServer4 ? typeof(IdentityServer4Service).Name : typeof(JwtTokenService).Name);
             _accountService = accountService;
             _userService = userService;
             _wxSvc = wxSvc;
@@ -43,9 +40,18 @@ namespace mbill_service.Controllers.Core
         /// 用户名：admin，密码：123456
         /// </example>
         [HttpPost("login")]
-        public async Task<ServiceResult<TokenDto>> Login(LoginDto loginDto)
+        public async Task<ServiceResult<TokenDto>> Login(AccountLoginDto loginDto)
         {
-            return ServiceResult<TokenDto>.Successed(await _tokenService.LoginAsync(loginDto));
+            return await _accountService.AccountLoginAsync(loginDto);
+        }
+
+        /// <summary>
+        /// 微信登录接口
+        /// </summary>
+        [HttpPost("wxlogin")]
+        public async Task<ServiceResult<TokenDto>> WxLogin(WxLoginDto loginDto)
+        {
+            return await _accountService.WxLoginAsync(loginDto);
         }
 
         /// <summary>
@@ -71,7 +77,7 @@ namespace mbill_service.Controllers.Core
             {
                 throw new KnownException("请先登录.", ServiceResultCode.RefreshTokenError);
             }
-            return ServiceResult<TokenDto>.Successed(await _tokenService.GetTokenByRefreshAsync(refreshToken));
+            return await _accountService.GetTokenByRefreshAsync(refreshToken);
         }
 
     }

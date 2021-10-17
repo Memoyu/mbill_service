@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using mbill_service.Core.AOP.Intercepts;
-using mbill_service.Service.Core.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +25,6 @@ namespace mbill_service.Modules
 
             string[] notIncludes = new string[]
             {
-                typeof(IdentityServer4Service).Name,
-                typeof(JwtTokenService).Name,
             };
 
             Assembly servicesDllFile = Assembly.Load("mbill_service.Service");
@@ -38,10 +35,6 @@ namespace mbill_service.Modules
                 .PropertiesAutowired()// 属性注入
                 .InterceptedBy(interceptorServiceTypes.ToArray())
                 .EnableInterfaceInterceptors();
-
-            //使用名称进行实现注册
-            builder.RegisterType<IdentityServer4Service>().Named<ITokenService>(typeof(IdentityServer4Service).Name).InstancePerLifetimeScope();
-            builder.RegisterType<JwtTokenService>().Named<ITokenService>(typeof(JwtTokenService).Name).InstancePerLifetimeScope();
         }
     }
 }

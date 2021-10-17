@@ -69,7 +69,7 @@ namespace mbill_service.Core.Domains.Entities.User
         /// <summary>
         /// 头像地址
         /// </summary>
-        [Column(StringLength = 100)]
+        [Column(StringLength = 200)]
         public string AvatarUrl { get; set; }
 
         /// <summary>

@@ -13,49 +13,24 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using System.Net.Http;
 
 namespace mbill_service.Service.Core.Auth
 {
-    public class JwtTokenService : ITokenService
+    public class JwtTokenService : IJwtTokenService
     {
         private readonly ILogger<JwtTokenService> _logger;
-        private readonly IHttpClientFactory _httpClient;
         private readonly IUserRepo _userRepo;
         private readonly IUserIdentityService _userIdentityService;
         private readonly IJsonWebTokenService _jsonWebTokenService;
-        public JwtTokenService(ILogger<JwtTokenService> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityService userIdentityService, IJsonWebTokenService jsonWebTokenService)
+        public JwtTokenService(ILogger<JwtTokenService> logger, IUserRepo userRepo, IUserIdentityService userIdentityService, IJsonWebTokenService jsonWebTokenService)
         {
             _logger = logger;
-            _httpClient = httpClient;
             _userRepo = userRepo;
             _userIdentityService = userIdentityService;
             _jsonWebTokenService = jsonWebTokenService;
         }
 
-        public async Task<TokenDto> LoginAsync(LoginDto loginDto)
-        {
-            _logger.LogInformation("User Use JwtLogin");
-
-            UserEntity user = await _userRepo.GetUserAsync(r => r.Username == loginDto.Username || r.Email == loginDto.Username);
-
-            if (user == null)
-            {
-                throw new KnownException("用户不存在", ServiceResultCode.NotFound);
-            }
-
-            bool valid = await _userIdentityService.VerifyUserPasswordAsync(user.Id, loginDto.Password);
-
-            if (!valid)
-            {
-                throw new KnownException("请输入正确密码", ServiceResultCode.ParameterError);
-            }
-
-            _logger.LogInformation($"用户{loginDto.Username},登录成功");
-            return await CreateTokenAsync(user);
-        }
-
-        public async Task<TokenDto> GetTokenByRefreshAsync(string refreshToken)
+        public async Task<TokenDto> RefreshTokenAsync(string refreshToken)
         {
             UserEntity user = await _userRepo.GetUserAsync(r => r.RefreshToken == refreshToken);//获取用户信息记录的refreshToken
 
@@ -75,12 +50,7 @@ namespace mbill_service.Service.Core.Auth
             return tokens;
         }
 
-        /// <summary>
-        /// 创建Token和RefreshToken
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        private async Task<TokenDto> CreateTokenAsync(UserEntity user)
+        public async Task<TokenDto> CreateTokenAsync(UserEntity user)
         {
             List<Claim> claims = new List<Claim>()
             {

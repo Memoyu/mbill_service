@@ -321,7 +321,42 @@
             <param name="statement"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill_service.Service.Core.Auth.Input.LoginDto.Username">
+        <member name="M:mbill_service.Service.Core.Auth.IAccountService.AccountLoginAsync(mbill_service.Service.Core.Auth.Input.AccountLoginDto)">
+            <summary>
+            账户登录
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.IAccountService.WxLoginAsync(mbill_service.Service.Core.Auth.Input.WxLoginDto)">
+            <summary>
+            微信登录
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.IAccountService.GetTokenByRefreshAsync(System.String)">
+            <summary>
+            刷新Token
+            </summary>
+            <param name="refreshToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.IJwtTokenService.CreateTokenAsync(mbill_service.Core.Domains.Entities.User.UserEntity)">
+            <summary>
+            创建Token和RefreshToken
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.Auth.IJwtTokenService.RefreshTokenAsync(System.String)">
+            <summary>
+            刷新token
+            </summary>
+            <param name="refreshToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Input.AccountLoginDto.Username">
             <summary>
             登录名
             </summary>
@@ -329,34 +364,13 @@
             admin
             </example>
         </member>
-        <member name="P:mbill_service.Service.Core.Auth.Input.LoginDto.Password">
+        <member name="P:mbill_service.Service.Core.Auth.Input.AccountLoginDto.Password">
             <summary>
             密码
             </summary>
             <example>
             123456
             </example>
-        </member>
-        <member name="M:mbill_service.Service.Core.Auth.ITokenService.LoginAsync(mbill_service.Service.Core.Auth.Input.LoginDto)">
-            <summary>
-            登录
-            </summary>
-            <param name="loginDto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Core.Auth.ITokenService.GetTokenByRefreshAsync(System.String)">
-            <summary>
-            刷新token
-            </summary>
-            <param name="refreshToken"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Core.Auth.JwtTokenService.CreateTokenAsync(mbill_service.Core.Domains.Entities.User.UserEntity)">
-            <summary>
-            创建Token和RefreshToken
-            </summary>
-            <param name="user"></param>
-            <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Core.Auth.JwtTokenService.GenerateToken(System.Int32)">
             <summary>
@@ -585,8 +599,15 @@
             <summary>
             验证用户密码是否正确
             </summary>
-            <param name="userId"></param>
-            <param name="password"></param>
+            <param name="userId">用户Id</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.IUserIdentityService.VerifyWxOpenIdAsync(System.String)">
+            <summary>
+            验证微信用户OpenId是否存在
+            </summary>
+            <param name="openId">Wx OpenId</param>
             <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Core.User.IUserIdentityService.ChangePasswordAsync(System.Int64,System.String)">
@@ -700,9 +721,16 @@
         </member>
         <member name="M:mbill_service.Service.Core.User.UserIdentityService.GetFirstByUserIdAsync(System.Int64)">
             <summary>
-            通过Id获取用户信息
+            通过UserId获取用户绑定信息
             </summary>
             <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Core.User.UserIdentityService.GetFirstByOpenIdAsync(System.String)">
+            <summary>
+            通过OpenId获取用户绑定信息
+            </summary>
+            <param name="openId">Wx OpenId</param>
             <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Core.Wx.IWxService.GetCode2Session(System.String)">
@@ -710,13 +738,6 @@
             GetCode2Session
             </summary>
             <param name="code">wx.login获取到的code</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Core.Wx.IWxService.WxLoginAsync(mbill_service.Service.Core.Wx.Input.WxUserInfoInput)">
-            <summary>
-            微信登录
-            </summary>
-            <param name="input">微信用户信息</param>
             <returns></returns>
         </member>
     </members>

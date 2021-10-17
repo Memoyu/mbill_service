@@ -9,13 +9,18 @@
             账户相关
             </summary>
         </member>
-        <member name="M:mbill_service.Controllers.Core.AccountController.Login(mbill_service.Service.Core.Auth.Input.LoginDto)">
+        <member name="M:mbill_service.Controllers.Core.AccountController.Login(mbill_service.Service.Core.Auth.Input.AccountLoginDto)">
              <summary>
              登录接口
              </summary>
             <example>
              用户名：admin，密码：123456
              </example>
+        </member>
+        <member name="M:mbill_service.Controllers.Core.AccountController.WxLogin(mbill_service.Service.Core.Auth.Input.WxLoginDto)">
+            <summary>
+            微信登录接口
+            </summary>
         </member>
         <member name="M:mbill_service.Controllers.Core.AccountController.GetByIdAsync(System.Nullable{System.Int64})">
             <summary>
@@ -128,11 +133,6 @@
             </summary>
             <param name="code">wx.login获取到的code</param>
             <returns></returns>
-        </member>
-        <member name="M:mbill_service.Controllers.Core.WxController.WxLogin(mbill_service.Service.Core.Wx.Input.WxUserInfoInput)">
-            <summary>
-            微信登录接口
-            </summary>
         </member>
         <member name="T:mbill_service.Controllers.Core.UserController">
             <summary>

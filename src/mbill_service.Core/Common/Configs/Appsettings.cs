@@ -84,27 +84,6 @@ namespace mbill_service.Core.Common.Configs
         #region Authentication
 
         /// <summary>
-        /// 是否开启IdentityServer4
-        /// </summary>
-        public static bool IdentityServer4Enable => Convert.ToBoolean(_configuration["Service:UseIdentityServer4"] ?? "false");
-
-        /// <summary>
-        /// Ids4 服务地址
-        /// </summary>
-        public static string Authority => _configuration["Service:Authority"];
-
-        /// <summary>
-        /// 是否使用Https
-        /// </summary>
-        public static bool IsUseHttps => Convert.ToBoolean(_configuration["Service:UseHttps"]);
-
-        /// <summary>
-        /// ClientName
-        /// </summary>
-        public static string ClientName => _configuration["Service:ClientName"];
-
-
-        /// <summary>
         /// Jwt Token Config
         /// </summary>
         public class JwtBearer

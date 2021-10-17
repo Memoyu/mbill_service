@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Core\Files\Input\" />
+    <Folder Include="Core\Wx\Input\" />
   </ItemGroup>
 
 </Project>
