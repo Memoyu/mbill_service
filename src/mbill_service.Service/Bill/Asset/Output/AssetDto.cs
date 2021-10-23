@@ -13,6 +13,8 @@ namespace mbill_service.Service.Bill.Asset.Output
 
         public decimal Amount { get; set; }
 
+        public int Sort { get; set; }
+
         public string IconUrl { get; set; }
     }
 }

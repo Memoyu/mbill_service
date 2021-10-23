@@ -12,6 +12,8 @@ namespace mbill_service.Service.Bill.Category.Output
 
         public decimal Budget { get; set; }
 
+        public int Sort { get; set; }
+
         public string IconUrl { get; set; }
     }
 }

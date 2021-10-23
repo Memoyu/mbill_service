@@ -39,7 +39,7 @@ namespace mbill_service.Service.Bill.Asset
                 .Where(c => c.IsDeleted == false)
                 .WhereIf(type.IsNotNullOrEmpty(), c => c.Type.Equals(type))
                 .ToListAsync();
-            List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0);
+            List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
             List<AssetGroupDto> dtos = parents
                 .Select(c =>
                 {
@@ -52,7 +52,7 @@ namespace mbill_service.Service.Bill.Asset
                              var s = Mapper.Map<AssetDto>(d);
                              s.IconUrl = _fileRepo.GetFileUrl(s.IconUrl);
                              return s;
-                         })
+                         }).OrderBy(d => d.Sort)
                         .ToList();
                     return dto;
                 })

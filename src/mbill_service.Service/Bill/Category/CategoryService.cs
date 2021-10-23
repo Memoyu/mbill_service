@@ -42,7 +42,7 @@ namespace mbill_service.Service.Bill.Category
                 .Where(c => c.IsDeleted == false)
                 .WhereIf(type.IsNotNullOrEmpty(), c => c.Type.Equals(type))
                 .ToListAsync();
-            List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0);
+            List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
             List<CategoryGroupDto> dtos = parents
                 .Select(c =>
                 {
@@ -55,7 +55,7 @@ namespace mbill_service.Service.Bill.Category
                             var s = Mapper.Map<CategoryDto>(d);
                             s.IconUrl = _fileRepo.GetFileUrl(s.IconUrl);
                             return s;
-                        })
+                        }).OrderBy(d => d.Sort)
                         .ToList();
                     return dto;
                 })
