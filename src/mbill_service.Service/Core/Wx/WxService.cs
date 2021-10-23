@@ -30,12 +30,12 @@ namespace mbill_service.Service.Core.Wx
             using var client = _httpClient.CreateClient();//创建HttpClient请求
             var httpResponse = await client.GetAsync(url);//请求获取
             if (httpResponse.StatusCode != HttpStatusCode.OK)//判断请求响应是否成功
-                return ServiceResult<WxCode2SessionDto>.Failed("请求微信Code2Session响应失败");
+                return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session响应失败 错误：{httpResponse.Content.ReadAsStringAsync()}");
 
             var content = await httpResponse.Content.ReadAsStringAsync();//获取响应内容
             var code2Session = content.FromJson<WxCode2SessionDto>();
             if (code2Session.ErrCode != 0)
-                return ServiceResult<WxCode2SessionDto>.Failed("请求微信Code2Session返回失败");
+                return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session返回失败 错误：{httpResponse.Content.ReadAsStringAsync()}");
             return ServiceResult<WxCode2SessionDto>.Successed(code2Session);
         }
     }

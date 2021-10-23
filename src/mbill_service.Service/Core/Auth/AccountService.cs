@@ -65,7 +65,7 @@ namespace mbill_service.Service.Core.Auth
         {
             var wxlogin = await _wxService.GetCode2Session(input.Code);
             if (!wxlogin.Success || wxlogin.Result == null)
-                return ServiceResult<TokenDto>.Failed("微信登录失败，请稍后重试！");
+                return ServiceResult<TokenDto>.Failed($"微信登录失败，请稍后重试！错误：{wxlogin.Message}");
             var openId = wxlogin.Result.OpenId;
             var exist = await _userIdentityService.VerifyWxOpenIdAsync(openId);
             long userId;

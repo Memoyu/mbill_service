@@ -22,21 +22,17 @@ namespace mbill_service.Infrastructure.Repository.Core
                 return path;
             }
 
-            if (path.StartsWith("core"))//如果是本地初始资源
-            {
-                return Appsettings.FileStorage.LocalFileHost + path;
-            }
+            return Appsettings.FileStorage.LocalFileHost + path;
 
 
-            FileEntity file = base.Where(r => r.Path == path).First();
-            if (file == null) return path;
-            switch (file.Type)
-            {
-                case 1:
-                    return Appsettings.FileStorage.LocalFileHost + path;
-                default:
-                    return Appsettings.FileStorage.LocalFileHost + path;
-            }
+            //FileEntity file = base.Where(r => r.Path == path).First();
+            //switch (file.Type)
+            //{
+            //    case 1:
+            //        return Appsettings.FileStorage.LocalFileHost + path;
+            //    default:
+            //        return Appsettings.FileStorage.LocalFileHost + path;
+            //}
         }
     }
 }
