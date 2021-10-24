@@ -14,10 +14,10 @@ namespace mbill_service.Service.Common.Mapper.Bill
                 .ForMember(dest => dest.Time, opt => opt.MapFrom(src => DateTime.Parse($"{src.Year}-{src.Month}-{src.Day} {src.Time}")));
 
             CreateMap<StatementEntity, StatementDto>()
-                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.Time.ToLongTimeString()));
+                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.Time.ToShortTimeString()));
 
             CreateMap<StatementEntity, StatementDetailDto>()
-                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.Time.ToLongTimeString()));
+                .ForMember(dest => dest.Time, opt => opt.MapFrom(src => src.Time.ToShortTimeString()));
         }
     }
 }
