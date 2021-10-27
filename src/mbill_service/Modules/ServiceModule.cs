@@ -29,7 +29,7 @@ namespace mbill_service.Modules
 
             Assembly servicesDllFile = Assembly.Load("mbill_service.Service");
             builder.RegisterAssemblyTypes(servicesDllFile)
-                .Where(a => a.Name.EndsWith("Service") && !notIncludes.Where(r => r == a.Name).Any() && !a.IsAbstract && !a.IsInterface && a.IsPublic)
+                .Where(a => a.Name.EndsWith("Svc") && !notIncludes.Where(r => r == a.Name).Any() && !a.IsAbstract && !a.IsInterface && a.IsPublic)
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope()
                 .PropertiesAutowired()// 属性注入

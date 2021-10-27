@@ -16,13 +16,13 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Auth
 {
-    public class JwtTokenService : IJwtTokenService
+    public class JwtTokenSvc : IJwtTokenSvc
     {
-        private readonly ILogger<JwtTokenService> _logger;
+        private readonly ILogger<JwtTokenSvc> _logger;
         private readonly IUserRepo _userRepo;
-        private readonly IUserIdentityService _userIdentityService;
+        private readonly IUserIdentitySvc _userIdentityService;
         private readonly IJsonWebTokenService _jsonWebTokenService;
-        public JwtTokenService(ILogger<JwtTokenService> logger, IUserRepo userRepo, IUserIdentityService userIdentityService, IJsonWebTokenService jsonWebTokenService)
+        public JwtTokenSvc(ILogger<JwtTokenSvc> logger, IUserRepo userRepo, IUserIdentitySvc userIdentityService, IJsonWebTokenService jsonWebTokenService)
         {
             _logger = logger;
             _userRepo = userRepo;

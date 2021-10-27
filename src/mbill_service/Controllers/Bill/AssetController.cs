@@ -21,9 +21,9 @@ namespace mbill_service.Controllers.Bill
     public class AssetController : ApiControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IAssetService _assetService;
+        private readonly IAssetSvc _assetService;
 
-        public AssetController(IAssetService assetService, IMapper mapper)
+        public AssetController(IAssetSvc assetService, IMapper mapper)
         {
             _mapper = mapper;
             _assetService = assetService;

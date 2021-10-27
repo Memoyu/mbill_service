@@ -22,13 +22,13 @@ using Newtonsoft.Json;
 
 namespace mbill_service.Service.Bill.Category
 {
-    public class CategoryService : ApplicationService, ICategoryService
+    public class CategorySvc : ApplicationSvc, ICategorySvc
     {
         private readonly ICategoryRepo _categoryRepo;
         private readonly IFileRepo _fileRepo;
         private readonly IMapper _mapper;
 
-        public CategoryService(ICategoryRepo categoryRepo, IFileRepo fileRepo, IMapper mapper)
+        public CategorySvc(ICategoryRepo categoryRepo, IFileRepo fileRepo, IMapper mapper)
         {
             _categoryRepo = categoryRepo;
             _fileRepo = fileRepo;

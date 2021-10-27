@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Permission
 {
-    public interface IRoleService
+    public interface IRoleSvc
     {
         /// <summary>
         /// 新增角色

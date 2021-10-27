@@ -18,19 +18,19 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Auth
 {
-    public class AccountService : IAccountService
+    public class AccountSvc : IAccountSvc
     {
-        private readonly ILogger<AccountService> _logger;
+        private readonly ILogger<AccountSvc> _logger;
         private readonly IUserRepo _userRepo;
-        private readonly IUserIdentityService _userIdentityService;
-        private readonly IJwtTokenService _jwtTokenService;
-        private readonly IWxService _wxService;
-        public AccountService(
-            ILogger<AccountService> logger,
+        private readonly IUserIdentitySvc _userIdentityService;
+        private readonly IJwtTokenSvc _jwtTokenService;
+        private readonly IWxSvc _wxService;
+        public AccountSvc(
+            ILogger<AccountSvc> logger,
             IUserRepo userRepo,
-            IUserIdentityService userIdentityService,
-            IJwtTokenService jwtTokenService,
-            IWxService wxService)
+            IUserIdentitySvc userIdentityService,
+            IJwtTokenSvc jwtTokenService,
+            IWxSvc wxService)
         {
             _logger = logger;
             _userRepo = userRepo;

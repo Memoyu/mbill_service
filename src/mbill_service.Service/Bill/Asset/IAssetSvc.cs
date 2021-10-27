@@ -9,7 +9,7 @@ using mbill_service.Service.Bill.Asset.Input;
 
 namespace mbill_service.Service.Bill.Asset
 {
-    public interface IAssetService
+    public interface IAssetSvc
     {
         /// <summary>
         /// 新增资产分类

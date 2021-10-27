@@ -8,9 +8,9 @@ namespace mbill_service.Modules.Configs
 {
     public class PermissionAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement>
     {
-        private readonly IPermissionService _permissionService;
+        private readonly IPermissionSvc _permissionService;
 
-        public PermissionAuthorizationHandler(IPermissionService permissionService)
+        public PermissionAuthorizationHandler(IPermissionSvc permissionService)
         {
             _permissionService = permissionService;
         }

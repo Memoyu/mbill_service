@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Auth
 {
-    public interface IAccountService
+    public interface IAccountSvc
     {
         /// <summary>
         /// 账户登录

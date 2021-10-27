@@ -17,9 +17,9 @@ namespace mbill_service.Controllers.Core
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public class PermissionController : ApiControllerBase
     {
-        private readonly IPermissionService _permissionService;
+        private readonly IPermissionSvc _permissionService;
 
-        public PermissionController(IPermissionService permissionService)
+        public PermissionController(IPermissionSvc permissionService)
         {
             _permissionService = permissionService;
         }

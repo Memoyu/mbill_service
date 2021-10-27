@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Wx
 {
-    public class WxService : IWxService
+    public class WxSvc : IWxSvc
     {
         private static string WxJscode(string appid, string secret, string code) => $"https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code";
 
-        private readonly ILogger<WxService> _logger;
+        private readonly ILogger<WxSvc> _logger;
         private readonly IHttpClientFactory _httpClient;
 
-        public WxService(ILogger<WxService> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityRepo userIdentityRepo, IJsonWebTokenService jsonWebTokenService)
+        public WxSvc(ILogger<WxSvc> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityRepo userIdentityRepo, IJsonWebTokenService jsonWebTokenService)
         {
             _logger = logger;
             _httpClient = httpClient;

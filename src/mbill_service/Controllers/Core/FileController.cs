@@ -20,10 +20,10 @@ namespace mbill_service.Controllers.Core
     [Authorize]
     public class FileController : ApiControllerBase
     {
-        private readonly IFileService _fileService;
+        private readonly IFileSvc _fileService;
         public FileController(IComponentContext componentContext)
         {
-            _fileService = componentContext.ResolveNamed<IFileService>(Appsettings.FileStorage.ServiceName);
+            _fileService = componentContext.ResolveNamed<IFileSvc>(Appsettings.FileStorage.ServiceName);
         }
 
         /// <summary>

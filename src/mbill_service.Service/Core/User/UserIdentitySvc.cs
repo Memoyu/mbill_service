@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.User
 {
-    public class UserIdentityService : IUserIdentityService
+    public class UserIdentitySvc : IUserIdentitySvc
     {
         private readonly IUserIdentityRepo _userIdentityRepo;
-        public UserIdentityService(IUserIdentityRepo userIdentityRepository)
+        public UserIdentitySvc(IUserIdentityRepo userIdentityRepository)
         {
             _userIdentityRepo = userIdentityRepository;
         }

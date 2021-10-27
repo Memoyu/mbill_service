@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Files
 {
-    public class LocalFileService : IFileService
+    public class LocalFileSvc : IFileSvc
     {
         private readonly IWebHostEnvironment _hostingEnv;
         private readonly IFileRepo _fileRepo;
 
-        public LocalFileService(IWebHostEnvironment hostingEnv, IFileRepo fileRepo)
+        public LocalFileSvc(IWebHostEnvironment hostingEnv, IFileRepo fileRepo)
         {
             _hostingEnv = hostingEnv;
             _fileRepo = fileRepo;

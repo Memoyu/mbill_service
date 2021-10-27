@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.User
 {
-    public interface IUserService
+    public interface IUserSvc
     {
         /// <summary>
         /// 注册-新增一个用户

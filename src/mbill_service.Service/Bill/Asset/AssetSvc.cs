@@ -18,13 +18,13 @@ using mbill_service.Service.Bill.Asset.Input;
 
 namespace mbill_service.Service.Bill.Asset
 {
-    public class AssetService : ApplicationService, IAssetService
+    public class AssetSvc : ApplicationSvc, IAssetSvc
     {
         private readonly IAssetRepo _assetRepo;
         private readonly IFileRepo _fileRepo;
         private readonly IMapper _mapeer;
 
-        public AssetService(IAssetRepo assetRepo, IFileRepo fileRepo, IMapper mapper)
+        public AssetSvc(IAssetRepo assetRepo, IFileRepo fileRepo, IMapper mapper)
         {
             _assetRepo = assetRepo;
             _fileRepo = fileRepo;

@@ -9,56 +9,56 @@
             仓储
             </summary>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.InsertAsync(mbill_service.Core.Domains.Entities.Bill.AssetEntity)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.InsertAsync(mbill_service.Core.Domains.Entities.Bill.AssetEntity)">
             <summary>
             新增资产分类
             </summary>
             <param name="input">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.DeleteAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.DeleteAsync(System.Int64)">
             <summary>
             删除资产分类
             </summary>
             <param name="id">资产分类id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.AssetEntity)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.AssetEntity)">
             <summary>
             更新资产分类
             </summary>
             <param name="statement">资产分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetGroupsAsync(System.String)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.String)">
             <summary>
             获取分级后的组合类别数据
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetPageAsync(mbill_service.Service.Bill.Asset.Input.AssetPagingDto)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.GetPageAsync(mbill_service.Service.Bill.Asset.Input.AssetPagingDto)">
             <summary>
             获取资产分类分页
             </summary>
             <param name="pagingDto">分页参数</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.GetAsync(System.Int64)">
             <summary>
             获取父项 by id
             </summary>
             <param name="id">资产Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetParentAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.GetParentAsync(System.Int64)">
             <summary>
             获取父项 by 子项 id
             </summary>
             <param name="id">资产子项Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Asset.IAssetService.GetParentsAsync">
+        <member name="M:mbill_service.Service.Bill.Asset.IAssetSvc.GetParentsAsync">
             <summary>
             获取父项集合
             </summary>
@@ -94,56 +94,56 @@
             排序
             </summary>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.InsertAsync(mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.InsertAsync(mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
             <summary>
             新增账单分类
             </summary>
             <param name="categroy">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.DeleteAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.DeleteAsync(System.Int64)">
             <summary>
             删除账单分类信息
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
             <summary>
             更新账单分类
             </summary>
             <param name="categroy">账单分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetGroupsAsync(System.String)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.String)">
             <summary>
             获取分级后的组合类别数据
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetPageAsync(mbill_service.Service.Bill.Category.Input.CategoryPagingDto)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.GetPageAsync(mbill_service.Service.Bill.Category.Input.CategoryPagingDto)">
             <summary>
             获取账单分类分页
             </summary>
             <param name="pagingDto">分页参数</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.GetAsync(System.Int64)">
             <summary>
             获取分类
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetParentAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.GetParentAsync(System.Int64)">
             <summary>
             获取父项 by 子项 id
             </summary>
             <param name="id">分类子项Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Category.ICategoryService.GetParentsAsync">
+        <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.GetParentsAsync">
             <summary>
             获取账单分类父项集合
             </summary>
@@ -249,63 +249,63 @@
             记录日期：时间
             </summary>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.InsertAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.InsertAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
             <summary>
             新增账单
             </summary>
             <param name="statement">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetDetailAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetDetailAsync(System.Int64)">
             <summary>
             获取账单详情
             </summary>
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.DeleteAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.DeleteAsync(System.Int64)">
             <summary>
             删除账单信息
             </summary>
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
             <summary>
             更新账单信息
             </summary>
             <param name="statement">账单信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetPagesAsync(mbill_service.Service.Bill.Statement.Output.StatementPagingDto)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetPagesAsync(mbill_service.Service.Bill.Statement.Output.StatementPagingDto)">
             <summary>
             获取分页账单数据
             </summary>
             <param name="pageDto">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetStatisticsTotalAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetStatisticsTotalAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
             <summary>
             获取指定日期各类型账单总额统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetExpendCategoryStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetExpendCategoryStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
             <summary>
             获取指定日期支出分类统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetWeekExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetWeekExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
             <summary>
             获取当前月份所有周的支出趋势统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementService.GetMonthExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto,System.Int32)">
+        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetMonthExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto,System.Int32)">
             <summary>
             获取当前月往前5个月的支出趋势统计
             </summary>
@@ -313,7 +313,7 @@
             <param name="count">月数</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Bill.Statement.StatementService.MapToDto``1(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
+        <member name="M:mbill_service.Service.Bill.Statement.StatementSvc.MapToDto``1(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
             <summary>
             映射Dto
             </summary>
@@ -321,35 +321,35 @@
             <param name="statement"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.IAccountService.AccountLoginAsync(mbill_service.Service.Core.Auth.Input.AccountLoginDto)">
+        <member name="M:mbill_service.Service.Core.Auth.IAccountSvc.AccountLoginAsync(mbill_service.Service.Core.Auth.Input.AccountLoginDto)">
             <summary>
             账户登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.IAccountService.WxLoginAsync(mbill_service.Service.Core.Auth.Input.WxLoginDto)">
+        <member name="M:mbill_service.Service.Core.Auth.IAccountSvc.WxLoginAsync(mbill_service.Service.Core.Auth.Input.WxLoginDto)">
             <summary>
             微信登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.IAccountService.GetTokenByRefreshAsync(System.String)">
+        <member name="M:mbill_service.Service.Core.Auth.IAccountSvc.GetTokenByRefreshAsync(System.String)">
             <summary>
             刷新Token
             </summary>
             <param name="refreshToken"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.IJwtTokenService.CreateTokenAsync(mbill_service.Core.Domains.Entities.User.UserEntity)">
+        <member name="M:mbill_service.Service.Core.Auth.IJwtTokenSvc.CreateTokenAsync(mbill_service.Core.Domains.Entities.User.UserEntity)">
             <summary>
             创建Token和RefreshToken
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.IJwtTokenService.RefreshTokenAsync(System.String)">
+        <member name="M:mbill_service.Service.Core.Auth.IJwtTokenSvc.RefreshTokenAsync(System.String)">
             <summary>
             刷新token
             </summary>
@@ -372,7 +372,7 @@
             123456
             </example>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.JwtTokenService.GenerateToken(System.Int32)">
+        <member name="M:mbill_service.Service.Core.Auth.JwtTokenSvc.GenerateToken(System.Int32)">
             <summary>
             生成RefreshToken
             </summary>
@@ -392,7 +392,7 @@
             <param name="permissions"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Files.IFileService.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+        <member name="M:mbill_service.Service.Core.Files.IFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             单文件上传，键为file
             </summary>
@@ -401,7 +401,7 @@
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Files.LocalFileService.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+        <member name="M:mbill_service.Service.Core.Files.LocalFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             本地文件上传，秒传（根据lin_file表中的md5,与当前文件的路径是否在本地），如果不在，重新上传，覆盖文件表记录
             </summary>
@@ -410,7 +410,7 @@
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Files.LocalFileService.LocalUploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+        <member name="M:mbill_service.Service.Core.Files.LocalFileSvc.LocalUploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String)">
             <summary>
             本地文件上传，生成目录格式 {STORE_DIR}/{year}/{month}/{day}/{guid}.文件后缀
             images/2022-01-12/fba73a0c-f2f7-499a-8ed8-5b10554d43b0.jpg
@@ -419,7 +419,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Logger.ILogService.GetPagesAsync(mbill_service.Service.Core.Logger.Input.LogPagingDto)">
+        <member name="M:mbill_service.Service.Core.Logger.ILogSvc.GetPagesAsync(mbill_service.Service.Core.Logger.Input.LogPagingDto)">
             <summary>
             获取日志分页
             </summary>
@@ -471,60 +471,60 @@
             权限Id集合
             </summary>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.GetAllTreeAsync">
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionSvc.GetAllTreeAsync">
             <summary>
             获取所有权限(树形结构)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.GetAllStructualAsync">
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionSvc.GetAllStructualAsync">
             <summary>
             获取所有权限(Module分组结构化)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.CheckAsync(System.String)">
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionSvc.CheckAsync(System.String)">
             <summary>
             检查当前登陆用户的分组权限
             </summary>
             <param name="permission"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IPermissionService.DispatchPermissionsAsync(mbill_service.Service.Core.Permission.Input.DispatchPermissionsDto)">
+        <member name="M:mbill_service.Service.Core.Permission.IPermissionSvc.DispatchPermissionsAsync(mbill_service.Service.Core.Permission.Input.DispatchPermissionsDto)">
             <summary>
             配置角色权限
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IRoleService.InsertAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">
+        <member name="M:mbill_service.Service.Core.Permission.IRoleSvc.InsertAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">
             <summary>
             新增角色
             </summary>
             <param name="role">角色信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IRoleService.DeleteAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Core.Permission.IRoleSvc.DeleteAsync(System.Int64)">
             <summary>
             删除角色
             </summary>
             <param name="id">角色Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IRoleService.UpdateAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">
+        <member name="M:mbill_service.Service.Core.Permission.IRoleSvc.UpdateAsync(mbill_service.Service.Core.Permission.Input.ModifyRoleDto)">
             <summary>
             更新角色
             </summary>
             <param name="role">账单分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IRoleService.GetAllAsync">
+        <member name="M:mbill_service.Service.Core.Permission.IRoleSvc.GetAllAsync">
             <summary>
             获取所有角色信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Permission.IRoleService.GetAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Core.Permission.IRoleSvc.GetAsync(System.Int64)">
             <summary>
             获取角色信息
             </summary>
@@ -595,7 +595,7 @@
             权限
             </summary>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserIdentityService.VerifyUserPasswordAsync(System.Int64,System.String)">
+        <member name="M:mbill_service.Service.Core.User.IUserIdentitySvc.VerifyUserPasswordAsync(System.Int64,System.String)">
             <summary>
             验证用户密码是否正确
             </summary>
@@ -603,21 +603,21 @@
             <param name="password">密码</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserIdentityService.VerifyWxOpenIdAsync(System.String)">
+        <member name="M:mbill_service.Service.Core.User.IUserIdentitySvc.VerifyWxOpenIdAsync(System.String)">
             <summary>
             验证微信用户OpenId是否存在
             </summary>
             <param name="openId">Wx OpenId</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserIdentityService.ChangePasswordAsync(System.Int64,System.String)">
+        <member name="M:mbill_service.Service.Core.User.IUserIdentitySvc.ChangePasswordAsync(System.Int64,System.String)">
             <summary>
             根据用户ID，修改用户的密码
             </summary>
             <param name="userId"></param>
             <param name="newpassword"></param>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserService.CreateAsync(mbill_service.Core.Domains.Entities.User.UserEntity,System.Collections.Generic.List{System.Int64},System.String)">
+        <member name="M:mbill_service.Service.Core.User.IUserSvc.CreateAsync(mbill_service.Core.Domains.Entities.User.UserEntity,System.Collections.Generic.List{System.Int64},System.String)">
             <summary>
             注册-新增一个用户
             </summary>
@@ -625,21 +625,21 @@
             <param name="roleIds">分组Id集合</param>
             <param name="password">密码</param>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserService.GetAsync(System.Nullable{System.Int64})">
+        <member name="M:mbill_service.Service.Core.User.IUserSvc.GetAsync(System.Nullable{System.Int64})">
             <summary>
             获取用户信息，id为空时，通过Token获取
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserService.GetPagesAsync(mbill_service.Service.Core.User.Input.UserPagingDto)">
+        <member name="M:mbill_service.Service.Core.User.IUserSvc.GetPagesAsync(mbill_service.Service.Core.User.Input.UserPagingDto)">
             <summary>
             获取用户分页信息
             </summary>
             <param name="pagingDto">分页数据</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserService.UpdateAsync(System.Int64,mbill_service.Core.Domains.Entities.User.UserEntity)">
+        <member name="M:mbill_service.Service.Core.User.IUserSvc.UpdateAsync(System.Int64,mbill_service.Core.Domains.Entities.User.UserEntity)">
             <summary>
             更新用户信息
             </summary>
@@ -647,7 +647,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.User.IUserService.DeleteAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Core.User.IUserSvc.DeleteAsync(System.Int64)">
             <summary>
             删除用户（软删除）
             </summary>
@@ -719,21 +719,21 @@
             是否启用
             </summary>
         </member>
-        <member name="M:mbill_service.Service.Core.User.UserIdentityService.GetFirstByUserIdAsync(System.Int64)">
+        <member name="M:mbill_service.Service.Core.User.UserIdentitySvc.GetFirstByUserIdAsync(System.Int64)">
             <summary>
             通过UserId获取用户绑定信息
             </summary>
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.User.UserIdentityService.GetFirstByOpenIdAsync(System.String)">
+        <member name="M:mbill_service.Service.Core.User.UserIdentitySvc.GetFirstByOpenIdAsync(System.String)">
             <summary>
             通过OpenId获取用户绑定信息
             </summary>
             <param name="openId">Wx OpenId</param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Wx.IWxService.GetCode2Session(System.String)">
+        <member name="M:mbill_service.Service.Core.Wx.IWxSvc.GetCode2Session(System.String)">
             <summary>
             GetCode2Session
             </summary>

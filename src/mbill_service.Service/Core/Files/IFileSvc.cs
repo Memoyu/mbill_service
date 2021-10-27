@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Files
 {
-    public interface IFileService
+    public interface IFileSvc
     {
         /// <summary>
         /// 单文件上传，键为file

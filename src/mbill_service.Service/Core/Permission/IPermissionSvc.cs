@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Permission
 {
-    public interface IPermissionService
+    public interface IPermissionSvc
     {
         /// <summary>
         /// 获取所有权限(树形结构)

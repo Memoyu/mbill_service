@@ -10,7 +10,7 @@ namespace mbill_service.Service.Base
 {
     public abstract class CrudApplicationService<TEntity, TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput,
             TUpdateInput>
-        : ApplicationService, ICrudApplicationService<TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput, TUpdateInput>
+        : ApplicationSvc, ICrudApplicationService<TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput, TUpdateInput>
         where TEntity : class, IEntity<TKey>
         where TGetOutputDto : IEntityDto<TKey>
         where TGetListOutputDto : IEntityDto<TKey>

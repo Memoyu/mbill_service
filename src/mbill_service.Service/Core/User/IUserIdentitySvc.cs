@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.User
 {
-    public interface IUserIdentityService
+    public interface IUserIdentitySvc
     {
         /// <summary>
         /// 验证用户密码是否正确

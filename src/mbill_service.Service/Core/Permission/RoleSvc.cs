@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Permission
 {
-    public class RoleService : ApplicationService, IRoleService
+    public class RoleSvc : ApplicationSvc, IRoleSvc
     {
         private readonly IRoleRepo _roleRepo;
         private readonly IRolePermissionRepo _rolePermissionRepo;
         private readonly IPermissionRepo _permissionRepo;
-        public RoleService(IRoleRepo roleRepo, IRolePermissionRepo rolePermissionRepo, IPermissionRepo permissionRepo)
+        public RoleSvc(IRoleRepo roleRepo, IRolePermissionRepo rolePermissionRepo, IPermissionRepo permissionRepo)
         {
             _roleRepo = roleRepo;
             _rolePermissionRepo = rolePermissionRepo;

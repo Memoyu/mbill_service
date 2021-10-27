@@ -9,7 +9,7 @@ using mbill_service.Core.Security;
 
 namespace mbill_service.Service.Base
 {
-    public class ApplicationService : IApplicationService
+    public class ApplicationSvc : IApplicationService
     {
         //provider Lock
         protected readonly object ServiceProviderLock = new object();

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Wx
 {
-    public interface IWxService
+    public interface IWxSvc
     {
         /// <summary>
         /// GetCode2Session

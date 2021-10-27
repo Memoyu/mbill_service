@@ -23,9 +23,9 @@ namespace mbill_service.Controllers.Bill
     public class StatementController : ApiControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IStatementService _statementService;
+        private readonly IStatementSvc _statementService;
 
-        public StatementController(IStatementService statementService,IMapper mapper)
+        public StatementController(IStatementSvc statementService,IMapper mapper)
         {
             _mapper = mapper;
             _statementService = statementService;

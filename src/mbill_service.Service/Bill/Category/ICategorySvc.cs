@@ -7,7 +7,7 @@ using mbill_service.Service.Bill.Category.Input;
 
 namespace mbill_service.Service.Bill.Category
 {
-    public interface ICategoryService
+    public interface ICategorySvc
     {
         /// <summary>
         /// 新增账单分类

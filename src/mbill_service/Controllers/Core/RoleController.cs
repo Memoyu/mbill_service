@@ -21,8 +21,8 @@ namespace mbill_service.Controllers.Core
     public class RoleController : ApiControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IRoleService _roleService;
-        public RoleController(IRoleService roleService, IMapper mapper)
+        private readonly IRoleSvc _roleService;
+        public RoleController(IRoleSvc roleService, IMapper mapper)
         {
             _mapper = mapper;
             _roleService = roleService;

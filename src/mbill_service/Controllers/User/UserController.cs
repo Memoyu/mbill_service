@@ -20,9 +20,9 @@ namespace mbill_service.Controllers.Core
     public class UserController : ApiControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IUserService _userService;
+        private readonly IUserSvc _userService;
 
-        public UserController(IMapper mapper, IUserService userService)
+        public UserController(IMapper mapper, IUserSvc userService)
         {
             _mapper = mapper;
             _userService = userService;

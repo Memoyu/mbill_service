@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Logger
 {
-    public class LogService : ApplicationService, ILogService
+    public class LogSvc : ApplicationSvc, ILogSvc
     {
         private readonly ILogRepo _logRepo;
-        public LogService(ILogRepo logRepo)
+        public LogSvc(ILogRepo logRepo)
         {
             _logRepo = logRepo;
         }

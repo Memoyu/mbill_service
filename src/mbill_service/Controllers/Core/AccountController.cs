@@ -22,11 +22,11 @@ namespace mbill_service.Controllers.Core
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
     public class AccountController : ApiControllerBase
     {
-        private readonly IAccountService _accountService;
-        private readonly IUserService _userService;
-        private readonly IWxService _wxSvc;
+        private readonly IAccountSvc _accountService;
+        private readonly IUserSvc _userService;
+        private readonly IWxSvc _wxSvc;
 
-        public AccountController(IComponentContext componentContext, IAccountService accountService, IUserService userService, IWxService wxSvc)
+        public AccountController(IComponentContext componentContext, IAccountSvc accountService, IUserSvc userService, IWxSvc wxSvc)
         {
             _accountService = accountService;
             _userService = userService;

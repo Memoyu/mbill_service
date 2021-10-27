@@ -18,14 +18,14 @@ using static mbill_service.Core.Domains.Common.Consts.SystemConst;
 
 namespace mbill_service.Service.Bill.Statement
 {
-    public class StatementService : ApplicationService, IStatementService
+    public class StatementSvc : ApplicationSvc, IStatementSvc
     {
         private readonly IStatementRepo _statementRepo;
         private readonly ICategoryRepo _categoryRepo;
         private readonly IAssetRepo _assetRepo;
         private readonly IFileRepo _fileRepo;
 
-        public StatementService(
+        public StatementSvc(
             IStatementRepo statementRepo,
             ICategoryRepo categoryRepo,
             IAssetRepo assetRepo,

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Auth
 {
-    public interface IJwtTokenService
+    public interface IJwtTokenSvc
     {
         /// <summary>
         /// 创建Token和RefreshToken

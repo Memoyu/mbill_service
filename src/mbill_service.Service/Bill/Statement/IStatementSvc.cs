@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Bill.Statement
 {
-    public interface IStatementService
+    public interface IStatementSvc
     {
         /// <summary>
         /// 新增账单

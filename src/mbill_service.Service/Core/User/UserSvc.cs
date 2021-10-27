@@ -18,12 +18,12 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.User
 {
-    public class UserService : ApplicationService, IUserService
+    public class UserSvc : ApplicationSvc, IUserSvc
     {
         private readonly IUserRepo _userRepo;
         private readonly IFileRepo _fileRepo;
 
-        public UserService(IUserRepo userRepo, IFileRepo fileRepo)
+        public UserSvc(IUserRepo userRepo, IFileRepo fileRepo)
         {
             _userRepo = userRepo;
             _fileRepo = fileRepo;

@@ -20,10 +20,10 @@ namespace mbill_service.Controllers.Bill
     [Route("api/category")]
     public class CategoryController : ApiControllerBase
     {
-        private readonly ICategoryService _categoryService;
+        private readonly ICategorySvc _categoryService;
         private readonly IMapper _mapper;
 
-        public CategoryController(ICategoryService categoryService, IMapper mapper)
+        public CategoryController(ICategorySvc categoryService, IMapper mapper)
         {
             _categoryService = categoryService;
             _mapper = mapper;

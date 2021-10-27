@@ -17,8 +17,8 @@ namespace mbill_service.Controllers.Core
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public class LogController : ApiControllerBase
     {
-        private readonly ILogService _logService;
-        public LogController(ILogService logService)
+        private readonly ILogSvc _logService;
+        public LogController(ILogSvc logService)
         {
             _logService = logService;
         }

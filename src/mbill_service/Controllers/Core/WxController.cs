@@ -14,9 +14,9 @@ namespace mbill_service.Controllers.Core
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
     public class WxController : ApiControllerBase
     {
-        private readonly IWxService _wxSvc;
+        private readonly IWxSvc _wxSvc;
 
-        public WxController(IWxService wxSvc)
+        public WxController(IWxSvc wxSvc)
         {
             _wxSvc = wxSvc;
         }

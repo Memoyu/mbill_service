@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Core.Logger
 {
-    public interface ILogService
+    public interface ILogSvc
     {
        /// <summary>
        /// 获取日志分页
