@@ -20,7 +20,7 @@ namespace mbill_service.Core.Extensions
     {
         public static ISelect<TEntity> ToPage<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
         {
-            return source.Count(out count).Page(pageDto.Page, pageDto.Size);
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace mbill_service.Core.Extensions
         /// <returns></returns>
         public static List<TEntity> ToPageList<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
         {
-            return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToList();
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToList();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace mbill_service.Core.Extensions
         /// <returns></returns>
         public static Task<List<TEntity>> ToPageListAsync<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
         {
-            return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToListAsync();
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToListAsync();
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace mbill_service.Core.Extensions
         /// <returns></returns>
         public static List<TResult> ToPageList<TEntity, TResult>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
         {
-            return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToList<TResult>();
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToList<TResult>();
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace mbill_service.Core.Extensions
         /// <returns></returns>
         public static Task<List<TResult>> ToPageListAsync<TEntity, TResult>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
         {
-            return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToListAsync<TResult>();
+            return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToListAsync<TResult>();
         }
 
         public static FreeSqlBuilder UseConnectionString(this FreeSqlBuilder builder, IConfiguration configuration)
