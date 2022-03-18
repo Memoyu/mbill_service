@@ -3,13 +3,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+ tags:
+   include:
+     - prod
 
 resources:
 - repo: self
 
 variables:
   tag: '$(Build.BuildId)'
+  appsettings: src/mbill_service/appsettings.Production.json
 
 stages:
 - stage: Build
@@ -20,9 +23,41 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    - script:  |
+        echo ready to execute command
+        ls
+        sed -i 's/{MySqlConStr}/$(MySqlConStr)/g' $(appsettings)
+        sed -i 's/{RedisConStr}/$(RedisConStr)/g' $(appsettings)
+        sed -i 's/{JwtSecurityKey}/$(JwtSecurityKey)/g' $(appsettings)
+        sed -i 's/{MiniProAppId}/$(MiniProAppId)/g' $(appsettings)
+        sed -i 's/{MiniProAppSecret}/$(MiniProAppSecret)/g' $(appsettings)
+        echo "================= print file $(appsettings) start ===================="
+        cat $(appsettings) | while read line; do echo $line ; done
+        echo "================= print file $(appsettings) end ===================="
+        echo command executed
     - task: Docker@2
+      displayName: 'build docker image and push'
       inputs:
-        containerRegistry: 'memoyu_docker'
+        containerRegistry: 'memoyu-docker'
         repository: 'memoyu/mbillservice'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        buildContext: $(Build.Repository.LocalPath)
+        tags: 'latest'
+    - task: SSH@0
+      displayName: 'run mbill api container'
+      inputs:
+        sshEndpoint: 'HuaweiCloud'
+        runOptions: 'inline'
+        inline: |
+          echo "================= to del container ===================="
+          docker kill mbillapi
+          docker rm mbillapi
+          echo "================= to rm image ===================="
+          docker rmi memoyu/mbillservice
+          echo "================= to pull image ===================="
+          docker pull memoyu/mbillservice
+          echo "================= to run container ===================="
+          docker run --name mbillapi -d -p 5001:80 memoyu/mbillservice
+          echo "================= publish success ===================="
+        readyTimeout: '20000'
