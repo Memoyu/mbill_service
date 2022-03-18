@@ -341,4 +341,3 @@ healthchecksdb
 
 
 /src/mbill_service/Logs/
-src/mbill_service/appsettings.Production.json
