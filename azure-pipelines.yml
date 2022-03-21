@@ -5,13 +5,15 @@
 trigger:
  tags:
    include:
-     - prod
+     - release-*
 
 resources:
 - repo: self
 
 variables:
   tag: '$(Build.BuildId)'
+  containerName: mbillapi
+  imageName: memoyu/mbillservice
   appsettings: src/mbill_service/appsettings.Production.json
 
 stages:
@@ -39,7 +41,7 @@ stages:
       displayName: 'build docker image and push'
       inputs:
         containerRegistry: 'memoyu-docker'
-        repository: 'memoyu/mbillservice'
+        repository: $(imageName)
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         buildContext: $(Build.Repository.LocalPath)
@@ -51,13 +53,35 @@ stages:
         runOptions: 'inline'
         inline: |
           echo "================= to del container ===================="
-          docker kill mbillapi
-          docker rm mbillapi
+          # 判断是否存在容器
+          docker ps | grep $(containerName) &> /dev/null
+          # 如果不存在，则Remove
+          if [ $? -ne 0 ]
+          then
+              echo "$(containerName) container not exist continue.. "
+          else
+              echo "remove $(containerName) container"
+              docker kill $(containerName)
+              docker rm $(containerName)
+          fi
+
           echo "================= to rm image ===================="
-          docker rmi memoyu/mbillservice
+          # 判断是否存在镜像
+          docker images | grep $(imageName) &> /dev/null
+          # 如果不存在，不做操作
+          if [ $? -ne 0 ]
+          then
+              echo "image does not exist , continue..."
+          else
+              echo "image exists !!! remove it"
+              docker rmi $(imageName)
+          fi
+
           echo "================= to pull image ===================="
-          docker pull memoyu/mbillservice
+          docker pull $(imageName)
+
           echo "================= to run container ===================="
-          docker run --name mbillapi -d -p 5001:80 memoyu/mbillservice
+          docker run --name $(containerName) -d -p 9001:80 $(imageName)
+
           echo "================= publish success ===================="
         readyTimeout: '20000'
