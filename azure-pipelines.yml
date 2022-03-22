@@ -18,10 +18,10 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: build
   jobs:
   - job: Build
-    displayName: Build
+    displayName: build image
     pool:
       vmImage: ubuntu-latest
     steps:
