@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace mbill_service.Service.Core.Auth.Output;
+﻿namespace mbill_service.Service.Core.Auth.Output;
 
 public class UserSimpleDto
 {
@@ -35,7 +33,7 @@ public class UserSimpleDto
     public string AvatarUrl { get; set; }
 
     /// <summary>
-    /// 最后一次登录的时间
+    /// 使用app天数
     /// </summary>
-    public DateTime LastLoginTime { get; set; }
+    public int Days { get; set; }
 }

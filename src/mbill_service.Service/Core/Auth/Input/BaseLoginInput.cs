@@ -1,6 +1,5 @@
-﻿namespace mbill_service.Service.Core.Auth.Input
+﻿namespace mbill_service.Service.Core.Auth.Input;
+
+public class BaseLoginInput
 {
-    public class BaseLoginInput
-    {
-    }
 }

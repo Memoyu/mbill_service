@@ -1,31 +1,20 @@
-﻿using DotNetCore.Security;
-using mbill_service.Core.Common.Configs;
-using mbill_service.Core.Domains.Common;
-using mbill_service.Core.Extensions;
-using mbill_service.Core.Interface.IRepositories.Core;
-using mbill_service.Service.Core.Wx.Output;
-using Microsoft.Extensions.Logging;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿namespace mbill_service.Service.Core.Wx;
 
-namespace mbill_service.Service.Core.Wx
+public class WxSvc : IWxSvc
 {
-    public class WxSvc : IWxSvc
+    private static string WxJscode(string appid, string secret, string code) => $"https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code";
+
+    private readonly ILogger<WxSvc> _logger;
+    private readonly IHttpClientFactory _httpClient;
+
+    public WxSvc(ILogger<WxSvc> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityRepo userIdentityRepo, IJsonWebTokenService jsonWebTokenService)
     {
-        private static string WxJscode(string appid, string secret, string code) => $"https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code";
+        _logger = logger;
+        _httpClient = httpClient;
+    }
 
-        private readonly ILogger<WxSvc> _logger;
-        private readonly IHttpClientFactory _httpClient;
-
-        public WxSvc(ILogger<WxSvc> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityRepo userIdentityRepo, IJsonWebTokenService jsonWebTokenService)
-        {
-            _logger = logger;
-            _httpClient = httpClient;
-        }
-
-        public async Task<ServiceResult<WxCode2SessionDto>> GetCode2Session(string code)
-        {
+    public async Task<ServiceResult<WxCode2SessionDto>> GetCode2Session(string code)
+    {
 #if !DEBUG
             var url = WxJscode(Appsettings.MinPro.AppID, Appsettings.MinPro.AppSecret, code);
             using var client = _httpClient.CreateClient();//创建HttpClient请求
@@ -34,13 +23,12 @@ namespace mbill_service.Service.Core.Wx
                 return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session响应失败 错误：{httpResponse.Content.ReadAsStringAsync()}");
             var content = await httpResponse.Content.ReadAsStringAsync();//获取响应内容
 #else
-            var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4 - QEB2eprYBLllCNf425J80\"}";
+        var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4 - QEB2eprYBLllCNf425J80\"}";
 #endif
 
-            var code2Session = content.FromJson<WxCode2SessionDto>();
-            if (code2Session.ErrCode != 0)
-                return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session返回失败 错误：{content}");
-            return ServiceResult<WxCode2SessionDto>.Successed(code2Session);
-        }
+        var code2Session = content.FromJson<WxCode2SessionDto>();
+        if (code2Session.ErrCode != 0)
+            return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session返回失败 错误：{content}");
+        return ServiceResult<WxCode2SessionDto>.Successed(code2Session);
     }
 }

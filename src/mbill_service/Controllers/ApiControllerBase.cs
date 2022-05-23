@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿namespace mbill_service.Controllers.Core;
 
-namespace mbill_service.Controllers.Core
+[ApiController]
+public class ApiControllerBase : ControllerBase
 {
-    [ApiController]
-    public class ApiControllerBase : ControllerBase
-    {
-     
-    }
+
 }

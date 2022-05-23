@@ -1,10 +1,9 @@
-﻿namespace mbill_service.Core.Domains.Common.Enums
+﻿namespace mbill_service.Core.Domains.Common.Enums;
+
+public enum BillTypeEnum
 {
-    public enum StatementTypeEnum
-    {
-        expend,//支出
-        income,//收入
-        transfer,//转账
-        repayment,//还款
-    }
+    expend,//支出
+    income,//收入
+    transfer,//转账
+    repayment,//还款
 }

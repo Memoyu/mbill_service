@@ -1,12 +1,9 @@
-﻿using mbill_service.Core.Domains.Common.Base;
+﻿namespace mbill_service.Service.Core.Permission.Output;
 
-namespace mbill_service.Service.Core.Permission.Output
+public class RoleDto : EntityDto
 {
-    public class RoleDto: EntityDto
-    {
-        public string Name { get; set; }
-        public string Info { get; set; }
-        public bool IsStatic { get; set; }
-        public int Sort { get; set; }
-    }
+    public string Name { get; set; }
+    public string Info { get; set; }
+    public bool IsStatic { get; set; }
+    public int Sort { get; set; }
 }

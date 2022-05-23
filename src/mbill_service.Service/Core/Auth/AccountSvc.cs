@@ -89,7 +89,9 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
 
         var user = await _userRepo.GetUserAsync(c => c.Id == userId);
         var token = await _jwtTokenService.CreateTokenAsync(user);
-        return ServiceResult<TokenWithUserDto>.Successed(new TokenWithUserDto(token, Mapper.Map<UserSimpleDto>(user)));
+        var userDto = Mapper.Map<UserSimpleDto>(user);
+        userDto.Days = (DateTime.Now - user.CreateTime).Days;
+        return ServiceResult<TokenWithUserDto>.Successed(new TokenWithUserDto(token, userDto));
     }
 
     public async Task<ServiceResult<TokenDto>> GetTokenByRefreshAsync(string refreshToken)

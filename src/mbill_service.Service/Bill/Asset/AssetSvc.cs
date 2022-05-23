@@ -1,24 +1,6 @@
-﻿using AutoMapper;
-using mbill_service.Core.Domains.Common.Enums.Base;
-using mbill_service.Core.Domains.Entities.Bill;
-using mbill_service.Core.Exceptions;
-using mbill_service.Core.Interface.IRepositories.Bill;
-using mbill_service.Core.Interface.IRepositories.Core;
-using mbill_service.Service.Base;
-using mbill_service.Service.Bill.Asset.Output;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using mbill_service.Core.Domains.Common;
-using mbill_service.Core.Domains.Common.Consts;
-using mbill_service.Core.Extensions;
-using mbill_service.Service.Bill.Asset.Input;
+﻿namespace mbill_service.Service.Bill.Asset;
 
-namespace mbill_service.Service.Bill.Asset
-{
-    public class AssetSvc : ApplicationSvc, IAssetSvc
+public class AssetSvc : ApplicationSvc, IAssetSvc
     {
         private readonly IAssetRepo _assetRepo;
         private readonly IFileRepo _fileRepo;
@@ -140,4 +122,3 @@ namespace mbill_service.Service.Bill.Asset
             await _assetRepo.UpdateWithIgnoreAsync(asset, ignoreExp);
         }
     }
-}

@@ -1,26 +1,20 @@
-﻿using mbill_service.Core.AOP.Filters;
-using mbill_service.Core.Domains.Common;
-using mbill_service.Core.Domains.Common.Enums.Base;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
+﻿namespace mbill_service.Core.Extensions.ServiceCollection;
 
-namespace mbill_service.Core.Extensions.ServiceCollection
+/// <summary>
+/// 控制器配置注册
+/// </summary>
+public static class ControllerSetup
 {
-    /// <summary>
-    /// 控制器配置注册
-    /// </summary>
-    public static class ControllerSetup
+    public static IServiceCollection AddController(this IServiceCollection services)
     {
-        public static IServiceCollection AddController(this IServiceCollection services)
-        {
-            services.AddControllers(options =>
-                {
-                    options.Filters.Add<LocalExceptionFilter>();
-                })
-                .AddNewtonsoftJson(opt =>
-                {
-                    opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver ();
-                    //opt.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:MM:ss";
+        services.AddControllers(options =>
+            {
+                options.Filters.Add<LocalExceptionFilter>();
+            })
+            .AddNewtonsoftJson(opt =>
+            {
+                opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+                opt.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:MM:ss";
                     //设置自定义时间戳格式
                     //opt.SerializerSettings.Converters = new List<JsonConverter>()
                     //{
@@ -34,28 +28,27 @@ namespace mbill_service.Core.Extensions.ServiceCollection
                     //        ProcessDictionaryKeys = true
                     //    }
                     //};
-                })
-                .ConfigureApiBehaviorOptions(options =>
-                {
-                    options.SuppressConsumesConstraintForFormFileParameters = true;
+            })
+            .ConfigureApiBehaviorOptions(options =>
+            {
+                options.SuppressConsumesConstraintForFormFileParameters = true;
                     //自定义 BadRequest 响应
-                    options.InvalidModelStateResponseFactory = context =>
+                options.InvalidModelStateResponseFactory = context =>
+                {
+                    var problemDetails = new ValidationProblemDetails(context.ModelState);
+
+                    var resultDto = new ServiceResult
                     {
-                        var problemDetails = new ValidationProblemDetails(context.ModelState);
-
-                        var resultDto = new ServiceResult
-                        {
-                            Code = ServiceResultCode.ParameterError,
-                            Message = problemDetails.Errors
-                        };
-
-                        return new BadRequestObjectResult(resultDto)
-                        {
-                            ContentTypes = { "application/json" }
-                        };
+                        Code = ServiceResultCode.ParameterError,
+                        Message = problemDetails.Errors
                     };
-                });
-            return services;
-        }
+
+                    return new BadRequestObjectResult(resultDto)
+                    {
+                        ContentTypes = { "application/json" }
+                    };
+                };
+            });
+        return services;
     }
 }

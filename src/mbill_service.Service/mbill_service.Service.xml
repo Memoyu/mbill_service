@@ -94,6 +94,148 @@
             排序
             </summary>
         </member>
+        <member name="M:mbill_service.Service.Bill.Statement.BillSvc.MapToDto``1(mbill_service.Core.Domains.Entities.Bill.BillEntity)">
+            <summary>
+            映射Dto
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="bill"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.InsertAsync(mbill_service.Core.Domains.Entities.Bill.BillEntity)">
+            <summary>
+            新增账单
+            </summary>
+            <param name="statement">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.GetDetailAsync(System.Int64)">
+            <summary>
+            获取账单详情
+            </summary>
+            <param name="id">账单id</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.DeleteAsync(System.Int64)">
+            <summary>
+            删除账单信息
+            </summary>
+            <param name="id">账单id</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.BillEntity)">
+            <summary>
+            更新账单信息
+            </summary>
+            <param name="statement">账单信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.GetPagesAsync(mbill_service.Service.Bill.Statement.Output.BillPagingDto)">
+            <summary>
+            获取分页账单数据
+            </summary>
+            <param name="pageDto">分页查询</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.GetStatisticsTotalAsync(mbill_service.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取指定日期各类型账单总额统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.GetExpendCategoryStatisticsAsync(mbill_service.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取指定日期支出分类统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.GetWeekExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取当前月份所有周的支出趋势统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill_service.Service.Bill.Statement.IBillSvc.GetMonthExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.BillDateInputDto,System.Int32)">
+            <summary>
+            获取当前月往前5个月的支出趋势统计
+            </summary>
+            <param name="input"></param>
+            <param name="count">月数</param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.AssetId">
+            <summary>
+            资产Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.TargetAssetId">
+            <summary>
+            目标资产Id
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.AssetResidue">
+            <summary>
+            账户余额
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Type">
+            <summary>
+            记录类型：支出、收入、转账、还款
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Address">
+            <summary>
+            地点
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Province">
+            <summary>
+            地点:省
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.City">
+            <summary>
+            地点:市
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.District">
+            <summary>
+            地点:区/县
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Street">
+            <summary>
+            地点:街道/镇
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Year">
+            <summary>
+            记录日期：日期
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyBillDto.Time">
+            <summary>
+            记录日期：时间
+            </summary>
+        </member>
         <member name="M:mbill_service.Service.Bill.Category.ICategorySvc.InsertAsync(mbill_service.Core.Domains.Entities.Bill.CategoryEntity)">
             <summary>
             新增账单分类
@@ -178,148 +320,6 @@
             <summary>
             排序
             </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.CategoryId">
-            <summary>
-            分类Id
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.AssetId">
-            <summary>
-            资产Id
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.TargetAssetId">
-            <summary>
-            目标资产Id
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Amount">
-            <summary>
-            金额
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.AssetResidue">
-            <summary>
-            账户余额
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Type">
-            <summary>
-            记录类型：支出、收入、转账、还款
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Description">
-            <summary>
-            说明
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Address">
-            <summary>
-            地点
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Province">
-            <summary>
-            地点:省
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.City">
-            <summary>
-            地点:市
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.District">
-            <summary>
-            地点:区/县
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Street">
-            <summary>
-            地点:街道/镇
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Year">
-            <summary>
-            记录日期：日期
-            </summary>
-        </member>
-        <member name="P:mbill_service.Service.Bill.Statement.Input.ModifyStatementDto.Time">
-            <summary>
-            记录日期：时间
-            </summary>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.InsertAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
-            <summary>
-            新增账单
-            </summary>
-            <param name="statement">数据源</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetDetailAsync(System.Int64)">
-            <summary>
-            获取账单详情
-            </summary>
-            <param name="id">账单id</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.DeleteAsync(System.Int64)">
-            <summary>
-            删除账单信息
-            </summary>
-            <param name="id">账单id</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.UpdateAsync(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
-            <summary>
-            更新账单信息
-            </summary>
-            <param name="statement">账单信息</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetPagesAsync(mbill_service.Service.Bill.Statement.Output.StatementPagingDto)">
-            <summary>
-            获取分页账单数据
-            </summary>
-            <param name="pageDto">分页查询</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetStatisticsTotalAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
-            <summary>
-            获取指定日期各类型账单总额统计
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetExpendCategoryStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
-            <summary>
-            获取指定日期支出分类统计
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetWeekExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto)">
-            <summary>
-            获取当前月份所有周的支出趋势统计
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.IStatementSvc.GetMonthExpendTrendStatisticsAsync(mbill_service.Service.Bill.Statement.Output.StatementDateInputDto,System.Int32)">
-            <summary>
-            获取当前月往前5个月的支出趋势统计
-            </summary>
-            <param name="input"></param>
-            <param name="count">月数</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill_service.Service.Bill.Statement.StatementSvc.MapToDto``1(mbill_service.Core.Domains.Entities.Bill.StatementEntity)">
-            <summary>
-            映射Dto
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="statement"></param>
-            <returns></returns>
         </member>
         <member name="M:mbill_service.Service.Core.Auth.IAccountSvc.AccountLoginAsync(mbill_service.Service.Core.Auth.Input.AccountLoginDto)">
             <summary>
@@ -409,9 +409,9 @@
             头像地址
             </summary>
         </member>
-        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.LastLoginTime">
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.Days">
             <summary>
-            最后一次登录的时间
+            使用app天数
             </summary>
         </member>
         <member name="M:mbill_service.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">

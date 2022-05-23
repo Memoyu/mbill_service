@@ -1,8 +1,6 @@
-﻿using mbill_service.Core.Common.Configs;
+﻿namespace mbill_service.Core.Domains.Common.Consts;
 
-namespace mbill_service.Core.Domains.Common.Consts
-{
-    public class SystemConst
+public class SystemConst
     {
         /// <summary>
         /// 数据库表前缀
@@ -80,4 +78,3 @@ namespace mbill_service.Core.Domains.Common.Consts
             };
         }
     }
-}
