@@ -1,0 +1,69 @@
+2021-06-28 00:18:12.643 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents application/json;+charset=utf-8 0
+2021-06-28 00:18:12.643 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user application/json;+charset=utf-8 4
+2021-06-28 00:18:12.643 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 120
+2021-06-28 00:18:12.643 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 120
+2021-06-28 00:18:12.761 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-28 00:18:12.761 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:12.761 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:12.765 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-28 00:18:12.805 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-28 00:18:12.810 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents application/json;+charset=utf-8 0 - 200 421 application/json;+charset=utf-8 173.8930ms
+2021-06-28 00:18:12.881 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:12.885 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 120 - 200 2544 application/json;+charset=utf-8 241.1728ms
+2021-06-28 00:18:12.885 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:12.890 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-28 00:18:12.892 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 120 - 200 2544 application/json;+charset=utf-8 255.7747ms
+2021-06-28 00:18:12.894 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user application/json;+charset=utf-8 4 - 200 778 application/json;+charset=utf-8 257.6269ms
+2021-06-28 00:18:12.933 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_cash_64.png - -
+2021-06-28 00:18:12.934 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_bank_card_64.png - -
+2021-06-28 00:18:12.938 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_alipay_64.png - -
+2021-06-28 00:18:12.938 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_wechat_64.png - -
+2021-06-28 00:18:12.939 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_huabei_64.png - -
+2021-06-28 00:18:12.939 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_bank_card_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_bank_card_64.png'
+2021-06-28 00:18:12.940 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_jd_64.png - -
+2021-06-28 00:18:12.949 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_bank_card_64.png - - - 200 390 image/png 15.0232ms
+2021-06-28 00:18:12.951 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_credit_card_64.png - -
+2021-06-28 00:18:12.952 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_huabei_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_huabei_64.png'
+2021-06-28 00:18:12.952 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_alipay_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_alipay_64.png'
+2021-06-28 00:18:12.952 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_cash_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_cash_64.png'
+2021-06-28 00:18:12.952 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_jd_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_jd_64.png'
+2021-06-28 00:18:12.955 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_huabei_64.png - - - 200 4696 image/png 15.9205ms
+2021-06-28 00:18:12.958 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_alipay_64.png - - - 200 3847 image/png 20.1115ms
+2021-06-28 00:18:12.958 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_credit_card_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_credit_card_64.png'
+2021-06-28 00:18:12.963 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_wechat_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_wechat_64.png'
+2021-06-28 00:18:12.967 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_jd_64.png - - - 200 3218 image/png 26.9468ms
+2021-06-28 00:18:12.968 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_fund_64.png - -
+2021-06-28 00:18:12.970 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_wechat_64.png - - - 200 3899 image/png 31.3350ms
+2021-06-28 00:18:12.971 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_cash_64.png - - - 200 4262 image/png 38.8170ms
+2021-06-28 00:18:12.975 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_credit_card_64.png - - - 200 403 image/png 21.3125ms
+2021-06-28 00:18:12.978 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_stock_64.png - -
+2021-06-28 00:18:12.982 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_fund_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_fund_64.png'
+2021-06-28 00:18:12.986 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_stock_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_stock_64.png'
+2021-06-28 00:18:12.986 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_fund_64.png - - - 200 1703 image/png 17.8633ms
+2021-06-28 00:18:12.991 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_yuerbao_64.png - -
+2021-06-28 00:18:12.994 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_stock_64.png - - - 200 1779 image/png 15.9846ms
+2021-06-28 00:18:12.997 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_yuerbao_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_yuerbao_64.png'
+2021-06-28 00:18:12.999 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_yuerbao_64.png - - - 200 2505 image/png 7.7950ms
+2021-06-28 00:18:26.665 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 120
+2021-06-28 00:18:26.668 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:26.697 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:26.698 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 120 - 200 2544 application/json;+charset=utf-8 32.5557ms
+2021-06-28 00:18:31.576 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 123
+2021-06-28 00:18:31.580 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:31.599 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-28 00:18:31.600 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages application/json;+charset=utf-8 123 - 200 1073 application/json;+charset=utf-8 24.4564ms
+2021-06-28 00:18:31.609 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_cash_64.png - -
+2021-06-28 00:18:31.609 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_bank_card_64.png - -
+2021-06-28 00:18:31.610 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_huabei_64.png - -
+2021-06-28 00:18:31.610 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_cash_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_cash_64.png'
+2021-06-28 00:18:31.610 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_jd_64.png - -
+2021-06-28 00:18:31.611 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_credit_card_64.png - -
+2021-06-28 00:18:31.611 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_bank_card_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_bank_card_64.png'
+2021-06-28 00:18:31.612 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_huabei_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_huabei_64.png'
+2021-06-28 00:18:31.612 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_cash_64.png - - - 200 4262 image/png 2.8062ms
+2021-06-28 00:18:31.613 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_bank_card_64.png - - - 200 390 image/png 3.3798ms
+2021-06-28 00:18:31.614 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_jd_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_jd_64.png'
+2021-06-28 00:18:31.615 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_huabei_64.png - - - 200 4696 image/png 5.1168ms
+2021-06-28 00:18:31.615 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_credit_card_64.png'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_credit_card_64.png'
+2021-06-28 00:18:31.616 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_jd_64.png - - - 200 3218 image/png 5.9586ms
+2021-06-28 00:18:31.618 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_credit_card_64.png - - - 200 403 image/png 6.8456ms

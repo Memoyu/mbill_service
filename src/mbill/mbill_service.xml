@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mbill</name>
+    </assembly>
+    <members>
+        <member name="T:mbill.Controllers.Core.AccountController">
+            <summary>
+            账户相关
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.AccountController.Login(mbill.Service.Core.Auth.Input.AccountLoginDto)">
+             <summary>
+             登录接口
+             </summary>
+            <example>
+             用户名：admin，密码：123456
+             </example>
+        </member>
+        <member name="M:mbill.Controllers.Core.AccountController.WxLogin(mbill.Service.Core.Auth.Input.WxLoginInput)">
+            <summary>
+            微信登录接口
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.AccountController.GetByIdAsync(System.Nullable{System.Int64})">
+            <summary>
+            获取用户信息，By Id
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.AccountController.GetRefreshToken">
+            <summary>
+            刷新用户的token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.FileController.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+            <summary>
+            单文件上传，键为file
+            </summary>
+            <param name="file"></param>
+            <param name="type"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.FileController.UploadFiles(System.String)">
+            <summary>
+            多文件上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.FileController.ValidFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            校验上传文件
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="T:mbill.Controllers.Core.LogController">
+            <summary>
+            日志管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.LogController.GetPagesAsync(mbill.Service.Core.Logger.Input.LogPagingDto)">
+            <summary>
+            获取日志信息分页
+            </summary>
+        </member>
+        <member name="T:mbill.Controllers.Core.PermissionController">
+            <summary>
+            权限管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.PermissionController.GetTreePermissions">
+            <summary>
+            查询权限信息（树形结构）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.PermissionController.GetModulePermissions">
+            <summary>
+            查询所有可分配的权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.PermissionController.DispatchPermissions(mbill.Service.Core.Permission.Input.DispatchPermissionsDto)">
+            <summary>
+            配置角色权限
+            </summary>
+            <param name="dto">角色权限</param>
+        </member>
+        <member name="T:mbill.Controllers.Core.RoleController">
+            <summary>
+            角色管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.RoleController.CreateAsync(mbill.Service.Core.Permission.Input.ModifyRoleDto)">
+            <summary>
+            新增角色
+            </summary>
+            <param name="dto">角色信息</param>
+        </member>
+        <member name="M:mbill.Controllers.Core.RoleController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除角色
+            </summary>
+            <param name="id">角色id</param>
+        </member>
+        <member name="M:mbill.Controllers.Core.RoleController.UpdateAsync(mbill.Service.Core.Permission.Input.ModifyRoleDto)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="dto">角色信息</param>
+        </member>
+        <member name="M:mbill.Controllers.Core.RoleController.GetAllAsync">
+            <summary>
+            获取全部角色信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.RoleController.GetAsync(System.Int64)">
+            <summary>
+            获取角色信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:mbill.Controllers.Core.WxController">
+            <summary>
+            账户相关
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.WxController.GetCode2Session(System.String)">
+            <summary>
+            小程序 GetCode2Session
+            </summary>
+            <param name="code">wx.login获取到的code</param>
+            <returns></returns>
+        </member>
+        <member name="T:mbill.Controllers.Core.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.UserController.CreateAsync(mbill.Service.Core.User.Input.ModifyUserDto)">
+            <summary>
+            超级管理员新增用户
+            </summary>
+            <param name="userInput">用户更改</param>
+        </member>
+        <member name="M:mbill.Controllers.Core.UserController.GetPagesAsync(mbill.Service.Core.User.Input.UserPagingDto)">
+            <summary>
+            获取用户信息分页
+            </summary>
+            <param name="pagingDto">分页</param>
+        </member>
+        <member name="T:mbill.Controllers.Bill.AssetController">
+            <summary>
+            资产分类管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.CreateAsync(mbill.Service.Bill.Asset.Input.ModifyAssetDto)">
+            <summary>
+            新增资产分类
+            </summary>
+            <param name="dto">资产分类</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除资产分类
+            </summary>
+            <param name="id">资产分类id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.UpdateAsync(mbill.Service.Bill.Asset.Input.ModifyAssetDto)">
+            <summary>
+            更新资产分类
+            </summary>
+            <param name="dto">资产分类信息</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.GetAsync(System.Int64)">
+            <summary>
+            获取资产
+            </summary>
+            <param name="id">资产id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.GetParentAsync(System.Int64)">
+            <summary>
+            获取资产父项
+            </summary>
+            <param name="id">资产id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.GetParentsAsync">
+            <summary>
+            获取资产父项集合
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.GetGroupAsync(System.String)">
+            <summary>
+            获取分组后的资产
+            </summary>
+            <param name="type">资产类型</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.GetPageAsync(mbill.Service.Bill.Asset.Input.AssetPagingDto)">
+            <summary>
+            获取资产分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+        </member>
+        <member name="T:mbill.Controllers.Bill.BillController">
+            <summary>
+            账单管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.CreateAsync(mbill.Service.Bill.Statement.Input.ModifyBillDto)">
+            <summary>
+            新增账单
+            </summary>
+            <param name="dto">账单</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetAsync(System.Int64)">
+            <summary>
+            获取账单详情
+            </summary>
+            <param name="id">账单id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除账单信息
+            </summary>
+            <param name="id">账单id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.UpdateAsync(mbill.Service.Bill.Statement.Input.ModifyBillDto)">
+            <summary>
+            更新账单信息
+            </summary>
+            <param name="dto">账单信息</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetStatementPagesAsync(mbill.Service.Bill.Statement.Output.BillPagingDto)">
+            <summary>
+            获取账单分页信息
+            </summary>
+            <param name="pagingDto">分页条件</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetMonthStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取指定日期各类型账单金额统计
+            </summary>
+            <param name="input">入参</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取指定日期支出分类统计
+            </summary>
+            <param name="input">查询入参</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取当前月份所有周的支出趋势统计
+            </summary>
+            <param name="input">查询入参</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+            <summary>
+            获取当前月往前4个月的支出趋势统计(共5个月)
+            </summary>
+            <param name="input">查询入参</param>
+        </member>
+        <member name="T:mbill.Controllers.Bill.CategoryController">
+            <summary>
+            账单分类管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.CreateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryDto)">
+            <summary>
+            新增账单分类
+            </summary>
+            <param name="dto">账单分类</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除账单分类
+            </summary>
+            <param name="id">账单分类id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.UpdateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryDto)">
+            <summary>
+            更新账单分类
+            </summary>
+            <param name="dto">账单分类信息</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetAsync(System.Int64)">
+            <summary>
+            获取分类
+            </summary>
+            <param name="id">分类id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetParentAsync(System.Int64)">
+            <summary>
+            获取分类父项
+            </summary>
+            <param name="id">分类id</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetParentsAsync">
+            <summary>
+            获取账单分类父项集合
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetGroupAsync(System.String)">
+            <summary>
+            获取分组后的账单分类
+            </summary>
+            <param name="type">账单类型</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingDto)">
+            <summary>
+            获取账单分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+        </member>
+    </members>
+</doc>
