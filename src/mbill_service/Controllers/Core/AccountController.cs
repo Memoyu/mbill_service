@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using mbill_service.Service.Core.Wx;
+using mbill_service.Service.Core.Auth.Output;
 
 namespace mbill_service.Controllers.Core
 {
@@ -49,7 +50,7 @@ namespace mbill_service.Controllers.Core
         /// 微信登录接口
         /// </summary>
         [HttpPost("wxlogin")]
-        public async Task<ServiceResult<TokenDto>> WxLogin(WxLoginDto loginDto)
+        public async Task<ServiceResult<TokenWithUserDto>> WxLogin(WxLoginInput loginDto)
         {
             return await _accountService.WxLoginAsync(loginDto);
         }

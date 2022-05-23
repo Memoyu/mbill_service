@@ -17,7 +17,7 @@
              用户名：admin，密码：123456
              </example>
         </member>
-        <member name="M:mbill_service.Controllers.Core.AccountController.WxLogin(mbill_service.Service.Core.Auth.Input.WxLoginDto)">
+        <member name="M:mbill_service.Controllers.Core.AccountController.WxLogin(mbill_service.Service.Core.Auth.Input.WxLoginInput)">
             <summary>
             微信登录接口
             </summary>

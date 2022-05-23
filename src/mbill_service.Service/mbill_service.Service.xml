@@ -4,7 +4,7 @@
         <name>mbill_service.Service</name>
     </assembly>
     <members>
-        <member name="P:mbill_service.Service.Base.CrudApplicationService`7.Repository">
+        <member name="P:mbill_service.Service.Base.CrudApplicationSvc`7.Repository">
             <summary>
             仓储
             </summary>
@@ -328,7 +328,7 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill_service.Service.Core.Auth.IAccountSvc.WxLoginAsync(mbill_service.Service.Core.Auth.Input.WxLoginDto)">
+        <member name="M:mbill_service.Service.Core.Auth.IAccountSvc.WxLoginAsync(mbill_service.Service.Core.Auth.Input.WxLoginInput)">
             <summary>
             微信登录
             </summary>
@@ -378,6 +378,41 @@
             </summary>
             <param name="size">长度</param>
             <returns></returns>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="P:mbill_service.Service.Core.Auth.Output.UserSimpleDto.LastLoginTime">
+            <summary>
+            最后一次登录的时间
+            </summary>
         </member>
         <member name="M:mbill_service.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">
             <summary>

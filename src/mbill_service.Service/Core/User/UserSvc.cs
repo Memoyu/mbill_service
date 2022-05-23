@@ -1,22 +1,4 @@
-﻿using mbill_service.Core.AOP.Attributes;
-using mbill_service.Core.Domains.Common;
-using mbill_service.Core.Domains.Common.Enums.Base;
-using mbill_service.Core.Domains.Entities.Core;
-using mbill_service.Core.Domains.Entities.User;
-using mbill_service.Core.Exceptions;
-using mbill_service.Core.Extensions;
-using mbill_service.Core.Interface.IRepositories.Core;
-using mbill_service.Service.Base;
-using mbill_service.Service.Core.User;
-using mbill_service.Service.Core.User.Input;
-using mbill_service.Service.Core.User.Output;
-using mbill_service.ToolKits.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace mbill_service.Service.Core.User
+﻿namespace mbill_service.Service.Core.User
 {
     public class UserSvc : ApplicationSvc, IUserSvc
     {

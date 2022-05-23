@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using AutoMapper;
+using mbill_service.Service.Core.User.Output;
 
 namespace mbill_service.Service.Core.Auth
 {

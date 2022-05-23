@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Base
 {
-    public interface ICrudApplicationService<TGetOutputDto, TGetListOutputDto, in TKey, in TGetListInput, in TCreateInput, in TUpdateInput>
+    public interface ICrudApplicationSvc<TGetOutputDto, TGetListOutputDto, in TKey, in TGetListInput, in TCreateInput, in TUpdateInput>
         where TGetOutputDto : IEntityDto<TKey>
         where TGetListOutputDto : IEntityDto<TKey>
     {

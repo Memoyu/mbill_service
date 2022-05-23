@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace mbill_service.Service.Base
 {
-    public abstract class CrudApplicationService<TEntity, TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput,
+    public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput,
             TUpdateInput>
-        : ApplicationSvc, ICrudApplicationService<TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput, TUpdateInput>
+        : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput, TUpdateInput>
         where TEntity : class, IEntity<TKey>
         where TGetOutputDto : IEntityDto<TKey>
         where TGetListOutputDto : IEntityDto<TKey>
@@ -20,7 +20,7 @@ namespace mbill_service.Service.Base
         /// </summary>
         protected IAuditBaseRepo<TEntity, TKey> Repository { get; }
 
-        protected CrudApplicationService(IAuditBaseRepo<TEntity, TKey> repository)
+        protected CrudApplicationSvc(IAuditBaseRepo<TEntity, TKey> repository)
         {
             Repository = repository;
         }
