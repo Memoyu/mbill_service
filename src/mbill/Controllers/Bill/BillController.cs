@@ -85,13 +85,13 @@ public class BillController : ApiControllerBase
     /// <summary>
     /// 获取日期范围内存在账单的日期
     /// </summary>
-    /// <param name="pagingDto">分页条件</param>
+    /// <param name="input">查询入参</param>
     [HttpGet("date/has-bill-days")]
     [LocalAuthorize("获取日期范围内存在账单的日期", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillDateWithTotalDto>>> RangeHasBillDaysAsync([FromQuery] RangeHasBillDaysInput pagingDto)
+    public async Task<ServiceResult<IEnumerable<BillDateWithTotalDto>>> RangeHasBillDaysAsync([FromQuery] RangeHasBillDaysInput input)
     {
-        return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billService.RangeHasBillDaysAsync(pagingDto));
+        return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billService.RangeHasBillDaysAsync(input));
     }
 
 

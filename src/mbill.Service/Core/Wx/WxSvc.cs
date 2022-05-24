@@ -23,7 +23,7 @@ public class WxSvc : IWxSvc
                 return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session响应失败 错误：{httpResponse.Content.ReadAsStringAsync()}");
             var content = await httpResponse.Content.ReadAsStringAsync();//获取响应内容
 #else
-        var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4 - QEB2eprYBLllCNf425J80\"}";
+        var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4-QEB2eprYBLllCNf425J80\"}";
 #endif
 
         var code2Session = content.FromJson<WxCode2SessionDto>();
