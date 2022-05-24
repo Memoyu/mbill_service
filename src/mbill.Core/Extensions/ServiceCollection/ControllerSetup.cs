@@ -14,7 +14,7 @@ public static class ControllerSetup
             .AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
-                opt.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:MM:ss";
+                opt.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                     //设置自定义时间戳格式
                     //opt.SerializerSettings.Converters = new List<JsonConverter>()
                     //{

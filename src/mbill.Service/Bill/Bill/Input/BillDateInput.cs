@@ -1,6 +1,6 @@
-﻿namespace mbill.Service.Bill.Statement.Output;
+﻿namespace mbill.Service.Bill.Bill.Input;
 
-public class BillDateInputDto
+public class BillDateInput
 {
     public int? Year { get; set; }
     public int? Month { get; set; }

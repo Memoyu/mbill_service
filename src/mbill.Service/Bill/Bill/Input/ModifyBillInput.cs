@@ -1,6 +1,6 @@
-﻿namespace mbill.Service.Bill.Statement.Input;
+﻿namespace mbill.Service.Bill.Bill.Input;
 
-public class ModifyBillDto
+public class ModifyBillInput
 {
     public long Id { get; set; }
     /// <summary>

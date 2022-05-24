@@ -130,35 +130,42 @@
             <param name="statement">账单信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetPagesAsync(mbill.Service.Bill.Statement.Output.BillPagingDto)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
+            <summary>
+            获取日期范围内存在账单的日期
+            </summary>
+            <param name="input">查询入参</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
             <summary>
             获取分页账单数据
             </summary>
             <param name="pageDto">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期各类型账单总额统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期支出分类统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取当前月份所有周的支出趋势统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto,System.Int32)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput,System.Int32)">
             <summary>
             获取当前月往前5个月的支出趋势统计
             </summary>
@@ -166,74 +173,104 @@
             <param name="count">月数</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.CategoryId">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.CategoryId">
             <summary>
             分类Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.AssetId">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetId">
             <summary>
             资产Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.TargetAssetId">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.TargetAssetId">
             <summary>
             目标资产Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Amount">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Amount">
             <summary>
             金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.AssetResidue">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetResidue">
             <summary>
             账户余额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Type">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Type">
             <summary>
             记录类型：支出、收入、转账、还款
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Description">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Description">
             <summary>
             说明
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Address">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Address">
             <summary>
             地点
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Province">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Province">
             <summary>
             地点:省
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.City">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.City">
             <summary>
             地点:市
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.District">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.District">
             <summary>
             地点:区/县
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Street">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Street">
             <summary>
             地点:街道/镇
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Year">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Year">
             <summary>
             记录日期：日期
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Statement.Input.ModifyBillDto.Time">
+        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Time">
             <summary>
             记录日期：时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.BeginDate">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.EndDate">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Day">
+            <summary>
+            日
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Total">
+            <summary>
+            账单总数
             </summary>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Core.Domains.Entities.Bill.CategoryEntity)">

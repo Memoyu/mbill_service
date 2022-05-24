@@ -1,4 +1,6 @@
-﻿namespace mbill.Controllers.Bill;
+﻿using mbill.Service.Bill.Bill.Input;
+
+namespace mbill.Controllers.Bill;
 
 /// <summary>
 /// 账单管理
@@ -9,12 +11,12 @@
 public class BillController : ApiControllerBase
 {
     private readonly IMapper _mapper;
-    private readonly IBillSvc _statementService;
+    private readonly IBillSvc _billService;
 
-    public BillController(IBillSvc statementService, IMapper mapper)
+    public BillController(IBillSvc billService, IMapper mapper)
     {
         _mapper = mapper;
-        _statementService = statementService;
+        _billService = billService;
     }
 
     /// <summary>
@@ -24,9 +26,9 @@ public class BillController : ApiControllerBase
     [Logger("用户新建了一条账单记录")]
     [HttpPost]
     [LocalAuthorize("新增", "账单")]
-    public async Task<ServiceResult<BillDto>> CreateAsync([FromBody] ModifyBillDto dto)
+    public async Task<ServiceResult<BillDto>> CreateAsync([FromBody] ModifyBillInput dto)
     {
-        var result = await _statementService.InsertAsync(_mapper.Map<BillEntity>(dto));
+        var result = await _billService.InsertAsync(_mapper.Map<BillEntity>(dto));
         return ServiceResult<BillDto>.Successed(result, "账单分类创建成功！");
     }
 
@@ -39,7 +41,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<BillDetailDto>> GetAsync([FromQuery] long id)
     {
-        return ServiceResult<BillDetailDto>.Successed(await _statementService.GetDetailAsync(id));
+        return ServiceResult<BillDetailDto>.Successed(await _billService.GetDetailAsync(id));
     }
 
     /// <summary> 
@@ -50,7 +52,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
     {
-        await _statementService.DeleteAsync(id);
+        await _billService.DeleteAsync(id);
         return ServiceResult.Successed("账单删除成功！");
     }
 
@@ -61,9 +63,9 @@ public class BillController : ApiControllerBase
     [HttpPut]
     [LocalAuthorize("更新", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyBillDto dto)
+    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyBillInput dto)
     {
-        await _statementService.UpdateAsync(_mapper.Map<BillEntity>(dto));
+        await _billService.UpdateAsync(_mapper.Map<BillEntity>(dto));
         return ServiceResult.Successed("账单更新成功！");
     }
 
@@ -74,10 +76,24 @@ public class BillController : ApiControllerBase
     [HttpGet("pages")]
     [LocalAuthorize("获取分页数据", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PagedDto<BillDto>>> GetStatementPagesAsync([FromQuery] BillPagingDto pagingDto)
+    public async Task<ServiceResult<PagedDto<BillDto>>> GetPagesAsync([FromQuery] BillPagingInput pagingDto)
     {
-        return ServiceResult<PagedDto<BillDto>>.Successed(await _statementService.GetPagesAsync(pagingDto));
+        return ServiceResult<PagedDto<BillDto>>.Successed(await _billService.GetPagesAsync(pagingDto));
     }
+
+
+    /// <summary>
+    /// 获取日期范围内存在账单的日期
+    /// </summary>
+    /// <param name="pagingDto">分页条件</param>
+    [HttpGet("date/has-bill-days")]
+    [LocalAuthorize("获取日期范围内存在账单的日期", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<IEnumerable<BillDateWithTotalDto>>> RangeHasBillDaysAsync([FromQuery] RangeHasBillDaysInput pagingDto)
+    {
+        return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billService.RangeHasBillDaysAsync(pagingDto));
+    }
+
 
     /// <summary>
     /// 获取指定日期各类型账单金额统计
@@ -86,9 +102,9 @@ public class BillController : ApiControllerBase
     [HttpGet("statistics/total")]
     [LocalAuthorize("获取各类型金额统计", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillTotalDto>> GetMonthStatisticsAsync([FromQuery] BillDateInputDto input)
+    public async Task<ServiceResult<BillTotalDto>> GetMonthStatisticsAsync([FromQuery] BillDateInput input)
     {
-        return ServiceResult<BillTotalDto>.Successed(await _statementService.GetStatisticsTotalAsync(input));
+        return ServiceResult<BillTotalDto>.Successed(await _billService.GetStatisticsTotalAsync(input));
     }
 
     /// <summary>
@@ -98,9 +114,9 @@ public class BillController : ApiControllerBase
     [HttpGet("statistics/expend/category")]
     [LocalAuthorize("获取日期内指定分类的数据", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillExpendCategoryDto>> GetExpendCategoryStatisticsAsync([FromQuery] BillDateInputDto input)
+    public async Task<ServiceResult<BillExpendCategoryDto>> GetExpendCategoryStatisticsAsync([FromQuery] BillDateInput input)
     {
-        return ServiceResult<BillExpendCategoryDto>.Successed(await _statementService.GetExpendCategoryStatisticsAsync(input));
+        return ServiceResult<BillExpendCategoryDto>.Successed(await _billService.GetExpendCategoryStatisticsAsync(input));
     }
 
     /// <summary>
@@ -110,9 +126,9 @@ public class BillController : ApiControllerBase
     [HttpGet("statistics/expend/trend/week")]
     [LocalAuthorize("获取周指定分类的趋势统计", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] BillDateInputDto input)
+    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] BillDateInput input)
     {
-        return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _statementService.GetWeekExpendTrendStatisticsAsync(input));
+        return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetWeekExpendTrendStatisticsAsync(input));
     }
 
     /// <summary>
@@ -122,9 +138,9 @@ public class BillController : ApiControllerBase
     [HttpGet("statistics/expend/trend/5month")]
     [LocalAuthorize("获取五个月指定分类的趋势统计", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] BillDateInputDto input)
+    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] BillDateInput input)
     {
-        return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _statementService.GetMonthExpendTrendStatisticsAsync(input, 5));
+        return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetMonthExpendTrendStatisticsAsync(input, 5));
     }
 
 }

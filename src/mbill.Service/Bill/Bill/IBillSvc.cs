@@ -1,4 +1,6 @@
-﻿namespace mbill.Service.Bill.Statement;
+﻿using mbill.Service.Bill.Bill.Input;
+
+namespace mbill.Service.Bill.Statement;
 
 public interface IBillSvc
 {
@@ -31,33 +33,41 @@ public interface IBillSvc
     /// <returns></returns>
     Task UpdateAsync(BillEntity statement);
 
+
+    /// <summary>
+    /// 获取日期范围内存在账单的日期
+    /// </summary>
+    /// <param name="input">查询入参</param>
+    /// <returns></returns>
+    Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input);
+
     /// <summary>
     /// 获取分页账单数据
     /// </summary>
     /// <param name="pageDto">分页查询</param>
     /// <returns></returns>
-    Task<PagedDto<BillDto>> GetPagesAsync(BillPagingDto pageDto);
+    Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto);
 
     /// <summary>
     /// 获取指定日期各类型账单总额统计
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInputDto input);
+    Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input);
 
     /// <summary>
     /// 获取指定日期支出分类统计
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInputDto input);
+    Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInput input);
 
     /// <summary>
     /// 获取当前月份所有周的支出趋势统计
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<IEnumerable<BillExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(BillDateInputDto input);
+    Task<IEnumerable<BillExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(BillDateInput input);
 
     /// <summary>
     /// 获取当前月往前5个月的支出趋势统计
@@ -65,6 +75,6 @@ public interface IBillSvc
     /// <param name="input"></param>
     /// <param name="count">月数</param>
     /// <returns></returns>
-    Task<IEnumerable<BillExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(BillDateInputDto input, int count);
+    Task<IEnumerable<BillExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(BillDateInput input, int count);
 
 }

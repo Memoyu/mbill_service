@@ -1,9 +1,7 @@
-﻿namespace mbill.Service.Bill.Statement.Output;
+﻿namespace mbill.Service.Bill.Bill.Input;
 
-public class BillPagingDto : PagingDto
+public class BillPagingInput : PagingDto
 {
-    public long? UserId { get; set; }
-
     public int? Year { get; set; }
 
     public int? Month { get; set; }

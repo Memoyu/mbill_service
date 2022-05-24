@@ -53,23 +53,43 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dto;
     }
 
-    public async Task<PagedDto<BillDto>> GetPagesAsync(BillPagingDto pageDto)
+    public async Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)
     {
-        // pageDto.UserId = pageDto.UserId ?? CurrentUser.Id;
-        pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "Time DESC" : pageDto.Sort.Replace("-", " ");
-        var statements = await _billRepo
+        var begin = input.BeginDate.FirstDayOfMonth();
+        var end = input.EndDate.LastDayOfMonth();
+        var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .WhereIf(pageDto.UserId != null, s => s.CreateUserId == pageDto.UserId)
-            .WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
-            .WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
-            .WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
+            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.Time <= end && s.Time >= begin)
+            .ToListAsync();
+        var dtos = bills.GroupBy(b => b.Time.Date).Select(
+            g => new BillDateWithTotalDto
+            {
+                Year = g.Key.Year,
+                Month = g.Key.Month,
+                Day = g.Key.Day,
+                Total = g.Count(),
+            });
+        return dtos;
+    }
+
+    public async Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto)
+    {
+        pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "Time DESC" : pageDto.Sort.Replace("-", " ");
+        var bills = await _billRepo
+            .Select
+            .Where(s => s.IsDeleted == false)
+            .Where(s => s.CreateUserId == CurrentUser.Id)
+            //.WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
+            //.WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
+            //.WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
             .WhereIf(pageDto.Type.IsNotNullOrEmpty(), s => s.Type == pageDto.Type)
             .WhereIf(pageDto.CategoryId != null, s => s.CategoryId == pageDto.CategoryId)
             .WhereIf(pageDto.AssetId != null, s => s.AssetId == pageDto.AssetId)
             .OrderBy(pageDto.Sort)
             .ToPageListAsync(pageDto, out long totalCount);
-        List<BillDto> statementDtos = statements
+        List<BillDto> billDtos = bills
             .Select(s =>
             {
                 var dto = MapToDto<BillDto>(s);
@@ -77,18 +97,18 @@ public class BillSvc : ApplicationSvc, IBillSvc
             })
             .ToList();
 
-        return new PagedDto<BillDto>(statementDtos, totalCount);
+        return new PagedDto<BillDto>(billDtos, totalCount);
     }
 
-    public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInputDto input)
+    public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input)
     {
         // var userId = input.UserId ?? CurrentUser.Id;
         var statements = await _billRepo
            .Select
            .Where(s => s.IsDeleted == false)
            .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-           .WhereIf(input.Year != null, s => s.Year == input.Year)
-           .WhereIf(input.Month != null, s => s.Month == input.Month)
+           //.WhereIf(input.Year != null, s => s.Year == input.Year)
+           //.WhereIf(input.Month != null, s => s.Month == input.Month)
            .ToListAsync();
         var dto = new BillTotalDto();
         statements.ForEach(s =>
@@ -108,29 +128,29 @@ public class BillSvc : ApplicationSvc, IBillSvc
                     dto.MonthTransfer += s.Amount;
                     break;
             }
-            if (input.Day != null && input.Day == s.Day)
-            {
-                switch (s.Type)
-                {
-                    case "expend":
-                        dto.DayExpend += s.Amount;
-                        break;
-                    case "income":
-                        dto.DayIcome += s.Amount;
-                        break;
-                    case "repayment":
-                        dto.DayRepayment += s.Amount;
-                        break;
-                    case "transfer":
-                        dto.DayTransfer += s.Amount;
-                        break;
-                }
-            }
+            //if (input.Day != null && input.Day == s.Day)
+            //{
+            //    switch (s.Type)
+            //    {
+            //        case "expend":
+            //            dto.DayExpend += s.Amount;
+            //            break;
+            //        case "income":
+            //            dto.DayIcome += s.Amount;
+            //            break;
+            //        case "repayment":
+            //            dto.DayRepayment += s.Amount;
+            //            break;
+            //        case "transfer":
+            //            dto.DayTransfer += s.Amount;
+            //            break;
+            //    }
+            //}
         });
         return dto;
     }
 
-    public async Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInputDto input)
+    public async Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInput input)
     {
         var dto = new BillExpendCategoryDto();
         var statements = await _billRepo
@@ -138,9 +158,9 @@ public class BillSvc : ApplicationSvc, IBillSvc
            .Where(s => s.IsDeleted == false)
            .Where(s => s.Type.Equals("expend"))
            .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-           .WhereIf(input.Year != null, s => s.Year == input.Year)
-           .WhereIf(input.Month != null, s => s.Month == input.Month)
-           .WhereIf(input.Day != null, s => s.Day == input.Day)
+           //.WhereIf(input.Year != null, s => s.Year == input.Year)
+           //.WhereIf(input.Month != null, s => s.Month == input.Month)
+           //.WhereIf(input.Day != null, s => s.Day == input.Day)
            .ToListAsync();
         decimal total = 0;
         // 根据CategoryId分组，并统计总额
@@ -186,7 +206,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dto;
     }
 
-    public async Task<IEnumerable<BillExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(BillDateInputDto input)
+    public async Task<IEnumerable<BillExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(BillDateInput input)
     {
 
         var dateList = DateTimeUtil.GetWeeksOfMonth(input.Year.Value, input.Month.Value);
@@ -198,7 +218,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
           .Where(s => s.IsDeleted == false)
           .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
           .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-          .WhereIf(input.Year != null, s => s.Year == input.Year)
+          //.WhereIf(input.Year != null, s => s.Year == input.Year)
           .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate)
           .ToListAsync();
 
@@ -213,7 +233,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dtos;
     }
 
-    public async Task<IEnumerable<BillExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(BillDateInputDto input, int count)
+    public async Task<IEnumerable<BillExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(BillDateInput input, int count)
     {
         var dateList = new List<WeeksOfMonth>();
         // 获取当前月份前count个月份（包含当前月份）
@@ -236,14 +256,14 @@ public class BillSvc : ApplicationSvc, IBillSvc
          .Where(s => s.IsDeleted == false)
          .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
          .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-         .WhereIf(input.Year != null, s => s.Year >= startDate.Year && s.Year <= EndDate.Year)
+         // .WhereIf(input.Year != null, s => s.Year >= startDate.Year && s.Year <= EndDate.Year)
          .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate.AddDays(1).AddSeconds(-1))
          .ToListAsync();
 
         var dtos = dateList.Select(d => new BillExpendTrendDto
         {
             Name = $"{d.StartDate.Year}/{d.StartDate.Month}",
-            Data = bills.Where(s => s.Year == d.StartDate.Year && s.Month == d.StartDate.Month).Select(t => new { t.Amount }).Sum(t => t.Amount),
+            // Data = bills.Where(s => s.Year == d.StartDate.Year && s.Month == d.StartDate.Month).Select(t => new { t.Amount }).Sum(t => t.Amount),
             StartDate = d.StartDate.Date,
             EndDate = d.EndDate.Date
         });

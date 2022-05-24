@@ -81,21 +81,6 @@ public class BillEntity : FullAduitEntity
     public string Street { get; set; }
 
     /// <summary>
-    /// 记录日期：年
-    /// </summary>
-    public int Year { get; set; }
-
-    /// <summary>
-    /// 记录日期：月
-    /// </summary>
-    public int Month { get; set; }
-
-    /// <summary>
-    /// 记录日期：日
-    /// </summary>
-    public int Day { get; set; }
-
-    /// <summary>
     /// 记录日期：时间
     /// </summary>
     [Column(StringLength = 10)]

@@ -208,7 +208,7 @@
             账单管理
             </summary>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.CreateAsync(mbill.Service.Bill.Statement.Input.ModifyBillDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.CreateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             新增账单
             </summary>
@@ -226,37 +226,43 @@
             </summary>
             <param name="id">账单id</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.UpdateAsync(mbill.Service.Bill.Statement.Input.ModifyBillDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.UpdateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             更新账单信息
             </summary>
             <param name="dto">账单信息</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.GetStatementPagesAsync(mbill.Service.Bill.Statement.Output.BillPagingDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
             <summary>
             获取账单分页信息
             </summary>
             <param name="pagingDto">分页条件</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.GetMonthStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
+            <summary>
+            获取日期范围内存在账单的日期
+            </summary>
+            <param name="pagingDto">分页条件</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetMonthStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期各类型账单金额统计
             </summary>
             <param name="input">入参</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期支出分类统计
             </summary>
             <param name="input">查询入参</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取当前月份所有周的支出趋势统计
             </summary>
             <param name="input">查询入参</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Statement.Output.BillDateInputDto)">
+        <member name="M:mbill.Controllers.Bill.BillController.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取当前月往前4个月的支出趋势统计(共5个月)
             </summary>

@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Statement.Output;
+﻿namespace mbill.Service.Bill.Bill.Output;
 
 public class BillExpendCategoryDto
 {

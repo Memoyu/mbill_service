@@ -4,7 +4,7 @@ public class BillMapper : Profile
 {
     public BillMapper()
     {
-        CreateMap<ModifyBillDto, BillEntity>()
+        CreateMap<ModifyBillInput, BillEntity>()
             .ForMember(dest => dest.Time, opt => opt.MapFrom(src => DateTime.Parse($"{src.Year}-{src.Month}-{src.Day} {src.Time}")));
 
         CreateMap<BillEntity, BillDto>()
