@@ -94,6 +94,17 @@ public class BillController : ApiControllerBase
         return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billService.RangeHasBillDaysAsync(input));
     }
 
+    /// <summary>
+    /// 获取指定月份账单总金额
+    /// </summary>
+    /// <param name="input">入参</param>
+    [HttpGet("stat/month-total")]
+    [LocalAuthorize("获取指定月份账单总金额", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<MonthTotalStatOutput>> GetMonthTotalStatAsync([FromQuery] MonthTotalStatInput input)
+    {
+        return ServiceResult<MonthTotalStatOutput>.Successed(await _billService.GetMonthTotalStatAsync(input));
+    }
 
     /// <summary>
     /// 获取指定日期各类型账单金额统计

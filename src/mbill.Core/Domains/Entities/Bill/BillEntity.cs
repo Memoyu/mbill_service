@@ -41,8 +41,8 @@ public class BillEntity : FullAduitEntity
     /// <summary>
     /// 记录类型：支出、收入、转账、还款
     /// </summary>
-    [Column(StringLength = 10, IsNullable = false)]
-    public string Type { get; set; }
+    [Column(IsNullable = false)]
+    public int Type { get; set; }
 
     /// <summary>
     /// 说明

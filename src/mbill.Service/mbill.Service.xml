@@ -130,6 +130,13 @@
             <param name="statement">账单信息</param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
+            <summary>
+            获取分页账单数据
+            </summary>
+            <param name="pageDto">分页查询</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Statement.IBillSvc.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
             <summary>
             获取日期范围内存在账单的日期
@@ -137,11 +144,11 @@
             <param name="input">查询入参</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthTotalStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalStatInput)">
             <summary>
-            获取分页账单数据
+            获取指定月份账单总金额
             </summary>
-            <param name="pageDto">分页查询</param>
+            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
@@ -243,6 +250,11 @@
             记录日期：时间
             </summary>
         </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Month">
+            <summary>
+            指定的年月
+            </summary>
+        </member>
         <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.BeginDate">
             <summary>
             起始时间
@@ -271,6 +283,16 @@
         <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Total">
             <summary>
             账单总数
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatOutput.Income">
+            <summary>
+            收入（格式化后）
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatOutput.Expend">
+            <summary>
+            支出（格式化后）
             </summary>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Core.Domains.Entities.Bill.CategoryEntity)">

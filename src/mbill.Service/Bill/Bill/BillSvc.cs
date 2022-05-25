@@ -53,6 +53,32 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dto;
     }
 
+    public async Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto)
+    {
+        pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "Time DESC" : pageDto.Sort.Replace("-", " ");
+        var bills = await _billRepo
+            .Select
+            .Where(s => s.IsDeleted == false)
+            .Where(s => s.CreateUserId == CurrentUser.Id)
+            //.WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
+            //.WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
+            //.WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
+            // .WhereIf(pageDto.Type.IsNotNullOrEmpty(), s => s.Type == pageDto.Type)
+            .WhereIf(pageDto.CategoryId != null, s => s.CategoryId == pageDto.CategoryId)
+            .WhereIf(pageDto.AssetId != null, s => s.AssetId == pageDto.AssetId)
+            .OrderBy(pageDto.Sort)
+            .ToPageListAsync(pageDto, out long totalCount);
+        List<BillDto> billDtos = bills
+            .Select(s =>
+            {
+                var dto = MapToDto<BillDto>(s);
+                return dto;
+            })
+            .ToList();
+
+        return new PagedDto<BillDto>(billDtos, totalCount);
+    }
+
     public async Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)
     {
         var begin = input.BeginDate.FirstDayOfMonth();
@@ -74,30 +100,36 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dtos;
     }
 
-    public async Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto)
+    public async Task<MonthTotalStatOutput> GetMonthTotalStatAsync(MonthTotalStatInput input)
     {
-        pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "Time DESC" : pageDto.Sort.Replace("-", " ");
+        var begin = input.Month.FirstDayOfMonth();
+        var end = input.Month.LastDayOfMonth();
         var bills = await _billRepo
-            .Select
-            .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
-            //.WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
-            //.WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
-            //.WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
-            .WhereIf(pageDto.Type.IsNotNullOrEmpty(), s => s.Type == pageDto.Type)
-            .WhereIf(pageDto.CategoryId != null, s => s.CategoryId == pageDto.CategoryId)
-            .WhereIf(pageDto.AssetId != null, s => s.AssetId == pageDto.AssetId)
-            .OrderBy(pageDto.Sort)
-            .ToPageListAsync(pageDto, out long totalCount);
-        List<BillDto> billDtos = bills
-            .Select(s =>
-            {
-                var dto = MapToDto<BillDto>(s);
-                return dto;
-            })
-            .ToList();
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.Time <= end && s.Time >= begin)
+               .ToListAsync();
 
-        return new PagedDto<BillDto>(billDtos, totalCount);
+        var expend = 0m;
+        var income = 0m;
+        bills.ForEach( b => 
+        {
+            if (b.Type == (int)BillTypeEnum.expend)
+            {
+                expend += b.Amount;
+            }
+            else if (b.Type == (int)BillTypeEnum.income)
+            {
+                income += b.Amount;
+            }
+        });
+
+        return new MonthTotalStatOutput 
+        {
+            Expend = expend.ToString("N"),
+            Income = income.ToString("N")
+        };
     }
 
     public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input)
@@ -115,18 +147,18 @@ public class BillSvc : ApplicationSvc, IBillSvc
         {
             switch (s.Type)
             {
-                case "expend":
-                    dto.MonthExpend += s.Amount;
-                    break;
-                case "income":
-                    dto.MonthIcome += s.Amount;
-                    break;
-                case "repayment":
-                    dto.MonthRepayment += s.Amount;
-                    break;
-                case "transfer":
-                    dto.MonthTransfer += s.Amount;
-                    break;
+                //case "expend":
+                //    dto.MonthExpend += s.Amount;
+                //    break;
+                //case "income":
+                //    dto.MonthIcome += s.Amount;
+                //    break;
+                //case "repayment":
+                //    dto.MonthRepayment += s.Amount;
+                //    break;
+                //case "transfer":
+                //    dto.MonthTransfer += s.Amount;
+                //    break;
             }
             //if (input.Day != null && input.Day == s.Day)
             //{
@@ -216,7 +248,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var statements = await _billRepo
           .Select
           .Where(s => s.IsDeleted == false)
-          .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
+          //.WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
           .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
           //.WhereIf(input.Year != null, s => s.Year == input.Year)
           .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate)
@@ -254,7 +286,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bills = await _billRepo
          .Select
          .Where(s => s.IsDeleted == false)
-         .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
+         // .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
          .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
          // .WhereIf(input.Year != null, s => s.Year >= startDate.Year && s.Year <= EndDate.Year)
          .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate.AddDays(1).AddSeconds(-1))
@@ -308,7 +340,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             dto.TargetAssetName = targetAsset.Name;
         }
         dto.AssetName = asset.Name;
-        dto.TypeName = Switcher.StatementType(bill.Type);
+        // dto.TypeName = Switcher.StatementType(bill.Type);
 
         return dto;
     }

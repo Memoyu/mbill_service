@@ -33,6 +33,12 @@ public interface IBillSvc
     /// <returns></returns>
     Task UpdateAsync(BillEntity statement);
 
+    /// <summary>
+    /// 获取分页账单数据
+    /// </summary>
+    /// <param name="pageDto">分页查询</param>
+    /// <returns></returns>
+    Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto);
 
     /// <summary>
     /// 获取日期范围内存在账单的日期
@@ -42,11 +48,11 @@ public interface IBillSvc
     Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input);
 
     /// <summary>
-    /// 获取分页账单数据
+    /// 获取指定月份账单总金额
     /// </summary>
-    /// <param name="pageDto">分页查询</param>
+    /// <param name="input"></param>
     /// <returns></returns>
-    Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto);
+    Task<MonthTotalStatOutput> GetMonthTotalStatAsync(MonthTotalStatInput input);
 
     /// <summary>
     /// 获取指定日期各类型账单总额统计
