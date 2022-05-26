@@ -9,7 +9,7 @@ public static class FreeSqlExtension
 {
     public static ISelect<TEntity> ToPage<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
     {
-        return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size);
+        return source.Count(out count).Page(pageDto.Page, pageDto.Size);
     }
 
     /// <summary>
@@ -22,7 +22,7 @@ public static class FreeSqlExtension
     /// <returns></returns>
     public static List<TEntity> ToPageList<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
     {
-        return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToList();
+        return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToList();
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public static class FreeSqlExtension
     /// <returns></returns>
     public static Task<List<TEntity>> ToPageListAsync<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
     {
-        return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToListAsync();
+        return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToListAsync();
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ public static class FreeSqlExtension
     /// <returns></returns>
     public static List<TResult> ToPageList<TEntity, TResult>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
     {
-        return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToList<TResult>();
+        return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToList<TResult>();
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public static class FreeSqlExtension
     /// <returns></returns>
     public static Task<List<TResult>> ToPageListAsync<TEntity, TResult>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
     {
-        return source.Count(out count).Page(pageDto.Page + 1, pageDto.Size).ToListAsync<TResult>();
+        return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToListAsync<TResult>();
     }
 
     public static FreeSqlBuilder UseConnectionString(this FreeSqlBuilder builder, IConfiguration configuration)

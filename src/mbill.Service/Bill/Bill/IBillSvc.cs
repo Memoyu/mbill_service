@@ -36,9 +36,9 @@ public interface IBillSvc
     /// <summary>
     /// 获取分页账单数据
     /// </summary>
-    /// <param name="pageDto">分页查询</param>
+    /// <param name="input">分页查询</param>
     /// <returns></returns>
-    Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto);
+    Task<PagedDto<BillGroupByDayDto>> GetMonthPagesAsync(MonthBillPagingInput input);
 
     /// <summary>
     /// 获取日期范围内存在账单的日期

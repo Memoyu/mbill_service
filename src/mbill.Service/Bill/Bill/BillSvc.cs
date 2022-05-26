@@ -53,30 +53,39 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dto;
     }
 
-    public async Task<PagedDto<BillDto>> GetPagesAsync(BillPagingInput pageDto)
+    public async Task<PagedDto<BillGroupByDayDto>> GetMonthPagesAsync(MonthBillPagingInput input)
     {
-        pageDto.Sort = pageDto.Sort.IsNullOrEmpty() ? "Time DESC" : pageDto.Sort.Replace("-", " ");
+        input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserId == CurrentUser.Id)
-            //.WhereIf(pageDto.Year != null, s => s.Year == pageDto.Year)
-            //.WhereIf(pageDto.Month != null, s => s.Month == pageDto.Month)
-            //.WhereIf(pageDto.Day != null, s => s.Day == pageDto.Day)
-            // .WhereIf(pageDto.Type.IsNotNullOrEmpty(), s => s.Type == pageDto.Type)
-            .WhereIf(pageDto.CategoryId != null, s => s.CategoryId == pageDto.CategoryId)
-            .WhereIf(pageDto.AssetId != null, s => s.AssetId == pageDto.AssetId)
-            .OrderBy(pageDto.Sort)
-            .ToPageListAsync(pageDto, out long totalCount);
-        List<BillDto> billDtos = bills
-            .Select(s =>
+            .Where(s => s.Time.Year == input.Month.Year && s.Time.Month == input.Month.Month)
+            .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
+            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
+            .WhereIf(input.AssetId.HasValue, s => s.AssetId == input.AssetId)
+            .OrderBy(input.Sort)
+            .ToPageListAsync(input, out long totalCount);
+
+        List<BillGroupByDayDto> dtos = bills.GroupBy(b => b.Time.Date).Select(b =>
             {
-                var dto = MapToDto<BillDto>(s);
+                var dto = new BillGroupByDayDto();
+                dto.Day = b.Key.Day;
+                dto.Week = b.Key.GetWeek();
+                foreach (var i in b)
+                {
+                    var item = Mapper.Map<BillSimpleDto>(i);
+                    item.Time = i.Time.ToString("HH:mm");
+                    var category = _categoryRepo.Get(i.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
+                    item.Category = category.Name;
+                    item.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+                    dto.Items.Add(item);
+                }
                 return dto;
             })
             .ToList();
 
-        return new PagedDto<BillDto>(billDtos, totalCount);
+        return new PagedDto<BillGroupByDayDto>(dtos, totalCount);
     }
 
     public async Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)
@@ -113,7 +122,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         var expend = 0m;
         var income = 0m;
-        bills.ForEach( b => 
+        bills.ForEach(b =>
         {
             if (b.Type == (int)BillTypeEnum.expend)
             {
@@ -125,7 +134,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             }
         });
 
-        return new MonthTotalStatOutput 
+        return new MonthTotalStatOutput
         {
             Expend = expend.ToString("N"),
             Income = income.ToString("N")

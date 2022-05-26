@@ -11,12 +11,12 @@ namespace mbill.Controllers.Bill;
 public class BillController : ApiControllerBase
 {
     private readonly IMapper _mapper;
-    private readonly IBillSvc _billService;
+    private readonly IBillSvc _billSvc;
 
     public BillController(IBillSvc billService, IMapper mapper)
     {
         _mapper = mapper;
-        _billService = billService;
+        _billSvc = billService;
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ public class BillController : ApiControllerBase
     [LocalAuthorize("新增", "账单")]
     public async Task<ServiceResult<BillDto>> CreateAsync([FromBody] ModifyBillInput dto)
     {
-        var result = await _billService.InsertAsync(_mapper.Map<BillEntity>(dto));
+        var result = await _billSvc.InsertAsync(_mapper.Map<BillEntity>(dto));
         return ServiceResult<BillDto>.Successed(result, "账单分类创建成功！");
     }
 
@@ -41,7 +41,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<BillDetailDto>> GetAsync([FromQuery] long id)
     {
-        return ServiceResult<BillDetailDto>.Successed(await _billService.GetDetailAsync(id));
+        return ServiceResult<BillDetailDto>.Successed(await _billSvc.GetDetailAsync(id));
     }
 
     /// <summary> 
@@ -52,7 +52,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
     {
-        await _billService.DeleteAsync(id);
+        await _billSvc.DeleteAsync(id);
         return ServiceResult.Successed("账单删除成功！");
     }
 
@@ -65,20 +65,20 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> UpdateAsync([FromBody] ModifyBillInput dto)
     {
-        await _billService.UpdateAsync(_mapper.Map<BillEntity>(dto));
+        await _billSvc.UpdateAsync(_mapper.Map<BillEntity>(dto));
         return ServiceResult.Successed("账单更新成功！");
     }
 
     /// <summary>
-    /// 获取账单分页信息
+    /// 获取指定月份日分组分页账单
     /// </summary>
-    /// <param name="pagingDto">分页条件</param>
-    [HttpGet("pages")]
-    [LocalAuthorize("获取分页数据", "账单")]
+    /// <param name="input">分页条件</param>
+    [HttpGet("month/pages")]
+    [LocalAuthorize("获取指定月份日分组分页账单", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PagedDto<BillDto>>> GetPagesAsync([FromQuery] BillPagingInput pagingDto)
+    public async Task<ServiceResult<PagedDto<BillGroupByDayDto>>> GetMonthPagesAsync([FromQuery] MonthBillPagingInput input)
     {
-        return ServiceResult<PagedDto<BillDto>>.Successed(await _billService.GetPagesAsync(pagingDto));
+        return ServiceResult<PagedDto<BillGroupByDayDto>>.Successed(await _billSvc.GetMonthPagesAsync(input));
     }
 
 
@@ -91,7 +91,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<BillDateWithTotalDto>>> RangeHasBillDaysAsync([FromQuery] RangeHasBillDaysInput input)
     {
-        return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billService.RangeHasBillDaysAsync(input));
+        return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billSvc.RangeHasBillDaysAsync(input));
     }
 
     /// <summary>
@@ -103,10 +103,10 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<MonthTotalStatOutput>> GetMonthTotalStatAsync([FromQuery] MonthTotalStatInput input)
     {
-        return ServiceResult<MonthTotalStatOutput>.Successed(await _billService.GetMonthTotalStatAsync(input));
+        return ServiceResult<MonthTotalStatOutput>.Successed(await _billSvc.GetMonthTotalStatAsync(input));
     }
 
-    /// <summary>
+    /*/// <summary>
     /// 获取指定日期各类型账单金额统计
     /// </summary>
     /// <param name="input">入参</param>
@@ -152,6 +152,6 @@ public class BillController : ApiControllerBase
     public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] BillDateInput input)
     {
         return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetMonthExpendTrendStatisticsAsync(input, 5));
-    }
+    }*/
 
 }

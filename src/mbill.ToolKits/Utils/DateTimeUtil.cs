@@ -2,6 +2,8 @@
 
 public static class DateTimeUtil
 {
+   private static string[] Weeks = new string[7] { "周日", "周一", "周二", "周三", "周四", "周五", "周六" };
+
     /// <summary>
     /// 取得某月的第一天
     /// </summary>
@@ -40,6 +42,16 @@ public static class DateTimeUtil
     public static DateTime LastDayOfPrdviousMonth(this DateTime datetime)
     {
         return datetime.AddDays(1 - datetime.Day).AddDays(-1);
+    }
+
+    /// <summary>
+    /// 获取日期是周几
+    /// </summary>
+    /// <param name="datetime"></param>
+    /// <returns></returns>
+    public static string GetWeek(this DateTime datetime)
+    {
+       return Weeks[Convert.ToInt16(datetime.DayOfWeek)];
     }
 
     /// <summary>

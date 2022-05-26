@@ -130,11 +130,11 @@
             <param name="statement">账单信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
             获取分页账单数据
             </summary>
-            <param name="pageDto">分页查询</param>
+            <param name="input">分页查询</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Statement.IBillSvc.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
@@ -179,6 +179,26 @@
             <param name="input"></param>
             <param name="count">月数</param>
             <returns></returns>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Month">
+            <summary>
+            指定的年月
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Type">
+            <summary>
+            账单类型
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryId">
+            <summary>
+            账单分类
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetId">
+            <summary>
+            账单账户
+            </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.CategoryId">
             <summary>

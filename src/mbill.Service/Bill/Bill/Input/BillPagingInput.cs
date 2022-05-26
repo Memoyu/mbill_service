@@ -1,17 +1,25 @@
 ﻿namespace mbill.Service.Bill.Bill.Input;
 
-public class BillPagingInput : PagingDto
+public class MonthBillPagingInput : PagingDto
 {
-    public int? Year { get; set; }
+    /// <summary>
+    /// 指定的年月
+    /// </summary>
+    public DateTime Month { get; set; }
 
-    public int? Month { get; set; }
+    /// <summary>
+    /// 账单类型
+    /// </summary>
+    public int? Type { get; set; }
 
-    public int? Day { get; set; }
-
-    public string Type { get; set; }
-
+    /// <summary>
+    /// 账单分类
+    /// </summary>
     public long? CategoryId { get; set; }
 
+    /// <summary>
+    /// 账单账户
+    /// </summary>
     public long? AssetId { get; set; }
 
 }
