@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Bill.Bill.Output;
 
-public class BillDto : MapDto
+public class BillDto
 {
     public long Id { get; set; }
 
@@ -14,7 +14,7 @@ public class BillDto : MapDto
 
     public decimal AssetResidue { get; set; }
 
-    public string Type { get; set; }
+    public int Type { get; set; }
 
     public string Description { get; set; }
 
@@ -27,12 +27,6 @@ public class BillDto : MapDto
     public string Street { get; set; }
 
     public string Address { get; set; }
-
-    public int Year { get; set; }
-
-    public int Month { get; set; }
-
-    public int Day { get; set; }
 
     public string Time { get; set; }
 }

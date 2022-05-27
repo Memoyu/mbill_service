@@ -2,7 +2,13 @@
 
 public class BillDetailDto : BillDto
 {
-    public string categoryParentName { get; set; }
+    public string Asset { get; set; }
 
-    public string assetParentName { get; set; }
+    public string Category { get; set; }
+
+    public string CategoryIcon { get; set; }
+
+    public string AmountFormat { get; set; }
+
+    public string TimeFormat { get; set; }
 }

@@ -26,10 +26,10 @@ public class BillController : ApiControllerBase
     [Logger("用户新建了一条账单记录")]
     [HttpPost]
     [LocalAuthorize("新增", "账单")]
-    public async Task<ServiceResult<BillDto>> CreateAsync([FromBody] ModifyBillInput dto)
+    public async Task<ServiceResult<string>> CreateAsync([FromBody] ModifyBillInput dto)
     {
         var result = await _billSvc.InsertAsync(_mapper.Map<BillEntity>(dto));
-        return ServiceResult<BillDto>.Successed(result, "账单分类创建成功！");
+        return ServiceResult<string>.Successed(result, "账单分类创建成功！");
     }
 
     /// <summary>

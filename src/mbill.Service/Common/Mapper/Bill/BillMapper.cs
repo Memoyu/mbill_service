@@ -4,13 +4,15 @@ public class BillMapper : Profile
 {
     public BillMapper()
     {
-        CreateMap<ModifyBillInput, BillEntity>()
-            .ForMember(dest => dest.Time, opt => opt.MapFrom(src => DateTime.Parse($"{src.Year}-{src.Month}-{src.Day} {src.Time}")));
+        CreateMap<ModifyBillInput, BillEntity>();
 
         CreateMap<BillEntity, BillDto>();
 
-        CreateMap<BillEntity, BillSimpleDto>();
+        CreateMap<BillEntity, BillSimpleDto>()
+            .ForMember(dest => dest.Amount, opt => opt.MapFrom(src => src.Amount.AmountFormat()));
 
-        CreateMap<BillEntity, BillDetailDto>();
+        CreateMap<BillEntity, BillDetailDto>()
+            .ForMember(dest => dest.AmountFormat, opt => opt.MapFrom(src => src.Amount.AmountFormat()))
+            .ForMember(dest => dest.TimeFormat, opt => opt.MapFrom(src => $"{src.Time.GetWeek()} {src.Time:yyyy-MM-dd HH:mm}"));
     }
 }

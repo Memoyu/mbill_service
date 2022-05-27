@@ -9,7 +9,7 @@ public interface IBillSvc
     /// </summary>
     /// <param name="statement">数据源</param>
     /// <returns></returns>
-    Task<BillDto> InsertAsync(BillEntity statement);
+    Task<string> InsertAsync(BillEntity statement);
 
     /// <summary>
     /// 获取账单详情

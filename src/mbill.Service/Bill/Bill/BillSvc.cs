@@ -19,12 +19,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
         _fileRepo = fileRepo;
     }
 
-    public async Task<BillDto> InsertAsync(BillEntity bill)
+    public async Task<string> InsertAsync(BillEntity bill)
     {
         var entity = await _billRepo.InsertAsync(bill);
         if (entity == null) throw new KnownException("新增账单失败！", ServiceResultCode.Failed);
-        var statementDto = MapToDto<BillDto>(entity);
-        return statementDto;
+        return "";
     }
 
     public async Task DeleteAsync(long id)
@@ -45,11 +44,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<BillDetailDto> GetDetailAsync(long id)
     {
         var bill = await _billRepo.GetAsync(id);
-        var dto = MapToDto<BillDetailDto>(bill);
-        var assetDto = await _assetRepo.GetAssetParentAsync(dto.AssetId);
-        var categoryDto = await _categoryRepo.GetCategoryParentAsync(dto.CategoryId);
-        dto.assetParentName = assetDto?.Name;
-        dto.categoryParentName = categoryDto?.Name;
+        var dto = Mapper.Map<BillDetailDto>(bill);
+        var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
+        var assetDto = await _assetRepo.GetAssetAsync(dto.AssetId) ?? throw new KnownException("账单账户数据查询失败！", ServiceResultCode.NotFound);
+        dto.Asset = assetDto.Name;
+        dto.Category = category.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
         return dto;
     }
 
@@ -166,8 +166,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         return new MonthTotalStatOutput
         {
-            Expend = expend.ToString("N"),
-            Income = income.ToString("N")
+            Expend = expend.AmountFormat(),
+            Income = income.AmountFormat()
         };
     }
 
