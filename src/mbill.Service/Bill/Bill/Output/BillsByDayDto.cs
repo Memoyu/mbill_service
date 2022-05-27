@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Bill.Bill.Output;
 
-public class BillGroupByDayDto
+public class BillsByDayDto
 {
     public int Day { get; set; }
 

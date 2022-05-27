@@ -53,7 +53,37 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dto;
     }
 
-    public async Task<PagedDto<BillGroupByDayDto>> GetMonthPagesAsync(MonthBillPagingInput input)
+    public async Task<BillsByDayDto> GetByDayAsync(DayBillInput input)
+    {
+        var begin = input.Date.Date;
+        var end = begin.AddDays(1).AddSeconds(-1);
+        var bills = await _billRepo
+            .Select
+            .Where(s => s.IsDeleted == false)
+            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.Time >= begin && s.Time <= end)
+            .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
+            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
+            .WhereIf(input.AssetId.HasValue, s => s.AssetId == input.AssetId)
+            .OrderBy("time DESC")
+            .ToListAsync();
+
+        var dto = new BillsByDayDto();
+        dto.Day = begin.Day;
+        dto.Week = begin.GetWeek();
+        foreach (var i in bills)
+        {
+            var item = Mapper.Map<BillSimpleDto>(i);
+            item.Time = i.Time.ToString("HH:mm");
+            var category = _categoryRepo.Get(i.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
+            item.Category = category.Name;
+            item.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+            dto.Items.Add(item);
+        }
+        return dto;
+    }
+
+    public async Task<PagedDto<BillsByDayDto>> GetByMonthPagesAsync(MonthBillPagingInput input)
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
         var bills = await _billRepo
@@ -67,9 +97,9 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
 
-        List<BillGroupByDayDto> dtos = bills.GroupBy(b => b.Time.Date).Select(b =>
+        List<BillsByDayDto> dtos = bills.GroupBy(b => b.Time.Date).Select(b =>
             {
-                var dto = new BillGroupByDayDto();
+                var dto = new BillsByDayDto();
                 dto.Day = b.Key.Day;
                 dto.Week = b.Key.GetWeek();
                 foreach (var i in b)
@@ -85,7 +115,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             })
             .ToList();
 
-        return new PagedDto<BillGroupByDayDto>(dtos, totalCount);
+        return new PagedDto<BillsByDayDto>(dtos, totalCount);
     }
 
     public async Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)

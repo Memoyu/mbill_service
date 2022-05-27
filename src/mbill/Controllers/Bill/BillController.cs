@@ -70,15 +70,27 @@ public class BillController : ApiControllerBase
     }
 
     /// <summary>
+    /// 获取指定日期账单
+    /// </summary>
+    /// <param name="input">查询条件</param>
+    [HttpGet("day")]
+    [LocalAuthorize("获取指定日期账单", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<BillsByDayDto>> GetByDayAsync([FromQuery] DayBillInput input)
+    {
+        return ServiceResult<BillsByDayDto>.Successed(await _billSvc.GetByDayAsync(input));
+    }
+
+    /// <summary>
     /// 获取指定月份日分组分页账单
     /// </summary>
     /// <param name="input">分页条件</param>
     [HttpGet("month/pages")]
     [LocalAuthorize("获取指定月份日分组分页账单", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PagedDto<BillGroupByDayDto>>> GetMonthPagesAsync([FromQuery] MonthBillPagingInput input)
+    public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync([FromQuery] MonthBillPagingInput input)
     {
-        return ServiceResult<PagedDto<BillGroupByDayDto>>.Successed(await _billSvc.GetMonthPagesAsync(input));
+        return ServiceResult<PagedDto<BillsByDayDto>>.Successed(await _billSvc.GetByMonthPagesAsync(input));
     }
 
 

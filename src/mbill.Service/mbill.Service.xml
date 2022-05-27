@@ -130,7 +130,14 @@
             <param name="statement">账单信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
+            <summary>
+            获取指定日期账单
+            </summary>
+            <param name="input">查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
             获取分页账单数据
             </summary>
@@ -180,22 +187,22 @@
             <param name="count">月数</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Month">
+        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.Date">
             <summary>
-            指定的年月
+            指定的日期
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Type">
+        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.Type">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryId">
+        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.CategoryId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetId">
+        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.AssetId">
             <summary>
             账单账户
             </summary>
@@ -268,6 +275,26 @@
         <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Time">
             <summary>
             记录日期：时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Month">
+            <summary>
+            指定的年月
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Type">
+            <summary>
+            账单类型
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryId">
+            <summary>
+            账单分类
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetId">
+            <summary>
+            账单账户
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Month">

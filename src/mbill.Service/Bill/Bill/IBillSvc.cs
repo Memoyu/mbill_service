@@ -34,11 +34,18 @@ public interface IBillSvc
     Task UpdateAsync(BillEntity statement);
 
     /// <summary>
+    /// 获取指定日期账单
+    /// </summary>
+    /// <param name="input">查询条件</param>
+    /// <returns></returns>
+    Task<BillsByDayDto> GetByDayAsync(DayBillInput input);
+
+    /// <summary>
     /// 获取分页账单数据
     /// </summary>
     /// <param name="input">分页查询</param>
     /// <returns></returns>
-    Task<PagedDto<BillGroupByDayDto>> GetMonthPagesAsync(MonthBillPagingInput input);
+    Task<PagedDto<BillsByDayDto>> GetByMonthPagesAsync(MonthBillPagingInput input);
 
     /// <summary>
     /// 获取日期范围内存在账单的日期

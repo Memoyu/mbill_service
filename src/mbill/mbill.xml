@@ -232,7 +232,13 @@
             </summary>
             <param name="dto">账单信息</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.BillController.GetMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
+        <member name="M:mbill.Controllers.Bill.BillController.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
+            <summary>
+            获取指定日期账单
+            </summary>
+            <param name="input">查询条件</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
             获取指定月份日分组分页账单
             </summary>
