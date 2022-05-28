@@ -19,12 +19,17 @@ public class BillSvc : ApplicationSvc, IBillSvc
         _fileRepo = fileRepo;
     }
 
-    public async Task<string> InsertAsync(ModifyBillInput input)
+    public async Task<BillSimpleDto> InsertAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.InsertAsync(bill);
         if (entity == null) throw new KnownException("新增账单失败！", ServiceResultCode.Failed);
-        return "";
+        var dto = Mapper.Map<BillSimpleDto>(entity);
+        dto.Time = entity.Time.ToString("HH:mm");
+        var category = _categoryRepo.Get(entity.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
+        dto.Category = category.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+        return dto;
     }
 
     public async Task DeleteAsync(long id)
@@ -34,13 +39,19 @@ public class BillSvc : ApplicationSvc, IBillSvc
         await _billRepo.DeleteAsync(id);
     }
 
-    public async Task UpdateAsync(ModifyBillInput input)
+    public async Task<BillSimpleDto> UpdateAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
         var exist = await _billRepo.Select.AnyAsync(s => s.Id == bill.Id && !s.IsDeleted);
         if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
         Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
         await _billRepo.UpdateWithIgnoreAsync(bill, ignoreExp);
+        var dto = Mapper.Map<BillSimpleDto>(bill);
+        dto.Time = bill.Time.ToString("HH:mm");
+        var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
+        dto.Category = category.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+        return dto;
     }
 
     public async Task<BillDetailDto> GetDetailAsync(long id)

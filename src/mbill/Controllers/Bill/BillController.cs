@@ -26,10 +26,10 @@ public class BillController : ApiControllerBase
     [Logger("用户新建了一条账单记录")]
     [HttpPost]
     [LocalAuthorize("新增", "账单")]
-    public async Task<ServiceResult<string>> CreateAsync([FromBody] ModifyBillInput input)
+    public async Task<ServiceResult<BillSimpleDto>> CreateAsync([FromBody] ModifyBillInput input)
     {
         var result = await _billSvc.InsertAsync(input);
-        return ServiceResult<string>.Successed(result, "账单分类创建成功！");
+        return ServiceResult<BillSimpleDto>.Successed(result, "账单分类创建成功！");
     }
 
     /// <summary>
@@ -63,10 +63,9 @@ public class BillController : ApiControllerBase
     [HttpPut]
     [LocalAuthorize("更新", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyBillInput input)
+    public async Task<ServiceResult<BillSimpleDto>> UpdateAsync([FromBody] ModifyBillInput input)
     {
-        await _billSvc.UpdateAsync(input);
-        return ServiceResult.Successed("账单更新成功！");
+        return ServiceResult<BillSimpleDto>.Successed(await _billSvc.UpdateAsync(input));
     }
 
     /// <summary>
