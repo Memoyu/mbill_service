@@ -54,26 +54,26 @@ public class SystemConst
         /// </summary>
         public class Switcher
         {
-            public static string StatementType(string type) => type switch
+            public static string BillType(int type) => type switch
             {
-                "expend" => "支出",
-                "income" => "收入",
-                "transfer" => "转账",
-                "repayment" => "还款",
+                0 => "支出",
+                1 => "收入",
+                2 => "转账",
+                3 => "还款",
                 _ => "",
             };
 
-            public static string CategoryType(string type) => type switch
+            public static string CategoryType(int type) => type switch
             {
-                "expend" => "支出",
-                "income" => "收入",
+                0 => "支出",
+                1 => "收入",
                 _ => "",
             };
 
-            public static string AssetType(string type) => type switch
+            public static string AssetType(int type) => type switch
             {
-                "deposit" => "储蓄",
-                "debt" => "债务",
+                0 => "储蓄",
+                1 => "债务",
                 _ => "",
             };
         }

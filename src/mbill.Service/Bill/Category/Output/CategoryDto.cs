@@ -1,12 +1,14 @@
 ﻿namespace mbill.Service.Bill.Category.Output;
 
-public class CategoryDto : FullEntityDto
+public class CategoryDto
 {
+    public long Id { get; set; }
+
     public string Name { get; set; }
 
     public long ParentId { get; set; }
 
-    public string Type { get; set; }
+    public int Type { get; set; }
 
     public decimal Budget { get; set; }
 

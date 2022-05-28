@@ -13,12 +13,12 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(string type)
+    public async Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(int? type)
     {
         List<CategoryEntity> entities = await _categoryRepo
             .Select
             .Where(c => c.IsDeleted == false)
-            .WhereIf(type.IsNotNullOrEmpty(), c => c.Type.Equals(type))
+            .WhereIf(type.HasValue, c => c.Type == type)
             .ToListAsync();
         List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
         List<CategoryGroupDto> dtos = parents

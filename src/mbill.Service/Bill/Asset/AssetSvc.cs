@@ -14,12 +14,12 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         }
 
 
-        public async Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(string type)
+        public async Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(int? type)
         {
             List<AssetEntity> entities = await _assetRepo
                 .Select
                 .Where(c => c.IsDeleted == false)
-                .WhereIf(type.IsNotNullOrEmpty(), c => c.Type.Equals(type))
+                .WhereIf(type.HasValue, c => c.Type == type)
                 .ToListAsync();
             List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
             List<AssetGroupDto> dtos = parents

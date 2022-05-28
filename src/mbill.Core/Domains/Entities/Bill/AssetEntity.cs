@@ -24,8 +24,8 @@ public class AssetEntity : FullAduitEntity
     /// <summary>
     /// 资产分类类型：存款、负债
     /// </summary>
-    [Column(StringLength = 10, IsNullable = false)]
-    public string Type { get; set; }
+    [Column(IsNullable = false)]
+    public int Type { get; set; }
 
     /// <summary>
     /// 资产金额

@@ -191,7 +191,7 @@
             获取资产父项集合
             </summary>
         </member>
-        <member name="M:mbill.Controllers.Bill.AssetController.GetGroupAsync(System.String)">
+        <member name="M:mbill.Controllers.Bill.AssetController.GetGroupAsync(System.Nullable{System.Int32})">
             <summary>
             获取分组后的资产
             </summary>
@@ -296,7 +296,7 @@
             获取账单分类父项集合
             </summary>
         </member>
-        <member name="M:mbill.Controllers.Bill.CategoryController.GetGroupAsync(System.String)">
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetGroupAsync(System.Nullable{System.Int32})">
             <summary>
             获取分组后的账单分类
             </summary>

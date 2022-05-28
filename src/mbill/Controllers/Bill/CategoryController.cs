@@ -98,7 +98,7 @@ public class CategoryController : ApiControllerBase
     [HttpGet("groups")]
     [LocalAuthorize("获取分组", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupAsync([FromQuery] string type)
+    public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupAsync([FromQuery] int? type)
     {
         return ServiceResult<IEnumerable<CategoryGroupDto>>.Successed(await _categoryService.GetGroupsAsync(type));
     }

@@ -28,7 +28,7 @@ public interface ICategorySvc
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(string type);
+    Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(int? type);
 
     /// <summary>
     /// 获取账单分类分页

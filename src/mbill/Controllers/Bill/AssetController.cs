@@ -97,7 +97,7 @@ public class AssetController : ApiControllerBase
     [HttpGet("groups")]
     [LocalAuthorize("获取分组", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync([FromQuery] string type)
+    public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync([FromQuery] int? type)
     {
         return ServiceResult<IEnumerable<AssetGroupDto>>.Successed(await _assetService.GetGroupsAsync(type));
     }

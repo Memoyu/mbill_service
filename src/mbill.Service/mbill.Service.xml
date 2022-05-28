@@ -30,7 +30,7 @@
             <param name="statement">资产分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.String)">
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.Nullable{System.Int32})">
             <summary>
             获取分级后的组合类别数据
             </summary>
@@ -363,7 +363,7 @@
             <param name="categroy">账单分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.String)">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.Nullable{System.Int32})">
             <summary>
             获取分级后的组合类别数据
             </summary>

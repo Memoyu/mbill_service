@@ -1,7 +1,8 @@
 ﻿namespace mbill.Service.Bill.Asset.Output;
 
-public class AssetDto : FullEntityDto
+public class AssetDto
 {
+    public long Id { get; set; }
 
     public string Name { get; set; }
 

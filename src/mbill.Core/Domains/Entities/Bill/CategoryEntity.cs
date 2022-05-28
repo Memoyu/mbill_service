@@ -23,8 +23,8 @@ public class CategoryEntity : FullAduitEntity
     /// <summary>
     /// 分类类型：支出、收入
     /// </summary>
-    [Column(StringLength = 10, IsNullable = false)]
-    public string Type { get; set; }
+    [Column(IsNullable = false)]
+    public int Type { get; set; }
 
     /// <summary>
     /// 预算金额

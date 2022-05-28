@@ -28,7 +28,7 @@ public interface IAssetSvc
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(string type);
+    Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(int? type);
 
     /// <summary>
     /// 获取资产分类分页
