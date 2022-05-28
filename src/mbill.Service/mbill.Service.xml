@@ -102,11 +102,11 @@
             <param name="bill"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.InsertAsync(mbill.Core.Domains.Entities.Bill.BillEntity)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.InsertAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             新增账单
             </summary>
-            <param name="statement">数据源</param>
+            <param name="input">数据源</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetDetailAsync(System.Int64)">
@@ -123,11 +123,11 @@
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.UpdateAsync(mbill.Core.Domains.Entities.Bill.BillEntity)">
+        <member name="M:mbill.Service.Bill.Statement.IBillSvc.UpdateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             更新账单信息
             </summary>
-            <param name="statement">账单信息</param>
+            <param name="input">账单信息</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
@@ -217,19 +217,9 @@
             资产Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.TargetAssetId">
-            <summary>
-            目标资产Id
-            </summary>
-        </member>
         <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Amount">
             <summary>
             金额
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetResidue">
-            <summary>
-            账户余额
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Type">
@@ -245,31 +235,6 @@
         <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Address">
             <summary>
             地点
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Province">
-            <summary>
-            地点:省
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.City">
-            <summary>
-            地点:市
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.District">
-            <summary>
-            地点:区/县
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Street">
-            <summary>
-            地点:街道/镇
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Year">
-            <summary>
-            记录日期：日期
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Time">

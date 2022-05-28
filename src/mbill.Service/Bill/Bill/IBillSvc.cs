@@ -7,9 +7,9 @@ public interface IBillSvc
     /// <summary>
     /// 新增账单
     /// </summary>
-    /// <param name="statement">数据源</param>
+    /// <param name="input">数据源</param>
     /// <returns></returns>
-    Task<string> InsertAsync(BillEntity statement);
+    Task<string> InsertAsync(ModifyBillInput input);
 
     /// <summary>
     /// 获取账单详情
@@ -29,9 +29,9 @@ public interface IBillSvc
     /// <summary>
     /// 更新账单信息
     /// </summary>
-    /// <param name="statement">账单信息</param>
+    /// <param name="input">账单信息</param>
     /// <returns></returns>
-    Task UpdateAsync(BillEntity statement);
+    Task UpdateAsync(ModifyBillInput input);
 
     /// <summary>
     /// 获取指定日期账单

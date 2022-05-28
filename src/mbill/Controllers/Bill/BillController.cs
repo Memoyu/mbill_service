@@ -22,13 +22,13 @@ public class BillController : ApiControllerBase
     /// <summary>
     /// 新增账单
     /// </summary>
-    /// <param name="dto">账单</param>
+    /// <param name="input">账单</param>
     [Logger("用户新建了一条账单记录")]
     [HttpPost]
     [LocalAuthorize("新增", "账单")]
-    public async Task<ServiceResult<string>> CreateAsync([FromBody] ModifyBillInput dto)
+    public async Task<ServiceResult<string>> CreateAsync([FromBody] ModifyBillInput input)
     {
-        var result = await _billSvc.InsertAsync(_mapper.Map<BillEntity>(dto));
+        var result = await _billSvc.InsertAsync(input);
         return ServiceResult<string>.Successed(result, "账单分类创建成功！");
     }
 
@@ -59,13 +59,13 @@ public class BillController : ApiControllerBase
     /// <summary>
     /// 更新账单信息
     /// </summary>
-    /// <param name="dto">账单信息</param>
+    /// <param name="input">账单信息</param>
     [HttpPut]
     [LocalAuthorize("更新", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyBillInput dto)
+    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyBillInput input)
     {
-        await _billSvc.UpdateAsync(_mapper.Map<BillEntity>(dto));
+        await _billSvc.UpdateAsync(input);
         return ServiceResult.Successed("账单更新成功！");
     }
 

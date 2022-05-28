@@ -8,23 +8,11 @@ public class BillDto
 
     public long AssetId { get; set; }
 
-    public long? TargetAssetId { get; set; }
-
     public decimal Amount { get; set; }
-
-    public decimal AssetResidue { get; set; }
 
     public int Type { get; set; }
 
     public string Description { get; set; }
-
-    public string Province { get; set; }
-
-    public string City { get; set; }
-
-    public string District { get; set; }
-
-    public string Street { get; set; }
 
     public string Address { get; set; }
 

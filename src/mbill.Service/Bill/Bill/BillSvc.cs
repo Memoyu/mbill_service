@@ -19,8 +19,9 @@ public class BillSvc : ApplicationSvc, IBillSvc
         _fileRepo = fileRepo;
     }
 
-    public async Task<string> InsertAsync(BillEntity bill)
+    public async Task<string> InsertAsync(ModifyBillInput input)
     {
+        var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.InsertAsync(bill);
         if (entity == null) throw new KnownException("新增账单失败！", ServiceResultCode.Failed);
         return "";
@@ -33,8 +34,9 @@ public class BillSvc : ApplicationSvc, IBillSvc
         await _billRepo.DeleteAsync(id);
     }
 
-    public async Task UpdateAsync(BillEntity bill)
+    public async Task UpdateAsync(ModifyBillInput input)
     {
+        var bill = Mapper.Map<BillEntity>(input);
         var exist = await _billRepo.Select.AnyAsync(s => s.Id == bill.Id && !s.IsDeleted);
         if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
         Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
@@ -121,7 +123,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)
     {
         var begin = input.BeginDate.FirstDayOfMonth();
-        var end = input.EndDate.LastDayOfMonth();
+        var end = input.EndDate.LastDayOfMonth().AddDays(1).AddSeconds(-1);
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
@@ -142,7 +144,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<MonthTotalStatOutput> GetMonthTotalStatAsync(MonthTotalStatInput input)
     {
         var begin = input.Month.FirstDayOfMonth();
-        var end = input.Month.LastDayOfMonth();
+        var end = input.Month.LastDayOfMonth().AddDays(1).AddSeconds(-1);
         var bills = await _billRepo
                .Select
                .Where(s => s.IsDeleted == false)

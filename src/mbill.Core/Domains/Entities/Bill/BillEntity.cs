@@ -8,7 +8,7 @@
 [Index("index_bill_on_create_user_id_and_type", "Sort,CreateUserId", false)]
 [Index("index_bill_on_create_user_id_and_category_id", "CategoryId,CreateUserId", false)]
 [Index("index_bill_on_create_user_id_and_asset_id", "AssetId,CreateUserId", false)]
-[Index("index_bill_on_year_and_month_and_day_and_time", "Year,Month,Day,Time", false)]
+[Index("index_bill_on_time", "Time", false)]
 public class BillEntity : FullAduitEntity
 {
     /// <summary>
@@ -55,30 +55,6 @@ public class BillEntity : FullAduitEntity
     /// </summary>
     [Column(StringLength = 200)]
     public string Address { get; set; }
-
-    /// <summary>
-    /// 地点:省
-    /// </summary>
-    [Column(StringLength = 50)]
-    public string Province { get; set; }
-
-    /// <summary>
-    /// 地点:市
-    /// </summary>
-    [Column(StringLength = 50)]
-    public string City { get; set; }
-
-    /// <summary>
-    /// 地点:区/县
-    /// </summary>
-    [Column(StringLength = 50)]
-    public string District { get; set; }
-
-    /// <summary>
-    /// 地点:街道/镇
-    /// </summary>
-    [Column(StringLength = 70)]
-    public string Street { get; set; }
 
     /// <summary>
     /// 记录日期：时间

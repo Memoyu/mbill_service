@@ -212,7 +212,7 @@
             <summary>
             新增账单
             </summary>
-            <param name="dto">账单</param>
+            <param name="input">账单</param>
         </member>
         <member name="M:mbill.Controllers.Bill.BillController.GetAsync(System.Int64)">
             <summary>
@@ -230,7 +230,7 @@
             <summary>
             更新账单信息
             </summary>
-            <param name="dto">账单信息</param>
+            <param name="input">账单信息</param>
         </member>
         <member name="M:mbill.Controllers.Bill.BillController.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
             <summary>
