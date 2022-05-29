@@ -24,11 +24,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.InsertAsync(bill);
         if (entity == null) throw new KnownException("新增账单失败！", ServiceResultCode.Failed);
-        var dto = Mapper.Map<BillSimpleDto>(entity);
-        dto.Time = entity.Time.ToString("HH:mm");
-        var category = _categoryRepo.Get(entity.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-        dto.Category = category.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+        var dto = MapToSimpleDto(entity);
         return dto;
     }
 
@@ -46,17 +42,13 @@ public class BillSvc : ApplicationSvc, IBillSvc
         if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
         Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
         await _billRepo.UpdateWithIgnoreAsync(bill, ignoreExp);
-        var dto = Mapper.Map<BillSimpleDto>(bill);
-        dto.Time = bill.Time.ToString("HH:mm");
-        var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-        dto.Category = category.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+        var dto = MapToSimpleDto(bill);
         return dto;
     }
 
     public async Task<BillDetailDto> GetDetailAsync(long id)
     {
-        var bill = await _billRepo.GetAsync(id);
+        var bill = (await _billRepo.GetAsync(id)) ?? throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
         var dto = Mapper.Map<BillDetailDto>(bill);
         var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
         var assetDto = await _assetRepo.GetAssetAsync(dto.AssetId) ?? throw new KnownException("账单账户数据查询失败！", ServiceResultCode.NotFound);
@@ -86,12 +78,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         dto.Week = begin.GetWeek();
         foreach (var i in bills)
         {
-            var item = Mapper.Map<BillSimpleDto>(i);
-            item.Time = i.Time.ToString("HH:mm");
-            var category = _categoryRepo.Get(i.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-            item.Category = category.Name;
-            item.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
-            dto.Items.Add(item);
+            dto.Items.Add(MapToSimpleDto(i));
         }
         return dto;
     }
@@ -117,12 +104,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
                 dto.Week = b.Key.GetWeek();
                 foreach (var i in b)
                 {
-                    var item = Mapper.Map<BillSimpleDto>(i);
-                    item.Time = i.Time.ToString("HH:mm");
-                    var category = _categoryRepo.Get(i.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-                    item.Category = category.Name;
-                    item.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
-                    dto.Items.Add(item);
+                    dto.Items.Add(MapToSimpleDto(i));
                 }
                 return dto;
             })
@@ -362,38 +344,15 @@ public class BillSvc : ApplicationSvc, IBillSvc
     /// <summary>
     /// 映射Dto
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     /// <param name="bill"></param>
     /// <returns></returns>
-    private T MapToDto<T>(BillEntity bill) where T : MapDto
+    private BillSimpleDto MapToSimpleDto(BillEntity bill)
     {
-        T dto = Mapper.Map<T>(bill);
-        if (bill.CategoryId != null)
-        {
-            var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-            dto.CategoryName = category.Name;
-            dto.CategoryIconPath = _fileRepo.GetFileUrl(category.IconUrl);
-        }
-        else
-        {
-            if (bill.Type.Equals(BillTypeEnum.transfer.ToString()))
-            {
-                dto.CategoryIconPath = _fileRepo.GetFileUrl("core/images/category/icon_transfer_64.png");
-            }
-            else if (bill.Type.Equals(BillTypeEnum.repayment.ToString()))
-            {
-                dto.CategoryIconPath = _fileRepo.GetFileUrl("core/images/category/icon_repayment_64.png");
-            }
-        }
-        var asset = _assetRepo.Get(bill.AssetId) ?? throw new KnownException("资产分类数据查询失败！", ServiceResultCode.NotFound);
-        if (bill.TargetAssetId != null)
-        {
-            var targetAsset = _assetRepo.Get(bill.TargetAssetId.Value);
-            dto.TargetAssetName = targetAsset.Name;
-        }
-        dto.AssetName = asset.Name;
-        // dto.TypeName = Switcher.StatementType(bill.Type);
-
+        var dto = Mapper.Map<BillSimpleDto>(bill);
+        dto.Time = bill.Time.ToString("HH:mm");
+        var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
+        dto.Category = category.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
         return dto;
     }
 

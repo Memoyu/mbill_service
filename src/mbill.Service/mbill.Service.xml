@@ -94,11 +94,10 @@
             排序
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.BillSvc.MapToDto``1(mbill.Core.Domains.Entities.Bill.BillEntity)">
+        <member name="M:mbill.Service.Bill.Statement.BillSvc.MapToSimpleDto(mbill.Core.Domains.Entities.Bill.BillEntity)">
             <summary>
             映射Dto
             </summary>
-            <typeparam name="T"></typeparam>
             <param name="bill"></param>
             <returns></returns>
         </member>

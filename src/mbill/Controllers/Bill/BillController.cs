@@ -50,7 +50,7 @@ public class BillController : ApiControllerBase
     /// <param name="id">账单id</param>
     [HttpDelete]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
     {
         await _billSvc.DeleteAsync(id);
         return ServiceResult.Successed("账单删除成功！");
