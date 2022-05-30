@@ -1,11 +1,9 @@
 ﻿namespace mbill.Service.Base;
 
-public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput,
-            TUpdateInput>
-        : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TGetListOutputDto, TKey, TGetListInput, TCreateInput, TUpdateInput>
+public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TKey, TCreateInput, TUpdateInput>
+        : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TKey, TCreateInput, TUpdateInput>
         where TEntity : class, IEntity<TKey>
         where TGetOutputDto : IEntityDto<TKey>
-        where TGetListOutputDto : IEntityDto<TKey>
 {
     /// <summary>
     /// 仓储
@@ -36,15 +34,6 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TGetListOutputD
         return Mapper.Map<TGetOutputDto>(entity);
     }
 
-    public virtual async Task<PagedDto<TGetListOutputDto>> GetListAsync(TGetListInput input)
-    {
-        var select = QueryAll();
-        long totalCount = await select.CountAsync();
-        ApplySorting(select, input);
-        List<TEntity> entities = await ApplyPaging(select, input).ToListAsync();
-        return new PagedDto<TGetListOutputDto>(entities.Select(MapToGetListOutputDto).ToList(), totalCount);
-    }
-
     public virtual async Task<TGetOutputDto> UpdateAsync(TKey id, TUpdateInput updateInput)
     {
         TEntity entity = await GetEntityByIdAsync(id);
@@ -60,34 +49,5 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TGetListOutputD
     protected virtual async Task<TEntity> GetEntityByIdAsync(TKey id)
     {
         return await Repository.GetAsync(id);
-    }
-
-    protected virtual ISelect<TEntity> ApplyPaging(ISelect<TEntity> query, TGetListInput input)
-    {
-        if (input is IPagingDto pageDto)
-        {
-            return query.Page(pageDto.Page, pageDto.Size);
-        }
-        return query;
-    }
-
-    protected virtual ISelect<TEntity> ApplySorting(ISelect<TEntity> query, TGetListInput input)
-    {
-        if (input is ISortedResultRequest sortInput)
-        {
-            if (!string.IsNullOrWhiteSpace(sortInput.Sorting))
-            {
-                return query.OrderBy(sortInput.Sorting);
-            }
-        }
-        if (input is ILimitedResultRequest)
-        {
-            return query.OrderByDescending(e => e.Id);
-        }
-        return query;
-    }
-    protected virtual TGetListOutputDto MapToGetListOutputDto(TEntity entity)
-    {
-        return Mapper.Map<TEntity, TGetListOutputDto>(entity);
     }
 }

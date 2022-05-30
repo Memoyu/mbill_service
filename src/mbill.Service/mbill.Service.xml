@@ -4,7 +4,7 @@
         <name>mbill.Service</name>
     </assembly>
     <members>
-        <member name="P:mbill.Service.Base.CrudApplicationSvc`7.Repository">
+        <member name="P:mbill.Service.Base.CrudApplicationSvc`5.Repository">
             <summary>
             仓储
             </summary>
@@ -27,7 +27,7 @@
             <summary>
             更新资产分类
             </summary>
-            <param name="statement">资产分类信息</param>
+            <param name="entity">资产分类信息</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.Nullable{System.Int32})">
@@ -94,91 +94,91 @@
             排序
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.BillSvc.MapToSimpleDto(mbill.Core.Domains.Entities.Bill.BillEntity)">
+        <member name="M:mbill.Service.Bill.Bill.BillSvc.MapToSimpleDto(mbill.Core.Domains.Entities.Bill.BillEntity)">
             <summary>
             映射Dto
             </summary>
             <param name="bill"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.InsertAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.CreateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             新增账单
             </summary>
             <param name="input">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetDetailAsync(System.Int64)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetDetailAsync(System.Int64)">
             <summary>
             获取账单详情
             </summary>
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.DeleteAsync(System.Int64)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.DeleteAsync(System.Int64)">
             <summary>
             删除账单信息
             </summary>
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.UpdateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.UpdateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             更新账单信息
             </summary>
             <param name="input">账单信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
             <summary>
             获取指定日期账单
             </summary>
             <param name="input">查询条件</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
             获取分页账单数据
             </summary>
             <param name="input">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
             <summary>
             获取日期范围内存在账单的日期
             </summary>
             <param name="input">查询入参</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthTotalStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalStatInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalStatInput)">
             <summary>
             获取指定月份账单总金额
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期各类型账单总额统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期支出分类统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取当前月份所有周的支出趋势统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Statement.IBillSvc.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput,System.Int32)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput,System.Int32)">
             <summary>
             获取当前月往前5个月的支出趋势统计
             </summary>
@@ -844,6 +844,36 @@
             </summary>
             <param name="code">wx.login获取到的code</param>
             <returns></returns>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderGroupInput.Name">
+            <summary>
+            分组名
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderGroupInput.Description">
+            <summary>
+            分组描述
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Time">
+            <summary>
+            记录日期：时间
+            </summary>
         </member>
     </members>
 </doc>

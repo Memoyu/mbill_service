@@ -19,9 +19,9 @@ public interface IAssetSvc
     /// <summary>
     /// 更新资产分类
     /// </summary>
-    /// <param name="statement">资产分类信息</param>
+    /// <param name="entity">资产分类信息</param>
     /// <returns></returns>
-    Task UpdateAsync(AssetEntity statement);
+    Task UpdateAsync(AssetEntity entity);
 
     /// <summary>
     /// 获取分级后的组合类别数据

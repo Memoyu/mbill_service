@@ -1,6 +1,4 @@
-﻿using mbill.Service.Bill.Bill.Input;
-
-namespace mbill.Service.Bill.Statement;
+﻿namespace mbill.Service.Bill.Bill;
 
 public interface IBillSvc
 {
@@ -9,7 +7,7 @@ public interface IBillSvc
     /// </summary>
     /// <param name="input">数据源</param>
     /// <returns></returns>
-    Task<BillSimpleDto> InsertAsync(ModifyBillInput input);
+    Task<BillSimpleDto> CreateAsync(ModifyBillInput input);
 
     /// <summary>
     /// 获取账单详情

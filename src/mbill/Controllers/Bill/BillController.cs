@@ -1,6 +1,4 @@
-﻿using mbill.Service.Bill.Bill.Input;
-
-namespace mbill.Controllers.Bill;
+﻿namespace mbill.Controllers.Bill;
 
 /// <summary>
 /// 账单管理
@@ -10,12 +8,10 @@ namespace mbill.Controllers.Bill;
 [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
 public class BillController : ApiControllerBase
 {
-    private readonly IMapper _mapper;
     private readonly IBillSvc _billSvc;
 
-    public BillController(IBillSvc billService, IMapper mapper)
+    public BillController(IBillSvc billService)
     {
-        _mapper = mapper;
         _billSvc = billService;
     }
 
@@ -23,12 +19,11 @@ public class BillController : ApiControllerBase
     /// 新增账单
     /// </summary>
     /// <param name="input">账单</param>
-    [Logger("用户新建了一条账单记录")]
     [HttpPost]
     [LocalAuthorize("新增", "账单")]
     public async Task<ServiceResult<BillSimpleDto>> CreateAsync([FromBody] ModifyBillInput input)
     {
-        var result = await _billSvc.InsertAsync(input);
+        var result = await _billSvc.CreateAsync(input);
         return ServiceResult<BillSimpleDto>.Successed(result, "账单分类创建成功！");
     }
 
@@ -36,8 +31,8 @@ public class BillController : ApiControllerBase
     /// 获取账单详情
     /// </summary>
     /// <param name="id">账单id</param>
-    [HttpGet("detail")]
-    [LocalAuthorize("获取详情", "账单")]
+    [HttpGet]
+    [LocalAuthorize("详情", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<BillDetailDto>> GetAsync([FromQuery] long id)
     {
@@ -49,6 +44,7 @@ public class BillController : ApiControllerBase
     /// </summary>
     /// <param name="id">账单id</param>
     [HttpDelete]
+    [LocalAuthorize("删除", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> DeleteAsync([FromBody] long id)
     {

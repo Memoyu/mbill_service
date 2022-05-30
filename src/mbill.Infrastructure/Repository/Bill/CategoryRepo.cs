@@ -1,30 +1,22 @@
-﻿using FreeSql;
-using mbill.Core.Domains.Entities.Bill;
-using mbill.Core.Interface.IRepositories.Bill;
-using mbill.Core.Security;
-using mbill.Infrastructure.Repository.Base;
-using System.Threading.Tasks;
+﻿namespace mbill.Infrastructure.Repository.Bill;
 
-namespace mbill.Infrastructure.Repository.Bill
+public class CategoryRepo : AuditBaseRepo<CategoryEntity>, ICategoryRepo
 {
-    public class CategoryRepo : AuditBaseRepo<CategoryEntity>, ICategoryRepo
+    private readonly ICurrentUser _currentUser;
+    public CategoryRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
     {
-        private readonly ICurrentUser _currentUser;
-        public CategoryRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
-        {
-            _currentUser = currentUser;
-        }
+        _currentUser = currentUser;
+    }
 
-        public async Task<CategoryEntity> GetCategoryAsync(long id)
-        {
-            return await GetAsync(id);
-        }
+    public async Task<CategoryEntity> GetCategoryAsync(long id)
+    {
+        return await GetAsync(id);
+    }
 
-        public async Task<CategoryEntity> GetCategoryParentAsync(long id)
-        {
-            var asset = await GetAsync(id);
-            if (asset == null) return null;
-            return await GetAsync(asset.ParentId);
-        }
+    public async Task<CategoryEntity> GetCategoryParentAsync(long id)
+    {
+        var asset = await GetAsync(id);
+        if (asset == null) return null;
+        return await GetAsync(asset.ParentId);
     }
 }

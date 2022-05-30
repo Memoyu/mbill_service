@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Statement;
+﻿namespace mbill.Service.Bill.Bill;
 
 public class BillSvc : ApplicationSvc, IBillSvc
 {
@@ -19,7 +19,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         _fileRepo = fileRepo;
     }
 
-    public async Task<BillSimpleDto> InsertAsync(ModifyBillInput input)
+    public async Task<BillSimpleDto> CreateAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.InsertAsync(bill);
@@ -169,7 +169,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input)
     {
         // var userId = input.UserId ?? CurrentUser.Id;
-        var statements = await _billRepo
+        var bills = await _billRepo
            .Select
            .Where(s => s.IsDeleted == false)
            .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
@@ -177,7 +177,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
            //.WhereIf(input.Month != null, s => s.Month == input.Month)
            .ToListAsync();
         var dto = new BillTotalDto();
-        statements.ForEach(s =>
+        bills.ForEach(s =>
         {
             switch (s.Type)
             {
@@ -219,7 +219,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInput input)
     {
         var dto = new BillExpendCategoryDto();
-        var statements = await _billRepo
+        var bills = await _billRepo
            .Select
            .Where(s => s.IsDeleted == false)
            .Where(s => s.Type.Equals("expend"))
@@ -230,7 +230,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
            .ToListAsync();
         decimal total = 0;
         // 根据CategoryId分组，并统计总额
-        var childDetails = statements.GroupBy(s => s.CategoryId).Select(g =>
+        var childDetails = bills.GroupBy(s => s.CategoryId).Select(g =>
         {
             var info = _categoryRepo.GetAsync(g.Key.Value).Result;
             var parentInfo = _categoryRepo.GetCategoryParentAsync(g.Key.Value).Result;
@@ -279,7 +279,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var startDate = dateList.OrderBy(d => d.Number).FirstOrDefault().StartDate.Date;
         var EndDate = dateList.OrderBy(d => d.Number).LastOrDefault().EndDate.Date.AddDays(1).AddSeconds(-1);// 加上23:59:59
 
-        var statements = await _billRepo
+        var bills = await _billRepo
           .Select
           .Where(s => s.IsDeleted == false)
           //.WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
@@ -291,7 +291,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var dtos = dateList.Select(d => new BillExpendTrendDto
         {
             Name = $"{d.StartDate.Month}/{d.StartDate.Day}-{d.EndDate.Month}/{d.EndDate.Day}",
-            Data = statements.Where(s => s.Time >= d.StartDate && s.Time <= d.EndDate.AddDays(1).AddSeconds(-1)).Select(t => new { t.Amount }).Sum(t => t.Amount),
+            Data = bills.Where(s => s.Time >= d.StartDate && s.Time <= d.EndDate.AddDays(1).AddSeconds(-1)).Select(t => new { t.Amount }).Sum(t => t.Amount),
             StartDate = d.StartDate.Date,
             EndDate = d.EndDate.Date
         });

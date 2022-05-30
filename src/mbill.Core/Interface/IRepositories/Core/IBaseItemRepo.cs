@@ -1,9 +1,5 @@
-﻿using mbill.Core.Domains.Entities.Core;
-using mbill.Core.Interface.IRepositories.Base;
+﻿namespace mbill.Core.Interface.IRepositories.Core;
 
-namespace mbill.Core.Interface.IRepositories.Core
+public interface IBaseItemRepo : IAuditBaseRepo<BaseItemEntity>
 {
-    public interface IBaseItemRepo : IAuditBaseRepo<BaseItemEntity>
-    {
-    }
 }

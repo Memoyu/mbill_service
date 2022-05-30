@@ -308,5 +308,58 @@
             </summary>
             <param name="pagingDto">分页参数</param>
         </member>
+        <member name="T:mbill.Controllers.PreOrder.PreOrderController">
+            <summary>
+            预购清单管理
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.CreateAsync(mbill.Service.PreOrder.Input.CreatePreOrderInput)">
+            <summary>
+            新增预购
+            </summary>
+            <param name="input">账单</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.GetAsync(System.Int64)">
+            <summary>
+            获取预购详情
+            </summary>
+            <param name="id">账单id</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.DeleteAsync(System.Int64)">
+            <summary> 
+            删除预购信息
+            </summary>
+            <param name="id">账单id</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.UpdateAsync(mbill.Service.PreOrder.Input.UpdatePreOrderInput)">
+            <summary>
+            更新预购信息
+            </summary>
+            <param name="input">账单信息</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.CreateGroupAsync(mbill.Service.PreOrder.Input.CreatePreOrderInput)">
+            <summary>
+            新增预购分组
+            </summary>
+            <param name="input">预购分组</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.GetGroupAsync(System.Int64)">
+            <summary>
+            获取预购分组详情
+            </summary>
+            <param name="id">预购分组id</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.DeleteGroupAsync(System.Int64)">
+            <summary> 
+            删除预购分组信息
+            </summary>
+            <param name="id">预购分组id</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.UpdateGroupAsync(mbill.Service.PreOrder.Input.UpdatePreOrderInput)">
+            <summary>
+            更新预购分组信息
+            </summary>
+            <param name="input">预购分组信息</param>
+        </member>
     </members>
 </doc>

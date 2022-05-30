@@ -65,6 +65,7 @@ global using Newtonsoft.Json.Linq;
 global using System.Linq.Expressions;
 global using System.Threading;
 global using mbill.Core.Domains.Entities.Bill;
+global using mbill.Core.Domains.Entities.PreOrder;
 global using mbill.Core.Interface.IRepositories.Base;
 global using mbill.Core.Interface.IDependency;
 global using static mbill.Core.Domains.Common.Consts.SystemConst;
