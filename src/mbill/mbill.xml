@@ -256,6 +256,12 @@
             </summary>
             <param name="input">入参</param>
         </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetMonthStatisticsAsync(mbill.Service.Bill.Bill.Input.YearTotalStatInput)">
+            <summary>
+            获取指定日期各类型账单金额统计
+            </summary>
+            <param name="input">入参</param>
+        </member>
         <member name="T:mbill.Controllers.Bill.CategoryController">
             <summary>
             账单分类管理

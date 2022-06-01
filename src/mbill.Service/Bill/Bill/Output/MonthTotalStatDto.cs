@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Bill.Bill.Output;
 
-public class MonthTotalStatOutput
+public class MonthTotalStatDto
 {
     /// <summary>
     /// 收入（格式化后）

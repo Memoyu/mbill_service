@@ -108,9 +108,21 @@ public class BillController : ApiControllerBase
     [HttpGet("stat/month-total")]
     [LocalAuthorize("获取指定月份账单总金额", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<MonthTotalStatOutput>> GetMonthTotalStatAsync([FromQuery] MonthTotalStatInput input)
+    public async Task<ServiceResult<MonthTotalStatDto>> GetMonthTotalStatAsync([FromQuery] MonthTotalStatInput input)
     {
-        return ServiceResult<MonthTotalStatOutput>.Successed(await _billSvc.GetMonthTotalStatAsync(input));
+        return ServiceResult<MonthTotalStatDto>.Successed(await _billSvc.GetMonthTotalStatAsync(input));
+    }
+
+    /// <summary>
+    /// 获取指定日期各类型账单金额统计
+    /// </summary>
+    /// <param name="input">入参</param>
+    [HttpGet("stat/year-total")]
+    [LocalAuthorize("获取用户年金额统计", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<YearTotalStatDto>> GetMonthStatisticsAsync([FromQuery] YearTotalStatInput input)
+    {
+        return ServiceResult<YearTotalStatDto>.Successed(await _billSvc.GetYearTotalStatAsync(input));
     }
 
     /*/// <summary>

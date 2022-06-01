@@ -7,6 +7,7 @@ public class UserMapper : Profile
         CreateMap<UserEntity, UserDto>()
             .ForMember(d => d.Address, opt => opt.MapFrom(s => $"{s.Province}{s.City}{s.District}{s.Street}"))
             .ForMember(d => d.Gender, opt => opt.ConvertUsing<GenderFormatter, int>());
-        CreateMap<UserEntity, UserSimpleDto>();
+        CreateMap<UserEntity, UserSimpleDto>()
+            .ForMember(d => d.Gender, opt => opt.MapFrom(s => s.Gender == 0 ? "未知" : s.Gender == 1 ? "男":"女"));
     }
 }

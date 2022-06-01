@@ -3,17 +3,20 @@
 public class BillSvc : ApplicationSvc, IBillSvc
 {
     private readonly IBillRepo _billRepo;
+    private readonly IPreOrderRepo _preOrderRepo;
     private readonly ICategoryRepo _categoryRepo;
     private readonly IAssetRepo _assetRepo;
     private readonly IFileRepo _fileRepo;
 
     public BillSvc(
         IBillRepo billRepo,
+        IPreOrderRepo preOrderRepo,
         ICategoryRepo categoryRepo,
         IAssetRepo assetRepo,
         IFileRepo fileRepo)
     {
         _billRepo = billRepo;
+        _preOrderRepo = preOrderRepo;
         _categoryRepo = categoryRepo;
         _assetRepo = assetRepo;
         _fileRepo = fileRepo;
@@ -134,7 +137,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return dtos;
     }
 
-    public async Task<MonthTotalStatOutput> GetMonthTotalStatAsync(MonthTotalStatInput input)
+    public async Task<MonthTotalStatDto> GetMonthTotalStatAsync(MonthTotalStatInput input)
     {
         var begin = input.Month.FirstDayOfMonth();
         var end = input.Month.LastDayOfMonth().AddDays(1).AddSeconds(-1);
@@ -159,10 +162,52 @@ public class BillSvc : ApplicationSvc, IBillSvc
             }
         });
 
-        return new MonthTotalStatOutput
+        return new MonthTotalStatDto
         {
             Expend = expend.AmountFormat(),
             Income = income.AmountFormat()
+        };
+    }
+
+    public async Task<YearTotalStatDto> GetYearTotalStatAsync(YearTotalStatInput input)
+    {
+        var bills = await _billRepo
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.Time.Year == input.Year)
+               .ToListAsync();
+        var preOrders = await _preOrderRepo
+           .Select
+           .Where(s => s.IsDeleted == false)
+           .Where(s => s.CreateUserId == CurrentUser.Id)
+           .Where(s => s.Time.Year == input.Year)
+           .ToListAsync();
+
+        var expend = 0m;
+        var income = 0m;
+        var preOrder = 0m;
+        bills.ForEach(b =>
+        {
+            if (b.Type == (int)BillTypeEnum.expend)
+            {
+                expend += b.Amount;
+            }
+            else if (b.Type == (int)BillTypeEnum.income)
+            {
+                income += b.Amount;
+            }
+        });
+        preOrders.ForEach(b =>
+        {
+            preOrder += b.Amount;
+        });
+
+        return new YearTotalStatDto
+        {
+            Expend = expend.AmountFormat(),
+            Income = income.AmountFormat(),
+            PreOrder = preOrder.AmountFormat(),
         };
     }
 

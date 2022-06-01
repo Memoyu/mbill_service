@@ -57,7 +57,14 @@ public interface IBillSvc
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<MonthTotalStatOutput> GetMonthTotalStatAsync(MonthTotalStatInput input);
+    Task<MonthTotalStatDto> GetMonthTotalStatAsync(MonthTotalStatInput input);
+
+    /// <summary>
+    /// 获取指定日期各类型账单总额统计
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<YearTotalStatDto> GetYearTotalStatAsync(YearTotalStatInput input);
 
     /// <summary>
     /// 获取指定日期各类型账单总额统计

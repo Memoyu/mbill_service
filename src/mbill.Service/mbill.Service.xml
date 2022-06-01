@@ -157,6 +157,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetYearTotalStatAsync(mbill.Service.Bill.Bill.Input.YearTotalStatInput)">
+            <summary>
+            获取指定日期各类型账单总额统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期各类型账单总额统计
@@ -276,6 +283,11 @@
             结束时间
             </summary>
         </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.YearTotalStatInput.Year">
+            <summary>
+            指定的年
+            </summary>
+        </member>
         <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Year">
             <summary>
             年
@@ -296,12 +308,12 @@
             账单总数
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatOutput.Income">
+        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Income">
             <summary>
             收入（格式化后）
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatOutput.Expend">
+        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Expend">
             <summary>
             支出（格式化后）
             </summary>
