@@ -343,7 +343,7 @@
             </summary>
             <param name="input">账单信息</param>
         </member>
-        <member name="M:mbill.Controllers.PreOrder.PreOrderController.CreateGroupAsync(mbill.Service.PreOrder.Input.CreatePreOrderInput)">
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.CreateGroupAsync(mbill.Service.PreOrder.Input.CreatePreOrderGroupInput)">
             <summary>
             新增预购分组
             </summary>
@@ -361,7 +361,7 @@
             </summary>
             <param name="id">预购分组id</param>
         </member>
-        <member name="M:mbill.Controllers.PreOrder.PreOrderController.UpdateGroupAsync(mbill.Service.PreOrder.Input.UpdatePreOrderInput)">
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.UpdateGroupAsync(mbill.Service.PreOrder.Input.UpdatePreOrderGroupInput)">
             <summary>
             更新预购分组信息
             </summary>

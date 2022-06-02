@@ -34,6 +34,11 @@ public enum ServiceResultCode
     NotFound = 10020,
 
     /// <summary>
+    /// 资源不存在
+    /// </summary>
+    AlreadyExists = 10021,
+
+    /// <summary>
     /// 未知错误
     /// </summary>
     UnknownError = 1007,

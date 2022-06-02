@@ -2,4 +2,5 @@
 
 public class UpdatePreOrderGroupInput
 {
+    public long Id { get; set; }
 }

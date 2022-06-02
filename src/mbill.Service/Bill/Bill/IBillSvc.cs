@@ -7,14 +7,14 @@ public interface IBillSvc
     /// </summary>
     /// <param name="input">数据源</param>
     /// <returns></returns>
-    Task<BillSimpleDto> CreateAsync(ModifyBillInput input);
+    Task<ServiceResult<BillSimpleDto>> CreateAsync(ModifyBillInput input);
 
     /// <summary>
     /// 获取账单详情
     /// </summary>
     /// <param name="id">账单id</param>
     /// <returns></returns>
-    Task<BillDetailDto> GetDetailAsync(long id);
+    Task<ServiceResult<BillDetailDto>> GetDetailAsync(long id);
 
 
     /// <summary>
@@ -22,49 +22,49 @@ public interface IBillSvc
     /// </summary>
     /// <param name="id">账单id</param>
     /// <returns></returns>
-    Task DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long id);
 
     /// <summary>
     /// 更新账单信息
     /// </summary>
     /// <param name="input">账单信息</param>
     /// <returns></returns>
-    Task<BillSimpleDto> UpdateAsync(ModifyBillInput input);
+    Task<ServiceResult<BillSimpleDto>> UpdateAsync(ModifyBillInput input);
 
     /// <summary>
     /// 获取指定日期账单
     /// </summary>
     /// <param name="input">查询条件</param>
     /// <returns></returns>
-    Task<BillsByDayDto> GetByDayAsync(DayBillInput input);
+    Task<ServiceResult<BillsByDayDto>> GetByDayAsync(DayBillInput input);
 
     /// <summary>
     /// 获取分页账单数据
     /// </summary>
     /// <param name="input">分页查询</param>
     /// <returns></returns>
-    Task<PagedDto<BillsByDayDto>> GetByMonthPagesAsync(MonthBillPagingInput input);
+    Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync(MonthBillPagingInput input);
 
     /// <summary>
     /// 获取日期范围内存在账单的日期
     /// </summary>
     /// <param name="input">查询入参</param>
     /// <returns></returns>
-    Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input);
+    Task<ServiceResult<List<BillDateWithTotalDto>>> RangeHasBillDaysAsync(RangeHasBillDaysInput input);
 
     /// <summary>
     /// 获取指定月份账单总金额
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<MonthTotalStatDto> GetMonthTotalStatAsync(MonthTotalStatInput input);
+    Task<ServiceResult<MonthTotalStatDto>> GetMonthTotalStatAsync(MonthTotalStatInput input);
 
     /// <summary>
     /// 获取指定日期各类型账单总额统计
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<YearTotalStatDto> GetYearTotalStatAsync(YearTotalStatInput input);
+    Task<ServiceResult<YearTotalStatDto>> GetYearTotalStatAsync(YearTotalStatInput input);
 
     /// <summary>
     /// 获取指定日期各类型账单总额统计

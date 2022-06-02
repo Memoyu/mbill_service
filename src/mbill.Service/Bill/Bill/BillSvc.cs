@@ -22,46 +22,47 @@ public class BillSvc : ApplicationSvc, IBillSvc
         _fileRepo = fileRepo;
     }
 
-    public async Task<BillSimpleDto> CreateAsync(ModifyBillInput input)
+    public async Task<ServiceResult<BillSimpleDto>> CreateAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.InsertAsync(bill);
-        if (entity == null) throw new KnownException("新增账单失败！", ServiceResultCode.Failed);
-        var dto = MapToSimpleDto(entity);
-        return dto;
+        if (entity == null) ServiceResult<BillSimpleDto>.Failed("新增账单失败！");
+        return ServiceResult<BillSimpleDto>.Successed(await MapToSimpleDto(entity));
     }
 
-    public async Task DeleteAsync(long id)
+    public async Task<ServiceResult> DeleteAsync(long id)
     {
         var exist = await _billRepo.Select.AnyAsync(s => s.Id == id && !s.IsDeleted);
-        if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
-        await _billRepo.DeleteAsync(id);
+        if (!exist) return ServiceResult.Failed("没有找到该账单信息");
+        var re = await _billRepo.DeleteAsync(id);
+        return ServiceResult.Successed("删除成功");
     }
 
-    public async Task<BillSimpleDto> UpdateAsync(ModifyBillInput input)
+    public async Task<ServiceResult<BillSimpleDto>> UpdateAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
         var exist = await _billRepo.Select.AnyAsync(s => s.Id == bill.Id && !s.IsDeleted);
-        if (!exist) throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
+        if (!exist) return ServiceResult<BillSimpleDto>.Failed("没有找到该账单信息");
         Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
         await _billRepo.UpdateWithIgnoreAsync(bill, ignoreExp);
-        var dto = MapToSimpleDto(bill);
-        return dto;
+        return ServiceResult<BillSimpleDto>.Successed(await MapToSimpleDto(bill));
     }
 
-    public async Task<BillDetailDto> GetDetailAsync(long id)
+    public async Task<ServiceResult<BillDetailDto>> GetDetailAsync(long id)
     {
-        var bill = (await _billRepo.GetAsync(id)) ?? throw new KnownException("没有找到该账单信息", ServiceResultCode.NotFound);
+        var bill = await _billRepo.GetAsync(id);
+        if (bill == null)
+            return ServiceResult<BillDetailDto>.Failed("没有找到该账单信息");
         var dto = Mapper.Map<BillDetailDto>(bill);
-        var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-        var assetDto = await _assetRepo.GetAssetAsync(dto.AssetId) ?? throw new KnownException("账单账户数据查询失败！", ServiceResultCode.NotFound);
-        dto.Asset = assetDto.Name;
-        dto.Category = category.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
-        return dto;
+        var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
+        var assetDto = await _assetRepo.GetAssetAsync(dto.AssetId);
+        dto.Asset = assetDto?.Name;
+        dto.Category = category?.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.IconUrl);
+        return ServiceResult<BillDetailDto>.Successed(dto);
     }
 
-    public async Task<BillsByDayDto> GetByDayAsync(DayBillInput input)
+    public async Task<ServiceResult<BillsByDayDto>> GetByDayAsync(DayBillInput input)
     {
         var begin = input.Date.Date;
         var end = begin.AddDays(1).AddSeconds(-1);
@@ -81,12 +82,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
         dto.Week = begin.GetWeek();
         foreach (var i in bills)
         {
-            dto.Items.Add(MapToSimpleDto(i));
+            dto.Items.Add(await MapToSimpleDto(i));
         }
-        return dto;
+        return ServiceResult<BillsByDayDto>.Successed(dto);
     }
 
-    public async Task<PagedDto<BillsByDayDto>> GetByMonthPagesAsync(MonthBillPagingInput input)
+    public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync(MonthBillPagingInput input)
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
         var bills = await _billRepo
@@ -100,23 +101,23 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
 
-        List<BillsByDayDto> dtos = bills.GroupBy(b => b.Time.Date).Select(b =>
+        List<BillsByDayDto> dtos = new List<BillsByDayDto>();
+        bills.GroupBy(b => b.Time.Date).ForEach(async b =>
+        {
+            var dto = new BillsByDayDto();
+            dto.Day = b.Key.Day;
+            dto.Week = b.Key.GetWeek();
+            foreach (var i in b)
             {
-                var dto = new BillsByDayDto();
-                dto.Day = b.Key.Day;
-                dto.Week = b.Key.GetWeek();
-                foreach (var i in b)
-                {
-                    dto.Items.Add(MapToSimpleDto(i));
-                }
-                return dto;
-            })
-            .ToList();
+                dto.Items.Add(await MapToSimpleDto(i));
+            }
+            dtos.Add(dto);
+        });
 
-        return new PagedDto<BillsByDayDto>(dtos, totalCount);
+        return ServiceResult<PagedDto<BillsByDayDto>>.Successed(new PagedDto<BillsByDayDto>(dtos, totalCount));
     }
 
-    public async Task<IEnumerable<BillDateWithTotalDto>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)
+    public async Task<ServiceResult<List<BillDateWithTotalDto>>> RangeHasBillDaysAsync(RangeHasBillDaysInput input)
     {
         var begin = input.BeginDate.FirstDayOfMonth();
         var end = input.EndDate.LastDayOfMonth().AddDays(1).AddSeconds(-1);
@@ -133,11 +134,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
                 Month = g.Key.Month,
                 Day = g.Key.Day,
                 Total = g.Count(),
-            });
-        return dtos;
+            }).ToList();
+        return ServiceResult<List<BillDateWithTotalDto>>.Successed(dtos);
     }
 
-    public async Task<MonthTotalStatDto> GetMonthTotalStatAsync(MonthTotalStatInput input)
+    public async Task<ServiceResult<MonthTotalStatDto>> GetMonthTotalStatAsync(MonthTotalStatInput input)
     {
         var begin = input.Month.FirstDayOfMonth();
         var end = input.Month.LastDayOfMonth().AddDays(1).AddSeconds(-1);
@@ -162,14 +163,14 @@ public class BillSvc : ApplicationSvc, IBillSvc
             }
         });
 
-        return new MonthTotalStatDto
+        return ServiceResult<MonthTotalStatDto>.Successed(new MonthTotalStatDto
         {
             Expend = expend.AmountFormat(),
             Income = income.AmountFormat()
-        };
+        });
     }
 
-    public async Task<YearTotalStatDto> GetYearTotalStatAsync(YearTotalStatInput input)
+    public async Task<ServiceResult<YearTotalStatDto>> GetYearTotalStatAsync(YearTotalStatInput input)
     {
         var bills = await _billRepo
                .Select
@@ -203,12 +204,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
             preOrder += b.Amount;
         });
 
-        return new YearTotalStatDto
+        return ServiceResult<YearTotalStatDto>.Successed(new YearTotalStatDto
         {
             Expend = expend.AmountFormat(),
             Income = income.AmountFormat(),
             PreOrder = preOrder.AmountFormat(),
-        };
+        });
     }
 
     public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input)
@@ -391,13 +392,13 @@ public class BillSvc : ApplicationSvc, IBillSvc
     /// </summary>
     /// <param name="bill"></param>
     /// <returns></returns>
-    private BillSimpleDto MapToSimpleDto(BillEntity bill)
+    private async Task<BillSimpleDto> MapToSimpleDto(BillEntity bill)
     {
         var dto = Mapper.Map<BillSimpleDto>(bill);
         dto.Time = bill.Time.ToString("HH:mm");
-        var category = _categoryRepo.Get(bill.CategoryId.Value) ?? throw new KnownException("账单分类数据查询失败！", ServiceResultCode.NotFound);
-        dto.Category = category.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category.IconUrl);
+        var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
+        dto.Category = category?.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.IconUrl);
         return dto;
     }
 

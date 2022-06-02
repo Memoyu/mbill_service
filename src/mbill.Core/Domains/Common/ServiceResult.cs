@@ -102,7 +102,7 @@ public class ServiceResult
 /// 服务层响应实体（泛型）
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class ServiceResult<T> : ServiceResult where T : class
+public class ServiceResult<T> : ServiceResult
 {
     /// <summary>
     /// 响应结果
@@ -113,7 +113,7 @@ public class ServiceResult<T> : ServiceResult where T : class
     /// </summary>
     /// <param name="result"></param>
     /// <param name="message"></param>
-    public void IsSuccess(T result = null, string message = "")
+    public void IsSuccess(T result = default, string message = "")
     {
         Message = message;
         Result = result;
@@ -124,7 +124,7 @@ public class ServiceResult<T> : ServiceResult where T : class
     /// 响应成功(静态返回实例)
     /// </summary>
     /// <param name="message"></param>
-    public static ServiceResult<T> Successed(T result = null, string message = "")
+    public static ServiceResult<T> Successed(T result = default, string message = "")
     {
         var res = new ServiceResult<T>();
         res.Message = message;

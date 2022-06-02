@@ -16,11 +16,11 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TKey, TCreateIn
     }
 
 
-    public async virtual Task<TGetOutputDto> CreateAsync(TCreateInput createInput)
+    public async virtual Task<ServiceResult<TGetOutputDto>> CreateAsync(TCreateInput createInput)
     {
         TEntity entity = Mapper.Map<TEntity>(createInput);
         await Repository.InsertAsync(entity);
-        return Mapper.Map<TGetOutputDto>(entity);
+        return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
     }
 
     public async virtual Task DeleteAsync(TKey id)
@@ -28,18 +28,18 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TKey, TCreateIn
         await Repository.DeleteAsync(id);
     }
 
-    public virtual async Task<TGetOutputDto> GetAsync(TKey id)
+    public virtual async Task<ServiceResult<TGetOutputDto>> GetAsync(TKey id)
     {
         TEntity entity = await Repository.GetAsync(id);
-        return Mapper.Map<TGetOutputDto>(entity);
+        return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
     }
 
-    public virtual async Task<TGetOutputDto> UpdateAsync(TKey id, TUpdateInput updateInput)
+    public virtual async Task<ServiceResult<TGetOutputDto>> UpdateAsync(TKey id, TUpdateInput updateInput)
     {
         TEntity entity = await GetEntityByIdAsync(id);
         Mapper.Map(updateInput, entity);
         await Repository.UpdateAsync(entity);
-        return Mapper.Map<TGetOutputDto>(entity);
+        return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
     }
 
     protected virtual ISelect<TEntity> QueryAll()

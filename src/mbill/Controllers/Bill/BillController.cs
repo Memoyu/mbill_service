@@ -23,8 +23,7 @@ public class BillController : ApiControllerBase
     [LocalAuthorize("新增", "账单")]
     public async Task<ServiceResult<BillSimpleDto>> CreateAsync([FromBody] ModifyBillInput input)
     {
-        var result = await _billSvc.CreateAsync(input);
-        return ServiceResult<BillSimpleDto>.Successed(result, "账单分类创建成功！");
+        return await _billSvc.CreateAsync(input);
     }
 
     /// <summary>
@@ -36,7 +35,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<BillDetailDto>> GetAsync([FromQuery] long id)
     {
-        return ServiceResult<BillDetailDto>.Successed(await _billSvc.GetDetailAsync(id));
+        return await _billSvc.GetDetailAsync(id);
     }
 
     /// <summary> 
@@ -48,8 +47,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> DeleteAsync([FromBody] long id)
     {
-        await _billSvc.DeleteAsync(id);
-        return ServiceResult.Successed("账单删除成功！");
+        return await _billSvc.DeleteAsync(id);
     }
 
     /// <summary>
@@ -61,7 +59,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<BillSimpleDto>> UpdateAsync([FromBody] ModifyBillInput input)
     {
-        return ServiceResult<BillSimpleDto>.Successed(await _billSvc.UpdateAsync(input));
+        return await _billSvc.UpdateAsync(input);
     }
 
     /// <summary>
@@ -73,7 +71,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<BillsByDayDto>> GetByDayAsync([FromQuery] DayBillInput input)
     {
-        return ServiceResult<BillsByDayDto>.Successed(await _billSvc.GetByDayAsync(input));
+        return await _billSvc.GetByDayAsync(input);
     }
 
     /// <summary>
@@ -85,7 +83,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync([FromQuery] MonthBillPagingInput input)
     {
-        return ServiceResult<PagedDto<BillsByDayDto>>.Successed(await _billSvc.GetByMonthPagesAsync(input));
+        return await _billSvc.GetByMonthPagesAsync(input);
     }
 
 
@@ -96,9 +94,9 @@ public class BillController : ApiControllerBase
     [HttpGet("date/has-bill-days")]
     [LocalAuthorize("获取日期范围内存在账单的日期", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillDateWithTotalDto>>> RangeHasBillDaysAsync([FromQuery] RangeHasBillDaysInput input)
+    public async Task<ServiceResult<List<BillDateWithTotalDto>>> RangeHasBillDaysAsync([FromQuery] RangeHasBillDaysInput input)
     {
-        return ServiceResult<IEnumerable<BillDateWithTotalDto>>.Successed(await _billSvc.RangeHasBillDaysAsync(input));
+        return await _billSvc.RangeHasBillDaysAsync(input);
     }
 
     /// <summary>
@@ -110,7 +108,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<MonthTotalStatDto>> GetMonthTotalStatAsync([FromQuery] MonthTotalStatInput input)
     {
-        return ServiceResult<MonthTotalStatDto>.Successed(await _billSvc.GetMonthTotalStatAsync(input));
+        return await _billSvc.GetMonthTotalStatAsync(input);
     }
 
     /// <summary>
@@ -122,7 +120,7 @@ public class BillController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<YearTotalStatDto>> GetMonthStatisticsAsync([FromQuery] YearTotalStatInput input)
     {
-        return ServiceResult<YearTotalStatDto>.Successed(await _billSvc.GetYearTotalStatAsync(input));
+        return await _billSvc.GetYearTotalStatAsync(input);
     }
 
     /*/// <summary>

@@ -4,7 +4,7 @@
 /// 预购清单管理
 /// </summary>
 [Authorize]
-[Route("api/preorder")]
+[Route("api/pre-order")]
 [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
 public class PreOrderController : ApiControllerBase
 {
@@ -27,8 +27,7 @@ public class PreOrderController : ApiControllerBase
     [LocalAuthorize("新增", "预购")]
     public async Task<ServiceResult<PreOrderDto>> CreateAsync([FromBody] CreatePreOrderInput input)
     {
-        var result = await _preOrderSvc.CreateAsync(input);
-        return ServiceResult<PreOrderDto>.Successed(result, "预购创建成功！");
+        return await _preOrderSvc.CreateAsync(input);
     }
 
     /// <summary>
@@ -40,7 +39,7 @@ public class PreOrderController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<PreOrderDto>> GetAsync([FromQuery] long id)
     {
-        return ServiceResult<PreOrderDto>.Successed(await _preOrderSvc.GetAsync(id));
+        return await _preOrderSvc.GetAsync(id);
     }
 
     /// <summary> 
@@ -65,7 +64,7 @@ public class PreOrderController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<PreOrderDto>> UpdateAsync([FromBody] UpdatePreOrderInput input)
     {
-        return ServiceResult<PreOrderDto>.Successed(await _preOrderSvc.UpdateAsync(input.Id, input));
+        return await _preOrderSvc.UpdateAsync(input.Id, input);
     }
 
     #endregion
@@ -79,10 +78,9 @@ public class PreOrderController : ApiControllerBase
     /// <param name="input">预购分组</param>
     [HttpPost("group")]
     [LocalAuthorize("新增", "预购分组")]
-    public async Task<ServiceResult<PreOrderDto>> CreateGroupAsync([FromBody] CreatePreOrderInput input)
+    public async Task<ServiceResult<PreOrderGroupDto>> CreateGroupAsync([FromBody] CreatePreOrderGroupInput input)
     {
-        var result = await _preOrderGroupSvc.CreateAsync(input);
-        return ServiceResult<PreOrderDto>.Successed(result, "预购分组创建成功！");
+        return await _preOrderGroupSvc.CreateAsync(input);
     }
 
     /// <summary>
@@ -92,9 +90,9 @@ public class PreOrderController : ApiControllerBase
     [HttpGet("group")]
     [LocalAuthorize("详情", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderDto>> GetGroupAsync([FromQuery] long id)
+    public async Task<ServiceResult<PreOrderGroupDto>> GetGroupAsync([FromQuery] long id)
     {
-        return ServiceResult<PreOrderDto>.Successed(await _preOrderGroupSvc.GetAsync(id));
+        return await _preOrderGroupSvc.GetAsync(id);
     }
 
     /// <summary> 
@@ -117,9 +115,9 @@ public class PreOrderController : ApiControllerBase
     [HttpPut("group")]
     [LocalAuthorize("更新", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderDto>> UpdateGroupAsync([FromBody] UpdatePreOrderInput input)
+    public async Task<ServiceResult<PreOrderGroupDto>> UpdateGroupAsync([FromBody] UpdatePreOrderGroupInput input)
     {
-        return ServiceResult<PreOrderDto>.Successed(await _preOrderGroupSvc.UpdateAsync(input.Id, input));
+        return await _preOrderGroupSvc.UpdateAsync(input.Id, input);
     }
 
     #endregion
