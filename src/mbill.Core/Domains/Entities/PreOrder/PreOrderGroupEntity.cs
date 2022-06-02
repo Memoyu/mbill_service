@@ -11,13 +11,13 @@ public class PreOrderGroupEntity : FullAduitEntity
     /// <summary>
     /// 分组名
     /// </summary>
-    [Column(StringLength = 20)]
+    [Column(StringLength = 10)]
     public string Name { get; set; }
 
     /// <summary>
     /// 说明
     /// </summary>
-    [Column(StringLength = 200)]
+    [Column(StringLength = 40)]
     public string Description { get; set; }
 
 }

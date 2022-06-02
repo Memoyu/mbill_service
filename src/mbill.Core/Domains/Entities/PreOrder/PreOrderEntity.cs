@@ -27,13 +27,13 @@ public class PreOrderEntity : FullAduitEntity
     /// <summary>
     /// 说明
     /// </summary>
-    [Column(StringLength = 200)]
+    [Column(StringLength = 40, IsNullable = false)]
     public string Description { get; set; }
 
     /// <summary>
     /// 记录日期：时间
     /// </summary>
-    [Column(StringLength = 10)]
+    [Column(StringLength = 10, IsNullable = false)]
     public DateTime Time { get; set; }
 
     /// <summary>

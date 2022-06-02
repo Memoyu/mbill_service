@@ -7,5 +7,5 @@ public interface IPreOrderRepo : IAuditBaseRepo<PreOrderEntity>
     /// </summary>
     /// <param name="status">状态</param>
     /// <returns></returns>
-    Task<(long none, long unNone)> GetCountByStatusAsync(int status);
+    Task<(long done, long unDone)> GetCountByStatusAsync(int status);
 }

@@ -37,9 +37,11 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         foreach (var group in groups)
         {
             var dto = Mapper.Map<PreOrderGroupWithStatDto>(group);
-            var count = await _preOrderRepo.GetCountByStatusAsync((int)PreOrderStatusEnum.None);
-            dto.None = count.none;
-            dto.UnNone = count.unNone;
+            var count = await _preOrderRepo.GetCountByStatusAsync((int)PreOrderStatusEnum.Done);
+            var week = dto.CreateTime.GetWeek();
+            dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
+            dto.Done = count.done;
+            dto.UnDone = count.unDone;
             dtos.Add(dto);
         }
         return ServiceResult<PagedDto<PreOrderGroupWithStatDto>>.Successed(new PagedDto<PreOrderGroupWithStatDto>(dtos, totalCount));

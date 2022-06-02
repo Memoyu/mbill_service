@@ -11,11 +11,11 @@ public class PreOrderRepo : AuditBaseRepo<PreOrderEntity>, IPreOrderRepo
         _currentUser = currentUser;
     }
 
-    public async Task<(long none, long unNone)> GetCountByStatusAsync(int status)
+    public async Task<(long done, long unDone)> GetCountByStatusAsync(int status)
     {
         var select = Select.Where(g => g.CreateUserId == _currentUser.Id);
-        var none = await select.Where(g => g.Status == (int)PreOrderStatusEnum.None).CountAsync();
-        var unNone = await select.Where(g => g.Status == (int)PreOrderStatusEnum.UnNone).CountAsync();
-        return (none, unNone);
+        var done = await select.Where(g => g.Status == (int)PreOrderStatusEnum.Done).CountAsync();
+        var unDone = await select.Where(g => g.Status == (int)PreOrderStatusEnum.UnDone).CountAsync();
+        return (done, unDone);
     }
 }

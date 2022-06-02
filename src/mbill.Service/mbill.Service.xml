@@ -909,12 +909,12 @@
             创建时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.None">
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.Done">
             <summary>
             分组中已完成预购总数
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.UnNone">
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.UnDone">
             <summary>
             分组中未完成预购总数
             </summary>

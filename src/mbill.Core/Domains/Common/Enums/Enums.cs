@@ -2,8 +2,8 @@
 
 public enum PreOrderStatusEnum
 {
-    None,//已购买
-    UnNone,//未购买
+    Done,//已购买
+    UnDone,//未购买
 }
 
 public enum BillTypeEnum

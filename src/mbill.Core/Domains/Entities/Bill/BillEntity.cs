@@ -47,7 +47,7 @@ public class BillEntity : FullAduitEntity
     /// <summary>
     /// 说明
     /// </summary>
-    [Column(StringLength = 200)]
+    [Column(StringLength = 40)]
     public string Description { get; set; }
 
     /// <summary>

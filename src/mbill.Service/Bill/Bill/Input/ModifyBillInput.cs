@@ -31,6 +31,7 @@ public class ModifyBillInput
     /// <summary>
     /// 说明
     /// </summary>
+    [MaxLength(40, ErrorMessage = "描述长度不超过40")]
     public string Description { get; set; }
 
     /// <summary>

@@ -6,6 +6,8 @@ public class PreOrderGroupDto : EntityDto
 
     public string Description { get; set; }
 
+    public string Time { get; set; }
+
     /// <summary>
     /// 创建时间
     /// </summary>
