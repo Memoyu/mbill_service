@@ -1,12 +1,6 @@
-﻿using System.Threading.Tasks;
-using System;
-using System.Linq.Expressions;
-using mbill.Core.Interface.IRepositories.Base;
-using mbill.Core.Domains.Entities.User;
+﻿namespace mbill.Core.Interface.IRepositories.Core;
 
-namespace mbill.Core.Interface.IRepositories.Core
-{
-    public interface IUserRepo : IAuditBaseRepo<UserEntity>
+public interface IUserRepo : IAuditBaseRepo<UserEntity>
     {
         /// <summary>
         /// 根据条件得到用户信息
@@ -22,4 +16,3 @@ namespace mbill.Core.Interface.IRepositories.Core
         /// <returns></returns>
         Task UpdateLastLoginTimeAsync(long userId);
     }
-}

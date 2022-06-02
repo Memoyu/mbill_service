@@ -1,5 +1,11 @@
 ﻿namespace mbill.Core.Domains.Common.Enums;
 
+public enum PreOrderStatusEnum
+{
+    None,//已购买
+    UnNone,//未购买
+}
+
 public enum BillTypeEnum
 {
     expend,//支出

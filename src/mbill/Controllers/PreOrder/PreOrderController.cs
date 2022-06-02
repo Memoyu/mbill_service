@@ -120,5 +120,17 @@ public class PreOrderController : ApiControllerBase
         return await _preOrderGroupSvc.UpdateAsync(input.Id, input);
     }
 
+    /// <summary>
+    /// 获取指定月份分页预购分组
+    /// </summary>
+    /// <param name="input">分页条件</param>
+    [HttpGet("group/month/pages")]
+    [LocalAuthorize("取指定月份分页预购分组", "预购分组")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<PagedDto<PreOrderGroupWithStatDto>>> GetByMonthPagesAsync([FromQuery] MonthPreOrderPagingInput input)
+    {
+        return await _preOrderGroupSvc.GetByMonthPagesAsync(input);
+    }
+
     #endregion
 }

@@ -75,11 +75,11 @@ public class BillController : ApiControllerBase
     }
 
     /// <summary>
-    /// 获取指定月份日分组分页账单
+    /// 获取指定月份分组分页账单
     /// </summary>
     /// <param name="input">分页条件</param>
     [HttpGet("month/pages")]
-    [LocalAuthorize("获取指定月份日分组分页账单", "账单")]
+    [LocalAuthorize("获取指定月份分组分页账单", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync([FromQuery] MonthBillPagingInput input)
     {

@@ -240,7 +240,7 @@
         </member>
         <member name="M:mbill.Controllers.Bill.BillController.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
-            获取指定月份日分组分页账单
+            获取指定月份分组分页账单
             </summary>
             <param name="input">分页条件</param>
         </member>
@@ -366,6 +366,12 @@
             更新预购分组信息
             </summary>
             <param name="input">预购分组信息</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput)">
+            <summary>
+            获取指定月份分页预购分组
+            </summary>
+            <param name="input">分页条件</param>
         </member>
     </members>
 </doc>

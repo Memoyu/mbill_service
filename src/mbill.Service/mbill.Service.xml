@@ -288,6 +288,16 @@
             指定的年
             </summary>
         </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput.Month">
+            <summary>
+            指定的年月
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput.Name">
+            <summary>
+            分组名称
+            </summary>
+        </member>
         <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Year">
             <summary>
             年
@@ -885,6 +895,28 @@
         <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Time">
             <summary>
             记录日期：时间
+            </summary>
+        </member>
+        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput)">
+            <summary>
+            获取指定月份分页预购分组
+            </summary>
+            <param name="input">分页查询</param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupDto.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.None">
+            <summary>
+            分组中已完成预购总数
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.UnNone">
+            <summary>
+            分组中未完成预购总数
             </summary>
         </member>
     </members>

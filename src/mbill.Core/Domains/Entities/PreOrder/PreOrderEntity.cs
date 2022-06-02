@@ -37,7 +37,7 @@ public class PreOrderEntity : FullAduitEntity
     public DateTime Time { get; set; }
 
     /// <summary>
-    /// 状态 0:正常；1：已购买
+    /// 状态 0:未购买；1：已购买
     /// </summary>
     public int Status { get; set; }
 
