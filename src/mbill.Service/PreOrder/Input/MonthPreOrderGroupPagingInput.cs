@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Bill.Bill.Input;
 
-public class MonthPreOrderPagingInput : PagingDto
+public class MonthPreOrderGroupPagingInput : PagingDto
 {
     /// <summary>
     /// 指定的年月

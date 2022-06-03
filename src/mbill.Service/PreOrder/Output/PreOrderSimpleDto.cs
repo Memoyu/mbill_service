@@ -1,10 +1,8 @@
-﻿namespace mbill.Service.PreOrder.Input;
-public class CreatePreOrderInput
+﻿namespace mbill.Service.PreOrder.Output;
+
+public class PreOrderSimpleDto
 {
-    /// <summary>
-    /// 分组Id
-    /// </summary>
-    public long GroupId { get; set; }
+    public long Id { get; set; }
 
     /// <summary>
     /// 金额
@@ -12,15 +10,19 @@ public class CreatePreOrderInput
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// 描述
+    /// 说明
     /// </summary>
-    [MaxLength(40, ErrorMessage = "预购描述度不超过40")]
     public string Description { get; set; }
 
     /// <summary>
     /// 记录日期：时间
     /// </summary>
-    public DateTime Time { get; set; }
+    public string Time { get; set; }
+
+    /// <summary>
+    /// 状态 0:未购买；1：已购买
+    /// </summary>
+    public int Status { get; set; }
 
     /// <summary>
     /// 图标颜色

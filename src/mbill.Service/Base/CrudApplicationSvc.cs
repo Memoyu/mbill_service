@@ -1,7 +1,7 @@
 ﻿namespace mbill.Service.Base;
 
-public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TKey, TCreateInput, TUpdateInput>
-        : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TKey, TCreateInput, TUpdateInput>
+public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TSimpleOutputDto, TKey, TCreateInput, TUpdateInput>
+        : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, TKey, TCreateInput, TUpdateInput>
         where TEntity : class, IEntity<TKey>
         where TGetOutputDto : IEntityDto<TKey>
 {
@@ -16,11 +16,11 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TKey, TCreateIn
     }
 
 
-    public async virtual Task<ServiceResult<TGetOutputDto>> CreateAsync(TCreateInput createInput)
+    public async virtual Task<ServiceResult<TSimpleOutputDto>> CreateAsync(TCreateInput createInput)
     {
         TEntity entity = Mapper.Map<TEntity>(createInput);
         await Repository.InsertAsync(entity);
-        return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
+        return ServiceResult<TSimpleOutputDto>.Successed(Mapper.Map<TSimpleOutputDto>(entity));
     }
 
     public async virtual Task DeleteAsync(TKey id)
@@ -34,12 +34,12 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TKey, TCreateIn
         return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
     }
 
-    public virtual async Task<ServiceResult<TGetOutputDto>> UpdateAsync(TKey id, TUpdateInput updateInput)
+    public virtual async Task<ServiceResult<TSimpleOutputDto>> UpdateAsync(TKey id, TUpdateInput updateInput)
     {
         TEntity entity = await GetEntityByIdAsync(id);
         Mapper.Map(updateInput, entity);
         await Repository.UpdateAsync(entity);
-        return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
+        return ServiceResult<TSimpleOutputDto>.Successed(Mapper.Map<TSimpleOutputDto>(entity));
     }
 
     protected virtual ISelect<TEntity> QueryAll()

@@ -4,8 +4,9 @@
 /// 预购清单实体
 /// </summary>
 [Table(Name = DbTablePrefix + "_pre_order")]
-[Index("index_preorder_on_category_id", "CategoryId", false)]
+[Index("index_preorder_on_group_id", "GroupId", false)]
 [Index("index_preorder_on_bill_id", "BillId", false)]
+[Index("index_preorder_on_status", "Status", false)]
 public class PreOrderEntity : FullAduitEntity
 {
     /// <summary>
@@ -14,9 +15,9 @@ public class PreOrderEntity : FullAduitEntity
     public long BillId { get; set; }
 
     /// <summary>
-    /// 分类Id
+    /// 分组Id
     /// </summary>
-    public long CategoryId { get; set; }
+    public long GroupId { get; set; }
 
     /// <summary>
     /// 金额
@@ -40,5 +41,10 @@ public class PreOrderEntity : FullAduitEntity
     /// 状态 0:未购买；1：已购买
     /// </summary>
     public int Status { get; set; }
+
+    /// <summary>
+    /// 图标颜色
+    /// </summary>
+    public string Color { get; set; }
 
 }

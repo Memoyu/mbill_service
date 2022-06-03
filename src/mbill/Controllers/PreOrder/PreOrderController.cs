@@ -25,7 +25,7 @@ public class PreOrderController : ApiControllerBase
     /// <param name="input">账单</param>
     [HttpPost]
     [LocalAuthorize("新增", "预购")]
-    public async Task<ServiceResult<PreOrderDto>> CreateAsync([FromBody] CreatePreOrderInput input)
+    public async Task<ServiceResult<PreOrderSimpleDto>> CreateAsync([FromBody] CreatePreOrderInput input)
     {
         return await _preOrderSvc.CreateAsync(input);
     }
@@ -62,10 +62,23 @@ public class PreOrderController : ApiControllerBase
     [HttpPut]
     [LocalAuthorize("更新", "预购")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderDto>> UpdateAsync([FromBody] UpdatePreOrderInput input)
+    public async Task<ServiceResult<PreOrderSimpleDto>> UpdateAsync([FromBody] UpdatePreOrderInput input)
     {
         return await _preOrderSvc.UpdateAsync(input.Id, input);
     }
+
+    /// <summary>
+    /// 获取指定分组分页预购
+    /// </summary>
+    /// <param name="input">分页条件</param>
+    [HttpGet("pages")]
+    [LocalAuthorize("获取指定分组分页预购", "预购")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<PagedDto<PreOrderSimpleDto>>> GetByGroupPagesAsync([FromQuery] GroupPreOrderPagingInput input)
+    {
+        return await _preOrderSvc.GetByGroupPagesAsync(input);
+    }
+
 
     #endregion
 
@@ -125,11 +138,24 @@ public class PreOrderController : ApiControllerBase
     /// </summary>
     /// <param name="input">分页条件</param>
     [HttpGet("group/month/pages")]
-    [LocalAuthorize("取指定月份分页预购分组", "预购分组")]
+    [LocalAuthorize("获取指定月份分页预购分组", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PagedDto<PreOrderGroupWithStatDto>>> GetByMonthPagesAsync([FromQuery] MonthPreOrderPagingInput input)
+    public async Task<ServiceResult<PagedDto<PreOrderGroupWithStatDto>>> GetByMonthPagesAsync([FromQuery] MonthPreOrderGroupPagingInput input)
     {
         return await _preOrderGroupSvc.GetByMonthPagesAsync(input);
+    }
+
+
+    /// <summary>
+    /// 获取指定分组预购清单统计
+    /// </summary>
+    /// <param name="input">查询条件</param>
+    [HttpGet("group/order/stat")]
+    [LocalAuthorize("获取指定分组预购清单统计", "预购分组")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<GroupPreOrderStatDto>> GetPreOrderStatAsync([FromQuery] GroupPreOrderStatInput input)
+    {
+        return await _preOrderGroupSvc.GetPreOrderStatAsync(input);
     }
 
     #endregion

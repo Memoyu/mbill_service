@@ -11,6 +11,6 @@ public class CreatePreOrderGroupInput
     /// <summary>
     /// 分组描述
     /// </summary>
-    [MaxLength(200, ErrorMessage = "分组描述度不超过40")]
+    [MaxLength(40, ErrorMessage = "分组描述度不超过40")]
     public string Description { get; set; }
 }

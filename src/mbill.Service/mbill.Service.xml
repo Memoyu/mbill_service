@@ -4,7 +4,7 @@
         <name>mbill.Service</name>
     </assembly>
     <members>
-        <member name="P:mbill.Service.Base.CrudApplicationSvc`5.Repository">
+        <member name="P:mbill.Service.Base.CrudApplicationSvc`6.Repository">
             <summary>
             仓储
             </summary>
@@ -288,12 +288,27 @@
             指定的年
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput.Month">
+        <member name="P:mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Id">
+            <summary>
+            指定的分组
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Status">
+            <summary>
+            预购状态
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput.Id">
+            <summary>
+            指定的分组
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput.Month">
             <summary>
             指定的年月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput.Name">
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput.Name">
             <summary>
             分组名称
             </summary>
@@ -877,9 +892,9 @@
             分组描述
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.CategoryId">
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.GroupId">
             <summary>
-            分类Id
+            分组Id
             </summary>
         </member>
         <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Amount">
@@ -897,12 +912,86 @@
             记录日期：时间
             </summary>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthPreOrderPagingInput)">
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Color">
+            <summary>
+            图标颜色
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Time">
+            <summary>
+            记录日期：时间
+            </summary>
+        </member>
+        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput)">
             <summary>
             获取指定月份分页预购分组
             </summary>
             <param name="input">分页查询</param>
             <returns></returns>
+        </member>
+        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetPreOrderStatAsync(mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput)">
+            <summary>
+            获取指定分组预购清单统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.PreOrder.IPreOrderSvc.GetByGroupPagesAsync(mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput)">
+            <summary>
+            获取指定月份分页预购分组
+            </summary>
+            <param name="input">分页查询</param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.GroupPreOrderStatDto.Time">
+            <summary>
+            分组创建时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.GroupId">
+            <summary>
+            分组Id
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Time">
+            <summary>
+            记录日期：时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.TimeFormat">
+            <summary>
+            记录日期：时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Status">
+            <summary>
+            状态 0:未购买；1：已购买
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Color">
+            <summary>
+            图标颜色
+            </summary>
         </member>
         <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupDto.CreateTime">
             <summary>
@@ -917,6 +1006,31 @@
         <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.UnDone">
             <summary>
             分组中未完成预购总数
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Amount">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Time">
+            <summary>
+            记录日期：时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Status">
+            <summary>
+            状态 0:未购买；1：已购买
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Color">
+            <summary>
+            图标颜色
             </summary>
         </member>
     </members>
