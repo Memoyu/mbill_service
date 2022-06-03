@@ -11,17 +11,17 @@ public class PreOrderRepo : AuditBaseRepo<PreOrderEntity>, IPreOrderRepo
         _currentUser = currentUser;
     }
 
-    public async Task<(long done, long unDone)> GetCountByStatusAsync(long groupId)
+    public async Task<(long done, long unDone)> GetCountByStatusAsync(List<long> groupIds)
     {
-        var results = await Select.Where(g => g.CreateUserId == _currentUser.Id).Where(g => g.GroupId == groupId).ToListAsync();
+        var results = await Select.Where(g => g.CreateUserId == _currentUser.Id).Where(g => groupIds.Contains(g.GroupId)).ToListAsync();
         var done = results.Where(g => g.Status == (int)PreOrderStatusEnum.Done).Count();
         var unDone = results.Where(g => g.Status == (int)PreOrderStatusEnum.UnDone).Count();
         return (done, unDone);
     }
 
-    public async Task<decimal> GetAmountByGroupAsync(long groupId)
+    public async Task<decimal> GetAmountByGroupAsync(List<long> groupIds)
     {
-        var amount = await Select.Where(g => g.CreateUserId == _currentUser.Id).Where(g => g.GroupId == groupId).SumAsync(g => g.Amount);
+        var amount = await Select.Where(g => g.CreateUserId == _currentUser.Id).Where(g => groupIds.Contains(g.GroupId)).SumAsync(g => g.Amount);
         return amount;
     }
 }

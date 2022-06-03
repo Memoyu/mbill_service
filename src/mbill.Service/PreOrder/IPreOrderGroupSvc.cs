@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.PreOrder;
 
-public interface IPreOrderGroupSvc : ICrudApplicationSvc<PreOrderGroupDto, PreOrderGroupDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>
+public interface IPreOrderGroupSvc : ICrudApplicationSvc<PreOrderGroupDto, PreOrderGroupWithStatDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>
 {
     /// <summary>
     /// 获取指定月份分页预购分组

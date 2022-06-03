@@ -68,6 +68,19 @@ public class PreOrderController : ApiControllerBase
     }
 
     /// <summary>
+    /// 更新预购状态
+    /// </summary>
+    /// <param name="input">账单信息</param>
+    [HttpPut("status")]
+    [LocalAuthorize("更新状态", "预购")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<int>> UpdateStatusAsync([FromBody] UpdatePreOrderStatusInput input)
+    {
+        return await _preOrderSvc.UpdateStatusAsync(input);
+    }
+
+
+    /// <summary>
     /// 获取指定分组分页预购
     /// </summary>
     /// <param name="input">分页条件</param>
@@ -79,6 +92,17 @@ public class PreOrderController : ApiControllerBase
         return await _preOrderSvc.GetByGroupPagesAsync(input);
     }
 
+    /// <summary>
+    /// 获取预购清单首页统计
+    /// </summary>
+    /// <param name="input">查询条件</param>
+    [HttpGet("index/stat")]
+    [LocalAuthorize("获取预购清单首页统计", "预购")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<IndexPreOrderStatDto>> GetIndexStatAsync([FromQuery] IndexPreOrderStatInput input)
+    {
+        return await _preOrderSvc.GetIndexStatAsync(input);
+    }
 
     #endregion
 
@@ -91,7 +115,7 @@ public class PreOrderController : ApiControllerBase
     /// <param name="input">预购分组</param>
     [HttpPost("group")]
     [LocalAuthorize("新增", "预购分组")]
-    public async Task<ServiceResult<PreOrderGroupDto>> CreateGroupAsync([FromBody] CreatePreOrderGroupInput input)
+    public async Task<ServiceResult<PreOrderGroupWithStatDto>> CreateGroupAsync([FromBody] CreatePreOrderGroupInput input)
     {
         return await _preOrderGroupSvc.CreateAsync(input);
     }
@@ -128,7 +152,7 @@ public class PreOrderController : ApiControllerBase
     [HttpPut("group")]
     [LocalAuthorize("更新", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderGroupDto>> UpdateGroupAsync([FromBody] UpdatePreOrderGroupInput input)
+    public async Task<ServiceResult<PreOrderGroupWithStatDto>> UpdateGroupAsync([FromBody] UpdatePreOrderGroupInput input)
     {
         return await _preOrderGroupSvc.UpdateAsync(input.Id, input);
     }

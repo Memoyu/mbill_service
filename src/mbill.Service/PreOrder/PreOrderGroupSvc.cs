@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.PreOrder;
 
-public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrderGroupDto, PreOrderGroupDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>, IPreOrderGroupSvc
+public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrderGroupDto, PreOrderGroupWithStatDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>, IPreOrderGroupSvc
 {
     private IPreOrderGroupRepo _groupRepo;
     private IPreOrderRepo _preOrderRepo;
@@ -15,11 +15,24 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         _preOrderRepo = preOrderRepo;
     }
 
-    public override async Task<ServiceResult<PreOrderGroupDto>> CreateAsync(CreatePreOrderGroupInput input)
+    public override async Task<ServiceResult<PreOrderGroupWithStatDto>> CreateAsync(CreatePreOrderGroupInput input)
     {
         var exist = await _groupRepo.Select.AnyAsync(g => g.Name.Equals(input.Name));
-        if (exist) return ServiceResult<PreOrderGroupDto>.Failed("已存在同名分组");
-        return await base.CreateAsync(input);
+        if (exist) return ServiceResult<PreOrderGroupWithStatDto>.Failed("已存在同名分组");
+        var result = await base.CreateAsync(input);
+        var dto = result.Result;
+        var week = dto.CreateTime.GetWeek();
+        dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
+        return result;
+    }
+
+    public override async Task<ServiceResult<PreOrderGroupWithStatDto>> UpdateAsync(long id, UpdatePreOrderGroupInput input)
+    {
+        var result = await base.UpdateAsync(id, input);
+        var dto = result.Result;
+        var week = dto.CreateTime.GetWeek();
+        dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
+        return result;
     }
 
     public async Task<ServiceResult<PagedDto<PreOrderGroupWithStatDto>>> GetByMonthPagesAsync(MonthPreOrderGroupPagingInput input)
@@ -37,7 +50,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         foreach (var group in groups)
         {
             var dto = Mapper.Map<PreOrderGroupWithStatDto>(group);
-            var count = await _preOrderRepo.GetCountByStatusAsync(group.Id);
+            var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { group.Id });
             var week = dto.CreateTime.GetWeek();
             dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
             dto.Done = count.done;
@@ -55,8 +68,8 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         dto.GroupName = group.Name;
         var week = group.CreateTime.GetWeek();
         dto.Time = $"{week}-{group.CreateTime.ToString("yyyy-MM-dd")}日";
-        dto.Amount = await _preOrderRepo.GetAmountByGroupAsync(input.Id);
-        var count = await _preOrderRepo.GetCountByStatusAsync(input.Id);
+        dto.Amount = await _preOrderRepo.GetAmountByGroupAsync(new List<long> { input.Id });
+        var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { input.Id });
         dto.Done = count.done;
         dto.UnDone = count.unDone;
         return ServiceResult<GroupPreOrderStatDto>.Successed(dto);
