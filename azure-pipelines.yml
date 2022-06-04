@@ -14,7 +14,7 @@ variables:
   tag: '$(Build.BuildId)'
   containerName: mbillapi
   imageName: memoyu/mbillservice
-  appsettings: src/mbill_service/appsettings.Production.json
+  appsettings: src/mbill/appsettings.Production.json
 
 stages:
 - stage: Build
