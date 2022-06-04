@@ -3,6 +3,11 @@
 public class PreOrderGroupWithStatDto : PreOrderGroupDto
 {
     /// <summary>
+    /// 分组预购单总金额
+    /// </summary>
+    public decimal Amount { get; set; }
+
+    /// <summary>
     /// 分组中已完成预购总数
     /// </summary>
     public long Done { get; set; }

@@ -35,6 +35,13 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         return result;
     }
 
+    [Transactional]
+    public override async Task DeleteAsync(long id)
+    {
+        var cnt = await _preOrderRepo.DeleteAsync(o => o.GroupId == id);
+        await base.DeleteAsync(id);
+    }
+
     public async Task<ServiceResult<PagedDto<PreOrderGroupWithStatDto>>> GetByMonthPagesAsync(MonthPreOrderGroupPagingInput input)
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "create_time DESC" : input.Sort.Replace("-", " ");
@@ -50,6 +57,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         foreach (var group in groups)
         {
             var dto = Mapper.Map<PreOrderGroupWithStatDto>(group);
+            dto.Amount = await _preOrderRepo.GetAmountByGroupAsync(new List<long> { group.Id });
             var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { group.Id });
             var week = dto.CreateTime.GetWeek();
             dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";

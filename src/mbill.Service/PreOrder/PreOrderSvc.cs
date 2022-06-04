@@ -4,15 +4,18 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
 {
     private readonly IPreOrderRepo _orderRepo;
     private readonly IPreOrderGroupRepo _groupRepo;
+    private readonly IBillRepo _billRepo;
 
     public PreOrderSvc(
         IAuditBaseRepo<PreOrderEntity, long> repository,
         IPreOrderRepo orderRepo,
-        IPreOrderGroupRepo groupRepo
+        IPreOrderGroupRepo groupRepo,
+        IBillRepo billRepo
         ) : base(repository)
     {
         _orderRepo = orderRepo;
         _groupRepo = groupRepo;
+        _billRepo = billRepo;
     }
 
     public override async Task<ServiceResult<PreOrderSimpleDto>> CreateAsync(CreatePreOrderInput input)
@@ -36,10 +39,22 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         return result;
     }
 
+    [Transactional]
     public async Task<ServiceResult<int>> UpdateStatusAsync(UpdatePreOrderStatusInput input)
     {
         var order = await _orderRepo.GetAsync(input.Id);
         order.Status = input.Status;
+        //如果将状态变更为未完成状态，则需要清空BillId对应的信息
+        if (input.Status == (int)PreOrderStatusEnum.UnDone)
+        {
+            await _billRepo.DeleteAsync(order.BillId);
+            order.BillId = 0;
+        }
+        else if (input.Status == (int)PreOrderStatusEnum.Done)
+        {
+            order.BillId = input.BillId;
+        }
+
         var cnt = await _orderRepo.UpdateAsync(order);
         if (cnt <= 0) return ServiceResult<int>.Failed("更新状态失败");
         return ServiceResult<int>.Successed(1);

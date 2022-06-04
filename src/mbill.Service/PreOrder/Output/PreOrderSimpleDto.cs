@@ -5,6 +5,16 @@ public class PreOrderSimpleDto
     public long Id { get; set; }
 
     /// <summary>
+    /// 账单Id
+    /// </summary>
+    public long BillId { get; set; }
+
+    /// <summary>
+    /// 分组Id
+    /// </summary>
+    public long GroupId { get; set; }
+
+    /// <summary>
     /// 金额
     /// </summary>
     public decimal Amount { get; set; }

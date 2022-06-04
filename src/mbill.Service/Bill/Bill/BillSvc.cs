@@ -102,17 +102,18 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .ToPageListAsync(input, out long totalCount);
 
         List<BillsByDayDto> dtos = new List<BillsByDayDto>();
-        bills.GroupBy(b => b.Time.Date).ForEach(async b =>
+        var groups = bills.GroupBy(b => b.Time.Date);
+        foreach (var group in groups)
         {
             var dto = new BillsByDayDto();
-            dto.Day = b.Key.Day;
-            dto.Week = b.Key.GetWeek();
-            foreach (var i in b)
+            dto.Day = group.Key.Day;
+            dto.Week = group.Key.GetWeek();
+            foreach (var i in group)
             {
                 dto.Items.Add(await MapToSimpleDto(i));
             }
             dtos.Add(dto);
-        });
+        };
 
         return ServiceResult<PagedDto<BillsByDayDto>>.Successed(new PagedDto<BillsByDayDto>(dtos, totalCount));
     }
