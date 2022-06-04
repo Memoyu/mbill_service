@@ -81,7 +81,7 @@ stages:
           docker pull $(imageName)
 
           echo "================= to run container ===================="
-          docker run --name $(containerName) -d -p 9001:80 $(imageName)
+          docker run --name $(containerName) -d -p 5001:80 $(imageName)
 
           echo "================= publish success ===================="
         readyTimeout: '20000'
