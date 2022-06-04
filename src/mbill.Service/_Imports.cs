@@ -56,6 +56,7 @@ global using mbill.Service.Core.Files.Output;
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Hosting;
 global using System.IO;
+global using System.Net;
 global using Newtonsoft.Json;
 global using mbill.Service.Core.Wx.Output;
 global using System.Net.Http;
