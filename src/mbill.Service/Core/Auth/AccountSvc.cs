@@ -50,7 +50,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             return ServiceResult<TokenWithUserDto>.Failed($"微信登录失败，请稍后重试！错误：{wxlogin.Message}");
         var openId = wxlogin.Result.OpenId;
         var exist = await _userIdentityService.VerifyWxOpenIdAsync(openId);
-        long userId;
+        var user = new UserEntity();
         // 如果绑定信息为空，则未登录过，进行账户信息记录
         if (exist == null)
         {
@@ -71,7 +71,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 {
                     new UserRoleEntity()
                     {
-                        RoleId = SystemConst.Role.User
+                        RoleId = Role.User
                     }
                 };
 
@@ -80,14 +80,18 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                     new UserIdentityEntity(UserIdentityEntity.WeiXin,input.Nickname,openId,DateTime.Now)
                 };
             entity = await _userRepo.InsertAsync(entity);
-            userId = entity.Id;
+            user = entity;
         }
         else
         {
-            userId = exist.UserId;
+            user = await _userRepo.GetUserAsync(c => c.Id == exist.UserId);
+            // 在没有实现前台用户信息更改功能前，需要替换一下登录人的微信登录信息
+            user.AvatarUrl = input.AvatarUrl;
+            user.Nickname = input.Nickname;
+            await _userRepo.Orm.Update<UserEntity>().SetSource(user).UpdateColumns(e => new { e.AvatarUrl, e.Nickname }).ExecuteAffrowsAsync();
         }
 
-        var user = await _userRepo.GetUserAsync(c => c.Id == userId);
+   
         var token = await _jwtTokenService.CreateTokenAsync(user);
         var userDto = Mapper.Map<UserSimpleDto>(user);
         userDto.Days = (DateTime.Now - user.CreateTime).Days;
