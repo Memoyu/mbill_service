@@ -630,10 +630,11 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IPermissionSvc.CheckAsync(System.String)">
+        <member name="M:mbill.Service.Core.Permission.IPermissionSvc.CheckAsync(System.String,System.String)">
             <summary>
             检查当前登陆用户的分组权限
             </summary>
+            <param name="module"></param>
             <param name="permission"></param>
             <returns></returns>
         </member>

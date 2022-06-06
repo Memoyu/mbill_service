@@ -68,5 +68,6 @@ global using mbill.Core.Domains.Entities.Bill;
 global using mbill.Core.Domains.Entities.PreOrder;
 global using mbill.Core.Interface.IRepositories.Base;
 global using mbill.Core.Interface.IDependency;
+global using mbill.Core.Data.Authorization;
 global using static mbill.Core.Domains.Common.Consts.SystemConst;
 

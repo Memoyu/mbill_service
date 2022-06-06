@@ -16,33 +16,21 @@ public class LocalAuthorizeAttribute : Attribute, IAsyncAuthorizationFilter
     }
     public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
     {
-        ClaimsPrincipal claimsPrincipal = context.HttpContext.User;
+        //ICurrentUser currentUser = (ICurrentUser)context.HttpContext.RequestServices.GetService(typeof(ICurrentUser));
 
-        if (!claimsPrincipal.Identity.IsAuthenticated)//认证失败
-        {
-            HandlerAuthenticationFailed(context, "认证失败，请检查请求头或者重新登陆", ServiceResultCode.AuthenticationFailed);
-            return;
-        }
-
-        ICurrentUser currentUser = (ICurrentUser)context.HttpContext.RequestServices.GetService(typeof(ICurrentUser));
-
-        if (currentUser.IsInGroup(SystemConst.Role.Administrator))//如果是超级管理员
-        {
-            return;
-        }
+        //if (currentUser.IsInGroup(SystemConst.Role.Administrator))//如果是超级管理员
+        //{
+        //    return;
+        //}
 
         IAuthorizationService authorizationService = (IAuthorizationService)context.HttpContext.RequestServices.GetService(typeof(IAuthorizationService));
-        AuthorizationResult authorizationResult = await authorizationService.AuthorizeAsync(context.HttpContext.User, null, new OperationAuthorizationRequirement() { Name = Permission });
+        AuthorizationResult authorizationResult = await authorizationService.AuthorizeAsync(context.HttpContext.User, null, new ValidJtiRequirement());
         if (!authorizationResult.Succeeded)
         {
-            HandlerAuthenticationFailed(context, $"您没有权限：{Module}-{Permission}", ServiceResultCode.NoPermission);
+            return;
         }
-    }
 
-    public void HandlerAuthenticationFailed(AuthorizationFilterContext context, string message, ServiceResultCode code)
-    {
-        context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-        context.Result = new JsonResult(new ServiceResult(code, message));
+        await authorizationService.AuthorizeAsync(context.HttpContext.User, context, new ModuleAuthorizationRequirement(Module, Permission));
     }
 
     public override string ToString()

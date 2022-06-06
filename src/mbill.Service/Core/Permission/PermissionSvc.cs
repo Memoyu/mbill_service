@@ -44,10 +44,10 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
                );
     }
 
-    public async Task<bool> CheckAsync(string permission)
+    public async Task<bool> CheckAsync(string module, string permission)
     {
         long[] roleIds = CurrentUser.Roles;
-        PermissionEntity permissionEntity = await _permissionRepo.Where(r => r.Name == permission).FirstAsync();
+        PermissionEntity permissionEntity = await _permissionRepo.Where(r => r.Module == module && r.Name == permission).FirstAsync();
         bool existPermission = await _rolePermissionRepo.Select
             .AnyAsync(r => roleIds.Contains(r.RoleId) && r.PermissionId == permissionEntity.Id);
         return existPermission;

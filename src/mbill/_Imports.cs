@@ -11,6 +11,8 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.Hosting;
 global using AspNetCoreRateLimit;
 global using Autofac.Extensions.DependencyInjection;
+global using Microsoft.AspNetCore.Mvc.Filters;
+global using mbill.Core.Data.Authorization;
 global using AutoMapper;
 global using mbill.Controllers.Core;
 global using mbill.Core.AOP.Attributes;

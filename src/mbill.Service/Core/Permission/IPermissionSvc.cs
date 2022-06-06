@@ -17,9 +17,10 @@ public interface IPermissionSvc
     /// <summary>
     /// 检查当前登陆用户的分组权限
     /// </summary>
+    /// <param name="module"></param>
     /// <param name="permission"></param>
     /// <returns></returns>
-    Task<bool> CheckAsync(string permission);
+    Task<bool> CheckAsync(string module, string permission);
 
     /// <summary>
     /// 配置角色权限

@@ -3,6 +3,7 @@
 /// <summary>
 /// 账单分类管理
 /// </summary>
+[Authorize]
 [Route("api/category")]
 public class CategoryController : ApiControllerBase
 {

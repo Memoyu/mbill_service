@@ -3,6 +3,7 @@
 /// <summary>
 /// 资产分类管理
 /// </summary>
+[Authorize]
 [Route("api/asset")]
 public class AssetController : ApiControllerBase
 {

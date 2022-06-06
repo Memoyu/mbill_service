@@ -8,6 +8,7 @@ public class AutofacModule : Module
     {
         builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>().SingleInstance();
         builder.RegisterType<PermissionAuthorizationHandler>().As<IAuthorizationHandler>().InstancePerLifetimeScope();
+        builder.RegisterType<ValidJtiHandler>().As<IAuthorizationHandler>().InstancePerLifetimeScope();
         builder.RegisterType<CurrentUser>().As<ICurrentUser>().InstancePerDependency();
 
         builder.RegisterType<MigrationStartupTask>().SingleInstance();
