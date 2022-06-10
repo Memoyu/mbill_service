@@ -127,10 +127,10 @@ public class BillController : ApiControllerBase
     /// 获取指定日期各类型账单金额统计
     /// </summary>
     /// <param name="input">入参</param>
-    [HttpGet("statistics/total")]
+    [HttpGet("stat/total")]
     [LocalAuthorize("获取各类型金额统计", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillTotalDto>> GetMonthStatisticsAsync([FromQuery] BillDateInput input)
+    public async Task<ServiceResult<BillTotalDto>> GetMonthStatAsync([FromQuery] BillDateInput input)
     {
         return ServiceResult<BillTotalDto>.Successed(await _billService.GetStatisticsTotalAsync(input));
     }
@@ -139,10 +139,10 @@ public class BillController : ApiControllerBase
     /// 获取指定日期支出分类统计
     /// </summary>
     /// <param name="input">查询入参</param>
-    [HttpGet("statistics/expend/category")]
+    [HttpGet("stat/expend/category")]
     [LocalAuthorize("获取日期内指定分类的数据", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillExpendCategoryDto>> GetExpendCategoryStatisticsAsync([FromQuery] BillDateInput input)
+    public async Task<ServiceResult<BillExpendCategoryDto>> GetExpendCategoryStatAsync([FromQuery] BillDateInput input)
     {
         return ServiceResult<BillExpendCategoryDto>.Successed(await _billService.GetExpendCategoryStatisticsAsync(input));
     }
@@ -151,10 +151,10 @@ public class BillController : ApiControllerBase
     /// 获取当前月份所有周的支出趋势统计
     /// </summary>
     /// <param name="input">查询入参</param>
-    [HttpGet("statistics/expend/trend/week")]
+    [HttpGet("stat/expend/trend/week")]
     [LocalAuthorize("获取周指定分类的趋势统计", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetWeekExpendTrendStatisticsAsync([FromQuery] BillDateInput input)
+    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetWeekExpendTrendStatAsync([FromQuery] BillDateInput input)
     {
         return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetWeekExpendTrendStatisticsAsync(input));
     }
@@ -163,10 +163,10 @@ public class BillController : ApiControllerBase
     /// 获取当前月往前4个月的支出趋势统计(共5个月)
     /// </summary>
     /// <param name="input">查询入参</param>
-    [HttpGet("statistics/expend/trend/5month")]
+    [HttpGet("stat/expend/trend/5month")]
     [LocalAuthorize("获取五个月指定分类的趋势统计", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetMonthExpendTrendStatisticsAsync([FromQuery] BillDateInput input)
+    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetMonthExpendTrendStatAsync([FromQuery] BillDateInput input)
     {
         return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetMonthExpendTrendStatisticsAsync(input, 5));
     }*/
