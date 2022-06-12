@@ -62,7 +62,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return ServiceResult<BillDetailDto>.Successed(dto);
     }
 
-    public async Task<ServiceResult<BillsByDayDto>> GetByDayAsync(DayBillInput input)
+    public async Task<ServiceResult<BillsByDayWithStatDto>> GetByDayAsync(DayBillInput input)
     {
         var begin = input.Date.Date;
         var end = begin.AddDays(1).AddSeconds(-1);
@@ -77,14 +77,22 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .OrderBy("time DESC")
             .ToListAsync();
 
-        var dto = new BillsByDayDto();
+        var dto = new BillsByDayWithStatDto();
         dto.Day = begin.Day;
         dto.Week = begin.GetWeek();
+        var expend = 0m;
+        var income = 0m;
         foreach (var i in bills)
         {
+            if (i.Type == (int)BillTypeEnum.expend)
+                expend += i.Amount;
+            else
+                income += i.Amount;
             dto.Items.Add(await MapToSimpleDto(i));
         }
-        return ServiceResult<BillsByDayDto>.Successed(dto);
+        dto.Expend = expend.AmountFormat();
+        dto.Income = income.AmountFormat();
+        return ServiceResult<BillsByDayWithStatDto>.Successed(dto);
     }
 
     public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync(MonthBillPagingInput input)
@@ -397,9 +405,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
     {
         var dto = Mapper.Map<BillSimpleDto>(bill);
         dto.Time = bill.Time.ToString("HH:mm");
-        var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
-        dto.Category = category?.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.IconUrl);
+        if (bill.CategoryId.HasValue)
+        {
+            var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
+            dto.Category = category?.Name;
+            dto.CategoryIcon = _fileRepo.GetFileUrl(category?.IconUrl);
+        }
         return dto;
     }
 

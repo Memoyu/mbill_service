@@ -69,7 +69,7 @@ public class BillController : ApiControllerBase
     [HttpGet("day")]
     [LocalAuthorize("获取指定日期账单", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillsByDayDto>> GetByDayAsync([FromQuery] DayBillInput input)
+    public async Task<ServiceResult<BillsByDayWithStatDto>> GetByDayAsync([FromQuery] DayBillInput input)
     {
         return await _billSvc.GetByDayAsync(input);
     }

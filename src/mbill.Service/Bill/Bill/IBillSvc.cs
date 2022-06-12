@@ -36,7 +36,7 @@ public interface IBillSvc
     /// </summary>
     /// <param name="input">查询条件</param>
     /// <returns></returns>
-    Task<ServiceResult<BillsByDayDto>> GetByDayAsync(DayBillInput input);
+    Task<ServiceResult<BillsByDayWithStatDto>> GetByDayAsync(DayBillInput input);
 
     /// <summary>
     /// 获取分页账单数据
