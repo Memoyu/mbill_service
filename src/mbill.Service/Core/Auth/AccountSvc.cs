@@ -79,8 +79,8 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 {
                     new UserIdentityEntity(UserIdentityEntity.WeiXin,input.Nickname,openId,DateTime.Now)
                 };
-            entity = await _userRepo.InsertAsync(entity);
-            user = entity;
+            await _userRepo.InsertAsync(entity);
+            user = await _userRepo.GetUserAsync(c => c.Id == entity.Id);
         }
         else
         {
@@ -91,7 +91,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             await _userRepo.Orm.Update<UserEntity>().SetSource(user).UpdateColumns(e => new { e.AvatarUrl, e.Nickname }).ExecuteAffrowsAsync();
         }
 
-   
+
         var token = await _jwtTokenService.CreateTokenAsync(user);
         var userDto = Mapper.Map<UserSimpleDto>(user);
         userDto.Days = (DateTime.Now - user.CreateTime).Days;
