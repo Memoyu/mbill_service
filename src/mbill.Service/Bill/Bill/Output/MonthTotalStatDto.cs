@@ -11,4 +11,9 @@ public class MonthTotalStatDto
     /// 支出（格式化后）
     /// </summary>
     public string Expend { get; set; }
+
+    /// <summary>
+    /// 平均支出（格式化后）
+    /// </summary>
+    public string ExpendAvg { get; set; }
 }

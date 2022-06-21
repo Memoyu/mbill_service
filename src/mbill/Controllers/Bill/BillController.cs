@@ -112,15 +112,39 @@ public class BillController : ApiControllerBase
     }
 
     /// <summary>
-    /// 获取指定日期各类型账单金额统计
+    /// 获取指定年份账单金额统计
     /// </summary>
     /// <param name="input">入参</param>
     [HttpGet("stat/year-total")]
-    [LocalAuthorize("获取用户年金额统计", "账单")]
+    [LocalAuthorize("获取指定年份账单总金额", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<YearTotalStatDto>> GetMonthStatisticsAsync([FromQuery] YearTotalStatInput input)
+    public async Task<ServiceResult<YearTotalStatDto>> GetYearTotalStatAsync([FromQuery] YearTotalStatInput input)
     {
         return await _billSvc.GetYearTotalStatAsync(input);
+    }
+
+    /// <summary>
+    /// 获取指定月份账单金额趋势统计
+    /// </summary>
+    /// <param name="input">查询入参</param>
+    [HttpGet("stat/trend/month-total")]
+    [LocalAuthorize("获取指定月份账单金额趋势", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<MonthTotalTrendStatDto>> GetMonthTotalTrendStatAsync([FromQuery] MonthTotalTrendStatInput input)
+    {
+        return await _billSvc.GetMonthTotalTrendStatAsync(input);
+    }
+
+    /// <summary>
+    /// 获取指定年份账单金额趋势统计
+    /// </summary>
+    /// <param name="input">查询入参</param>
+    [HttpGet("stat/trend/year-total")]
+    [LocalAuthorize("获取指定年份账单金额趋势", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<YearTotalTrendStatDto>> GetYearTotalTrendStatAsync([FromQuery] YearTotalTrendStatInput input)
+    {
+        return await _billSvc.GetYearTotalTrendStatAsync(input);
     }
 
     /*/// <summary>

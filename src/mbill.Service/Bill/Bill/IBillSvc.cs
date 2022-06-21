@@ -67,6 +67,20 @@ public interface IBillSvc
     Task<ServiceResult<YearTotalStatDto>> GetYearTotalStatAsync(YearTotalStatInput input);
 
     /// <summary>
+    /// 获取指定年份账单金额趋势统计
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<ServiceResult<MonthTotalTrendStatDto>> GetMonthTotalTrendStatAsync(MonthTotalTrendStatInput input);
+
+    /// <summary>
+    /// 获取指定年份账单金额趋势统计
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<ServiceResult<YearTotalTrendStatDto>> GetYearTotalTrendStatAsync(YearTotalTrendStatInput input);
+
+    /// <summary>
     /// 获取指定日期各类型账单总额统计
     /// </summary>
     /// <param name="input"></param>
@@ -79,20 +93,5 @@ public interface IBillSvc
     /// <param name="input"></param>
     /// <returns></returns>
     Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInput input);
-
-    /// <summary>
-    /// 获取当前月份所有周的支出趋势统计
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
-    Task<IEnumerable<BillExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(BillDateInput input);
-
-    /// <summary>
-    /// 获取当前月往前5个月的支出趋势统计
-    /// </summary>
-    /// <param name="input"></param>
-    /// <param name="count">月数</param>
-    /// <returns></returns>
-    Task<IEnumerable<BillExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(BillDateInput input, int count);
 
 }

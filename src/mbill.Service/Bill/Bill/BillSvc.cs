@@ -151,74 +151,161 @@ public class BillSvc : ApplicationSvc, IBillSvc
     {
         var begin = input.Month.FirstDayOfMonth();
         var end = input.Month.LastDayOfMonth().AddDays(1).AddSeconds(-1);
-        var bills = await _billRepo
+        var expend = 0m;
+        var income = 0m;
+        var expendAvg = 0m;
+
+        // 支出
+        expend = await _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
-               .Where(s => s.Time <= end && s.Time >= begin)
-               .ToListAsync();
+                .Where(s => s.Type == (int)BillTypeEnum.expend)
+               .Where(s => s.Time <= end && s.Time >= begin).SumAsync(e => e.Amount);
 
-        var expend = 0m;
-        var income = 0m;
-        bills.ForEach(b =>
-        {
-            if (b.Type == (int)BillTypeEnum.expend)
-            {
-                expend += b.Amount;
-            }
-            else if (b.Type == (int)BillTypeEnum.income)
-            {
-                income += b.Amount;
-            }
-        });
+        // 收入
+        income = await _billRepo
+             .Select
+             .Where(s => s.IsDeleted == false)
+             .Where(s => s.CreateUserId == CurrentUser.Id)
+             .Where(s => s.Type == (int)BillTypeEnum.income)
+              .Where(s => s.Time <= end && s.Time >= begin).SumAsync(e => e.Amount);
+
+
+        // 平均支出
+        if (input.Opearte == 1)
+            expendAvg = (decimal)await _billRepo
+                   .Select
+                   .Where(s => s.IsDeleted == false)
+                   .Where(s => s.CreateUserId == CurrentUser.Id)
+                   .Where(s => s.Type == (int)BillTypeEnum.expend)
+                    .Where(s => s.Time <= end && s.Time >= begin).AvgAsync(e => e.Amount);
+
 
         return ServiceResult<MonthTotalStatDto>.Successed(new MonthTotalStatDto
         {
             Expend = expend.AmountFormat(),
-            Income = income.AmountFormat()
+            Income = income.AmountFormat(),
+            ExpendAvg = expendAvg.AmountFormat(),
         });
     }
 
     public async Task<ServiceResult<YearTotalStatDto>> GetYearTotalStatAsync(YearTotalStatInput input)
     {
-        var bills = await _billRepo
+        var expend = 0m;
+        var expendAvg = 0m;
+        var income = 0m;
+        var preOrder = 0m;
+
+        // 支出
+        expend = await _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
-               .Where(s => s.Time.Year == input.Year)
-               .ToListAsync();
-        var preOrders = await _preOrderRepo
+               .Where(s => s.Type == (int)BillTypeEnum.expend)
+               .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
+
+        // 收入
+        income = await _billRepo
+             .Select
+             .Where(s => s.IsDeleted == false)
+             .Where(s => s.CreateUserId == CurrentUser.Id)
+             .Where(s => s.Type == (int)BillTypeEnum.income)
+             .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
+
+        // 预购总额
+        preOrder = await _preOrderRepo
            .Select
            .Where(s => s.IsDeleted == false)
            .Where(s => s.CreateUserId == CurrentUser.Id)
-           .Where(s => s.Time.Year == input.Year)
-           .ToListAsync();
+           .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
 
-        var expend = 0m;
-        var income = 0m;
-        var preOrder = 0m;
-        bills.ForEach(b =>
-        {
-            if (b.Type == (int)BillTypeEnum.expend)
-            {
-                expend += b.Amount;
-            }
-            else if (b.Type == (int)BillTypeEnum.income)
-            {
-                income += b.Amount;
-            }
-        });
-        preOrders.ForEach(b =>
-        {
-            preOrder += b.Amount;
-        });
+        if (input.Opearte == 1)
+            // 平均支出
+            expendAvg = (decimal)await _billRepo
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.Type == (int)BillTypeEnum.expend)
+               .Where(s => s.Time.Year == input.Year).AvgAsync(e => e.Amount);
 
         return ServiceResult<YearTotalStatDto>.Successed(new YearTotalStatDto
         {
             Expend = expend.AmountFormat(),
             Income = income.AmountFormat(),
             PreOrder = preOrder.AmountFormat(),
+            ExpendAvg = expendAvg.AmountFormat(),
         });
+    }
+
+    public async Task<ServiceResult<MonthTotalTrendStatDto>> GetMonthTotalTrendStatAsync(MonthTotalTrendStatInput input)
+    {
+        var begin = input.Month.FirstDayOfMonth();
+        var end = input.Month.LastDayOfMonth().AddDays(1).AddSeconds(-1);
+        var days = DateTime.DaysInMonth(input.Month.Year, input.Month.Month);
+        var dto = new MonthTotalTrendStatDto();
+        var expendTrend = await _billRepo
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.Type == (int)BillTypeEnum.expend)
+               .Where(s => s.Time <= end && s.Time >= begin).GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        var incomeTrend = await _billRepo
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.Type == (int)BillTypeEnum.income)
+               .Where(s => s.Time <= end && s.Time >= begin).GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        var expendSerie = new Serie { Name = "支出月趋势" };
+        var incomeSerie = new Serie { Name = "收入月趋势" };
+        for (int d = 1; d <= days; d++)
+        {
+            var income = incomeTrend.FirstOrDefault(i => i.Date.Day == d)?.Sum ?? 0 ;
+            var expend = expendTrend.FirstOrDefault(i => i.Date.Day == d)?.Sum ?? 0;
+            dto.Categories.Add($"{d}日");
+            incomeSerie.Data.Add(income);
+            expendSerie.Data.Add(expend);
+        }
+        dto.Series.Add(expendSerie);
+        dto.Series.Add(incomeSerie);
+
+        return ServiceResult<MonthTotalTrendStatDto>.Successed(dto);
+    }
+
+    public async Task<ServiceResult<YearTotalTrendStatDto>> GetYearTotalTrendStatAsync(YearTotalTrendStatInput input)
+    {
+        var months = 12;
+        var dto = new YearTotalTrendStatDto();
+        var expendTrend = await _billRepo
+              .Select
+              .Where(s => s.IsDeleted == false)
+              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .Where(s => s.Type == (int)BillTypeEnum.expend)
+              .Where(s => s.Time.Year == input.Year).GroupBy(s => s.Time.Month).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        var incomeTrend = await _billRepo
+               .Select
+               .Where(s => s.IsDeleted == false)
+               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.Type == (int)BillTypeEnum.income)
+               .Where(s => s.Time.Year == input.Year).GroupBy(s => s.Time.Month).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        var expendSerie = new Serie { Name = "支出年趋势" };
+        var incomeSerie = new Serie { Name = "收入年趋势" };
+        for (int m = 1; m <= months; m++)
+        {
+            var income = incomeTrend.FirstOrDefault(i => i.Date == m)?.Sum ?? 0;
+            var expend = expendTrend.FirstOrDefault(i => i.Date == m)?.Sum ?? 0;
+            dto.Categories.Add($"{m}月");
+            incomeSerie.Data.Add(income);
+            expendSerie.Data.Add(expend);
+        }
+        dto.Series.Add(expendSerie);
+        dto.Series.Add(incomeSerie);
+
+        return ServiceResult<YearTotalTrendStatDto>.Successed(dto);
     }
 
     public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input)
@@ -325,73 +412,6 @@ public class BillSvc : ApplicationSvc, IBillSvc
         dto.ParentCategoryStas = parentDtos;
         dto.ChildCategoryStas = childDtos;
         return dto;
-    }
-
-    public async Task<IEnumerable<BillExpendTrendDto>> GetWeekExpendTrendStatisticsAsync(BillDateInput input)
-    {
-
-        var dateList = DateTimeUtil.GetWeeksOfMonth(input.Year.Value, input.Month.Value);
-        var startDate = dateList.OrderBy(d => d.Number).FirstOrDefault().StartDate.Date;
-        var EndDate = dateList.OrderBy(d => d.Number).LastOrDefault().EndDate.Date.AddDays(1).AddSeconds(-1);// 加上23:59:59
-
-        var bills = await _billRepo
-          .Select
-          .Where(s => s.IsDeleted == false)
-          //.WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
-          .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-          //.WhereIf(input.Year != null, s => s.Year == input.Year)
-          .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate)
-          .ToListAsync();
-
-        var dtos = dateList.Select(d => new BillExpendTrendDto
-        {
-            Name = $"{d.StartDate.Month}/{d.StartDate.Day}-{d.EndDate.Month}/{d.EndDate.Day}",
-            Data = bills.Where(s => s.Time >= d.StartDate && s.Time <= d.EndDate.AddDays(1).AddSeconds(-1)).Select(t => new { t.Amount }).Sum(t => t.Amount),
-            StartDate = d.StartDate.Date,
-            EndDate = d.EndDate.Date
-        });
-
-        return dtos;
-    }
-
-    public async Task<IEnumerable<BillExpendTrendDto>> GetMonthExpendTrendStatisticsAsync(BillDateInput input, int count)
-    {
-        var dateList = new List<WeeksOfMonth>();
-        // 获取当前月份前count个月份（包含当前月份）
-        for (int i = 0; i < count; i++)
-        {
-            var currentDate = new DateTime(input.Year.Value, input.Month.Value, 1).AddMonths(-i);
-            dateList.Add(new WeeksOfMonth
-            {
-                Number = i + 1,
-                StartDate = currentDate,
-                EndDate = currentDate.AddMonths(1).AddDays(-1)
-            });
-        }
-
-        var startDate = dateList.OrderBy(d => d.Number).LastOrDefault().StartDate.Date;//获取最小的月份（Number最大）
-        var EndDate = dateList.OrderBy(d => d.Number).FirstOrDefault().EndDate.Date;
-
-        var bills = await _billRepo
-         .Select
-         .Where(s => s.IsDeleted == false)
-         // .WhereIf(input.Type.IsNotNullOrEmpty(), s => s.Type == input.Type)
-         .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-         // .WhereIf(input.Year != null, s => s.Year >= startDate.Year && s.Year <= EndDate.Year)
-         .WhereIf(input.Month != null, s => s.Time >= startDate && s.Time <= EndDate.AddDays(1).AddSeconds(-1))
-         .ToListAsync();
-
-        var dtos = dateList.Select(d => new BillExpendTrendDto
-        {
-            Name = $"{d.StartDate.Year}/{d.StartDate.Month}",
-            // Data = bills.Where(s => s.Year == d.StartDate.Year && s.Month == d.StartDate.Month).Select(t => new { t.Amount }).Sum(t => t.Amount),
-            StartDate = d.StartDate.Date,
-            EndDate = d.EndDate.Date
-        });
-
-        return dtos;
-
-
     }
 
     #region Private

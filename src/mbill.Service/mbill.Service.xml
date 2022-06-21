@@ -164,6 +164,20 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalTrendStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput)">
+            <summary>
+            获取指定年份账单金额趋势统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetYearTotalTrendStatAsync(mbill.Service.Bill.Bill.Input.YearTotalTrendStatInput)">
+            <summary>
+            获取指定年份账单金额趋势统计
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
             <summary>
             获取指定日期各类型账单总额统计
@@ -176,21 +190,6 @@
             获取指定日期支出分类统计
             </summary>
             <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetWeekExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
-            <summary>
-            获取当前月份所有周的支出趋势统计
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthExpendTrendStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput,System.Int32)">
-            <summary>
-            获取当前月往前5个月的支出趋势统计
-            </summary>
-            <param name="input"></param>
-            <param name="count">月数</param>
             <returns></returns>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.Date">
@@ -273,6 +272,18 @@
             指定的年月
             </summary>
         </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Opearte">
+            <summary>
+            操作：
+            0 查询基本数据（支出、收入）
+            1 0的前提下加平均支出
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput.Month">
+            <summary>
+            指定的年月
+            </summary>
+        </member>
         <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.BeginDate">
             <summary>
             起始时间
@@ -284,6 +295,18 @@
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.YearTotalStatInput.Year">
+            <summary>
+            指定的年
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.YearTotalStatInput.Opearte">
+            <summary>
+            操作：
+            0 查询基本数据（支出、收入、预购金额）
+            1 0的前提下加平均支出
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.YearTotalTrendStatInput.Year">
             <summary>
             指定的年
             </summary>
@@ -346,6 +369,11 @@
         <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Expend">
             <summary>
             支出（格式化后）
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.ExpendAvg">
+            <summary>
+            平均支出（格式化后）
             </summary>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Core.Domains.Entities.Bill.CategoryEntity)">

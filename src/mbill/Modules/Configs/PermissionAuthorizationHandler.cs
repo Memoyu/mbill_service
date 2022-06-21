@@ -13,6 +13,14 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthori
     {
         AuthorizationFilterContext? filterContext = context.Resource as AuthorizationFilterContext;
 
+#if DEBUG
+        ICurrentUser currentUser = (ICurrentUser)filterContext.HttpContext.RequestServices.GetService(typeof(ICurrentUser));
+        if (currentUser.IsInGroup(SystemConst.Role.Administrator))//如果是超级管理员
+        {
+            return;
+        }
+#endif
+
         if (!context.User.Identity.IsAuthenticated)
         {
             HandlerAuthenticationFailed(filterContext, "认证失败，请检查请求头或者重新登陆", ServiceResultCode.AuthenticationFailed);

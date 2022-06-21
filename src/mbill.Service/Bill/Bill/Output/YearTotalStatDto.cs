@@ -8,4 +8,6 @@ public class YearTotalStatDto
     public string Income { get; set; }
 
     public string PreOrder { get; set; }
+
+    public string ExpendAvg { get; set; }
 }
