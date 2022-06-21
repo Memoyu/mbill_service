@@ -92,6 +92,6 @@ public interface IBillSvc
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<ServiceResult<CategoryPercentGroupDto>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input);
+    Task<ServiceResult<List<CategoryPercentGroupDto>>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input);
 
 }

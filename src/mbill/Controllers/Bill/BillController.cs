@@ -166,7 +166,7 @@ public class BillController : ApiControllerBase
     [HttpGet("stat/category/percent/group")]
     [LocalAuthorize("获取日期内分类占比分组", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<CategoryPercentGroupDto>> GetCategoryPercentGroupAsync([FromQuery] CategoryPercentGroupInput input)
+    public async Task<ServiceResult<List<CategoryPercentGroupDto>>> GetCategoryPercentGroupAsync([FromQuery] CategoryPercentGroupInput input)
     {
         return await _billSvc.GetCategoryPercentGroupAsync(input);
     }

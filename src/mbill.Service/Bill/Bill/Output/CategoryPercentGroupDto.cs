@@ -15,7 +15,7 @@ public class CategoryPercentItemDto
 
     public string CategoryIcon { get; set; }
 
-    public float Percent { get; set; }
+    public double Percent { get; set; }
 
     public string Amount { get; set; }
 }

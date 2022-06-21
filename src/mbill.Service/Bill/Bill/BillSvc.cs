@@ -340,7 +340,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
               .Where(s => s.CreateUserId == CurrentUser.Id)
               .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
               .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
-              .WhereIf(input.Type == 0 , s => s.Time <= end && s.Time >= begin)
+              .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
               .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
 
         var categoryGroups = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
@@ -356,10 +356,59 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return ServiceResult<CategoryPercentStatDto>.Successed(dto);
     }
 
-    public async Task<ServiceResult<CategoryPercentGroupDto>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input)
+    public async Task<ServiceResult<List<CategoryPercentGroupDto>>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input)
     {
-        var dto = new CategoryPercentGroupDto();
-        return ServiceResult<CategoryPercentGroupDto>.Successed(dto);
+        var begin = input.Date.FirstDayOfMonth();
+        var end = input.Date.LastDayOfMonth().AddDays(1).AddSeconds(-1);
+        var dtos = new List<CategoryPercentGroupDto>();
+        ISelect<BillEntity> GetSelect() => _billRepo
+              .Select
+              .Where(s => s.IsDeleted == false)
+              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
+              .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
+              .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
+              .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
+
+        var data = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var catrgoryIds = data.Select(c => c.Id).ToList();
+        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).ToListAsync();
+        var parentIds = categories.Select(c => c.ParentId).Distinct();
+        var categoryParents = await _categoryRepo.Select.Where(c => parentIds.Contains(c.Id)).ToListAsync();
+        var total = data.Sum(c => c.Sum);
+
+        // 进行数据分组，并完善数据相关信息
+        dtos = data.Select(cg =>
+        {
+            var c = categories.FirstOrDefault(c => c.Id == cg.Id);
+            var g = categoryParents.FirstOrDefault(g => c.ParentId == g.Id);
+            return new
+            {
+                Id = cg.Id,
+                CategoryName = c.Name,
+                CategoryIcon = _fileRepo.GetFileUrl(c?.IconUrl),
+                Sum = cg.Sum,
+                GroupId = g.Id,
+                GroupName = g.Name,
+                Percent = Math.Round((float)(cg.Sum / total) * 100, 2), // 保留两位小数的分类占比
+                Amount = cg.Sum.AmountFormat()
+            };
+        })
+        .GroupBy(cg => new { cg.GroupId, cg.GroupName })
+        .Select(g => new CategoryPercentGroupDto
+        {
+            Group = g.Key.GroupName,
+            Items = g.Select(c => new CategoryPercentItemDto
+            {
+                Id = c.Id.Value,
+                Category = c.CategoryName,
+                CategoryIcon = c.CategoryIcon,
+                Percent = c.Percent,
+                Amount = c.Amount,
+            }).ToList(),
+        }).ToList();
+
+        return ServiceResult<List<CategoryPercentGroupDto>>.Successed(dtos);
     }
 
     #region Private
