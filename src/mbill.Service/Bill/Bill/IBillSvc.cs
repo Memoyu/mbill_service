@@ -101,4 +101,10 @@ public interface IBillSvc
     /// <returns></returns>
     Task<ServiceResult<List<CategoryPercentGroupDto>>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input);
 
+    /// <summary>
+    /// 获取指定条件账单排行列表
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<ServiceResult<PagedDto<BillSimpleDto>>> GetRankingAsync(RankingPagingInput input);
 }

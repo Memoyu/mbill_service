@@ -183,4 +183,16 @@ public class BillController : ApiControllerBase
     {
         return await _billSvc.GetCategoryPercentGroupAsync(input);
     }
+
+    /// <summary>
+    /// 获取指定条件账单排行列表
+    /// </summary>
+    /// <param name="input">查询入参</param>
+    [HttpGet("stat/ranking")]
+    [LocalAuthorize("获取账单排行列表", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetRankingAsync([FromQuery] RankingPagingInput input)
+    {
+        return await _billSvc.GetRankingAsync(input);
+    }
 }

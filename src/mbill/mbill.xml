@@ -292,6 +292,12 @@
             </summary>
             <param name="input">查询入参</param>
         </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetRankingAsync(mbill.Service.Bill.Bill.Input.RankingPagingInput)">
+            <summary>
+            获取指定条件账单排行列表
+            </summary>
+            <param name="input">查询入参</param>
+        </member>
         <member name="T:mbill.Controllers.Bill.CategoryController">
             <summary>
             账单分类管理

@@ -448,6 +448,31 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return ServiceResult<List<CategoryPercentGroupDto>>.Successed(dtos);
     }
 
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetRankingAsync(RankingPagingInput input)
+    {
+        var begin = input.Date.FirstDayOfMonth();
+        var end = input.Date.LastDayOfMonth().AddDays(1).AddSeconds(-1);
+        var sort = "amount DESC";
+        var bills = await _billRepo
+            .Select
+            .Where(s => s.IsDeleted == false)
+            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
+            .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
+            .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
+            .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year)
+            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
+            .OrderBy(sort)
+            .ToPageListAsync(input, out long totalCount);
+
+        List<BillSimpleDto> dtos = new List<BillSimpleDto>();
+        foreach (var i in bills)
+        {
+            dtos.Add(await MapToSimpleDto(i));
+        }
+        return ServiceResult<PagedDto<BillSimpleDto>>.Successed(new PagedDto<BillSimpleDto>(dtos, totalCount));
+    }
+
     #region Private
 
     /// <summary>
@@ -469,5 +494,4 @@ public class BillSvc : ApplicationSvc, IBillSvc
     }
 
     #endregion
-
 }

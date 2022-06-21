@@ -199,6 +199,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetRankingAsync(mbill.Service.Bill.Bill.Input.RankingPagingInput)">
+            <summary>
+            获取指定条件账单排行列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
             <summary>
             查询类型：
@@ -327,6 +334,20 @@
         <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.EndDate">
             <summary>
             结束时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.RankingPagingInput.Type">
+            <summary>
+            查询类型：
+            0 月统计
+            1 年统计
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.RankingPagingInput.BillType">
+            <summary>
+            账单类型
+            0 支出
+            1 收入
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.YearTotalStatInput.Year">
