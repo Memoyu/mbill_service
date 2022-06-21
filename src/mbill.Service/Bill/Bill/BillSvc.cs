@@ -234,6 +234,43 @@ public class BillSvc : ApplicationSvc, IBillSvc
         });
     }
 
+    public async Task<ServiceResult<List<YearSurplusStatDto>>> GetYearSurplusStatAsync(int year)
+    {
+        var dtos = new List<YearSurplusStatDto>();
+        // 构建Select
+        ISelect<BillEntity> GetSelect() => _billRepo
+              .Select
+              .Where(s => s.IsDeleted == false)
+              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .Where(s => s.Time.Year == year);
+
+        // 计算收、支总额
+        var expend = await GetSelect().Where(s => s.Type == (int)BillTypeEnum.expend).GroupBy(s => s.Time.Month).ToListAsync(s => new { Month = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var income = await GetSelect().Where(s => s.Type == (int)BillTypeEnum.income).GroupBy(s => s.Time.Month).ToListAsync(s => new { Month = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        // 计算收入总额
+        var totalIncome = income.Sum(i => i.Sum);
+
+        var month = 12;
+        var curYear = DateTime.Now.Year;
+        if (curYear == year) month = DateTime.Now.Month;
+        var curExpend = 0m;
+        // 构建返回Dto
+        for (int m = 1; m <= month; m++)
+        {
+            var e = expend.FirstOrDefault(e => e.Month == m)?.Sum ?? 0;
+            curExpend += e;
+            dtos.Add(new YearSurplusStatDto
+            {
+                Month = m,
+                Surplus = (totalIncome - curExpend).AmountFormat(),
+                Expend = e.AmountFormat(),
+                Income = (income.FirstOrDefault(e => e.Month == m)?.Sum ?? 0).AmountFormat(),
+            });
+        }
+        return ServiceResult<List<YearSurplusStatDto>>.Successed(dtos);
+    }
+
     public async Task<ServiceResult<MonthTotalTrendStatDto>> GetMonthTotalTrendStatAsync(MonthTotalTrendStatInput input)
     {
         var begin = input.Month.FirstDayOfMonth();
@@ -284,7 +321,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
     public async Task<ServiceResult<YearTotalTrendStatDto>> GetYearTotalTrendStatAsync(YearTotalTrendStatInput input)
     {
-        var months = 12;
+        var month = 12;
         var dto = new YearTotalTrendStatDto();
 
         // 构建Select
@@ -314,7 +351,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         var expendSerie = new BaseSerie { Name = "支出年趋势" };
         var incomeSerie = new BaseSerie { Name = "收入年趋势" };
-        for (int m = 1; m <= months; m++)
+        for (int m = 1; m <= month; m++)
         {
             var income = incomeTrend.FirstOrDefault(i => i.Date == m)?.Sum ?? 0;
             var expend = expendTrend.FirstOrDefault(i => i.Date == m)?.Sum ?? 0;

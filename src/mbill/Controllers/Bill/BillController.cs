@@ -123,6 +123,19 @@ public class BillController : ApiControllerBase
         return await _billSvc.GetYearTotalStatAsync(input);
     }
 
+
+    /// <summary>
+    /// 获取指定年份的收支结余统计
+    /// </summary>
+    /// <param name="year">年份</param>
+    [HttpGet("stat/year-surplus")]
+    [LocalAuthorize("获取指定年份收支结余统计", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<List<YearSurplusStatDto>>> GetYearSurplusStatAsync([FromQuery] int year)
+    {
+        return await _billSvc.GetYearSurplusStatAsync(year);
+    }
+
     /// <summary>
     /// 获取指定月份账单金额趋势统计
     /// </summary>
@@ -151,7 +164,7 @@ public class BillController : ApiControllerBase
     /// 获取指定日期的收入或支出分类占比统计
     /// </summary>
     /// <param name="input">查询入参</param>
-    [HttpGet("stat/category/percent")]
+    [HttpGet("stat/percent/category")]
     [LocalAuthorize("获取日期内分类占比", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<CategoryPercentStatDto>> GetCategoryPercentStatAsync([FromQuery] CategoryPercentStatInput input)
@@ -163,7 +176,7 @@ public class BillController : ApiControllerBase
     /// 获取指定日期的收入或支出分类占比分组列表
     /// </summary>
     /// <param name="input">查询入参</param>
-    [HttpGet("stat/category/percent/group")]
+    [HttpGet("stat/percent/category/group")]
     [LocalAuthorize("获取日期内分类占比分组", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<List<CategoryPercentGroupDto>>> GetCategoryPercentGroupAsync([FromQuery] CategoryPercentGroupInput input)

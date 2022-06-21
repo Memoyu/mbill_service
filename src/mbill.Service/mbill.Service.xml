@@ -164,6 +164,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetYearSurplusStatAsync(System.Int32)">
+            <summary>
+            获取指定年份的收支结余统计
+            </summary>
+            <param name="year">年份</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalTrendStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput)">
             <summary>
             获取指定年份账单金额趋势统计

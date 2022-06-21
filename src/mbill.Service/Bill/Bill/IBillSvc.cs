@@ -67,6 +67,13 @@ public interface IBillSvc
     Task<ServiceResult<YearTotalStatDto>> GetYearTotalStatAsync(YearTotalStatInput input);
 
     /// <summary>
+    /// 获取指定年份的收支结余统计
+    /// </summary>
+    /// <param name="year">年份</param>
+    /// <returns></returns>
+    Task<ServiceResult<List<YearSurplusStatDto>>> GetYearSurplusStatAsync(int year);
+
+    /// <summary>
     /// 获取指定年份账单金额趋势统计
     /// </summary>
     /// <param name="input"></param>

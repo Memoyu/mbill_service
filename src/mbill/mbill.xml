@@ -262,6 +262,12 @@
             </summary>
             <param name="input">入参</param>
         </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetYearSurplusStatAsync(System.Int32)">
+            <summary>
+            获取指定年份的收支结余统计
+            </summary>
+            <param name="year">年份</param>
+        </member>
         <member name="M:mbill.Controllers.Bill.BillController.GetMonthTotalTrendStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput)">
             <summary>
             获取指定月份账单金额趋势统计
