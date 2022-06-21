@@ -178,19 +178,47 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetStatisticsTotalAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetCategoryPercentStatAsync(mbill.Service.Bill.Bill.Input.CategoryPercentStatInput)">
             <summary>
-            获取指定日期各类型账单总额统计
+            获取指定日期的收入或支出分类占比统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetExpendCategoryStatisticsAsync(mbill.Service.Bill.Bill.Input.BillDateInput)">
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetCategoryPercentGroupAsync(mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput)">
             <summary>
-            获取指定日期支出分类统计
+            获取指定日期的收入或支出分类占比分组列表
             </summary>
             <param name="input"></param>
             <returns></returns>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
+            <summary>
+            查询类型：
+            0 月统计
+            1 年统计
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.BillType">
+            <summary>
+            账单类型
+            0 支出
+            1 收入
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.Type">
+            <summary>
+            查询类型：
+            0 月统计
+            1 年统计
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.BillType">
+            <summary>
+            账单类型
+            0 支出
+            1 收入
+            </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.Date">
             <summary>

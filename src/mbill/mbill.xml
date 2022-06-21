@@ -274,6 +274,18 @@
             </summary>
             <param name="input">查询入参</param>
         </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetCategoryPercentStatAsync(mbill.Service.Bill.Bill.Input.CategoryPercentStatInput)">
+            <summary>
+            获取指定日期的收入或支出分类占比统计
+            </summary>
+            <param name="input">查询入参</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetCategoryPercentGroupAsync(mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput)">
+            <summary>
+            获取指定日期的收入或支出分类占比分组列表
+            </summary>
+            <param name="input">查询入参</param>
+        </member>
         <member name="T:mbill.Controllers.Bill.CategoryController">
             <summary>
             账单分类管理

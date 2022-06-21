@@ -147,52 +147,27 @@ public class BillController : ApiControllerBase
         return await _billSvc.GetYearTotalTrendStatAsync(input);
     }
 
-    /*/// <summary>
-    /// 获取指定日期各类型账单金额统计
+    /// <summary>
+    /// 获取指定日期的收入或支出分类占比统计
     /// </summary>
-    /// <param name="input">入参</param>
-    [HttpGet("stat/total")]
-    [LocalAuthorize("获取各类型金额统计", "账单")]
+    /// <param name="input">查询入参</param>
+    [HttpGet("stat/category/percent")]
+    [LocalAuthorize("获取日期内分类占比", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillTotalDto>> GetMonthStatAsync([FromQuery] BillDateInput input)
+    public async Task<ServiceResult<CategoryPercentStatDto>> GetCategoryPercentStatAsync([FromQuery] CategoryPercentStatInput input)
     {
-        return ServiceResult<BillTotalDto>.Successed(await _billService.GetStatisticsTotalAsync(input));
+        return await _billSvc.GetCategoryPercentStatAsync(input);
     }
 
     /// <summary>
-    /// 获取指定日期支出分类统计
+    /// 获取指定日期的收入或支出分类占比分组列表
     /// </summary>
     /// <param name="input">查询入参</param>
-    [HttpGet("stat/expend/category")]
-    [LocalAuthorize("获取日期内指定分类的数据", "账单")]
+    [HttpGet("stat/category/percent/group")]
+    [LocalAuthorize("获取日期内分类占比分组", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillExpendCategoryDto>> GetExpendCategoryStatAsync([FromQuery] BillDateInput input)
+    public async Task<ServiceResult<CategoryPercentGroupDto>> GetCategoryPercentGroupAsync([FromQuery] CategoryPercentGroupInput input)
     {
-        return ServiceResult<BillExpendCategoryDto>.Successed(await _billService.GetExpendCategoryStatisticsAsync(input));
+        return await _billSvc.GetCategoryPercentGroupAsync(input);
     }
-
-    /// <summary>
-    /// 获取当前月份所有周的支出趋势统计
-    /// </summary>
-    /// <param name="input">查询入参</param>
-    [HttpGet("stat/expend/trend/week")]
-    [LocalAuthorize("获取周指定分类的趋势统计", "账单")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetWeekExpendTrendStatAsync([FromQuery] BillDateInput input)
-    {
-        return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetWeekExpendTrendStatisticsAsync(input));
-    }
-
-    /// <summary>
-    /// 获取当前月往前4个月的支出趋势统计(共5个月)
-    /// </summary>
-    /// <param name="input">查询入参</param>
-    [HttpGet("stat/expend/trend/5month")]
-    [LocalAuthorize("获取五个月指定分类的趋势统计", "账单")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<IEnumerable<BillExpendTrendDto>>> GetMonthExpendTrendStatAsync([FromQuery] BillDateInput input)
-    {
-        return ServiceResult<IEnumerable<BillExpendTrendDto>>.Successed(await _billService.GetMonthExpendTrendStatisticsAsync(input, 5));
-    }*/
-
 }

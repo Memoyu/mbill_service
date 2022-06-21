@@ -155,13 +155,16 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var income = 0m;
         var expendAvg = 0m;
 
-        // 支出
-        expend = await _billRepo
+        // 构建Select
+        ISelect<BillEntity> GetExpendSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
                 .Where(s => s.Type == (int)BillTypeEnum.expend)
-               .Where(s => s.Time <= end && s.Time >= begin).SumAsync(e => e.Amount);
+               .Where(s => s.Time <= end && s.Time >= begin);
+
+        // 支出
+        expend = await GetExpendSelect().SumAsync(e => e.Amount);
 
         // 收入
         income = await _billRepo
@@ -174,12 +177,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         // 平均支出
         if (input.Opearte == 1)
-            expendAvg = (decimal)await _billRepo
-                   .Select
-                   .Where(s => s.IsDeleted == false)
-                   .Where(s => s.CreateUserId == CurrentUser.Id)
-                   .Where(s => s.Type == (int)BillTypeEnum.expend)
-                    .Where(s => s.Time <= end && s.Time >= begin).AvgAsync(e => e.Amount);
+            expendAvg = (decimal)await GetExpendSelect().AvgAsync(e => e.Amount);
 
 
         return ServiceResult<MonthTotalStatDto>.Successed(new MonthTotalStatDto
@@ -197,13 +195,16 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var income = 0m;
         var preOrder = 0m;
 
-        // 支出
-        expend = await _billRepo
+        // 构建Select
+        ISelect<BillEntity> GetExpendSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
                .Where(s => s.Type == (int)BillTypeEnum.expend)
-               .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
+               .Where(s => s.Time.Year == input.Year);
+
+        // 支出
+        expend = await GetExpendSelect().SumAsync(e => e.Amount);
 
         // 收入
         income = await _billRepo
@@ -222,12 +223,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         if (input.Opearte == 1)
             // 平均支出
-            expendAvg = (decimal)await _billRepo
-               .Select
-               .Where(s => s.IsDeleted == false)
-               .Where(s => s.CreateUserId == CurrentUser.Id)
-               .Where(s => s.Type == (int)BillTypeEnum.expend)
-               .Where(s => s.Time.Year == input.Year).AvgAsync(e => e.Amount);
+            expendAvg = (decimal)await GetExpendSelect().AvgAsync(e => e.Amount);
 
         return ServiceResult<YearTotalStatDto>.Successed(new YearTotalStatDto
         {
@@ -244,25 +240,37 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var end = input.Month.LastDayOfMonth().AddDays(1).AddSeconds(-1);
         var days = DateTime.DaysInMonth(input.Month.Year, input.Month.Month);
         var dto = new MonthTotalTrendStatDto();
-        var expendTrend = await _billRepo
+
+        // 构建Select
+        ISelect<BillEntity> GetExpendSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
                .Where(s => s.Type == (int)BillTypeEnum.expend)
-               .Where(s => s.Time <= end && s.Time >= begin).GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+               .Where(s => s.Time <= end && s.Time >= begin);
 
-        var incomeTrend = await _billRepo
+        ISelect<BillEntity> GetIncomeSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
                .Where(s => s.Type == (int)BillTypeEnum.income)
-               .Where(s => s.Time <= end && s.Time >= begin).GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+               .Where(s => s.Time <= end && s.Time >= begin);
 
-        var expendSerie = new Serie { Name = "支出月趋势" };
-        var incomeSerie = new Serie { Name = "收入月趋势" };
+        // 查询趋势数据
+        var expendTrend = await GetExpendSelect().GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var incomeTrend = await GetIncomeSelect().GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        // 获取最高、最低金额
+        dto.ExpendHighest = await GetExpendSelect().MaxAsync(s => s.Amount);
+        dto.ExpendLowst = await GetExpendSelect().MinAsync(s => s.Amount);
+        dto.IncomeHighest = await GetIncomeSelect().MaxAsync(s => s.Amount);
+        dto.IncomeLowst = await GetIncomeSelect().MinAsync(s => s.Amount);
+
+        var expendSerie = new BaseSerie { Name = "支出月趋势" };
+        var incomeSerie = new BaseSerie { Name = "收入月趋势" };
         for (int d = 1; d <= days; d++)
         {
-            var income = incomeTrend.FirstOrDefault(i => i.Date.Day == d)?.Sum ?? 0 ;
+            var income = incomeTrend.FirstOrDefault(i => i.Date.Day == d)?.Sum ?? 0;
             var expend = expendTrend.FirstOrDefault(i => i.Date.Day == d)?.Sum ?? 0;
             dto.Categories.Add($"{d}日");
             incomeSerie.Data.Add(income);
@@ -278,22 +286,34 @@ public class BillSvc : ApplicationSvc, IBillSvc
     {
         var months = 12;
         var dto = new YearTotalTrendStatDto();
-        var expendTrend = await _billRepo
+
+        // 构建Select
+        ISelect<BillEntity> GetExpendSelect() => _billRepo
               .Select
               .Where(s => s.IsDeleted == false)
               .Where(s => s.CreateUserId == CurrentUser.Id)
               .Where(s => s.Type == (int)BillTypeEnum.expend)
-              .Where(s => s.Time.Year == input.Year).GroupBy(s => s.Time.Month).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+              .Where(s => s.Time.Year == input.Year);
 
-        var incomeTrend = await _billRepo
+        ISelect<BillEntity> GetIncomeSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
                .Where(s => s.Type == (int)BillTypeEnum.income)
-               .Where(s => s.Time.Year == input.Year).GroupBy(s => s.Time.Month).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+               .Where(s => s.Time.Year == input.Year);
 
-        var expendSerie = new Serie { Name = "支出年趋势" };
-        var incomeSerie = new Serie { Name = "收入年趋势" };
+        // 查询趋势数据
+        var expendTrend = await GetExpendSelect().GroupBy(s => s.Time.Month).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var incomeTrend = await GetIncomeSelect().GroupBy(s => s.Time.Month).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
+
+        // 获取最高、最低金额
+        dto.ExpendHighest = await GetExpendSelect().MaxAsync(s => s.Amount);
+        dto.ExpendLowst = await GetExpendSelect().MinAsync(s => s.Amount);
+        dto.IncomeHighest = await GetIncomeSelect().MaxAsync(s => s.Amount);
+        dto.IncomeLowst = await GetIncomeSelect().MinAsync(s => s.Amount);
+
+        var expendSerie = new BaseSerie { Name = "支出年趋势" };
+        var incomeSerie = new BaseSerie { Name = "收入年趋势" };
         for (int m = 1; m <= months; m++)
         {
             var income = incomeTrend.FirstOrDefault(i => i.Date == m)?.Sum ?? 0;
@@ -308,110 +328,38 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return ServiceResult<YearTotalTrendStatDto>.Successed(dto);
     }
 
-    public async Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input)
+    public async Task<ServiceResult<CategoryPercentStatDto>> GetCategoryPercentStatAsync(CategoryPercentStatInput input)
     {
-        // var userId = input.UserId ?? CurrentUser.Id;
-        var bills = await _billRepo
-           .Select
-           .Where(s => s.IsDeleted == false)
-           .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-           //.WhereIf(input.Year != null, s => s.Year == input.Year)
-           //.WhereIf(input.Month != null, s => s.Month == input.Month)
-           .ToListAsync();
-        var dto = new BillTotalDto();
-        bills.ForEach(s =>
+
+        var begin = input.Date.FirstDayOfMonth();
+        var end = input.Date.LastDayOfMonth().AddDays(1).AddSeconds(-1);
+        var dto = new CategoryPercentStatDto();
+        ISelect<BillEntity> GetSelect() => _billRepo
+              .Select
+              .Where(s => s.IsDeleted == false)
+              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
+              .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
+              .WhereIf(input.Type == 0 , s => s.Time <= end && s.Time >= begin)
+              .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
+
+        var categoryGroups = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var catrgoryIds = categoryGroups.Select(c => c.Id).ToList();
+        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).ToListAsync();
+
+        foreach (var category in categoryGroups)
         {
-            switch (s.Type)
-            {
-                //case "expend":
-                //    dto.MonthExpend += s.Amount;
-                //    break;
-                //case "income":
-                //    dto.MonthIcome += s.Amount;
-                //    break;
-                //case "repayment":
-                //    dto.MonthRepayment += s.Amount;
-                //    break;
-                //case "transfer":
-                //    dto.MonthTransfer += s.Amount;
-                //    break;
-            }
-            //if (input.Day != null && input.Day == s.Day)
-            //{
-            //    switch (s.Type)
-            //    {
-            //        case "expend":
-            //            dto.DayExpend += s.Amount;
-            //            break;
-            //        case "income":
-            //            dto.DayIcome += s.Amount;
-            //            break;
-            //        case "repayment":
-            //            dto.DayRepayment += s.Amount;
-            //            break;
-            //        case "transfer":
-            //            dto.DayTransfer += s.Amount;
-            //            break;
-            //    }
-            //}
-        });
-        return dto;
+            var ca = categories.FirstOrDefault(c => c.Id == category.Id);
+            dto.Series.Add(new RingSerie { Name = ca.Name, Value = category.Sum });
+        }
+
+        return ServiceResult<CategoryPercentStatDto>.Successed(dto);
     }
 
-    public async Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInput input)
+    public async Task<ServiceResult<CategoryPercentGroupDto>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input)
     {
-        var dto = new BillExpendCategoryDto();
-        var bills = await _billRepo
-           .Select
-           .Where(s => s.IsDeleted == false)
-           .Where(s => s.Type.Equals("expend"))
-           .WhereIf(input.UserId != null, s => s.CreateUserId == input.UserId)
-           //.WhereIf(input.Year != null, s => s.Year == input.Year)
-           //.WhereIf(input.Month != null, s => s.Month == input.Month)
-           //.WhereIf(input.Day != null, s => s.Day == input.Day)
-           .ToListAsync();
-        decimal total = 0;
-        // 根据CategoryId分组，并统计总额
-        var childDetails = bills.GroupBy(s => s.CategoryId).Select(g =>
-        {
-            var info = _categoryRepo.GetAsync(g.Key.Value).Result;
-            var parentInfo = _categoryRepo.GetCategoryParentAsync(g.Key.Value).Result;
-            var amount = g.Sum(s => s.Amount);
-            total += amount;
-            return new
-            {
-                CategoryId = g.Key,
-                Amount = amount,
-                Info = info,
-                ParentInfo = parentInfo
-            };
-        });
-
-        var childDtos = new List<ChildGroupDto>();
-        var parentDtos = childDetails.GroupBy(p => new { p.ParentInfo.Id, p.ParentInfo.Name }).Select(g =>
-        {
-            var childDto = new ChildGroupDto();
-            var childTotal = g.Sum(s => s.Amount);
-            childDto.ParentName = g.Key.Name;
-            childDto.Childs = childDetails.Where(d => d.Info.ParentId == g.Key.Id).Select(d => new
-            {
-                Id = d.Info.Id,
-                Name = d.Info.Name,
-                Data = d.Amount,
-                Percent = Math.Round(d.Amount / childTotal, 4) * 100,
-                CategoryIconPath = _fileRepo.GetFileUrl(d.Info.IconUrl)
-            });
-            childDtos.Add(childDto);
-            return new StatisticsDto
-            {
-                Id = g.Key.Id,
-                Name = g.Key.Name,
-                Data = Math.Round(g.Sum(s => s.Amount) / total, 4) * 100
-            };
-        }).ToList();
-        dto.ParentCategoryStas = parentDtos;
-        dto.ChildCategoryStas = childDtos;
-        return dto;
+        var dto = new CategoryPercentGroupDto();
+        return ServiceResult<CategoryPercentGroupDto>.Successed(dto);
     }
 
     #region Private

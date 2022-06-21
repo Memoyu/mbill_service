@@ -81,17 +81,17 @@ public interface IBillSvc
     Task<ServiceResult<YearTotalTrendStatDto>> GetYearTotalTrendStatAsync(YearTotalTrendStatInput input);
 
     /// <summary>
-    /// 获取指定日期各类型账单总额统计
+    /// 获取指定日期的收入或支出分类占比统计
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<BillTotalDto> GetStatisticsTotalAsync(BillDateInput input);
+    Task<ServiceResult<CategoryPercentStatDto>> GetCategoryPercentStatAsync(CategoryPercentStatInput input);
 
     /// <summary>
-    /// 获取指定日期支出分类统计
+    /// 获取指定日期的收入或支出分类占比分组列表
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<BillExpendCategoryDto> GetExpendCategoryStatisticsAsync(BillDateInput input);
+    Task<ServiceResult<CategoryPercentGroupDto>> GetCategoryPercentGroupAsync(CategoryPercentGroupInput input);
 
 }
