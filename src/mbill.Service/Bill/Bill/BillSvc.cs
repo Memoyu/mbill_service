@@ -298,10 +298,10 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var incomeTrend = await GetIncomeSelect().GroupBy(s => s.Time.Date).ToListAsync(s => new { Date = s.Key, Sum = s.Sum(s.Value.Amount) });
 
         // 获取最高、最低金额
-        dto.ExpendHighest = await GetExpendSelect().MaxAsync(s => s.Amount);
-        dto.ExpendLowst = await GetExpendSelect().MinAsync(s => s.Amount);
-        dto.IncomeHighest = await GetIncomeSelect().MaxAsync(s => s.Amount);
-        dto.IncomeLowst = await GetIncomeSelect().MinAsync(s => s.Amount);
+        dto.ExpendHighest = (await GetExpendSelect().MaxAsync(s => s.Amount)).AmountFormat();
+        dto.ExpendLowst = (await GetExpendSelect().MinAsync(s => s.Amount)).AmountFormat();
+        dto.IncomeHighest = (await GetIncomeSelect().MaxAsync(s => s.Amount)).AmountFormat();
+        dto.IncomeLowst = (await GetIncomeSelect().MinAsync(s => s.Amount)).AmountFormat();
 
         var expendSerie = new BaseSerie { Name = "支出月趋势" };
         var incomeSerie = new BaseSerie { Name = "收入月趋势" };

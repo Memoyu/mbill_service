@@ -2,11 +2,11 @@
 
 public class MonthTotalTrendStatDto : BaseChart<BaseSerie>
 {
-    public decimal ExpendHighest { get; set; }
+    public string ExpendHighest { get; set; }
 
-    public decimal ExpendLowst { get; set; }
+    public string ExpendLowst { get; set; }
 
-    public decimal IncomeHighest { get; set; }
+    public string IncomeHighest { get; set; }
 
-    public decimal IncomeLowst { get; set; }
+    public string IncomeLowst { get; set; }
 }
