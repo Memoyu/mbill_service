@@ -9,7 +9,7 @@ public class RankingPagingInput : PagingDto
     /// 0 月统计
     /// 1 年统计
     /// </summary>
-    public int Type { get; set; }
+    public int DateType { get; set; }
 
     /// <summary>
     /// 账单类型

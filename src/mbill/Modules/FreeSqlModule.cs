@@ -39,7 +39,7 @@ public class FreeSqlModule : Module
         };
         builder.RegisterInstance(fsql).SingleInstance();//FreeSql注册为单例
         builder.RegisterType(typeof(UnitOfWorkManager)).InstancePerLifetimeScope();//工作单元注册为scope
-        fsql.GlobalFilter.Apply<IDeleteAduitEntity>("IsDeleted", a => a.IsDeleted == false);
+        fsql.GlobalFilter.Apply<IDeleteAduitEntity>("IsDeleted", a => a.IsDeleted == false); // 全局过滤字段
 
         try
         {

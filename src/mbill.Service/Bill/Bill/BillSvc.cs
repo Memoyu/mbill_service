@@ -327,14 +327,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
         // 构建Select
         ISelect<BillEntity> GetExpendSelect() => _billRepo
               .Select
-              .Where(s => s.IsDeleted == false)
               .Where(s => s.CreateUserId == CurrentUser.Id)
               .Where(s => s.Type == (int)BillTypeEnum.expend)
               .Where(s => s.Time.Year == input.Year);
 
         ISelect<BillEntity> GetIncomeSelect() => _billRepo
                .Select
-               .Where(s => s.IsDeleted == false)
                .Where(s => s.CreateUserId == CurrentUser.Id)
                .Where(s => s.Type == (int)BillTypeEnum.income)
                .Where(s => s.Time.Year == input.Year);
@@ -373,16 +371,14 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var dto = new CategoryPercentStatDto();
         ISelect<BillEntity> GetSelect() => _billRepo
               .Select
-              .Where(s => s.IsDeleted == false)
               .Where(s => s.CreateUserId == CurrentUser.Id)
               .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
               .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
               .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
               .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
-
         var categoryGroups = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
         var catrgoryIds = categoryGroups.Select(c => c.Id).ToList();
-        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).ToListAsync();
+        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
 
         foreach (var category in categoryGroups)
         {
@@ -409,9 +405,9 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         var data = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
         var catrgoryIds = data.Select(c => c.Id).ToList();
-        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).ToListAsync();
+        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
         var parentIds = categories.Select(c => c.ParentId).Distinct();
-        var categoryParents = await _categoryRepo.Select.Where(c => parentIds.Contains(c.Id)).ToListAsync();
+        var categoryParents = await _categoryRepo.Select.Where(c => parentIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
         var total = data.Sum(c => c.Sum);
 
         // 进行数据分组，并完善数据相关信息
@@ -459,8 +455,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .Where(s => s.CreateUserId == CurrentUser.Id)
             .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
             .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
-            .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
-            .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year)
+            .WhereIf(input.DateType == 0, s => s.Time <= end && s.Time >= begin)
+            .WhereIf(input.DateType == 1, s => s.Time.Year == input.Date.Year)
             .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
             .OrderBy(sort)
             .ToPageListAsync(input, out long totalCount);

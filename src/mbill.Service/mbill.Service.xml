@@ -336,7 +336,7 @@
             结束时间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.RankingPagingInput.Type">
+        <member name="P:mbill.Service.Bill.Bill.Input.RankingPagingInput.DateType">
             <summary>
             查询类型：
             0 月统计
