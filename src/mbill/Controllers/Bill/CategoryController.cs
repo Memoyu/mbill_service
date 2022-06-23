@@ -70,6 +70,19 @@ public class CategoryController : ApiControllerBase
     }
 
     /// <summary>
+    /// 获取全部分类()
+    /// </summary>
+    /// <param name="type">分类类型 0 支出， 1 收入</param>
+    [HttpGet("list")]
+    [LocalAuthorize("获取全部", "账单分类")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<List<CategoryDto>>> GetsAsync([FromQuery] int type)
+    {
+        return await _categoryService.GetsAsync(type);
+    }
+
+
+    /// <summary>
     /// 获取分类父项
     /// </summary>
     /// <param name="id">分类id</param>

@@ -327,6 +327,12 @@
             </summary>
             <param name="id">分类id</param>
         </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetsAsync(System.Int32)">
+            <summary>
+            获取全部分类()
+            </summary>
+            <param name="type">分类类型 0 支出， 1 收入</param>
+        </member>
         <member name="M:mbill.Controllers.Bill.CategoryController.GetParentAsync(System.Int64)">
             <summary>
             获取分类父项

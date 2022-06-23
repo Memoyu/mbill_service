@@ -474,6 +474,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetsAsync(System.Int32)">
+            <summary>
+            获取群不分类
+            </summary>
+            <param name="type">分类类型 0 支出， 1 收入</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetParentAsync(System.Int64)">
             <summary>
             获取父项 by 子项 id

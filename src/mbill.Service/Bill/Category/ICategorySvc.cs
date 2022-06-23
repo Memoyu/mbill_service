@@ -48,6 +48,13 @@ public interface ICategorySvc
     Task<CategoryDto> GetAsync(long id);
 
     /// <summary>
+    /// 获取群不分类
+    /// </summary>
+    /// <param name="type">分类类型 0 支出， 1 收入</param>
+    /// <returns></returns>
+    Task<ServiceResult<List<CategoryDto>>> GetsAsync(int type);
+
+    /// <summary>
     /// 获取父项 by 子项 id
     /// </summary>
     /// <param name="id">分类子项Id</param>

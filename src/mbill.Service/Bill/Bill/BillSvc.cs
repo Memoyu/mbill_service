@@ -457,14 +457,17 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
             .WhereIf(input.DateType == 0, s => s.Time <= end && s.Time >= begin)
             .WhereIf(input.DateType == 1, s => s.Time.Year == input.Date.Year)
-            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
+            .WhereIf(input.CategoryId.HasValue && input.CategoryId != 0, s => s.CategoryId == input.CategoryId)
             .OrderBy(sort)
             .ToPageListAsync(input, out long totalCount);
 
         List<BillSimpleDto> dtos = new List<BillSimpleDto>();
         foreach (var i in bills)
         {
-            dtos.Add(await MapToSimpleDto(i));
+            var dto = await MapToSimpleDto(i);
+            dto.Description = ""; // 置空描述，对于排行来说，应该描述不太重要，主要是行长太长了（加上时间）
+            dto.Time = i.Time.ToString("yyyy-MM-dd HH:mm");
+            dtos.Add(dto);
         }
         return ServiceResult<PagedDto<BillSimpleDto>>.Successed(new PagedDto<BillSimpleDto>(dtos, totalCount));
     }

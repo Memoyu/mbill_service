@@ -82,6 +82,13 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         return _mapper.Map<CategoryDto>(category);
     }
 
+    public async Task<ServiceResult<List<CategoryDto>>> GetsAsync(int type)
+    {
+        var categories = await _categoryRepo.Select.Where(c => c.ParentId != 0 && c.Type == type).ToListAsync();
+        var dtos = categories.Select(c => _mapper.Map<CategoryDto>(c)).ToList();
+        return ServiceResult<List<CategoryDto>>.Successed(dtos);
+    }
+
     public async Task<CategoryDto> GetParentAsync(long id)
     {
         var category = await _categoryRepo.GetCategoryAsync(id) ?? throw new KnownException("分类信息不存在或已删除！", ServiceResultCode.NotFound);
