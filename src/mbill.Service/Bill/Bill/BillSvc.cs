@@ -95,6 +95,27 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return ServiceResult<BillsByDayWithStatDto>.Successed(dto);
     }
 
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetPagesAsync(BillPagingInput input)
+    {
+        input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
+        var bills = await _billRepo
+            .Select
+            .Where(s => s.IsDeleted == false)
+            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .WhereIf(input.DateType == 0, s => s.Time.Year == input.Date.Year && s.Time.Month == input.Date.Month)
+            .WhereIf(input.DateType == 1, s => s.Time.Year == input.Date.Year)
+            .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
+            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
+            .WhereIf(input.AssetId.HasValue, s => s.AssetId == input.AssetId)
+            .OrderBy(input.Sort)
+            .ToPageListAsync(input, out long totalCount);
+
+        List<BillSimpleDto> dtos = new List<BillSimpleDto>();
+        foreach (var i in bills)
+            dtos.Add(await MapToSimpleDto(i));
+        return ServiceResult<PagedDto<BillSimpleDto>>.Successed(new PagedDto<BillSimpleDto>(dtos, totalCount));
+    }
+
     public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync(MonthBillPagingInput input)
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");

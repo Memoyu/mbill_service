@@ -62,16 +62,17 @@ public class BillController : ApiControllerBase
         return await _billSvc.UpdateAsync(input);
     }
 
+
     /// <summary>
-    /// 获取指定日期账单
+    /// 获取指定条件分页账单
     /// </summary>
-    /// <param name="input">查询条件</param>
-    [HttpGet("day")]
-    [LocalAuthorize("获取指定日期账单", "账单")]
+    /// <param name="input">分页条件</param>
+    [HttpGet("pages")]
+    [LocalAuthorize("获取指定条件分页账单", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillsByDayWithStatDto>> GetByDayAsync([FromQuery] DayBillInput input)
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetByMonthPagesAsync([FromQuery] BillPagingInput input)
     {
-        return await _billSvc.GetByDayAsync(input);
+        return await _billSvc.GetPagesAsync(input);
     }
 
     /// <summary>
@@ -86,6 +87,17 @@ public class BillController : ApiControllerBase
         return await _billSvc.GetByMonthPagesAsync(input);
     }
 
+    /// <summary>
+    /// 获取指定日期账单
+    /// </summary>
+    /// <param name="input">查询条件</param>
+    [HttpGet("day")]
+    [LocalAuthorize("获取指定日期账单", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<BillsByDayWithStatDto>> GetByDayAsync([FromQuery] DayBillInput input)
+    {
+        return await _billSvc.GetByDayAsync(input);
+    }
 
     /// <summary>
     /// 获取日期范围内存在账单的日期

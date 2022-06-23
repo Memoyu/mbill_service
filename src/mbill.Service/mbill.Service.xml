@@ -136,6 +136,13 @@
             <param name="input">查询条件</param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
+            <summary>
+            获取指定条件分页账单
+            </summary>
+            <param name="input">分页查询</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
             获取分页账单数据
@@ -205,6 +212,31 @@
             </summary>
             <param name="input"></param>
             <returns></returns>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.Date">
+            <summary>
+            指定的日期
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.DateType">
+            <summary>
+            查询时间类型：0 查询月份，1 查询年份
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.Type">
+            <summary>
+            账单类型
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.CategoryId">
+            <summary>
+            账单分类
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.AssetId">
+            <summary>
+            账单账户
+            </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
             <summary>
