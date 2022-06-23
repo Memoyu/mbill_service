@@ -240,7 +240,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
            .Select
            .Where(s => s.IsDeleted == false)
            .Where(s => s.CreateUserId == CurrentUser.Id)
-           .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
+           .Where(s => s.Time.Year == input.Year).SumAsync(e => e.PreAmount);
 
         if (input.Opearte == 1)
             // 平均支出

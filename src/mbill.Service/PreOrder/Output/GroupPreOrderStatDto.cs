@@ -9,7 +9,7 @@ public class GroupPreOrderStatDto
     /// </summary>
     public string Time { get; set; }
 
-    public decimal Amount { get; set; }
+    public decimal PreAmount { get; set; }
 
     public long Done { get; set; }
 

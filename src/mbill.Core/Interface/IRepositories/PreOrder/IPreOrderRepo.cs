@@ -14,5 +14,5 @@ public interface IPreOrderRepo : IAuditBaseRepo<PreOrderEntity>
     /// </summary>
     /// <param name="groupIds"></param>
     /// <returns></returns>
-    Task<decimal> GetAmountByGroupAsync(List<long> groupIds);
+    Task<decimal> GetPreAmountByGroupAsync(List<long> groupIds);
 }

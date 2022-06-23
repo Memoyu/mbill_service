@@ -57,7 +57,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         foreach (var group in groups)
         {
             var dto = Mapper.Map<PreOrderGroupWithStatDto>(group);
-            dto.Amount = await _preOrderRepo.GetAmountByGroupAsync(new List<long> { group.Id });
+            dto.Amount = await _preOrderRepo.GetPreAmountByGroupAsync(new List<long> { group.Id });
             var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { group.Id });
             var week = dto.CreateTime.GetWeek();
             dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
@@ -76,7 +76,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         dto.GroupName = group.Name;
         var week = group.CreateTime.GetWeek();
         dto.Time = $"{week}-{group.CreateTime.ToString("yyyy-MM-dd")}日";
-        dto.Amount = await _preOrderRepo.GetAmountByGroupAsync(new List<long> { input.Id });
+        dto.PreAmount = await _preOrderRepo.GetPreAmountByGroupAsync(new List<long> { input.Id });
         var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { input.Id });
         dto.Done = count.done;
         dto.UnDone = count.unDone;

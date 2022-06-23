@@ -10,20 +10,21 @@
 public class PreOrderEntity : FullAduitEntity
 {
     /// <summary>
-    /// 账单Id
-    /// </summary>
-    public long BillId { get; set; }
-
-    /// <summary>
     /// 分组Id
     /// </summary>
     public long GroupId { get; set; }
 
     /// <summary>
-    /// 金额
+    /// 预购金额
     /// </summary>
     [Column(Precision = 12, Scale = 2)]
-    public decimal Amount { get; set; }
+    public decimal PreAmount { get; set; }
+
+    /// <summary>
+    /// 实际金额
+    /// </summary>
+    [Column(Precision = 12, Scale = 2)]
+    public decimal RealAmount { get; set; }
 
     /// <summary>
     /// 说明

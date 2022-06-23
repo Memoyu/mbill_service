@@ -1046,9 +1046,14 @@
             图标颜色
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Amount">
+        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.PreAmount">
             <summary>
-            金额
+            预购金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.RealAmount">
+            <summary>
+            实购金额
             </summary>
         </member>
         <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Description">
@@ -1061,7 +1066,7 @@
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput.BillId">
+        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput.RealAmount">
             <summary>
             账单Id
             </summary>
@@ -1166,19 +1171,19 @@
             分组中未完成预购总数
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.BillId">
-            <summary>
-            账单Id
-            </summary>
-        </member>
         <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.GroupId">
             <summary>
             分组Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Amount">
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.PreAmount">
             <summary>
-            金额
+            预购金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.RealAmount">
+            <summary>
+            实际金额
             </summary>
         </member>
         <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Description">

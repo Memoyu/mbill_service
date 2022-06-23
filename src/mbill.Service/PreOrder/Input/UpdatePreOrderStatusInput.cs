@@ -7,7 +7,7 @@ public class UpdatePreOrderStatusInput
     /// <summary>
     /// 账单Id
     /// </summary>
-    public long BillId { get; set; }
+    public long RealAmount { get; set; }
 
     /// <summary>
     /// 状态

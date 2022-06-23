@@ -4,7 +4,7 @@ public class IndexPreOrderStatDto
 {
     public long Total { get; set; }
 
-    public decimal Amount { get; set; }
+    public decimal PreAmount { get; set; }
 
     public long Done { get; set; }
 

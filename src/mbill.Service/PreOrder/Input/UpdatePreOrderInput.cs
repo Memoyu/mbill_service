@@ -5,9 +5,14 @@ public class UpdatePreOrderInput
     public long Id { get; set; }
 
     /// <summary>
-    /// 金额
+    /// 预购金额
     /// </summary>
-    public decimal Amount { get; set; }
+    public decimal PreAmount { get; set; }
+
+    /// <summary>
+    /// 实购金额
+    /// </summary>
+    public decimal RealAmount { get; set; }
 
     /// <summary>
     /// 描述

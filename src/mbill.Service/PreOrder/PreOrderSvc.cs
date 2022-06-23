@@ -44,15 +44,15 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
     {
         var order = await _orderRepo.GetAsync(input.Id);
         order.Status = input.Status;
-        //如果将状态变更为未完成状态，则需要清空BillId对应的信息
+
+        ////如果将状态变更为未完成状态，则需要清空实际购买金额信息
         if (input.Status == (int)PreOrderStatusEnum.UnDone)
         {
-            await _billRepo.DeleteAsync(order.BillId);
-            order.BillId = 0;
+            order.RealAmount = 0;
         }
         else if (input.Status == (int)PreOrderStatusEnum.Done)
         {
-            order.BillId = input.BillId;
+            order.RealAmount = input.RealAmount;
         }
 
         var cnt = await _orderRepo.UpdateAsync(order);
@@ -92,7 +92,7 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
             .ToListAsync();
         var dto = new IndexPreOrderStatDto();
         dto.Total = groups.Count;
-        dto.Amount = await _orderRepo.GetAmountByGroupAsync(groups.Select(g => g.Id).ToList());
+        dto.PreAmount = await _orderRepo.GetPreAmountByGroupAsync(groups.Select(g => g.Id).ToList());
         var count = await _orderRepo.GetCountByStatusAsync(groups.Select(g => g.Id).ToList());
         dto.Done = count.done;
         dto.UnDone = count.unDone;

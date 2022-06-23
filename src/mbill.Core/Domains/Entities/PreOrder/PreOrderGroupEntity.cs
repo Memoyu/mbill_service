@@ -9,6 +9,11 @@
 public class PreOrderGroupEntity : FullAduitEntity
 {
     /// <summary>
+    /// 账单Id
+    /// </summary>
+    public long BillId { get; set; }
+
+    /// <summary>
     /// 分组名
     /// </summary>
     [Column(StringLength = 10)]
