@@ -92,7 +92,7 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
             .ToListAsync();
         var dto = new IndexPreOrderStatDto();
         dto.Total = groups.Count;
-        dto.PreAmount = await _orderRepo.GetPreAmountByGroupAsync(groups.Select(g => g.Id).ToList());
+        dto.ToBill = groups.Where(g=> g.BillId != 0).Count();
         var count = await _orderRepo.GetCountByStatusAsync(groups.Select(g => g.Id).ToList());
         dto.Done = count.done;
         dto.UnDone = count.unDone;

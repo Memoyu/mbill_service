@@ -1046,6 +1046,11 @@
             图标颜色
             </summary>
         </member>
+        <member name="P:mbill.Service.PreOrder.Input.GroupToBillInput.BillId">
+            <summary>
+            账单Id
+            </summary>
+        </member>
         <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.PreAmount">
             <summary>
             预购金额
@@ -1075,6 +1080,20 @@
             <summary>
             状态
             </summary>
+        </member>
+        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GroupToBillAsync(mbill.Service.PreOrder.Input.GroupToBillInput)">
+            <summary>
+            预购分组转账单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetGroupWithAmountAsync(System.Int64)">
+            <summary>
+            获取预购分组带组内预购总金额
+            </summary>
+            <param name="id">预购分组Id</param>
+            <returns></returns>
         </member>
         <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput)">
             <summary>
@@ -1114,6 +1133,11 @@
         <member name="P:mbill.Service.PreOrder.Output.GroupPreOrderStatDto.Time">
             <summary>
             分组创建时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.PreOrder.Output.IndexPreOrderStatDto.ToBill">
+            <summary>
+            转账单分组数
             </summary>
         </member>
         <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.GroupId">

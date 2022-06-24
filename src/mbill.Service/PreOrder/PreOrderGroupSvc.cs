@@ -42,14 +42,46 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         await base.DeleteAsync(id);
     }
 
+    public async Task<ServiceResult<PreOrderGroupDto>> GroupToBillAsync(GroupToBillInput input)
+    {
+        var entity = await _groupRepo.Select.Where(g => g.Id == input.Id).FirstAsync();
+        if (entity == null) ServiceResult<PreOrderGroupWithPreAmountDto>.Failed("预购分组不存在");
+        entity.BillId = input.BillId;
+        var cnt = await _groupRepo.UpdateAsync(entity);
+        if (cnt <= 0)
+            return ServiceResult<PreOrderGroupDto>.Failed("转入账单失败");
+        return ServiceResult<PreOrderGroupDto>.Successed(Mapper.Map<PreOrderGroupDto>(entity));
+    }
+
+    public async Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync(long id)
+    {
+        var entity = await _groupRepo.Select.Where(g => g.Id == id).FirstAsync();
+        if (entity == null) ServiceResult<PreOrderGroupWithPreAmountDto>.Failed("预购分组不存在");
+        var orders = await _preOrderRepo.Select
+            .Where(s => s.GroupId == id).ToListAsync();
+        var pre = 0m;
+        var real = 0m;
+        foreach (var order in orders)
+        {
+            pre += order.PreAmount;
+            real += order.RealAmount;
+        }
+        var dto = Mapper.Map<PreOrderGroupWithPreAmountDto>(entity);
+        dto.PreAmount = pre;
+        dto.RealAmount = real;
+        dto.PreAmountFormate = pre.AmountFormat();
+        dto.RealAmountFormate = real.AmountFormat();
+
+        return ServiceResult<PreOrderGroupWithPreAmountDto>.Successed(dto);
+    }
+
     public async Task<ServiceResult<PagedDto<PreOrderGroupWithStatDto>>> GetByMonthPagesAsync(MonthPreOrderGroupPagingInput input)
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "create_time DESC" : input.Sort.Replace("-", " ");
         var groups = await _groupRepo
             .Select
-            .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserId == CurrentUser.Id)
-             .Where(s => s.CreateTime.Year == input.Month.Year && s.CreateTime.Month == input.Month.Month)
+            .Where(s => s.CreateTime.Year == input.Month.Year && s.CreateTime.Month == input.Month.Month)
             .WhereIf(!string.IsNullOrWhiteSpace(input.Name), s => s.Name.Contains(input.Name))
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
@@ -72,7 +104,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
     {
         var group = await _groupRepo.GetAsync(input.Id);
         if (group == null) return ServiceResult<GroupPreOrderStatDto>.Failed("预购分组不存在");
-        var dto = new GroupPreOrderStatDto();
+        var dto = new GroupPreOrderStatDto { BillId = group.BillId };
         dto.GroupName = group.Name;
         var week = group.CreateTime.GetWeek();
         dto.Time = $"{week}-{group.CreateTime.ToString("yyyy-MM-dd")}日";

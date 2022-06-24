@@ -131,6 +131,30 @@ public class PreOrderController : ApiControllerBase
     {
         return await _preOrderGroupSvc.GetAsync(id);
     }
+    
+    /// <summary>
+    /// 获取预购分组详情(With 相关预购总金额)
+    /// </summary>
+    /// <param name="id">预购分组id</param>
+    [HttpGet("group/amount")]
+    [LocalAuthorize("详情带预购分组总金额", "预购分组")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync([FromQuery] long id)
+    {
+        return await _preOrderGroupSvc.GetGroupWithAmountAsync(id);
+    }
+
+    /// <summary>
+    /// 预购分组转入账单
+    /// </summary>
+    /// <param name="input">预购分组</param>
+    [HttpPost("group/to-bill")]
+    [LocalAuthorize("分组转入账单", "预购分组")]
+    public async Task<ServiceResult<PreOrderGroupDto>> GroupToBillAsync([FromBody] GroupToBillInput input)
+    {
+        return await _preOrderGroupSvc.GroupToBillAsync(input);
+    }
+
 
     /// <summary> 
     /// 删除预购分组信息

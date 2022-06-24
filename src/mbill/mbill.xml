@@ -421,6 +421,18 @@
             </summary>
             <param name="id">预购分组id</param>
         </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.GetGroupWithAmountAsync(System.Int64)">
+            <summary>
+            获取预购分组详情(With 相关预购总金额)
+            </summary>
+            <param name="id">预购分组id</param>
+        </member>
+        <member name="M:mbill.Controllers.PreOrder.PreOrderController.GroupToBillAsync(mbill.Service.PreOrder.Input.GroupToBillInput)">
+            <summary>
+            预购分组转入账单
+            </summary>
+            <param name="input">预购分组</param>
+        </member>
         <member name="M:mbill.Controllers.PreOrder.PreOrderController.DeleteGroupAsync(System.Int64)">
             <summary> 
             删除预购分组信息

@@ -4,7 +4,10 @@ public class IndexPreOrderStatDto
 {
     public long Total { get; set; }
 
-    public decimal PreAmount { get; set; }
+    /// <summary>
+    /// 转账单分组数
+    /// </summary>
+    public int ToBill { get; set; }
 
     public long Done { get; set; }
 

@@ -2,6 +2,8 @@
 
 public class GroupPreOrderStatDto
 {
+    public long BillId { get; set; }
+
     public string GroupName { get; set; }
 
     /// <summary>

@@ -20,6 +20,8 @@ public class PreOrderMapper : Profile
         CreateMap<UpdatePreOrderGroupInput, PreOrderGroupEntity>();
 
         CreateMap<PreOrderGroupEntity, PreOrderGroupDto>();
+        
+        CreateMap<PreOrderGroupEntity, PreOrderGroupWithPreAmountDto>();
 
         CreateMap<PreOrderGroupEntity, PreOrderGroupWithStatDto>();
     }

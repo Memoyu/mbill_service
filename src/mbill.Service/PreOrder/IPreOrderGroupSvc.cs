@@ -3,6 +3,20 @@
 public interface IPreOrderGroupSvc : ICrudApplicationSvc<PreOrderGroupDto, PreOrderGroupWithStatDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>
 {
     /// <summary>
+    /// 预购分组转账单
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<ServiceResult<PreOrderGroupDto>> GroupToBillAsync(GroupToBillInput input);
+
+    /// <summary>
+    /// 获取预购分组带组内预购总金额
+    /// </summary>
+    /// <param name="id">预购分组Id</param>
+    /// <returns></returns>
+    Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync(long id);
+
+    /// <summary>
     /// 获取指定月份分页预购分组
     /// </summary>
     /// <param name="input">分页查询</param>
