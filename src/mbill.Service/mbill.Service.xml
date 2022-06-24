@@ -1026,7 +1026,7 @@
             分组Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Amount">
+        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.PreAmount">
             <summary>
             金额
             </summary>

@@ -9,7 +9,7 @@ public class CreatePreOrderInput
     /// <summary>
     /// 金额
     /// </summary>
-    public decimal Amount { get; set; }
+    public decimal PreAmount { get; set; }
 
     /// <summary>
     /// 描述
