@@ -9,6 +9,7 @@ public static class ControllerSetup
     {
         services.AddControllers(options =>
             {
+                options.Filters.Add<InputFieldActionFilter>();
                 options.Filters.Add<LocalExceptionFilter>();
             })
             .AddNewtonsoftJson(opt =>
@@ -48,6 +49,8 @@ public static class ControllerSetup
                         ContentTypes = { "application/json" }
                     };
                 };
+                // 使用自定义模型验证【Api接口需要添加才能生效】
+                options.SuppressModelStateInvalidFilter = true;
             });
         return services;
     }

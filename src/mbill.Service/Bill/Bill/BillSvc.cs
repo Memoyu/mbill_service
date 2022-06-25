@@ -214,7 +214,6 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var expend = 0m;
         var expendAvg = 0m;
         var income = 0m;
-        var preOrder = 0m;
 
         // 构建Select
         ISelect<BillEntity> GetExpendSelect() => _billRepo
@@ -235,13 +234,6 @@ public class BillSvc : ApplicationSvc, IBillSvc
              .Where(s => s.Type == (int)BillTypeEnum.income)
              .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
 
-        // 预购总额
-        preOrder = await _preOrderRepo
-           .Select
-           .Where(s => s.IsDeleted == false)
-           .Where(s => s.CreateUserId == CurrentUser.Id)
-           .Where(s => s.Time.Year == input.Year).SumAsync(e => e.PreAmount);
-
         if (input.Opearte == 1)
             // 平均支出
             expendAvg = (decimal)await GetExpendSelect().AvgAsync(e => e.Amount);
@@ -250,7 +242,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         {
             Expend = expend.AmountFormat(),
             Income = income.AmountFormat(),
-            PreOrder = preOrder.AmountFormat(),
+            Surplus = (income - expend).AmountFormat(),
             ExpendAvg = expendAvg.AmountFormat(),
         });
     }
