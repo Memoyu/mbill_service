@@ -13,6 +13,8 @@ public class GroupPreOrderStatDto
 
     public decimal PreAmount { get; set; }
 
+    public decimal RealAmount { get; set; }
+
     public long Done { get; set; }
 
     public long UnDone { get; set; }

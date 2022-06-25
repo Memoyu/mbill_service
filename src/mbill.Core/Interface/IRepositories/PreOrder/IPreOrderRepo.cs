@@ -10,9 +10,16 @@ public interface IPreOrderRepo : IAuditBaseRepo<PreOrderEntity>
     Task<(long done, long unDone)> GetCountByStatusAsync(List<long> groupIds);
 
     /// <summary>
-    /// 获取分组下预购清单总金额
+    /// 获取分组下预购清单总预购金额
     /// </summary>
     /// <param name="groupIds"></param>
     /// <returns></returns>
     Task<decimal> GetPreAmountByGroupAsync(List<long> groupIds);
+
+    /// <summary>
+    /// 获取分组下预购清单总实购金额
+    /// </summary>
+    /// <param name="groupIds"></param>
+    /// <returns></returns>
+    Task<decimal> GetRealAmountByGroupAsync(List<long> groupIds);
 }

@@ -24,4 +24,10 @@ public class PreOrderRepo : AuditBaseRepo<PreOrderEntity>, IPreOrderRepo
         var amount = await Select.Where(g => g.CreateUserId == _currentUser.Id).Where(g => groupIds.Contains(g.GroupId)).SumAsync(g => g.PreAmount);
         return amount;
     }
+
+    public async Task<decimal> GetRealAmountByGroupAsync(List<long> groupIds)
+    {
+        var amount = await Select.Where(g => g.CreateUserId == _currentUser.Id).Where(g => groupIds.Contains(g.GroupId)).SumAsync(g => g.RealAmount);
+        return amount;
+    }
 }

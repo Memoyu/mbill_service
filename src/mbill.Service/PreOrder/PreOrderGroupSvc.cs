@@ -109,6 +109,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         var week = group.CreateTime.GetWeek();
         dto.Time = $"{week}-{group.CreateTime.ToString("yyyy-MM-dd")}日";
         dto.PreAmount = await _preOrderRepo.GetPreAmountByGroupAsync(new List<long> { input.Id });
+        dto.RealAmount = await _preOrderRepo.GetRealAmountByGroupAsync(new List<long> { input.Id });
         var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { input.Id });
         dto.Done = count.done;
         dto.UnDone = count.unDone;
