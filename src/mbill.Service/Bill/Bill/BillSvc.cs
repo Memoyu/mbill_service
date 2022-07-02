@@ -474,14 +474,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .OrderBy(sort)
             .ToPageListAsync(input, out long totalCount);
 
-        List<BillSimpleDto> dtos = new List<BillSimpleDto>();
-        foreach (var i in bills)
-        {
-            var dto = await MapToSimpleDto(i);
-            dto.Description = ""; // 置空描述，对于排行来说，应该描述不太重要，主要是行长太长了（加上时间）
-            dto.Time = i.Time.ToString("yyyy-MM-dd HH:mm");
-            dtos.Add(dto);
-        }
+        var dtos = bills.Select(b => MapToSimpleDto(b).GetAwaiter().GetResult()).ToList();
         return ServiceResult<PagedDto<BillSimpleDto>>.Successed(new PagedDto<BillSimpleDto>(dtos, totalCount));
     }
 
@@ -495,6 +488,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
     private async Task<BillSimpleDto> MapToSimpleDto(BillEntity bill)
     {
         var dto = Mapper.Map<BillSimpleDto>(bill);
+        dto.Date = bill.Time.ToString("yyyy-MM-dd");
         dto.Time = bill.Time.ToString("HH:mm");
         if (bill.CategoryId.HasValue)
         {
