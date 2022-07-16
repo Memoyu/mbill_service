@@ -30,6 +30,8 @@ stages:
         ls
         sed -i 's/{MySqlConStr}/$(MySqlConStr)/g' $(appsettings)
         sed -i 's/{RedisConStr}/$(RedisConStr)/g' $(appsettings)
+        sed -i 's/{QiniuAk}/$(QiniuAk)/g' $(appsettings)
+        sed -i 's/{QiniuSk}/$(QiniuSk)/g' $(appsettings)
         sed -i 's/{JwtSecurityKey}/$(JwtSecurityKey)/g' $(appsettings)
         sed -i 's/{MiniProAppId}/$(MiniProAppId)/g' $(appsettings)
         sed -i 's/{MiniProAppSecret}/$(MiniProAppSecret)/g' $(appsettings)
