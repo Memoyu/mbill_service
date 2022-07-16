@@ -13,7 +13,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<CategoryGroupDto>> GetGroupsAsync(int? type)
+    public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupsAsync(int? type)
     {
         List<CategoryEntity> entities = await _categoryRepo
             .Select
@@ -31,14 +31,14 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
                     .Select(d =>
                     {
                         var s = Mapper.Map<CategoryDto>(d);
-                        s.IconUrl = _fileRepo.GetFileUrl(s.IconUrl);
+                        s.IconUrl = _fileRepo.GetFileUrl(d.Icon);
                         return s;
                     }).OrderBy(d => d.Sort)
                     .ToList();
                 return dto;
             })
             .ToList();
-        return dtos;
+        return ServiceResult<IEnumerable<CategoryGroupDto>>.Successed(dtos);
     }
 
     public async Task<PagedDto<CategoryPageDto>> GetPageAsync(CategoryPagingDto pagingDto)

@@ -14,7 +14,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         }
 
 
-        public async Task<IEnumerable<AssetGroupDto>> GetGroupsAsync(int? type)
+        public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupsAsync(int? type)
         {
             List<AssetEntity> entities = await _assetRepo
                 .Select
@@ -32,14 +32,14 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
                          .Select(d =>
                          {
                              var s = Mapper.Map<AssetDto>(d);
-                             s.IconUrl = _fileRepo.GetFileUrl(s.IconUrl);
+                             s.IconUrl = _fileRepo.GetFileUrl(d.Icon);
                              return s;
                          }).OrderBy(d => d.Sort)
                         .ToList();
                     return dto;
                 })
                 .ToList();
-            return dtos;
+            return ServiceResult<IEnumerable<AssetGroupDto>>.Successed(dtos);
         }
 
         public async Task<PagedDto<AssetPageDto>> GetPageAsync(AssetPagingDto pagingDto)

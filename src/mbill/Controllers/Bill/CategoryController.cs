@@ -114,7 +114,7 @@ public class CategoryController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupAsync([FromQuery] int? type)
     {
-        return ServiceResult<IEnumerable<CategoryGroupDto>>.Successed(await _categoryService.GetGroupsAsync(type));
+        return await _categoryService.GetGroupsAsync(type);
     }
 
     /// <summary>
