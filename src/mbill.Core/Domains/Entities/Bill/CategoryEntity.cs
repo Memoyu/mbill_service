@@ -35,8 +35,8 @@ public class CategoryEntity : FullAduitEntity
     /// <summary>
     /// 图标地址
     /// </summary>
-    [Column(StringLength = 100)]
-    public string IconUrl { get; set; }
+    [Column(StringLength = 32)]
+    public string Icon { get; set; }
 
     /// <summary>
     /// 排序

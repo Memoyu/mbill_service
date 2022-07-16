@@ -42,40 +42,6 @@ public class Appsettings
 
     #endregion
 
-    #region FileStorage
-
-    public static class FileStorage
-    {
-        /// <summary>
-        /// 上传文件总大小
-        /// </summary>
-        public static long MaxFileSize => long.Parse(_configuration["FileStorage:MaxFileSize"]);
-        /// <summary>
-        /// 多文件上传时，支持的最大文件数量
-        /// </summary>
-        public static int NumLimit => int.Parse(_configuration["FileStorage:NumLimit"]);
-        /// <summary>
-        /// 允许某些类型文件上传，文件格式以,隔开
-        /// </summary>
-        public static string Include => _configuration["FileStorage:Include"];
-        /// <summary>
-        /// 禁止某些类型文件上传，文件格式以,隔开
-        /// </summary>
-        public static string Exclude => _configuration["FileStorage:Exclude"];
-        /// <summary>
-        /// 服务名
-        /// </summary>
-        public static string ServiceName => _configuration["FileStorage:ServiceName"];
-
-        /// <summary>
-        /// 本地文件信息
-        /// </summary>
-        public static string LocalFilePrefixPath => _configuration["FileStorage:LocalFile:PrefixPath"];
-        public static string LocalFileHost => _configuration["FileStorage:LocalFile:Host"];
-    }
-
-    #endregion
-
     #region Authentication
 
     /// <summary>

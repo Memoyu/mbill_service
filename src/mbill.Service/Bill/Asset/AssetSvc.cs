@@ -65,7 +65,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
                     category = _assetRepo.Get(a.ParentId);
                 dto.ParentName = category?.Name;
                 dto.TypeName = SystemConst.Switcher.AssetType(a.Type);
-                dto.IconUrl = _fileRepo.GetFileUrl(a.IconUrl);
+                dto.IconUrl = _fileRepo.GetFileUrl(a.Icon);
                 return dto;
             }).ToList();
 

@@ -5,10 +5,21 @@
 [Authorize]
 public class FileController : ApiControllerBase
 {
-    private readonly IFileSvc _fileService;
-    public FileController(IComponentContext componentContext)
+    private readonly IQiniuFileSvc _qiniuFileSvc;
+    public FileController(IQiniuFileSvc qiniuFileSvc)
     {
-        _fileService = componentContext.ResolveNamed<IFileSvc>(Appsettings.FileStorage.ServiceName);
+        _qiniuFileSvc = qiniuFileSvc;
+    }
+
+    /// <summary>
+    /// 获取上传文件token
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("upload-token")]
+    [LocalAuthorize("获取上传token", "文件管理")]
+    public ServiceResult<string> GetUploadToken()
+    {
+        return _qiniuFileSvc.GetUploadToken();
     }
 
     /// <summary>
@@ -19,77 +30,14 @@ public class FileController : ApiControllerBase
     /// <param name="key"></param>
     /// <returns></returns>
     [HttpPost("upload")]
+    [LocalAuthorize("上传单个文件", "文件管理")]
     public async Task<ServiceResult<FileDto>> UploadFile(IFormFile file, string type, int key = 0)
     {
         if (!MultipartRequestUtil.IsMultipartContentType(Request.ContentType))
         {
             throw new KnownException($"The request couldn't be processed (Error 1).");
         }
-
-        this.ValidFile(file);
-        return ServiceResult<FileDto>.Successed(await _fileService.UploadAsync(file, type, key));
-    }
-
-    /// <summary>
-    /// 多文件上传
-    /// </summary>
-    /// <returns></returns>
-    [HttpPost("uploads")]
-    public async Task<ServiceResult<List<FileDto>>> UploadFiles(string type)
-    {
-        IFormFileCollection files = Request.Form.Files;
-
-        if (files.Count > Appsettings.FileStorage.NumLimit)
-        {
-            throw new KnownException($"最大文件数量{Appsettings.FileStorage.NumLimit}");
-        }
-        long len = 0;
-        foreach (var file in files)
-        {
-            len += file.Length;
-            this.ValidFile(file);
-        }
-
-        if (len > Appsettings.FileStorage.MaxFileSize)
-        {
-            throw new KnownException($"文件总大小{len}，超过上传文件总大小{Appsettings.FileStorage.MaxFileSize}");
-        }
-
-        int i = 0;
-        List<FileDto> fileDtos = new List<FileDto>();
-        foreach (var file in files)
-        {
-            FileDto fileDto = await _fileService.UploadAsync(file, type, i++);
-            fileDtos.Add(fileDto);
-        }
-        return ServiceResult<List<FileDto>>.Successed(fileDtos);
-    }
-
-    /// <summary>
-    /// 校验上传文件
-    /// </summary>
-    /// <param name="file"></param>
-    private void ValidFile(IFormFile file)
-    {
-        string ext = Path.GetExtension(file.FileName)?.ToLowerInvariant();
-        if (string.IsNullOrEmpty(ext))
-        {
-            throw new KnownException($"不支持的文件类型");
-        }
-
-        if (Appsettings.FileStorage.Include.IsNotNullOrEmpty())
-        {
-            if (!Appsettings.FileStorage.Include.Contains(ext))
-            {
-                throw new KnownException($"不支持文件类型{ext}");
-            }
-            return;
-        }
-
-        if (Appsettings.FileStorage.Exclude.IsNotNullOrEmpty() && Appsettings.FileStorage.Exclude.Contains(ext))
-        {
-            throw new KnownException($"文件类型{ext}被禁止上传");
-        }
+        return await _qiniuFileSvc.UploadAsync(file, type, key);
     }
 
 }

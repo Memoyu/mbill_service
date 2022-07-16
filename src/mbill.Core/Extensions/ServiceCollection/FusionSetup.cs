@@ -1,4 +1,6 @@
-﻿namespace mbill.Core.Extensions.ServiceCollection;
+﻿using mbill.ToolKits.Qiniu;
+
+namespace mbill.Core.Extensions.ServiceCollection;
 
 /// <summary>
 /// 配置注册服务融合
@@ -91,5 +93,20 @@ public static class FusionSetup
     public static void AddHttpClients(this IServiceCollection services)
     {
         services.AddHttpClient();
+    }
+
+    /// <summary>
+    /// 配置注册七牛云服务
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="configuration"></param>
+    /// <param name="sectionName"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static IServiceCollection AddQiniuClient(this IServiceCollection services, IConfiguration configuration, string sectionName = "FileStorage:Qiniu")
+    {
+        if (services == null) throw new ArgumentNullException($"{nameof(services)} is not null");
+        services.Configure<QiniuClientOption>(configuration.GetSection(sectionName));
+        return services.AddSingleton<IQiniuClient, QiniuClient>();
     }
 }

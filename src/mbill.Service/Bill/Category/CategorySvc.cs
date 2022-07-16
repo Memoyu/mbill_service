@@ -64,7 +64,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
                 category = _categoryRepo.Get(c.ParentId);
             dto.ParentName = category?.Name;
             dto.TypeName = SystemConst.Switcher.CategoryType(c.Type);
-            dto.IconUrl = _fileRepo.GetFileUrl(c.IconUrl);
+            dto.IconUrl = _fileRepo.GetFileUrl(c.Icon);
             return dto;
         }).ToList();
 

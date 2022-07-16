@@ -58,7 +58,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var assetDto = await _assetRepo.GetAssetAsync(dto.AssetId);
         dto.Asset = assetDto?.Name;
         dto.Category = category?.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.IconUrl);
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
         return ServiceResult<BillDetailDto>.Successed(dto);
     }
 
@@ -432,7 +432,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             {
                 Id = cg.Id,
                 CategoryName = c.Name,
-                CategoryIcon = _fileRepo.GetFileUrl(c?.IconUrl),
+                CategoryIcon = _fileRepo.GetFileUrl(c?.Icon),
                 Sum = cg.Sum,
                 GroupId = g.Id,
                 GroupName = g.Name,
@@ -494,7 +494,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         {
             var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
             dto.Category = category?.Name;
-            dto.CategoryIcon = _fileRepo.GetFileUrl(category?.IconUrl);
+            dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
         }
         return dto;
     }

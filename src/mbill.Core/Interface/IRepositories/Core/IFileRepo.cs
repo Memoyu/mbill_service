@@ -5,6 +5,11 @@ namespace mbill.Core.Interface.IRepositories.Core
 {
     public interface IFileRepo : IAuditBaseRepo<FileEntity>
     {
-        string GetFileUrl(string path);
+        /// <summary>
+        /// 获取文件完整路径
+        /// </summary>
+        /// <param name="md5"></param>
+        /// <returns></returns>
+        string GetFileUrl(string md5);
     }
 }

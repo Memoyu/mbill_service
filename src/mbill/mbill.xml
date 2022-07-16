@@ -33,6 +33,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:mbill.Controllers.Core.FileController.GetUploadToken">
+            <summary>
+            获取上传文件token
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Controllers.Core.FileController.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             单文件上传，键为file
@@ -41,18 +47,6 @@
             <param name="type"></param>
             <param name="key"></param>
             <returns></returns>
-        </member>
-        <member name="M:mbill.Controllers.Core.FileController.UploadFiles(System.String)">
-            <summary>
-            多文件上传
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Controllers.Core.FileController.ValidFile(Microsoft.AspNetCore.Http.IFormFile)">
-            <summary>
-            校验上传文件
-            </summary>
-            <param name="file"></param>
         </member>
         <member name="T:mbill.Controllers.Core.LogController">
             <summary>

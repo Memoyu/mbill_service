@@ -662,31 +662,26 @@
             <param name="permissions"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Files.IFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.CheckMD5(System.String)">
+            <summary>
+            校验MD5文件是否存在
+            </summary>
+            <param name="md5"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.GetUploadToken">
+            <summary>
+            获取上传Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             单文件上传，键为file
             </summary>
             <param name="file">文件流</param>
             <param name="type">类型</param>
             <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Core.Files.LocalFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
-            <summary>
-            本地文件上传，秒传（根据lin_file表中的md5,与当前文件的路径是否在本地），如果不在，重新上传，覆盖文件表记录
-            </summary>
-            <param name="file"></param>
-            <param name="type"></param>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Core.Files.LocalFileSvc.LocalUploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String)">
-            <summary>
-            本地文件上传，生成目录格式 {STORE_DIR}/{year}/{month}/{day}/{guid}.文件后缀
-            images/2022-01-12/fba73a0c-f2f7-499a-8ed8-5b10554d43b0.jpg
-            </summary>
-            <param name="file"></param>
-            <param name="type"></param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Core.Logger.ILogSvc.GetPagesAsync(mbill.Service.Core.Logger.Input.LogPagingDto)">
