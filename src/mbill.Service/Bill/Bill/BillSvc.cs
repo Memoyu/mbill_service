@@ -55,10 +55,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
             return ServiceResult<BillDetailDto>.Failed("没有找到该账单信息");
         var dto = Mapper.Map<BillDetailDto>(bill);
         var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
-        var assetDto = await _assetRepo.GetAssetAsync(dto.AssetId);
-        dto.Asset = assetDto?.Name;
+        var asset = await _assetRepo.GetAssetAsync(dto.AssetId);
+        dto.Asset = asset?.Name;
         dto.Category = category?.Name;
         dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
+        dto.AssetIcon = _fileRepo.GetFileUrl(asset?.Icon);
         return ServiceResult<BillDetailDto>.Successed(dto);
     }
 

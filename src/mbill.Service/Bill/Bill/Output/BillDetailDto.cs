@@ -8,6 +8,8 @@ public class BillDetailDto : BillDto
 
     public string CategoryIcon { get; set; }
 
+    public string AssetIcon { get; set; }
+
     public string AmountFormat { get; set; }
 
     public string TimeFormat { get; set; }
