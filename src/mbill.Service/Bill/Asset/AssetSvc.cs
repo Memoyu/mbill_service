@@ -26,6 +26,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
                 .Select(c =>
                 {
                     var dto = new AssetGroupDto();
+                    dto.Id = c.Id;
                     dto.Name = c.Name;
                     dto.Childs = entities
                         .FindAll(d => d.ParentId == c.Id)

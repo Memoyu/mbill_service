@@ -25,6 +25,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
             .Select(c =>
             {
                 var dto = new CategoryGroupDto();
+                dto.Id = c.Id;
                 dto.Name = c.Name;
                 dto.Childs = entities
                     .FindAll(d => d.ParentId == c.Id)
