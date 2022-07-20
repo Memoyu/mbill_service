@@ -83,7 +83,8 @@ stages:
           docker pull $(imageName)
 
           echo "================= to run container ===================="
-          docker run --name $(containerName) -d -p 5001:80 $(imageName) -v /etc/timezone/timezone:/etc/localtime
-
+          docker run --name $(containerName) -d -p 5001:80 $(imageName) -v /etc/localtime:/etc/localtime
+          # 进行时区同步
+          docker cp /usr/share/zoneinfo/Asia/Shanghai $(containerName):/etc/localtime 
           echo "================= publish success ===================="
         readyTimeout: '20000'
