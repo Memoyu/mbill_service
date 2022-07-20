@@ -83,7 +83,7 @@ stages:
           docker pull $(imageName)
 
           echo "================= to run container ===================="
-          docker run --name $(containerName) -d -p 5001:80 $(imageName)
+          docker run --name $(containerName) -d -p 5001:80 $(imageName) -v /etc/localtime:/etc/localtime
 
           echo "================= publish success ===================="
         readyTimeout: '20000'
