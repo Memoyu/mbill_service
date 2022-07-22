@@ -464,11 +464,11 @@
             平均支出（格式化后）
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Core.Domains.Entities.Bill.CategoryEntity)">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Service.Bill.Category.Input.ModifyCategoryDto)">
             <summary>
             新增账单分类
             </summary>
-            <param name="categroy">数据源</param>
+            <param name="dto">数据源</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.DeleteAsync(System.Int64)">

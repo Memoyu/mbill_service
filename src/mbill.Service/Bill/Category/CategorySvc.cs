@@ -109,17 +109,15 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
     }
 
 
-    public async Task InsertAsync(CategoryEntity categroy)
+    public async Task<ServiceResult<CategoryDto>> InsertAsync(ModifyCategoryDto dto)
     {
-        if (!string.IsNullOrEmpty(categroy.Name))
-        {
-            bool isRepeatName = await _categoryRepo.Select.AnyAsync(r => r.Name == categroy.Name);
-            if (isRepeatName)//分类名重复
-            {
-                throw new KnownException("分类名称重复，请重新输入", ServiceResultCode.RepeatField);
-            }
-        }
-        await _categoryRepo.InsertAsync(categroy);
+        var categroy = Mapper.Map<CategoryEntity>(dto);
+        bool isRepeatName = await _categoryRepo.Select.AnyAsync(r => r.Name == categroy.Name);
+        if (isRepeatName)//分类名重复
+           return ServiceResult<CategoryDto>.Failed("分类名称重复，请重新输入");
+
+        var entity = await _categoryRepo.InsertAsync(categroy);
+        return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(entity));
     }
 
     public async Task DeleteAsync(long id)

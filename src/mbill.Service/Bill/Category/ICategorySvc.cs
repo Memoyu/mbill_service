@@ -5,9 +5,9 @@ public interface ICategorySvc
     /// <summary>
     /// 新增账单分类
     /// </summary>
-    /// <param name="categroy">数据源</param>
+    /// <param name="dto">数据源</param>
     /// <returns></returns>
-    Task InsertAsync(CategoryEntity categroy);
+    Task<ServiceResult<CategoryDto>> InsertAsync(ModifyCategoryDto dto);
 
     /// <summary>
     /// 删除账单分类信息

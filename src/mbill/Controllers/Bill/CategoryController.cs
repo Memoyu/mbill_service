@@ -25,10 +25,9 @@ public class CategoryController : ApiControllerBase
     [Authorize]
     [LocalAuthorize("新增", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> CreateAsync([FromBody] ModifyCategoryDto dto)
+    public async Task<ServiceResult<CategoryDto>> CreateAsync([FromBody] ModifyCategoryDto dto)
     {
-        await _categoryService.InsertAsync(_mapper.Map<CategoryEntity>(dto));
-        return ServiceResult.Successed("账单分类创建成功");
+        return await _categoryService.InsertAsync(dto); ;
     }
 
     /// <summary> 
