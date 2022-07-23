@@ -36,13 +36,6 @@ public class CategoryEntity : FullAduitEntity
     public int Type { get; set; }
 
     /// <summary>
-    /// 分类标签：0 系统默认，1 用户自定义
-    /// </summary>
-    [Column(IsNullable = false)]
-    [Description("分类标签：0 系统默认，1 用户自定义")]
-    public int Label { get; set; }
-
-    /// <summary>
     /// 预算金额
     /// </summary>
     [Column(Precision = 12, Scale = 2)]

@@ -27,7 +27,6 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
                 var dto = new CategoryGroupDto();
                 dto.Id = c.Id;
                 dto.Name = c.Name;
-                dto.Label = c.Label;
                 dto.Childs = entities
                     .FindAll(d => d.ParentId == c.Id)
                     .Select(d =>
