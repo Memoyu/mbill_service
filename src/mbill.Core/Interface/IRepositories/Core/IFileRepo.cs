@@ -8,8 +8,8 @@ namespace mbill.Core.Interface.IRepositories.Core
         /// <summary>
         /// 获取文件完整路径
         /// </summary>
-        /// <param name="md5"></param>
+        /// <param name="path"></param>
         /// <returns></returns>
-        string GetFileUrl(string md5);
+        string GetFileUrl(string path);
     }
 }

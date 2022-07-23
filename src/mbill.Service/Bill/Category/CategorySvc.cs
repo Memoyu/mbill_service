@@ -20,13 +20,14 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
             .Where(c => c.IsDeleted == false)
             .WhereIf(type.HasValue, c => c.Type == type)
             .ToListAsync();
-        List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
+        List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0 && c.CreateUserId == CurrentUser.Id).OrderBy(d => d.Sort).ToList();
         List<CategoryGroupDto> dtos = parents
             .Select(c =>
             {
                 var dto = new CategoryGroupDto();
                 dto.Id = c.Id;
                 dto.Name = c.Name;
+                dto.Label = c.Label;
                 dto.Childs = entities
                     .FindAll(d => d.ParentId == c.Id)
                     .Select(d =>

@@ -10,6 +10,14 @@
 [Index("index_asset_on_type", "Type", false)]
 public class AssetEntity : FullAduitEntity
 {
+
+    /// <summary>
+    /// 资产Id
+    /// </summary>
+    [Column(IsNullable = false)]
+    [Description("资产Id")]
+    public long AssetId { get; set; }
+
     /// <summary>
     /// 资产分类名
     /// </summary>
@@ -27,6 +35,14 @@ public class AssetEntity : FullAduitEntity
     [Column(IsNullable = false)]
     public int Type { get; set; }
 
+
+    /// <summary>
+    /// 分类标签：0 系统默认，1 用户自定义
+    /// </summary>
+    [Column(IsNullable = false)]
+    [Description("分类标签：0 系统默认，1 用户自定义")]
+    public int Label { get; set; }
+
     /// <summary>
     /// 资产金额
     /// </summary>
@@ -36,11 +52,14 @@ public class AssetEntity : FullAduitEntity
     /// <summary>
     /// 图标地址
     /// </summary>
-    [Column(StringLength = 32)]
+    [Column(StringLength = 100)]
     public string Icon { get; set; }
 
     /// <summary>
     /// 排序
     /// </summary>
     public int Sort { get; set; }
+
+    [Navigate(nameof(AssetId))]
+    public virtual AssetEntity Asset { get; set; }
 }

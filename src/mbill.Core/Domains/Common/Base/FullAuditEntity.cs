@@ -104,42 +104,49 @@ public class FullAduitEntity<TKey> : Entity<TKey>, IUpdateAuditEntity, IDeleteAd
     /// </summary>
 
     [Column(Position = -7)]//倒数第七个字段
+    [Description("创建人Id")]
     public long CreateUserId { get; set; }
 
     /// <summary>
     /// 创建时间
     /// </summary>
     [Column(Position = -6)]
+    [Description("创建时间")]
     public DateTime CreateTime { get; set; }
 
     /// <summary>
     /// 是否删除
     /// </summary>
     [Column(Position = -5)]
+    [Description("是否删除 0 未删除，1 已删除")]
     public bool IsDeleted { get; set; }
 
     /// <summary>
     /// 删除人id
     /// </summary>
     [Column(Position = -4)]
+    [Description("删除人Id")]
     public long? DeleteUserId { get; set; }
 
     /// <summary>
     /// 删除时间
     /// </summary>
     [Column(Position = -3)]
+    [Description("删除时间")]
     public DateTime? DeleteTime { get; set; }
 
     /// <summary>
     /// 最后修改人Id
     /// </summary>
     [Column(Position = -2)]
+    [Description("修改人Id")]
     public long? UpdateUserId { get; set; }
 
     /// <summary>
     /// 修改时间
     /// </summary>
     [Column(Position = -1)]
+    [Description("修改时间")]
     public DateTime? UpdateTime { get; set; }
 }
 
