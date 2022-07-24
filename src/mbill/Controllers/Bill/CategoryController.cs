@@ -7,12 +7,12 @@
 [Route("api/category")]
 public class CategoryController : ApiControllerBase
 {
-    private readonly ICategorySvc _categoryService;
+    private readonly ICategorySvc _categorySvc;
     private readonly IMapper _mapper;
 
-    public CategoryController(ICategorySvc categoryService, IMapper mapper)
+    public CategoryController(ICategorySvc categorySvc, IMapper mapper)
     {
-        _categoryService = categoryService;
+        _categorySvc = categorySvc;
         _mapper = mapper;
     }
 
@@ -20,14 +20,13 @@ public class CategoryController : ApiControllerBase
     /// 新增账单分类
     /// </summary>
     /// <param name="dto">账单分类</param>
-    [Logger("用户新建了一个账单分类")]
     [HttpPost]
     [Authorize]
     [LocalAuthorize("新增", "账单分类")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult<CategoryDto>> CreateAsync([FromBody] ModifyCategoryDto dto)
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<CategoryDto>> CreateAsync([FromBody] ModifyCategoryInput dto)
     {
-        return await _categoryService.InsertAsync(dto); ;
+        return await _categorySvc.InsertAsync(dto); ;
     }
 
     /// <summary> 
@@ -39,8 +38,8 @@ public class CategoryController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
     {
-        await _categoryService.DeleteAsync(id);
-        return ServiceResult.Successed("账单分类删除成功！");
+
+        return await _categorySvc.DeleteAsync(id);
     }
 
     /// <summary>
@@ -50,10 +49,9 @@ public class CategoryController : ApiControllerBase
     [HttpPut]
     [LocalAuthorize("更新", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyCategoryDto dto)
+    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyCategoryInput dto)
     {
-        await _categoryService.UpdateAsync(_mapper.Map<CategoryEntity>(dto));
-        return ServiceResult.Successed("账单分类更新成功！");
+        return await _categorySvc.UpdateAsync(_mapper.Map<CategoryEntity>(dto));
     }
 
     /// <summary>
@@ -65,7 +63,7 @@ public class CategoryController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<CategoryDto>> GetAsync([FromQuery] long id)
     {
-        return ServiceResult<CategoryDto>.Successed(await _categoryService.GetAsync(id));
+        return await _categorySvc.GetAsync(id);
     }
 
     /// <summary>
@@ -77,7 +75,7 @@ public class CategoryController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<List<CategoryDto>>> GetsAsync([FromQuery] int type)
     {
-        return await _categoryService.GetsAsync(type);
+        return await _categorySvc.GetsAsync(type);
     }
 
 
@@ -90,18 +88,18 @@ public class CategoryController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<CategoryDto>> GetParentAsync([FromQuery] long id)
     {
-        return ServiceResult<CategoryDto>.Successed(await _categoryService.GetParentAsync(id));
+        return await _categorySvc.GetParentAsync(id);
     }
 
     /// <summary>
     /// 获取账单分类父项集合
     /// </summary>
     [HttpGet("parents")]
-    [LocalAuthorize("获取父项集合", "资产分类")]
+    [LocalAuthorize("获取父项集合", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<CategoryDto>>> GetParentsAsync()
     {
-        return ServiceResult<IEnumerable<CategoryDto>>.Successed(await _categoryService.GetParentsAsync());
+        return await _categorySvc.GetParentsAsync();
     }
 
     /// <summary>
@@ -113,7 +111,7 @@ public class CategoryController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupAsync([FromQuery] int? type)
     {
-        return await _categoryService.GetGroupsAsync(type);
+        return await _categorySvc.GetGroupsAsync(type);
     }
 
     /// <summary>
@@ -123,8 +121,23 @@ public class CategoryController : ApiControllerBase
     [HttpGet("pages")]
     [LocalAuthorize("获取分页", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromQuery] CategoryPagingDto pagingDto)
+    public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync([FromQuery] CategoryPagingInput pagingDto)
     {
-        return ServiceResult<PagedDto<CategoryPageDto>>.Successed(await _categoryService.GetPageAsync(pagingDto));
+        return await _categorySvc.GetPageAsync(pagingDto);
+    }
+
+    /// <summary>
+    /// 排序账单分类
+    /// </summary>
+    /// <param name="input">排序信息</param>
+    [HttpPost("sort")]
+    [Authorize]
+    [LocalAuthorize("分类排序", "账单分类")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult> SortAsync([FromBody] SortCategoryInput input)
+    {
+        if (input.Sorts == null || !input.Sorts.Any())
+            return ServiceResult<string>.Failed(ServiceResultCode.ParameterError, "排序内容不能为空");
+        return await _categorySvc.SortAsync(input); ;
     }
 }

@@ -464,7 +464,7 @@
             平均支出（格式化后）
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Service.Bill.Category.Input.ModifyCategoryDto)">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Service.Bill.Category.Input.ModifyCategoryInput)">
             <summary>
             新增账单分类
             </summary>
@@ -492,7 +492,7 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingDto)">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingInput)">
             <summary>
             获取账单分类分页
             </summary>
@@ -526,32 +526,39 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryDto.Name">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.SortAsync(mbill.Service.Bill.Category.Input.SortCategoryInput)">
+            <summary>
+            排序账单分类
+            </summary>
+            <param name="input">排序内容</param>
+            <returns></returns>
+        </member>
+        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Name">
             <summary>
             账单分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryDto.ParentId">
+        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.ParentId">
             <summary>
             父级Id，默认0
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryDto.Type">
+        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Type">
             <summary>
             分类类型：支出、收入
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryDto.Budget">
+        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Budget">
             <summary>
             预算金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryDto.IconUrl">
+        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.IconUrl">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryDto.Sort">
+        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Sort">
             <summary>
             排序
             </summary>

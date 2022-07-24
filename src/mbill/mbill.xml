@@ -303,7 +303,7 @@
             账单分类管理
             </summary>
         </member>
-        <member name="M:mbill.Controllers.Bill.CategoryController.CreateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryDto)">
+        <member name="M:mbill.Controllers.Bill.CategoryController.CreateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryInput)">
             <summary>
             新增账单分类
             </summary>
@@ -315,7 +315,7 @@
             </summary>
             <param name="id">账单分类id</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.CategoryController.UpdateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryDto)">
+        <member name="M:mbill.Controllers.Bill.CategoryController.UpdateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryInput)">
             <summary>
             更新账单分类
             </summary>
@@ -350,11 +350,17 @@
             </summary>
             <param name="type">账单类型</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.CategoryController.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingDto)">
+        <member name="M:mbill.Controllers.Bill.CategoryController.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingInput)">
             <summary>
             获取账单分类分页
             </summary>
             <param name="pagingDto">分页参数</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.CategoryController.SortAsync(mbill.Service.Bill.Category.Input.SortCategoryInput)">
+            <summary>
+            排序账单分类
+            </summary>
+            <param name="input">排序信息</param>
         </member>
         <member name="T:mbill.Controllers.PreOrder.PreOrderController">
             <summary>

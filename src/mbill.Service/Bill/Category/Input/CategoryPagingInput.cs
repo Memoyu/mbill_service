@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Bill.Category.Input;
 
-public class CategoryPagingDto : PagingDto
+public class CategoryPagingInput : PagingDto
 {
     public string CategoryName { get; set; }
 

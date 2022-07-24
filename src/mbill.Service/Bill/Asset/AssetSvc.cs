@@ -35,7 +35,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
                              var s = Mapper.Map<AssetDto>(d);
                              s.IconUrl = _fileRepo.GetFileUrl(d.Icon);
                              return s;
-                         }).OrderBy(d => d.Sort)
+                         }).OrderByDescending(d => d.Sort)
                         .ToList();
                     return dto;
                 })

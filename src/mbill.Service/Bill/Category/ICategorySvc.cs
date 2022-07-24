@@ -7,21 +7,21 @@ public interface ICategorySvc
     /// </summary>
     /// <param name="dto">数据源</param>
     /// <returns></returns>
-    Task<ServiceResult<CategoryDto>> InsertAsync(ModifyCategoryDto dto);
+    Task<ServiceResult<CategoryDto>> InsertAsync(ModifyCategoryInput dto);
 
     /// <summary>
     /// 删除账单分类信息
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long id);
 
     /// <summary>
     /// 更新账单分类
     /// </summary>
     /// <param name="categroy">账单分类信息</param>
     /// <returns></returns>
-    Task UpdateAsync(CategoryEntity categroy);
+    Task<ServiceResult> UpdateAsync(CategoryEntity categroy);
 
     /// <summary>
     /// 获取分级后的组合类别数据
@@ -35,17 +35,17 @@ public interface ICategorySvc
     /// </summary>
     /// <param name="pagingDto">分页参数</param>
     /// <returns></returns>
-    Task<PagedDto<CategoryPageDto>> GetPageAsync(CategoryPagingDto pagingDto);
+    Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync(CategoryPagingInput pagingDto);
 
 
-    Task<IEnumerable<CategoryDto>> GetListAsync();
+    Task<ServiceResult<IEnumerable<CategoryDto>>> GetListAsync();
 
     /// <summary>
     /// 获取分类
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<CategoryDto> GetAsync(long id);
+    Task<ServiceResult<CategoryDto>> GetAsync(long id);
 
     /// <summary>
     /// 获取群不分类
@@ -59,12 +59,18 @@ public interface ICategorySvc
     /// </summary>
     /// <param name="id">分类子项Id</param>
     /// <returns></returns>
-    Task<CategoryDto> GetParentAsync(long id);
+    Task<ServiceResult<CategoryDto>> GetParentAsync(long id);
 
     /// <summary>
     /// 获取账单分类父项集合
     /// </summary>
     /// <returns></returns>
-    Task<IEnumerable<CategoryDto>> GetParentsAsync();
+    Task<ServiceResult<IEnumerable<CategoryDto>>> GetParentsAsync();
 
+    /// <summary>
+    /// 排序账单分类
+    /// </summary>
+    /// <param name="input">排序内容</param>
+    /// <returns></returns>
+    Task<ServiceResult> SortAsync(SortCategoryInput input);
 }

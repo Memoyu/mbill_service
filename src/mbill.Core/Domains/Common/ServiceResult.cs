@@ -89,6 +89,20 @@ public class ServiceResult
         result.Code = ServiceResultCode.Failed;
         return result;
     }
+
+    /// <summary>
+    /// 响应失败(静态返回实例)
+    /// </summary>
+    /// <param name="code"></param>
+    /// <param name="message"></param>
+    public static ServiceResult Failed(ServiceResultCode code, string message = "")
+    {
+        var result = new ServiceResult();
+        result.Message = message;
+        result.Code = code;
+        return result;
+    }
+
     public override string ToString()
     {
         return JsonConvert.SerializeObject(this, Formatting.Indented, new JsonSerializerSettings
@@ -131,6 +145,19 @@ public class ServiceResult<T> : ServiceResult
         res.Result = result;
         res.Code = ServiceResultCode.Succeed;
         return res;
+    }
+
+    /// <summary>
+    /// 响应失败(静态返回实例)
+    /// </summary>
+    /// <param name="code"></param>
+    /// <param name="message"></param>
+    public new static ServiceResult<T> Failed(ServiceResultCode code, string message = "")
+    {
+        var result = new ServiceResult<T>();
+        result.Message = message;
+        result.Code = code;
+        return result;
     }
 
     /// <summary>

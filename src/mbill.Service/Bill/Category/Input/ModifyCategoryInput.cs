@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Bill.Category.Input;
 
-public class ModifyCategoryDto
+public class ModifyCategoryInput
 {
     /// <summary>
     /// 账单分类名
