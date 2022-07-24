@@ -17,10 +17,10 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
     {
         List<CategoryEntity> entities = await _categoryRepo
             .Select
-            .Where(c => c.IsDeleted == false)
+            .Where(c => c.CreateUserId == CurrentUser.Id)
             .WhereIf(type.HasValue, c => c.Type == type)
             .ToListAsync();
-        List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0 && c.CreateUserId == CurrentUser.Id).OrderBy(d => d.Sort).ToList();
+        List<CategoryEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
         List<CategoryGroupDto> dtos = parents
             .Select(c =>
             {

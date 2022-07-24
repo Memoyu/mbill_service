@@ -6,7 +6,5 @@ public class CategoryGroupDto
 
     public string Name { get; set; }
 
-    public int Label { get; set; }
-
     public List<CategoryDto> Childs { get; set; }
 }

@@ -18,10 +18,10 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         {
             List<AssetEntity> entities = await _assetRepo
                 .Select
-                .Where(c => c.IsDeleted == false)
+                .Where(c => c.CreateUserId == CurrentUser.Id)
                 .WhereIf(type.HasValue, c => c.Type == type)
                 .ToListAsync();
-            List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0 && c.CreateUserId == CurrentUser.Id).OrderBy(d => d.Sort).ToList();
+            List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
             List<AssetGroupDto> dtos = parents
                 .Select(c =>
                 {

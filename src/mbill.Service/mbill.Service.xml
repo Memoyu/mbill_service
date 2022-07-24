@@ -556,6 +556,13 @@
             排序
             </summary>
         </member>
+        <member name="M:mbill.Service.Core.Auth.AccountSvc.InitUserDataAsync(System.Int64)">
+            <summary>
+            初始化新用户数据
+            </summary>
+            <param name="id">用户Id</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Core.Auth.IAccountSvc.AccountLoginAsync(mbill.Service.Core.Auth.Input.AccountLoginDto)">
             <summary>
             账户登录
