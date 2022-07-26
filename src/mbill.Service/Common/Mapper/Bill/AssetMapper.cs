@@ -4,7 +4,8 @@ public class AssetMapper : Profile
 {
     public AssetMapper()
     {
-        CreateMap<ModifyAssetDto, AssetEntity>();
+        CreateMap<CreateAssetInput, AssetEntity>();
+        CreateMap<EditAssetInput, AssetEntity>();
         CreateMap<AssetEntity, AssetDto>();
         CreateMap<AssetEntity, AssetPageDto>();
     }

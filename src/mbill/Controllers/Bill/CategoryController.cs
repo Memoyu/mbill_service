@@ -17,45 +17,44 @@ public class CategoryController : ApiControllerBase
     }
 
     /// <summary>
-    /// 新增账单分类
+    /// 新增账单分组/分类
     /// </summary>
     /// <param name="dto">账单分类</param>
     [HttpPost]
     [Authorize]
     [LocalAuthorize("新增", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<CategoryDto>> CreateAsync([FromBody] ModifyCategoryInput dto)
+    public async Task<ServiceResult<CategoryDto>> CreateAsync([FromBody] CreateCategoryInput dto)
     {
         return await _categorySvc.InsertAsync(dto); ;
     }
 
     /// <summary> 
-    /// 删除账单分类
+    /// 删除账单分组/分类
     /// </summary>
     /// <param name="id">账单分类id</param>
     [HttpDelete]
     [LocalAuthorize("删除", "账单分类")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
     {
-
         return await _categorySvc.DeleteAsync(id);
     }
 
     /// <summary>
-    /// 更新账单分类
+    /// 更新账单分组/分类
     /// </summary>
-    /// <param name="dto">账单分类信息</param>
+    /// <param name="input">账单分类信息</param>
     [HttpPut]
     [LocalAuthorize("更新", "账单分类")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyCategoryInput dto)
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult> EditAsync([FromBody] EditCategoryInput input)
     {
-        return await _categorySvc.UpdateAsync(_mapper.Map<CategoryEntity>(dto));
+        return await _categorySvc.EditAsync(input);
     }
 
     /// <summary>
-    /// 获取分类
+    /// 获取账单分组/分类
     /// </summary>
     /// <param name="id">分类id</param>
     [HttpGet]

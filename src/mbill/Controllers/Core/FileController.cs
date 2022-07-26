@@ -1,4 +1,6 @@
-﻿namespace mbill.Controllers.Core;
+﻿using mbill.Service.Core.Files.Input;
+
+namespace mbill.Controllers.Core;
 
 [Route("api/file")]
 [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
@@ -6,9 +8,13 @@
 public class FileController : ApiControllerBase
 {
     private readonly IQiniuFileSvc _qiniuFileSvc;
-    public FileController(IQiniuFileSvc qiniuFileSvc)
+
+    private readonly IMediaImageSvc _mediaImageSvc;
+
+    public FileController(IQiniuFileSvc qiniuFileSvc, IMediaImageSvc mediaImageSvc)
     {
         _qiniuFileSvc = qiniuFileSvc;
+        _mediaImageSvc = mediaImageSvc;
     }
 
     /// <summary>
@@ -40,4 +46,14 @@ public class FileController : ApiControllerBase
         return await _qiniuFileSvc.UploadAsync(file, type, key);
     }
 
+    /// <summary>
+    /// 获取账单分类分页
+    /// </summary>
+    /// <param name="pagingDto">分页参数</param>
+    [HttpGet("media-image/pages")]
+    [LocalAuthorize("获取分页媒体图片", "文件管理")]
+    public async Task<ServiceResult<PagedDto<MediaImageDto>>> GetPageAsync([FromQuery] MediaImagePagingInput pagingDto)
+    {
+        return await _mediaImageSvc.GetPageAsync(pagingDto);
+    }
 }

@@ -17,21 +17,20 @@ public class AssetController : ApiControllerBase
     }
 
     /// <summary>
-    /// 新增资产分类
+    /// 新增资产分组/分类
     /// </summary>
-    /// <param name="dto">资产分类</param>
+    /// <param name="input">资产分类</param>
     [Logger("用户新建了一个资产分类")]
     [HttpPost]
     [LocalAuthorize("新增", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> CreateAsync([FromBody] ModifyAssetDto dto)
-    {
-        await _assetService.InsertAsync(_mapper.Map<AssetEntity>(dto));
-        return ServiceResult.Successed("资产分类创建成功");
+    public async Task<ServiceResult> CreateAsync([FromBody] CreateAssetInput input)
+    {      
+        return await _assetService.InsertAsync(_mapper.Map<AssetEntity>(input));
     }
 
     /// <summary> 
-    /// 删除资产分类
+    /// 删除资产分组/分类
     /// </summary>
     /// <param name="id">资产分类id</param>
     [HttpDelete]
@@ -39,25 +38,25 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
     {
-        await _assetService.DeleteAsync(id);
-        return ServiceResult.Successed("资产分类删除成功！");
+        
+        return await _assetService.DeleteAsync(id);
     }
 
     /// <summary>
-    /// 更新资产分类
+    /// 更新资产分组/分类
     /// </summary>
-    /// <param name="dto">资产分类信息</param>
+    /// <param name="input">资产分类信息</param>
     [HttpPut]
     [LocalAuthorize("更新", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyAssetDto dto)
+    public async Task<ServiceResult> EditAsync([FromBody] EditAssetInput input)
     {
-        await _assetService.UpdateAsync(_mapper.Map<AssetEntity>(dto));
-        return ServiceResult.Successed("资产分类更新成功！");
+        
+        return await _assetService.EditAsync(_mapper.Map<AssetEntity>(input));
     }
 
     /// <summary>
-    /// 获取资产
+    /// 获取资产分组/分类
     /// </summary>
     /// <param name="id">资产id</param>
     [HttpGet]
@@ -65,7 +64,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long id)
     {
-        return ServiceResult<AssetDto>.Successed(await _assetService.GetAsync(id));
+        return await _assetService.GetAsync(id);
     }
 
     /// <summary>
@@ -77,7 +76,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<AssetDto>> GetParentAsync([FromQuery] long id)
     {
-        return ServiceResult<AssetDto>.Successed(await _assetService.GetParentAsync(id));
+        return await _assetService.GetParentAsync(id);
     }
 
     /// <summary>
@@ -88,7 +87,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<AssetDto>>> GetParentsAsync()
     {
-        return ServiceResult<IEnumerable<AssetDto>>.Successed(await _assetService.GetParentsAsync());
+        return await _assetService.GetParentsAsync();
     }
 
     /// <summary>
@@ -112,6 +111,6 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync([FromQuery] AssetPagingDto pagingDto)
     {
-        return ServiceResult<PagedDto<AssetPageDto>>.Successed(await _assetService.GetPageAsync(pagingDto));
+        return await _assetService.GetPageAsync(pagingDto);
     }
 }

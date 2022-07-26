@@ -62,5 +62,5 @@ global using mbill.Service.Core.Wx.Output;
 global using System.Net.Http;
 global using mbill.Service.PreOrder.Input;
 global using mbill.Service.PreOrder.Output;
-
+global using mbill.Service.Core.Files.Input;
 global using static mbill.Core.Domains.Common.Consts.SystemConst;

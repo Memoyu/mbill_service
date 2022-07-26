@@ -7,7 +7,7 @@ public interface ICategorySvc
     /// </summary>
     /// <param name="dto">数据源</param>
     /// <returns></returns>
-    Task<ServiceResult<CategoryDto>> InsertAsync(ModifyCategoryInput dto);
+    Task<ServiceResult<CategoryDto>> InsertAsync(CreateCategoryInput dto);
 
     /// <summary>
     /// 删除账单分类信息
@@ -19,9 +19,9 @@ public interface ICategorySvc
     /// <summary>
     /// 更新账单分类
     /// </summary>
-    /// <param name="categroy">账单分类信息</param>
+    /// <param name="input">账单分类信息</param>
     /// <returns></returns>
-    Task<ServiceResult> UpdateAsync(CategoryEntity categroy);
+    Task<ServiceResult> EditAsync(EditCategoryInput input);
 
     /// <summary>
     /// 获取分级后的组合类别数据

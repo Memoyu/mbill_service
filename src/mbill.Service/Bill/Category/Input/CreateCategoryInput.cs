@@ -1,14 +1,11 @@
-﻿namespace mbill.Service.Bill.Asset.Input;
+﻿namespace mbill.Service.Bill.Category.Input;
 
-public class ModifyAssetDto
+public class CreateCategoryInput
 {
-    //[Range(1, 200, ErrorMessage = "年龄应该在1-200之间")]
-    //[StringLength(100, ErrorMessage = "地址应小于100字符")]
-
     /// <summary>
-    /// 资产分类名
+    /// 账单分类名
     /// </summary>
-    [Required(ErrorMessage = "必须传入资产分类名称")]
+    [Required(ErrorMessage = "必须传入分类名称")]
     public string Name { get; set; }
 
     /// <summary>
@@ -17,21 +14,19 @@ public class ModifyAssetDto
     public long ParentId { get; set; }
 
     /// <summary>
-    /// 资产分类类型：存款、负债
+    /// 分类类型：支出、收入
     /// </summary>
-    [Required(ErrorMessage = "必须传入资产分类类型")]
+    [Required(ErrorMessage = "必须传入分类类型")]
     public string Type { get; set; }
 
     /// <summary>
-    /// 资产金额
+    /// 预算金额
     /// </summary>
-
-    public decimal Amount { get; set; }
+    public decimal Budget { get; set; }
 
     /// <summary>
     /// 图标地址
     /// </summary>
-
     public string IconUrl { get; set; }
 
     /// <summary>

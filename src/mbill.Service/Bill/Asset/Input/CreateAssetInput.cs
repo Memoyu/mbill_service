@@ -1,11 +1,11 @@
-﻿namespace mbill.Service.Bill.Category.Input;
+﻿namespace mbill.Service.Bill.Asset.Input;
 
-public class ModifyCategoryInput
+public class CreateAssetInput
 {
     /// <summary>
-    /// 账单分类名
+    /// 资产分类名
     /// </summary>
-    [Required(ErrorMessage = "必须传入分类名称")]
+    [Required(ErrorMessage = "必须传入资产分类名称")]
     public string Name { get; set; }
 
     /// <summary>
@@ -14,19 +14,21 @@ public class ModifyCategoryInput
     public long ParentId { get; set; }
 
     /// <summary>
-    /// 分类类型：支出、收入
+    /// 资产分类类型：存款、负债
     /// </summary>
-    [Required(ErrorMessage = "必须传入分类类型")]
+    [Required(ErrorMessage = "必须传入资产分类类型")]
     public string Type { get; set; }
 
     /// <summary>
-    /// 预算金额
+    /// 资产金额
     /// </summary>
-    public decimal Budget { get; set; }
+
+    public decimal Amount { get; set; }
 
     /// <summary>
     /// 图标地址
     /// </summary>
+
     public string IconUrl { get; set; }
 
     /// <summary>

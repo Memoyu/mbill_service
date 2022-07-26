@@ -111,7 +111,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
     }
 
 
-    public async Task<ServiceResult<CategoryDto>> InsertAsync(ModifyCategoryInput dto)
+    public async Task<ServiceResult<CategoryDto>> InsertAsync(CreateCategoryInput dto)
     {
         var categroy = Mapper.Map<CategoryEntity>(dto);
         bool isRepeatName = await _categoryRepo.Select.AnyAsync(r => r.Name == categroy.Name && categroy.CreateUserId == r.CreateUserId);
@@ -124,18 +124,25 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
 
     public async Task<ServiceResult> DeleteAsync(long id)
     {
-        var exist = await _categoryRepo.Select.AnyAsync(s => s.Id == id && !s.IsDeleted);
-        if (!exist)  return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
-        await _categoryRepo.DeleteAsync(id);
+        var category = await _categoryRepo.Select.Where(s => s.Id == id && !s.IsDeleted && s.CreateUserId == CurrentUser.Id).ToOneAsync();
+        if (category == null)  return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
+       var cnt = await _categoryRepo.DeleteAsync(id);
+        // 如果是分组，则删除自分类
+        if (cnt > 0 && category.ParentId == 0)
+        {
+            await _categoryRepo.DeleteAsync(c => c.ParentId == id);
+        }
         return ServiceResult.Successed();
     }
 
-    public async Task<ServiceResult> UpdateAsync(CategoryEntity categroy)
+    public async Task<ServiceResult> EditAsync(EditCategoryInput input)
     {
-        var exist = await _categoryRepo.Select.AnyAsync(s => s.Id == categroy.Id && !s.IsDeleted);
-        if (!exist) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
-        Expression<Func<CategoryEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
-        await _categoryRepo.UpdateWithIgnoreAsync(categroy, ignoreExp);
+        var category = await _categoryRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
+        if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
+        category.Name = input.Name;
+        category.Budget = input.Budget;
+        category.Icon = input.IconUrl;
+        await _categoryRepo.UpdateAsync(category);
         return ServiceResult.Successed();
     }
 

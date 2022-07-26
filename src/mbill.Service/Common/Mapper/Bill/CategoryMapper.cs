@@ -4,7 +4,8 @@ public class CategoryMapper : Profile
 {
     public CategoryMapper()
     {
-        CreateMap<ModifyCategoryInput, CategoryEntity>();
+        CreateMap<CreateCategoryInput, CategoryEntity>();
+        CreateMap<EditCategoryInput, CategoryEntity>();
         CreateMap<CategoryEntity, CategoryDto>();
         CreateMap<CategoryEntity, CategoryPageDto>();
     }

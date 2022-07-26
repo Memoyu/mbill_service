@@ -39,6 +39,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:mbill.Controllers.Core.FileController.GetPageAsync(mbill.Service.Core.Files.Input.MediaImagePagingInput)">
+            <summary>
+            获取账单分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+        </member>
         <member name="M:mbill.Controllers.Core.FileController.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             单文件上传，键为file
@@ -150,27 +156,27 @@
             资产分类管理
             </summary>
         </member>
-        <member name="M:mbill.Controllers.Bill.AssetController.CreateAsync(mbill.Service.Bill.Asset.Input.ModifyAssetDto)">
+        <member name="M:mbill.Controllers.Bill.AssetController.CreateAsync(mbill.Service.Bill.Asset.Input.CreateAssetInput)">
             <summary>
-            新增资产分类
+            新增资产分组/分类
             </summary>
-            <param name="dto">资产分类</param>
+            <param name="input">资产分类</param>
         </member>
         <member name="M:mbill.Controllers.Bill.AssetController.DeleteAsync(System.Int64)">
             <summary> 
-            删除资产分类
+            删除资产分组/分类
             </summary>
             <param name="id">资产分类id</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.AssetController.UpdateAsync(mbill.Service.Bill.Asset.Input.ModifyAssetDto)">
+        <member name="M:mbill.Controllers.Bill.AssetController.EditAsync(mbill.Service.Bill.Asset.Input.EditAssetInput)">
             <summary>
-            更新资产分类
+            更新资产分组/分类
             </summary>
-            <param name="dto">资产分类信息</param>
+            <param name="input">资产分类信息</param>
         </member>
         <member name="M:mbill.Controllers.Bill.AssetController.GetAsync(System.Int64)">
             <summary>
-            获取资产
+            获取资产分组/分类
             </summary>
             <param name="id">资产id</param>
         </member>
@@ -303,27 +309,27 @@
             账单分类管理
             </summary>
         </member>
-        <member name="M:mbill.Controllers.Bill.CategoryController.CreateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryInput)">
+        <member name="M:mbill.Controllers.Bill.CategoryController.CreateAsync(mbill.Service.Bill.Category.Input.CreateCategoryInput)">
             <summary>
-            新增账单分类
+            新增账单分组/分类
             </summary>
             <param name="dto">账单分类</param>
         </member>
         <member name="M:mbill.Controllers.Bill.CategoryController.DeleteAsync(System.Int64)">
             <summary> 
-            删除账单分类
+            删除账单分组/分类
             </summary>
             <param name="id">账单分类id</param>
         </member>
-        <member name="M:mbill.Controllers.Bill.CategoryController.UpdateAsync(mbill.Service.Bill.Category.Input.ModifyCategoryInput)">
+        <member name="M:mbill.Controllers.Bill.CategoryController.EditAsync(mbill.Service.Bill.Category.Input.EditCategoryInput)">
             <summary>
-            更新账单分类
+            更新账单分组/分类
             </summary>
-            <param name="dto">账单分类信息</param>
+            <param name="input">账单分类信息</param>
         </member>
         <member name="M:mbill.Controllers.Bill.CategoryController.GetAsync(System.Int64)">
             <summary>
-            获取分类
+            获取账单分组/分类
             </summary>
             <param name="id">分类id</param>
         </member>

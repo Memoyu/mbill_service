@@ -23,7 +23,7 @@
             <param name="id">资产分类id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.UpdateAsync(mbill.Core.Domains.Entities.Bill.AssetEntity)">
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.EditAsync(mbill.Core.Domains.Entities.Bill.AssetEntity)">
             <summary>
             更新资产分类
             </summary>
@@ -64,32 +64,52 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.ModifyAssetDto.Name">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Name">
             <summary>
             资产分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.ModifyAssetDto.ParentId">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.ParentId">
             <summary>
             父级Id，默认0
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.ModifyAssetDto.Type">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Type">
             <summary>
             资产分类类型：存款、负债
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.ModifyAssetDto.Amount">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Amount">
             <summary>
             资产金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.ModifyAssetDto.IconUrl">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.IconUrl">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.ModifyAssetDto.Sort">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Name">
+            <summary>
+            资产分类名
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Amount">
+            <summary>
+            资产金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.IconUrl">
+            <summary>
+            图标地址
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Sort">
             <summary>
             排序
             </summary>
@@ -464,7 +484,7 @@
             平均支出（格式化后）
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Service.Bill.Category.Input.ModifyCategoryInput)">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Service.Bill.Category.Input.CreateCategoryInput)">
             <summary>
             新增账单分类
             </summary>
@@ -478,11 +498,11 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.UpdateAsync(mbill.Core.Domains.Entities.Bill.CategoryEntity)">
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.EditAsync(mbill.Service.Bill.Category.Input.EditCategoryInput)">
             <summary>
             更新账单分类
             </summary>
-            <param name="categroy">账单分类信息</param>
+            <param name="input">账单分类信息</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.Nullable{System.Int32})">
@@ -533,34 +553,54 @@
             <param name="input">排序内容</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Name">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Name">
             <summary>
             账单分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.ParentId">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.ParentId">
             <summary>
             父级Id，默认0
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Type">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Type">
             <summary>
             分类类型：支出、收入
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Budget">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Budget">
             <summary>
             预算金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.IconUrl">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.IconUrl">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.ModifyCategoryInput.Sort">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Sort">
             <summary>
             排序
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Id">
+            <summary>
+            分组/分类Id
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Name">
+            <summary>
+            账单分类名
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Budget">
+            <summary>
+            预算金额
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.IconUrl">
+            <summary>
+            图标地址
             </summary>
         </member>
         <member name="M:mbill.Service.Core.Auth.AccountSvc.InitUserDataAsync(System.Int64)">
@@ -674,6 +714,13 @@
             初始化权限，根据PermissionAttribute生成权限，改变的则更新，否则新增
             </summary>
             <param name="permissions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Core.Files.IMediaImageSvc.GetPageAsync(mbill.Service.Core.Files.Input.MediaImagePagingInput)">
+            <summary>
+            校验MD5文件是否存在
+            </summary>
+            <param name="pagingDto">媒体图片分页参数</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.CheckMD5(System.String)">
