@@ -87,7 +87,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
 
     public async Task<ServiceResult<List<CategoryDto>>> GetsAsync(int type)
     {
-        var categories = await _categoryRepo.Select.Where(c => c.ParentId != 0 && c.Type == type).ToListAsync();
+        var categories = await _categoryRepo.Select.Where(c => c.ParentId != 0 && c.Type == type && c.CreateUserId == CurrentUser.Id).ToListAsync();
         var dtos = categories.Select(c => _mapper.Map<CategoryDto>(c)).ToList();
         return ServiceResult<List<CategoryDto>>.Successed(dtos);
     }
