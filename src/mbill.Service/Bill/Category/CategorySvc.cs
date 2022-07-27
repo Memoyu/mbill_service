@@ -6,13 +6,81 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
 {
     private readonly ICategoryRepo _categoryRepo;
     private readonly IFileRepo _fileRepo;
-    private readonly IMapper _mapper;
 
-    public CategorySvc(ICategoryRepo categoryRepo, IFileRepo fileRepo, IMapper mapper)
+    public CategorySvc(ICategoryRepo categoryRepo, IFileRepo fileRepo)
     {
         _categoryRepo = categoryRepo;
         _fileRepo = fileRepo;
-        _mapper = mapper;
+    }
+
+    public async Task<ServiceResult<CategoryDto>> InsertAsync(CreateCategoryInput input)
+    {
+        var categroy = Mapper.Map<CategoryEntity>(input);
+        bool isRepeatName = await _categoryRepo.Select.AnyAsync(r => r.Name == categroy.Name && CurrentUser.Id == r.CreateUserId);
+        if (isRepeatName)//分类名重复
+            return ServiceResult<CategoryDto>.Failed("分类名称重复，请重新输入");
+
+        var entity = await _categoryRepo.InsertAsync(categroy);
+        return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(entity));
+    }
+
+    public async Task<ServiceResult> DeleteAsync(long id)
+    {
+        var category = await _categoryRepo.Select.Where(s => s.Id == id && s.CreateUserId == CurrentUser.Id).ToOneAsync();
+        if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
+        var cnt = await _categoryRepo.DeleteAsync(id);
+        // 如果是分组，则删除分类
+        if (cnt > 0 && category.ParentId == 0)
+            await _categoryRepo.DeleteAsync(c => c.ParentId == id);
+        return ServiceResult.Successed();
+    }
+
+    public async Task<ServiceResult<CategoryDto>> EditAsync(EditCategoryInput input)
+    {
+        var category = await _categoryRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
+        if (category == null) return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
+        category.Name = input.Name;
+        category.Budget = input.Budget;
+        category.Icon = input.Icon;
+        await _categoryRepo.UpdateAsync(category);
+        return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(category));
+    }
+
+    public async Task<ServiceResult<CategoryDto>> GetAsync(long id)
+    {
+        var category = await _categoryRepo.GetCategoryAsync(id);
+        if (category == null)
+            return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "分类信息不存在或已删除！");
+        return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(category));
+    }
+
+    public async Task<ServiceResult<List<CategoryDto>>> GetsAsync(int type)
+    {
+        var categories = await _categoryRepo.Select.Where(c => c.ParentId != 0 && c.Type == type && c.CreateUserId == CurrentUser.Id).ToListAsync();
+        var dtos = categories.Select(c => Mapper.Map<CategoryDto>(c)).ToList();
+        return ServiceResult<List<CategoryDto>>.Successed(dtos);
+    }
+
+    public async Task<ServiceResult<CategoryDto>> GetParentAsync(long id)
+    {
+        var category = await _categoryRepo.GetCategoryAsync(id);
+        if (category == null)
+            return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "分类信息不存在或已删除！");
+        var categoryParent = await _categoryRepo.GetCategoryAsync(category.ParentId);
+        if (categoryParent == null)
+            return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "分类父项信息不存在或已删除！");
+        return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(categoryParent));
+    }
+
+    public async Task<ServiceResult<IEnumerable<CategoryDto>>> GetParentsAsync()
+    {
+        var assets = await _categoryRepo
+            .Select
+            .Where(a => a.ParentId == 0)
+            .OrderBy(a => a.CreateTime)
+            .ToListAsync();
+        var categoryDtos = assets.Select(a => Mapper.Map<CategoryDto>(a)).ToList();
+        return ServiceResult<IEnumerable<CategoryDto>>.Successed(categoryDtos);
     }
 
     public async Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupsAsync(int? type)
@@ -33,9 +101,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
                     .FindAll(d => d.ParentId == c.Id)
                     .Select(d =>
                     {
-                        var s = Mapper.Map<CategoryDto>(d);
-                        s.IconUrl = _fileRepo.GetFileUrl(d.Icon);
-                        return s;
+                        return Mapper.Map<CategoryDto>(d);
                     }).OrderByDescending(d => d.Sort)
                     .ToList();
                 return dto;
@@ -74,82 +140,10 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         return ServiceResult<PagedDto<CategoryPageDto>>.Successed(new PagedDto<CategoryPageDto>(categoryDtos, totalCount));
     }
 
-    public async Task<ServiceResult<IEnumerable<CategoryDto>>> GetListAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<ServiceResult<CategoryDto>> GetAsync(long id)
-    {
-        var category = await _categoryRepo.GetCategoryAsync(id) ?? throw new KnownException("分类信息不存在或已删除！", ServiceResultCode.NotFound);
-        return ServiceResult<CategoryDto>.Successed(_mapper.Map<CategoryDto>(category));
-    }
-
-    public async Task<ServiceResult<List<CategoryDto>>> GetsAsync(int type)
-    {
-        var categories = await _categoryRepo.Select.Where(c => c.ParentId != 0 && c.Type == type && c.CreateUserId == CurrentUser.Id).ToListAsync();
-        var dtos = categories.Select(c => _mapper.Map<CategoryDto>(c)).ToList();
-        return ServiceResult<List<CategoryDto>>.Successed(dtos);
-    }
-
-    public async Task<ServiceResult<CategoryDto>> GetParentAsync(long id)
-    {
-        var category = await _categoryRepo.GetCategoryAsync(id) ?? throw new KnownException("分类信息不存在或已删除！", ServiceResultCode.NotFound);
-        var categoryParent = await _categoryRepo.GetCategoryAsync(category.ParentId) ?? throw new KnownException("分类父项信息不存在或已删除！", ServiceResultCode.NotFound);
-        return ServiceResult<CategoryDto>.Successed(_mapper.Map<CategoryDto>(categoryParent));
-    }
-
-    public async Task<ServiceResult<IEnumerable<CategoryDto>>> GetParentsAsync()
-    {
-        var assets = await _categoryRepo
-            .Select
-            .Where(a => a.ParentId == 0)
-            .OrderBy(a => a.CreateTime)
-            .ToListAsync();
-        var categoryDtos = assets.Select(a => Mapper.Map<CategoryDto>(a)).ToList();
-        return ServiceResult<IEnumerable<CategoryDto>>.Successed(categoryDtos);
-    }
-
-
-    public async Task<ServiceResult<CategoryDto>> InsertAsync(CreateCategoryInput dto)
-    {
-        var categroy = Mapper.Map<CategoryEntity>(dto);
-        bool isRepeatName = await _categoryRepo.Select.AnyAsync(r => r.Name == categroy.Name && categroy.CreateUserId == r.CreateUserId);
-        if (isRepeatName)//分类名重复
-            return ServiceResult<CategoryDto>.Failed("分类名称重复，请重新输入");
-
-        var entity = await _categoryRepo.InsertAsync(categroy);
-        return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(entity));
-    }
-
-    public async Task<ServiceResult> DeleteAsync(long id)
-    {
-        var category = await _categoryRepo.Select.Where(s => s.Id == id && !s.IsDeleted && s.CreateUserId == CurrentUser.Id).ToOneAsync();
-        if (category == null)  return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
-       var cnt = await _categoryRepo.DeleteAsync(id);
-        // 如果是分组，则删除自分类
-        if (cnt > 0 && category.ParentId == 0)
-        {
-            await _categoryRepo.DeleteAsync(c => c.ParentId == id);
-        }
-        return ServiceResult.Successed();
-    }
-
-    public async Task<ServiceResult> EditAsync(EditCategoryInput input)
-    {
-        var category = await _categoryRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
-        if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
-        category.Name = input.Name;
-        category.Budget = input.Budget;
-        category.Icon = input.IconUrl;
-        await _categoryRepo.UpdateAsync(category);
-        return ServiceResult.Successed();
-    }
-
     public async Task<ServiceResult> SortAsync(SortCategoryInput input)
     {
         var edits = input.Sorts.Select(s => new CategoryEntity { Id = s.Id, Sort = s.Sort }).ToList();
-        var cnt = await _categoryRepo.Orm.Update<CategoryEntity>().SetSource(edits).UpdateColumns(e => new {  e.Sort }).ExecuteAffrowsAsync();
+        var cnt = await _categoryRepo.Orm.Update<CategoryEntity>().SetSource(edits).UpdateColumns(e => new { e.Sort }).ExecuteAffrowsAsync();
         if (cnt <= 0) return ServiceResult.Failed("排序失败");
         return ServiceResult.Successed();
     }

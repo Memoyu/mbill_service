@@ -7,7 +7,7 @@ public interface IAssetSvc
     /// </summary>
     /// <param name="input">数据源</param>
     /// <returns></returns>
-    Task<ServiceResult> InsertAsync(AssetEntity input);
+    Task<ServiceResult<AssetDto>> InsertAsync(CreateAssetInput input);
 
     /// <summary>
     /// 删除资产分类
@@ -19,23 +19,9 @@ public interface IAssetSvc
     /// <summary>
     /// 更新资产分类
     /// </summary>
-    /// <param name="entity">资产分类信息</param>
+    /// <param name="input">资产分类信息</param>
     /// <returns></returns>
-    Task<ServiceResult> EditAsync(AssetEntity entity);
-
-    /// <summary>
-    /// 获取分级后的组合类别数据
-    /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
-    Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupsAsync(int? type);
-
-    /// <summary>
-    /// 获取资产分类分页
-    /// </summary>
-    /// <param name="pagingDto">分页参数</param>
-    /// <returns></returns>
-    Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync(AssetPagingDto pagingDto);
+    Task<ServiceResult<AssetDto>> EditAsync(EditAssetInput input);
 
     /// <summary>
     /// 获取父项 by id
@@ -56,4 +42,25 @@ public interface IAssetSvc
     /// </summary>
     /// <returns></returns>
     Task<ServiceResult<IEnumerable<AssetDto>>> GetParentsAsync();
+
+    /// <summary>
+    /// 获取分级后的组合类别数据
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupsAsync(int? type);
+
+    /// <summary>
+    /// 获取资产分类分页
+    /// </summary>
+    /// <param name="pagingDto">分页参数</param>
+    /// <returns></returns>
+    Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync(AssetPagingDto pagingDto);
+
+    /// <summary>
+    /// 排序资产
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<ServiceResult> SortAsync(SortAssetInput input);
 }

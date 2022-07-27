@@ -8,12 +8,10 @@
 public class CategoryController : ApiControllerBase
 {
     private readonly ICategorySvc _categorySvc;
-    private readonly IMapper _mapper;
 
-    public CategoryController(ICategorySvc categorySvc, IMapper mapper)
+    public CategoryController(ICategorySvc categorySvc)
     {
         _categorySvc = categorySvc;
-        _mapper = mapper;
     }
 
     /// <summary>
@@ -36,7 +34,7 @@ public class CategoryController : ApiControllerBase
     [HttpDelete]
     [LocalAuthorize("删除", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
     {
         return await _categorySvc.DeleteAsync(id);
     }
@@ -48,7 +46,7 @@ public class CategoryController : ApiControllerBase
     [HttpPut]
     [LocalAuthorize("更新", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> EditAsync([FromBody] EditCategoryInput input)
+    public async Task<ServiceResult<CategoryDto>> EditAsync([FromBody] EditCategoryInput input)
     {
         return await _categorySvc.EditAsync(input);
     }

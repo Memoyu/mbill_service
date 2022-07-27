@@ -1,4 +1,6 @@
-﻿namespace mbill.Service.Common.Mapper.Bill;
+﻿using mbill.Service.Common.Converter;
+
+namespace mbill.Service.Common.Mapper.Bill;
 
 public class AssetMapper : Profile
 {
@@ -6,7 +8,8 @@ public class AssetMapper : Profile
     {
         CreateMap<CreateAssetInput, AssetEntity>();
         CreateMap<EditAssetInput, AssetEntity>();
-        CreateMap<AssetEntity, AssetDto>();
+        CreateMap<AssetEntity, AssetDto>()
+            .ForMember(d => d.IconUrl, opt => opt.ConvertUsing<StringUrlConverter, string>(c => c.Icon));
         CreateMap<AssetEntity, AssetPageDto>();
     }
 }

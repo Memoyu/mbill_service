@@ -9,7 +9,7 @@
             仓储
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.InsertAsync(mbill.Core.Domains.Entities.Bill.AssetEntity)">
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.InsertAsync(mbill.Service.Bill.Asset.Input.CreateAssetInput)">
             <summary>
             新增资产分类
             </summary>
@@ -23,25 +23,11 @@
             <param name="id">资产分类id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.EditAsync(mbill.Core.Domains.Entities.Bill.AssetEntity)">
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.EditAsync(mbill.Service.Bill.Asset.Input.EditAssetInput)">
             <summary>
             更新资产分类
             </summary>
-            <param name="entity">资产分类信息</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.Nullable{System.Int32})">
-            <summary>
-            获取分级后的组合类别数据
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetPageAsync(mbill.Service.Bill.Asset.Input.AssetPagingDto)">
-            <summary>
-            获取资产分类分页
-            </summary>
-            <param name="pagingDto">分页参数</param>
+            <param name="input">资产分类信息</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetAsync(System.Int64)">
@@ -62,6 +48,27 @@
             <summary>
             获取父项集合
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.Nullable{System.Int32})">
+            <summary>
+            获取分级后的组合类别数据
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetPageAsync(mbill.Service.Bill.Asset.Input.AssetPagingDto)">
+            <summary>
+            获取资产分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.SortAsync(mbill.Service.Bill.Asset.Input.SortAssetInput)">
+            <summary>
+            排序资产
+            </summary>
+            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Name">
@@ -104,14 +111,9 @@
             资产金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.IconUrl">
+        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Icon">
             <summary>
             图标地址
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Sort">
-            <summary>
-            排序
             </summary>
         </member>
         <member name="M:mbill.Service.Bill.Bill.BillSvc.MapToSimpleDto(mbill.Core.Domains.Entities.Bill.BillEntity)">
@@ -488,7 +490,7 @@
             <summary>
             新增账单分类
             </summary>
-            <param name="dto">数据源</param>
+            <param name="input">数据源</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.DeleteAsync(System.Int64)">
@@ -503,20 +505,6 @@
             更新账单分类
             </summary>
             <param name="input">账单分类信息</param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.Nullable{System.Int32})">
-            <summary>
-            获取分级后的组合类别数据
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingInput)">
-            <summary>
-            获取账单分类分页
-            </summary>
-            <param name="pagingDto">分页参数</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetAsync(System.Int64)">
@@ -546,6 +534,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.Nullable{System.Int32})">
+            <summary>
+            获取分级后的组合类别数据
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingInput)">
+            <summary>
+            获取账单分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Category.ICategorySvc.SortAsync(mbill.Service.Bill.Category.Input.SortCategoryInput)">
             <summary>
             排序账单分类
@@ -573,7 +575,7 @@
             预算金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.IconUrl">
+        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Icon">
             <summary>
             图标地址
             </summary>
@@ -598,7 +600,7 @@
             预算金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.IconUrl">
+        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Icon">
             <summary>
             图标地址
             </summary>

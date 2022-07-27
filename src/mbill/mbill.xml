@@ -39,12 +39,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Controllers.Core.FileController.GetPageAsync(mbill.Service.Core.Files.Input.MediaImagePagingInput)">
-            <summary>
-            获取账单分类分页
-            </summary>
-            <param name="pagingDto">分页参数</param>
-        </member>
         <member name="M:mbill.Controllers.Core.FileController.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             单文件上传，键为file
@@ -53,6 +47,12 @@
             <param name="type"></param>
             <param name="key"></param>
             <returns></returns>
+        </member>
+        <member name="M:mbill.Controllers.Core.FileController.GetPageAsync(mbill.Service.Core.Files.Input.MediaImagePagingInput)">
+            <summary>
+            获取账单分类分页
+            </summary>
+            <param name="pagingDto">分页参数</param>
         </member>
         <member name="T:mbill.Controllers.Core.LogController">
             <summary>
@@ -202,6 +202,12 @@
             获取资产分类分页
             </summary>
             <param name="pagingDto">分页参数</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.AssetController.SortAsync(mbill.Service.Bill.Asset.Input.SortAssetInput)">
+            <summary>
+            排序资产分类
+            </summary>
+            <param name="input">排序信息</param>
         </member>
         <member name="T:mbill.Controllers.Bill.BillController">
             <summary>

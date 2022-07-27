@@ -20,10 +20,5 @@ public class EditAssetInput
     /// 图标地址
     /// </summary>
 
-    public string IconUrl { get; set; }
-
-    /// <summary>
-    /// 排序
-    /// </summary>
-    public int Sort { get; set; }
+    public string Icon { get; set; }
 }

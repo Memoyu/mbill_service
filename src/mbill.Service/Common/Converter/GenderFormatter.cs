@@ -3,7 +3,9 @@
 public class GenderFormatter : IValueConverter<int, string>
 {
     private readonly IBaseTypeRepo _baseTypeRepo;
+
     private readonly IBaseItemRepo _baseItemRepo;
+
     public GenderFormatter(IBaseItemRepo baseItemRepo, IBaseTypeRepo baseTypeRepo)
     {
         _baseItemRepo = baseItemRepo;

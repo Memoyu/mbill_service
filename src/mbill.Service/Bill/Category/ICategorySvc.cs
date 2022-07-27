@@ -5,9 +5,9 @@ public interface ICategorySvc
     /// <summary>
     /// 新增账单分类
     /// </summary>
-    /// <param name="dto">数据源</param>
+    /// <param name="input">数据源</param>
     /// <returns></returns>
-    Task<ServiceResult<CategoryDto>> InsertAsync(CreateCategoryInput dto);
+    Task<ServiceResult<CategoryDto>> InsertAsync(CreateCategoryInput input);
 
     /// <summary>
     /// 删除账单分类信息
@@ -21,24 +21,7 @@ public interface ICategorySvc
     /// </summary>
     /// <param name="input">账单分类信息</param>
     /// <returns></returns>
-    Task<ServiceResult> EditAsync(EditCategoryInput input);
-
-    /// <summary>
-    /// 获取分级后的组合类别数据
-    /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
-    Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupsAsync(int? type);
-
-    /// <summary>
-    /// 获取账单分类分页
-    /// </summary>
-    /// <param name="pagingDto">分页参数</param>
-    /// <returns></returns>
-    Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync(CategoryPagingInput pagingDto);
-
-
-    Task<ServiceResult<IEnumerable<CategoryDto>>> GetListAsync();
+    Task<ServiceResult<CategoryDto>> EditAsync(EditCategoryInput input);
 
     /// <summary>
     /// 获取分类
@@ -66,6 +49,20 @@ public interface ICategorySvc
     /// </summary>
     /// <returns></returns>
     Task<ServiceResult<IEnumerable<CategoryDto>>> GetParentsAsync();
+
+    /// <summary>
+    /// 获取分级后的组合类别数据
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    Task<ServiceResult<IEnumerable<CategoryGroupDto>>> GetGroupsAsync(int? type);
+
+    /// <summary>
+    /// 获取账单分类分页
+    /// </summary>
+    /// <param name="pagingDto">分页参数</param>
+    /// <returns></returns>
+    Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync(CategoryPagingInput pagingDto);
 
     /// <summary>
     /// 排序账单分类

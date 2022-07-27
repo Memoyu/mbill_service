@@ -21,5 +21,5 @@ public class EditCategoryInput
     /// <summary>
     /// 图标地址
     /// </summary>
-    public string IconUrl { get; set; }
+    public string Icon { get; set; }
 }

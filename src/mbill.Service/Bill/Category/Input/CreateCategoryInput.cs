@@ -27,7 +27,7 @@ public class CreateCategoryInput
     /// <summary>
     /// 图标地址
     /// </summary>
-    public string IconUrl { get; set; }
+    public string Icon { get; set; }
 
     /// <summary>
     /// 排序

@@ -7,26 +7,23 @@
 [Route("api/asset")]
 public class AssetController : ApiControllerBase
 {
-    private readonly IMapper _mapper;
-    private readonly IAssetSvc _assetService;
+    private readonly IAssetSvc _assetSvc;
 
-    public AssetController(IAssetSvc assetService, IMapper mapper)
+    public AssetController(IAssetSvc assetSvc)
     {
-        _mapper = mapper;
-        _assetService = assetService;
+        _assetSvc = assetSvc;
     }
 
     /// <summary>
     /// 新增资产分组/分类
     /// </summary>
     /// <param name="input">资产分类</param>
-    [Logger("用户新建了一个资产分类")]
     [HttpPost]
     [LocalAuthorize("新增", "资产分类")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> CreateAsync([FromBody] CreateAssetInput input)
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<AssetDto>> CreateAsync([FromBody] CreateAssetInput input)
     {      
-        return await _assetService.InsertAsync(_mapper.Map<AssetEntity>(input));
+        return await _assetSvc.InsertAsync(input);
     }
 
     /// <summary> 
@@ -35,11 +32,11 @@ public class AssetController : ApiControllerBase
     /// <param name="id">资产分类id</param>
     [HttpDelete]
     [LocalAuthorize("删除", "资产分类")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
     {
         
-        return await _assetService.DeleteAsync(id);
+        return await _assetSvc.DeleteAsync(id);
     }
 
     /// <summary>
@@ -48,11 +45,11 @@ public class AssetController : ApiControllerBase
     /// <param name="input">资产分类信息</param>
     [HttpPut]
     [LocalAuthorize("更新", "资产分类")]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult> EditAsync([FromBody] EditAssetInput input)
     {
         
-        return await _assetService.EditAsync(_mapper.Map<AssetEntity>(input));
+        return await _assetSvc.EditAsync(input);
     }
 
     /// <summary>
@@ -64,7 +61,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long id)
     {
-        return await _assetService.GetAsync(id);
+        return await _assetSvc.GetAsync(id);
     }
 
     /// <summary>
@@ -76,7 +73,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<AssetDto>> GetParentAsync([FromQuery] long id)
     {
-        return await _assetService.GetParentAsync(id);
+        return await _assetSvc.GetParentAsync(id);
     }
 
     /// <summary>
@@ -87,7 +84,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<AssetDto>>> GetParentsAsync()
     {
-        return await _assetService.GetParentsAsync();
+        return await _assetSvc.GetParentsAsync();
     }
 
     /// <summary>
@@ -99,7 +96,7 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<IEnumerable<AssetGroupDto>>> GetGroupAsync([FromQuery] int? type)
     {
-        return await _assetService.GetGroupsAsync(type);
+        return await _assetSvc.GetGroupsAsync(type);
     }
 
     /// <summary>
@@ -111,6 +108,21 @@ public class AssetController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult<PagedDto<AssetPageDto>>> GetPageAsync([FromQuery] AssetPagingDto pagingDto)
     {
-        return await _assetService.GetPageAsync(pagingDto);
+        return await _assetSvc.GetPageAsync(pagingDto);
+    }
+
+    /// <summary>
+    /// 排序资产分类
+    /// </summary>
+    /// <param name="input">排序信息</param>
+    [HttpPost("sort")]
+    [Authorize]
+    [LocalAuthorize("分类排序", "资产分类")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult> SortAsync([FromBody] SortAssetInput input)
+    {
+        if (input.Sorts == null || !input.Sorts.Any())
+            return ServiceResult<string>.Failed(ServiceResultCode.ParameterError, "排序内容不能为空");
+        return await _assetSvc.SortAsync(input); ;
     }
 }
