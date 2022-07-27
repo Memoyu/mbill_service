@@ -33,7 +33,7 @@ public class AssetController : ApiControllerBase
     [HttpDelete]
     [LocalAuthorize("删除", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
     {
         
         return await _assetSvc.DeleteAsync(id);

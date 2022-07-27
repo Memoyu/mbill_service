@@ -15,4 +15,6 @@ public class AssetDto
     public int Sort { get; set; }
 
     public string IconUrl { get; set; }
+
+    public string Icon { get; set; }
 }

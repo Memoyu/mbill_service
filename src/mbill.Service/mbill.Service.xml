@@ -91,7 +91,7 @@
             资产金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.IconUrl">
+        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Icon">
             <summary>
             图标地址
             </summary>

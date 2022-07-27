@@ -17,8 +17,8 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         bool isRepeatName = await _assetRepo.Select.AnyAsync(r => r.Name == asset.Name && CurrentUser.Id == r.CreateUserId);
         if (isRepeatName)//资产名重复
             return ServiceResult<AssetDto>.Failed("资产名称重复，请重新输入");
-        await _assetRepo.InsertAsync(asset);
-        return ServiceResult<AssetDto>.Successed();
+        var entity = await _assetRepo.InsertAsync(asset);
+        return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(entity));
     }
 
     public async Task<ServiceResult> DeleteAsync(long id)
@@ -34,18 +34,18 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
 
     public async Task<ServiceResult<AssetDto>> EditAsync(EditAssetInput input)
     {
-        var category = await _assetRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
-        if (category == null) return ServiceResult<AssetDto>.Failed(ServiceResultCode.NotFound, "没有找到该资产分类信息");
-        category.Name = input.Name;
-        category.Amount = input.Amount;
-        category.Icon = input.Icon;
-        await _assetRepo.UpdateAsync(category);
-        return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(category));
+        var asset = await _assetRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
+        if (asset == null) return ServiceResult<AssetDto>.Failed(ServiceResultCode.NotFound, "没有找到该资产分类信息");
+        asset.Name = input.Name;
+        asset.Amount = input.Amount;
+        asset.Icon = input.Icon;
+        await _assetRepo.UpdateAsync(asset);
+        return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(asset));
     }
 
     public async Task<ServiceResult<AssetDto>> GetAsync(long id)
     {
-        var asset = await _assetRepo.GetAssetParentAsync(id);
+        var asset = await _assetRepo.GetAssetAsync(id);
         if (asset == null)
             return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产信息不存在或已删除！");
         return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(asset));
@@ -56,7 +56,9 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         var asset = await _assetRepo.GetAssetAsync(id);
         if (asset == null)
             return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产信息不存在或已删除！");
-        var parentAsset = await _assetRepo.GetAssetAsync(asset.ParentId) ?? throw new KnownException("资产父项信息不存在或已删除！", ServiceResultCode.NotFound);
+        var parentAsset = await _assetRepo.GetAssetAsync(asset.ParentId);
+        if (parentAsset == null)
+            return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产父项信息不存在或已删除！");
         return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(parentAsset));
 
     }
@@ -79,7 +81,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
             .Where(c => c.CreateUserId == CurrentUser.Id)
             .WhereIf(type.HasValue, c => c.Type == type)
             .ToListAsync();
-        List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderBy(d => d.Sort).ToList();
+        List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderByDescending(d => d.Sort).ToList();
         List<AssetGroupDto> dtos = parents
             .Select(c =>
             {
