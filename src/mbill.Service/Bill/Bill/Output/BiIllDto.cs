@@ -16,5 +16,5 @@ public class BillDto
 
     public string Address { get; set; }
 
-    public string Time { get; set; }
+    public DateTime Time { get; set; }
 }
