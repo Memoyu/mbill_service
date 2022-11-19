@@ -43,7 +43,7 @@ stages:
       displayName: 'build docker image and push'
       inputs:
         containerRegistry: 'aliyun-docker'
-        repository: registry.cn-shenzhen.aliyuncs.com/$(imageName)
+        repository: $(imageName)
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         buildContext: $(Build.Repository.LocalPath)
@@ -80,7 +80,7 @@ stages:
           fi
 
           echo "================= to pull image ===================="
-          docker pull $(imageName)
+          docker pull registry.cn-shenzhen.aliyuncs.com/$(imageName)
 
           echo "================= to run container ===================="
           docker run --name $(containerName) -d -p 5001:80 $(imageName)
