@@ -281,6 +281,13 @@
             1 年统计
             </summary>
         </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.SummaryType">
+            <summary>
+            汇总类型：
+            0 根据父分类统计
+            1 根据子分类统计
+            </summary>
+        </member>
         <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.BillType">
             <summary>
             账单类型

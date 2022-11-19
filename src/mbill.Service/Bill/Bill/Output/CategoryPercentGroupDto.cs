@@ -4,6 +4,8 @@ public class CategoryPercentGroupDto
 {
     public string Group { get; set; }
 
+    public string Amount { get; set; }
+
     public List<CategoryPercentItemDto> Items { get; set; } = new();
 }
 

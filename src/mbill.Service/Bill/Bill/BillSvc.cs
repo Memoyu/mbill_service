@@ -383,14 +383,23 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var begin = input.Date.FirstDayOfMonth();
         var end = input.Date.LastDayOfMonth().AddDays(1).AddSeconds(-1);
         var dto = new CategoryPercentStatDto();
-        ISelect<BillEntity> GetSelect() => _billRepo
-              .Select
+        ISelect<BillEntity, CategoryEntity> GetSelect() => _billRepo.Orm
+              .Select<BillEntity>().From<CategoryEntity>((b, c) => b
+              .LeftJoin(s => s.CategoryId == c.Id)
               .Where(s => s.CreateUserId == CurrentUser.Id)
               .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
               .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
               .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
-              .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
-        var categoryGroups = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
+              .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year));
+        List<CategoryPercentSummaryDto> categoryGroups = null;
+        if (input.SummaryType == 0)
+        {
+            categoryGroups = await GetSelect().GroupBy((b, c) => c.ParentId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
+        }
+        else
+        {
+            categoryGroups = await GetSelect().GroupBy((b, c) => b.CategoryId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key.Value, Sum = b.Sum(b.Value.Item1.Amount) });
+        }
         var catrgoryIds = categoryGroups.Select(c => c.Id).ToList();
         var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
 
@@ -445,6 +454,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         .Select(g => new CategoryPercentGroupDto
         {
             Group = g.Key.GroupName,
+            Amount = g.Sum(c => c.Sum).AmountFormat(),
             Items = g.Select(c => new CategoryPercentItemDto
             {
                 Id = c.Id.Value,
