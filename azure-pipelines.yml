@@ -13,7 +13,7 @@ resources:
 variables:
   tag: '$(Build.BuildId)'
   containerName: mbillapi
-  imageName: memoyu/mbillservice
+  imageName: memoyu/mbill-service
   appsettings: src/mbill/appsettings.Production.json
 
 stages:
