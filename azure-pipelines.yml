@@ -43,7 +43,7 @@ stages:
       displayName: 'build docker image and push'
       inputs:
         containerRegistry: 'aliyun-docker'
-        repository: $(imageName)
+        repository: registry.cn-shenzhen.aliyuncs.com/$(imageName)
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         buildContext: $(Build.Repository.LocalPath)
