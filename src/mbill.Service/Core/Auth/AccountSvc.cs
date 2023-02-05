@@ -112,10 +112,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     [Transactional]
     public async Task<ServiceResult<TokenWithUserDto>> WxLoginAsync(WxLoginInput input)
     {
-        var wxlogin = await _wxService.GetCode2Session(input.Code);
-        if (!wxlogin.Success || wxlogin.Result == null)
-            return ServiceResult<TokenWithUserDto>.Failed($"微信登录失败，请稍后重试！错误：{wxlogin.Message}");
-        var openId = wxlogin.Result.OpenId;
+        var openId = input.OpenId;
         var identity = await _userIdentityService.VerifyWxOpenIdAsync(openId);
         var user = new UserEntity();
         // 如果绑定信息为空，则未登录过，进行账户信息记录
