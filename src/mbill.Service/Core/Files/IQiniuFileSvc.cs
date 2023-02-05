@@ -12,8 +12,9 @@ public interface IQiniuFileSvc
     /// <summary>
     /// 获取上传Token
     /// </summary>
+    /// <param name="key">文件路径</param>
     /// <returns></returns>
-    ServiceResult<string> GetUploadToken();
+    ServiceResult<QiniuUploadTokenDto> GetUploadToken(string key = null);
 
     /// <summary>
     /// 单文件上传，键为file

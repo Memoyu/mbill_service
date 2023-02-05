@@ -18,11 +18,11 @@ public class QiniuClient : IQiniuClient
         _sign = new Signature(new Mac(_option.AK, _option.SK));
     }
 
-    public string CreateUploadToken()
+    public string CreateUploadToken(string key = null)
     {
         var policy = new PutPolicy
         {
-            Scope = _option.Bucket
+            Scope = string.IsNullOrWhiteSpace(key) ? _option.Bucket : $"{_option.Bucket}:{key}"
         };
         return _sign.SignWithData(policy.ToJsonString());
 

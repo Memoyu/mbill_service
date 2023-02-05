@@ -15,7 +15,9 @@ public class UserDto : FullEntityDto
     /// <summary>
     /// 性别，0：未知，1：男，2：女
     /// </summary>
-    public string Gender { get; set; }
+    public int Gender { get; set; }
+
+    public string GenderName { get; set; }
 
     /// <summary>
     /// 邮箱
@@ -61,6 +63,11 @@ public class UserDto : FullEntityDto
     /// 最后一次登录的时间
     /// </summary>
     public DateTime LastLoginTime { get; set; }
+
+    /// <summary>
+    /// 用户创建日期
+    /// </summary>
+    public DateTime CreateTime { get; set; }
 
     /// <summary>
     /// 是否启用

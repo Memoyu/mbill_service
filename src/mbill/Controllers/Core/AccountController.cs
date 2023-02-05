@@ -31,23 +31,21 @@ public class AccountController : ApiControllerBase
     }
 
     /// <summary>
+    /// 微信预登录登录接口
+    /// </summary>
+    [HttpGet("wx-pre-login")]
+    public async Task<ServiceResult<PreLoginUserDto>> WxPreLogin([FromQuery]string code)
+    {
+        return await _accountService.WxPreLoginAsync(code);
+    }
+
+    /// <summary>
     /// 微信登录接口
     /// </summary>
     [HttpPost("wxlogin")]
     public async Task<ServiceResult<TokenWithUserDto>> WxLogin(WxLoginInput loginDto)
     {
         return await _accountService.WxLoginAsync(loginDto);
-    }
-
-    /// <summary>
-    /// 获取用户信息，By Id
-    /// </summary>
-    [HttpGet("user")]
-    [Authorize]
-    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
-    public async Task<ServiceResult<UserDto>> GetByIdAsync([FromQuery] long? id)
-    {
-        return ServiceResult<UserDto>.Successed(await _userService.GetAsync(id));
     }
 
     /// <summary>
@@ -63,6 +61,31 @@ public class AccountController : ApiControllerBase
             throw new KnownException("请先登录.", ServiceResultCode.RefreshTokenError);
         }
         return await _accountService.GetTokenByRefreshAsync(refreshToken);
+    }
+
+    /// <summary>
+    /// 获取用户信息，By Id
+    /// </summary>
+    [HttpGet("user")]
+    [Authorize]
+    [LocalAuthorize("获取用户信息", "用户")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
+    public async Task<ServiceResult<UserDto>> GetByIdAsync([FromQuery] long? id)
+    {
+        return await _userService.GetAsync(id);
+    }
+
+    /// <summary>
+    /// 更新账户信息
+    /// </summary>
+    /// <param name="input">账单信息</param>
+    [HttpPut]
+    [Authorize]
+    [LocalAuthorize("更新用户信息", "用户")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult> UpdateAsync([FromBody] ModifyUserBaseDto input)
+    {
+        return await _userService.UpdateAsync(input);
     }
 
 }

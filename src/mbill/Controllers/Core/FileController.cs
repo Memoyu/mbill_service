@@ -20,12 +20,14 @@ public class FileController : ApiControllerBase
     /// <summary>
     /// 获取上传文件token
     /// </summary>
+    /// <param name="key">文件路径</param>
     /// <returns></returns>
     [HttpGet("upload-token")]
-    [LocalAuthorize("获取上传token", "文件管理")]
-    public ServiceResult<string> GetUploadToken()
+    [AllowAnonymous]
+    //[LocalAuthorize("获取上传token", "文件管理")]
+    public ServiceResult<QiniuUploadTokenDto> GetUploadToken([FromQuery] string key)
     {
-        return _qiniuFileSvc.GetUploadToken();
+        return _qiniuFileSvc.GetUploadToken(key);
     }
 
     /// <summary>

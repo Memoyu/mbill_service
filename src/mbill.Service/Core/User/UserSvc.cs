@@ -1,4 +1,6 @@
-﻿namespace mbill.Service.Core.User;
+﻿using mbill.Service.Core.User.Output;
+
+namespace mbill.Service.Core.User;
 
 public class UserSvc : ApplicationSvc, IUserSvc
 {
@@ -47,7 +49,7 @@ public class UserSvc : ApplicationSvc, IUserSvc
         await _userRepo.InsertAsync(user);
     }
 
-    public async Task<UserDto> GetAsync(long? id)
+    public async Task<ServiceResult<UserDto>> GetAsync(long? id)
     {
         var userId = id ?? CurrentUser.Id;
         var user = await _userRepo
@@ -55,10 +57,10 @@ public class UserSvc : ApplicationSvc, IUserSvc
             .IncludeMany(u => u.Roles)
             .Where(r => r.Id == userId).FirstAsync();
         user.AvatarUrl = _fileRepo.GetFileUrl(user.AvatarUrl);
-        return Mapper.Map<UserDto>(user);
+        return ServiceResult<UserDto>.Successed(Mapper.Map<UserDto>(user));
     }
 
-    public async Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pagingDto)
+    public async Task<ServiceResult<PagedDto<UserDto>>> GetPagesAsync(UserPagingDto pagingDto)
     {
         if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
         pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
@@ -85,15 +87,25 @@ public class UserSvc : ApplicationSvc, IUserSvc
              return dto;
          }).ToList();
 
-        return new PagedDto<UserDto>(userDtos, totalCount);
+        return ServiceResult<PagedDto<UserDto>>.Successed(new PagedDto<UserDto>(userDtos, totalCount));
     }
 
-    public Task UpdateAsync(long id, UserEntity inputDto)
+    public async Task<ServiceResult> UpdateAsync(ModifyUserBaseDto input)
     {
-        throw new NotImplementedException();
+        var entity = await _userRepo.GetAsync(input.Id);
+        if (entity == null) return ServiceResult.Failed("用户不存在");
+        entity.AvatarUrl = input.AvatarUrl;
+        entity.Nickname = input.Nickname;
+        entity.Gender = input.Gender;
+        entity.Email = input.Email;
+        entity.Phone = input.Phone;
+        var rows = await _userRepo.UpdateAsync(entity);
+        if (rows <= 0)
+            return ServiceResult.Failed("更新用户失败");
+        return ServiceResult.Successed();
     }
 
-    public Task DeleteAsync(long id)
+    public Task<ServiceResult> DeleteAsync(long id)
     {
         throw new NotImplementedException();
     }

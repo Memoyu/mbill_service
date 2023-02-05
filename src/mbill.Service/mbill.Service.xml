@@ -626,6 +626,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Core.Auth.IAccountSvc.WxPreLoginAsync(System.String)">
+            <summary>
+            微信预登录
+            </summary>
+            <param name="code">微信login code</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Core.Auth.IAccountSvc.WxLoginAsync(mbill.Service.Core.Auth.Input.WxLoginInput)">
             <summary>
             微信登录
@@ -677,39 +684,59 @@
             <param name="size">长度</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.Username">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Username">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.Nickname">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Nickname">
             <summary>
             昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.Gender">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Gender">
             <summary>
             性别，0：未知，1：男，2：女
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.Email">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Email">
             <summary>
             邮箱
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.Phone">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Phone">
             <summary>
             电话
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.AvatarUrl">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.AvatarUrl">
             <summary>
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.UserSimpleDto.Days">
+        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.CreateTime">
             <summary>
-            使用app天数
+            用户创建日期
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.IsExist">
+            <summary>
+            用户是否已存在
             </summary>
         </member>
         <member name="M:mbill.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">
@@ -739,10 +766,11 @@
             <param name="md5"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.GetUploadToken">
+        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.GetUploadToken(System.String)">
             <summary>
             获取上传Token
             </summary>
+            <param name="key">文件路径</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
@@ -866,6 +894,31 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.AvatarUrl">
+            <summary>
+            头像地址
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Nickname">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Gender">
+            <summary>
+            性别，0：未知，1：男，2：女
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
         <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Username">
             <summary>
             用户名
@@ -975,12 +1028,11 @@
             <param name="pagingDto">分页数据</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserSvc.UpdateAsync(System.Int64,mbill.Core.Domains.Entities.User.UserEntity)">
+        <member name="M:mbill.Service.Core.User.IUserSvc.UpdateAsync(mbill.Service.Core.User.Input.ModifyUserBaseDto)">
             <summary>
             更新用户信息
             </summary>
-            <param name="id"></param>
-            <param name="entity"></param>
+            <param name="input">实体数据</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Service.Core.User.IUserSvc.DeleteAsync(System.Int64)">
@@ -1048,6 +1100,11 @@
         <member name="P:mbill.Service.Core.User.Output.UserDto.LastLoginTime">
             <summary>
             最后一次登录的时间
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Core.User.Output.UserDto.CreateTime">
+            <summary>
+            用户创建日期
             </summary>
         </member>
         <member name="P:mbill.Service.Core.User.Output.UserDto.IsEnable">

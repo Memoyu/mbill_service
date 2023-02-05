@@ -8,8 +8,9 @@ public interface IQiniuClient
     /// <summary>
     /// 获取上传Token
     /// </summary>
+    /// <param name="key">文件路径</param>
     /// <returns></returns>
-    string CreateUploadToken();
+    string CreateUploadToken(string key = null);
 
     /// <summary>
     /// 上传文件

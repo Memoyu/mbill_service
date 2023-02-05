@@ -2,7 +2,7 @@
 
 public class TokenWithUserDto
 {
-    public TokenWithUserDto(TokenDto token, UserSimpleDto user)
+    public TokenWithUserDto(TokenDto token, LoginUserDto user)
     {
         Token = token ?? throw new ArgumentNullException(nameof(token));
         User = user ?? throw new ArgumentNullException(nameof(user));
@@ -10,5 +10,5 @@ public class TokenWithUserDto
 
     public TokenDto Token { get; set; }
 
-    public UserSimpleDto User { get; set; }
+    public LoginUserDto User { get; set; }
 }

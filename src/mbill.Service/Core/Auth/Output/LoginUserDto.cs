@@ -1,6 +1,6 @@
 ﻿namespace mbill.Service.Core.Auth.Output;
 
-public class UserSimpleDto
+public class LoginUserDto
 {
     /// <summary>
     /// 用户名
@@ -33,7 +33,7 @@ public class UserSimpleDto
     public string AvatarUrl { get; set; }
 
     /// <summary>
-    /// 使用app天数
+    /// 用户创建日期
     /// </summary>
-    public int Days { get; set; }
+    public DateTime CreateTime { get; set; }
 }

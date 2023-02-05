@@ -1,11 +1,6 @@
-﻿using FreeSql;
-using System.Threading.Tasks;
-using System.Linq.Expressions;
-using System;
+﻿using System.Linq.Expressions;
 using mbill.Core.Interface.IRepositories.Core;
 using mbill.Core.Domains.Entities.User;
-using mbill.Infrastructure.Repository.Base;
-using mbill.Core.Security;
 
 namespace mbill.Infrastructure.Repository.Core
 {

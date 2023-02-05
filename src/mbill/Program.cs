@@ -44,7 +44,7 @@ public class Program
             {
                 webBuilder.UseStartup<Startup>()
 #if DEBUG
-            .UseUrls("http://*:10085");
+            .UseUrls("http://*:9000");
 #endif
                 ;
             })

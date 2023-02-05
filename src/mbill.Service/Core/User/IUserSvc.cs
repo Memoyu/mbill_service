@@ -15,27 +15,26 @@ public interface IUserSvc
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<UserDto> GetAsync(long? id);
+    Task<ServiceResult<UserDto>> GetAsync(long? id);
 
     /// <summary>
     /// 获取用户分页信息
     /// </summary>
     /// <param name="pagingDto">分页数据</param>
     /// <returns></returns>
-    Task<PagedDto<UserDto>> GetPagesAsync(UserPagingDto pagingDto);
+    Task<ServiceResult<PagedDto<UserDto>>> GetPagesAsync(UserPagingDto pagingDto);
 
     /// <summary>
     /// 更新用户信息
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="entity"></param>
+    /// <param name="input">实体数据</param>
     /// <returns></returns>
-    Task UpdateAsync(long id, UserEntity entity);
+    Task<ServiceResult> UpdateAsync(ModifyUserBaseDto input);
 
     /// <summary>
     /// 删除用户（软删除）
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long id);
 }

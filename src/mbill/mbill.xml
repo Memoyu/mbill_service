@@ -17,14 +17,14 @@
              用户名：admin，密码：123456
              </example>
         </member>
+        <member name="M:mbill.Controllers.Core.AccountController.WxPreLogin(System.String)">
+            <summary>
+            微信预登录登录接口
+            </summary>
+        </member>
         <member name="M:mbill.Controllers.Core.AccountController.WxLogin(mbill.Service.Core.Auth.Input.WxLoginInput)">
             <summary>
             微信登录接口
-            </summary>
-        </member>
-        <member name="M:mbill.Controllers.Core.AccountController.GetByIdAsync(System.Nullable{System.Int64})">
-            <summary>
-            获取用户信息，By Id
             </summary>
         </member>
         <member name="M:mbill.Controllers.Core.AccountController.GetRefreshToken">
@@ -33,10 +33,22 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Controllers.Core.FileController.GetUploadToken">
+        <member name="M:mbill.Controllers.Core.AccountController.GetByIdAsync(System.Nullable{System.Int64})">
+            <summary>
+            获取用户信息，By Id
+            </summary>
+        </member>
+        <member name="M:mbill.Controllers.Core.AccountController.UpdateAsync(mbill.Service.Core.User.Input.ModifyUserBaseDto)">
+            <summary>
+            更新账户信息
+            </summary>
+            <param name="input">账单信息</param>
+        </member>
+        <member name="M:mbill.Controllers.Core.FileController.GetUploadToken(System.String)">
             <summary>
             获取上传文件token
             </summary>
+            <param name="key">文件路径</param>
             <returns></returns>
         </member>
         <member name="M:mbill.Controllers.Core.FileController.UploadFile(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">

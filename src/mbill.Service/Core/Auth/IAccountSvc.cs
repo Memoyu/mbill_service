@@ -10,6 +10,13 @@ public interface IAccountSvc : IApplicationSvc
     Task<ServiceResult<TokenDto>> AccountLoginAsync(AccountLoginDto input);
 
     /// <summary>
+    /// 微信预登录
+    /// </summary>
+    /// <param name="code">微信login code</param>
+    /// <returns></returns>
+    Task<ServiceResult<PreLoginUserDto>> WxPreLoginAsync(string code);
+
+    /// <summary>
     /// 微信登录
     /// </summary>
     /// <param name="input"></param>

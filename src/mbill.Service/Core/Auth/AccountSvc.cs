@@ -6,6 +6,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
 {
     private readonly ILogger<AccountSvc> _logger;
     private readonly IUserRepo _userRepo;
+    private readonly IUserIdentityRepo _userIdentityRepo;
     private readonly ICategoryRepo _categoryRepo;
     private readonly IAssetRepo _assetRepo;
     private readonly IUserIdentitySvc _userIdentityService;
@@ -14,6 +15,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     public AccountSvc(
         ILogger<AccountSvc> logger,
         IUserRepo userRepo,
+        IUserIdentityRepo userIdentityRepo,
         ICategoryRepo categoryRepo,
         IAssetRepo assetRepo,
         IUserIdentitySvc userIdentityService,
@@ -22,6 +24,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     {
         _logger = logger;
         _userRepo = userRepo;
+        _userIdentityRepo = userIdentityRepo;
         _categoryRepo = categoryRepo;
         _assetRepo = assetRepo;
         _userIdentityService = userIdentityService;
@@ -51,61 +54,84 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         return ServiceResult<TokenDto>.Successed(await _jwtTokenService.CreateTokenAsync(user));
     }
 
+    public async Task<ServiceResult<PreLoginUserDto>> WxPreLoginAsync(string code)
+    {
+        var wxlogin = await _wxService.GetCode2Session(code);
+        if (!wxlogin.Success || wxlogin.Result == null)
+            return ServiceResult<PreLoginUserDto>.Failed($"微信登录失败，请稍后重试！错误：{wxlogin.Message}");
+        var openId = wxlogin.Result.OpenId;
+        var identity = await _userIdentityService.VerifyWxOpenIdAsync(openId);
+        var user = new UserEntity();
+        var isExist = 0;
+        // 如果绑定信息为空，则未登录过，进行账户信息记录
+        if (identity == null)
+        {
+            var entity = new UserEntity
+            {
+                Username = string.Empty,
+                Nickname = string.Empty,
+                Gender = 0,
+                Email = string.Empty,
+                Phone = string.Empty,
+                Province = string.Empty,
+                City = string.Empty,
+                District = string.Empty,
+                Street = string.Empty,
+                AvatarUrl = string.Empty,
+            };
+            entity.UserRoles = new List<UserRoleEntity>
+            {
+                new UserRoleEntity()
+                {
+                    RoleId = Role.User
+                }
+            };
+
+            entity.UserIdentitys = new List<UserIdentityEntity>()//构建赋值用户身份认证登录信息
+            {
+                new UserIdentityEntity(UserIdentityEntity.WeiXin,entity.Nickname,openId,DateTime.Now)
+            };
+            entity = await _userRepo.InsertAsync(entity);
+            if (entity == null)
+                return ServiceResult<PreLoginUserDto>.Failed($"微信登录失败，请联系开发者！");
+            _ = InitUserDataAsync(entity.Id);
+            user = await _userRepo.GetUserAsync(c => c.Id == entity.Id);
+        }
+        else
+        {
+            user = await _userRepo.GetUserAsync(c => c.Id == identity.UserId);
+            isExist = 1;
+        }
+
+        var userDto = Mapper.Map<PreLoginUserDto>(user);
+        userDto.OpenId = openId;
+        userDto.IsExist = isExist;
+        return ServiceResult<PreLoginUserDto>.Successed(userDto);
+    }
+
+    [Transactional]
     public async Task<ServiceResult<TokenWithUserDto>> WxLoginAsync(WxLoginInput input)
     {
         var wxlogin = await _wxService.GetCode2Session(input.Code);
         if (!wxlogin.Success || wxlogin.Result == null)
             return ServiceResult<TokenWithUserDto>.Failed($"微信登录失败，请稍后重试！错误：{wxlogin.Message}");
         var openId = wxlogin.Result.OpenId;
-        var exist = await _userIdentityService.VerifyWxOpenIdAsync(openId);
+        var identity = await _userIdentityService.VerifyWxOpenIdAsync(openId);
         var user = new UserEntity();
         // 如果绑定信息为空，则未登录过，进行账户信息记录
-        if (exist == null)
-        {
-            var entity = new UserEntity
-            {
-                Username = "",
-                Nickname = input.Nickname,
-                Gender = input.Gender,
-                Email = "",
-                Phone = "",
-                Province = input.Province,
-                City = input.City,
-                District = "",
-                Street = "",
-                AvatarUrl = input.AvatarUrl,
-            };
-            entity.UserRoles = new List<UserRoleEntity>
-                {
-                    new UserRoleEntity()
-                    {
-                        RoleId = Role.User
-                    }
-                };
+        if (identity == null)
+            return ServiceResult<TokenWithUserDto>.Failed($"微信用户不存在，请重新授权！");
 
-            entity.UserIdentitys = new List<UserIdentityEntity>()//构建赋值用户身份认证登录信息
-                {
-                    new UserIdentityEntity(UserIdentityEntity.WeiXin,input.Nickname,openId,DateTime.Now)
-                };
-            entity = await _userRepo.InsertAsync(entity);
-            if (entity == null)
-                return ServiceResult<TokenWithUserDto>.Failed($"微信登录失败，请联系开发者！");
-            _ = InitUserDataAsync(entity.Id);
-            user = await _userRepo.GetUserAsync(c => c.Id == entity.Id);
-        }
-        else
-        {
-            user = await _userRepo.GetUserAsync(c => c.Id == exist.UserId);
-            // 在没有实现前台用户信息更改功能前，需要替换一下登录人的微信登录信息
-            user.AvatarUrl = input.AvatarUrl;
-            user.Nickname = input.Nickname;
-            await _userRepo.Orm.Update<UserEntity>().SetSource(user).UpdateColumns(e => new { e.AvatarUrl, e.Nickname }).ExecuteAffrowsAsync();
-        }
+        user = await _userRepo.GetUserAsync(c => c.Id == identity.UserId);
 
+        user.AvatarUrl = input.AvatarUrl;
+        user.Nickname = input.Nickname;
+        identity.Identifier = input.Nickname;
+        await _userIdentityRepo.UpdateAsync(identity);
+        await _userRepo.UpdateAsync(user);
 
         var token = await _jwtTokenService.CreateTokenAsync(user);
-        var userDto = Mapper.Map<UserSimpleDto>(user);
-        userDto.Days = (DateTime.Now - user.CreateTime).Days;
+        var userDto = Mapper.Map<LoginUserDto>(user);
         return ServiceResult<TokenWithUserDto>.Successed(new TokenWithUserDto(token, userDto));
     }
 
