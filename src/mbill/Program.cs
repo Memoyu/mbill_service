@@ -1,3 +1,5 @@
+using Serilog.Events;
+
 namespace mbill;
 
 public class Program

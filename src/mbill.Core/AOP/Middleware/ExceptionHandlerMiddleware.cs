@@ -6,9 +6,12 @@
 public class ExceptionHandlerMiddleware
 {
     private readonly RequestDelegate _next;
-    public ExceptionHandlerMiddleware(RequestDelegate next)
+    private readonly Microsoft.Extensions.Logging.ILogger _logger;
+
+    public ExceptionHandlerMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
     {
         _next = next;
+        _logger = loggerFactory.CreateLogger<ExceptionHandlerMiddleware>();
     }
 
     public async Task Invoke(HttpContext context)
@@ -20,6 +23,7 @@ public class ExceptionHandlerMiddleware
         catch (Exception ex)
         {
             await ExceptionHandlerAsync(context, ex.Message);
+            _logger.LogError(ex, ex.Message);
         }
         finally
         {

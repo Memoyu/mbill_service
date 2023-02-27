@@ -19,7 +19,6 @@ public class UserController : ApiControllerBase
     /// 超级管理员新增用户
     /// </summary>
     /// <param name="userInput">用户更改</param>
-    [Logger("超级管理员新建了一个用户")]
     [HttpPost]
     [LocalAuthorize("新增用户", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]

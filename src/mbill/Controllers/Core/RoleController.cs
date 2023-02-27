@@ -19,7 +19,6 @@ public class RoleController : ApiControllerBase
     /// 新增角色
     /// </summary>
     /// <param name="dto">角色信息</param>
-    [Logger("新建一个角色")]
     [HttpPost]
     [LocalAuthorize("新增角色", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]

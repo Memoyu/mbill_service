@@ -181,4 +181,13 @@ public class Appsettings
 
     #endregion
 
+    #region MongoDB
+
+    /// <summary>
+    /// MongoDB连接字符串
+    /// </summary>
+    public static string MongoDBCon => _configuration["ConnectionStrings:MongoDB"];
+
+    #endregion
+
 }

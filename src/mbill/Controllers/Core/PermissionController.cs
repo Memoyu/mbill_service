@@ -42,7 +42,6 @@ public class PermissionController : ApiControllerBase
     /// 配置角色权限
     /// </summary>
     /// <param name="dto">角色权限</param>
-    [Logger("配置角色权限")]
     [HttpPost("dispatch")]
     [LocalAuthorize("配置角色权限", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
