@@ -1,3 +1,4 @@
+using mbill.Core.Common.Configs;
 using Serilog.Events;
 
 namespace mbill;
@@ -6,14 +7,8 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-
-        Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Appsettings.Configuration)
-            .Enrich.FromLogContext()
-            .CreateLogger();
-
         try
         {
-            Log.Information("init main");
             IHost webHost = CreateHostBuilder(args).Build();
             try
             {
@@ -50,5 +45,10 @@ public class Program
 #endif
                 ;
             })
-            .UseSerilog();//构建Serilog;
+            .UseSerilog((context, logger) =>
+            {
+                logger.Enrich.FromLogContext();
+                logger.WriteTo.Console(LogEventLevel.Verbose, "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}");
+                logger.WriteTo.MongoDBBson(Appsettings.MongoDBCon, "logs",LogEventLevel.Warning, 50, null, 1024, 50000);
+            });//构建Serilog;
 }
