@@ -7,7 +7,7 @@ public class FreeSqlModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         IFreeSql fsql = new FreeSqlBuilder()
-          .UseConnectionString(Appsettings.Configuration)
+          .UseConnectionString()
           .UseNameConvert(NameConvertType.PascalCaseToUnderscoreWithLower)
           .UseAutoSyncStructure(true)
           .UseNoneCommandParameter(true)

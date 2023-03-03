@@ -7,7 +7,6 @@ public class Appsettings
     {
         _configuration = new ConfigurationBuilder()//配置配置文件
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile($"Configs/SerilogConfig.json", optional: true, reloadOnChange: true)//添加Serilog配置
             .AddJsonFile($"Configs/RateLimitConfig.json", optional: true, reloadOnChange: true)//添加限流配置
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
@@ -97,19 +96,10 @@ public class Appsettings
     #region Db
 
     /// <summary>
-    /// 获取配置默认Db Code
-    /// </summary>
-    public static string DbTypeCode => _configuration["ConnectionStrings:DefaultDB"];
-
-    /// <summary>
     /// 获取配置 MySql ConnectionString
     /// </summary>
     public static string MySqlCon => _configuration["ConnectionStrings:MySql"];
 
-    /// <summary>
-    /// 获取配置默认Db ConnectionString 
-    /// </summary>
-    public static string DbConnectionString(string dbTypeCode) => _configuration[$"ConnectionStrings:{dbTypeCode}"];
     #endregion
 
     #region Cache

@@ -7,6 +7,11 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console(LogEventLevel.Verbose, "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}")
+            .WriteTo.MongoDBBson(Appsettings.MongoDBCon, "logs", LogEventLevel.Warning, 50, null, 1024, 50000)
+            .Enrich.FromLogContext()
+            .CreateLogger();
         try
         {
             IHost webHost = CreateHostBuilder(args).Build();
@@ -49,6 +54,6 @@ public class Program
             {
                 logger.Enrich.FromLogContext();
                 logger.WriteTo.Console(LogEventLevel.Verbose, "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}");
-                logger.WriteTo.MongoDBBson(Appsettings.MongoDBCon, "logs",LogEventLevel.Warning, 50, null, 1024, 50000);
+                logger.WriteTo.MongoDBBson(Appsettings.MongoDBCon, "logs", LogEventLevel.Warning, 50, null, 1024, 50000);
             });//¹¹½¨Serilog;
 }
