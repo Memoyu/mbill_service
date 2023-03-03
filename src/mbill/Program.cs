@@ -1,4 +1,5 @@
 using mbill.Core.Common.Configs;
+using MongoDB.Driver;
 using Serilog.Events;
 
 namespace mbill;
@@ -9,7 +10,12 @@ public class Program
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console(LogEventLevel.Verbose, "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}")
-            .WriteTo.MongoDBBson(Appsettings.MongoDBCon, "logs", LogEventLevel.Warning, 50, null, 1024, 50000)
+            .WriteTo.MongoDBBson(cfg =>
+            {
+                var mongoDbInstance = new MongoClient(Appsettings.MongoDBCon).GetDatabase(Appsettings.MongoDBName);
+                cfg.SetMongoDatabase(mongoDbInstance);
+                cfg.SetCollectionName("logs");      
+            }, LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .CreateLogger();
         try
@@ -49,11 +55,5 @@ public class Program
             .UseUrls("http://*:9000");
 #endif
                 ;
-            })
-            .UseSerilog((context, logger) =>
-            {
-                logger.Enrich.FromLogContext();
-                logger.WriteTo.Console(LogEventLevel.Verbose, "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}");
-                logger.WriteTo.MongoDBBson(Appsettings.MongoDBCon, "logs", LogEventLevel.Warning, 50, null, 1024, 50000);
-            });//构建Serilog;
+            }).UseSerilog();//构建Serilog;
 }

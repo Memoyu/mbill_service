@@ -100,6 +100,17 @@ public class Appsettings
     /// </summary>
     public static string MySqlCon => _configuration["ConnectionStrings:MySql"];
 
+
+    /// <summary>
+    /// MongoDB连接字符串
+    /// </summary>
+    public static string MongoDBCon => _configuration["ConnectionStrings:MongoDB:ConnStr"];
+
+    /// <summary>
+    /// MongoDB DatabaseName
+    /// </summary>
+    public static string MongoDBName => _configuration["ConnectionStrings:MongoDB:DatabaseName"];
+
     #endregion
 
     #region Cache
@@ -170,14 +181,4 @@ public class Appsettings
     public static string CsRedisCon => _configuration["ConnectionStrings:CsRedis"];
 
     #endregion
-
-    #region MongoDB
-
-    /// <summary>
-    /// MongoDB连接字符串
-    /// </summary>
-    public static string MongoDBCon => _configuration["ConnectionStrings:MongoDB"];
-
-    #endregion
-
 }

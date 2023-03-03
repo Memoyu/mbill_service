@@ -1,4 +1,5 @@
 ﻿using mbill.ToolKits.Qiniu;
+using MongoDB.Driver;
 
 namespace mbill.Core.Extensions.ServiceCollection;
 
@@ -10,16 +11,16 @@ public static class FusionSetup
     /// <summary>
     /// 配置注册Automapper 服务
     /// </summary>
-    public static void AddAutoMapper(this IServiceCollection services)
+    public static IServiceCollection AddAutoMapper(this IServiceCollection services)
     {
         Assembly assemblys = Assembly.Load("mbill.Service");
-        services.AddAutoMapper(assemblys);
+        return services.AddAutoMapper(assemblys);
     }
 
     /// <summary>
     /// 配置注册监控
     /// </summary>
-    public static void AddMiniProfilerSetup(this IServiceCollection services)
+    public static IServiceCollection AddMiniProfilerSetup(this IServiceCollection services)
     {
         if (services == null) throw new ArgumentNullException(nameof(services));
 
@@ -28,6 +29,7 @@ public static class FusionSetup
         {
             options.RouteBasePath = "/profiler";
         });
+        return services;
     }
 
     /// <summary>
@@ -59,16 +61,15 @@ public static class FusionSetup
         RedisHelper.Initialization(csRedisClient);
 
         //注册mvc分布式缓存
-        services.AddSingleton<IDistributedCache>(new CSRedisCache(RedisHelper.Instance));
-        return services;
+        return services.AddSingleton<IDistributedCache>(new CSRedisCache(RedisHelper.Instance));
     }
     /// <summary>
     /// 配置注册跨域
     /// </summary>
     /// <param name="services"></param>
-    public static void AddCorsConfig(this IServiceCollection services)
+    public static IServiceCollection AddCorsConfig(this IServiceCollection services)
     {
-        services.AddCors(options =>
+       return  services.AddCors(options =>
         {
             options.AddPolicy(Appsettings.Cors.CorsName, builder =>
             {
@@ -90,9 +91,9 @@ public static class FusionSetup
     /// 配置注册HttpClient
     /// </summary>
     /// <param name="services"></param>
-    public static void AddHttpClients(this IServiceCollection services)
+    public static IServiceCollection AddHttpClients(this IServiceCollection services)
     {
-        services.AddHttpClient();
+        return services.AddHttpClient();
     }
 
     /// <summary>
@@ -108,5 +109,14 @@ public static class FusionSetup
         if (services == null) throw new ArgumentNullException($"{nameof(services)} is not null");
         services.Configure<QiniuClientOption>(configuration.GetSection(sectionName));
         return services.AddSingleton<IQiniuClient, QiniuClient>();
+    }
+
+    /// <summary>
+    /// 配置注册MongoClient
+    /// </summary>
+    /// <param name="services"></param>
+    public static IServiceCollection AddMongoClient(this IServiceCollection services)
+    {
+       return services.AddSingleton(new MongoClient(Appsettings.MongoDBCon));
     }
 }
