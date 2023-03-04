@@ -30,7 +30,7 @@ stages:
         ls
         sed -i 's/{MySqlConStr}/$(MySqlConStr)/g' $(appsettings)
         sed -i 's/{RedisConStr}/$(RedisConStr)/g' $(appsettings)
-        sed -i 's/{MongoDBConStr}/|$(MongoDBConStr)/g' $(appsettings)
+        sed -i 's/{MongoDBConStr}/$(MongoDBConStr)/g' $(appsettings)
         sed -i 's/{QiniuAk}/$(QiniuAk)/g' $(appsettings)
         sed -i 's/{QiniuSk}/$(QiniuSk)/g' $(appsettings)
         sed -i 's/{JwtSecurityKey}/$(JwtSecurityKey)/g' $(appsettings)
