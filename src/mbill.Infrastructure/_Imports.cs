@@ -10,5 +10,6 @@ global using mbill.Core.Interface.IRepositories.Bill;
 global using mbill.Core.Interface.IRepositories.PreOrder;
 global using mbill.Infrastructure.Repository.Base;
 global using mbill.Core.Security;
+global using mbill.Core.Interface.IRepositories.Base;
 
 

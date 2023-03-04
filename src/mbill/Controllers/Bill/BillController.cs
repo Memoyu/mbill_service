@@ -62,6 +62,29 @@ public class BillController : ApiControllerBase
         return await _billSvc.UpdateAsync(input);
     }
 
+    /// <summary>
+    /// 检索指定条件账单
+    /// </summary>
+    /// <param name="input">检索条件</param>
+    [HttpGet("search")]
+    [LocalAuthorize("检索指定条件账单", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetSearchPagesAsync([FromQuery] BillSearchPagingInput input)
+    {
+        return await _billSvc.SearchPagesAsync(input);
+    }
+
+    /// <summary>
+    /// 获取账单检索记录
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("search/records")]
+    [LocalAuthorize("获取账单检索记录", "账单")]
+    [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
+    public async Task<ServiceResult<List<BillSearchRecordOutput>>> GetSearchRecordsAsync()
+    {
+        return await _billSvc.GetSearchRecordsAsync();
+    }
 
     /// <summary>
     /// 获取指定条件分页账单

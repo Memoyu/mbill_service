@@ -4,6 +4,7 @@
 /// 流水记录实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_bill")]
+[MongoCollection(Name = "bill")]
 [Index("index_bill_on_type", "Type", false)]
 [Index("index_bill_on_create_user_id_and_type", "Sort,CreateUserId", false)]
 [Index("index_bill_on_create_user_id_and_category_id", "CategoryId,CreateUserId", false)]

@@ -43,7 +43,7 @@ public class UserIdentitySvc : IUserIdentitySvc
     public async Task<UserIdentityEntity> GetFirstByOpenIdAsync(string openId)
     {
         return await _userIdentityRepo
-            .Where(r => r.Credential.Equals(openId) && r.IdentityType == UserIdentityEntity.WeiXin)
+            .Where(r => r.Credential.Equals(openId) && r.IdentityType == UserIdentityEntity.WeiXin && r.IsDeleted == false)
             .ToOneAsync();
     }
 }

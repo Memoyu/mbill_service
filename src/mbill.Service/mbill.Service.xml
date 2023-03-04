@@ -158,6 +158,19 @@
             <param name="input">查询条件</param>
             <returns></returns>
         </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetSearchRecordsAsync">
+            <summary>
+            获取账单检索记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:mbill.Service.Bill.Bill.IBillSvc.SearchPagesAsync(mbill.Service.Bill.Bill.Input.BillSearchPagingInput)">
+            <summary>
+            检索账单数据
+            </summary>
+            <param name="input">检索条件</param>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
             <summary>
             获取指定条件分页账单
@@ -258,6 +271,46 @@
         <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.AssetId">
             <summary>
             账单账户
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Type">
+            <summary>
+            账单类型
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryId">
+            <summary>
+            账单分类
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetId">
+            <summary>
+            账单账户
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AmountMin">
+            <summary>
+            金额区间最小值
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AmountMax">
+            <summary>
+            金额区间最大值
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.TimeBegin">
+            <summary>
+            账单时间起始
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.TimeEnd">
+            <summary>
+            账单时间截止
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.KeyWord">
+            <summary>
+            搜索关键字
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
@@ -476,6 +529,36 @@
         <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Total">
             <summary>
             账单总数
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.Type">
+            <summary>
+            账单类型
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.CategoryId">
+            <summary>
+            账单分类
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.AssetId">
+            <summary>
+            账单账户
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.TimeBegin">
+            <summary>
+            账单时间起始
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.TimeEnd">
+            <summary>
+            账单时间截止
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.KeyWord">
+            <summary>
+            搜索关键字
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Income">
@@ -734,7 +817,7 @@
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.IsExist">
+        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.IsCompletedInfo">
             <summary>
             用户是否已存在
             </summary>

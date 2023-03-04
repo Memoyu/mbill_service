@@ -22,5 +22,5 @@ public class PreLoginUserDto
     /// <summary>
     /// 用户是否已存在
     /// </summary>
-    public int IsExist { get; set; }
+    public int IsCompletedInfo { get; set; }
 }

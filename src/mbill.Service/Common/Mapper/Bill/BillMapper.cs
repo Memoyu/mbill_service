@@ -14,5 +14,10 @@ public class BillMapper : Profile
         CreateMap<BillEntity, BillDetailDto>()
             .ForMember(dest => dest.AmountFormat, opt => opt.MapFrom(src => src.Amount.AmountFormat()))
             .ForMember(dest => dest.TimeFormat, opt => opt.MapFrom(src => $"{src.Time.GetWeek()} {src.Time:yyyy-MM-dd HH:mm}"));
+
+        CreateMap<BillSearchPagingInput, BillSearchRecordEntity>()
+            .ForMember(dest => dest.SearchTime, opt => opt.MapFrom(src => DateTime.Now));
+
+        CreateMap<BillSearchRecordEntity, BillSearchRecordOutput>();
     }
 }

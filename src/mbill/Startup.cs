@@ -16,6 +16,7 @@ public class Startup
         services.AddCap();//ÅäÖÃCAP
         services.AddAutoMapper();//ÅäÖÃÊµÌåÓ³Éä
         services.AddCsRedisCore();//ÅäÖÃ×¢²áRedis»º´æ
+        services.AddMongoClient();//ÅäÖÃ×¢²áMongoDB Client
         services.AddMiniProfilerSetup();//ÅäÖÃ×¢²á¼à¿Ø
         services.AddIpRateLimiting();//ÅäÖÃ×¢²áÏŞÁ÷
         services.AddHealthChecks();//ÅäÖÃ×¢²á½¡¿µ¼ì²é

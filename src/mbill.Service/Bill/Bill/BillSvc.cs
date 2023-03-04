@@ -1,4 +1,8 @@
-﻿namespace mbill.Service.Bill.Bill;
+﻿using mbill.Core.Domains.Common.Base;
+using MongoDB.Bson;
+using MongoDB.Driver;
+
+namespace mbill.Service.Bill.Bill;
 
 public class BillSvc : ApplicationSvc, IBillSvc
 {
@@ -7,44 +11,82 @@ public class BillSvc : ApplicationSvc, IBillSvc
     private readonly ICategoryRepo _categoryRepo;
     private readonly IAssetRepo _assetRepo;
     private readonly IFileRepo _fileRepo;
+    private readonly IBillMongoRepo _mongoRepo;
+    private readonly IBillSearchRecordRepo _mongoSearchRecordRepo;
 
     public BillSvc(
         IBillRepo billRepo,
         IPreOrderRepo preOrderRepo,
         ICategoryRepo categoryRepo,
         IAssetRepo assetRepo,
-        IFileRepo fileRepo)
+        IFileRepo fileRepo,
+        IBillMongoRepo mongoRepo,
+        IBillSearchRecordRepo mongoSearchRecordRepo)
     {
         _billRepo = billRepo;
         _preOrderRepo = preOrderRepo;
         _categoryRepo = categoryRepo;
         _assetRepo = assetRepo;
         _fileRepo = fileRepo;
+        _mongoRepo = mongoRepo;
+        _mongoSearchRecordRepo = mongoSearchRecordRepo;
     }
 
+    [Transactional]
     public async Task<ServiceResult<BillSimpleDto>> CreateAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.InsertAsync(bill);
+        var resMongo = await _mongoRepo.InsertOneAsync(entity);
+        if (!resMongo)
+            throw new OperationCanceledException("插入失败");
         if (entity == null) ServiceResult<BillSimpleDto>.Failed("新增账单失败！");
         return ServiceResult<BillSimpleDto>.Successed(await MapToSimpleDto(entity));
     }
 
+    [Transactional]
     public async Task<ServiceResult> DeleteAsync(long id)
     {
         var exist = await _billRepo.Select.AnyAsync(s => s.Id == id && !s.IsDeleted);
         if (!exist) return ServiceResult.Failed("没有找到该账单信息");
         var re = await _billRepo.DeleteAsync(id);
+        FilterDefinitionBuilder<BillEntity> buildFilter = Builders<BillEntity>.Filter;
+        var filter = buildFilter.Eq(b => b.Id, id);
+        var resMongo = await _mongoRepo.DeleteOneAsync(filter);
+        if (resMongo is null)
+            throw new OperationCanceledException("删除失败");
         return ServiceResult.Successed("删除成功");
     }
 
     public async Task<ServiceResult<BillSimpleDto>> UpdateAsync(ModifyBillInput input)
     {
         var bill = Mapper.Map<BillEntity>(input);
-        var exist = await _billRepo.Select.AnyAsync(s => s.Id == bill.Id && !s.IsDeleted);
-        if (!exist) return ServiceResult<BillSimpleDto>.Failed("没有找到该账单信息");
+        var entity = await _billRepo.GetAsync(bill.Id);
+        if (entity is null) return ServiceResult<BillSimpleDto>.Failed("没有找到该账单信息");
         Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
         await _billRepo.UpdateWithIgnoreAsync(bill, ignoreExp);
+        var find = await _mongoRepo.FindOneAsync(entity.Id, false);
+        if (find is null)
+        {
+            var resMongo = await _mongoRepo.InsertOneAsync(entity);
+            if (!resMongo)
+                throw new OperationCanceledException("更新失败");
+        }
+        else
+        {
+            var update = Builders<BillEntity>.Update
+                 .Set(nameof(entity.CategoryId), input.CategoryId)
+                 .Set(nameof(entity.AssetId), input.AssetId)
+                 .Set(nameof(entity.Amount), input.Amount)
+                 .Set(nameof(entity.Type), input.Type)
+                 .Set(nameof(entity.Description), input.Description)
+                 .Set(nameof(entity.Address), input.Address)
+                 .Set(nameof(entity.Time), input.Time);
+            var filter = Builders<BillEntity>.Filter.Eq(b => b.Id, entity.Id);
+            var resMongo = await _mongoRepo.UpdateOneAsync(update, filter);
+            if (resMongo is null)
+                throw new OperationCanceledException("更新失败");
+        }
         return ServiceResult<BillSimpleDto>.Successed(await MapToSimpleDto(bill));
     }
 
@@ -94,6 +136,65 @@ public class BillSvc : ApplicationSvc, IBillSvc
         dto.Expend = expend.AmountFormat();
         dto.Income = income.AmountFormat();
         return ServiceResult<BillsByDayWithStatDto>.Successed(dto);
+    }
+
+    public async Task<ServiceResult<List<BillSearchRecordOutput>>> GetSearchRecordsAsync()
+    {
+        var filter = Builders<BillSearchRecordEntity>.Filter.Eq(b => b.UserId, CurrentUser.Id);
+        var sort = Builders<BillSearchRecordEntity>.Sort.Descending("SearchTime");
+        var list = await _mongoSearchRecordRepo.FindListByPageAsync(filter, 1, 10, null, sort);
+        return ServiceResult<List<BillSearchRecordOutput>>.Successed(Mapper.Map<List<BillSearchRecordOutput>>(list));
+    }
+
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> SearchPagesAsync(BillSearchPagingInput input)
+    {
+        var recordEntity = Mapper.Map<BillSearchRecordEntity>(input);
+        recordEntity.UserId = CurrentUser.Id ?? 0;
+        // 插入检索记录
+        await _mongoSearchRecordRepo.InsertOneAsync(recordEntity);
+
+        var sort = Builders<BillEntity>.Sort.Descending("Time");
+        var bFilter = Builders<BillEntity>.Filter;
+        List<FilterDefinition<BillEntity>> filters = new List<FilterDefinition<BillEntity>>();
+
+        // 账单类型
+        if (input.Type.HasValue)
+            filters.Add(bFilter.And(bFilter.Eq(b => b.Type, input.Type.Value)));
+
+        // 账单分类
+        if (input.CategoryId.HasValue)
+            filters.Add(bFilter.And(bFilter.Eq(b => b.CategoryId, input.CategoryId.Value)));
+
+        // 账单账户
+        if (input.AssetId.HasValue)
+            filters.Add(bFilter.And(bFilter.Eq(b => b.AssetId, input.AssetId.Value)));
+
+        // 金额区间
+        if (input.AmountMax.HasValue && input.AmountMin.HasValue)
+            filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, input.AmountMin.Value), bFilter.Lte(b => b.Amount, input.AmountMax.Value)));
+
+        // 金额区间
+        if (input.TimeBegin.HasValue && input.TimeEnd.HasValue)
+            filters.Add(bFilter.And(bFilter.Gte(b => b.Time, input.TimeBegin.Value), bFilter.Lte(b => b.Time, input.TimeEnd.Value)));
+
+        // 关键词
+        if (!string.IsNullOrWhiteSpace(input.KeyWord))
+            filters.Add(bFilter.Or(bFilter.Where(b => b.Address.Contains(input.KeyWord)),
+                bFilter.Where(b => b.Description.Contains(input.KeyWord))));
+        var filter = bFilter.And(bFilter.Eq(b => b.CreateUserId, CurrentUser.Id), bFilter.And(filters));//时间段条件用OR拼在一起
+        var paged = new PagedDto<BillSimpleDto>();
+
+        var total = await _mongoRepo.CountAsync(filter);
+        if (total != 0)
+        {
+            var list = await _mongoRepo.FindListByPageAsync(filter, input.Page, input.Size, null, sort);
+            List<BillSimpleDto> dtos = new List<BillSimpleDto>();
+            foreach (var i in list)
+                dtos.Add(await MapToSimpleDto(i));
+            paged.Total = total;
+            paged.Items = dtos;
+        }
+        return ServiceResult<PagedDto<BillSimpleDto>>.Successed(paged);
     }
 
     public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetPagesAsync(BillPagingInput input)

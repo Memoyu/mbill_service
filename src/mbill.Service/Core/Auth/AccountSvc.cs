@@ -62,7 +62,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         var openId = wxlogin.Result.OpenId;
         var identity = await _userIdentityService.VerifyWxOpenIdAsync(openId);
         var user = new UserEntity();
-        var isExist = 0;
+        var isCompletedInfo = 0;
         // 如果绑定信息为空，则未登录过，进行账户信息记录
         if (identity == null)
         {
@@ -100,12 +100,13 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         else
         {
             user = await _userRepo.GetUserAsync(c => c.Id == identity.UserId);
-            isExist = 1;
+            if (!string.IsNullOrWhiteSpace(user.AvatarUrl) && !string.IsNullOrWhiteSpace(user.Nickname))
+                isCompletedInfo = 1;
         }
 
         var userDto = Mapper.Map<PreLoginUserDto>(user);
         userDto.OpenId = openId;
-        userDto.IsExist = isExist;
+        userDto.IsCompletedInfo = isCompletedInfo;
         return ServiceResult<PreLoginUserDto>.Successed(userDto);
     }
 

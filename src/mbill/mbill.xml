@@ -250,6 +250,18 @@
             </summary>
             <param name="input">账单信息</param>
         </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetSearchPagesAsync(mbill.Service.Bill.Bill.Input.BillSearchPagingInput)">
+            <summary>
+            检索指定条件账单
+            </summary>
+            <param name="input">检索条件</param>
+        </member>
+        <member name="M:mbill.Controllers.Bill.BillController.GetSearchRecordsAsync">
+            <summary>
+            获取账单检索记录
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:mbill.Controllers.Bill.BillController.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
             <summary>
             获取指定条件分页账单

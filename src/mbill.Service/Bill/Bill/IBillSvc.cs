@@ -39,6 +39,19 @@ public interface IBillSvc
     Task<ServiceResult<BillsByDayWithStatDto>> GetByDayAsync(DayBillInput input);
 
     /// <summary>
+    /// 获取账单检索记录
+    /// </summary>
+    /// <returns></returns>
+    Task<ServiceResult<List<BillSearchRecordOutput>>> GetSearchRecordsAsync();
+
+    /// <summary>
+    /// 检索账单数据
+    /// </summary>
+    /// <param name="input">检索条件</param>
+    /// <returns></returns>
+    Task<ServiceResult<PagedDto<BillSimpleDto>>> SearchPagesAsync(BillSearchPagingInput input);
+
+    /// <summary>
     /// 获取指定条件分页账单
     /// </summary>
     /// <param name="input">分页查询</param>
