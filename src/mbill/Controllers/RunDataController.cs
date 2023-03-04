@@ -15,11 +15,11 @@ public class RunDataController : ApiControllerBase
         _billMongoRepo = billMongoRepo;
     }
 
-    [HttpGet]
-    public async Task<ServiceResult> BillWriteToMongoDBAsync()
-    {
-        var list = await _billRepo.Select.Where(b => b.IsDeleted == false).ToListAsync();
-        var s = await _billMongoRepo.InsertManyAsync(list);
-        return ServiceResult.Successed("成功！");
-    }
+    //[HttpGet]
+    //public async Task<ServiceResult> BillWriteToMongoDBAsync()
+    //{
+    //    var list = await _billRepo.Select.Where(b => b.IsDeleted == false).ToListAsync();
+    //    var s = await _billMongoRepo.InsertManyAsync(list);
+    //    return ServiceResult.Successed("成功！");
+    //}
 }
