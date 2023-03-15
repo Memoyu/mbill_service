@@ -66,10 +66,10 @@ public class BillController : ApiControllerBase
     /// 检索指定条件账单
     /// </summary>
     /// <param name="input">检索条件</param>
-    [HttpGet("search")]
+    [HttpPost("search")]
     [LocalAuthorize("检索指定条件账单", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetSearchPagesAsync([FromQuery] BillSearchPagingInput input)
+    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetSearchPagesAsync([FromBody] BillSearchPagingInput input)
     {
         return await _billSvc.SearchPagesAsync(input);
     }

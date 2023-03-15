@@ -28,9 +28,21 @@ public class BillSearchPagingInput : PagingDto
     public SearchDate Date { get; set; }
 
     /// <summary>
-    /// 搜索关键字
+    /// 搜索关键字(地址、备注)
     /// </summary>
     public string KeyWord { get; set; }
+
+    /// <summary>
+    /// 地址
+    /// </summary>
+    public string Address { get; set; }
+
+    /// <summary>
+    /// 备注
+    /// </summary>
+    public string Remark { get; set; }
+
+
 }
 
 public class SearchAmount

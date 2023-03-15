@@ -175,12 +175,21 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         // 金额区间
         if (input.Date != null && input.Date.Begin.HasValue && input.Date.End.HasValue)
-            filters.Add(bFilter.And(bFilter.Gte(b => b.Time, input.Date.Begin.Value), bFilter.Lte(b => b.Time, input.Date.End.Value)));
+            filters.Add(bFilter.And(bFilter.Gte(b => b.Time, input.Date.Begin.Value), bFilter.Lte(b => b.Time, input.Date.End.Value.AddDays(1).AddSeconds(-1))));
+
+        // 地址
+        if (!string.IsNullOrWhiteSpace(input.Address))
+            filters.Add(bFilter.Where(b => b.Address.Contains(input.Address)));
+
+        // 备注
+        if (!string.IsNullOrWhiteSpace(input.Remark))
+            filters.Add(bFilter.Where(b => b.Description.Contains(input.KeyWord)));
 
         // 关键词
-        if (!string.IsNullOrWhiteSpace(input.KeyWord))
+        if (string.IsNullOrWhiteSpace(input.Address) && string.IsNullOrWhiteSpace(input.Remark) &&!string.IsNullOrWhiteSpace(input.KeyWord))
             filters.Add(bFilter.Or(bFilter.Where(b => b.Address.Contains(input.KeyWord)),
                 bFilter.Where(b => b.Description.Contains(input.KeyWord))));
+
         var filter = bFilter.And(bFilter.Eq(b => b.CreateUserId, CurrentUser.Id), bFilter.And(filters));//时间段条件用OR拼在一起
         var paged = new PagedDto<BillSimpleDto>();
 

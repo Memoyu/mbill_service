@@ -300,7 +300,17 @@
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.KeyWord">
             <summary>
-            搜索关键字
+            搜索关键字(地址、备注)
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Remark">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.SearchAmount.Min">
