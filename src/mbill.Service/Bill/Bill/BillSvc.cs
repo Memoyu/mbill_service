@@ -158,24 +158,24 @@ public class BillSvc : ApplicationSvc, IBillSvc
         List<FilterDefinition<BillEntity>> filters = new List<FilterDefinition<BillEntity>>();
 
         // 账单类型
-        if (input.Type.HasValue)
-            filters.Add(bFilter.And(bFilter.Eq(b => b.Type, input.Type.Value)));
+        if (input.Types != null && input.Types.Any())
+            filters.Add(bFilter.And(bFilter.In(b => b.Type, input.Types)));
 
         // 账单分类
-        if (input.CategoryId.HasValue)
-            filters.Add(bFilter.And(bFilter.Eq(b => b.CategoryId, input.CategoryId.Value)));
+        if (input.CategoryIds != null && input.CategoryIds.Any())
+            filters.Add(bFilter.And(bFilter.In(b => b.CategoryId, input.CategoryIds)));
 
         // 账单账户
-        if (input.AssetId.HasValue)
-            filters.Add(bFilter.And(bFilter.Eq(b => b.AssetId, input.AssetId.Value)));
+        if (input.AssetIds != null && input.AssetIds.Any())
+            filters.Add(bFilter.And(bFilter.In(b => b.AssetId, input.AssetIds)));
 
         // 金额区间
-        if (input.AmountMax.HasValue && input.AmountMin.HasValue)
-            filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, input.AmountMin.Value), bFilter.Lte(b => b.Amount, input.AmountMax.Value)));
+        if (input.Amount != null && input.Amount.Max.HasValue && input.Amount.Min.HasValue)
+            filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, input.Amount.Min.Value), bFilter.Lte(b => b.Amount, input.Amount.Max.Value)));
 
         // 金额区间
-        if (input.TimeBegin.HasValue && input.TimeEnd.HasValue)
-            filters.Add(bFilter.And(bFilter.Gte(b => b.Time, input.TimeBegin.Value), bFilter.Lte(b => b.Time, input.TimeEnd.Value)));
+        if (input.Date != null && input.Date.Begin.HasValue && input.Date.End.HasValue)
+            filters.Add(bFilter.And(bFilter.Gte(b => b.Time, input.Date.Begin.Value), bFilter.Lte(b => b.Time, input.Date.End.Value)));
 
         // 关键词
         if (!string.IsNullOrWhiteSpace(input.KeyWord))

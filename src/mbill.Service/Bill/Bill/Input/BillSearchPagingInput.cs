@@ -5,40 +5,58 @@ public class BillSearchPagingInput : PagingDto
     /// <summary>
     /// 账单类型
     /// </summary>
-    public int? Type { get; set; }
+    public List<int> Types { get; set; }
 
     /// <summary>
     /// 账单分类
     /// </summary>
-    public long? CategoryId { get; set; }
+    public List<long?> CategoryIds { get; set; }
 
     /// <summary>
     /// 账单账户
     /// </summary>
-    public long? AssetId { get; set; }
+    public List<long> AssetIds { get; set; }
 
     /// <summary>
-    /// 金额区间最小值
+    /// 金额区间
     /// </summary>
-    public decimal? AmountMin { get; set; }
+    public SearchAmount Amount { get; set; }
 
     /// <summary>
-    /// 金额区间最大值
+    /// 日期区间
     /// </summary>
-    public decimal? AmountMax { get; set; }
-
-    /// <summary>
-    /// 账单时间起始
-    /// </summary>
-    public DateTime? TimeBegin { get; set; }
-
-    /// <summary>
-    /// 账单时间截止
-    /// </summary>
-    public DateTime? TimeEnd { get; set; }
+    public SearchDate Date { get; set; }
 
     /// <summary>
     /// 搜索关键字
     /// </summary>
     public string KeyWord { get; set; }
 }
+
+public class SearchAmount
+{
+    /// <summary>
+    /// 金额区间最小值
+    /// </summary>
+    public decimal? Min { get; set; }
+
+    /// <summary>
+    /// 金额区间最大值
+    /// </summary>
+    public decimal? Max { get; set; }
+
+}
+public class SearchDate
+{
+
+    /// <summary>
+    /// 账单时间起始
+    /// </summary>
+    public DateTime? Begin { get; set; }
+
+    /// <summary>
+    /// 账单时间截止
+    /// </summary>
+    public DateTime? End { get; set; }
+}
+

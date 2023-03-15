@@ -273,44 +273,54 @@
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Type">
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Types">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryId">
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryIds">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetId">
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetIds">
             <summary>
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AmountMin">
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Amount">
             <summary>
-            金额区间最小值
+            金额区间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AmountMax">
+        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Date">
             <summary>
-            金额区间最大值
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.TimeBegin">
-            <summary>
-            账单时间起始
-            </summary>
-        </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.TimeEnd">
-            <summary>
-            账单时间截止
+            日期区间
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.KeyWord">
             <summary>
             搜索关键字
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.SearchAmount.Min">
+            <summary>
+            金额区间最小值
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.SearchAmount.Max">
+            <summary>
+            金额区间最大值
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.SearchDate.Begin">
+            <summary>
+            账单时间起始
+            </summary>
+        </member>
+        <member name="P:mbill.Service.Bill.Bill.Input.SearchDate.End">
+            <summary>
+            账单时间截止
             </summary>
         </member>
         <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
