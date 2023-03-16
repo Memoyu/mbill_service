@@ -146,7 +146,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         return ServiceResult<List<BillSearchRecordOutput>>.Successed(Mapper.Map<List<BillSearchRecordOutput>>(list));
     }
 
-    public async Task<ServiceResult<PagedDto<BillSimpleDto>>> SearchPagesAsync(BillSearchPagingInput input)
+    public async Task<ServiceResult<PagedDto<BillDetailDto>>> SearchPagesAsync(BillSearchPagingInput input)
     {
         var recordEntity = Mapper.Map<BillSearchRecordEntity>(input);
         recordEntity.UserId = CurrentUser.Id ?? 0;
@@ -191,19 +191,29 @@ public class BillSvc : ApplicationSvc, IBillSvc
                 bFilter.Where(b => b.Description.Contains(input.KeyWord))));
 
         var filter = bFilter.And(bFilter.Eq(b => b.CreateUserId, CurrentUser.Id), bFilter.And(filters));//时间段条件用OR拼在一起
-        var paged = new PagedDto<BillSimpleDto>();
+        var paged = new PagedDto<BillDetailDto>();
 
         var total = await _mongoRepo.CountAsync(filter);
         if (total != 0)
         {
             var list = await _mongoRepo.FindListByPageAsync(filter, input.Page, input.Size, null, sort);
-            List<BillSimpleDto> dtos = new List<BillSimpleDto>();
+            List<BillDetailDto> dtos = new List<BillDetailDto>();
             foreach (var i in list)
-                dtos.Add(await MapToSimpleDto(i));
+            {
+                var dto = Mapper.Map<BillDetailDto>(i);
+                var category = await _categoryRepo.GetAsync(i.CategoryId.Value);
+                var asset = await _assetRepo.GetAssetAsync(dto.AssetId);
+                dto.Asset = asset?.Name;
+                dto.Category = category?.Name;
+                dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
+                dto.AssetIcon = _fileRepo.GetFileUrl(asset?.Icon);
+                dtos.Add(dto);
+            }
+                
             paged.Total = total;
             paged.Items = dtos;
         }
-        return ServiceResult<PagedDto<BillSimpleDto>>.Successed(paged);
+        return ServiceResult<PagedDto<BillDetailDto>>.Successed(paged);
     }
 
     public async Task<ServiceResult<PagedDto<BillSimpleDto>>> GetPagesAsync(BillPagingInput input)

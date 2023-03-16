@@ -49,7 +49,7 @@ public interface IBillSvc
     /// </summary>
     /// <param name="input">检索条件</param>
     /// <returns></returns>
-    Task<ServiceResult<PagedDto<BillSimpleDto>>> SearchPagesAsync(BillSearchPagingInput input);
+    Task<ServiceResult<PagedDto<BillDetailDto>>> SearchPagesAsync(BillSearchPagingInput input);
 
     /// <summary>
     /// 获取指定条件分页账单
