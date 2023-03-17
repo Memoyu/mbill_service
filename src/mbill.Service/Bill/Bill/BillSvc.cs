@@ -170,9 +170,15 @@ public class BillSvc : ApplicationSvc, IBillSvc
             filters.Add(bFilter.And(bFilter.In(b => b.AssetId, input.AssetIds)));
 
         // 金额区间
-        if (input.Amount != null && input.Amount.Max.HasValue && input.Amount.Min.HasValue)
-            filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, input.Amount.Min.Value), bFilter.Lte(b => b.Amount, input.Amount.Max.Value)));
-
+        if (input.Amount != null)
+        {
+            if (input.Amount.Max.HasValue && !input.Amount.Min.HasValue)
+                filters.Add(bFilter.And(bFilter.Lte(b => b.Amount, input.Amount.Max.Value)));
+            else if (!input.Amount.Max.HasValue && input.Amount.Min.HasValue)
+                filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, input.Amount.Min.Value)));
+            else if (input.Amount.Max.HasValue && input.Amount.Min.HasValue)
+                filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, input.Amount.Min.Value), bFilter.Lte(b => b.Amount, input.Amount.Max.Value)));
+        }
         // 金额区间
         if (input.Date != null && input.Date.Begin.HasValue && input.Date.End.HasValue)
             filters.Add(bFilter.And(bFilter.Gte(b => b.Time, input.Date.Begin.Value), bFilter.Lte(b => b.Time, input.Date.End.Value.AddDays(1).AddSeconds(-1))));
@@ -186,7 +192,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             filters.Add(bFilter.And(bFilter.Where(b => b.Description.Contains(input.Remark))));
 
         // 关键词
-        if (string.IsNullOrWhiteSpace(input.Address) && string.IsNullOrWhiteSpace(input.Remark) &&!string.IsNullOrWhiteSpace(input.KeyWord))
+        if (string.IsNullOrWhiteSpace(input.Address) && string.IsNullOrWhiteSpace(input.Remark) && !string.IsNullOrWhiteSpace(input.KeyWord))
             filters.Add(bFilter.And(bFilter.Or(bFilter.Where(b => b.Address.Contains(input.KeyWord)),
                 bFilter.Where(b => b.Description.Contains(input.KeyWord)))));
 
@@ -209,7 +215,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
                 dto.AssetIcon = _fileRepo.GetFileUrl(asset?.Icon);
                 dtos.Add(dto);
             }
-                
+
             paged.Total = total;
             paged.Items = dtos;
         }

@@ -1,4 +1,7 @@
-﻿namespace mbill.Core.Domains.Entities.Bill;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
+namespace mbill.Core.Domains.Entities.Bill;
 
 /// <summary>
 /// 流水记录实体
@@ -30,12 +33,14 @@ public class BillEntity : FullAduitEntity
     /// <summary>
     /// 金额
     /// </summary>
+    [BsonRepresentation(BsonType.Decimal128)]
     [Column(Precision = 12, Scale = 2)]
     public decimal Amount { get; set; }
 
     /// <summary>
     /// 账户余额
     /// </summary>
+    [BsonRepresentation(BsonType.Decimal128)]
     [Column(Precision = 12, Scale = 2)]
     public decimal AssetResidue { get; set; }
 
