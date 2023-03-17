@@ -179,16 +179,16 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
         // 地址
         if (!string.IsNullOrWhiteSpace(input.Address))
-            filters.Add(bFilter.Where(b => b.Address.Contains(input.Address)));
+            filters.Add(bFilter.And(bFilter.Where(b => b.Address.Contains(input.Address))));
 
         // 备注
         if (!string.IsNullOrWhiteSpace(input.Remark))
-            filters.Add(bFilter.Where(b => b.Description.Contains(input.KeyWord)));
+            filters.Add(bFilter.And(bFilter.Where(b => b.Description.Contains(input.Remark))));
 
         // 关键词
         if (string.IsNullOrWhiteSpace(input.Address) && string.IsNullOrWhiteSpace(input.Remark) &&!string.IsNullOrWhiteSpace(input.KeyWord))
-            filters.Add(bFilter.Or(bFilter.Where(b => b.Address.Contains(input.KeyWord)),
-                bFilter.Where(b => b.Description.Contains(input.KeyWord))));
+            filters.Add(bFilter.And(bFilter.Or(bFilter.Where(b => b.Address.Contains(input.KeyWord)),
+                bFilter.Where(b => b.Description.Contains(input.KeyWord)))));
 
         var filter = bFilter.And(bFilter.Eq(b => b.CreateUserId, CurrentUser.Id), bFilter.And(filters));//时间段条件用OR拼在一起
         var paged = new PagedDto<BillDetailDto>();
