@@ -52,7 +52,7 @@ stages:
     - task: SSH@0
       displayName: 'run mbill api container'
       inputs:
-        sshEndpoint: 'HuaweiCloud'
+        sshEndpoint: 'cloud_service'
         runOptions: 'inline'
         inline: |
           echo "================= to del container ===================="
@@ -84,7 +84,7 @@ stages:
           docker pull registry.cn-shenzhen.aliyuncs.com/$(imageName)
 
           echo "================= to run container ===================="
-          docker run --name $(containerName) -d -p 5001:80 registry.cn-shenzhen.aliyuncs.com/$(imageName)
+          docker run --name $(containerName) -d -p 9600:80 registry.cn-shenzhen.aliyuncs.com/$(imageName)
           # 进行时区同步
           docker cp /usr/share/zoneinfo/Asia/Shanghai $(containerName):/etc/localtime 
           echo "================= publish success ===================="
