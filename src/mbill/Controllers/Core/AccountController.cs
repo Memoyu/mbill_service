@@ -55,7 +55,7 @@ public class AccountController : ApiControllerBase
     [HttpGet("refresh")]
     public async Task<ServiceResult<TokenDto>> GetRefreshToken()
     {
-        string? refreshToken = Request.Headers["refresh-token"];
+        string refreshToken = Request.Headers["refresh-token"];
         if (refreshToken == null)
         {
             throw new KnownException("请先登录.", ServiceResultCode.RefreshTokenError);

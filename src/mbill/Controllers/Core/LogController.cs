@@ -21,7 +21,8 @@ public class LogController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult<PagedDto<LogDto>>> GetPagesAsync([FromQuery] LogPagingDto pagingDto)
     {
+        await Task.CompletedTask;
         throw new NotImplementedException("接口未实现");
-        return ServiceResult<PagedDto<LogDto>>.Successed(await _logService.GetPagesAsync(pagingDto));
+        // return ServiceResult<PagedDto<LogDto>>.Successed(await _logService.GetPagesAsync(pagingDto));
     }
 }

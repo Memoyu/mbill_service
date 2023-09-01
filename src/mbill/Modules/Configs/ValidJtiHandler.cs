@@ -11,8 +11,8 @@ public class ValidJtiHandler : AuthorizationHandler<ValidJtiRequirement>
     protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, ValidJtiRequirement requirement)
     {
         //检查是否登录
-        AuthorizationFilterContext? filterContext = context.Resource as AuthorizationFilterContext;
-        DefaultHttpContext? defaultHttpContext = context.Resource as DefaultHttpContext;
+        AuthorizationFilterContext filterContext = context.Resource as AuthorizationFilterContext;
+        DefaultHttpContext defaultHttpContext = context.Resource as DefaultHttpContext;
         if (!context.User.Identity.IsAuthenticated)
         {
             HandlerAuthenticationFailed(filterContext, "认证失败，请检查请求头或者重新登陆", ServiceResultCode.AuthenticationFailed);
@@ -20,6 +20,7 @@ public class ValidJtiHandler : AuthorizationHandler<ValidJtiRequirement>
             return;
         }
 
+        await Task.CompletedTask;
         context.Succeed(requirement);
     }
 

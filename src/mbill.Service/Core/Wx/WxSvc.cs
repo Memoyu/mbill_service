@@ -25,7 +25,7 @@ public class WxSvc : IWxSvc
 #else
         var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4-QEB2eprYBLllCNf425J80\"}";
 #endif
-
+        await Task.CompletedTask;
         var code2Session = content.FromJson<WxCode2SessionDto>();
         if (code2Session.ErrCode != 0)
             return ServiceResult<WxCode2SessionDto>.Failed($"请求微信Code2Session返回失败 错误：{content}");

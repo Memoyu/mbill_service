@@ -11,7 +11,7 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthori
 
     protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, ModuleAuthorizationRequirement requirement)
     {
-        AuthorizationFilterContext? filterContext = context.Resource as AuthorizationFilterContext;
+        AuthorizationFilterContext filterContext = context.Resource as AuthorizationFilterContext;
 
 #if DEBUG
         ICurrentUser currentUser = (ICurrentUser)filterContext.HttpContext.RequestServices.GetService(typeof(ICurrentUser));
