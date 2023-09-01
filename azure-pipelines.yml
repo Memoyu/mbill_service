@@ -84,8 +84,9 @@ stages:
           docker pull registry.cn-shenzhen.aliyuncs.com/$(imageName)
 
           echo "================= to run container ===================="
-          docker run --name $(containerName) -d -p 9600:80 registry.cn-shenzhen.aliyuncs.com/$(imageName) -v /etc/localtime:/etc/localtime
+          docker run --name $(containerName) -d -p 9600:80 registry.cn-shenzhen.aliyuncs.com/$(imageName)
           # 进行时区同步
-          # docker cp /usr/share/zoneinfo/Asia/Shanghai $(containerName):/etc/localtime 
+          docker cp /usr/share/zoneinfo/Asia/Shanghai $(containerName):/etc/localtime
+          echo 'Asia/Shanghai' >/etc/timezone && docker cp /etc/timezone $(containerName):/etc/timezone 
           echo "================= publish success ===================="
         readyTimeout: '20000'
