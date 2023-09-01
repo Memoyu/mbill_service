@@ -5,8 +5,8 @@ public class JwtTokenSvc : IJwtTokenSvc
     private readonly ILogger<JwtTokenSvc> _logger;
     private readonly IUserRepo _userRepo;
     private readonly IUserIdentitySvc _userIdentityService;
-    private readonly IJsonWebTokenService _jsonWebTokenService;
-    public JwtTokenSvc(ILogger<JwtTokenSvc> logger, IUserRepo userRepo, IUserIdentitySvc userIdentityService, IJsonWebTokenService jsonWebTokenService)
+    private readonly IJwtService _jsonWebTokenService;
+    public JwtTokenSvc(ILogger<JwtTokenSvc> logger, IUserRepo userRepo, IUserIdentitySvc userIdentityService, IJwtService jsonWebTokenService)
     {
         _logger = logger;
         _userRepo = userRepo;

@@ -2,8 +2,8 @@
 
 public class IpLimitMiddleware : IpRateLimitMiddleware
 {
-    public IpLimitMiddleware(RequestDelegate next, IProcessingStrategy processingStrategy, IOptions<IpRateLimitOptions> options, IRateLimitCounterStore counterStore, IIpPolicyStore policyStore, IRateLimitConfiguration config, ILogger<IpRateLimitMiddleware> logger)
-        : base(next, processingStrategy, options, counterStore, policyStore, config, logger)
+    public IpLimitMiddleware(RequestDelegate next, IProcessingStrategy processingStrategy, IOptions<IpRateLimitOptions> options, IIpPolicyStore policyStore, IRateLimitConfiguration config, ILogger<IpRateLimitMiddleware> logger)
+         : base(next, processingStrategy, options, policyStore, config, logger)
     {
     }
 

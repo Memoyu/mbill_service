@@ -92,9 +92,9 @@ public static class JwtBearerSetup
         });
     }
 
-    private static JsonWebTokenSettings AddSecurity(this IServiceCollection services)
+    private static JwtSettings AddSecurity(this IServiceCollection services)
     {
-        JsonWebTokenSettings jsonWebTokenSettings = new JsonWebTokenSettings(
+        JwtSettings jsonWebTokenSettings = new JwtSettings(
                        Appsettings.JwtBearer.SecurityKey,
                        TimeSpan.FromSeconds(Appsettings.JwtBearer.Expires),
                        Appsettings.JwtBearer.Audience,
@@ -102,7 +102,7 @@ public static class JwtBearerSetup
                    );
         services.AddHashService();
         services.AddICryptographyService("Memoyu.Core-cryptography");
-        services.AddJsonWebTokenService(jsonWebTokenSettings);
+        services.AddJwtService(jsonWebTokenSettings);
         return jsonWebTokenSettings;
     }
 }
