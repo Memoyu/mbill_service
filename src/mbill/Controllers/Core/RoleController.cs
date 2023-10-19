@@ -1,4 +1,6 @@
-﻿namespace mbill.Controllers.Core;
+﻿using MapsterMapper;
+
+namespace mbill.Controllers.Core;
 
 /// <summary>
 /// 角色管理

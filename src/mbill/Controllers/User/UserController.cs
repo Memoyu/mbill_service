@@ -1,4 +1,6 @@
-﻿namespace mbill.Controllers.Core;
+﻿using MapsterMapper;
+
+namespace mbill.Controllers.Core;
 
 /// <summary>
 /// 用户管理

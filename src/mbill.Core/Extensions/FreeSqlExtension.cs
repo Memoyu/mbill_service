@@ -101,38 +101,6 @@ public static class FreeSqlExtension
         {
             case DataType.MySql:
                 return builder.CreateDatabaseIfNotExistsMySql(connectionString);
-            case DataType.SqlServer:
-                return builder.CreateDatabaseIfNotExistsSqlServer(connectionString);
-            case DataType.PostgreSQL:
-                break;
-            case DataType.Oracle:
-                break;
-            case DataType.Sqlite:
-                return builder;
-            case DataType.OdbcOracle:
-                break;
-            case DataType.OdbcSqlServer:
-                break;
-            case DataType.OdbcMySql:
-                break;
-            case DataType.OdbcPostgreSQL:
-                break;
-            case DataType.Odbc:
-                break;
-            case DataType.OdbcDameng:
-                break;
-            case DataType.MsAccess:
-                break;
-            case DataType.Dameng:
-                break;
-            case DataType.OdbcKingbaseES:
-                break;
-            case DataType.ShenTong:
-                break;
-            case DataType.KingbaseES:
-                break;
-            case DataType.Firebird:
-                break;
             default:
                 break;
         }
@@ -177,54 +145,6 @@ public static class FreeSqlExtension
         return builder;
     }
 
-    public static FreeSqlBuilder CreateDatabaseIfNotExistsSqlServer(this FreeSqlBuilder builder, string connectionString = "")
-    {
-        if (connectionString == "")
-        {
-            connectionString = GetConnectionString(builder);
-        }
-        SqlConnectionStringBuilder conStrBuilder = new SqlConnectionStringBuilder(connectionString);
-        string createDatabaseSql;
-        if (!string.IsNullOrEmpty(conStrBuilder.AttachDBFilename))
-        {
-            string fileName = ExpandFileName(conStrBuilder.AttachDBFilename);
-            string name = Path.GetFileNameWithoutExtension(fileName);
-            string logFileName = Path.ChangeExtension(fileName, ".ldf");
-            createDatabaseSql = @$"CREATE DATABASE {conStrBuilder.InitialCatalog}   on  primary   
-                (
-                    name = '{name}',
-                    filename = '{fileName}'
-                )
-                log on
-                (
-                    name= '{name}_log',
-                    filename = '{logFileName}'
-                )";
-        }
-        else
-        {
-            createDatabaseSql = @$"CREATE DATABASE {conStrBuilder.InitialCatalog}";
-        }
-
-        using SqlConnection cnn =
-            new SqlConnection(
-                $"Data Source={conStrBuilder.DataSource};Integrated Security = True;User ID={conStrBuilder.UserID};Password={conStrBuilder.Password};Initial Catalog=master;Min pool size=1");
-        cnn.Open();
-        using SqlCommand cmd = cnn.CreateCommand();
-        cmd.CommandText = $"select * from sysdatabases where name = '{conStrBuilder.InitialCatalog}'";
-
-        SqlDataAdapter apter = new SqlDataAdapter(cmd);
-        DataSet ds = new DataSet();
-        apter.Fill(ds);
-
-        if (ds.Tables[0].Rows.Count == 0)
-        {
-            cmd.CommandText = createDatabaseSql;
-            cmd.ExecuteNonQuery();
-        }
-
-        return builder;
-    }
     private static string ExpandFileName(string fileName)
     {
         if (fileName.StartsWith("|DataDirectory|", StringComparison.OrdinalIgnoreCase))

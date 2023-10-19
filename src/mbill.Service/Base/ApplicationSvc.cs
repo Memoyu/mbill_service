@@ -1,4 +1,6 @@
-﻿namespace mbill.Service.Base;
+﻿using MapsterMapper;
+
+namespace mbill.Service.Base;
 
 public class ApplicationSvc : IApplicationSvc
 {

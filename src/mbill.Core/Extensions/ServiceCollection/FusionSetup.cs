@@ -1,4 +1,9 @@
-﻿using mbill.ToolKits.Qiniu;
+﻿using EasyCaching.FreeRedis;
+using EasyCaching.Serialization.SystemTextJson.Configurations;
+using FreeRedis;
+using Mapster;
+using MapsterMapper;
+using mbill.ToolKits.Qiniu;
 using MongoDB.Driver;
 
 namespace mbill.Core.Extensions.ServiceCollection;
@@ -9,13 +14,33 @@ namespace mbill.Core.Extensions.ServiceCollection;
 public static class FusionSetup
 {
     /// <summary>
-    /// 配置注册Automapper 服务
+    /// 配置注册Mapster服务
     /// </summary>
-    public static IServiceCollection AddAutoMapper(this IServiceCollection services)
+    public static IServiceCollection AddMapper(this IServiceCollection services, params Assembly[] assemblies)
     {
-        Assembly assemblys = Assembly.Load("mbill.Service");
-        return services.AddAutoMapper(assemblys);
+        // 获取全局映射配置
+        var config = TypeAdapterConfig.GlobalSettings;
+
+        // 扫描所有继承  IRegister 接口的对象映射配置
+        if (assemblies != null && assemblies.Length > 0) config.Scan(assemblies);
+
+        // 配置默认全局映射（支持覆盖）
+        config.Default
+              .NameMatchingStrategy(NameMatchingStrategy.Flexible)
+              .PreserveReference(true);
+
+        // 配置默认全局映射（忽略大小写敏感）
+        config.Default
+              .NameMatchingStrategy(NameMatchingStrategy.IgnoreCase)
+              .PreserveReference(true);
+
+        // 配置支持依赖注入
+        services.AddSingleton(config);
+        services.AddScoped<IMapper, ServiceMapper>();
+
+        return services;
     }
+
 
     /// <summary>
     /// 配置注册监控
@@ -44,7 +69,8 @@ public static class FusionSetup
         //从IpRateLimiting.json获取相应配置
         services.Configure<IpRateLimitOptions>(Appsettings.IpRateLimitingConfig);
         services.Configure<IpRateLimitPolicies>(Appsettings.IpRateLimitPoliciesConfig);
-        services.AddDistributedRateLimiting();
+        services.AddInMemoryRateLimiting();
+
         //配置（计数器密钥生成器）
         services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
@@ -52,39 +78,47 @@ public static class FusionSetup
     }
 
     /// <summary>
-    /// 配置注册CSRedis
+    /// 配置注册EasyCaching
     /// </summary>
-    public static IServiceCollection AddCsRedisCore(this IServiceCollection services)
+    public static IServiceCollection AddEasyCaching(this IServiceCollection services)
     {
-        CSRedisClient csRedisClient = new CSRedisClient(Appsettings.CsRedisCon);
-        //初始化 RedisHelper
-        RedisHelper.Initialization(csRedisClient);
-
-        //注册mvc分布式缓存
-        return services.AddSingleton<IDistributedCache>(new CSRedisCache(RedisHelper.Instance));
+        services.AddEasyCaching(ecops =>
+             ecops.UseFreeRedis(frops =>
+             {
+                 frops.DBConfig = new FreeRedisDBOptions
+                 {
+                     ConnectionStrings = new List<ConnectionStringBuilder>
+                     {
+                        Appsettings.RedisCon
+                     }
+                 };
+                 frops.SerializerName = "json";
+             }).UseRedisLock().WithSystemTextJson());
+        return services;
     }
+
     /// <summary>
     /// 配置注册跨域
     /// </summary>
     /// <param name="services"></param>
     public static IServiceCollection AddCorsConfig(this IServiceCollection services)
     {
-       return  services.AddCors(options =>
-        {
-            options.AddPolicy(Appsettings.Cors.CorsName, builder =>
-            {
-                builder
-                    .WithOrigins(
-                        Appsettings.Cors
-                                  .CorsOrigins
-                                  .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                  .ToArray()
-                    )
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-            });
-        });
+        return services.AddCors(options =>
+         {
+             options.AddPolicy(Appsettings.Cors.CorsName, builder =>
+             {
+                 builder
+                     .WithOrigins(
+                         Appsettings.Cors
+                                   .CorsOrigins
+                                   .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                                   .ToArray()
+                     )
+                     .AllowAnyHeader()
+                     .AllowAnyMethod()
+                     .AllowCredentials();
+             });
+         });
     }
 
     /// <summary>
@@ -117,6 +151,6 @@ public static class FusionSetup
     /// <param name="services"></param>
     public static IServiceCollection AddMongoClient(this IServiceCollection services)
     {
-       return services.AddSingleton(new MongoClient(Appsettings.MongoDBCon));
+        return services.AddSingleton(new MongoClient(Appsettings.MongoDBCon));
     }
 }

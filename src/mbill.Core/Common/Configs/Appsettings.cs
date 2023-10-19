@@ -176,9 +176,9 @@ public class Appsettings
     #region Redis
 
     /// <summary>
-    /// CsRedis连接字符串
+    /// Redis连接字符串
     /// </summary>
-    public static string CsRedisCon => _configuration["ConnectionStrings:CsRedis"];
+    public static string RedisCon => _configuration["ConnectionStrings:Redis"];
 
     #endregion
 }
