@@ -1,28 +1,26 @@
 ﻿namespace mbill.Core.Domains.Common.Base;
 
 #region EntityDto
+
 public interface IEntityDto
 {
 }
 
-public interface IEntityDto<TKey> : IEntityDto
-{
-    TKey Id { get; set; }
-}
-
-public abstract class EntityDto<TKey> : IEntityDto<TKey>
+public abstract class EntityDto : IEntityDto
 {
     /// <summary>
-    /// 主键Id
+    /// 自增主键Id
     /// </summary>
-    public TKey Id { get; set; }
+    public long Id { get; set; }
+
+    /// <summary>
+    /// 业务主键Id(雪花Id)
+    /// </summary>
+    public long BId { get; set; }
 }
 
-public abstract class EntityDto : EntityDto<long>
-{
-}
 
-public class FullEntityDto<TKey> : EntityDto<TKey>, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
+public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
 {
     /// <summary>
     /// 创建者ID
@@ -60,44 +58,42 @@ public class FullEntityDto<TKey> : EntityDto<TKey>, IUpdateAuditEntity, IDeleteA
     public DateTime? UpdateTime { get; set; }
 }
 
-public abstract class FullEntityDto : FullEntityDto<long>
-{
-}
 #endregion EntityDto
 
 #region Entity
-public abstract class Entity<TKey> : IEntity<TKey>
+
+public interface IEntity
 {
     /// <summary>
-    /// 主键Id
+    /// 自增主键Id
+    /// </summary>
+    public long Id { get; set; }
+
+    /// <summary>
+    /// 业务主键Id(雪花Id)
+    /// </summary>
+    public long BId { get; set; }
+}
+
+[Serializable]
+public class Entity : IEntity
+{
+    /// <summary>
+    /// 自增主键Id
     /// </summary>
     [Column(IsPrimary = true, IsIdentity = true, Position = 1)]
-    public TKey Id { get; set; }
-}
+    public long Id { get; set; }
 
-[Serializable]
-public abstract class Entity : Entity<long>
-{
-}
-
-public interface IEntity<T>
-{
     /// <summary>
-    /// 主键Id
+    /// 业务主键Id(雪花Id)
     /// </summary>
-    T Id { get; set; }
+    [Column(Position = 2)]
+    public long BId { get; set; }
 }
 
-public interface IEntity : IEntity<long>
-{
-}
 
 [Serializable]
-public class FullAduitEntity : FullAduitEntity<long>
-{
-}
-
-public class FullAduitEntity<TKey> : Entity<TKey>, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
+public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
 {
     /// <summary>
     /// 创建者ID

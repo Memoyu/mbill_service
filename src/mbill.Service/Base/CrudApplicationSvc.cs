@@ -2,8 +2,8 @@
 
 public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TSimpleOutputDto, TKey, TCreateInput, TUpdateInput>
         : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, TKey, TCreateInput, TUpdateInput>
-        where TEntity : class, IEntity<TKey>
-        where TGetOutputDto : IEntityDto<TKey>
+        where TEntity : class, IEntity
+        where TGetOutputDto : IEntityDto
 {
     /// <summary>
     /// 仓储

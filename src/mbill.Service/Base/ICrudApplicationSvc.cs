@@ -1,7 +1,7 @@
 ﻿namespace mbill.Service.Base;
 
 public interface ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, in TKey, in TCreateInput, in TUpdateInput>
-    where TGetOutputDto : IEntityDto<TKey>
+    where TGetOutputDto : IEntityDto
 {
     Task<ServiceResult<TGetOutputDto>> GetAsync(TKey id);
 
