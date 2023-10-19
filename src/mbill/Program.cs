@@ -1,4 +1,3 @@
-using mbill.Core.Common.Configs;
 using MongoDB.Driver;
 using Serilog.Events;
 
@@ -28,6 +27,9 @@ public class Program
                 var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
                 // seed IP data from appsettings
                 await ipPolicyStore.SeedAsync();
+                
+                // ÅäÖÃÑ©»¨IDÉú³ÉÆ÷
+                SnowFlake.SnowFlakeConfig();
             }
             catch (Exception ex)
             {
