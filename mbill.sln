@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.Core.Test", "test\Mbi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mbill.Service.Test", "test\Mbill.Service.Test\Mbill.Service.Test.csproj", "{65780A13-C2C2-4252-B5CA-523AC2173D42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mbill.Infrastructure.Test", "test\Mbill.Infrastructure.Test\Mbill.Infrastructure.Test.csproj", "{E0E1078A-8A03-4C66-BDBE-E9923404265B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E1078A-8A03-4C66-BDBE-E9923404265B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E1078A-8A03-4C66-BDBE-E9923404265B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E1078A-8A03-4C66-BDBE-E9923404265B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E1078A-8A03-4C66-BDBE-E9923404265B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{D468A268-0C18-4A50-A872-7877BD9DD38C} = {80D76647-F232-44DA-9035-91A08E47BC62}
 		{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54} = {9D00EEBE-0ECA-4BD5-B3A6-60D36CF3CE3B}
 		{65780A13-C2C2-4252-B5CA-523AC2173D42} = {9D00EEBE-0ECA-4BD5-B3A6-60D36CF3CE3B}
+		{E0E1078A-8A03-4C66-BDBE-E9923404265B} = {9D00EEBE-0ECA-4BD5-B3A6-60D36CF3CE3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92900FFE-D804-41EE-81C6-BC4D855601B8}
