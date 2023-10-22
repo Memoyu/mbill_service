@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.ToolKits", "src\Mbill
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.Core.Test", "test\Mbill.Core.Test\Mbill.Core.Test.csproj", "{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mbill.Service.Test", "test\Mbill.Service.Test\Mbill.Service.Test.csproj", "{65780A13-C2C2-4252-B5CA-523AC2173D42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65780A13-C2C2-4252-B5CA-523AC2173D42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508} = {80D76647-F232-44DA-9035-91A08E47BC62}
 		{D468A268-0C18-4A50-A872-7877BD9DD38C} = {80D76647-F232-44DA-9035-91A08E47BC62}
 		{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54} = {9D00EEBE-0ECA-4BD5-B3A6-60D36CF3CE3B}
+		{65780A13-C2C2-4252-B5CA-523AC2173D42} = {9D00EEBE-0ECA-4BD5-B3A6-60D36CF3CE3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92900FFE-D804-41EE-81C6-BC4D855601B8}
