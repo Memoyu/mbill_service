@@ -1,6 +1,6 @@
 ﻿using ILogger = Serilog.ILogger;
 
-namespace mbill.Core.AOP.Middleware;
+namespace Mbill.Core.AOP.Middleware;
 
 /// <summary>
 /// 中间件：记录请求IP

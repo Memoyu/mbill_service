@@ -1,6 +1,6 @@
 ﻿using Mapster;
 
-namespace mbill.Service.Common.Registers.Core;
+namespace Mbill.Service.Common.Registers.Core;
 
 public class UserRegister : IRegister
 {

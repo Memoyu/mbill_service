@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.User.Input;
+﻿namespace Mbill.Service.Core.User.Input;
 
 public class UserPagingDto : PagingDto
 {

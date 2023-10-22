@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Data.Authorization;
+﻿namespace Mbill.Core.Data.Authorization;
 
 public class ModuleAuthorizationRequirement : OperationAuthorizationRequirement
 {

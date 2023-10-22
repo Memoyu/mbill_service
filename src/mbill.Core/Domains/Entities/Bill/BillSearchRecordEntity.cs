@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace mbill.Core.Domains.Entities.Bill
+namespace Mbill.Core.Domains.Entities.Bill
 {
     [MongoCollection(Name = "bill_search_record")]
     public class BillSearchRecordEntity

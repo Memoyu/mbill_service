@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Entities.PreOrder;
+﻿namespace Mbill.Core.Domains.Entities.PreOrder;
 
 /// <summary>
 /// 预购清单分组实体

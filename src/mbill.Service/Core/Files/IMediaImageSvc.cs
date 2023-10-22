@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Files;
+﻿namespace Mbill.Service.Core.Files;
 
 public interface IMediaImageSvc
 {

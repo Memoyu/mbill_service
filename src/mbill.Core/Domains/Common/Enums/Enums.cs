@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Common.Enums;
+﻿namespace Mbill.Core.Domains.Common.Enums;
 
 public enum PreOrderStatusEnum
 {

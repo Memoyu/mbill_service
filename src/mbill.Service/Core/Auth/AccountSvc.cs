@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace mbill.Service.Core.Auth;
+namespace Mbill.Service.Core.Auth;
 
 public class AccountSvc : ApplicationSvc, IAccountSvc
 {

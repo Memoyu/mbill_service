@@ -1,11 +1,11 @@
-﻿using mbill.Core.Common.Configs;
-using mbill.Core.Domains.Entities.Core;
-using mbill.Core.Interface.IRepositories.Core;
-using mbill.ToolKits.Qiniu;
+﻿using Mbill.Core.Common.Configs;
+using Mbill.Core.Domains.Entities.Core;
+using Mbill.Core.Interface.IRepositories.Core;
+using Mbill.ToolKits.Qiniu;
 using Microsoft.Extensions.Options;
 using System.IO;
 
-namespace mbill.Infrastructure.Repository.Core
+namespace Mbill.Infrastructure.Repository.Core
 {
     public class FileRepo : AuditBaseRepo<FileEntity>, IFileRepo
     {

@@ -1,9 +1,9 @@
-﻿using mbill.Core.Domains.Entities.Core;
-using mbill.Core.Interface.IRepositories.Core;
-using mbill.ToolKits.Qiniu;
+﻿using Mbill.Core.Domains.Entities.Core;
+using Mbill.Core.Interface.IRepositories.Core;
+using Mbill.ToolKits.Qiniu;
 using Microsoft.Extensions.Options;
 
-namespace mbill.Infrastructure.Repository.Core
+namespace Mbill.Infrastructure.Repository.Core
 {
     public class MediaImageRepo : AuditBaseRepo<MediaImageEntity>, IMediaImageRepo
     {

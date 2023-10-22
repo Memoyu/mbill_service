@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Base;
+﻿namespace Mbill.Service.Base;
 
 public interface ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, in TKey, in TCreateInput, in TUpdateInput>
     where TGetOutputDto : IEntityDto

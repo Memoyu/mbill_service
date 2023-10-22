@@ -6,12 +6,12 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>mbill.Service.xml</DocumentationFile>
+    <DocumentationFile>Mbill.Service.xml</DocumentationFile>
     <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mbill.Core\mbill.Core.csproj" />
+    <ProjectReference Include="..\Mbill.Core\Mbill.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

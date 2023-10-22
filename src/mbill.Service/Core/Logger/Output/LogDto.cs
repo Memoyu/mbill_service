@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Logger.Output;
+﻿namespace Mbill.Service.Core.Logger.Output;
 
 public class LogDto : FullEntityDto
 {

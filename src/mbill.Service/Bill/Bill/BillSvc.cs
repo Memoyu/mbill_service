@@ -1,8 +1,8 @@
-﻿using mbill.Core.Domains.Common.Base;
+﻿using Mbill.Core.Domains.Common.Base;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace mbill.Service.Bill.Bill;
+namespace Mbill.Service.Bill.Bill;
 
 public class BillSvc : ApplicationSvc, IBillSvc
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace mbill.Core.Domains.Common.Enums.Base;
+namespace Mbill.Core.Domains.Common.Enums.Base;
 
 /// <summary>
 /// 服务层响应枚举码

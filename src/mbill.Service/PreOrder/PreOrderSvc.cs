@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.PreOrder;
+﻿namespace Mbill.Service.PreOrder;
 
 public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOrderSimpleDto, long, CreatePreOrderInput, UpdatePreOrderInput>, IPreOrderSvc
 {

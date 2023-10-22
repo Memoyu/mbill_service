@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Interface.IRepositories.Bill;
+﻿namespace Mbill.Core.Interface.IRepositories.Bill;
 
 public interface ICategoryRepo : IAuditBaseRepo<CategoryEntity>
 {

@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.PreOrder.Input;
+﻿namespace Mbill.Service.PreOrder.Input;
 
 public class UpdatePreOrderGroupInput
 {

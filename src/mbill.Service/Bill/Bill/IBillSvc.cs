@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Bill;
+﻿namespace Mbill.Service.Bill.Bill;
 
 public interface IBillSvc
 {

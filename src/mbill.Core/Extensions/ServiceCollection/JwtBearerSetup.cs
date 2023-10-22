@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Extensions.ServiceCollection;
+﻿namespace Mbill.Core.Extensions.ServiceCollection;
 
 /// <summary>
 /// 配置Token

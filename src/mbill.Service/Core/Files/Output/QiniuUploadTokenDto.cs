@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Files.Output
+﻿namespace Mbill.Service.Core.Files.Output
 {
     public class QiniuUploadTokenDto
     {

@@ -1,4 +1,4 @@
-﻿namespace mbill.Controllers.Core;
+﻿namespace Mbill.Controllers.Core;
 
 [ApiController]
 public class ApiControllerBase : ControllerBase

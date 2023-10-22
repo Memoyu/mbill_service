@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Interface.IRepositories.PreOrder;
+﻿namespace Mbill.Core.Interface.IRepositories.PreOrder;
 
 public interface IPreOrderRepo : IAuditBaseRepo<PreOrderEntity>
 {

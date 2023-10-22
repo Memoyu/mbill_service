@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Asset;
+﻿namespace Mbill.Service.Bill.Asset;
 
 public class AssetSvc : ApplicationSvc, IAssetSvc
 {

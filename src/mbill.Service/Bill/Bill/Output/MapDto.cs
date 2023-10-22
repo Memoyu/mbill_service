@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Bill.Output;
+﻿namespace Mbill.Service.Bill.Bill.Output;
 
 public class MapDto
 {

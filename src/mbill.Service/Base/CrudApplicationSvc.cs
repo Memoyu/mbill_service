@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Base;
+﻿namespace Mbill.Service.Base;
 
 public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TSimpleOutputDto, TKey, TCreateInput, TUpdateInput>
         : ApplicationSvc, ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, TKey, TCreateInput, TUpdateInput>

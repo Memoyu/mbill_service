@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Logger.Input;
+﻿namespace Mbill.Service.Core.Logger.Input;
 
 public class LogPagingDto : PagingDto
 {

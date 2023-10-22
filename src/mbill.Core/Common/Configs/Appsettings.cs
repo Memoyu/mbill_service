@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Common.Configs;
+﻿namespace Mbill.Core.Common.Configs;
 
 public class Appsettings
 {

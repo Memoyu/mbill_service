@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Filters;
+﻿namespace Mbill.Core.AOP.Filters;
 
 public class SwaggerDocumentFilter : IDocumentFilter
 {

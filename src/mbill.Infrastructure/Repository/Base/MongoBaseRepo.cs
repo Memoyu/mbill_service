@@ -1,12 +1,12 @@
 ﻿using FreeSql.DataAnnotations;
-using mbill.Core.AOP.Attributes;
-using mbill.Core.Common.Configs;
-using mbill.Core.Extensions;
-using mbill.Core.Interface.IRepositories.Base;
+using Mbill.Core.AOP.Attributes;
+using Mbill.Core.Common.Configs;
+using Mbill.Core.Extensions;
+using Mbill.Core.Interface.IRepositories.Base;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace mbill.Infrastructure.Repository.Base;
+namespace Mbill.Infrastructure.Repository.Base;
 
 public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     where T : class, new()

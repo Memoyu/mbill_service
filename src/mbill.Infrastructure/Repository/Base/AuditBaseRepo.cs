@@ -1,6 +1,6 @@
-﻿using mbill.Core.Domains.Common.Base;
-using mbill.Core.Interface.IRepositories.Base;
-using mbill.Core.Security;
+﻿using Mbill.Core.Domains.Common.Base;
+using Mbill.Core.Interface.IRepositories.Base;
+using Mbill.Core.Security;
 using FreeSql;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace mbill.Infrastructure.Repository.Base
+namespace Mbill.Infrastructure.Repository.Base
 {
     public class AuditBaseRepo<TEntity> : AuditBaseRepo<TEntity, long>, IAuditBaseRepo<TEntity> where TEntity : class, new()
     {

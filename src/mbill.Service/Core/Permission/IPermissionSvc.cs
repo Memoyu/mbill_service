@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Permission;
+﻿namespace Mbill.Service.Core.Permission;
 
 public interface IPermissionSvc
 {

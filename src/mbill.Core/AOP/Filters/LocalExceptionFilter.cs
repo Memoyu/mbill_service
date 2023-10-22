@@ -1,6 +1,6 @@
 ﻿using ILogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace mbill.Core.AOP.Filters;
+namespace Mbill.Core.AOP.Filters;
 
 /// <summary>
 /// 出现异常时，如KnownException业务异常，会先执行方法过滤器 （LogActionFilterAttribute）的OnActionExecuted才会执行此异常过滤器。

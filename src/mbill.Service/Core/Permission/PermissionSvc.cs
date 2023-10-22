@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Permission;
+﻿namespace Mbill.Service.Core.Permission;
 public class PermissionSvc : ApplicationSvc, IPermissionSvc
 {
     private readonly IPermissionRepo _permissionRepo;

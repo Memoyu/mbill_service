@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Extensions.ServiceCollection;
+﻿namespace Mbill.Core.Extensions.ServiceCollection;
 
 /// <summary>
 /// 配置注册Swagger
@@ -12,8 +12,8 @@ public static class SwaggerSetup
                 //遍历应用Swagger分组信息
             ApiInfo.ApiInfos.ForEach(a => opt.SwaggerDoc(a.UrlPrefix, a.OpenApiInfo));
 
-            opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "mbill.xml"));
-            opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "mbill.Service.xml"));
+            opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Mbill.xml"));
+            opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Mbill.Service.xml"));
 
 
                 #region 小绿锁
@@ -70,7 +70,7 @@ public static class SwaggerSetup
                         TokenUrl = new Uri("/connect/token", UriKind.Relative),
                         Scopes = new Dictionary<string, string>
                         {
-                                { "mbill", "Access read/write mbill" }
+                                { "Mbill", "Access read/write mbill" }
                         }
                     },
                     Password = new OpenApiOAuthFlow()
@@ -81,7 +81,7 @@ public static class SwaggerSetup
                         {
                                 { "openid", "Access read openid" },
                                 { "offline_access", "Access read offline_access" },
-                                { "mbill", "Access read/write mbill" }
+                                { "Mbill", "Access read/write mbill" }
                         }
                     }
                 }

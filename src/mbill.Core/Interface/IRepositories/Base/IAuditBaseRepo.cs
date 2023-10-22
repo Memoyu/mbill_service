@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Interface.IRepositories.Base;
+﻿namespace Mbill.Core.Interface.IRepositories.Base;
 
 public interface IAuditBaseRepo<TEntity> : IBaseRepository<TEntity, long> where TEntity : class
 {

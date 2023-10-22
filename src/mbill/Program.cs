@@ -1,7 +1,7 @@
 using MongoDB.Driver;
 using Serilog.Events;
 
-namespace mbill;
+namespace Mbill;
 
 public class Program
 {

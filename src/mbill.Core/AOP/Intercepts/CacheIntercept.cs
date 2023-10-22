@@ -1,6 +1,6 @@
 ﻿using EasyCaching.Core;
 
-namespace mbill.Core.AOP.Intercepts;
+namespace Mbill.Core.AOP.Intercepts;
 
 public class CacheIntercept : IInterceptor
 {

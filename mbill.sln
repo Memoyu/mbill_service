@@ -14,17 +14,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9D00EEBE-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{4B5A7A13-CE91-4AD3-A1C8-203F3CFC6C59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mbill.Core", "src\mbill.Core\mbill.Core.csproj", "{F04C9C57-6189-400F-A886-F25122ACADE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.Core", "src\Mbill.Core\Mbill.Core.csproj", "{F04C9C57-6189-400F-A886-F25122ACADE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mbill", "src\mbill\mbill.csproj", "{30377008-3CDA-4999-BB8E-434AC52323F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill", "src\Mbill\Mbill.csproj", "{30377008-3CDA-4999-BB8E-434AC52323F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mbill.Service", "src\mbill.Service\mbill.Service.csproj", "{3A668B91-9808-48F6-A464-BCABE052AD27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.Service", "src\Mbill.Service\Mbill.Service.csproj", "{3A668B91-9808-48F6-A464-BCABE052AD27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mbill.Infrastructure", "src\mbill.Infrastructure\mbill.Infrastructure.csproj", "{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.Infrastructure", "src\Mbill.Infrastructure\Mbill.Infrastructure.csproj", "{AFC103DE-BBB7-4A80-A1A5-F61AE7BF2508}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mbill.ToolKits", "src\mbill.ToolKits\mbill.ToolKits.csproj", "{D468A268-0C18-4A50-A872-7877BD9DD38C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.ToolKits", "src\Mbill.ToolKits\Mbill.ToolKits.csproj", "{D468A268-0C18-4A50-A872-7877BD9DD38C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mbill.Core.Test", "test\mbill.Core.Test\mbill.Core.Test.csproj", "{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mbill.Core.Test", "test\Mbill.Core.Test\Mbill.Core.Test.csproj", "{1EC7B87E-968C-43D4-ACC9-7D0DB6AD5A54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

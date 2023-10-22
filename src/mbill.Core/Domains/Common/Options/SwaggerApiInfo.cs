@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Common.Options;
+﻿namespace Mbill.Core.Domains.Common.Options;
 
 public class SwaggerApiInfo
 {

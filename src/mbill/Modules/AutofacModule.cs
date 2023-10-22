@@ -1,6 +1,6 @@
 ﻿using Module = Autofac.Module;
 
-namespace mbill.Modules;
+namespace Mbill.Modules;
 
 public class AutofacModule : Module
 {

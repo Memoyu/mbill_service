@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.User.Output;
+﻿namespace Mbill.Service.Core.User.Output;
 
 public class UserDto : FullEntityDto
 {

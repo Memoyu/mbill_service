@@ -1,4 +1,4 @@
-﻿namespace mbill.ToolKits.Utils;
+﻿namespace Mbill.ToolKits.Utils;
 
 public class EncryptUtil
 {

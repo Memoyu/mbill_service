@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace mbill.Core.Domains.Entities.Bill;
+namespace Mbill.Core.Domains.Entities.Bill;
 
 /// <summary>
 /// 流水记录实体

@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Security;
+﻿namespace Mbill.Core.Security;
 
 public class PermissionDefinition
 {

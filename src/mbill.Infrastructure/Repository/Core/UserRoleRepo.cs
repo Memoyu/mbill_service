@@ -1,10 +1,10 @@
 ﻿using FreeSql;
-using mbill.Core.Interface.IRepositories.Core;
-using mbill.Infrastructure.Repository.Base;
-using mbill.Core.Security;
-using mbill.Core.Domains.Entities.Core;
+using Mbill.Core.Interface.IRepositories.Core;
+using Mbill.Infrastructure.Repository.Base;
+using Mbill.Core.Security;
+using Mbill.Core.Domains.Entities.Core;
 
-namespace mbill.Infrastructure.Repository.Core
+namespace Mbill.Infrastructure.Repository.Core
 {
     public class UserRoleRepo : AuditBaseRepo<UserRoleEntity>, IUserRoleRepo
     {

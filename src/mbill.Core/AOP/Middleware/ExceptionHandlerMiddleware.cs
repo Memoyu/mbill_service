@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Middleware;
+﻿namespace Mbill.Core.AOP.Middleware;
 
 /// <summary>
 /// 异常处理中间件

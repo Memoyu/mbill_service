@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Base;
+﻿namespace Mbill.Service.Base;
 
 public interface IApplicationSvc
 {

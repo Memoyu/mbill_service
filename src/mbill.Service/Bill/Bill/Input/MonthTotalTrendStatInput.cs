@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Bill.Input;
+﻿namespace Mbill.Service.Bill.Bill.Input;
 
 public class MonthTotalTrendStatInput
 {

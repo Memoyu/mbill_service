@@ -1,7 +1,7 @@
 ﻿using Qiniu.Storage;
 using System.IO;
 
-namespace mbill.ToolKits.Qiniu;
+namespace Mbill.ToolKits.Qiniu;
 
 public interface IQiniuClient
 {

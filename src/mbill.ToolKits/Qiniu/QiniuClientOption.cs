@@ -1,4 +1,4 @@
-﻿namespace mbill.ToolKits.Qiniu;
+﻿namespace Mbill.ToolKits.Qiniu;
 
 public class QiniuClientOption
 {

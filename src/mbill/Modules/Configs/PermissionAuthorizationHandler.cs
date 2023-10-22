@@ -1,4 +1,4 @@
-﻿namespace mbill.Modules.Configs;
+﻿namespace Mbill.Modules.Configs;
 
 public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthorizationRequirement>
 {

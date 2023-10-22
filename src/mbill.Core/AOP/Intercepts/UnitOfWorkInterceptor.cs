@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Intercepts;
+﻿namespace Mbill.Core.AOP.Intercepts;
 
 public class UnitOfWorkInterceptor : IInterceptor
 {

@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Files.Input
+﻿namespace Mbill.Service.Core.Files.Input
 {
     public class MediaImagePagingInput : PagingDto
     {

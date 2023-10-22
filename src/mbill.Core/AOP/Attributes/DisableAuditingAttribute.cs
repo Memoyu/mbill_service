@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Attributes;
+﻿namespace Mbill.Core.AOP.Attributes;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Property)]
 public class DisableAuditingAttribute : Attribute

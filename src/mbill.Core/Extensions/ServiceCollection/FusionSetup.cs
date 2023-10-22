@@ -3,10 +3,10 @@ using EasyCaching.Serialization.SystemTextJson.Configurations;
 using FreeRedis;
 using Mapster;
 using MapsterMapper;
-using mbill.ToolKits.Qiniu;
+using Mbill.ToolKits.Qiniu;
 using MongoDB.Driver;
 
-namespace mbill.Core.Extensions.ServiceCollection;
+namespace Mbill.Core.Extensions.ServiceCollection;
 
 /// <summary>
 /// 配置注册服务融合

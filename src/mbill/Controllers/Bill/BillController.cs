@@ -1,4 +1,4 @@
-﻿namespace mbill.Controllers.Bill;
+﻿namespace Mbill.Controllers.Bill;
 
 /// <summary>
 /// 账单管理

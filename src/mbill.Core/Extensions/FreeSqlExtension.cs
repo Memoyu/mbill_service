@@ -1,6 +1,6 @@
 ﻿using DataType = FreeSql.DataType;
 
-namespace mbill.Core.Extensions;
+namespace Mbill.Core.Extensions;
 
 /// <summary>
 /// FreeSql 扩展方法

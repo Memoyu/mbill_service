@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Asset.Input;
+﻿namespace Mbill.Service.Bill.Asset.Input;
 
 public class EditAssetInput
 {

@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Middleware;
+﻿namespace Mbill.Core.AOP.Middleware;
 
 public static class SwaggerMiddleware
 {
@@ -23,7 +23,7 @@ public static class SwaggerMiddleware
                 //API前缀设为空
             options.RoutePrefix = string.Empty;
                 //API页面标题
-            options.DocumentTitle = "mbill_ApiDoc";
+            options.DocumentTitle = "Mbill_ApiDoc";
 
         });
     }

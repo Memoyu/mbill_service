@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Exceptions;
+﻿namespace Mbill.Core.Exceptions;
 
 [Serializable]
 public class KnownException : ApplicationException

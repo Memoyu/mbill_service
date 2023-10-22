@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Permission.Output;
+﻿namespace Mbill.Service.Core.Permission.Output;
 
 public class RolePermissionDto : EntityDto
 {

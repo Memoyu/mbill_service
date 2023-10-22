@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Entities.User;
+﻿namespace Mbill.Core.Domains.Entities.User;
 
 /// <summary>
 /// 用户实体

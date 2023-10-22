@@ -1,6 +1,6 @@
-using mbill.Core.Common;
+using Mbill.Core.Common;
 
-namespace mbill.Core.Test
+namespace Mbill.Core.Test
 {
     public class SnowFlakeTest
     {

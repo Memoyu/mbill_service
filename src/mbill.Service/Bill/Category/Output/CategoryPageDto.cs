@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Category.Output;
+﻿namespace Mbill.Service.Bill.Category.Output;
 
 public class CategoryPageDto : CategoryDto
 {

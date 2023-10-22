@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Common.Consts;
+﻿namespace Mbill.Core.Domains.Common.Consts;
 
 public class SystemConst
     {

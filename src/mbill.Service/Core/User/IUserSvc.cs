@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.User;
+﻿namespace Mbill.Service.Core.User;
 
 public interface IUserSvc
 {

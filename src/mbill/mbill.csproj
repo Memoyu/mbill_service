@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>mbill.xml</DocumentationFile>
+    <DocumentationFile>Mbill.xml</DocumentationFile>
     <OutputPath>bin\Debug\</OutputPath>
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -26,7 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="index.html" />
+    <EmbeddedResource Include="index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,8 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mbill.Infrastructure\mbill.Infrastructure.csproj" />
-    <ProjectReference Include="..\mbill.Service\mbill.Service.csproj" />
+    <ProjectReference Include="..\Mbill.Infrastructure\Mbill.Infrastructure.csproj" />
+    <ProjectReference Include="..\Mbill.Service\Mbill.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

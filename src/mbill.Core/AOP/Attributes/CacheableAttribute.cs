@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Attributes;
+﻿namespace Mbill.Core.AOP.Attributes;
 
 [AttributeUsage(AttributeTargets.Method)]
 public class CacheableAttribute : Attribute

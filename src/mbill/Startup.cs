@@ -1,4 +1,4 @@
-namespace mbill;
+namespace Mbill;
 
 public class Startup
 {
@@ -13,7 +13,7 @@ public class Startup
         services.AddController();//≈‰÷√◊¢≤·Controller
         services.AddJwtBearer();//≈‰÷√Jwt
         services.AddSwagger();//≈‰÷√◊¢≤·Swagger
-        services.AddMapper(Assembly.Load("mbill.Service"));//≈‰÷√ µÃÂ”≥…‰
+        services.AddMapper(Assembly.Load("Mbill.Service"));//≈‰÷√ µÃÂ”≥…‰
         services.AddEasyCaching();//≈‰÷√◊¢≤·EasyCachingª∫¥Ê
         services.AddMongoClient();//≈‰÷√◊¢≤·MongoDB Client
         services.AddMiniProfilerSetup();//≈‰÷√◊¢≤·º‡øÿ
@@ -38,7 +38,7 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-            app.UseSwagger().UseSwaggerUI(() => GetType().GetTypeInfo().Assembly.GetManifestResourceStream("mbill.index.html"));
+            app.UseSwagger().UseSwaggerUI(() => GetType().GetTypeInfo().Assembly.GetManifestResourceStream("Mbill.index.html"));
         }
         //øÁ”Ú
         app.UseCors(Appsettings.Cors.CorsName);

@@ -1,4 +1,4 @@
-﻿namespace mbill.Infrastructure.Repository.Bill;
+﻿namespace Mbill.Infrastructure.Repository.Bill;
 
 public class AssetRepo : AuditBaseRepo<AssetEntity>, IAssetRepo
     {

@@ -1,770 +1,770 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>mbill.Service</name>
+        <name>Mbill.Service</name>
     </assembly>
     <members>
-        <member name="P:mbill.Service.Base.CrudApplicationSvc`6.Repository">
+        <member name="P:Mbill.Service.Base.CrudApplicationSvc`6.Repository">
             <summary>
             仓储
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.InsertAsync(mbill.Service.Bill.Asset.Input.CreateAssetInput)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.InsertAsync(Mbill.Service.Bill.Asset.Input.CreateAssetInput)">
             <summary>
             新增资产分类
             </summary>
             <param name="input">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.DeleteAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.DeleteAsync(System.Int64)">
             <summary>
             删除资产分类
             </summary>
             <param name="id">资产分类id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.EditAsync(mbill.Service.Bill.Asset.Input.EditAssetInput)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.EditAsync(Mbill.Service.Bill.Asset.Input.EditAssetInput)">
             <summary>
             更新资产分类
             </summary>
             <param name="input">资产分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetAsync(System.Int64)">
             <summary>
             获取父项 by id
             </summary>
             <param name="id">资产Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetParentAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetParentAsync(System.Int64)">
             <summary>
             获取父项 by 子项 id
             </summary>
             <param name="id">资产子项Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetParentsAsync">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetParentsAsync">
             <summary>
             获取父项集合
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.Nullable{System.Int32})">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetGroupsAsync(System.Nullable{System.Int32})">
             <summary>
             获取分级后的组合类别数据
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.GetPageAsync(mbill.Service.Bill.Asset.Input.AssetPagingDto)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetPageAsync(Mbill.Service.Bill.Asset.Input.AssetPagingDto)">
             <summary>
             获取资产分类分页
             </summary>
             <param name="pagingDto">分页参数</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Asset.IAssetSvc.SortAsync(mbill.Service.Bill.Asset.Input.SortAssetInput)">
+        <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.SortAsync(Mbill.Service.Bill.Asset.Input.SortAssetInput)">
             <summary>
             排序资产
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Name">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.Name">
             <summary>
             资产分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.ParentId">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.ParentId">
             <summary>
             父级Id，默认0
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Type">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.Type">
             <summary>
             资产分类类型：存款、负债
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Amount">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.Amount">
             <summary>
             资产金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Icon">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.Icon">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.CreateAssetInput.Sort">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.Sort">
             <summary>
             排序
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Name">
+        <member name="P:Mbill.Service.Bill.Asset.Input.EditAssetInput.Name">
             <summary>
             资产分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Amount">
+        <member name="P:Mbill.Service.Bill.Asset.Input.EditAssetInput.Amount">
             <summary>
             资产金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Asset.Input.EditAssetInput.Icon">
+        <member name="P:Mbill.Service.Bill.Asset.Input.EditAssetInput.Icon">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.BillSvc.MapToSimpleDto(mbill.Core.Domains.Entities.Bill.BillEntity)">
+        <member name="M:Mbill.Service.Bill.Bill.BillSvc.MapToSimpleDto(Mbill.Core.Domains.Entities.Bill.BillEntity)">
             <summary>
             映射Dto
             </summary>
             <param name="bill"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.CreateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.CreateAsync(Mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             新增账单
             </summary>
             <param name="input">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetDetailAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetDetailAsync(System.Int64)">
             <summary>
             获取账单详情
             </summary>
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.DeleteAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.DeleteAsync(System.Int64)">
             <summary>
             删除账单信息
             </summary>
             <param name="id">账单id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.UpdateAsync(mbill.Service.Bill.Bill.Input.ModifyBillInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.UpdateAsync(Mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
             更新账单信息
             </summary>
             <param name="input">账单信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetByDayAsync(mbill.Service.Bill.Bill.Input.DayBillInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetByDayAsync(Mbill.Service.Bill.Bill.Input.DayBillInput)">
             <summary>
             获取指定日期账单
             </summary>
             <param name="input">查询条件</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetSearchRecordsAsync">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetSearchRecordsAsync">
             <summary>
             获取账单检索记录
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.SearchPagesAsync(mbill.Service.Bill.Bill.Input.BillSearchPagingInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.SearchPagesAsync(Mbill.Service.Bill.Bill.Input.BillSearchPagingInput)">
             <summary>
             检索账单数据
             </summary>
             <param name="input">检索条件</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetPagesAsync(mbill.Service.Bill.Bill.Input.BillPagingInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetPagesAsync(Mbill.Service.Bill.Bill.Input.BillPagingInput)">
             <summary>
             获取指定条件分页账单
             </summary>
             <param name="input">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetByMonthPagesAsync(Mbill.Service.Bill.Bill.Input.MonthBillPagingInput)">
             <summary>
             获取分页账单数据
             </summary>
             <param name="input">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.RangeHasBillDaysAsync(mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.RangeHasBillDaysAsync(Mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput)">
             <summary>
             获取日期范围内存在账单的日期
             </summary>
             <param name="input">查询入参</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalStatInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalStatAsync(Mbill.Service.Bill.Bill.Input.MonthTotalStatInput)">
             <summary>
             获取指定月份账单总金额
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetYearTotalStatAsync(mbill.Service.Bill.Bill.Input.YearTotalStatInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetYearTotalStatAsync(Mbill.Service.Bill.Bill.Input.YearTotalStatInput)">
             <summary>
             获取指定日期各类型账单总额统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetYearSurplusStatAsync(System.Int32)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetYearSurplusStatAsync(System.Int32)">
             <summary>
             获取指定年份的收支结余统计
             </summary>
             <param name="year">年份</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalTrendStatAsync(mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetMonthTotalTrendStatAsync(Mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput)">
             <summary>
             获取指定年份账单金额趋势统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetYearTotalTrendStatAsync(mbill.Service.Bill.Bill.Input.YearTotalTrendStatInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetYearTotalTrendStatAsync(Mbill.Service.Bill.Bill.Input.YearTotalTrendStatInput)">
             <summary>
             获取指定年份账单金额趋势统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetCategoryPercentStatAsync(mbill.Service.Bill.Bill.Input.CategoryPercentStatInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetCategoryPercentStatAsync(Mbill.Service.Bill.Bill.Input.CategoryPercentStatInput)">
             <summary>
             获取指定日期的收入或支出分类占比统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetCategoryPercentGroupAsync(mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetCategoryPercentGroupAsync(Mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput)">
             <summary>
             获取指定日期的收入或支出分类占比分组列表
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Bill.IBillSvc.GetRankingAsync(mbill.Service.Bill.Bill.Input.RankingPagingInput)">
+        <member name="M:Mbill.Service.Bill.Bill.IBillSvc.GetRankingAsync(Mbill.Service.Bill.Bill.Input.RankingPagingInput)">
             <summary>
             获取指定条件账单排行列表
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.Date">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.Date">
             <summary>
             指定的日期
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.DateType">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.DateType">
             <summary>
             查询时间类型：0 查询月份，1 查询年份
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.Type">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.CategoryId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillPagingInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.AssetId">
             <summary>
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Types">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Types">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryIds">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryIds">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetIds">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetIds">
             <summary>
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Amount">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Amount">
             <summary>
             金额区间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Date">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Date">
             <summary>
             日期区间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.KeyWord">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.KeyWord">
             <summary>
             搜索关键字(地址、备注)
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Address">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Address">
             <summary>
             地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Remark">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.Remark">
             <summary>
             备注
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.SearchAmount.Min">
+        <member name="P:Mbill.Service.Bill.Bill.Input.SearchAmount.Min">
             <summary>
             金额区间最小值
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.SearchAmount.Max">
+        <member name="P:Mbill.Service.Bill.Bill.Input.SearchAmount.Max">
             <summary>
             金额区间最大值
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.SearchDate.Begin">
+        <member name="P:Mbill.Service.Bill.Bill.Input.SearchDate.Begin">
             <summary>
             账单时间起始
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.SearchDate.End">
+        <member name="P:Mbill.Service.Bill.Bill.Input.SearchDate.End">
             <summary>
             账单时间截止
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.Type">
             <summary>
             查询类型：
             0 月统计
             1 年统计
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.BillType">
+        <member name="P:Mbill.Service.Bill.Bill.Input.CategoryPercentGroupInput.BillType">
             <summary>
             账单类型
             0 支出
             1 收入
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.Type">
             <summary>
             查询类型：
             0 月统计
             1 年统计
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.SummaryType">
+        <member name="P:Mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.SummaryType">
             <summary>
             汇总类型：
             0 根据父分类统计
             1 根据子分类统计
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.BillType">
+        <member name="P:Mbill.Service.Bill.Bill.Input.CategoryPercentStatInput.BillType">
             <summary>
             账单类型
             0 支出
             1 收入
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.Date">
+        <member name="P:Mbill.Service.Bill.Bill.Input.DayBillInput.Date">
             <summary>
             指定的日期
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Input.DayBillInput.Type">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.DayBillInput.CategoryId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.DayBillInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.DayBillInput.AssetId">
             <summary>
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.CategoryId">
             <summary>
             分类Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetId">
             <summary>
             资产Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Amount">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.Amount">
             <summary>
             金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.Type">
             <summary>
             记录类型：支出、收入、转账、还款
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Description">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.Description">
             <summary>
             说明
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Address">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.Address">
             <summary>
             地点
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.ModifyBillInput.Time">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.Time">
             <summary>
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Month">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Month">
             <summary>
             指定的年月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.Type">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetId">
             <summary>
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Month">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Month">
             <summary>
             指定的年月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Opearte">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthTotalStatInput.Opearte">
             <summary>
             操作：
             0 查询基本数据（支出、收入）
             1 0的前提下加平均支出
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput.Month">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthTotalTrendStatInput.Month">
             <summary>
             指定的年月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.BeginDate">
+        <member name="P:Mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.BeginDate">
             <summary>
             起始时间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.EndDate">
+        <member name="P:Mbill.Service.Bill.Bill.Input.RangeHasBillDaysInput.EndDate">
             <summary>
             结束时间
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.RankingPagingInput.DateType">
+        <member name="P:Mbill.Service.Bill.Bill.Input.RankingPagingInput.DateType">
             <summary>
             查询类型：
             0 月统计
             1 年统计
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.RankingPagingInput.BillType">
+        <member name="P:Mbill.Service.Bill.Bill.Input.RankingPagingInput.BillType">
             <summary>
             账单类型
             0 支出
             1 收入
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.YearTotalStatInput.Year">
+        <member name="P:Mbill.Service.Bill.Bill.Input.YearTotalStatInput.Year">
             <summary>
             指定的年
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.YearTotalStatInput.Opearte">
+        <member name="P:Mbill.Service.Bill.Bill.Input.YearTotalStatInput.Opearte">
             <summary>
             操作：
             0 查询基本数据（支出、收入、预购金额）
             1 0的前提下加平均支出
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.YearTotalTrendStatInput.Year">
+        <member name="P:Mbill.Service.Bill.Bill.Input.YearTotalTrendStatInput.Year">
             <summary>
             指定的年
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Id">
+        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Id">
             <summary>
             指定的分组
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Status">
+        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Status">
             <summary>
             预购状态
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput.Id">
+        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput.Id">
             <summary>
             指定的分组
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.IndexPreOrderStatInput.Month">
+        <member name="P:Mbill.Service.Bill.Bill.Input.IndexPreOrderStatInput.Month">
             <summary>
             指定的年月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput.Month">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput.Month">
             <summary>
             指定的年月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput.Name">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput.Name">
             <summary>
             分组名称
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Year">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Year">
             <summary>
             年
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Month">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Month">
             <summary>
             月
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Day">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Day">
             <summary>
             日
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Total">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillDateWithTotalDto.Total">
             <summary>
             账单总数
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.Type">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.Type">
             <summary>
             账单类型
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.CategoryId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.AssetId">
             <summary>
             账单账户
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.TimeBegin">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.TimeBegin">
             <summary>
             账单时间起始
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.TimeEnd">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.TimeEnd">
             <summary>
             账单时间截止
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.KeyWord">
+        <member name="P:Mbill.Service.Bill.Bill.Output.BillSearchRecordOutput.KeyWord">
             <summary>
             搜索关键字
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Income">
+        <member name="P:Mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Income">
             <summary>
             收入（格式化后）
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Expend">
+        <member name="P:Mbill.Service.Bill.Bill.Output.MonthTotalStatDto.Expend">
             <summary>
             支出（格式化后）
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Bill.Output.MonthTotalStatDto.ExpendAvg">
+        <member name="P:Mbill.Service.Bill.Bill.Output.MonthTotalStatDto.ExpendAvg">
             <summary>
             平均支出（格式化后）
             </summary>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.InsertAsync(mbill.Service.Bill.Category.Input.CreateCategoryInput)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.InsertAsync(Mbill.Service.Bill.Category.Input.CreateCategoryInput)">
             <summary>
             新增账单分类
             </summary>
             <param name="input">数据源</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.DeleteAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.DeleteAsync(System.Int64)">
             <summary>
             删除账单分类信息
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.EditAsync(mbill.Service.Bill.Category.Input.EditCategoryInput)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.EditAsync(Mbill.Service.Bill.Category.Input.EditCategoryInput)">
             <summary>
             更新账单分类
             </summary>
             <param name="input">账单分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetAsync(System.Int64)">
             <summary>
             获取分类
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetsAsync(System.Int32)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetsAsync(System.Int32)">
             <summary>
             获取群不分类
             </summary>
             <param name="type">分类类型 0 支出， 1 收入</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetParentAsync(System.Int64)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetParentAsync(System.Int64)">
             <summary>
             获取父项 by 子项 id
             </summary>
             <param name="id">分类子项Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetParentsAsync">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetParentsAsync">
             <summary>
             获取账单分类父项集合
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.Nullable{System.Int32})">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetGroupsAsync(System.Nullable{System.Int32})">
             <summary>
             获取分级后的组合类别数据
             </summary>
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.GetPageAsync(mbill.Service.Bill.Category.Input.CategoryPagingInput)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetPageAsync(Mbill.Service.Bill.Category.Input.CategoryPagingInput)">
             <summary>
             获取账单分类分页
             </summary>
             <param name="pagingDto">分页参数</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Bill.Category.ICategorySvc.SortAsync(mbill.Service.Bill.Category.Input.SortCategoryInput)">
+        <member name="M:Mbill.Service.Bill.Category.ICategorySvc.SortAsync(Mbill.Service.Bill.Category.Input.SortCategoryInput)">
             <summary>
             排序账单分类
             </summary>
             <param name="input">排序内容</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Name">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.Name">
             <summary>
             账单分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.ParentId">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.ParentId">
             <summary>
             父级Id，默认0
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Type">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.Type">
             <summary>
             分类类型：支出、收入
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Budget">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.Budget">
             <summary>
             预算金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Icon">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.Icon">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.CreateCategoryInput.Sort">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.Sort">
             <summary>
             排序
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Id">
+        <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.Id">
             <summary>
             分组/分类Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Name">
+        <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.Name">
             <summary>
             账单分类名
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Budget">
+        <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.Budget">
             <summary>
             预算金额
             </summary>
         </member>
-        <member name="P:mbill.Service.Bill.Category.Input.EditCategoryInput.Icon">
+        <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.Icon">
             <summary>
             图标地址
             </summary>
         </member>
-        <member name="M:mbill.Service.Core.Auth.AccountSvc.InitUserDataAsync(System.Int64)">
+        <member name="M:Mbill.Service.Core.Auth.AccountSvc.InitUserDataAsync(System.Int64)">
             <summary>
             初始化新用户数据
             </summary>
             <param name="id">用户Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Auth.IAccountSvc.AccountLoginAsync(mbill.Service.Core.Auth.Input.AccountLoginDto)">
+        <member name="M:Mbill.Service.Core.Auth.IAccountSvc.AccountLoginAsync(Mbill.Service.Core.Auth.Input.AccountLoginDto)">
             <summary>
             账户登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Auth.IAccountSvc.WxPreLoginAsync(System.String)">
+        <member name="M:Mbill.Service.Core.Auth.IAccountSvc.WxPreLoginAsync(System.String)">
             <summary>
             微信预登录
             </summary>
             <param name="code">微信login code</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Auth.IAccountSvc.WxLoginAsync(mbill.Service.Core.Auth.Input.WxLoginInput)">
+        <member name="M:Mbill.Service.Core.Auth.IAccountSvc.WxLoginAsync(Mbill.Service.Core.Auth.Input.WxLoginInput)">
             <summary>
             微信登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Auth.IAccountSvc.GetTokenByRefreshAsync(System.String)">
+        <member name="M:Mbill.Service.Core.Auth.IAccountSvc.GetTokenByRefreshAsync(System.String)">
             <summary>
             刷新Token
             </summary>
             <param name="refreshToken"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Auth.IJwtTokenSvc.CreateTokenAsync(mbill.Core.Domains.Entities.User.UserEntity)">
+        <member name="M:Mbill.Service.Core.Auth.IJwtTokenSvc.CreateTokenAsync(Mbill.Core.Domains.Entities.User.UserEntity)">
             <summary>
             创建Token和RefreshToken
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Auth.IJwtTokenSvc.RefreshTokenAsync(System.String)">
+        <member name="M:Mbill.Service.Core.Auth.IJwtTokenSvc.RefreshTokenAsync(System.String)">
             <summary>
             刷新token
             </summary>
             <param name="refreshToken"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Input.AccountLoginDto.Username">
+        <member name="P:Mbill.Service.Core.Auth.Input.AccountLoginDto.Username">
             <summary>
             登录名
             </summary>
@@ -772,7 +772,7 @@
             admin
             </example>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Input.AccountLoginDto.Password">
+        <member name="P:Mbill.Service.Core.Auth.Input.AccountLoginDto.Password">
             <summary>
             密码
             </summary>
@@ -780,103 +780,103 @@
             123456
             </example>
         </member>
-        <member name="M:mbill.Service.Core.Auth.JwtTokenSvc.GenerateToken(System.Int32)">
+        <member name="M:Mbill.Service.Core.Auth.JwtTokenSvc.GenerateToken(System.Int32)">
             <summary>
             生成RefreshToken
             </summary>
             <param name="size">长度</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Username">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.Username">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Nickname">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.Nickname">
             <summary>
             昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Gender">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.Gender">
             <summary>
             性别，0：未知，1：男，2：女
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Email">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.Email">
             <summary>
             邮箱
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.Phone">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.Phone">
             <summary>
             电话
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.AvatarUrl">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.AvatarUrl">
             <summary>
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.LoginUserDto.CreateTime">
+        <member name="P:Mbill.Service.Core.Auth.Output.LoginUserDto.CreateTime">
             <summary>
             用户创建日期
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.Username">
+        <member name="P:Mbill.Service.Core.Auth.Output.PreLoginUserDto.Username">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.Nickname">
+        <member name="P:Mbill.Service.Core.Auth.Output.PreLoginUserDto.Nickname">
             <summary>
             昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.AvatarUrl">
+        <member name="P:Mbill.Service.Core.Auth.Output.PreLoginUserDto.AvatarUrl">
             <summary>
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Auth.Output.PreLoginUserDto.IsCompletedInfo">
+        <member name="P:Mbill.Service.Core.Auth.Output.PreLoginUserDto.IsCompletedInfo">
             <summary>
             用户是否已存在
             </summary>
         </member>
-        <member name="M:mbill.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">
             <summary>
             初始化超级管理员角色权限
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.DataSeed.IDataSeedContributor.InitPermissionAsync(System.Collections.Generic.List{mbill.Core.Security.PermissionDefinition})">
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedContributor.InitPermissionAsync(System.Collections.Generic.List{Mbill.Core.Security.PermissionDefinition})">
             <summary>
             初始化权限，根据PermissionAttribute生成权限，改变的则更新，否则新增
             </summary>
             <param name="permissions"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Files.IMediaImageSvc.GetPageAsync(mbill.Service.Core.Files.Input.MediaImagePagingInput)">
+        <member name="M:Mbill.Service.Core.Files.IMediaImageSvc.GetPageAsync(Mbill.Service.Core.Files.Input.MediaImagePagingInput)">
             <summary>
             校验MD5文件是否存在
             </summary>
             <param name="pagingDto">媒体图片分页参数</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.CheckMD5(System.String)">
+        <member name="M:Mbill.Service.Core.Files.IQiniuFileSvc.CheckMD5(System.String)">
             <summary>
             校验MD5文件是否存在
             </summary>
             <param name="md5"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.GetUploadToken(System.String)">
+        <member name="M:Mbill.Service.Core.Files.IQiniuFileSvc.GetUploadToken(System.String)">
             <summary>
             获取上传Token
             </summary>
             <param name="key">文件路径</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Files.IQiniuFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
+        <member name="M:Mbill.Service.Core.Files.IQiniuFileSvc.UploadAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Int32)">
             <summary>
             单文件上传，键为file
             </summary>
@@ -885,71 +885,71 @@
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Logger.ILogSvc.GetPagesAsync(mbill.Service.Core.Logger.Input.LogPagingDto)">
+        <member name="M:Mbill.Service.Core.Logger.ILogSvc.GetPagesAsync(Mbill.Service.Core.Logger.Input.LogPagingDto)">
             <summary>
             获取日志分页
             </summary>
             <param name="pagingDto"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.Authority">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.Authority">
             <summary>
             访问哪个权限
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.Message">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.Message">
             <summary>
             日志信息
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.Method">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.Method">
             <summary>
             请求方法
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.Path">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.Path">
             <summary>
             请求路径
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.StatusCode">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.StatusCode">
             <summary>
             请求的http返回码
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.UserId">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.UserId">
             <summary>
             用户id
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Logger.Output.LogDto.Username">
+        <member name="P:Mbill.Service.Core.Logger.Output.LogDto.Username">
             <summary>
             用户当时的昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Permission.Input.DispatchPermissionsDto.RoleId">
+        <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.RoleId">
             <summary>
             角色Id
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.Permission.Input.DispatchPermissionsDto.PermissionIds">
+        <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.PermissionIds">
             <summary>
             权限Id集合
             </summary>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IPermissionSvc.GetAllTreeAsync">
+        <member name="M:Mbill.Service.Core.Permission.IPermissionSvc.GetAllTreeAsync">
             <summary>
             获取所有权限(树形结构)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IPermissionSvc.GetAllStructualAsync">
+        <member name="M:Mbill.Service.Core.Permission.IPermissionSvc.GetAllStructualAsync">
             <summary>
             获取所有权限(Module分组结构化)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IPermissionSvc.CheckAsync(System.String,System.String)">
+        <member name="M:Mbill.Service.Core.Permission.IPermissionSvc.CheckAsync(System.String,System.String)">
             <summary>
             检查当前登陆用户的分组权限
             </summary>
@@ -957,137 +957,137 @@
             <param name="permission"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IPermissionSvc.DispatchPermissionsAsync(mbill.Service.Core.Permission.Input.DispatchPermissionsDto)">
+        <member name="M:Mbill.Service.Core.Permission.IPermissionSvc.DispatchPermissionsAsync(Mbill.Service.Core.Permission.Input.DispatchPermissionsDto)">
             <summary>
             配置角色权限
             </summary>
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IRoleSvc.InsertAsync(mbill.Service.Core.Permission.Input.ModifyRoleDto)">
+        <member name="M:Mbill.Service.Core.Permission.IRoleSvc.InsertAsync(Mbill.Service.Core.Permission.Input.ModifyRoleDto)">
             <summary>
             新增角色
             </summary>
             <param name="role">角色信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IRoleSvc.DeleteAsync(System.Int64)">
+        <member name="M:Mbill.Service.Core.Permission.IRoleSvc.DeleteAsync(System.Int64)">
             <summary>
             删除角色
             </summary>
             <param name="id">角色Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IRoleSvc.UpdateAsync(mbill.Service.Core.Permission.Input.ModifyRoleDto)">
+        <member name="M:Mbill.Service.Core.Permission.IRoleSvc.UpdateAsync(Mbill.Service.Core.Permission.Input.ModifyRoleDto)">
             <summary>
             更新角色
             </summary>
             <param name="role">账单分类信息</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IRoleSvc.GetAllAsync">
+        <member name="M:Mbill.Service.Core.Permission.IRoleSvc.GetAllAsync">
             <summary>
             获取所有角色信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Permission.IRoleSvc.GetAsync(System.Int64)">
+        <member name="M:Mbill.Service.Core.Permission.IRoleSvc.GetAsync(System.Int64)">
             <summary>
             获取角色信息
             </summary>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.AvatarUrl">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserBaseDto.AvatarUrl">
             <summary>
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Nickname">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserBaseDto.Nickname">
             <summary>
             昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Gender">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserBaseDto.Gender">
             <summary>
             性别，0：未知，1：男，2：女
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Email">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserBaseDto.Email">
             <summary>
             邮箱
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserBaseDto.Phone">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserBaseDto.Phone">
             <summary>
             电话
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Username">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Username">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Nickname">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Nickname">
             <summary>
             昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Gender">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Gender">
             <summary>
             性别，0：未知，1：男，2：女
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Email">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Email">
             <summary>
             邮箱
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Phone">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Phone">
             <summary>
             电话
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Province">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Province">
             <summary>
             省
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.City">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.City">
             <summary>
             市
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.District">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.District">
             <summary>
             区
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Street">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Street">
             <summary>
             街道
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.AvatarUrl">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.AvatarUrl">
             <summary>
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.Password">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.Password">
             <summary>
             密码
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.ConfirmPassword">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.ConfirmPassword">
             <summary>
             确认密码
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Input.ModifyUserDto.RoleIds">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.RoleIds">
             <summary>
             权限
             </summary>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserIdentitySvc.VerifyUserPasswordAsync(System.Int64,System.String)">
+        <member name="M:Mbill.Service.Core.User.IUserIdentitySvc.VerifyUserPasswordAsync(System.Int64,System.String)">
             <summary>
             验证用户密码是否正确
             </summary>
@@ -1095,21 +1095,21 @@
             <param name="password">密码</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserIdentitySvc.VerifyWxOpenIdAsync(System.String)">
+        <member name="M:Mbill.Service.Core.User.IUserIdentitySvc.VerifyWxOpenIdAsync(System.String)">
             <summary>
             验证微信用户OpenId是否存在
             </summary>
             <param name="openId">Wx OpenId</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserIdentitySvc.ChangePasswordAsync(System.Int64,System.String)">
+        <member name="M:Mbill.Service.Core.User.IUserIdentitySvc.ChangePasswordAsync(System.Int64,System.String)">
             <summary>
             根据用户ID，修改用户的密码
             </summary>
             <param name="userId"></param>
             <param name="newpassword"></param>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserSvc.CreateAsync(mbill.Core.Domains.Entities.User.UserEntity,System.Collections.Generic.List{System.Int64},System.String)">
+        <member name="M:Mbill.Service.Core.User.IUserSvc.CreateAsync(Mbill.Core.Domains.Entities.User.UserEntity,System.Collections.Generic.List{System.Int64},System.String)">
             <summary>
             注册-新增一个用户
             </summary>
@@ -1117,340 +1117,340 @@
             <param name="roleIds">分组Id集合</param>
             <param name="password">密码</param>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserSvc.GetAsync(System.Nullable{System.Int64})">
+        <member name="M:Mbill.Service.Core.User.IUserSvc.GetAsync(System.Nullable{System.Int64})">
             <summary>
             获取用户信息，id为空时，通过Token获取
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserSvc.GetPagesAsync(mbill.Service.Core.User.Input.UserPagingDto)">
+        <member name="M:Mbill.Service.Core.User.IUserSvc.GetPagesAsync(Mbill.Service.Core.User.Input.UserPagingDto)">
             <summary>
             获取用户分页信息
             </summary>
             <param name="pagingDto">分页数据</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserSvc.UpdateAsync(mbill.Service.Core.User.Input.ModifyUserBaseDto)">
+        <member name="M:Mbill.Service.Core.User.IUserSvc.UpdateAsync(Mbill.Service.Core.User.Input.ModifyUserBaseDto)">
             <summary>
             更新用户信息
             </summary>
             <param name="input">实体数据</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.IUserSvc.DeleteAsync(System.Int64)">
+        <member name="M:Mbill.Service.Core.User.IUserSvc.DeleteAsync(System.Int64)">
             <summary>
             删除用户（软删除）
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Username">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Username">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Nickname">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Nickname">
             <summary>
             昵称
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Gender">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Gender">
             <summary>
             性别，0：未知，1：男，2：女
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Email">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Email">
             <summary>
             邮箱
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Phone">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Phone">
             <summary>
             电话
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Province">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Province">
             <summary>
             省
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.City">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.City">
             <summary>
             市
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.District">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.District">
             <summary>
             区
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Street">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Street">
             <summary>
             街道
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.Address">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.Address">
             <summary>
             地址详情
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.AvatarUrl">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.AvatarUrl">
             <summary>
             头像地址
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.LastLoginTime">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.LastLoginTime">
             <summary>
             最后一次登录的时间
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.CreateTime">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.CreateTime">
             <summary>
             用户创建日期
             </summary>
         </member>
-        <member name="P:mbill.Service.Core.User.Output.UserDto.IsEnable">
+        <member name="P:Mbill.Service.Core.User.Output.UserDto.IsEnable">
             <summary>
             是否启用
             </summary>
         </member>
-        <member name="M:mbill.Service.Core.User.UserIdentitySvc.GetFirstByUserIdAsync(System.Int64)">
+        <member name="M:Mbill.Service.Core.User.UserIdentitySvc.GetFirstByUserIdAsync(System.Int64)">
             <summary>
             通过UserId获取用户绑定信息
             </summary>
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.User.UserIdentitySvc.GetFirstByOpenIdAsync(System.String)">
+        <member name="M:Mbill.Service.Core.User.UserIdentitySvc.GetFirstByOpenIdAsync(System.String)">
             <summary>
             通过OpenId获取用户绑定信息
             </summary>
             <param name="openId">Wx OpenId</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.Core.Wx.IWxSvc.GetCode2Session(System.String)">
+        <member name="M:Mbill.Service.Core.Wx.IWxSvc.GetCode2Session(System.String)">
             <summary>
             GetCode2Session
             </summary>
             <param name="code">wx.login获取到的code</param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderGroupInput.Name">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderGroupInput.Name">
             <summary>
             分组名
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderGroupInput.Description">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderGroupInput.Description">
             <summary>
             分组描述
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.GroupId">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.GroupId">
             <summary>
             分组Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.PreAmount">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.PreAmount">
             <summary>
             金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Description">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.Description">
             <summary>
             描述
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Time">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.Time">
             <summary>
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.CreatePreOrderInput.Color">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.Color">
             <summary>
             图标颜色
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.GroupToBillInput.BillId">
+        <member name="P:Mbill.Service.PreOrder.Input.GroupToBillInput.BillId">
             <summary>
             账单Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.PreAmount">
+        <member name="P:Mbill.Service.PreOrder.Input.UpdatePreOrderInput.PreAmount">
             <summary>
             预购金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.RealAmount">
+        <member name="P:Mbill.Service.PreOrder.Input.UpdatePreOrderInput.RealAmount">
             <summary>
             实购金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Description">
+        <member name="P:Mbill.Service.PreOrder.Input.UpdatePreOrderInput.Description">
             <summary>
             描述
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderInput.Time">
+        <member name="P:Mbill.Service.PreOrder.Input.UpdatePreOrderInput.Time">
             <summary>
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput.RealAmount">
+        <member name="P:Mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput.RealAmount">
             <summary>
             账单Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput.Status">
+        <member name="P:Mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput.Status">
             <summary>
             状态
             </summary>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GroupToBillAsync(mbill.Service.PreOrder.Input.GroupToBillInput)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderGroupSvc.GroupToBillAsync(Mbill.Service.PreOrder.Input.GroupToBillInput)">
             <summary>
             预购分组转账单
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetGroupWithAmountAsync(System.Int64)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderGroupSvc.GetGroupWithAmountAsync(System.Int64)">
             <summary>
             获取预购分组带组内预购总金额
             </summary>
             <param name="id">预购分组Id</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(Mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput)">
             <summary>
             获取指定月份分页预购分组
             </summary>
             <param name="input">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderGroupSvc.GetPreOrderStatAsync(mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderGroupSvc.GetPreOrderStatAsync(Mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput)">
             <summary>
             获取指定分组预购清单统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderSvc.UpdateStatusAsync(mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderSvc.UpdateStatusAsync(Mbill.Service.PreOrder.Input.UpdatePreOrderStatusInput)">
             <summary>
             更新预购状态
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderSvc.GetByGroupPagesAsync(mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderSvc.GetByGroupPagesAsync(Mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput)">
             <summary>
             获取指定月份分页预购分组
             </summary>
             <param name="input">分页查询</param>
             <returns></returns>
         </member>
-        <member name="M:mbill.Service.PreOrder.IPreOrderSvc.GetIndexStatAsync(mbill.Service.Bill.Bill.Input.IndexPreOrderStatInput)">
+        <member name="M:Mbill.Service.PreOrder.IPreOrderSvc.GetIndexStatAsync(Mbill.Service.Bill.Bill.Input.IndexPreOrderStatInput)">
             <summary>
             获取指定分组预购清单统计
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.GroupPreOrderStatDto.Time">
+        <member name="P:Mbill.Service.PreOrder.Output.GroupPreOrderStatDto.Time">
             <summary>
             分组创建时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.IndexPreOrderStatDto.ToBill">
+        <member name="P:Mbill.Service.PreOrder.Output.IndexPreOrderStatDto.ToBill">
             <summary>
             转账单分组数
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.GroupId">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.GroupId">
             <summary>
             分组Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Amount">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.Amount">
             <summary>
             金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Description">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.Description">
             <summary>
             说明
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Time">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.Time">
             <summary>
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.TimeFormat">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.TimeFormat">
             <summary>
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Status">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.Status">
             <summary>
             状态 0:未购买；1：已购买
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderDto.Color">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.Color">
             <summary>
             图标颜色
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupDto.CreateTime">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderGroupDto.CreateTime">
             <summary>
             创建时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.Amount">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.Amount">
             <summary>
             分组预购单总金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.Done">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.Done">
             <summary>
             分组中已完成预购总数
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.UnDone">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderGroupWithStatDto.UnDone">
             <summary>
             分组中未完成预购总数
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.GroupId">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.GroupId">
             <summary>
             分组Id
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.PreAmount">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.PreAmount">
             <summary>
             预购金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.RealAmount">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.RealAmount">
             <summary>
             实际金额
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Description">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.Description">
             <summary>
             说明
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Time">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.Time">
             <summary>
             记录日期：时间
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Status">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.Status">
             <summary>
             状态 0:未购买；1：已购买
             </summary>
         </member>
-        <member name="P:mbill.Service.PreOrder.Output.PreOrderSimpleDto.Color">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.Color">
             <summary>
             图标颜色
             </summary>

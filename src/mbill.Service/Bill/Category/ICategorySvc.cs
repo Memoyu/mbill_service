@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Category;
+﻿namespace Mbill.Service.Bill.Category;
 
 public interface ICategorySvc
 {

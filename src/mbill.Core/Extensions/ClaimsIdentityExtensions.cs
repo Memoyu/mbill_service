@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Extensions;
+﻿namespace Mbill.Core.Extensions;
 
 public static class ClaimsIdentityExtensions
 {

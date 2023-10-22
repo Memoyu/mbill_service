@@ -1,4 +1,4 @@
-﻿namespace mbill.Controllers.PreOrder;
+﻿namespace Mbill.Controllers.PreOrder;
 
 /// <summary>
 /// 预购清单管理

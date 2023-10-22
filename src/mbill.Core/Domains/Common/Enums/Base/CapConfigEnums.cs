@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Common.Enums.Base;
+﻿namespace Mbill.Core.Domains.Common.Enums.Base;
 
 public enum CapStorageTypeEnums
 {

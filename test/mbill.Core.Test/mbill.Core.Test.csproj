@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\mbill.Core\mbill.Core.csproj" />
+    <ProjectReference Include="..\..\src\Mbill.Core\Mbill.Core.csproj" />
   </ItemGroup>
 
 </Project>

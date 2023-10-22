@@ -4,12 +4,12 @@ global using System.Linq;
 global using System.Text;
 global using System.Threading.Tasks;
 global using FreeSql;
-global using mbill.Core.Domains.Entities.Bill;
-global using mbill.Core.Domains.Entities.PreOrder;
-global using mbill.Core.Interface.IRepositories.Bill;
-global using mbill.Core.Interface.IRepositories.PreOrder;
-global using mbill.Infrastructure.Repository.Base;
-global using mbill.Core.Security;
-global using mbill.Core.Interface.IRepositories.Base;
+global using Mbill.Core.Domains.Entities.Bill;
+global using Mbill.Core.Domains.Entities.PreOrder;
+global using Mbill.Core.Interface.IRepositories.Bill;
+global using Mbill.Core.Interface.IRepositories.PreOrder;
+global using Mbill.Infrastructure.Repository.Base;
+global using Mbill.Core.Security;
+global using Mbill.Core.Interface.IRepositories.Base;
 
 

@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Auth.Output;
+﻿namespace Mbill.Service.Core.Auth.Output;
 
 public class LoginUserDto
 {

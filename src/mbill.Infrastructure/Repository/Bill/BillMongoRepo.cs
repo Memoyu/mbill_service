@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace mbill.Infrastructure.Repository.Bill;
+namespace Mbill.Infrastructure.Repository.Bill;
 
 public class BillMongoRepo : MongoBaseRepo<BillEntity>, IBillMongoRepo
 {

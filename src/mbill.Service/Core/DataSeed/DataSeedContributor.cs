@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.DataSeed;
+﻿namespace Mbill.Service.Core.DataSeed;
 
 public class DataSeedContributor : IDataSeedContributor, ISingletonDependency
 {

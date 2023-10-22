@@ -1,6 +1,6 @@
-﻿using mbill.Service.Core.User.Output;
+﻿using Mbill.Service.Core.User.Output;
 
-namespace mbill.Service.Core.User;
+namespace Mbill.Service.Core.User;
 
 public class UserSvc : ApplicationSvc, IUserSvc
 {

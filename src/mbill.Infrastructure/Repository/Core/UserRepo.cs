@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
-using mbill.Core.Interface.IRepositories.Core;
-using mbill.Core.Domains.Entities.User;
+using Mbill.Core.Interface.IRepositories.Core;
+using Mbill.Core.Domains.Entities.User;
 
-namespace mbill.Infrastructure.Repository.Core
+namespace Mbill.Infrastructure.Repository.Core
 {
     public class UserRepo : AuditBaseRepo<UserEntity>, IUserRepo
     {

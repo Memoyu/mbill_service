@@ -1,6 +1,6 @@
 ﻿using MapsterMapper;
 
-namespace mbill.Controllers.Core;
+namespace Mbill.Controllers.Core;
 
 /// <summary>
 /// 用户管理

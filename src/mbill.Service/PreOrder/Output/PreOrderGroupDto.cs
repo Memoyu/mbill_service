@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.PreOrder.Output;
+﻿namespace Mbill.Service.PreOrder.Output;
 
 public class PreOrderGroupDto : EntityDto
 {

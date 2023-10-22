@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mbill.Service.Common.Registers.Bill
+namespace Mbill.Service.Common.Registers.Bill
 {
     public class CategoryRegister : IRegister
     {

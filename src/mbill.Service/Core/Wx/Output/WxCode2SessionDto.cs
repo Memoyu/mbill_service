@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Wx.Output;
+﻿namespace Mbill.Service.Core.Wx.Output;
 
 public class WxCode2SessionDto
 {

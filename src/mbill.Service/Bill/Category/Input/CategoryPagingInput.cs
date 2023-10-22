@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Category.Input;
+﻿namespace Mbill.Service.Bill.Category.Input;
 
 public class CategoryPagingInput : PagingDto
 {

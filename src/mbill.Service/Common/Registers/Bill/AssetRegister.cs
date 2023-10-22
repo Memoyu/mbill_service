@@ -1,6 +1,6 @@
 ﻿using Mapster;
 
-namespace mbill.Service.Common.Registers.Bill;
+namespace Mbill.Service.Common.Registers.Bill;
 
 public class AssetRegister : IRegister
 {

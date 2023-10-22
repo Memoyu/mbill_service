@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\mbill.ToolKits\mbill.ToolKits.csproj" />
+		<ProjectReference Include="..\Mbill.ToolKits\Mbill.ToolKits.csproj" />
 	</ItemGroup>
 
 </Project>

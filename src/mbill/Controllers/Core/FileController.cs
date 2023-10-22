@@ -1,6 +1,6 @@
-﻿using mbill.Service.Core.Files.Input;
+﻿using Mbill.Service.Core.Files.Input;
 
-namespace mbill.Controllers.Core;
+namespace Mbill.Controllers.Core;
 
 [Route("api/file")]
 [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]

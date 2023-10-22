@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace mbill.Core.Interface.IRepositories.Base;
+namespace Mbill.Core.Interface.IRepositories.Base;
 
 public interface IMongoBaseRepo<T> : IScopedDependency
    where T : class, new()

@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Entities.Bill;
+﻿namespace Mbill.Core.Domains.Entities.Bill;
 
 /// <summary>
 /// 账单分类实体

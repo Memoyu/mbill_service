@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Common;
+﻿namespace Mbill.Core.Domains.Common;
 
 
 #region 分页请求入参

@@ -3,7 +3,7 @@ using Qiniu.Http;
 using Qiniu.Storage;
 using Qiniu.Util;
 
-namespace mbill.ToolKits.Qiniu;
+namespace Mbill.ToolKits.Qiniu;
 
 public class QiniuClient : IQiniuClient
 {

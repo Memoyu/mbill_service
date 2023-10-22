@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Extensions.ServiceCollection;
+﻿namespace Mbill.Core.Extensions.ServiceCollection;
 
 /// <summary>
 /// 控制器配置注册

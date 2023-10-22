@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace mbill.Service.Bill.Category;
+namespace Mbill.Service.Bill.Category;
 
 public class CategorySvc : ApplicationSvc, ICategorySvc
 {

@@ -1,4 +1,4 @@
-﻿namespace mbill.Infrastructure.Repository.PreOrder;
+﻿namespace Mbill.Infrastructure.Repository.PreOrder;
 
 public class PreOrderGroupRepo : AuditBaseRepo<PreOrderGroupEntity>, IPreOrderGroupRepo
 {

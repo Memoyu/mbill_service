@@ -1,4 +1,4 @@
-﻿namespace mbill.Controllers.Core;
+﻿namespace Mbill.Controllers.Core;
 
 /// <summary>
 /// 日志管理

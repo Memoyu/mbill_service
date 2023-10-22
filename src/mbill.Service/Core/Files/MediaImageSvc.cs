@@ -1,6 +1,6 @@
 ﻿using MapsterMapper;
 
-namespace mbill.Service.Core.Files;
+namespace Mbill.Service.Core.Files;
 
 public class MediaImageSvc : IMediaImageSvc
 {

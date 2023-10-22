@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Wx;
+﻿namespace Mbill.Service.Core.Wx;
 
 public interface IWxSvc
 {

@@ -1,7 +1,7 @@
-﻿using mbill.Core.Domains.Entities.Core;
-using mbill.Core.Interface.IRepositories.Base;
+﻿using Mbill.Core.Domains.Entities.Core;
+using Mbill.Core.Interface.IRepositories.Base;
 
-namespace mbill.Core.Interface.IRepositories.Core
+namespace Mbill.Core.Interface.IRepositories.Core
 {
     public interface IRolePermissionRepo : IAuditBaseRepo<RolePermissionEntity>
     {

@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Auth;
+﻿namespace Mbill.Service.Core.Auth;
 
 public class JwtTokenSvc : IJwtTokenSvc
 {

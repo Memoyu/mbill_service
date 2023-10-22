@@ -1,6 +1,6 @@
 ﻿using Yitter.IdGenerator;
 
-namespace mbill.Core.Common
+namespace Mbill.Core.Common
 {
     public static class SnowFlake
     {

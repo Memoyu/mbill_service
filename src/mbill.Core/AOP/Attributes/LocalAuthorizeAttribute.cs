@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Attributes;
+﻿namespace Mbill.Core.AOP.Attributes;
 
 /// <summary>
 ///  自定义固定权限编码给动态角色及用户，支持验证登录，指定角色、Policy

@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Permission.Input;
+﻿namespace Mbill.Service.Core.Permission.Input;
 public class PermissionDto
 {
     public PermissionDto(string name, string module, string router)

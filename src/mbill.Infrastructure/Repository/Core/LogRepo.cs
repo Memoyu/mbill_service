@@ -1,15 +1,15 @@
 ﻿using FreeSql;
-using mbill.Core.Domains.Entities.Core;
-using mbill.Core.Interface.IRepositories.Core;
-using mbill.Core.Security;
-using mbill.Infrastructure.Repository.Base;
+using Mbill.Core.Domains.Entities.Core;
+using Mbill.Core.Interface.IRepositories.Core;
+using Mbill.Core.Security;
+using Mbill.Infrastructure.Repository.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mbill.Infrastructure.Repository.Core
+namespace Mbill.Infrastructure.Repository.Core
 {
     public class LogRepo : AuditBaseRepo<LogEntity>, ILogRepo
     {

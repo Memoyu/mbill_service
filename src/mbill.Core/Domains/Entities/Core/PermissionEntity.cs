@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Entities.Core;
+﻿namespace Mbill.Core.Domains.Entities.Core;
 
 /// <summary>
 /// 权限表

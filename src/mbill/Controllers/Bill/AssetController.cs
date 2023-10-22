@@ -1,4 +1,4 @@
-﻿namespace mbill.Controllers.Bill;
+﻿namespace Mbill.Controllers.Bill;
 
 /// <summary>
 /// 资产分类管理

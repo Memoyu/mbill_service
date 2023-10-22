@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Core.Auth.Input;
+﻿namespace Mbill.Service.Core.Auth.Input;
 
 public class AccountLoginDto : BaseLoginInput
 {

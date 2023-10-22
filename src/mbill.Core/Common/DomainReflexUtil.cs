@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Common;
+﻿namespace Mbill.Core.Common;
 
 public class DomainReflexUtil
 {
@@ -34,7 +34,7 @@ public class DomainReflexUtil
         List<PermissionDefinition> permissions = new List<PermissionDefinition>();
 
         //获取WebApi程序集
-        List<Type> assembly = Assembly.Load("mbill").GetTypes().AsEnumerable()
+        List<Type> assembly = Assembly.Load("Mbill").GetTypes().AsEnumerable()
             .Where(type => typeof(ControllerBase).IsAssignableFrom(type)).ToList();
 
         //通过反射得到控制器上的权限特性标签

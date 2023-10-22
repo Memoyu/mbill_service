@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.Bill.Asset.Output;
+﻿namespace Mbill.Service.Bill.Asset.Output;
 
 public class AssetDto
 {

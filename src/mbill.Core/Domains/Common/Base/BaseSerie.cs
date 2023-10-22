@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.Domains.Common.Base;
+﻿namespace Mbill.Core.Domains.Common.Base;
 
 public class BaseSerie : BaseSerie<decimal>
 {

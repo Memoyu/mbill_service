@@ -1,4 +1,4 @@
-﻿namespace mbill.Core.AOP.Middleware;
+﻿namespace Mbill.Core.AOP.Middleware;
 
 public class IpLimitMiddleware : IpRateLimitMiddleware
 {

@@ -1,7 +1,7 @@
-﻿using mbill.Core.Interface.IRepositories.Bill;
-using mbill.Core.Interface.IRepositories.Core;
+﻿using Mbill.Core.Interface.IRepositories.Bill;
+using Mbill.Core.Interface.IRepositories.Core;
 
-namespace mbill.Controllers;
+namespace Mbill.Controllers;
 
 [Route("api/rundata")]
 public class RunDataController : ApiControllerBase

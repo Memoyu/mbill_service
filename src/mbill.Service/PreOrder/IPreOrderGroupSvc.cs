@@ -1,4 +1,4 @@
-﻿namespace mbill.Service.PreOrder;
+﻿namespace Mbill.Service.PreOrder;
 
 public interface IPreOrderGroupSvc : ICrudApplicationSvc<PreOrderGroupDto, PreOrderGroupWithStatDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>
 {

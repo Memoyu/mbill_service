@@ -1,8 +1,8 @@
-﻿using mbill.ToolKits.Qiniu;
+﻿using Mbill.ToolKits.Qiniu;
 using Microsoft.Extensions.Options;
 using System.Text;
 
-namespace mbill.Service.Core.Files;
+namespace Mbill.Service.Core.Files;
 
 public class QiniuFileSvc : IQiniuFileSvc
 {

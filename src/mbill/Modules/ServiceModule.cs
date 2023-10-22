@@ -1,4 +1,4 @@
-﻿namespace mbill.Modules;
+﻿namespace Mbill.Modules;
 
 public class ServiceModule : Autofac.Module
 {
@@ -19,7 +19,7 @@ public class ServiceModule : Autofac.Module
         {
         };
 
-        Assembly servicesDllFile = Assembly.Load("mbill.Service");
+        Assembly servicesDllFile = Assembly.Load("Mbill.Service");
         builder.RegisterAssemblyTypes(servicesDllFile)
             .Where(a => a.Name.EndsWith("Svc") && !notIncludes.Where(r => r == a.Name).Any() && !a.IsAbstract && !a.IsInterface && a.IsPublic)
             .AsImplementedInterfaces()
