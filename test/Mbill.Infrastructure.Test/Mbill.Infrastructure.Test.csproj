@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Mbill.Infrastructure\Mbill.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
