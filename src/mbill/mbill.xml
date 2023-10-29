@@ -178,7 +178,7 @@
             <summary> 
             删除资产分组/分类
             </summary>
-            <param name="id">资产分类id</param>
+            <param name="bId">资产分类bId</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.AssetController.EditAsync(Mbill.Service.Bill.Asset.Input.EditAssetInput)">
             <summary>

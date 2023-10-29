@@ -4,6 +4,8 @@
 /// 用户身份认证登录表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_user_identity")]
+[Index("index_user_identity_on_bid", "BId", false)]
+[Index("index_user_identity_on_user_bid", "UserBId", false)]
 public class UserIdentityEntity : FullAduitEntity
 {
     public const string GitHub = "GitHub";
@@ -27,7 +29,12 @@ public class UserIdentityEntity : FullAduitEntity
     /// <summary>
     /// 用户Id
     /// </summary>
-    public long UserId { get; set; }
+    public long UserBId { get; set; }
+
+    ///// <summary>
+    ///// 用户Id
+    ///// </summary>
+    //public long UserId { get; set; }
 
     /// <summary>
     ///认证类型， Password，GitHub、QQ、WeiXin等

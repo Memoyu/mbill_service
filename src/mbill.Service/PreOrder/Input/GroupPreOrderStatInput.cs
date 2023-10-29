@@ -5,5 +5,5 @@ public class GroupPreOrderStatInput
     /// <summary>
     /// 指定的分组
     /// </summary>
-    public long Id { get; set; }
+    public long BId { get; set; }
 }

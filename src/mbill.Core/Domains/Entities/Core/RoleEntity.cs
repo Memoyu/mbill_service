@@ -4,6 +4,7 @@
 /// 角色表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_role")]
+[Index("index_role_on_bid", "BId", false)]
 public class RoleEntity : FullAduitEntity
 {
     /// <summary>
@@ -61,6 +62,6 @@ public class RoleEntity : FullAduitEntity
     [Navigate(ManyToMany = typeof(UserRoleEntity))]
     public virtual ICollection<UserEntity> Users { get; set; }
 
-    [Navigate("RoleId")]
+    [Navigate("RoleBId")]
     public virtual ICollection<RolePermissionEntity> RolePermissions { get; set; }
 }

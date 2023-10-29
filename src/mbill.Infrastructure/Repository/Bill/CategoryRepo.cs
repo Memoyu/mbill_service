@@ -8,15 +8,15 @@ public class CategoryRepo : AuditBaseRepo<CategoryEntity>, ICategoryRepo
         _currentUser = currentUser;
     }
 
-    public async Task<CategoryEntity> GetCategoryAsync(long id)
+    public async Task<CategoryEntity> GetCategoryAsync(long bId)
     {
-        return await GetAsync(id);
+        return await GetAsync(bId);
     }
 
-    public async Task<CategoryEntity> GetCategoryParentAsync(long id)
+    public async Task<CategoryEntity> GetCategoryParentAsync(long bId)
     {
-        var asset = await GetAsync(id);
+        var asset = await GetAsync(bId);
         if (asset == null) return null;
-        return await GetAsync(asset.ParentId);
+        return await GetAsync(asset.ParentBId);
     }
 }

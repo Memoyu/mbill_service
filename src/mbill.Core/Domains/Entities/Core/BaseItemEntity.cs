@@ -4,6 +4,7 @@
 /// 字典项详情表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_item")]
+[Index("index_item_on_bid", "BId", false)]
 public class BaseItemEntity : FullAduitEntity
 {
     public BaseItemEntity()
@@ -18,15 +19,15 @@ public class BaseItemEntity : FullAduitEntity
         Sort = sort;
     }
 
-    public BaseItemEntity(string itemCode, string itemName, int baseTypeId, bool status, int? sort) : this(itemCode, itemName, status, sort)
-    {
-        BaseTypeId = baseTypeId;
-    }
-
     /// <summary>
-    /// 字典项所属TypeId
+    /// 字典项所属TypeBId
     /// </summary>
-    public long BaseTypeId { get; set; }
+    public long BaseTypeBId { get; set; }
+
+    ///// <summary>
+    ///// 字典项所属TypeId
+    ///// </summary>
+    //public long BaseTypeId { get; set; }
 
     /// <summary>
     /// 字典项编码

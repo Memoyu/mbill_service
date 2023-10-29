@@ -10,12 +10,12 @@ public class BillSearchPagingInput : PagingDto
     /// <summary>
     /// 账单分类
     /// </summary>
-    public List<long?> CategoryIds { get; set; }
+    public List<long?> CategoryBIds { get; set; }
 
     /// <summary>
     /// 账单账户
     /// </summary>
-    public List<long> AssetIds { get; set; }
+    public List<long> AssetBIds { get; set; }
 
     /// <summary>
     /// 金额区间

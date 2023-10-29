@@ -8,7 +8,11 @@ public class CurrentUser : ICurrentUser, ITransientDependency
     {
         _claimsPrincipal = httpContextAccessor.HttpContext?.User ?? Thread.CurrentPrincipal as ClaimsPrincipal;
     }
-    public long? Id => _claimsPrincipal?.FindUserId();
+
+    // public long? Id => throw new Exception("不再使用Id");
+
+    public long? BId => _claimsPrincipal?.FindUserBId();
+
     public string UserName => _claimsPrincipal?.FindUserName();
     public string Nickname => _claimsPrincipal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.GivenName)?.Value;
     public string Email => _claimsPrincipal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;

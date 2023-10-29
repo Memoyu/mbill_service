@@ -1,4 +1,6 @@
-﻿namespace Mbill.Service.Bill.Asset;
+﻿using Mbill.Core.Common;
+
+namespace Mbill.Service.Bill.Asset;
 
 public class AssetSvc : ApplicationSvc, IAssetSvc
 {
@@ -14,21 +16,22 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
     public async Task<ServiceResult<AssetDto>> InsertAsync(CreateAssetInput input)
     {
         var asset = Mapper.Map<AssetEntity>(input);
-        bool isRepeatName = await _assetRepo.Select.AnyAsync(r => r.Name == asset.Name && CurrentUser.Id == r.CreateUserId);
+        bool isRepeatName = await _assetRepo.Select.AnyAsync(r => r.Name == asset.Name && CurrentUser.BId == r.CreateUserBId);
         if (isRepeatName)//资产名重复
             return ServiceResult<AssetDto>.Failed("资产名称重复，请重新输入");
+        asset.BId = SnowFlake.NextId();
         var entity = await _assetRepo.InsertAsync(asset);
         return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(entity));
     }
 
-    public async Task<ServiceResult> DeleteAsync(long id)
+    public async Task<ServiceResult> DeleteAsync(long bId)
     {
-        var category = await _assetRepo.Select.Where(s => s.Id == id && s.CreateUserId == CurrentUser.Id).ToOneAsync();
+        var category = await _assetRepo.Select.Where(s => s.BId == bId && s.CreateUserBId == CurrentUser.BId).ToOneAsync();
         if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该资产分类信息");
-        var cnt = await _assetRepo.DeleteAsync(id);
+        var cnt = await _assetRepo.DeleteAsync(bId);
         // 如果是分组，则删除分类
-        if (cnt > 0 && category.ParentId == 0)
-            await _assetRepo.DeleteAsync(c => c.ParentId == id);
+        if (cnt > 0 && category.ParentBId == 0)
+            await _assetRepo.DeleteAsync(c => c.ParentBId == bId);
         return ServiceResult.Successed();
     }
 
@@ -56,7 +59,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         var asset = await _assetRepo.GetAssetAsync(id);
         if (asset == null)
             return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产信息不存在或已删除！");
-        var parentAsset = await _assetRepo.GetAssetAsync(asset.ParentId);
+        var parentAsset = await _assetRepo.GetAssetAsync(asset.ParentBId);
         if (parentAsset == null)
             return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产父项信息不存在或已删除！");
         return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(parentAsset));
@@ -67,7 +70,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
     {
         var assets = await _assetRepo
             .Select
-            .Where(a => a.ParentId == 0)
+            .Where(a => a.ParentBId == 0)
             .OrderBy(a => a.CreateTime)
             .ToListAsync();
         var assetDtos = assets.Select(a => Mapper.Map<AssetDto>(a)).ToList();
@@ -78,10 +81,10 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
     {
         List<AssetEntity> entities = await _assetRepo
             .Select
-            .Where(c => c.CreateUserId == CurrentUser.Id)
+            .Where(c => c.CreateUserBId == CurrentUser.BId)
             .WhereIf(type.HasValue, c => c.Type == type)
             .ToListAsync();
-        List<AssetEntity> parents = entities.FindAll(c => c.ParentId == 0).OrderByDescending(d => d.Sort).ToList();
+        List<AssetEntity> parents = entities.FindAll(c => c.ParentBId == 0).OrderByDescending(d => d.Sort).ToList();
         List<AssetGroupDto> dtos = parents
             .Select(c =>
             {
@@ -89,7 +92,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
                 dto.Id = c.Id;
                 dto.Name = c.Name;
                 dto.Childs = entities
-                    .FindAll(d => d.ParentId == c.Id)
+                    .FindAll(d => d.ParentBId == c.Id)
                      .Select(d =>
                      {
                          return Mapper.Map<AssetDto>(d);
@@ -112,7 +115,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         var assets = await _assetRepo
             .Select
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), a => a.Name.Contains(pagingDto.AssetName))
-            .WhereIf(parentIds != null && parentIds.Any(), a => parentIds.Contains(a.ParentId.ToString()))
+            .WhereIf(parentIds != null && parentIds.Any(), a => parentIds.Contains(a.ParentBId.ToString()))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
             .WhereIf(pagingDto.CreateStartTime != null, a => a.CreateTime >= pagingDto.CreateStartTime && a.CreateTime <= pagingDto.CreateEndTime)
             .OrderBy(pagingDto.Sort)
@@ -121,8 +124,8 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         {
             var dto = Mapper.Map<AssetPageDto>(a);
             AssetEntity category = null;
-            if (a.ParentId != 0)
-                category = _assetRepo.Get(a.ParentId);
+            if (a.ParentBId != 0)
+                category = _assetRepo.Get(a.ParentBId);
             dto.ParentName = category?.Name;
             dto.TypeName = SystemConst.Switcher.AssetType(a.Type);
             dto.IconUrl = _fileRepo.GetFileUrl(a.Icon);

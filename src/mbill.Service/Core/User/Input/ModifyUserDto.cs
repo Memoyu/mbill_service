@@ -73,6 +73,6 @@ public class ModifyUserDto
     /// <summary>
     /// 权限
     /// </summary>
-    public List<long> RoleIds { get; set; }
+    public List<long> RoleBIds { get; set; }
 
 }

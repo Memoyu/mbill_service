@@ -43,7 +43,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             throw new KnownException("用户不存在", ServiceResultCode.NotFound);
         }
 
-        bool valid = await _userIdentityService.VerifyUserPasswordAsync(user.Id, loginDto.Password);
+        bool valid = await _userIdentityService.VerifyUserPasswordAsync(user.BId, loginDto.Password);
 
         if (!valid)
         {
@@ -83,7 +83,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             {
                 new UserRoleEntity()
                 {
-                    RoleId = Role.User
+                    RoleBId = Role.User
                 }
             };
 
@@ -99,7 +99,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         }
         else
         {
-            user = await _userRepo.GetUserAsync(c => c.Id == identity.UserId);
+            user = await _userRepo.GetUserAsync(c => c.BId == identity.UserBId);
             if (!string.IsNullOrWhiteSpace(user.AvatarUrl) && !string.IsNullOrWhiteSpace(user.Nickname))
                 isCompletedInfo = 1;
         }
@@ -120,7 +120,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         if (identity == null)
             return ServiceResult<TokenWithUserDto>.Failed($"微信用户不存在，请重新授权！");
 
-        user = await _userRepo.GetUserAsync(c => c.Id == identity.UserId);
+        user = await _userRepo.GetUserAsync(c => c.BId == identity.UserBId);
 
         user.AvatarUrl = input.AvatarUrl;
         user.Nickname = input.Nickname;
@@ -155,8 +155,8 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             var assets = await _assetRepo.Select.Where(c => c.CreateUserId == 1).ToListAsync();
 
             // 获取父分类、子类分组
-            var parentCategories = categories.Where(c => c.Type == 1 && c.ParentId == 0).ToList();
-            parentCategories.AddRange(categories.Where(c => c.Type == 0 && c.ParentId == 0).Take(4).ToList());
+            var parentCategories = categories.Where(c => c.Type == 1 && c.ParentBId == 0).ToList();
+            parentCategories.AddRange(categories.Where(c => c.Type == 0 && c.ParentBId == 0).Take(4).ToList());
             var groupsCategories = parentCategories.Select(c =>
               {
                   return new
@@ -165,11 +165,11 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                       Name = c.Name,
                       Type = c.Type,
                       Sort = c.Sort,
-                      Childs = categories.FindAll(d => d.ParentId == c.Id).ToList()
+                      Childs = categories.FindAll(d => d.ParentBId == c.Id).ToList()
                   };
               }).ToList();
 
-            var parentAssets = assets.Where(c => c.ParentId == 0).ToList();
+            var parentAssets = assets.Where(c => c.ParentBId == 0).ToList();
             var groupsAssets = parentAssets.Select(c =>
             {
                 return new
@@ -178,7 +178,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                     Name = c.Name,
                     Type = c.Type,
                     Sort = c.Sort,
-                    Childs = assets.FindAll(d => d.ParentId == c.Id).ToList()
+                    Childs = assets.FindAll(d => d.ParentBId == c.Id).ToList()
                 };
             }).ToList();
 
@@ -215,7 +215,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 foreach (var item in g.Childs)
                 {
                     item.Id = 0;
-                    item.ParentId = p.Value;
+                    item.ParentBId = p.Value;
                     item.CreateUserId = id;
                     categoryEntities.Add(item);
                 }
@@ -228,7 +228,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 foreach (var item in g.Childs)
                 {
                     item.Id = 0;
-                    item.ParentId = p.Value;
+                    item.ParentBId = p.Value;
                     item.CreateUserId = id;
                     assetEntities.Add(item);
                 }

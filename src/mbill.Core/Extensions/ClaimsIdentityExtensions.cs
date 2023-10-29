@@ -2,7 +2,7 @@
 
 public static class ClaimsIdentityExtensions
 {
-    public static int? FindUserId(this ClaimsPrincipal principal)
+    public static int? FindUserBId(this ClaimsPrincipal principal)
     {
         Claim userIdOrNull = principal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
         if (userIdOrNull == null || string.IsNullOrWhiteSpace(userIdOrNull.Value))

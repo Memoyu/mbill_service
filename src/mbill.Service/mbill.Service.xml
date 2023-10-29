@@ -20,7 +20,7 @@
             <summary>
             删除资产分类
             </summary>
-            <param name="id">资产分类id</param>
+            <param name="bId">资产分类bId</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.EditAsync(Mbill.Service.Bill.Asset.Input.EditAssetInput)">
@@ -76,9 +76,9 @@
             资产分类名
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.ParentId">
+        <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.ParentBId">
             <summary>
-            父级Id，默认0
+            父级BId
             </summary>
         </member>
         <member name="P:Mbill.Service.Bill.Asset.Input.CreateAssetInput.Type">
@@ -263,12 +263,12 @@
             账单类型
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.CategoryBId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillPagingInput.AssetBId">
             <summary>
             账单账户
             </summary>
@@ -278,12 +278,12 @@
             账单类型
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryIds">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.CategoryBIds">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetIds">
+        <member name="P:Mbill.Service.Bill.Bill.Input.BillSearchPagingInput.AssetBIds">
             <summary>
             账单账户
             </summary>
@@ -388,12 +388,12 @@
             账单账户
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.CategoryBId">
             <summary>
             分类Id
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.ModifyBillInput.AssetBId">
             <summary>
             资产Id
             </summary>
@@ -433,12 +433,12 @@
             账单类型
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.CategoryBId">
             <summary>
             账单分类
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetId">
+        <member name="P:Mbill.Service.Bill.Bill.Input.MonthBillPagingInput.AssetBId">
             <summary>
             账单账户
             </summary>
@@ -501,7 +501,7 @@
             指定的年
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.Id">
+        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderPagingInput.BId">
             <summary>
             指定的分组
             </summary>
@@ -511,7 +511,7 @@
             预购状态
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput.Id">
+        <member name="P:Mbill.Service.Bill.Bill.Input.GroupPreOrderStatInput.BId">
             <summary>
             指定的分组
             </summary>
@@ -927,12 +927,12 @@
             用户当时的昵称
             </summary>
         </member>
-        <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.RoleId">
+        <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.RoleBId">
             <summary>
             角色Id
             </summary>
         </member>
-        <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.PermissionIds">
+        <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.PermissionBIds">
             <summary>
             权限Id集合
             </summary>
@@ -1082,7 +1082,7 @@
             确认密码
             </summary>
         </member>
-        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.RoleIds">
+        <member name="P:Mbill.Service.Core.User.Input.ModifyUserDto.RoleBIds">
             <summary>
             权限
             </summary>
@@ -1091,7 +1091,7 @@
             <summary>
             验证用户密码是否正确
             </summary>
-            <param name="userId">用户Id</param>
+            <param name="userBId">用户Id</param>
             <param name="password">密码</param>
             <returns></returns>
         </member>
@@ -1121,7 +1121,7 @@
             <summary>
             获取用户信息，id为空时，通过Token获取
             </summary>
-            <param name="id"></param>
+            <param name="bId"></param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Core.User.IUserSvc.GetPagesAsync(Mbill.Service.Core.User.Input.UserPagingDto)">
@@ -1219,7 +1219,7 @@
             <summary>
             通过UserId获取用户绑定信息
             </summary>
-            <param name="userId"></param>
+            <param name="userBId"></param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Core.User.UserIdentitySvc.GetFirstByOpenIdAsync(System.String)">
@@ -1271,7 +1271,7 @@
             图标颜色
             </summary>
         </member>
-        <member name="P:Mbill.Service.PreOrder.Input.GroupToBillInput.BillId">
+        <member name="P:Mbill.Service.PreOrder.Input.GroupToBillInput.BillBId">
             <summary>
             账单Id
             </summary>

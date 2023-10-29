@@ -26,7 +26,7 @@ public class UserController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult> CreateAsync([FromBody] ModifyUserDto userInput)
     {
-        await _userService.CreateAsync(_mapper.Map<UserEntity>(userInput), userInput.RoleIds, userInput.Password);
+        await _userService.CreateAsync(_mapper.Map<UserEntity>(userInput), userInput.RoleBIds, userInput.Password);
         return ServiceResult.Successed("用户创建成功");
     }
 

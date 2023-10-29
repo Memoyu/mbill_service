@@ -7,13 +7,13 @@ public class ModifyBillInput
     /// <summary>
     /// 分类Id
     /// </summary>
-    public long CategoryId { get; set; }
+    public long CategoryBId { get; set; }
 
     /// <summary>
     /// 资产Id
     /// </summary>
     [Required(ErrorMessage = "必须传入源资产Id")]
-    public long AssetId { get; set; }
+    public long AssetBId { get; set; }
 
     /// <summary>
     /// 金额

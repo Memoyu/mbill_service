@@ -18,5 +18,5 @@ public class RankingPagingInput : PagingDto
     /// </summary>
     public int BillType { get; set; }
 
-    public long? CategoryId { get; set; }
+    public long? CategoryBId { get; set; }
 }

@@ -24,32 +24,32 @@ public static class JwtBearerSetup
         {
             options.TokenValidationParameters = new TokenValidationParameters
             {
-                    // 密钥必须匹配
+                // 密钥必须匹配
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = jsonWebTokenSetting.SecurityKey,
 
-                    // 验证Issuer
+                // 验证Issuer
                 ValidateIssuer = true,
                 ValidIssuer = jsonWebTokenSetting.Issuer,
 
-                    // 验证Audience
+                // 验证Audience
                 ValidateAudience = true,
                 ValidAudience = jsonWebTokenSetting.Audience,
 
-                    // 验证过期时间
+                // 验证过期时间
                 ValidateLifetime = true,
 
-                    //偏移设置为了0s,用于测试过期策略,完全按照access_token的过期时间策略，默认原本为5分钟
+                //偏移设置为了0s,用于测试过期策略,完全按照access_token的过期时间策略，默认原本为5分钟
                 ClockSkew = TimeSpan.Zero
             };
 
 
-                //使用Authorize设置为需要登录时，返回json格式数据。
+            //使用Authorize设置为需要登录时，返回json格式数据。
             options.Events = new JwtBearerEvents()
             {
                 OnAuthenticationFailed = context =>
                 {
-                        //Token 过期
+                    //Token 过期
                     if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                     {
                         context.Response.Headers.Add("Token-Expired", "true");
@@ -59,7 +59,7 @@ public static class JwtBearerSetup
                 },
                 OnChallenge = async context =>
                 {
-                        //此处代码为终止.Net Core默认的返回类型和数据结果，这个很重要哦
+                    //此处代码为终止.Net Core默认的返回类型和数据结果，这个很重要哦
                     context.HandleResponse();
 
                     string message;

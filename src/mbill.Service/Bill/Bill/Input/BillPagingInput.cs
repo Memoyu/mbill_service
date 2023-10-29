@@ -20,12 +20,12 @@ public class BillPagingInput : PagingDto
     /// <summary>
     /// 账单分类
     /// </summary>
-    public long? CategoryId { get; set; }
+    public long? CategoryBId { get; set; }
 
     /// <summary>
     /// 账单账户
     /// </summary>
-    public long? AssetId { get; set; }
+    public long? AssetBId { get; set; }
 
 
 }

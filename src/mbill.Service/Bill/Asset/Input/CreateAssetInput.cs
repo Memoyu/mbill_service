@@ -9,9 +9,9 @@ public class CreateAssetInput
     public string Name { get; set; }
 
     /// <summary>
-    /// 父级Id，默认0
+    /// 父级BId
     /// </summary>
-    public long ParentId { get; set; }
+    public long ParentBId { get; set; }
 
     /// <summary>
     /// 资产分类类型：存款、负债

@@ -14,7 +14,7 @@ public class UserSvc : ApplicationSvc, IUserSvc
     }
 
     [Transactional]
-    public async Task CreateAsync(UserEntity user, List<long> roleIds, string password)
+    public async Task CreateAsync(UserEntity user, List<long> roleBIds, string password)
     {
         if (!string.IsNullOrEmpty(user.Username))
         {
@@ -34,11 +34,11 @@ public class UserSvc : ApplicationSvc, IUserSvc
             }
         }
         user.UserRoles = new List<UserRoleEntity>();
-        roleIds?.ForEach(roleId =>//遍历构建赋值角色
+        roleBIds?.ForEach(roleBId =>//遍历构建赋值角色
         {
             user.UserRoles.Add(new UserRoleEntity()
             {
-                RoleId = roleId
+                RoleBId = roleBId
             });
         });
 
@@ -49,9 +49,9 @@ public class UserSvc : ApplicationSvc, IUserSvc
         await _userRepo.InsertAsync(user);
     }
 
-    public async Task<ServiceResult<UserDto>> GetAsync(long? id)
+    public async Task<ServiceResult<UserDto>> GetAsync(long? bId)
     {
-        var userId = id ?? CurrentUser.Id;
+        var userId = bId ?? CurrentUser.BId;
         var user = await _userRepo
             .Select
             .IncludeMany(u => u.Roles)

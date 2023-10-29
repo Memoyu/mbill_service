@@ -1,13 +1,6 @@
 ﻿using Mbill.Core.Domains.Common.Base;
-using Mbill.Core.Interface.IRepositories.Base;
-using Mbill.Core.Security;
-using FreeSql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Mbill.Infrastructure.Repository.Base
 {
@@ -32,14 +25,14 @@ namespace Mbill.Infrastructure.Repository.Base
             if (!(entity is ICreateAduitEntity e)) return;
 
             e.CreateTime = DateTime.Now;
-            if (e.CreateUserId == 0 && CurrentUser.Id != null)
+            if (e.CreateUserBId == 0 && CurrentUser.BId != null)
             {
-                e.CreateUserId = CurrentUser.Id ?? 0;
+                e.CreateUserBId = CurrentUser.BId ?? 0;
             }
 
             if (!(entity is IUpdateAuditEntity updateAuditEntity)) return;
             updateAuditEntity.UpdateTime = DateTime.Now;
-            updateAuditEntity.UpdateUserId = CurrentUser.Id;
+            updateAuditEntity.UpdateUserBId = CurrentUser.BId;
         }
 
         public override TEntity Insert(TEntity entity)
@@ -78,7 +71,7 @@ namespace Mbill.Infrastructure.Repository.Base
         {
             if (!(entity is IUpdateAuditEntity e)) return;
             e.UpdateTime = DateTime.Now;
-            e.UpdateUserId = CurrentUser.Id;
+            e.UpdateUserBId = CurrentUser.BId;
         }
 
         public new int Update(TEntity entity)
@@ -123,7 +116,7 @@ namespace Mbill.Infrastructure.Repository.Base
             {
                 return Orm.Update<TEntity>(entity)
                            .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                           .Set(a => (a as IDeleteAduitEntity).DeleteUserId, CurrentUser.Id)
+                           .Set(a => (a as IDeleteAduitEntity).DeleteUserBId, CurrentUser.BId)
                            .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                            .ExecuteAffrows();
             }
@@ -140,7 +133,7 @@ namespace Mbill.Infrastructure.Repository.Base
                 {
                     if (x1 is IDeleteAduitEntity softDelete)
                     {
-                        softDelete.DeleteUserId = CurrentUser.Id;
+                        softDelete.DeleteUserBId = CurrentUser.BId;
                         softDelete.DeleteTime = DateTime.Now;
                         softDelete.IsDeleted = true;
                     }
@@ -159,7 +152,7 @@ namespace Mbill.Infrastructure.Repository.Base
             {
                 return Orm.Update<TEntity>(entity)
                            .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                           .Set(a => (a as IDeleteAduitEntity).DeleteUserId, CurrentUser.Id)
+                           .Set(a => (a as IDeleteAduitEntity).DeleteUserBId, CurrentUser.BId)
                            .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                            .ExecuteAffrows();
             }
@@ -177,7 +170,7 @@ namespace Mbill.Infrastructure.Repository.Base
                 {
                     if (x1 is IDeleteAduitEntity softDelete)
                     {
-                        softDelete.DeleteUserId = CurrentUser.Id;
+                        softDelete.DeleteUserBId = CurrentUser.BId;
                         softDelete.DeleteTime = DateTime.Now;
                         softDelete.IsDeleted = true;
                     }
@@ -193,7 +186,7 @@ namespace Mbill.Infrastructure.Repository.Base
             {
                 return await Orm.Update<TEntity>(entity)
                     .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                    .Set(a => (a as IDeleteAduitEntity).DeleteUserId, CurrentUser.Id)
+                    .Set(a => (a as IDeleteAduitEntity).DeleteUserBId, CurrentUser.BId)
                     .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                     .ExecuteAffrowsAsync();
             }
@@ -211,7 +204,7 @@ namespace Mbill.Infrastructure.Repository.Base
                 }
                 return Orm.Update<TEntity>(items)
                     .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                    .Set(a => (a as IDeleteAduitEntity).DeleteUserId, CurrentUser.Id)
+                    .Set(a => (a as IDeleteAduitEntity).DeleteUserBId, CurrentUser.BId)
                     .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                     .ExecuteAffrows();
             }
@@ -230,7 +223,7 @@ namespace Mbill.Infrastructure.Repository.Base
                 }
                 return await Orm.Update<TEntity>(items)
                      .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                     .Set(a => (a as IDeleteAduitEntity).DeleteUserId, CurrentUser.Id)
+                     .Set(a => (a as IDeleteAduitEntity).DeleteUserBId, CurrentUser.BId)
                      .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                      .ExecuteAffrowsAsync();
             }

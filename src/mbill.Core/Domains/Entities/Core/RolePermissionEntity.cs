@@ -4,6 +4,7 @@
 /// 角色权限表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_role_permission")]
+[Index("index_role_permission_on_bid", "BId", false)]
 public class RolePermissionEntity : Entity
 {
     public RolePermissionEntity()
@@ -11,25 +12,35 @@ public class RolePermissionEntity : Entity
 
     }
 
-    public RolePermissionEntity(long roleId, long permissionId)
+    public RolePermissionEntity(long roleBId, long permissionBId)
     {
-        RoleId = roleId;
-        PermissionId = permissionId;
+        RoleBId = roleBId;
+        PermissionBId = permissionBId;
     }
 
-    public RolePermissionEntity(long permissionId)
+    public RolePermissionEntity(long permissionBId)
     {
-        PermissionId = permissionId;
+        PermissionBId = permissionBId;
     }
 
     /// <summary>
-    /// 角色id
+    /// 角色BId
     /// </summary>
-    public long RoleId { get; set; }
+    public long RoleBId { get; set; }
+
+    ///// <summary>
+    ///// 角色id
+    ///// </summary>
+    //public long RoleId { get; set; }
 
     /// <summary>
-    /// 权限Id
+    /// 权限BId
     /// </summary>
-    public long PermissionId { get; set; }
+    public long PermissionBId { get; set; }
+
+    ///// <summary>
+    ///// 权限Id
+    ///// </summary>
+    //public long PermissionId { get; set; }
 
 }

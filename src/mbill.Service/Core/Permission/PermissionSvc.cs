@@ -49,7 +49,7 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
         long[] roleIds = CurrentUser.Roles;
         PermissionEntity permissionEntity = await _permissionRepo.Where(r => r.Module == module && r.Name == permission).FirstAsync();
         bool existPermission = await _rolePermissionRepo.Select
-            .AnyAsync(r => roleIds.Contains(r.RoleId) && r.PermissionId == permissionEntity.Id);
+            .AnyAsync(r => roleIds.Contains(r.RoleBId) && r.PermissionBId == permissionEntity.BId);
         return existPermission;
     }
 
@@ -57,19 +57,19 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
     public async Task<bool> DispatchPermissionsAsync(DispatchPermissionsDto dto)
     {
         //去重
-        var distinctPers = dto.PermissionIds.Distinct().ToList();
+        var distinctPers = dto.PermissionBIds.Distinct().ToList();
 
         var pers = await _permissionRepo.Select.ToListAsync();
         var notExist = distinctPers.Where(p => !pers.Any(per => per.Id == p));
         if (notExist.Any()) throw new KnownException($"Id：{string.Join(",", notExist)} 的权限不存在！", ServiceResultCode.NotFound, 200);
-        var rolePers = await _rolePermissionRepo.Select.Where(rp => rp.RoleId == dto.RoleId).ToListAsync();
+        var rolePers = await _rolePermissionRepo.Select.Where(rp => rp.RoleBId == dto.RoleBId).ToListAsync();
         //需要清除的权限   
-        var deletePers = rolePers.Where(r => !distinctPers.Any(p => p == r.PermissionId)).ToList();
+        var deletePers = rolePers.Where(r => !distinctPers.Any(p => p == r.PermissionBId)).ToList();
         //需要新增的权限
-        var addPers = distinctPers.Where(p => !rolePers.Any(r => r.PermissionId == p)).Select(p => new RolePermissionEntity
+        var addPers = distinctPers.Where(p => !rolePers.Any(r => r.PermissionBId == p)).Select(p => new RolePermissionEntity
         {
-            RoleId = dto.RoleId,
-            PermissionId = p
+            RoleBId = dto.RoleBId,
+            PermissionBId = p
         }).ToList();
         if (deletePers.Count > 0)
             await _rolePermissionRepo.DeleteAsync(deletePers);

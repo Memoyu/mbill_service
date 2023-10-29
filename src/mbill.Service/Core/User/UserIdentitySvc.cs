@@ -12,9 +12,9 @@ public class UserIdentitySvc : IUserIdentitySvc
         throw new NotImplementedException();
     }
 
-    public async Task<bool> VerifyUserPasswordAsync(long userId, string password)
+    public async Task<bool> VerifyUserPasswordAsync(long userBId, string password)
     {
-        UserIdentityEntity userIdentity = await GetFirstByUserIdAsync(userId);
+        UserIdentityEntity userIdentity = await GetFirstByUserIdAsync(userBId);
         return userIdentity != null && EncryptUtil.Verify(userIdentity.Credential, password);
     }
 
@@ -26,12 +26,12 @@ public class UserIdentitySvc : IUserIdentitySvc
     /// <summary>
     /// 通过UserId获取用户绑定信息
     /// </summary>
-    /// <param name="userId"></param>
+    /// <param name="userBId"></param>
     /// <returns></returns>
-    public async Task<UserIdentityEntity> GetFirstByUserIdAsync(long userId)
+    public async Task<UserIdentityEntity> GetFirstByUserIdAsync(long userBId)
     {
         return await _userIdentityRepo
-            .Where(r => r.UserId == userId && r.IdentityType == UserIdentityEntity.Password)
+            .Where(r => r.UserBId == userBId && r.IdentityType == UserIdentityEntity.Password)
             .ToOneAsync();
     }
 

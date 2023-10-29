@@ -4,15 +4,22 @@
 /// 预购清单实体
 /// </summary>
 [Table(Name = DbTablePrefix + "_pre_order")]
-[Index("index_preorder_on_group_id", "GroupId", false)]
+[Index("index_preorder_on_bid", "BId", false)]
+[Index("index_preorder_on_group_bid", "GroupBId", false)]
+//[Index("index_preorder_on_group_id", "GroupId", false)]
 [Index("index_preorder_on_bill_id", "BillId", false)]
 [Index("index_preorder_on_status", "Status", false)]
 public class PreOrderEntity : FullAduitEntity
 {
     /// <summary>
-    /// 分组Id
+    /// 分组BId
     /// </summary>
-    public long GroupId { get; set; }
+    public long GroupBId { get; set; }
+
+    ///// <summary>
+    ///// 分组Id
+    ///// </summary>
+    //public long GroupId { get; set; }
 
     /// <summary>
     /// 预购金额

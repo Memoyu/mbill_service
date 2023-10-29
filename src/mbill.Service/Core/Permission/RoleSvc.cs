@@ -27,7 +27,7 @@ public class RoleSvc : ApplicationSvc, IRoleSvc
         if (isRepeatName)//角色名重复
             throw new KnownException("角色名称重复，请重新输入", ServiceResultCode.RepeatField);
         var permissions = await _permissionRepo.Select.Where(p => p.IsDeleted == false).ToListAsync();
-        foreach (var permissionId in role.PermissionIds)
+        foreach (var permissionId in role.PermissionBIds)
         {
             if (!permissions.Any(p => p.Id == permissionId))
                 throw new KnownException($"Id:{permissionId} 权限不存在！", ServiceResultCode.NotFound);
@@ -35,10 +35,10 @@ public class RoleSvc : ApplicationSvc, IRoleSvc
 
         var input = Mapper.Map<RoleEntity>(role);
         var entity = await _roleRepo.InsertAsync(input);
-        await _rolePermissionRepo.InsertAsync(role.PermissionIds.Select(p => new RolePermissionEntity
+        await _rolePermissionRepo.InsertAsync(role.PermissionBIds.Select(p => new RolePermissionEntity
         {
-            RoleId = entity.Id,
-            PermissionId = p
+            RoleBId = entity.BId,
+            PermissionBId = p
         }));
     }
 

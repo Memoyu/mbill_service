@@ -17,15 +17,31 @@ namespace Mbill.Core.Domains.Entities.Bill
         /// </summary>
         public long UserId { get; set; }
 
+
+        /// <summary>
+        /// 用户
+        /// </summary>
+        public long UserBId { get; set; }
+
         /// <summary>
         /// 账单类型
         /// </summary>
         public int? Type { get; set; }
 
         /// <summary>
+        /// 分类BId
+        /// </summary>
+        public long CategoryBId { get; set; }
+
+        /// <summary>
         /// 账单分类
         /// </summary>
         public long? CategoryId { get; set; }
+
+        /// <summary>
+        /// 账单账户BId
+        /// </summary>
+        public long AssetBId { get; set; }
 
         /// <summary>
         /// 账单账户

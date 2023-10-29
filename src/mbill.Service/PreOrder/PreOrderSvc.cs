@@ -66,8 +66,8 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         var orders = await _orderRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
-            .Where(s => s.GroupId == input.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
+            .Where(s => s.GroupBId == input.BId)
             .WhereIf(input.Status.HasValue, s => s.Status == input.Status)
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
@@ -87,13 +87,13 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         var groups = await _groupRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
              .Where(s => s.CreateTime.Year == input.Month.Year && s.CreateTime.Month == input.Month.Month)
             .ToListAsync();
         var dto = new IndexPreOrderStatDto();
         dto.Total = groups.Count;
-        dto.ToBill = groups.Where(g=> g.BillId != 0).Count();
-        var count = await _orderRepo.GetCountByStatusAsync(groups.Select(g => g.Id).ToList());
+        dto.ToBill = groups.Where(g=> g.BillBId != 0).Count();
+        var count = await _orderRepo.GetCountByStatusAsync(groups.Select(g => g.BId).ToList());
         dto.Done = count.done;
         dto.UnDone = count.unDone;
         return ServiceResult<IndexPreOrderStatDto>.Successed(dto);

@@ -17,6 +17,6 @@ public class AssetRepo : AuditBaseRepo<AssetEntity>, IAssetRepo
         {
             var asset = await GetAsync(id);
             if (asset == null) return null;
-            return await GetAsync(asset.ParentId);
+            return await GetAsync(asset.ParentBId);
         }
     }

@@ -5,11 +5,11 @@ public class DispatchPermissionsDto
     /// <summary>
     /// 角色Id
     /// </summary>
-    public long RoleId { get; set; }
+    public long RoleBId { get; set; }
 
     /// <summary>
     /// 权限Id集合
     /// </summary>
-    public List<long> PermissionIds { get; set; }
+    public List<long> PermissionBIds { get; set; }
 }
 

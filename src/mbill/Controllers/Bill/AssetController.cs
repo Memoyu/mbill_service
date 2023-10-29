@@ -1,4 +1,6 @@
-﻿namespace Mbill.Controllers.Bill;
+﻿using System.Security.Cryptography;
+
+namespace Mbill.Controllers.Bill;
 
 /// <summary>
 /// 资产分类管理
@@ -29,14 +31,14 @@ public class AssetController : ApiControllerBase
     /// <summary> 
     /// 删除资产分组/分类
     /// </summary>
-    /// <param name="id">资产分类id</param>
+    /// <param name="bId">资产分类bId</param>
     [HttpDelete]
     [LocalAuthorize("删除", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long bId)
     {
         
-        return await _assetSvc.DeleteAsync(id);
+        return await _assetSvc.DeleteAsync(bId);
     }
 
     /// <summary>

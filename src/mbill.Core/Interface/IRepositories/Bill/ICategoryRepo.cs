@@ -3,17 +3,17 @@
 public interface ICategoryRepo : IAuditBaseRepo<CategoryEntity>
 {
     /// <summary>
-    /// 获取分类信息 By Id
+    /// 获取分类信息 By bId
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="bId"></param>
     /// <returns></returns>
-    Task<CategoryEntity> GetCategoryAsync(long id);
+    Task<CategoryEntity> GetCategoryAsync(long bId);
 
     /// <summary>
-    /// 获取分类父项 By 子项 Id
+    /// 获取分类父项 By 子项 bId
     /// </summary>
-    /// <param name="id">分类子项Id</param>
+    /// <param name="bId">分类子项bId</param>
     /// <returns></returns>
-    Task<CategoryEntity> GetCategoryParentAsync(long id);
+    Task<CategoryEntity> GetCategoryParentAsync(long bId);
 
 }

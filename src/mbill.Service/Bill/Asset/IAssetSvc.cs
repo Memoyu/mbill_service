@@ -12,9 +12,9 @@ public interface IAssetSvc
     /// <summary>
     /// 删除资产分类
     /// </summary>
-    /// <param name="id">资产分类id</param>
+    /// <param name="bId">资产分类bId</param>
     /// <returns></returns>
-    Task<ServiceResult> DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long bId);
 
     /// <summary>
     /// 更新资产分类

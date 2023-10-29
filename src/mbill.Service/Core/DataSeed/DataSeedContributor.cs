@@ -37,7 +37,7 @@ public class DataSeedContributor : IDataSeedContributor, ISingletonDependency
             if (permissions.All(r => r.Permission != per.Name))//持久化的权限数据是否存在于在本次获取到的权限数据
             {
                 permissionExpression = permissionExpression.Or(r => r.Id == per.Id);//拼接表达式，权限Id
-                rolePermissionExpression = rolePermissionExpression.Or(r => r.PermissionId == per.Id);//拼接表达式，角色权限Id
+                rolePermissionExpression = rolePermissionExpression.Or(r => r.PermissionBId == per.BId);//拼接表达式，角色权限Id
             }
         });
 

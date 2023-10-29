@@ -5,10 +5,10 @@ public interface IUserIdentitySvc
     /// <summary>
     /// 验证用户密码是否正确
     /// </summary>
-    /// <param name="userId">用户Id</param>
+    /// <param name="userBId">用户Id</param>
     /// <param name="password">密码</param>
     /// <returns></returns>
-    Task<bool> VerifyUserPasswordAsync(long userId, string password);
+    Task<bool> VerifyUserPasswordAsync(long userBId, string password);
 
     /// <summary>
     /// 验证微信用户OpenId是否存在

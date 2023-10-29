@@ -4,20 +4,13 @@
 /// 资产分类实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_asset")]
+[Index("index_asset_on_bid", "BId", false)]
 [Index("index_asset_on_amount", "Amount", false)]
 [Index("index_asset_on_sort", "false", false)]
-[Index("index_asset_on_parent_id", "ParentId", false)]
+[Index("index_asset_on_parent_bid", "ParentBId", false)]
 [Index("index_asset_on_type", "Type", false)]
 public class AssetEntity : FullAduitEntity
 {
-
-    /// <summary>
-    /// 资产Id
-    /// </summary>
-    [Column(IsNullable = false)]
-    [Description("资产Id")]
-    public long AssetId { get; set; }
-
     /// <summary>
     /// 资产分类名
     /// </summary>
@@ -25,7 +18,13 @@ public class AssetEntity : FullAduitEntity
     public string Name { get; set; }
 
     /// <summary>
-    /// 父级Id，默认0
+    /// 父级BId
+    /// </summary>
+    public long ParentBId { get; set; }
+
+
+    /// <summary>
+    /// 父级Id
     /// </summary>
     public long ParentId { get; set; }
 
@@ -52,6 +51,6 @@ public class AssetEntity : FullAduitEntity
     /// </summary>
     public int Sort { get; set; }
 
-    [Navigate(nameof(AssetId))]
+    [Navigate(nameof(BId))]
     public virtual AssetEntity Asset { get; set; }
 }

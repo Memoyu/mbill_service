@@ -4,17 +4,11 @@
 /// 账单分类实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_category")]
-[Index("index_category_on_parent_id", "ParentId", false)]
+[Index("index_category_on_bid", "BId", false)]
+[Index("index_category_on_parent_bid", "ParentBId", false)]
 [Index("index_category_on_type", "Type", false)]
 public class CategoryEntity : FullAduitEntity
 {
-    /// <summary>
-    /// 分类Id
-    /// </summary>
-    [Column(IsNullable = false)]
-    [Description("分类Id")]
-    public long CategoryId { get; set; }
-
     /// <summary>
     /// 账单分类名
     /// </summary>
@@ -23,9 +17,15 @@ public class CategoryEntity : FullAduitEntity
     public string Name { get; set; }
 
     /// <summary>
-    /// 父级Id，默认0
+    /// 父级BId
     /// </summary>
-    [Description("父级Id")]
+    [Description("父级BId")]
+    public long ParentBId { get; set; }
+
+    /// <summary>
+    /// 父级Id
+    /// </summary>
+    [Description("父级BId")]
     public long ParentId { get; set; }
 
     /// <summary>

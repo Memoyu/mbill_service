@@ -4,6 +4,7 @@
 /// 用户实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_user")]
+[Index("index_user_on_bid", "BId", false)]
 public class UserEntity : FullAduitEntity
 {
     /// <summary>

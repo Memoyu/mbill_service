@@ -13,9 +13,9 @@ public interface IUserSvc
     /// <summary>
     /// 获取用户信息，id为空时，通过Token获取
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="bId"></param>
     /// <returns></returns>
-    Task<ServiceResult<UserDto>> GetAsync(long? id);
+    Task<ServiceResult<UserDto>> GetAsync(long? bId);
 
     /// <summary>
     /// 获取用户分页信息

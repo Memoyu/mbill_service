@@ -75,8 +75,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         else
         {
             var update = Builders<BillEntity>.Update
-                 .Set(nameof(entity.CategoryId), input.CategoryId)
-                 .Set(nameof(entity.AssetId), input.AssetId)
+                 .Set(nameof(entity.CategoryBId), input.CategoryBId)
+                 .Set(nameof(entity.AssetBId), input.AssetBId)
                  .Set(nameof(entity.Amount), input.Amount)
                  .Set(nameof(entity.Type), input.Type)
                  .Set(nameof(entity.Description), input.Description)
@@ -96,7 +96,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         if (bill == null)
             return ServiceResult<BillDetailDto>.Failed("没有找到该账单信息");
         var dto = Mapper.Map<BillDetailDto>(bill);
-        var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
+        var category = await _categoryRepo.GetAsync(bill.Id);
         var asset = await _assetRepo.GetAssetAsync(dto.AssetId);
         dto.Asset = asset?.Name;
         dto.Category = category?.Name;
@@ -112,11 +112,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time >= begin && s.Time <= end)
             .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
-            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
-            .WhereIf(input.AssetId.HasValue, s => s.AssetId == input.AssetId)
+            .WhereIf(input.CategoryId.HasValue, s => s.CategoryBId == input.CategoryId)
+            .WhereIf(input.AssetId.HasValue, s => s.AssetBId == input.AssetId)
             .OrderBy("time DESC")
             .ToListAsync();
 
@@ -140,7 +140,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
 
     public async Task<ServiceResult<List<BillSearchRecordOutput>>> GetSearchRecordsAsync()
     {
-        var filter = Builders<BillSearchRecordEntity>.Filter.Eq(b => b.UserId, CurrentUser.Id);
+        var filter = Builders<BillSearchRecordEntity>.Filter.Eq(b => b.UserBId, CurrentUser.BId);
         var sort = Builders<BillSearchRecordEntity>.Sort.Descending("SearchTime");
         var list = await _mongoSearchRecordRepo.FindListByPageAsync(filter, 1, 10, null, sort);
         return ServiceResult<List<BillSearchRecordOutput>>.Successed(Mapper.Map<List<BillSearchRecordOutput>>(list));
@@ -149,7 +149,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<ServiceResult<PagedDto<BillDetailDto>>> SearchPagesAsync(BillSearchPagingInput input)
     {
         var recordEntity = Mapper.Map<BillSearchRecordEntity>(input);
-        recordEntity.UserId = CurrentUser.Id ?? 0;
+        recordEntity.UserId = CurrentUser.BId ?? 0;
         // 插入检索记录
         await _mongoSearchRecordRepo.InsertOneAsync(recordEntity);
 
@@ -162,12 +162,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
             filters.Add(bFilter.And(bFilter.In(b => b.Type, input.Types)));
 
         // 账单分类
-        if (input.CategoryIds != null && input.CategoryIds.Any())
-            filters.Add(bFilter.And(bFilter.In(b => b.CategoryId, input.CategoryIds)));
+        if (input.CategoryBIds != null && input.CategoryBIds.Any())
+            filters.Add(bFilter.And(bFilter.In(b => b.CategoryBId, input.CategoryBIds)));
 
         // 账单账户
-        if (input.AssetIds != null && input.AssetIds.Any())
-            filters.Add(bFilter.And(bFilter.In(b => b.AssetId, input.AssetIds)));
+        if (input.AssetBIds != null && input.AssetBIds.Any())
+            filters.Add(bFilter.And(bFilter.In(b => b.AssetBId, input.AssetBIds)));
 
         // 金额区间
         if (input.Amount != null)
@@ -196,7 +196,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             filters.Add(bFilter.And(bFilter.Or(bFilter.Where(b => b.Address.Contains(input.KeyWord)),
                 bFilter.Where(b => b.Description.Contains(input.KeyWord)))));
 
-        var filter = bFilter.And(bFilter.Eq(b => b.CreateUserId, CurrentUser.Id), bFilter.And(filters));//时间段条件用OR拼在一起
+        var filter = bFilter.And(bFilter.Eq(b => b.CreateUserBId, CurrentUser.BId), bFilter.And(filters));//时间段条件用OR拼在一起
         var paged = new PagedDto<BillDetailDto>();
 
         var total = await _mongoRepo.CountAsync(filter);
@@ -207,7 +207,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             foreach (var i in list)
             {
                 var dto = Mapper.Map<BillDetailDto>(i);
-                var category = await _categoryRepo.GetAsync(i.CategoryId.Value);
+                var category = await _categoryRepo.GetAsync(i.Id);
                 var asset = await _assetRepo.GetAssetAsync(dto.AssetId);
                 dto.Asset = asset?.Name;
                 dto.Category = category?.Name;
@@ -228,12 +228,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
             .WhereIf(input.DateType == 0, s => s.Time.Year == input.Date.Year && s.Time.Month == input.Date.Month)
             .WhereIf(input.DateType == 1, s => s.Time.Year == input.Date.Year)
             .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
-            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
-            .WhereIf(input.AssetId.HasValue, s => s.AssetId == input.AssetId)
+            .WhereIf(input.CategoryBId.HasValue, s => s.CategoryBId == input.CategoryBId)
+            .WhereIf(input.AssetBId.HasValue, s => s.AssetBId == input.AssetBId)
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
 
@@ -249,11 +249,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time.Year == input.Month.Year && s.Time.Month == input.Month.Month)
             .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
-            .WhereIf(input.CategoryId.HasValue, s => s.CategoryId == input.CategoryId)
-            .WhereIf(input.AssetId.HasValue, s => s.AssetId == input.AssetId)
+            .WhereIf(input.CategoryBId.HasValue, s => s.CategoryBId == input.CategoryBId)
+            .WhereIf(input.AssetBId.HasValue, s => s.AssetBId == input.AssetBId)
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
 
@@ -281,7 +281,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time <= end && s.Time >= begin)
             .ToListAsync();
         var dtos = bills.GroupBy(b => b.Time.Date).Select(
@@ -307,7 +307,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         ISelect<BillEntity> GetExpendSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
-               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.CreateUserBId == CurrentUser.BId)
                 .Where(s => s.Type == (int)BillTypeEnum.expend)
                .Where(s => s.Time <= end && s.Time >= begin);
 
@@ -318,7 +318,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         income = await _billRepo
              .Select
              .Where(s => s.IsDeleted == false)
-             .Where(s => s.CreateUserId == CurrentUser.Id)
+             .Where(s => s.CreateUserBId == CurrentUser.BId)
              .Where(s => s.Type == (int)BillTypeEnum.income)
               .Where(s => s.Time <= end && s.Time >= begin).SumAsync(e => e.Amount);
 
@@ -346,7 +346,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         ISelect<BillEntity> GetExpendSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
-               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.CreateUserBId == CurrentUser.BId)
                .Where(s => s.Type == (int)BillTypeEnum.expend)
                .Where(s => s.Time.Year == input.Year);
 
@@ -357,7 +357,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         income = await _billRepo
              .Select
              .Where(s => s.IsDeleted == false)
-             .Where(s => s.CreateUserId == CurrentUser.Id)
+             .Where(s => s.CreateUserBId == CurrentUser.BId)
              .Where(s => s.Type == (int)BillTypeEnum.income)
              .Where(s => s.Time.Year == input.Year).SumAsync(e => e.Amount);
 
@@ -381,7 +381,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         ISelect<BillEntity> GetSelect() => _billRepo
               .Select
               .Where(s => s.IsDeleted == false)
-              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .Where(s => s.CreateUserBId == CurrentUser.BId)
               .Where(s => s.Time.Year == year);
 
         // 计算收、支总额
@@ -422,14 +422,14 @@ public class BillSvc : ApplicationSvc, IBillSvc
         ISelect<BillEntity> GetExpendSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
-               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.CreateUserBId == CurrentUser.BId)
                .Where(s => s.Type == (int)BillTypeEnum.expend)
                .Where(s => s.Time <= end && s.Time >= begin);
 
         ISelect<BillEntity> GetIncomeSelect() => _billRepo
                .Select
                .Where(s => s.IsDeleted == false)
-               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.CreateUserBId == CurrentUser.BId)
                .Where(s => s.Type == (int)BillTypeEnum.income)
                .Where(s => s.Time <= end && s.Time >= begin);
 
@@ -467,13 +467,13 @@ public class BillSvc : ApplicationSvc, IBillSvc
         // 构建Select
         ISelect<BillEntity> GetExpendSelect() => _billRepo
               .Select
-              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .Where(s => s.CreateUserBId == CurrentUser.BId)
               .Where(s => s.Type == (int)BillTypeEnum.expend)
               .Where(s => s.Time.Year == input.Year);
 
         ISelect<BillEntity> GetIncomeSelect() => _billRepo
                .Select
-               .Where(s => s.CreateUserId == CurrentUser.Id)
+               .Where(s => s.CreateUserBId == CurrentUser.BId)
                .Where(s => s.Type == (int)BillTypeEnum.income)
                .Where(s => s.Time.Year == input.Year);
 
@@ -511,8 +511,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var dto = new CategoryPercentStatDto();
         ISelect<BillEntity, CategoryEntity> GetSelect() => _billRepo.Orm
               .Select<BillEntity>().From<CategoryEntity>((b, c) => b
-              .LeftJoin(s => s.CategoryId == c.Id)
-              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .LeftJoin(s => s.CategoryBId == c.BId)
+              .Where(s => s.CreateUserBId == CurrentUser.BId)
               .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
               .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
               .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
@@ -520,11 +520,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
         List<CategoryPercentSummaryDto> categoryGroups = null;
         if (input.SummaryType == 0)
         {
-            categoryGroups = await GetSelect().GroupBy((b, c) => c.ParentId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
+            categoryGroups = await GetSelect().GroupBy((b, c) => c.ParentBId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
         }
         else
         {
-            categoryGroups = await GetSelect().GroupBy((b, c) => b.CategoryId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key.Value, Sum = b.Sum(b.Value.Item1.Amount) });
+            categoryGroups = await GetSelect().GroupBy((b, c) => b.CategoryBId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
         }
         var catrgoryIds = categoryGroups.Select(c => c.Id).ToList();
         var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
@@ -546,16 +546,16 @@ public class BillSvc : ApplicationSvc, IBillSvc
         ISelect<BillEntity> GetSelect() => _billRepo
               .Select
               .Where(s => s.IsDeleted == false)
-              .Where(s => s.CreateUserId == CurrentUser.Id)
+              .Where(s => s.CreateUserBId == CurrentUser.BId)
               .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
               .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
               .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
               .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
 
-        var data = await GetSelect().GroupBy(s => s.CategoryId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var data = await GetSelect().GroupBy(s => s.CategoryBId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
         var catrgoryIds = data.Select(c => c.Id).ToList();
         var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
-        var parentIds = categories.Select(c => c.ParentId).Distinct();
+        var parentIds = categories.Select(c => c.ParentBId).Distinct();
         var categoryParents = await _categoryRepo.Select.Where(c => parentIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
         var total = data.Sum(c => c.Sum);
 
@@ -563,7 +563,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         dtos = data.Select(cg =>
         {
             var c = categories.FirstOrDefault(c => c.Id == cg.Id);
-            var g = categoryParents.FirstOrDefault(g => c.ParentId == g.Id);
+            var g = categoryParents.FirstOrDefault(g => c.ParentBId == g.Id);
             return new
             {
                 Id = cg.Id,
@@ -583,7 +583,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             Amount = g.Sum(c => c.Sum).AmountFormat(),
             Items = g.Select(c => new CategoryPercentItemDto
             {
-                Id = c.Id.Value,
+                Id = c.Id,
                 Category = c.CategoryName,
                 CategoryIcon = c.CategoryIcon,
                 Percent = c.Percent,
@@ -602,12 +602,12 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bills = await _billRepo
             .Select
             .Where(s => s.IsDeleted == false)
-            .Where(s => s.CreateUserId == CurrentUser.Id)
+            .Where(s => s.CreateUserBId == CurrentUser.BId)
             .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
             .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
             .WhereIf(input.DateType == 0, s => s.Time <= end && s.Time >= begin)
             .WhereIf(input.DateType == 1, s => s.Time.Year == input.Date.Year)
-            .WhereIf(input.CategoryId.HasValue && input.CategoryId != 0, s => s.CategoryId == input.CategoryId)
+            .WhereIf(input.CategoryBId.HasValue && input.CategoryBId != 0, s => s.CategoryBId == input.CategoryBId)
             .OrderBy(sort)
             .ToPageListAsync(input, out long totalCount);
 
@@ -627,12 +627,11 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var dto = Mapper.Map<BillSimpleDto>(bill);
         dto.Date = bill.Time.ToString("yyyy-MM-dd");
         dto.Time = bill.Time.ToString("HH:mm");
-        if (bill.CategoryId.HasValue)
-        {
-            var category = await _categoryRepo.GetAsync(bill.CategoryId.Value);
-            dto.Category = category?.Name;
-            dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
-        }
+
+        var category = await _categoryRepo.GetAsync(bill.CategoryBId);
+        dto.Category = category?.Name;
+        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
+
         return dto;
     }
 

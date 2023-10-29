@@ -27,6 +27,8 @@ public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, 
     /// </summary>
     public long CreateUserId { get; set; }
 
+    public long CreateUserBId { get; set; }
+
     /// <summary>
     /// 创建时间
     /// </summary>
@@ -42,6 +44,8 @@ public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, 
     /// </summary>
     public long? DeleteUserId { get; set; }
 
+    public long? DeleteUserBId { get; set; }
+
     /// <summary>
     /// 删除时间
     /// </summary>
@@ -51,6 +55,8 @@ public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, 
     /// 最后修改人Id
     /// </summary>
     public long? UpdateUserId { get; set; }
+
+    public long? UpdateUserBId { get; set; }
 
     /// <summary>
     /// 修改时间
@@ -70,7 +76,7 @@ public interface IEntity
     public long Id { get; set; }
 
     /// <summary>
-    /// 业务主键Id(雪花Id)
+    /// 业务Id(雪花Id)
     /// </summary>
     public long BId { get; set; }
 }
@@ -85,7 +91,7 @@ public class Entity : IEntity
     public long Id { get; set; }
 
     /// <summary>
-    /// 业务主键Id(雪花Id)
+    /// 业务Id(雪花Id)
     /// </summary>
     [Column(Position = 2)]
     public long BId { get; set; }
@@ -102,6 +108,10 @@ public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, I
     [Column(Position = -7)]//倒数第七个字段
     [Description("创建人Id")]
     public long CreateUserId { get; set; }
+
+    [Column(Position = -7)]
+    [Description("创建人Id")]
+    public long CreateUserBId { get; set; }
 
     /// <summary>
     /// 创建时间
@@ -124,6 +134,10 @@ public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, I
     [Description("删除人Id")]
     public long? DeleteUserId { get; set; }
 
+    [Column(Position = -4)]
+    [Description("删除人Id")]
+    public long? DeleteUserBId { get; set; }
+
     /// <summary>
     /// 删除时间
     /// </summary>
@@ -137,6 +151,10 @@ public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, I
     [Column(Position = -2)]
     [Description("修改人Id")]
     public long? UpdateUserId { get; set; }
+
+    [Column(Position = -2)]
+    [Description("修改人Id")]
+    public long? UpdateUserBId { get; set; }
 
     /// <summary>
     /// 修改时间
@@ -153,6 +171,8 @@ public interface ICreateAduitEntity
     /// </summary>
     long CreateUserId { get; set; }
 
+    long CreateUserBId { get; set; }
+
     /// <summary>
     /// 创建时间
     /// </summary>
@@ -165,6 +185,9 @@ public interface IUpdateAuditEntity
     /// 最后修改人Id
     /// </summary>
     long? UpdateUserId { get; set; }
+
+    long? UpdateUserBId { get; set; }
+
     /// <summary>
     /// 修改时间
     /// </summary>
@@ -182,6 +205,8 @@ public interface IDeleteAduitEntity
     /// 删除人id
     /// </summary>
     long? DeleteUserId { get; set; }
+
+    long? DeleteUserBId { get; set; }
 
     /// <summary>
     /// 删除时间

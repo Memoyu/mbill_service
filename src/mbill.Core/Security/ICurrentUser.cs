@@ -2,7 +2,9 @@
 
 public interface ICurrentUser
 {
-    long? Id { get; }
+    // long? Id { get; }
+
+    long? BId { get; }
 
     string UserName { get; }
     long[] Roles { get; }
