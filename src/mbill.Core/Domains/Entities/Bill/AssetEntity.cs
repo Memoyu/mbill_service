@@ -22,7 +22,6 @@ public class AssetEntity : FullAduitEntity
     /// </summary>
     public long ParentBId { get; set; }
 
-
     /// <summary>
     /// 父级Id
     /// </summary>

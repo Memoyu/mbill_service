@@ -82,8 +82,6 @@ public class UserEntity : FullAduitEntity
     /// </summary>
     public bool IsEnable { get; set; } = true;
 
-
-    [Navigate(ManyToMany = typeof(UserRoleEntity))]
     public virtual IEnumerable<RoleEntity> Roles { get; set; }
 
     [Navigate("UserId")]

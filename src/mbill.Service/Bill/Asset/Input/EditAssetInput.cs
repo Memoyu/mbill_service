@@ -2,7 +2,7 @@
 
 public class EditAssetInput
 {
-    public long Id { get; set; }
+    public long BId { get; set; }
 
     /// <summary>
     /// 资产分类名

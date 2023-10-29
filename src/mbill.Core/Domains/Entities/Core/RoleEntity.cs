@@ -27,12 +27,12 @@ public class RoleEntity : FullAduitEntity
 
     }
 
-    public RoleEntity(string name, string info, bool isStatic, long createUserId)
+    public RoleEntity(string name, string info, bool isStatic, long createUserBId)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Info = info ?? throw new ArgumentNullException(nameof(info));
         IsStatic = isStatic;
-        CreateUserId = createUserId;
+        CreateUserBId = createUserBId;
         CreateTime = DateTime.Now;
     }
 

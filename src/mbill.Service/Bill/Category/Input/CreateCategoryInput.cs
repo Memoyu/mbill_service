@@ -9,9 +9,9 @@ public class CreateCategoryInput
     public string Name { get; set; }
 
     /// <summary>
-    /// 父级Id，默认0
+    /// 父级BId，默认0
     /// </summary>
-    public long ParentId { get; set; }
+    public long ParentBId { get; set; }
 
     /// <summary>
     /// 分类类型：支出、收入

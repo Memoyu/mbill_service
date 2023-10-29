@@ -32,16 +32,16 @@
         </member>
         <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetAsync(System.Int64)">
             <summary>
-            获取父项 by id
+            获取父项 by bId
             </summary>
-            <param name="id">资产Id</param>
+            <param name="bId">资产bId</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetParentAsync(System.Int64)">
             <summary>
-            获取父项 by 子项 id
+            获取父项 by 子项 bId
             </summary>
-            <param name="id">资产子项Id</param>
+            <param name="bId">资产子项bId</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Asset.IAssetSvc.GetParentsAsync">
@@ -670,9 +670,9 @@
             账单分类名
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.ParentId">
+        <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.ParentBId">
             <summary>
-            父级Id，默认0
+            父级BId，默认0
             </summary>
         </member>
         <member name="P:Mbill.Service.Bill.Category.Input.CreateCategoryInput.Type">
@@ -695,9 +695,9 @@
             排序
             </summary>
         </member>
-        <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.Id">
+        <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.BId">
             <summary>
-            分组/分类Id
+            分组/分类BId
             </summary>
         </member>
         <member name="P:Mbill.Service.Bill.Category.Input.EditCategoryInput.Name">

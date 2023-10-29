@@ -2,7 +2,7 @@
 
 public static class ClaimsIdentityExtensions
 {
-    public static int? FindUserBId(this ClaimsPrincipal principal)
+    public static long? FindUserBId(this ClaimsPrincipal principal)
     {
         Claim userIdOrNull = principal.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
         if (userIdOrNull == null || string.IsNullOrWhiteSpace(userIdOrNull.Value))
@@ -10,7 +10,7 @@ public static class ClaimsIdentityExtensions
             return null;
         }
 
-        return int.Parse(userIdOrNull.Value);
+        return long.Parse(userIdOrNull.Value);
     }
 
     public static bool? IsAdmin(this ClaimsPrincipal principal)

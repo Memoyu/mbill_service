@@ -28,7 +28,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
     {
         var category = await _assetRepo.Select.Where(s => s.BId == bId && s.CreateUserBId == CurrentUser.BId).ToOneAsync();
         if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该资产分类信息");
-        var cnt = await _assetRepo.DeleteAsync(bId);
+        var cnt = await _assetRepo.DeleteAsync(category);
         // 如果是分组，则删除分类
         if (cnt > 0 && category.ParentBId == 0)
             await _assetRepo.DeleteAsync(c => c.ParentBId == bId);
@@ -37,7 +37,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
 
     public async Task<ServiceResult<AssetDto>> EditAsync(EditAssetInput input)
     {
-        var asset = await _assetRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
+        var asset = await _assetRepo.Select.Where(s => s.BId == input.BId && !s.IsDeleted).ToOneAsync();
         if (asset == null) return ServiceResult<AssetDto>.Failed(ServiceResultCode.NotFound, "没有找到该资产分类信息");
         asset.Name = input.Name;
         asset.Amount = input.Amount;
@@ -46,17 +46,17 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(asset));
     }
 
-    public async Task<ServiceResult<AssetDto>> GetAsync(long id)
+    public async Task<ServiceResult<AssetDto>> GetAsync(long bId)
     {
-        var asset = await _assetRepo.GetAssetAsync(id);
+        var asset = await _assetRepo.GetAssetAsync(bId);
         if (asset == null)
             return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产信息不存在或已删除！");
         return ServiceResult<AssetDto>.Successed(Mapper.Map<AssetDto>(asset));
     }
 
-    public async Task<ServiceResult<AssetDto>> GetParentAsync(long id)
+    public async Task<ServiceResult<AssetDto>> GetParentAsync(long bId)
     {
-        var asset = await _assetRepo.GetAssetAsync(id);
+        var asset = await _assetRepo.GetAssetAsync(bId);
         if (asset == null)
             return ServiceResult<AssetDto>.Failed(ServiceResultCode.ParameterError, "资产信息不存在或已删除！");
         var parentAsset = await _assetRepo.GetAssetAsync(asset.ParentBId);
@@ -73,7 +73,7 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
             .Where(a => a.ParentBId == 0)
             .OrderBy(a => a.CreateTime)
             .ToListAsync();
-        var assetDtos = assets.Select(a => Mapper.Map<AssetDto>(a)).ToList();
+        var assetDtos = assets.Select(Mapper.Map<AssetDto>).ToList();
         return ServiceResult<IEnumerable<AssetDto>>.Successed(assetDtos);
     }
 
@@ -89,14 +89,11 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
             .Select(c =>
             {
                 var dto = new AssetGroupDto();
-                dto.Id = c.Id;
+                dto.BId = c.BId;
                 dto.Name = c.Name;
                 dto.Childs = entities
-                    .FindAll(d => d.ParentBId == c.Id)
-                     .Select(d =>
-                     {
-                         return Mapper.Map<AssetDto>(d);
-                     }).OrderByDescending(d => d.Sort)
+                    .FindAll(d => d.ParentBId == c.BId)
+                     .Select(Mapper.Map<AssetDto>).OrderByDescending(d => d.Sort)
                     .ToList();
                 return dto;
             })
@@ -109,36 +106,36 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
         if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null)
             return ServiceResult<PagedDto<AssetPageDto>>.Failed(ServiceResultCode.ParameterError, "创建时间参数有误");
         pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
-        var parentIds = new List<string>();
-        if (!string.IsNullOrWhiteSpace(pagingDto.ParentIds))
-            parentIds = pagingDto.ParentIds.Split(",").ToList();
+        var parentBIds = new List<string>();
+        if (!string.IsNullOrWhiteSpace(pagingDto.ParentBIds))
+            parentBIds = pagingDto.ParentBIds.Split(",").ToList();
         var assets = await _assetRepo
             .Select
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), a => a.Name.Contains(pagingDto.AssetName))
-            .WhereIf(parentIds != null && parentIds.Any(), a => parentIds.Contains(a.ParentBId.ToString()))
+            .WhereIf(parentBIds != null && parentBIds.Any(), a => parentBIds.Contains(a.ParentBId.ToString()))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
             .WhereIf(pagingDto.CreateStartTime != null, a => a.CreateTime >= pagingDto.CreateStartTime && a.CreateTime <= pagingDto.CreateEndTime)
             .OrderBy(pagingDto.Sort)
             .ToPageListAsync(pagingDto, out long totalCount);
-        var assetDtos = assets.Select(a =>
+        var assetDtos = assets.Select( async a =>
         {
             var dto = Mapper.Map<AssetPageDto>(a);
             AssetEntity category = null;
             if (a.ParentBId != 0)
-                category = _assetRepo.Get(a.ParentBId);
+                category = await _assetRepo.GetAssetAsync(a.ParentBId);
             dto.ParentName = category?.Name;
-            dto.TypeName = SystemConst.Switcher.AssetType(a.Type);
+            dto.TypeName = Switcher.AssetType(a.Type);
             dto.IconUrl = _fileRepo.GetFileUrl(a.Icon);
             return dto;
-        }).ToList();
+        }).Select(t => t.Result).ToList();
 
         return ServiceResult<PagedDto<AssetPageDto>>.Successed(new PagedDto<AssetPageDto>(assetDtos, totalCount));
     }
 
     public async Task<ServiceResult> SortAsync(SortAssetInput input)
     {
-        var edits = input.Sorts.Select(s => new AssetEntity { Id = s.Id, Sort = s.Sort }).ToList();
-        var cnt = await _assetRepo.Orm.Update<AssetEntity>().SetSource(edits).UpdateColumns(e => new { e.Sort }).ExecuteAffrowsAsync();
+        var edits = input.Sorts.Select(s => new AssetEntity { BId = s.BId, Sort = s.Sort }).ToList();
+        var cnt = await _assetRepo.Orm.Update<AssetEntity>().SetSource(edits, e => e.BId).UpdateColumns(e => new { e.Sort }).ExecuteAffrowsAsync();
         if (cnt <= 0) return ServiceResult.Failed("排序失败");
         return ServiceResult.Successed();
     }

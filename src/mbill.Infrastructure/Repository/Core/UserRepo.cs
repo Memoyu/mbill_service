@@ -19,7 +19,7 @@ namespace Mbill.Infrastructure.Repository.Core
         /// <returns></returns>
         public Task<UserEntity> GetUserAsync(Expression<Func<UserEntity, bool>> expression)
         {
-            return Select.Where(expression).IncludeMany(r => r.Roles).ToOneAsync();
+            return Select.Where(expression).ToOneAsync();
         }
 
         /// <summary>

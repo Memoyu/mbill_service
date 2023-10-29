@@ -2,7 +2,7 @@
 
 public class SortInput
 {
-        public long Id { get; set; }
+    public long BId { get; set; }
 
-public int Sort { get; set; }
+    public int Sort { get; set; }
 }

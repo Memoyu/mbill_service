@@ -30,13 +30,13 @@ public class CategoryController : ApiControllerBase
     /// <summary> 
     /// 删除账单分组/分类
     /// </summary>
-    /// <param name="id">账单分类id</param>
+    /// <param name="bId">账单分类bId</param>
     [HttpDelete]
     [LocalAuthorize("删除", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long bId)
     {
-        return await _categorySvc.DeleteAsync(id);
+        return await _categorySvc.DeleteAsync(bId);
     }
 
     /// <summary>
@@ -54,13 +54,13 @@ public class CategoryController : ApiControllerBase
     /// <summary>
     /// 获取账单分组/分类
     /// </summary>
-    /// <param name="id">分类id</param>
+    /// <param name="bId">分类bId</param>
     [HttpGet]
     [LocalAuthorize("获取详情", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<CategoryDto>> GetAsync([FromQuery] long id)
+    public async Task<ServiceResult<CategoryDto>> GetAsync([FromQuery] long bId)
     {
-        return await _categorySvc.GetAsync(id);
+        return await _categorySvc.GetAsync(bId);
     }
 
     /// <summary>
@@ -79,13 +79,13 @@ public class CategoryController : ApiControllerBase
     /// <summary>
     /// 获取分类父项
     /// </summary>
-    /// <param name="id">分类id</param>
+    /// <param name="bId">分类bId</param>
     [HttpGet("parent")]
     [LocalAuthorize("获取父项详情", "账单分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<CategoryDto>> GetParentAsync([FromQuery] long id)
+    public async Task<ServiceResult<CategoryDto>> GetParentAsync([FromQuery] long bId)
     {
-        return await _categorySvc.GetParentAsync(id);
+        return await _categorySvc.GetParentAsync(bId);
     }
 
     /// <summary>

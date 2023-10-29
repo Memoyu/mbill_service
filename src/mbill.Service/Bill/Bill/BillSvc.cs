@@ -63,7 +63,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bill = Mapper.Map<BillEntity>(input);
         var entity = await _billRepo.GetAsync(bill.Id);
         if (entity is null) return ServiceResult<BillSimpleDto>.Failed("没有找到该账单信息");
-        Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserId, e.CreateTime };
+        Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserBId, e.CreateTime };
         await _billRepo.UpdateWithIgnoreAsync(bill, ignoreExp);
         var find = await _mongoRepo.FindOneAsync(entity.Id, false);
         if (find is null)
@@ -97,7 +97,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             return ServiceResult<BillDetailDto>.Failed("没有找到该账单信息");
         var dto = Mapper.Map<BillDetailDto>(bill);
         var category = await _categoryRepo.GetAsync(bill.Id);
-        var asset = await _assetRepo.GetAssetAsync(dto.AssetId);
+        var asset = await _assetRepo.GetAssetAsync(dto.AssetBId);
         dto.Asset = asset?.Name;
         dto.Category = category?.Name;
         dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
@@ -208,7 +208,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             {
                 var dto = Mapper.Map<BillDetailDto>(i);
                 var category = await _categoryRepo.GetAsync(i.Id);
-                var asset = await _assetRepo.GetAssetAsync(dto.AssetId);
+                var asset = await _assetRepo.GetAssetAsync(dto.AssetBId);
                 dto.Asset = asset?.Name;
                 dto.Category = category?.Name;
                 dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);

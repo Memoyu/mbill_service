@@ -24,18 +24,18 @@ public interface IAssetSvc
     Task<ServiceResult<AssetDto>> EditAsync(EditAssetInput input);
 
     /// <summary>
-    /// 获取父项 by id
+    /// 获取父项 by bId
     /// </summary>
-    /// <param name="id">资产Id</param>
+    /// <param name="bId">资产bId</param>
     /// <returns></returns>
-    Task<ServiceResult<AssetDto>> GetAsync(long id);
+    Task<ServiceResult<AssetDto>> GetAsync(long bId);
 
     /// <summary>
-    /// 获取父项 by 子项 id
+    /// 获取父项 by 子项 bId
     /// </summary>
-    /// <param name="id">资产子项Id</param>
+    /// <param name="bId">资产子项bId</param>
     /// <returns></returns>
-    Task<ServiceResult<AssetDto>> GetParentAsync(long id);
+    Task<ServiceResult<AssetDto>> GetParentAsync(long bId);
 
     /// <summary>
     /// 获取父项集合

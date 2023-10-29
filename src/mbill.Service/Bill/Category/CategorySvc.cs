@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Mbill.Core.Common;
+using System.Collections.Generic;
 
 namespace Mbill.Service.Bill.Category;
 
@@ -20,24 +21,25 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         if (isRepeatName)//分类名重复
             return ServiceResult<CategoryDto>.Failed("分类名称重复，请重新输入");
 
+        categroy.BId = SnowFlake.NextId();
         var entity = await _categoryRepo.InsertAsync(categroy);
         return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(entity));
     }
 
-    public async Task<ServiceResult> DeleteAsync(long id)
+    public async Task<ServiceResult> DeleteAsync(long bId)
     {
-        var category = await _categoryRepo.Select.Where(s => s.Id == id && s.CreateUserBId == CurrentUser.BId).ToOneAsync();
+        var category = await _categoryRepo.Select.Where(s => s.Id == bId && s.CreateUserBId == CurrentUser.BId).ToOneAsync();
         if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
-        var cnt = await _categoryRepo.DeleteAsync(id);
+        var cnt = await _categoryRepo.DeleteAsync(category);
         // 如果是分组，则删除分类
         if (cnt > 0 && category.ParentBId == 0)
-            await _categoryRepo.DeleteAsync(c => c.ParentBId == id);
+            await _categoryRepo.DeleteAsync(c => c.ParentBId == bId);
         return ServiceResult.Successed();
     }
 
     public async Task<ServiceResult<CategoryDto>> EditAsync(EditCategoryInput input)
     {
-        var category = await _categoryRepo.Select.Where(s => s.Id == input.Id && !s.IsDeleted).ToOneAsync();
+        var category = await _categoryRepo.Select.Where(s => s.BId == input.BId && !s.IsDeleted).ToOneAsync();
         if (category == null) return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
         category.Name = input.Name;
         category.Budget = input.Budget;
@@ -46,9 +48,9 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(category));
     }
 
-    public async Task<ServiceResult<CategoryDto>> GetAsync(long id)
+    public async Task<ServiceResult<CategoryDto>> GetAsync(long bId)
     {
-        var category = await _categoryRepo.GetCategoryAsync(id);
+        var category = await _categoryRepo.GetCategoryAsync(bId);
         if (category == null)
             return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "分类信息不存在或已删除！");
         return ServiceResult<CategoryDto>.Successed(Mapper.Map<CategoryDto>(category));
@@ -57,13 +59,13 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
     public async Task<ServiceResult<List<CategoryDto>>> GetsAsync(int type)
     {
         var categories = await _categoryRepo.Select.Where(c => c.ParentBId != 0 && c.Type == type && c.CreateUserBId == CurrentUser.BId).ToListAsync();
-        var dtos = categories.Select(c => Mapper.Map<CategoryDto>(c)).ToList();
+        var dtos = categories.Select(Mapper.Map<CategoryDto>).ToList();
         return ServiceResult<List<CategoryDto>>.Successed(dtos);
     }
 
-    public async Task<ServiceResult<CategoryDto>> GetParentAsync(long id)
+    public async Task<ServiceResult<CategoryDto>> GetParentAsync(long bId)
     {
-        var category = await _categoryRepo.GetCategoryAsync(id);
+        var category = await _categoryRepo.GetCategoryAsync(bId);
         if (category == null)
             return ServiceResult<CategoryDto>.Failed(ServiceResultCode.NotFound, "分类信息不存在或已删除！");
         var categoryParent = await _categoryRepo.GetCategoryAsync(category.ParentBId);
@@ -79,7 +81,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
             .Where(a => a.ParentBId == 0)
             .OrderBy(a => a.CreateTime)
             .ToListAsync();
-        var categoryDtos = assets.Select(a => Mapper.Map<CategoryDto>(a)).ToList();
+        var categoryDtos = assets.Select(Mapper.Map<CategoryDto>).ToList();
         return ServiceResult<IEnumerable<CategoryDto>>.Successed(categoryDtos);
     }
 
@@ -95,14 +97,11 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
             .Select(c =>
             {
                 var dto = new CategoryGroupDto();
-                dto.Id = c.Id;
+                dto.BId = c.BId;
                 dto.Name = c.Name;
                 dto.Childs = entities
-                    .FindAll(d => d.ParentBId == c.Id)
-                    .Select(d =>
-                    {
-                        return Mapper.Map<CategoryDto>(d);
-                    }).OrderByDescending(d => d.Sort)
+                    .FindAll(d => d.ParentBId == c.BId)
+                    .Select(Mapper.Map<CategoryDto>).OrderByDescending(d => d.Sort)
                     .ToList();
                 return dto;
             })
@@ -113,37 +112,37 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
     public async Task<ServiceResult<PagedDto<CategoryPageDto>>> GetPageAsync(CategoryPagingInput pagingDto)
     {
         if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
-        var parentIds = new List<string>();
-        if (!string.IsNullOrWhiteSpace(pagingDto.ParentIds))
-            parentIds = pagingDto.ParentIds.Split(",").ToList();
+        var parentBIds = new List<string>();
+        if (!string.IsNullOrWhiteSpace(pagingDto.ParentBIds))
+            parentBIds = pagingDto.ParentBIds.Split(",").ToList();
         pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
         var categories = await _categoryRepo
             .Select
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.CategoryName), c => c.Name.Contains(pagingDto.CategoryName))
-            .WhereIf(parentIds != null && parentIds.Any(), c => parentIds.Contains(c.ParentBId.ToString()))
+            .WhereIf(parentBIds != null && parentBIds.Any(), c => parentBIds.Contains(c.ParentBId.ToString()))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
             .WhereIf(pagingDto.CreateStartTime != null, c => c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
             .OrderBy(pagingDto.Sort)
             .ToPageListAsync(pagingDto, out long totalCount);
-        var categoryDtos = categories.Select(c =>
+        var categoryDtos = categories.Select(async c =>
         {
             var dto = Mapper.Map<CategoryPageDto>(c);
             CategoryEntity category = null;
             if (c.ParentBId != 0)
-                category = _categoryRepo.Get(c.ParentBId);
+                category = await _categoryRepo.GetCategoryAsync(c.ParentBId);
             dto.ParentName = category?.Name;
-            dto.TypeName = SystemConst.Switcher.CategoryType(c.Type);
+            dto.TypeName = Switcher.CategoryType(c.Type);
             dto.IconUrl = _fileRepo.GetFileUrl(c.Icon);
             return dto;
-        }).ToList();
+        }).Select(t => t.Result).ToList();
 
         return ServiceResult<PagedDto<CategoryPageDto>>.Successed(new PagedDto<CategoryPageDto>(categoryDtos, totalCount));
     }
 
     public async Task<ServiceResult> SortAsync(SortCategoryInput input)
     {
-        var edits = input.Sorts.Select(s => new CategoryEntity { Id = s.Id, Sort = s.Sort }).ToList();
-        var cnt = await _categoryRepo.Orm.Update<CategoryEntity>().SetSource(edits).UpdateColumns(e => new { e.Sort }).ExecuteAffrowsAsync();
+        var edits = input.Sorts.Select(s => new CategoryEntity { BId = s.BId, Sort = s.Sort }).ToList();
+        var cnt = await _categoryRepo.Orm.Update<CategoryEntity>().SetSource(edits, e => e.BId).UpdateColumns(e => new { e.Sort }).ExecuteAffrowsAsync();
         if (cnt <= 0) return ServiceResult.Failed("排序失败");
         return ServiceResult.Successed();
     }

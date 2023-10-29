@@ -94,7 +94,9 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             entity = await _userRepo.InsertAsync(entity);
             if (entity == null)
                 return ServiceResult<PreLoginUserDto>.Failed($"微信登录失败，请联系开发者！");
-            _ = InitUserDataAsync(entity.Id);
+
+            // TODO: 需要改造一下默认数据初始化实现
+            // _ = InitUserDataAsync(entity.Id);
             user = await _userRepo.GetUserAsync(c => c.Id == entity.Id);
         }
         else
@@ -151,8 +153,8 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         {
             // 初始化账单分类、资产数据
             // 获取userid = 1 的用户所有相关数据
-            var categories = await _categoryRepo.Select.Where(c => c.CreateUserId == 1).ToListAsync();
-            var assets = await _assetRepo.Select.Where(c => c.CreateUserId == 1).ToListAsync();
+            var categories = await _categoryRepo.Select.Where(c => c.CreateUserBId == 1).ToListAsync();
+            var assets = await _assetRepo.Select.Where(c => c.CreateUserBId == 1).ToListAsync();
 
             // 获取父分类、子类分组
             var parentCategories = categories.Where(c => c.Type == 1 && c.ParentBId == 0).ToList();
@@ -189,7 +191,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 Type = c.Type,
                 Sort = c.Sort,
                 Icon = "",
-                CreateUserId = id
+                CreateUserBId = id
             }).ToList();
 
             var assetEntities = groupsAssets.Select(c => new AssetEntity
@@ -198,7 +200,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 Type = c.Type,
                 Sort = c.Sort,
                 Icon = "",
-                CreateUserId = id
+                CreateUserBId = id
             }).ToList();
 
             // 插入父类数据
@@ -216,7 +218,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 {
                     item.Id = 0;
                     item.ParentBId = p.Value;
-                    item.CreateUserId = id;
+                    item.CreateUserBId = id;
                     categoryEntities.Add(item);
                 }
             }
@@ -229,7 +231,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 {
                     item.Id = 0;
                     item.ParentBId = p.Value;
-                    item.CreateUserId = id;
+                    item.CreateUserBId = id;
                     assetEntities.Add(item);
                 }
             }

@@ -3,9 +3,9 @@
 public class EditCategoryInput
 {
     /// <summary>
-    /// 分组/分类Id
+    /// 分组/分类BId
     /// </summary>
-    public long Id { get; set; }
+    public long BId { get; set; }
 
     /// <summary>
     /// 账单分类名

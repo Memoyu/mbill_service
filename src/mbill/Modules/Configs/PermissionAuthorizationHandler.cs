@@ -2,11 +2,11 @@
 
 public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthorizationRequirement>
 {
-    private readonly IPermissionSvc _permissionService;
+    private readonly IPermissionSvc _permissionSvc;
 
-    public PermissionAuthorizationHandler(IPermissionSvc permissionService)
+    public PermissionAuthorizationHandler(IPermissionSvc permissionSvc)
     {
-        _permissionService = permissionService;
+        _permissionSvc = permissionSvc;
     }
 
     protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, ModuleAuthorizationRequirement requirement)
@@ -28,7 +28,7 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthori
             return;
         }
 
-        if (await _permissionService.CheckAsync(requirement.Module, requirement.Name))
+        if (await _permissionSvc.CheckAsync(requirement.Module, requirement.Name))
         {
             context.Succeed(requirement);
             return;

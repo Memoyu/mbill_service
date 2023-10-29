@@ -2,11 +2,11 @@
 
 public class BillDto
 {
-    public long Id { get; set; }
+    public long BId { get; set; }
 
-    public long CategoryId { get; set; }
+    public long CategoryBId { get; set; }
 
-    public long AssetId { get; set; }
+    public long AssetBId { get; set; }
 
     public decimal Amount { get; set; }
 

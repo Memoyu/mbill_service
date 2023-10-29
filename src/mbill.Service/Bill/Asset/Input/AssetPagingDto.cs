@@ -4,7 +4,7 @@ public class AssetPagingDto : PagingDto
 {
     public string AssetName { get; set; }
 
-    public string ParentIds { get; set; }
+    public string ParentBIds { get; set; }
 
     public string Type { get; set; }
 

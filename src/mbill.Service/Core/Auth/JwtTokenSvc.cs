@@ -4,12 +4,14 @@ public class JwtTokenSvc : IJwtTokenSvc
 {
     private readonly ILogger<JwtTokenSvc> _logger;
     private readonly IUserRepo _userRepo;
+    private readonly IUserRoleRepo _userRoleRepo;
     private readonly IUserIdentitySvc _userIdentityService;
     private readonly IJwtService _jsonWebTokenService;
-    public JwtTokenSvc(ILogger<JwtTokenSvc> logger, IUserRepo userRepo, IUserIdentitySvc userIdentityService, IJwtService jsonWebTokenService)
+    public JwtTokenSvc(ILogger<JwtTokenSvc> logger, IUserRepo userRepo, IUserRoleRepo userRoleRepo, IUserIdentitySvc userIdentityService, IJwtService jsonWebTokenService)
     {
         _logger = logger;
         _userRepo = userRepo;
+        _userRoleRepo = userRoleRepo;
         _userIdentityService = userIdentityService;
         _jsonWebTokenService = jsonWebTokenService;
     }
@@ -43,11 +45,14 @@ public class JwtTokenSvc : IJwtTokenSvc
                 new Claim (ClaimTypes.GivenName, user.Nickname?? ""),
                 new Claim (ClaimTypes.Name, user.Username?? ""),
             };
-        user.Roles?.ForEach(r =>
+
+        var userRoles = _userRoleRepo.Where(r => r.UserBId == user.BId).Include(r => r.Role).ToList() ?? new List<UserRoleEntity>();
+        foreach (var userRole in userRoles)
         {
-            claims.Add(new Claim(ClaimTypes.Role, r.Name));
-            claims.Add(new Claim(CoreClaimTypes.Roles, r.Id.ToString()));
-        });
+            if (userRole.Role is null) continue;
+            claims.Add(new Claim(ClaimTypes.Role, userRole.Role.Name));
+            claims.Add(new Claim(CoreClaimTypes.Roles, userRole.Role.BId.ToString()));
+        }
 
         string token = _jsonWebTokenService.Encode(claims);
 

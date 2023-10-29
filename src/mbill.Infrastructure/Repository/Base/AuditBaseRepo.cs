@@ -145,22 +145,6 @@ namespace Mbill.Infrastructure.Repository.Base
             return base.Delete(entitys);
         }
 
-        public override async Task<int> DeleteAsync(TKey id, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            TEntity entity = await base.GetAsync(id);
-            if (entity is IDeleteAduitEntity)
-            {
-                return Orm.Update<TEntity>(entity)
-                           .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                           .Set(a => (a as IDeleteAduitEntity).DeleteUserBId, CurrentUser.BId)
-                           .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
-                           .ExecuteAffrows();
-            }
-
-            return await base.DeleteAsync(id);
-        }
-
-
         public override Task<int> DeleteAsync(IEnumerable<TEntity> entitys, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (entitys.Any() && entitys.FirstOrDefault() is IDeleteAduitEntity)

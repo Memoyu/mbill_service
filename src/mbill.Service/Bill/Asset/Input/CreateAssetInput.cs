@@ -17,7 +17,7 @@ public class CreateAssetInput
     /// 资产分类类型：存款、负债
     /// </summary>
     [Required(ErrorMessage = "必须传入资产分类类型")]
-    public string Type { get; set; }
+    public int Type { get; set; }
 
     /// <summary>
     /// 资产金额

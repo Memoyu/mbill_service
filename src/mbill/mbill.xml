@@ -190,13 +190,13 @@
             <summary>
             获取资产分组/分类
             </summary>
-            <param name="id">资产id</param>
+            <param name="bId">资产id</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.AssetController.GetParentAsync(System.Int64)">
             <summary>
             获取资产父项
             </summary>
-            <param name="id">资产id</param>
+            <param name="bId">资产id</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.AssetController.GetParentsAsync">
             <summary>
@@ -349,7 +349,7 @@
             <summary> 
             删除账单分组/分类
             </summary>
-            <param name="id">账单分类id</param>
+            <param name="bId">账单分类bId</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.CategoryController.EditAsync(Mbill.Service.Bill.Category.Input.EditCategoryInput)">
             <summary>
@@ -361,7 +361,7 @@
             <summary>
             获取账单分组/分类
             </summary>
-            <param name="id">分类id</param>
+            <param name="bId">分类bId</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.CategoryController.GetsAsync(System.Int32)">
             <summary>
@@ -373,7 +373,7 @@
             <summary>
             获取分类父项
             </summary>
-            <param name="id">分类id</param>
+            <param name="bId">分类bId</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.CategoryController.GetParentsAsync">
             <summary>

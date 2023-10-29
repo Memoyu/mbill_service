@@ -57,25 +57,25 @@ public class AssetController : ApiControllerBase
     /// <summary>
     /// 获取资产分组/分类
     /// </summary>
-    /// <param name="id">资产id</param>
+    /// <param name="bId">资产id</param>
     [HttpGet]
     [LocalAuthorize("获取详情", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long id)
+    public async Task<ServiceResult<AssetDto>> GetAsync([FromQuery] long bId)
     {
-        return await _assetSvc.GetAsync(id);
+        return await _assetSvc.GetAsync(bId);
     }
 
     /// <summary>
     /// 获取资产父项
     /// </summary>
-    /// <param name="id">资产id</param>
+    /// <param name="bId">资产id</param>
     [HttpGet("parent")]
     [LocalAuthorize("获取父项详情", "资产分类")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<AssetDto>> GetParentAsync([FromQuery] long id)
+    public async Task<ServiceResult<AssetDto>> GetParentAsync([FromQuery] long bId)
     {
-        return await _assetSvc.GetParentAsync(id);
+        return await _assetSvc.GetParentAsync(bId);
     }
 
     /// <summary>
