@@ -1,0 +1,236 @@
+2021-06-24 22:40:04.989 +08:00 [INF] init main
+2021-06-24 22:40:06.439 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 744
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 621
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 470
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(String logMessage, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 368
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 107
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 137
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 863
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 414
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 380
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\WorkSpace\mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 187
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\WorkSpace\mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 120
+   at mbill_service.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\WorkSpace\mbill\mbill_service\src\mbill_service\Modules\FreeSqlModule.cs:line 19
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\mbill\mbill_service\src\mbill_service\Program.cs:line 29
+2021-06-24 22:40:27.807 +08:00 [INF] init main
+2021-06-24 22:40:29.354 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-06-24 22:40:29.355 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-06-24 22:40:29.364 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-06-24 22:40:29.365 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-06-24 22:40:29.450 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-24 22:40:29.579 +08:00 [INF] Starting the processing server.
+2021-06-24 22:40:29.623 +08:00 [INF] ### CAP started!
+2021-06-24 22:40:29.822 +08:00 [INF] Now listening on: http://[::]:10085
+2021-06-24 22:40:29.822 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-24 22:40:29.822 +08:00 [INF] Hosting environment: Development
+2021-06-24 22:40:29.822 +08:00 [INF] Content root path: D:\WorkSpace\mbill\mbill_service\src\mbill_service
+2021-06-24 22:41:39.572 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - -
+2021-06-24 22:41:39.572 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - -
+2021-06-24 22:41:39.611 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:39.611 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:39.628 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - - - 204 - - 59.2662ms
+2021-06-24 22:41:39.628 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - - - 204 - - 59.2642ms
+2021-06-24 22:41:39.636 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:41:39.638 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:39.993 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:41:39.993 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:39.998 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 401 - application/json 362.4102ms
+2021-06-24 22:41:40.001 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 401 - application/json 8.6550ms
+2021-06-24 22:41:42.777 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/account/login - -
+2021-06-24 22:41:42.778 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:42.779 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/account/login - - - 204 - - 2.0931ms
+2021-06-24 22:41:42.780 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 67
+2021-06-24 22:41:42.780 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:42.782 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-06-24 22:41:43.030 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-06-24 22:41:43.033 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 67 - 200 934 application/json;+charset=utf-8 252.8350ms
+2021-06-24 22:41:43.797 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:41:43.798 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:43.807 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:41:43.983 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:41:43.984 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 755 application/json;+charset=utf-8 186.3505ms
+2021-06-24 22:41:43.984 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:41:43.985 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:43.987 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:41:43.998 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:41:43.998 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 755 application/json;+charset=utf-8 13.9483ms
+2021-06-24 22:41:48.356 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - -
+2021-06-24 22:41:48.359 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:48.360 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - - - 204 - - 3.2573ms
+2021-06-24 22:41:48.361 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:41:48.361 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:48.363 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:41:48.373 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:41:48.373 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 755 application/json;+charset=utf-8 12.9589ms
+2021-06-24 22:41:52.061 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:41:52.063 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:41:52.063 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:52.063 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:52.064 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 204 - - 2.5990ms
+2021-06-24 22:41:52.064 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 204 - - 1.3770ms
+2021-06-24 22:41:52.065 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:41:52.065 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:52.067 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:41:52.099 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:41:52.100 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 200 795 application/json;+charset=utf-8 34.6719ms
+2021-06-24 22:41:52.100 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:41:52.101 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:52.103 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:41:52.115 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:41:52.116 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 200 795 application/json;+charset=utf-8 15.1047ms
+2021-06-24 22:41:57.257 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/role/all - -
+2021-06-24 22:41:57.258 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:57.258 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/role/all - - - 204 - - 1.3145ms
+2021-06-24 22:41:57.259 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/role/all - -
+2021-06-24 22:41:57.259 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:57.261 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-24 22:41:57.294 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-24 22:41:57.295 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/role/all - - - 200 301 application/json;+charset=utf-8 35.7040ms
+2021-06-24 22:41:59.889 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/permission/tree - -
+2021-06-24 22:41:59.890 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:59.890 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/permission/tree - - - 204 - - 1.5882ms
+2021-06-24 22:41:59.892 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/permission/tree - -
+2021-06-24 22:41:59.893 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:41:59.896 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.PermissionController.GetTreePermissions (mbill_service)'
+2021-06-24 22:41:59.907 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.PermissionController.GetTreePermissions (mbill_service)'
+2021-06-24 22:41:59.908 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/permission/tree - - - 200 4506 application/json;+charset=utf-8 15.3661ms
+2021-06-24 22:42:16.966 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:42:16.967 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:42:16.968 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 204 - - 1.5318ms
+2021-06-24 22:42:16.970 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:42:16.970 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:42:16.971 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:42:16.972 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:42:16.972 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 204 - - 1.8437ms
+2021-06-24 22:42:16.975 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:42:17.017 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:42:17.017 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 47.1327ms
+2021-06-24 22:42:17.018 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:42:17.018 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:42:17.020 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:42:17.026 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:42:17.026 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 8.6688ms
+2021-06-24 22:43:46.492 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:43:46.495 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:43:46.495 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:43:46.495 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:43:46.496 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 204 - - 4.3751ms
+2021-06-24 22:43:46.497 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 204 - - 2.6478ms
+2021-06-24 22:43:46.502 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:43:46.503 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:43:46.508 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:43:46.523 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:43:46.523 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 200 795 application/json;+charset=utf-8 20.9295ms
+2021-06-24 22:43:46.524 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:43:46.525 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:43:46.526 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:43:46.544 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:43:46.545 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 200 795 application/json;+charset=utf-8 21.1280ms
+2021-06-24 22:44:21.617 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=2&Sort= - -
+2021-06-24 22:44:21.620 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:21.623 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=2&Sort= - - - 204 - - 6.1253ms
+2021-06-24 22:44:21.626 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=2&Sort= - -
+2021-06-24 22:44:21.627 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:21.630 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:21.648 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:21.649 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=2&Sort= - - - 200 917 application/json;+charset=utf-8 22.3332ms
+2021-06-24 22:44:24.303 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=3&Sort= - -
+2021-06-24 22:44:24.306 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:24.306 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=3&Sort= - - - 204 - - 3.4868ms
+2021-06-24 22:44:24.307 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=3&Sort= - -
+2021-06-24 22:44:24.308 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:24.309 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:24.338 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:24.338 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=3&Sort= - - - 200 827 application/json;+charset=utf-8 31.1060ms
+2021-06-24 22:44:31.244 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - -
+2021-06-24 22:44:31.244 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.245 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - - - 204 - - 1.2157ms
+2021-06-24 22:44:31.246 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:44:31.248 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.248 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:44:31.249 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.249 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 204 - - 1.1524ms
+2021-06-24 22:44:31.250 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:44:31.250 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:44:31.252 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.256 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:44:31.258 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.258 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:31.258 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 204 - - 2.7331ms
+2021-06-24 22:44:31.263 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - -
+2021-06-24 22:44:31.264 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.272 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:44:31.273 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:31.274 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 755 application/json;+charset=utf-8 27.1933ms
+2021-06-24 22:44:31.286 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:31.287 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 200 795 application/json;+charset=utf-8 36.5885ms
+2021-06-24 22:44:31.289 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-24 22:44:31.289 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=1&Page=1&Sort= - - - 200 795 application/json;+charset=utf-8 26.3170ms
+2021-06-24 22:44:31.348 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - -
+2021-06-24 22:44:31.348 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.349 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/account/user - - - 204 - - 1.0072ms
+2021-06-24 22:44:31.350 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-24 22:44:31.350 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:44:31.352 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:44:31.362 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-24 22:44:31.362 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 755 application/json;+charset=utf-8 12.7822ms
+2021-06-24 22:46:15.867 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:15.869 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:15.876 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 204 - - 9.5479ms
+2021-06-24 22:46:15.878 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:15.881 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:15.881 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:15.882 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:15.882 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 204 - - 4.2348ms
+2021-06-24 22:46:15.884 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:15.885 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:15.885 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:15.890 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:15.904 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:15.904 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:15.904 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 23.5642ms
+2021-06-24 22:46:15.905 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 20.7523ms
+2021-06-24 22:46:34.353 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:34.354 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:34.354 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 204 - - 1.3101ms
+2021-06-24 22:46:34.358 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:34.358 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:34.358 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:34.359 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:34.359 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 204 - - 1.5120ms
+2021-06-24 22:46:34.361 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-24 22:46:34.363 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:34.363 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:34.366 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:34.393 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:34.395 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 36.8012ms
+2021-06-24 22:46:34.395 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-24 22:46:34.396 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 35.1870ms
+2021-06-24 22:46:37.904 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/permission/tree - -
+2021-06-24 22:46:37.904 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:37.905 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/permission/tree - - - 204 - - 1.0584ms
+2021-06-24 22:46:37.906 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/permission/tree - -
+2021-06-24 22:46:37.907 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:46:37.908 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.PermissionController.GetTreePermissions (mbill_service)'
+2021-06-24 22:46:37.912 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.PermissionController.GetTreePermissions (mbill_service)'
+2021-06-24 22:46:37.913 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/permission/tree - - - 200 4506 application/json;+charset=utf-8 6.7474ms
+2021-06-24 22:49:31.868 +08:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:10085/api/admin/role/all - -
+2021-06-24 22:49:31.870 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:49:31.872 +08:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:10085/api/admin/role/all - - - 204 - - 3.5300ms
+2021-06-24 22:49:31.873 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/role/all - -
+2021-06-24 22:49:31.876 +08:00 [INF] CORS policy execution successful.
+2021-06-24 22:49:31.878 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-24 22:49:31.890 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-24 22:49:31.890 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/role/all - - - 200 301 application/json;+charset=utf-8 17.0263ms
+2021-06-24 23:58:49.440 +08:00 [INF] Application is shutting down...
+2021-06-24 23:58:49.482 +08:00 [INF] Shutting down the processing server...
+2021-06-24 23:58:49.483 +08:00 [INF] ### CAP shutdown!

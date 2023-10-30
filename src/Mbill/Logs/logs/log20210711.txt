@@ -1,0 +1,71 @@
+2021-07-11 16:55:36.088 +08:00 [INF] init main
+2021-07-11 16:55:37.775 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-07-11 16:55:37.776 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-07-11 16:55:37.783 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-07-11 16:55:37.826 +08:00 [INF] 操 作 权 限 表：更新了1条数据
+2021-07-11 16:55:37.889 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-07-11 16:55:37.979 +08:00 [INF] Starting the processing server.
+2021-07-11 16:55:38.020 +08:00 [INF] ### CAP started!
+2021-07-11 16:55:38.192 +08:00 [FTL] Application startup exception
+System.InvalidOperationException: Unable to resolve service for type 'AspNetCoreRateLimit.IProcessingStrategy' while attempting to activate 'AspNetCoreRateLimit.IpRateLimitMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2021-07-11 16:55:38.221 +08:00 [INF] Shutting down the processing server...
+2021-07-11 16:55:38.223 +08:00 [INF] ### CAP shutdown!
+2021-07-11 16:55:38.248 +08:00 [FTL] Host terminated unexpectedly
+System.InvalidOperationException: Unable to resolve service for type 'AspNetCoreRateLimit.IProcessingStrategy' while attempting to activate 'AspNetCoreRateLimit.IpRateLimitMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Program.cs:line 42
+2021-07-11 17:16:49.166 +08:00 [INF] init main
+2021-07-11 17:16:50.583 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-07-11 17:16:50.584 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-07-11 17:16:50.590 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-07-11 17:16:50.622 +08:00 [INF] 操 作 权 限 表：更新了1条数据
+2021-07-11 17:16:50.735 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-07-11 17:16:50.821 +08:00 [INF] Starting the processing server.
+2021-07-11 17:16:50.859 +08:00 [INF] ### CAP started!
+2021-07-11 17:16:51.025 +08:00 [FTL] Application startup exception
+System.InvalidOperationException: Unable to resolve service for type 'AspNetCoreRateLimit.IProcessingStrategy' while attempting to activate 'mbill_service.Core.AOP.Middleware.IpLimitMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2021-07-11 17:16:51.055 +08:00 [INF] Shutting down the processing server...
+2021-07-11 17:16:51.057 +08:00 [INF] ### CAP shutdown!
+2021-07-11 17:16:51.078 +08:00 [FTL] Host terminated unexpectedly
+System.InvalidOperationException: Unable to resolve service for type 'AspNetCoreRateLimit.IProcessingStrategy' while attempting to activate 'mbill_service.Core.AOP.Middleware.IpLimitMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Program.cs:line 42
+2021-07-11 17:17:18.373 +08:00 [INF] init main
+2021-07-11 17:17:19.815 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-07-11 17:17:19.817 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-07-11 17:17:19.822 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-07-11 17:17:19.858 +08:00 [INF] 操 作 权 限 表：更新了1条数据
+2021-07-11 17:17:19.972 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-07-11 17:17:20.048 +08:00 [INF] Starting the processing server.
+2021-07-11 17:17:20.086 +08:00 [INF] ### CAP started!
+2021-07-11 17:17:20.271 +08:00 [INF] Now listening on: http://[::]:10085
+2021-07-11 17:17:20.272 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-11 17:17:20.272 +08:00 [INF] Hosting environment: Development
+2021-07-11 17:17:20.272 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-07-11 17:17:21.778 +08:00 [INF] Application is shutting down...
+2021-07-11 17:17:21.807 +08:00 [INF] Shutting down the processing server...
+2021-07-11 17:17:21.807 +08:00 [INF] ### CAP shutdown!

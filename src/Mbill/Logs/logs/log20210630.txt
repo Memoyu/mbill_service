@@ -1,0 +1,516 @@
+2021-06-30 22:39:23.696 +08:00 [INF] init main
+2021-06-30 22:39:33.877 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-06-30 22:39:33.878 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-06-30 22:39:33.887 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-06-30 22:39:33.923 +08:00 [INF] 操 作 权 限 表：更新了5条数据
+2021-06-30 22:39:33.958 +08:00 [FTL] IIpPolicyStore RUN Error
+System.Exception: 【127.0.0.1:6379/0】状态不可用，等待后台检查程序恢复方可使用。Connection was not opened
+ ---> CSRedis.RedisClientException: Connection was not opened
+   at CSRedis.Internal.IO.RedisIO.GetOrThrow[T](T obj)
+   at CSRedis.Internal.IO.RedisIO.get_Stream()
+   at CSRedis.Internal.IO.RedisIO.Write(Byte[] data)
+   at CSRedis.Internal.RedisConnector.Call[T](RedisCommand`1 command)
+   at CSRedis.RedisClient.Write[T](RedisCommand`1 command)
+   at CSRedis.RedisClient.Ping()
+   at CSRedis.RedisClientPoolPolicy.OnCheckAvailable(Object`1 obj)
+   at CSRedis.RedisClientPoolPolicy.PrevReheatConnectionPool(ObjectPool`1 pool, Int32 minPoolSize)
+   --- End of inner exception stack trace ---
+   at CSRedis.Internal.ObjectPool.ObjectPool`1.getFree(Boolean checkAvailable)
+   at CSRedis.Internal.ObjectPool.ObjectPool`1.GetAsync()
+   at CSRedis.CSRedisClient.GetClientAsync(RedisClientPool pool)
+   at CSRedis.CSRedisClient.GetAndExecuteAsync[T](RedisClientPool pool, Func`2 handerAsync, Int32 jump, Int32 errtimes)
+   at CSRedis.CSRedisClient.ExecuteScalarAsync[T](String key, Func`3 handerAsync)
+   at Microsoft.Extensions.Caching.Redis.CSRedisCache.SetAsync(String key, Byte[] value, DistributedCacheEntryOptions options, CancellationToken token)
+   at AspNetCoreRateLimit.DistributedCacheIpPolicyStore.SeedAsync()
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Program.cs:line 36
+2021-06-30 22:39:34.050 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-30 22:39:34.162 +08:00 [INF] Starting the processing server.
+2021-06-30 22:39:34.207 +08:00 [INF] ### CAP started!
+2021-06-30 22:39:34.441 +08:00 [INF] Now listening on: http://[::]:10085
+2021-06-30 22:39:34.441 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-30 22:39:34.442 +08:00 [INF] Hosting environment: Development
+2021-06-30 22:39:34.442 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-06-30 22:39:43.909 +08:00 [INF] Application is shutting down...
+2021-06-30 22:39:43.918 +08:00 [INF] Shutting down the processing server...
+2021-06-30 22:39:43.921 +08:00 [INF] ### CAP shutdown!
+2021-06-30 22:45:03.320 +08:00 [INF] init main
+2021-06-30 22:45:04.633 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-06-30 22:45:04.634 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-06-30 22:45:04.640 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-06-30 22:45:04.681 +08:00 [INF] 操 作 权 限 表：更新了5条数据
+2021-06-30 22:45:04.728 +08:00 [FTL] IIpPolicyStore RUN Error
+System.Exception: 【127.0.0.1:6379/0】状态不可用，等待后台检查程序恢复方可使用。ERR Client sent AUTH, but no password is set
+Command: AUTH Code6076..
+ ---> CSRedis.RedisException: ERR Client sent AUTH, but no password is set
+Command: AUTH Code6076..
+ ---> CSRedis.RedisException: ERR Client sent AUTH, but no password is set
+   at CSRedis.Internal.IO.RedisReader.ReadType()
+   at CSRedis.Internal.IO.RedisReader.ExpectType(RedisMessage expectedType)
+   at CSRedis.Internal.IO.RedisReader.ReadStatus(Boolean checkType)
+   at CSRedis.Internal.Commands.RedisStatus.Parse(RedisReader reader)
+   at CSRedis.Internal.RedisConnector.Call[T](RedisCommand`1 command)
+   --- End of inner exception stack trace ---
+   at CSRedis.RedisClientPool.<>c__DisplayClass0_0.<.ctor>b__0(Object s, EventArgs o)
+   at CSRedis.RedisClientPoolPolicy.<>c__DisplayClass60_0.<OnCreate>b__0(Object s, EventArgs o)
+   at CSRedis.RedisClient.OnConnectionConnected(Object sender, EventArgs args)
+   at CSRedis.Internal.RedisConnector.OnConnected()
+   at CSRedis.Internal.RedisConnector.Connect(Int32 timeout)
+   at CSRedis.RedisClient.Connect(Int32 timeout)
+   at CSRedis.RedisClientPoolPolicy.OnCheckAvailable(Object`1 obj)
+   at CSRedis.RedisClientPoolPolicy.PrevReheatConnectionPool(ObjectPool`1 pool, Int32 minPoolSize)
+   --- End of inner exception stack trace ---
+   at CSRedis.Internal.ObjectPool.ObjectPool`1.getFree(Boolean checkAvailable)
+   at CSRedis.Internal.ObjectPool.ObjectPool`1.GetAsync()
+   at CSRedis.CSRedisClient.GetClientAsync(RedisClientPool pool)
+   at CSRedis.CSRedisClient.GetAndExecuteAsync[T](RedisClientPool pool, Func`2 handerAsync, Int32 jump, Int32 errtimes)
+   at CSRedis.CSRedisClient.ExecuteScalarAsync[T](String key, Func`3 handerAsync)
+   at Microsoft.Extensions.Caching.Redis.CSRedisCache.SetAsync(String key, Byte[] value, DistributedCacheEntryOptions options, CancellationToken token)
+   at AspNetCoreRateLimit.DistributedCacheIpPolicyStore.SeedAsync()
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Program.cs:line 36
+2021-06-30 22:45:04.782 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-30 22:45:04.858 +08:00 [INF] Starting the processing server.
+2021-06-30 22:45:04.902 +08:00 [INF] ### CAP started!
+2021-06-30 22:45:05.048 +08:00 [INF] Now listening on: http://[::]:10085
+2021-06-30 22:45:05.048 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-30 22:45:05.049 +08:00 [INF] Hosting environment: Development
+2021-06-30 22:45:05.049 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-06-30 22:45:32.470 +08:00 [INF] Application is shutting down...
+2021-06-30 22:54:16.332 +08:00 [INF] init main
+2021-06-30 22:54:17.762 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-06-30 22:54:17.764 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-06-30 22:54:17.770 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-06-30 22:54:17.815 +08:00 [INF] 操 作 权 限 表：更新了5条数据
+2021-06-30 22:54:17.881 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-30 22:54:17.958 +08:00 [INF] Starting the processing server.
+2021-06-30 22:54:17.998 +08:00 [INF] ### CAP started!
+2021-06-30 22:54:18.151 +08:00 [INF] Now listening on: http://[::]:10085
+2021-06-30 22:54:18.151 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-30 22:54:18.151 +08:00 [INF] Hosting environment: Development
+2021-06-30 22:54:18.152 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-06-30 22:54:40.568 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 22:54:40.923 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 401 - application/json 359.4818ms
+2021-06-30 22:54:43.150 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/api/account/login application/json 67
+2021-06-30 22:54:43.154 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-06-30 22:54:43.436 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-06-30 22:54:43.440 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/api/account/login application/json 67 - 200 934 application/json;+charset=utf-8 289.7387ms
+2021-06-30 22:54:43.527 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 22:54:43.577 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 22:54:43.764 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 22:54:43.765 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 238.7770ms
+2021-06-30 22:54:47.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents - -
+2021-06-30 22:54:47.730 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 22:54:47.745 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 22:54:47.748 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 22:54:47.759 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:47.772 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:47.811 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 22:54:47.812 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents - - - 200 1091 application/json;+charset=utf-8 84.6729ms
+2021-06-30 22:54:47.855 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:47.855 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:47.856 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 110.5289ms
+2021-06-30 22:54:47.856 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 108.1209ms
+2021-06-30 22:54:47.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_cash_64.png - -
+2021-06-30 22:54:47.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_bank_card_64.png - -
+2021-06-30 22:54:47.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_wechat_64.png - -
+2021-06-30 22:54:47.911 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_alipay_64.png - -
+2021-06-30 22:54:47.915 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_huabei_64.png - -
+2021-06-30 22:54:47.915 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_jd_64.png - -
+2021-06-30 22:54:47.942 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_bank_card_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_bank_card_64.png'
+2021-06-30 22:54:47.943 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_bank_card_64.png - - - 200 390 image/png 32.8703ms
+2021-06-30 22:54:47.944 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_yuerbao_64.png - -
+2021-06-30 22:54:47.963 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_huabei_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_huabei_64.png'
+2021-06-30 22:54:47.963 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_cash_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_cash_64.png'
+2021-06-30 22:54:47.964 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_huabei_64.png - - - 200 4696 image/png 49.1819ms
+2021-06-30 22:54:47.966 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_jd_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_jd_64.png'
+2021-06-30 22:54:47.966 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_cash_64.png - - - 200 4262 image/png 55.5921ms
+2021-06-30 22:54:47.966 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_wechat_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_wechat_64.png'
+2021-06-30 22:54:47.966 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_yuerbao_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_yuerbao_64.png'
+2021-06-30 22:54:47.970 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_jd_64.png - - - 200 3218 image/png 54.1281ms
+2021-06-30 22:54:47.974 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_stock_64.png - -
+2021-06-30 22:54:47.974 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_credit_card_64.png - -
+2021-06-30 22:54:47.974 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_alipay_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_alipay_64.png'
+2021-06-30 22:54:47.974 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_yuerbao_64.png - - - 200 2505 image/png 30.1184ms
+2021-06-30 22:54:47.976 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_wechat_64.png - - - 200 3899 image/png 65.4979ms
+2021-06-30 22:54:47.977 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_alipay_64.png - - - 200 3847 image/png 66.3065ms
+2021-06-30 22:54:47.979 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_stock_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_stock_64.png'
+2021-06-30 22:54:47.979 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_fund_64.png - -
+2021-06-30 22:54:47.980 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_stock_64.png - - - 200 1779 image/png 7.3832ms
+2021-06-30 22:54:47.982 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_credit_card_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_credit_card_64.png'
+2021-06-30 22:54:47.986 +08:00 [INF] Sending file. Request path: '/core/images/asset/icon_fund_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\asset\icon_fund_64.png'
+2021-06-30 22:54:47.986 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_credit_card_64.png - - - 200 403 image/png 12.3745ms
+2021-06-30 22:54:47.988 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/asset/icon_fund_64.png - - - 200 1703 image/png 9.3780ms
+2021-06-30 22:54:51.054 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/parents - -
+2021-06-30 22:54:51.055 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 22:54:51.063 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 22:54:51.067 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 22:54:51.070 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:51.076 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:51.159 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 22:54:51.161 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/parents - - - 200 2629 application/json;+charset=utf-8 107.3205ms
+2021-06-30 22:54:51.171 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:51.171 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 22:54:51.172 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 117.4852ms
+2021-06-30 22:54:51.173 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 110.1504ms
+2021-06-30 22:54:51.206 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_pizza_64.png - -
+2021-06-30 22:54:51.206 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_mushroom_64.png - -
+2021-06-30 22:54:51.207 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_champagne_Bottle_64.png - -
+2021-06-30 22:54:51.207 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_grape_64.png - -
+2021-06-30 22:54:51.207 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/core/images/category/icon_confetti_64.png - -
+2021-06-30 22:54:51.222 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_pizza_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\category\icon_pizza_64.png'
+2021-06-30 22:54:51.223 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_champagne_Bottle_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\category\icon_champagne_Bottle_64.png'
+2021-06-30 22:54:51.223 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_confetti_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\category\icon_confetti_64.png'
+2021-06-30 22:54:51.223 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_grape_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\category\icon_grape_64.png'
+2021-06-30 22:54:51.223 +08:00 [INF] Sending file. Request path: '/core/images/category/icon_mushroom_64.png'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\core\images\category\icon_mushroom_64.png'
+2021-06-30 22:54:51.224 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_pizza_64.png - - - 200 3918 image/png 17.0999ms
+2021-06-30 22:54:51.225 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_champagne_Bottle_64.png - - - 200 2393 image/png 17.8565ms
+2021-06-30 22:54:51.226 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_confetti_64.png - - - 200 2685 image/png 18.4979ms
+2021-06-30 22:54:51.226 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_grape_64.png - - - 200 2840 image/png 19.0480ms
+2021-06-30 22:54:51.227 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/core/images/category/icon_mushroom_64.png - - - 200 2153 image/png 20.3082ms
+2021-06-30 23:02:29.726 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:02:29.735 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/parents - -
+2021-06-30 23:02:29.744 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:02:29.744 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:02:29.745 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:02:29.746 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:29.751 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:02:29.761 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:29.797 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:02:29.800 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/parents - - - 200 2629 application/json;+charset=utf-8 64.8016ms
+2021-06-30 23:02:29.839 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:02:29.842 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 115.7050ms
+2021-06-30 23:02:29.846 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:29.847 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 95.4956ms
+2021-06-30 23:02:29.847 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:29.848 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 103.6982ms
+2021-06-30 23:02:33.919 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents - -
+2021-06-30 23:02:33.922 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:02:33.928 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:02:33.932 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:02:33.932 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents - - - 200 1091 application/json;+charset=utf-8 12.7894ms
+2021-06-30 23:02:33.933 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:33.935 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:02:33.943 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:34.003 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:34.006 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 77.8404ms
+2021-06-30 23:02:34.009 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:02:34.010 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 74.6051ms
+2021-06-30 23:04:23.374 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:04:23.382 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:04:23.387 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents - -
+2021-06-30 23:04:23.396 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:04:23.397 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:04:23.404 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:04:23.411 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:04:23.423 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:04:23.427 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:04:23.433 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents - - - 200 1091 application/json;+charset=utf-8 46.4230ms
+2021-06-30 23:04:23.447 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:04:23.460 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 86.2569ms
+2021-06-30 23:04:23.512 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:04:23.515 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 119.1323ms
+2021-06-30 23:04:23.527 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:04:23.529 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 124.6667ms
+2021-06-30 23:06:05.897 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:06:05.906 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents - -
+2021-06-30 23:06:05.913 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:06:05.915 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:06:05.925 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:06:05.925 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:06:05.939 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:05.945 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:05.969 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:06:05.971 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents - - - 200 1091 application/json;+charset=utf-8 65.0239ms
+2021-06-30 23:06:06.017 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:06:06.024 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 122.8750ms
+2021-06-30 23:06:06.043 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:06.047 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 123.1242ms
+2021-06-30 23:06:06.047 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:06.057 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 133.0839ms
+2021-06-30 23:06:08.675 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/parents - -
+2021-06-30 23:06:08.679 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:06:08.685 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:06:08.689 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:06:08.689 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:06:08.689 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/parents - - - 200 2629 application/json;+charset=utf-8 14.1563ms
+2021-06-30 23:06:08.690 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:08.693 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:08.736 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:08.737 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:06:08.738 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 48.9648ms
+2021-06-30 23:06:08.739 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 54.6516ms
+2021-06-30 23:06:41.866 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:06:41.877 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:06:41.882 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:06:41.882 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:06:41.980 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:06:41.982 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 105.3034ms
+2021-06-30 23:06:41.989 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:06:41.990 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 124.5096ms
+2021-06-30 23:16:27.542 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:16:27.550 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:16:27.561 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:16:27.563 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:16:27.579 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:27.579 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:27.649 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:16:27.653 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 110.5280ms
+2021-06-30 23:16:27.685 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:27.687 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 123.8471ms
+2021-06-30 23:16:27.687 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:27.696 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 135.3856ms
+2021-06-30 23:16:43.645 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=0&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:16:43.652 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:43.661 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:43.661 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=0&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 114 application/json;+charset=utf-8 16.1082ms
+2021-06-30 23:16:46.603 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:16:46.605 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:46.632 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:16:46.633 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 30.4275ms
+2021-06-30 23:16:48.649 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/role/all - -
+2021-06-30 23:16:48.653 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:16:48.694 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:16:48.695 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/role/all - - - 200 372 application/json;+charset=utf-8 45.1374ms
+2021-06-30 23:16:55.783 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/permission/tree - -
+2021-06-30 23:16:55.785 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.PermissionController.GetTreePermissions (mbill_service)'
+2021-06-30 23:16:55.800 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.PermissionController.GetTreePermissions (mbill_service)'
+2021-06-30 23:16:55.801 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/permission/tree - - - 200 4913 application/json;+charset=utf-8 18.2672ms
+2021-06-30 23:17:03.302 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:17:03.305 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:17:03.313 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:17:03.318 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:17:03.367 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:17:03.367 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:17:03.368 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 54.8518ms
+2021-06-30 23:17:03.369 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 66.6800ms
+2021-06-30 23:17:07.354 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/parents - -
+2021-06-30 23:17:07.357 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:17:07.362 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:17:07.365 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:17:07.365 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/parents - - - 200 2629 application/json;+charset=utf-8 10.8999ms
+2021-06-30 23:17:07.366 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:17:07.368 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:17:07.378 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:17:07.394 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:17:07.395 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 34.0080ms
+2021-06-30 23:17:07.405 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:17:07.406 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 37.9661ms
+2021-06-30 23:18:19.088 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:18:19.096 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/parents - -
+2021-06-30 23:18:19.107 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:18:19.110 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:18:19.115 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:18:19.116 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:18:19.122 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:18:19.133 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:18:19.204 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:18:19.205 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 90.0894ms
+2021-06-30 23:18:19.208 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:18:19.210 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:18:19.210 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/parents - - - 200 2629 application/json;+charset=utf-8 113.9391ms
+2021-06-30 23:18:19.210 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 122.9581ms
+2021-06-30 23:18:19.210 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:18:19.216 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 108.0727ms
+2021-06-30 23:18:20.677 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:18:20.679 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:18:20.683 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:18:20.692 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:18:20.730 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:18:20.733 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 56.5744ms
+2021-06-30 23:18:20.744 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:18:20.752 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 68.6439ms
+2021-06-30 23:22:03.029 +08:00 [INF] init main
+2021-06-30 23:22:04.580 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-06-30 23:22:04.581 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-06-30 23:22:04.587 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-06-30 23:22:04.634 +08:00 [INF] 操 作 权 限 表：更新了5条数据
+2021-06-30 23:22:04.694 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-06-30 23:22:04.772 +08:00 [INF] Starting the processing server.
+2021-06-30 23:22:04.813 +08:00 [INF] ### CAP started!
+2021-06-30 23:22:04.965 +08:00 [INF] Now listening on: http://[::]:10085
+2021-06-30 23:22:04.965 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-30 23:22:04.965 +08:00 [INF] Hosting environment: Development
+2021-06-30 23:22:04.965 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-06-30 23:22:09.961 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:22:09.961 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:22:10.265 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:10.456 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:10.626 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:10.626 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.LogController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:10.641 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 683.1814ms
+2021-06-30 23:22:10.641 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/log/pages?Method=&Username=&UserId=0&StatusCode=0&CreateTime=&Size=15&Page=1&Sort= - - - 200 5088 application/json;+charset=utf-8 683.1811ms
+2021-06-30 23:22:20.076 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:22:20.080 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:22:20.101 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:20.101 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:20.280 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:20.280 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:22:20.282 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 206.0268ms
+2021-06-30 23:22:20.284 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 203.1182ms
+2021-06-30 23:37:39.292 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/ - -
+2021-06-30 23:37:39.295 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/ - - - 301 0 - 2.7851ms
+2021-06-30 23:37:39.296 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html - -
+2021-06-30 23:37:39.338 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html - - - 200 - text/html;charset=utf-8 41.3778ms
+2021-06-30 23:37:39.356 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/profiler/includes.min.js?v=4.2.22 - -
+2021-06-30 23:37:39.357 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger-ui.css - -
+2021-06-30 23:37:39.360 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger-ui-bundle.js - -
+2021-06-30 23:37:39.367 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger-ui-standalone-preset.js - -
+2021-06-30 23:37:39.367 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/js/jquery-3.3.1.min.js - -
+2021-06-30 23:37:39.381 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/profiler/includes.min.js?v=4.2.22 - - - 200 51685 application/javascript 24.7161ms
+2021-06-30 23:37:39.424 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-06-30 23:37:39.424 +08:00 [INF] Sending file. Request path: '/js/jquery-3.3.1.min.js'. Physical path: 'D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\wwwroot\js\jquery-3.3.1.min.js'
+2021-06-30 23:37:39.424 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-06-30 23:37:39.424 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-06-30 23:37:39.425 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger-ui-bundle.js - - - 200 1098882 application/javascript 65.1668ms
+2021-06-30 23:37:39.425 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/js/jquery-3.3.1.min.js - - - 200 86929 application/javascript 58.6214ms
+2021-06-30 23:37:39.426 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger-ui-standalone-preset.js - - - 200 336841 application/javascript 58.9665ms
+2021-06-30 23:37:39.426 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger-ui.css - - - 200 143410 text/css 69.3127ms
+2021-06-30 23:37:39.763 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - -
+2021-06-30 23:37:39.774 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/favicon.ico - -
+2021-06-30 23:37:39.781 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/favicon.ico - - - 404 0 - 6.5870ms
+2021-06-30 23:37:39.844 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/profiler/includes.min.css?v=4.2.22 - -
+2021-06-30 23:37:39.847 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/profiler/includes.min.css?v=4.2.22 - - - 200 18009 text/css 2.4235ms
+2021-06-30 23:37:39.871 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.6312ms
+2021-06-30 23:45:16.814 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:45:16.820 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:45:16.829 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:45:16.837 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:45:16.841 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:45:16.842 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:45:16.938 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:45:16.941 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:45:16.941 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 121.1081ms
+2021-06-30 23:45:16.947 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 117.6567ms
+2021-06-30 23:45:16.949 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:45:16.975 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 160.9086ms
+2021-06-30 23:45:44.272 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:45:44.281 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:45:44.329 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:45:44.330 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 58.1209ms
+2021-06-30 23:45:46.207 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/role/all - -
+2021-06-30 23:45:46.209 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:45:46.242 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:45:46.242 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/role/all - - - 200 372 application/json;+charset=utf-8 35.6374ms
+2021-06-30 23:46:46.887 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:46:46.896 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:46:46.905 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:46:46.917 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:46:46.920 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:46:46.924 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:46:46.969 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:46:46.970 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 83.7636ms
+2021-06-30 23:46:46.984 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:46:46.985 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 80.3563ms
+2021-06-30 23:46:46.993 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:46:46.993 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 76.4123ms
+2021-06-30 23:50:22.002 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:50:22.015 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:50:22.018 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:50:22.022 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:50:22.041 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:50:22.048 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:50:22.079 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:50:22.081 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 78.9324ms
+2021-06-30 23:50:22.119 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:50:22.122 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 99.2804ms
+2021-06-30 23:50:22.122 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:50:22.128 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 110.7122ms
+2021-06-30 23:55:13.154 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:55:13.159 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:55:13.164 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:55:13.167 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:55:13.167 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:55:13.180 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:55:13.272 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:55:13.275 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 121.0264ms
+2021-06-30 23:55:13.282 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:55:13.283 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:55:13.284 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 117.1385ms
+2021-06-30 23:55:13.285 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 125.7332ms
+2021-06-30 23:55:57.902 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/parents - -
+2021-06-30 23:55:57.912 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:55:57.916 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:55:57.918 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:55:57.923 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:55:57.987 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:55:58.000 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetParentsAsync (mbill_service)'
+2021-06-30 23:55:58.001 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/parents - - - 200 2629 application/json;+charset=utf-8 98.4837ms
+2021-06-30 23:55:58.022 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:55:58.022 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.CategoryController.GetPageAsync (mbill_service)'
+2021-06-30 23:55:58.023 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 111.8993ms
+2021-06-30 23:55:58.026 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/category/pages?CategoryName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4878 application/json;+charset=utf-8 109.3559ms
+2021-06-30 23:56:04.885 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents - -
+2021-06-30 23:56:04.888 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:56:04.891 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:56:04.897 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:56:04.903 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:56:04.908 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:56:04.976 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-06-30 23:56:04.977 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents - - - 200 1091 application/json;+charset=utf-8 91.9996ms
+2021-06-30 23:56:05.003 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:56:05.003 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-06-30 23:56:05.003 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 112.7294ms
+2021-06-30 23:56:05.004 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 101.3995ms
+2021-06-30 23:56:10.362 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:56:10.366 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:56:10.370 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:56:10.377 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:56:10.414 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:56:10.417 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 54.8054ms
+2021-06-30 23:56:10.423 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:56:10.424 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 53.9550ms
+2021-06-30 23:57:55.261 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:57:55.281 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/role/all - -
+2021-06-30 23:57:55.283 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:57:55.291 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:57:55.296 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:57:55.298 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:57:55.302 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:57:55.307 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:57:55.355 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:57:55.359 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/role/all - - - 200 372 application/json;+charset=utf-8 78.6843ms
+2021-06-30 23:57:55.387 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:57:55.390 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 128.1651ms
+2021-06-30 23:57:55.423 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:57:55.424 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 141.3504ms
+2021-06-30 23:57:55.426 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:57:55.426 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 136.2170ms
+2021-06-30 23:57:59.849 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=2&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:57:59.852 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:57:59.875 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:57:59.876 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=2&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 940 application/json;+charset=utf-8 27.1167ms
+2021-06-30 23:58:03.681 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:58:03.684 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:03.705 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:03.705 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 818 application/json;+charset=utf-8 24.6425ms
+2021-06-30 23:58:45.894 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-06-30 23:58:45.900 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/role/all - -
+2021-06-30 23:58:45.917 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:58:45.917 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:58:45.919 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:58:45.928 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:58:45.937 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:45.948 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:45.974 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.RoleController.GetAllAsync (mbill_service)'
+2021-06-30 23:58:45.980 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/role/all - - - 200 372 application/json;+charset=utf-8 81.2259ms
+2021-06-30 23:58:46.012 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-06-30 23:58:46.013 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 118.7877ms
+2021-06-30 23:58:46.046 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:46.047 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 119.1269ms
+2021-06-30 23:58:46.048 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:46.052 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 136.2367ms
+2021-06-30 23:58:53.426 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=ad&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:58:53.428 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:53.452 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:53.453 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=ad&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 1645 application/json;+charset=utf-8 26.7528ms
+2021-06-30 23:58:57.375 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:58:57.378 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:57.407 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:58:57.407 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 31.5081ms
+2021-06-30 23:59:03.304 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=me&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:59:03.307 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:59:03.328 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:59:03.329 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=me&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 852 application/json;+charset=utf-8 24.3713ms
+2021-06-30 23:59:04.528 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-06-30 23:59:04.532 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:59:04.562 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetPagesAsync (mbill_service)'
+2021-06-30 23:59:04.563 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/pages?Username=&Nickname=&IsEnable=-1&RoleId=-1&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 2384 application/json;+charset=utf-8 34.9316ms

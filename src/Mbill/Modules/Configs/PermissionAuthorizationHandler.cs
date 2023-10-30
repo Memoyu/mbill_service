@@ -1,0 +1,44 @@
+﻿namespace Mbill.Modules.Configs;
+
+public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthorizationRequirement>
+{
+    private readonly IPermissionSvc _permissionSvc;
+
+    public PermissionAuthorizationHandler(IPermissionSvc permissionSvc)
+    {
+        _permissionSvc = permissionSvc;
+    }
+
+    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, ModuleAuthorizationRequirement requirement)
+    {
+        AuthorizationFilterContext filterContext = context.Resource as AuthorizationFilterContext;
+
+#if DEBUG
+        ICurrentUser currentUser = (ICurrentUser)filterContext.HttpContext.RequestServices.GetService(typeof(ICurrentUser));
+        if (currentUser.IsInGroup(SystemConst.Role.Administrator))//如果是超级管理员
+        {
+            return;
+        }
+#endif
+
+        if (!context.User.Identity.IsAuthenticated)
+        {
+            HandlerAuthenticationFailed(filterContext, "认证失败，请检查请求头或者重新登陆", ServiceResultCode.AuthenticationFailed);
+            context.Fail();
+            return;
+        }
+
+        if (await _permissionSvc.CheckAsync(requirement.Module, requirement.Name))
+        {
+            context.Succeed(requirement);
+            return;
+        }
+        HandlerAuthenticationFailed(filterContext, $"您没有权限：{requirement.Module}-{requirement.Name}", ServiceResultCode.NoPermission);
+    }
+
+    public void HandlerAuthenticationFailed(AuthorizationFilterContext context, string message, ServiceResultCode code)
+    {
+        context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        context.Result = new JsonResult(new ServiceResult(code, message));
+    }
+}

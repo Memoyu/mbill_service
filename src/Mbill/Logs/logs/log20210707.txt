@@ -1,0 +1,101 @@
+2021-07-07 22:33:45.984 +08:00 [INF] init main
+2021-07-07 22:33:47.442 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 744
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 621
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 470
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(String logMessage, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 368
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 107
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 137
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 863
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 414
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 380
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 187
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 120
+   at mbill_service.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Modules\FreeSqlModule.cs:line 19
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Program.cs:line 29
+2021-07-07 22:36:45.302 +08:00 [INF] init main
+2021-07-07 22:36:46.284 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 744
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 621
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 470
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(String logMessage, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 368
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 107
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 137
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 863
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 414
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 380
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 187
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 120
+   at mbill_service.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Modules\FreeSqlModule.cs:line 19
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service\Program.cs:line 29
+2021-07-07 22:37:10.607 +08:00 [INF] init main
+2021-07-07 22:37:22.508 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-07-07 22:37:22.509 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-07-07 22:37:22.516 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-07-07 22:37:22.564 +08:00 [INF] 操 作 权 限 表：更新了5条数据
+2021-07-07 22:37:22.627 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-07-07 22:37:22.748 +08:00 [INF] Starting the processing server.
+2021-07-07 22:37:22.795 +08:00 [INF] ### CAP started!
+2021-07-07 22:37:22.994 +08:00 [INF] Now listening on: http://[::]:10085
+2021-07-07 22:37:22.994 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07 22:37:22.994 +08:00 [INF] Hosting environment: Development
+2021-07-07 22:37:22.994 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-07-07 22:37:29.325 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/account/user - -
+2021-07-07 22:37:29.837 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-07-07 22:37:30.186 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.GetByIdAsync (mbill_service)'
+2021-07-07 22:37:30.200 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/account/user - - - 200 778 application/json;+charset=utf-8 879.0017ms
+2021-07-07 22:37:30.798 +08:00 [INF] Application is shutting down...
+2021-07-07 22:37:30.905 +08:00 [INF] Shutting down the processing server...
+2021-07-07 22:37:30.908 +08:00 [INF] ### CAP shutdown!
+2021-07-07 22:37:52.315 +08:00 [INF] init main
+2021-07-07 22:37:53.933 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-07-07 22:37:53.935 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-07-07 22:37:53.990 +08:00 [INF] 操 作 权 限 表：新增了2条数据
+2021-07-07 22:37:54.028 +08:00 [INF] 操 作 权 限 表：更新了2条数据
+2021-07-07 22:37:54.063 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-07-07 22:37:54.149 +08:00 [INF] Starting the processing server.
+2021-07-07 22:37:54.191 +08:00 [INF] ### CAP started!
+2021-07-07 22:37:54.345 +08:00 [INF] Now listening on: http://[::]:10085
+2021-07-07 22:37:54.345 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07 22:37:54.345 +08:00 [INF] Hosting environment: Development
+2021-07-07 22:37:54.345 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-07-07 22:38:01.299 +08:00 [INF] init main
+2021-07-07 22:38:02.728 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-07-07 22:38:02.730 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-07-07 22:38:02.735 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-07-07 22:38:02.772 +08:00 [INF] 操 作 权 限 表：更新了1条数据
+2021-07-07 22:38:02.893 +08:00 [INF] User profile is available. Using 'C:\Users\mmy60\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-07-07 22:38:02.978 +08:00 [INF] Starting the processing server.
+2021-07-07 22:38:03.024 +08:00 [INF] ### CAP started!
+2021-07-07 22:38:03.189 +08:00 [INF] Now listening on: http://[::]:10085
+2021-07-07 22:38:03.190 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07 22:38:03.190 +08:00 [INF] Hosting environment: Development
+2021-07-07 22:38:03.190 +08:00 [INF] Content root path: D:\WorkSpace\1-Project\Mbill\mbill_service\src\mbill_service
+2021-07-07 22:38:16.893 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-07-07 22:38:16.893 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - -
+2021-07-07 22:38:16.893 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/parents - -
+2021-07-07 22:38:17.198 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-07-07 22:38:17.198 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-07-07 22:38:17.198 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-07-07 22:38:17.588 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-07-07 22:38:17.588 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetPageAsync (mbill_service)'
+2021-07-07 22:38:17.588 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.AssetController.GetParentsAsync (mbill_service)'
+2021-07-07 22:38:17.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 714.1531ms
+2021-07-07 22:38:17.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/parents - - - 200 1091 application/json;+charset=utf-8 714.1484ms
+2021-07-07 22:38:17.603 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/pages?AssetName=&ParentIds=&Type=&CreateStartTime=&CreateEndTime=&Size=15&Page=1&Sort= - - - 200 4892 application/json;+charset=utf-8 714.1492ms

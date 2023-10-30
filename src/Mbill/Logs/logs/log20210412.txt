@@ -1,0 +1,313 @@
+2021-04-12 00:52:37.522 +08:00 [INF] init main
+2021-04-12 00:52:39.260 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 00:52:39.262 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 00:52:39.268 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 00:52:39.272 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 00:52:39.371 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 00:52:39.469 +08:00 [INF] Starting the processing server.
+2021-04-12 00:52:39.516 +08:00 [INF] ### CAP started!
+2021-04-12 00:52:39.678 +08:00 [INF] Now listening on: http://localhost:5000
+2021-04-12 00:52:39.679 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 00:52:39.679 +08:00 [INF] Hosting environment: Development
+2021-04-12 00:52:39.680 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 00:53:15.389 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2021-04-12 00:53:15.421 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 301 0 - 34.6517ms
+2021-04-12 00:53:15.429 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-04-12 00:53:15.468 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 38.6310ms
+2021-04-12 00:53:15.488 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui.css - -
+2021-04-12 00:53:15.490 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui-bundle.js - -
+2021-04-12 00:53:15.493 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui-standalone-preset.js - -
+2021-04-12 00:53:15.537 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-12 00:53:15.537 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-12 00:53:15.537 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-12 00:53:15.539 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui-bundle.js - - - 200 1098882 application/javascript 49.4664ms
+2021-04-12 00:53:15.539 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui-standalone-preset.js - - - 200 336841 application/javascript 45.9685ms
+2021-04-12 00:53:15.540 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui.css - - - 200 143410 text/css 51.5380ms
+2021-04-12 00:53:15.648 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-04-12 00:53:15.659 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-04-12 00:53:15.663 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-04-12 00:53:15.664 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 4.3329ms
+2021-04-12 00:53:15.674 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 26.2933ms
+2021-04-12 00:53:20.414 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - -
+2021-04-12 00:53:20.473 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 58.4831ms
+2021-04-12 00:53:22.579 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-04-12 00:53:22.598 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 18.2664ms
+2021-04-12 00:55:58.103 +08:00 [INF] init main
+2021-04-12 00:55:59.570 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 00:55:59.571 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 00:55:59.577 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 00:55:59.579 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 00:55:59.694 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 00:55:59.769 +08:00 [INF] Starting the processing server.
+2021-04-12 00:55:59.814 +08:00 [INF] ### CAP started!
+2021-04-12 00:55:59.967 +08:00 [INF] Now listening on: http://localhost:5000
+2021-04-12 00:55:59.967 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 00:55:59.968 +08:00 [INF] Hosting environment: Development
+2021-04-12 00:55:59.969 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 00:56:00.458 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-04-12 00:56:00.527 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 71.6573ms
+2021-04-12 00:56:00.607 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - -
+2021-04-12 00:56:00.607 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-04-12 00:56:00.620 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-04-12 00:56:00.621 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon-32x32.png - - - 200 628 image/png 14.0174ms
+2021-04-12 00:56:00.707 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 99.4681ms
+2021-04-12 00:56:06.563 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-04-12 00:56:06.590 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 27.0846ms
+2021-04-12 00:56:13.469 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - -
+2021-04-12 00:56:13.478 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 8.8410ms
+2021-04-12 22:32:09.867 +08:00 [INF] init main
+2021-04-12 22:32:10.877 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 744
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 621
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 470
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(String logMessage, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 368
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 107
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 137
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 863
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 414
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 380
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in C:\WorkSpace\mbill\mbill_service_new\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 187
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in C:\WorkSpace\mbill\mbill_service_new\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 120
+   at mbill_service.Modules.FreeSqlModule.Load(ContainerBuilder builder) in C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\Modules\FreeSqlModule.cs:line 19
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at mbill_service.Program.Main(String[] args) in C:\WorkSpace\mbill\mbill_service_new\src\mbill_service\Program.cs:line 29
+2021-04-12 22:33:17.874 +08:00 [INF] init main
+2021-04-12 22:33:38.600 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 22:33:38.601 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 22:33:38.607 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 22:33:38.609 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 22:33:38.723 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 22:33:38.842 +08:00 [INF] Starting the processing server.
+2021-04-12 22:33:38.885 +08:00 [INF] ### CAP started!
+2021-04-12 22:33:39.070 +08:00 [INF] Now listening on: http://localhost:5000
+2021-04-12 22:33:39.071 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 22:33:39.071 +08:00 [INF] Hosting environment: Development
+2021-04-12 22:33:39.071 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 22:34:34.045 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - -
+2021-04-12 22:34:34.120 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - - - 200 - text/html;charset=utf-8 78.0532ms
+2021-04-12 22:34:34.143 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui.css - -
+2021-04-12 22:34:34.143 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui-bundle.js - -
+2021-04-12 22:34:34.147 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger-ui-standalone-preset.js - -
+2021-04-12 22:34:34.156 +08:00 [INF] The file /swagger-ui-bundle.js was not modified
+2021-04-12 22:34:34.156 +08:00 [INF] The file /swagger-ui.css was not modified
+2021-04-12 22:34:34.156 +08:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2021-04-12 22:34:34.157 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui-standalone-preset.js - - - 304 - application/javascript 9.6752ms
+2021-04-12 22:34:34.157 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui-bundle.js - - - 304 - application/javascript 13.6897ms
+2021-04-12 22:34:34.157 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger-ui.css - - - 304 - text/css 13.0439ms
+2021-04-12 22:34:34.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2021-04-12 22:34:34.370 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 97.1401ms
+2021-04-12 22:35:36.623 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60
+2021-04-12 22:35:36.776 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-12 22:35:37.165 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.AccountController.Login (mbill_service)'
+2021-04-12 22:35:37.175 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/account/login application/json 60 - 200 860 application/json;+charset=utf-8 552.8502ms
+2021-04-12 22:36:11.800 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/statement/statistics/expend/trend/5month?Year=2021&Month=4&Type=expend&UserId=2 - -
+2021-04-12 22:36:11.860 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync (mbill_service)'
+2021-04-12 22:36:12.040 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetMonthExpendTrendStatisticsAsync (mbill_service)'
+2021-04-12 22:36:12.042 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/statement/statistics/expend/trend/5month?Year=2021&Month=4&Type=expend&UserId=2 - - - 200 551 application/json;+charset=utf-8 241.8212ms
+2021-04-12 22:40:43.164 +08:00 [INF] init main
+2021-04-12 22:40:44.494 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 22:40:44.495 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 22:40:44.501 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 22:40:44.502 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 22:40:44.619 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 22:40:44.700 +08:00 [INF] Starting the processing server.
+2021-04-12 22:40:44.739 +08:00 [INF] ### CAP started!
+2021-04-12 22:40:44.881 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 22:40:44.881 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 22:40:44.882 +08:00 [INF] Hosting environment: Development
+2021-04-12 22:40:44.882 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 22:53:57.804 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 22:53:57.804 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 22:53:58.285 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 485.6437ms
+2021-04-12 22:53:58.285 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 485.6384ms
+2021-04-12 22:54:08.273 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-12 22:54:08.279 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 401 - application/json 6.6914ms
+2021-04-12 22:54:08.294 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-12 22:54:08.297 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 401 - application/json 2.6106ms
+2021-04-12 22:54:08.316 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-12 22:54:08.323 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 401 - application/json 6.6522ms
+2021-04-12 22:54:08.336 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-12 22:54:08.339 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 401 - application/json 2.7466ms
+2021-04-12 22:54:10.704 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 22:54:10.707 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 3.3836ms
+2021-04-12 22:54:10.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 22:54:10.729 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 2.5397ms
+2021-04-12 22:54:38.753 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 22:54:38.763 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 11.0731ms
+2021-04-12 22:54:38.770 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 22:54:38.776 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 5.3399ms
+2021-04-12 22:55:17.021 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 22:55:17.031 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 9.7646ms
+2021-04-12 22:55:17.108 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 22:55:17.112 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 4.7083ms
+2021-04-12 22:57:17.114 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-12 22:57:17.122 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-12 22:57:17.124 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 401 - application/json 9.8318ms
+2021-04-12 22:57:17.128 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 401 - application/json 7.4635ms
+2021-04-12 22:57:17.154 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json -
+2021-04-12 22:57:17.156 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4 application/json - - 401 - application/json 2.6528ms
+2021-04-12 22:57:17.163 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json -
+2021-04-12 22:57:17.165 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?UserId=2&Year=2021&Month=4&Size=10&Page=0 application/json - - 401 - application/json 2.4155ms
+2021-04-12 22:58:29.525 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 22:58:29.536 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 11.1715ms
+2021-04-12 22:58:29.573 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 22:58:29.577 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 3.5681ms
+2021-04-12 23:08:28.474 +08:00 [INF] init main
+2021-04-12 23:08:29.943 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:08:29.945 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:08:29.950 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:08:29.951 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:08:30.077 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:08:30.164 +08:00 [INF] Starting the processing server.
+2021-04-12 23:08:30.205 +08:00 [INF] ### CAP started!
+2021-04-12 23:08:30.375 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:08:30.376 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:08:30.376 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:08:30.376 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:08:36.688 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 23:08:36.737 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 23:08:37.079 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 341.6912ms
+2021-04-12 23:08:37.079 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 393.9990ms
+2021-04-12 23:09:33.025 +08:00 [INF] init main
+2021-04-12 23:09:34.333 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:09:34.335 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:09:34.341 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:09:34.342 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:09:34.468 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:09:34.550 +08:00 [INF] Starting the processing server.
+2021-04-12 23:09:34.595 +08:00 [INF] ### CAP started!
+2021-04-12 23:09:34.741 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:09:34.742 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:09:34.742 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:09:34.742 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:09:40.554 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 23:09:40.564 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 23:09:40.971 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 420.3981ms
+2021-04-12 23:09:40.971 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 405.9210ms
+2021-04-12 23:10:18.105 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html - -
+2021-04-12 23:10:18.155 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html - - - 200 - text/html;charset=utf-8 50.4981ms
+2021-04-12 23:10:18.243 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - -
+2021-04-12 23:10:18.344 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.2928ms
+2021-04-12 23:10:41.139 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages - -
+2021-04-12 23:10:41.170 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-12 23:10:41.432 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-12 23:10:41.435 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages - - - 200 114 application/json;+charset=utf-8 296.2579ms
+2021-04-12 23:11:27.878 +08:00 [INF] init main
+2021-04-12 23:11:29.255 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:11:29.256 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:11:29.262 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:11:29.263 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:11:29.381 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:11:29.466 +08:00 [INF] Starting the processing server.
+2021-04-12 23:11:29.507 +08:00 [INF] ### CAP started!
+2021-04-12 23:11:29.653 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:11:29.653 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:11:29.653 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:11:29.653 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:12:36.893 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages - -
+2021-04-12 23:12:37.238 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-12 23:12:37.484 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Bill.StatementController.GetStatementPagesAsync (mbill_service)'
+2021-04-12 23:12:37.498 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages - - - 200 114 application/json;+charset=utf-8 608.1001ms
+2021-04-12 23:15:32.045 +08:00 [INF] init main
+2021-04-12 23:15:33.373 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:15:33.375 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:15:33.380 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:15:33.382 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:15:33.499 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:15:33.585 +08:00 [INF] Starting the processing server.
+2021-04-12 23:15:33.629 +08:00 [INF] ### CAP started!
+2021-04-12 23:15:33.784 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:15:33.784 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:15:33.784 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:15:33.785 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:15:37.378 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html - -
+2021-04-12 23:15:37.450 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html - - - 200 - text/html;charset=utf-8 74.5422ms
+2021-04-12 23:15:37.514 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - -
+2021-04-12 23:15:37.515 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/favicon-32x32.png - -
+2021-04-12 23:15:37.528 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-04-12 23:15:37.529 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/favicon-32x32.png - - - 200 628 image/png 13.6089ms
+2021-04-12 23:15:37.621 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 106.6034ms
+2021-04-12 23:15:44.108 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:15:44.355 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 246.9333ms
+2021-04-12 23:20:01.546 +08:00 [INF] init main
+2021-04-12 23:20:02.971 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:20:02.973 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:20:02.978 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:20:02.980 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:20:03.112 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:20:03.200 +08:00 [INF] Starting the processing server.
+2021-04-12 23:20:03.244 +08:00 [INF] ### CAP started!
+2021-04-12 23:20:03.415 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:20:03.416 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:20:03.416 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:20:03.416 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:20:07.951 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:20:08.234 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 285.3131ms
+2021-04-12 23:20:09.427 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:20:09.433 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 6.4642ms
+2021-04-12 23:20:10.226 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:20:10.233 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 6.3040ms
+2021-04-12 23:20:10.855 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:20:10.858 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 2.8274ms
+2021-04-12 23:20:11.371 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:20:11.373 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 2.6768ms
+2021-04-12 23:20:11.880 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:20:11.883 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 3.0499ms
+2021-04-12 23:54:54.620 +08:00 [INF] init main
+2021-04-12 23:54:56.003 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:54:56.004 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:54:56.010 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:54:56.011 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:54:56.129 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:54:56.210 +08:00 [INF] Starting the processing server.
+2021-04-12 23:54:56.252 +08:00 [INF] ### CAP started!
+2021-04-12 23:54:56.408 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:54:56.408 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:54:56.408 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:54:56.408 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:54:59.823 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:55:00.100 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 279.2316ms
+2021-04-12 23:56:35.522 +08:00 [INF] init main
+2021-04-12 23:56:36.847 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:56:36.848 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:56:36.853 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:56:36.855 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:56:36.967 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:56:37.048 +08:00 [INF] Starting the processing server.
+2021-04-12 23:56:37.087 +08:00 [INF] ### CAP started!
+2021-04-12 23:56:37.227 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:56:37.227 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:56:37.228 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:56:37.228 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:56:38.477 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:56:38.745 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 270.8394ms
+2021-04-12 23:56:51.604 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:56:51.610 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 6.4571ms
+2021-04-12 23:56:59.186 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:56:59.188 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 2.5210ms
+2021-04-12 23:57:20.336 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:59:33.768 +08:00 [INF] init main
+2021-04-12 23:59:35.154 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-04-12 23:59:35.155 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-04-12 23:59:35.160 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-04-12 23:59:35.162 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-04-12 23:59:35.278 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-12 23:59:35.363 +08:00 [INF] Starting the processing server.
+2021-04-12 23:59:35.404 +08:00 [INF] ### CAP started!
+2021-04-12 23:59:35.548 +08:00 [INF] Now listening on: http://[::]:10085
+2021-04-12 23:59:35.549 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-12 23:59:35.549 +08:00 [INF] Hosting environment: Development
+2021-04-12 23:59:35.549 +08:00 [INF] Content root path: C:\WorkSpace\mbill\mbill_service_new\src\mbill_service
+2021-04-12 23:59:38.306 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/asset/get - -
+2021-04-12 23:59:41.681 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/asset/get - - - 401 - application/json 3378.2871ms
+2021-04-12 23:59:48.824 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json -
+2021-04-12 23:59:48.913 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/pages?Year=2021&Month=4&Day=12&Size=10&Page=0&UserId=2 application/json - - 401 - application/json 89.1409ms
+2021-04-12 23:59:48.925 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json -
+2021-04-12 23:59:48.929 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/statement/statistics/total?UserId=2&Year=2021&Month=4&Day=12 application/json - - 401 - application/json 3.2500ms

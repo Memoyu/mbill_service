@@ -1,0 +1,179 @@
+2021-05-26 01:15:14.097 +08:00 [INF] init main
+2021-05-26 01:15:15.551 +08:00 [FTL] Host terminated unexpectedly
+MySqlConnector.MySqlException (0x80004005): Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+   at MySqlConnector.Core.ServerSession.GetRsaPublicKeyAsync(String switchRequestName, ConnectionSettings cs, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 744
+   at MySqlConnector.Core.ServerSession.SwitchAuthenticationAsync(ConnectionSettings cs, PayloadData payload, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 621
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 470
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(String logMessage, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 368
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 107
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 137
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 863
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 414
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 380
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExistsMySql(FreeSqlBuilder builder, String connectionString) in D:\WorkSpace\mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 187
+   at mbill_service.Core.Extensions.FreeSqlExtension.CreateDatabaseIfNotExists(FreeSqlBuilder builder) in D:\WorkSpace\mbill\mbill_service\src\mbill_service.Core\Extensions\FreeSqlExtension.cs:line 120
+   at mbill_service.Modules.FreeSqlModule.Load(ContainerBuilder builder) in D:\WorkSpace\mbill\mbill_service\src\mbill_service\Modules\FreeSqlModule.cs:line 19
+   at Autofac.Module.Configure(IComponentRegistryBuilder componentRegistry)
+   at Autofac.ContainerBuilder.Build(IComponentRegistryBuilder componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at mbill_service.Program.Main(String[] args) in D:\WorkSpace\mbill\mbill_service\src\mbill_service\Program.cs:line 29
+2021-05-26 01:15:34.249 +08:00 [INF] init main
+2021-05-26 01:15:35.838 +08:00 [INF] 操 作 权 限 表：删除了1条数据
+2021-05-26 01:15:35.839 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-05-26 01:15:35.880 +08:00 [INF] 操 作 权 限 表：新增了2条数据
+2021-05-26 01:15:35.881 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-05-26 01:15:35.928 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-05-26 01:15:36.057 +08:00 [INF] Creating key {2dc53db4-2b2d-4e3f-b8f9-c406d870be41} with creation date 2021-05-25 17:15:36Z, activation date 2021-05-25 17:15:36Z, and expiration date 2021-08-23 17:15:36Z.
+2021-05-26 01:15:36.072 +08:00 [INF] Writing data to file 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys\key-2dc53db4-2b2d-4e3f-b8f9-c406d870be41.xml'.
+2021-05-26 01:15:36.092 +08:00 [INF] Starting the processing server.
+2021-05-26 01:15:36.137 +08:00 [INF] ### CAP started!
+2021-05-26 01:15:36.337 +08:00 [INF] Now listening on: http://[::]:10085
+2021-05-26 01:15:36.337 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-05-26 01:15:36.337 +08:00 [INF] Hosting environment: Development
+2021-05-26 01:15:36.337 +08:00 [INF] Content root path: D:\WorkSpace\mbill\mbill_service\src\mbill_service
+2021-05-26 01:15:52.606 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/ - -
+2021-05-26 01:15:52.644 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/ - - - 301 0 - 41.3848ms
+2021-05-26 01:15:52.654 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html - -
+2021-05-26 01:15:52.700 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html - - - 200 - text/html;charset=utf-8 45.4025ms
+2021-05-26 01:15:52.722 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/profiler/includes.min.js?v=4.2.22 - -
+2021-05-26 01:15:52.723 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger-ui.css - -
+2021-05-26 01:15:52.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/js/jquery-3.3.1.min.js - -
+2021-05-26 01:15:52.727 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger-ui-bundle.js - -
+2021-05-26 01:15:52.728 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger-ui-standalone-preset.js - -
+2021-05-26 01:15:52.766 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-05-26 01:15:52.766 +08:00 [INF] Sending file. Request path: '/js/jquery-3.3.1.min.js'. Physical path: 'D:\WorkSpace\mbill\mbill_service\src\mbill_service\wwwroot\js\jquery-3.3.1.min.js'
+2021-05-26 01:15:52.768 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-05-26 01:15:52.768 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger-ui.css - - - 200 143410 text/css 44.4648ms
+2021-05-26 01:15:52.768 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/js/jquery-3.3.1.min.js - - - 200 86929 application/javascript 40.7619ms
+2021-05-26 01:15:52.768 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger-ui-standalone-preset.js - - - 200 336841 application/javascript 40.3643ms
+2021-05-26 01:15:52.776 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-05-26 01:15:52.777 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger-ui-bundle.js - - - 200 1098882 application/javascript 49.1905ms
+2021-05-26 01:15:52.877 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/profiler/includes.min.js?v=4.2.22 - - - 200 51685 application/javascript 154.5255ms
+2021-05-26 01:15:53.084 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - -
+2021-05-26 01:15:53.095 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/favicon.ico - -
+2021-05-26 01:15:53.131 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/favicon.ico - - - 404 0 - 36.1448ms
+2021-05-26 01:15:53.163 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/profiler/includes.min.css?v=4.2.22 - -
+2021-05-26 01:15:53.165 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/profiler/includes.min.css?v=4.2.22 - - - 200 18009 text/css 2.0954ms
+2021-05-26 01:15:53.195 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 111.3455ms
+2021-05-26 01:17:00.850 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html - -
+2021-05-26 01:17:00.853 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html - - - 200 - text/html;charset=utf-8 5.6640ms
+2021-05-26 01:17:00.930 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - -
+2021-05-26 01:17:00.952 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 21.9051ms
+2021-05-26 01:17:06.574 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - -
+2021-05-26 01:17:06.605 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 30.7968ms
+2021-05-26 01:17:13.576 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v2/swagger.json - -
+2021-05-26 01:17:13.593 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 17.2013ms
+2021-05-26 01:17:26.808 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - -
+2021-05-26 01:17:26.810 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html?urls.primaryName=%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%AB%AF%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 1.3447ms
+2021-05-26 01:17:26.873 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v2/swagger.json - -
+2021-05-26 01:17:26.886 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 13.5184ms
+2021-05-26 01:17:33.786 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - -
+2021-05-26 01:17:33.797 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 10.7103ms
+2021-05-26 01:17:42.125 +08:00 [INF] init main
+2021-05-26 01:17:43.652 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-05-26 01:17:43.653 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-05-26 01:17:43.659 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-05-26 01:17:43.660 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-05-26 01:17:43.764 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-05-26 01:17:43.845 +08:00 [INF] Starting the processing server.
+2021-05-26 01:17:43.886 +08:00 [INF] ### CAP started!
+2021-05-26 01:17:44.046 +08:00 [INF] Now listening on: http://[::]:10085
+2021-05-26 01:17:44.046 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-05-26 01:17:44.046 +08:00 [INF] Hosting environment: Development
+2021-05-26 01:17:44.047 +08:00 [INF] Content root path: D:\WorkSpace\mbill\mbill_service\src\mbill_service
+2021-05-26 01:17:44.173 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-05-26 01:17:44.242 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 71.8174ms
+2021-05-26 01:17:44.312 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - -
+2021-05-26 01:17:44.403 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 90.7633ms
+2021-05-26 01:18:02.660 +08:00 [INF] init main
+2021-05-26 01:18:04.159 +08:00 [INF] 操 作 权 限 表：删除了0条数据
+2021-05-26 01:18:04.161 +08:00 [INF] 操作角色权限表：删除了0条数据
+2021-05-26 01:18:04.166 +08:00 [INF] 操 作 权 限 表：新增了0条数据
+2021-05-26 01:18:04.167 +08:00 [INF] 操 作 权 限 表：更新了0条数据
+2021-05-26 01:18:04.270 +08:00 [INF] User profile is available. Using 'C:\Users\Memoyu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-05-26 01:18:04.352 +08:00 [INF] Starting the processing server.
+2021-05-26 01:18:04.395 +08:00 [INF] ### CAP started!
+2021-05-26 01:18:04.552 +08:00 [INF] Now listening on: http://[::]:10085
+2021-05-26 01:18:04.552 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-05-26 01:18:04.552 +08:00 [INF] Hosting environment: Development
+2021-05-26 01:18:04.553 +08:00 [INF] Content root path: D:\WorkSpace\mbill\mbill_service\src\mbill_service
+2021-05-26 01:18:04.785 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - -
+2021-05-26 01:18:04.857 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/index.html?urls.primaryName=%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3 - - - 200 - text/html;charset=utf-8 75.1001ms
+2021-05-26 01:18:04.929 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - -
+2021-05-26 01:18:05.022 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 92.1986ms
+2021-05-26 01:18:09.581 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:18:09.733 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:18:09.982 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:18:09.983 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:18:09.986 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:18:09.987 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:18:09.989 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 408.2316ms
+2021-05-26 01:18:10.016 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 2315 application/json 32.3956ms
+2021-05-26 01:18:16.816 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:18:16.820 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:18:16.822 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:18:16.822 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 6.3773ms
+2021-05-26 01:18:16.823 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:18:16.824 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:18:16.824 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:18:16.826 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1949 application/json 2.6341ms
+2021-05-26 01:18:41.055 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:18:41.059 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:18:41.062 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:18:41.062 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 6.6800ms
+2021-05-26 01:18:41.064 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:18:41.064 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:18:41.065 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:18:41.066 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1811 application/json 1.9379ms
+2021-05-26 01:21:23.549 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:21:23.564 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:23.567 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:23.567 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 18.0539ms
+2021-05-26 01:21:23.569 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:21:23.569 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:21:23.569 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:21:23.571 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1949 application/json 1.9378ms
+2021-05-26 01:21:25.100 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:21:25.102 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:25.103 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:25.103 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 3.4009ms
+2021-05-26 01:21:25.104 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:21:25.105 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:21:25.105 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:21:25.106 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1811 application/json 2.1373ms
+2021-05-26 01:21:25.829 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:21:25.835 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:25.835 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:25.835 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 6.1478ms
+2021-05-26 01:21:25.837 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:21:25.838 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:21:25.838 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:21:25.839 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1811 application/json 2.5426ms
+2021-05-26 01:21:26.333 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:21:26.336 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:26.336 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:26.336 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 3.0953ms
+2021-05-26 01:21:26.338 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:21:26.338 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:21:26.339 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:21:26.340 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1811 application/json 2.0668ms
+2021-05-26 01:21:37.777 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:21:37.779 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:37.780 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:37.781 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 3.4822ms
+2021-05-26 01:21:37.782 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:21:37.782 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:21:37.783 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:21:37.784 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1811 application/json 2.0856ms
+2021-05-26 01:21:39.114 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - -
+2021-05-26 01:21:39.117 +08:00 [INF] Executing endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:39.117 +08:00 [INF] Executed endpoint 'mbill_service.Controllers.Core.UserController.GetTestAsync (mbill_service)'
+2021-05-26 01:21:39.118 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:10085/api/admin/user/Test - - - 200 - text/plain;+charset=utf-8 3.2537ms
+2021-05-26 01:21:39.119 +08:00 [INF] Request starting HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45
+2021-05-26 01:21:39.120 +08:00 [INF] CORS policy execution failed.
+2021-05-26 01:21:39.120 +08:00 [INF] Request origin http://localhost:10085 does not have permission to access the resource.
+2021-05-26 01:21:39.121 +08:00 [INF] Request finished HTTP/1.1 POST http://localhost:10085/profiler/results application/json 45 - 200 1811 application/json 2.0259ms
