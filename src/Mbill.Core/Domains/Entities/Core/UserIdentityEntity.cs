@@ -1,4 +1,6 @@
-﻿namespace Mbill.Core.Domains.Entities.Core;
+﻿using Mbill.Core.Common;
+
+namespace Mbill.Core.Domains.Entities.Core;
 
 /// <summary>
 /// 用户身份认证登录表
@@ -18,8 +20,10 @@ public class UserIdentityEntity : FullAduitEntity
     {
     }
 
-    public UserIdentityEntity(string identityType, string identifier, string credential, DateTime createTime)
+    public UserIdentityEntity(long userBId, string identityType, string identifier, string credential, DateTime createTime)
     {
+        BId = SnowFlake.NextId();
+        UserBId = userBId;
         IdentityType = identityType ?? throw new ArgumentNullException(nameof(identityType));
         Identifier = identifier;
         Credential = credential ?? throw new ArgumentNullException(nameof(credential));

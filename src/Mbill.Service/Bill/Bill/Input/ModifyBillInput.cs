@@ -2,7 +2,7 @@
 
 public class ModifyBillInput
 {
-    public long? Id { get; set; }
+    public long BId { get; set; }
 
     /// <summary>
     /// 分类Id

@@ -8,4 +8,9 @@ public class BillRepo : AuditBaseRepo<BillEntity>, IBillRepo
     {
         _currentUser = currentUser;
     }
+
+    public async Task<BillEntity> GetBillAsync(long bId)
+    {
+        return await Select.Where(a => a.BId == bId).ToOneAsync();
+    }
 }

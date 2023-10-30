@@ -5,10 +5,8 @@ public interface IUserSvc
     /// <summary>
     /// 注册-新增一个用户
     /// </summary>
-    /// <param name="user">用户</param>
-    /// <param name="roleIds">分组Id集合</param>
-    /// <param name="password">密码</param>
-    Task CreateAsync(UserEntity user, List<long> roleIds, string password);
+    /// <param name="input">用户信息</param>
+    Task CreateAsync(ModifyUserDto input);
 
     /// <summary>
     /// 获取用户信息，id为空时，通过Token获取

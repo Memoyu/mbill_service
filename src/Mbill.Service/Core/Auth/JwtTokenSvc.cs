@@ -18,7 +18,7 @@ public class JwtTokenSvc : IJwtTokenSvc
 
     public async Task<TokenDto> RefreshTokenAsync(string refreshToken)
     {
-        UserEntity user = await _userRepo.GetUserAsync(r => r.RefreshToken == refreshToken);//获取用户信息记录的refreshToken
+        var user = await _userRepo.GetUserAsync(r => r.RefreshToken == refreshToken);//获取用户信息记录的refreshToken
 
         if (user.IsNull())
         {
@@ -46,7 +46,7 @@ public class JwtTokenSvc : IJwtTokenSvc
                 new Claim (ClaimTypes.Name, user.Username?? ""),
             };
 
-        var userRoles = _userRoleRepo.Where(r => r.UserBId == user.BId).Include(r => r.Role).ToList() ?? new List<UserRoleEntity>();
+        var userRoles = await _userRoleRepo.Where(r => r.UserBId == user.BId).Include(r => r.Role).ToListAsync() ?? new List<UserRoleEntity>();
         foreach (var userRole in userRoles)
         {
             if (userRole.Role is null) continue;

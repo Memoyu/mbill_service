@@ -29,25 +29,25 @@ public class BillController : ApiControllerBase
     /// <summary>
     /// 获取账单详情
     /// </summary>
-    /// <param name="id">账单id</param>
+    /// <param name="bId">账单bId</param>
     [HttpGet]
     [LocalAuthorize("详情", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<BillDetailDto>> GetAsync([FromQuery] long id)
+    public async Task<ServiceResult<BillDetailDto>> GetAsync([FromQuery] long bId)
     {
-        return await _billSvc.GetDetailAsync(id);
+        return await _billSvc.GetDetailAsync(bId);
     }
 
     /// <summary> 
     /// 删除账单信息
     /// </summary>
-    /// <param name="id">账单id</param>
+    /// <param name="bId">账单bId</param>
     [HttpDelete]
     [LocalAuthorize("删除", "账单")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long bId)
     {
-        return await _billSvc.DeleteAsync(id);
+        return await _billSvc.DeleteAsync(bId);
     }
 
     /// <summary>

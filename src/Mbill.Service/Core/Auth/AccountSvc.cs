@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Mbill.Core.Common;
+using System.Linq;
 
 namespace Mbill.Service.Core.Auth;
 
@@ -6,6 +7,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
 {
     private readonly ILogger<AccountSvc> _logger;
     private readonly IUserRepo _userRepo;
+    private readonly IUserRoleRepo _userRoleRepo;
     private readonly IUserIdentityRepo _userIdentityRepo;
     private readonly ICategoryRepo _categoryRepo;
     private readonly IAssetRepo _assetRepo;
@@ -15,6 +17,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     public AccountSvc(
         ILogger<AccountSvc> logger,
         IUserRepo userRepo,
+        IUserRoleRepo userRoleRepo,
         IUserIdentityRepo userIdentityRepo,
         ICategoryRepo categoryRepo,
         IAssetRepo assetRepo,
@@ -24,6 +27,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     {
         _logger = logger;
         _userRepo = userRepo;
+        _userRoleRepo = userRoleRepo;
         _userIdentityRepo = userIdentityRepo;
         _categoryRepo = categoryRepo;
         _assetRepo = assetRepo;
@@ -54,6 +58,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         return ServiceResult<TokenDto>.Successed(await _jwtTokenService.CreateTokenAsync(user));
     }
 
+    [Transactional]
     public async Task<ServiceResult<PreLoginUserDto>> WxPreLoginAsync(string code)
     {
         var wxlogin = await _wxService.GetCode2Session(code);
@@ -68,6 +73,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         {
             var entity = new UserEntity
             {
+                BId = SnowFlake.NextId(),
                 Username = string.Empty,
                 Nickname = string.Empty,
                 Gender = 0,
@@ -79,29 +85,35 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 Street = string.Empty,
                 AvatarUrl = string.Empty,
             };
-            entity.UserRoles = new List<UserRoleEntity>
+            var userRoles = new List<UserRoleEntity>
             {
                 new UserRoleEntity()
                 {
+                    UserBId = entity.BId,
                     RoleBId = Role.User
                 }
             };
 
-            entity.UserIdentitys = new List<UserIdentityEntity>()//构建赋值用户身份认证登录信息
+            var userIdentitys = new List<UserIdentityEntity>()//构建赋值用户身份认证登录信息
             {
-                new UserIdentityEntity(UserIdentityEntity.WeiXin,entity.Nickname,openId,DateTime.Now)
+                new(entity.BId, UserIdentityEntity.WeiXin, entity.Nickname, openId, DateTime.Now)
             };
+
+            // 插入数据
             entity = await _userRepo.InsertAsync(entity);
+            await _userIdentityRepo.InsertAsync(userIdentitys);
+            await _userRoleRepo.InsertAsync(userRoles);
+
             if (entity == null)
                 return ServiceResult<PreLoginUserDto>.Failed($"微信登录失败，请联系开发者！");
 
             // TODO: 需要改造一下默认数据初始化实现
             // _ = InitUserDataAsync(entity.Id);
-            user = await _userRepo.GetUserAsync(c => c.Id == entity.Id);
+            user = await _userRepo.GetUserAsync(entity.BId);
         }
         else
         {
-            user = await _userRepo.GetUserAsync(c => c.BId == identity.UserBId);
+            user = await _userRepo.GetUserAsync(identity.UserBId);
             if (!string.IsNullOrWhiteSpace(user.AvatarUrl) && !string.IsNullOrWhiteSpace(user.Nickname))
                 isCompletedInfo = 1;
         }
@@ -117,12 +129,11 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     {
         var openId = input.OpenId;
         var identity = await _userIdentityService.VerifyWxOpenIdAsync(openId);
-        var user = new UserEntity();
         // 如果绑定信息为空，则未登录过，进行账户信息记录
         if (identity == null)
             return ServiceResult<TokenWithUserDto>.Failed($"微信用户不存在，请重新授权！");
 
-        user = await _userRepo.GetUserAsync(c => c.BId == identity.UserBId);
+        var user = await _userRepo.GetUserAsync(identity.UserBId);
 
         user.AvatarUrl = input.AvatarUrl;
         user.Nickname = input.Nickname;

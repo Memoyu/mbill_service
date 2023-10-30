@@ -82,14 +82,8 @@ public class UserEntity : FullAduitEntity
     /// </summary>
     public bool IsEnable { get; set; } = true;
 
-    public virtual IEnumerable<RoleEntity> Roles { get; set; }
-
-    [Navigate("UserId")]
-    public virtual ICollection<UserRoleEntity> UserRoles { get; set; }
-
-    [Navigate("UserId")]
-    public virtual ICollection<UserIdentityEntity> UserIdentitys { get; set; }
-
+    [Navigate(nameof(UserRoleEntity.UserBId), TempPrimary = nameof(BId))]
+    public virtual IEnumerable<UserRoleEntity> UserRoles { get; set; }
 
     /// <summary>
     /// 登录后用户状态变化

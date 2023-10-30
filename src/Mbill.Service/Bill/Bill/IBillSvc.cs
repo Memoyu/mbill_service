@@ -12,17 +12,17 @@ public interface IBillSvc
     /// <summary>
     /// 获取账单详情
     /// </summary>
-    /// <param name="id">账单id</param>
+    /// <param name="bId">账单bId</param>
     /// <returns></returns>
-    Task<ServiceResult<BillDetailDto>> GetDetailAsync(long id);
+    Task<ServiceResult<BillDetailDto>> GetDetailAsync(long bId);
 
 
     /// <summary>
     /// 删除账单信息
     /// </summary>
-    /// <param name="id">账单id</param>
+    /// <param name="bId">账单bId</param>
     /// <returns></returns>
-    Task<ServiceResult> DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long bId);
 
     /// <summary>
     /// 更新账单信息

@@ -9,13 +9,11 @@ public class AccountController : ApiControllerBase
 {
     private readonly IAccountSvc _accountService;
     private readonly IUserSvc _userService;
-    private readonly IWxSvc _wxSvc;
 
-    public AccountController(IComponentContext componentContext, IAccountSvc accountService, IUserSvc userService, IWxSvc wxSvc)
+    public AccountController(IAccountSvc accountService, IUserSvc userService)
     {
         _accountService = accountService;
         _userService = userService;
-        _wxSvc = wxSvc;
     }
 
     /// <summary>
@@ -64,15 +62,15 @@ public class AccountController : ApiControllerBase
     }
 
     /// <summary>
-    /// 获取用户信息，By Id
+    /// 获取用户信息，By bId
     /// </summary>
     [HttpGet("user")]
     [Authorize]
     [LocalAuthorize("获取用户信息", "用户")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
-    public async Task<ServiceResult<UserDto>> GetByIdAsync([FromQuery] long? id)
+    public async Task<ServiceResult<UserDto>> GetByIdAsync([FromQuery] long? bId)
     {
-        return await _userService.GetAsync(id);
+        return await _userService.GetAsync(bId);
     }
 
     /// <summary>

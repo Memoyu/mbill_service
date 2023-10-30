@@ -74,5 +74,5 @@ public class UserDto : FullEntityDto
     /// </summary>
     public bool IsEnable { get; set; }
 
-    public List<RoleEntity> Roles { get; set; }
+    public List<RoleDto> Roles { get; set; }
 }

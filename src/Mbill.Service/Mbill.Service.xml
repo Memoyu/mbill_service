@@ -134,14 +134,14 @@
             <summary>
             获取账单详情
             </summary>
-            <param name="id">账单id</param>
+            <param name="bId">账单bId</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Bill.IBillSvc.DeleteAsync(System.Int64)">
             <summary>
             删除账单信息
             </summary>
-            <param name="id">账单id</param>
+            <param name="bId">账单bId</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Bill.IBillSvc.UpdateAsync(Mbill.Service.Bill.Bill.Input.ModifyBillInput)">
@@ -1109,13 +1109,11 @@
             <param name="userId"></param>
             <param name="newpassword"></param>
         </member>
-        <member name="M:Mbill.Service.Core.User.IUserSvc.CreateAsync(Mbill.Core.Domains.Entities.User.UserEntity,System.Collections.Generic.List{System.Int64},System.String)">
+        <member name="M:Mbill.Service.Core.User.IUserSvc.CreateAsync(Mbill.Service.Core.User.Input.ModifyUserDto)">
             <summary>
             注册-新增一个用户
             </summary>
-            <param name="user">用户</param>
-            <param name="roleIds">分组Id集合</param>
-            <param name="password">密码</param>
+            <param name="input">用户信息</param>
         </member>
         <member name="M:Mbill.Service.Core.User.IUserSvc.GetAsync(System.Nullable{System.Int64})">
             <summary>

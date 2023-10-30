@@ -20,13 +20,13 @@ public class UserController : ApiControllerBase
     /// <summary>
     /// 超级管理员新增用户
     /// </summary>
-    /// <param name="userInput">用户更改</param>
+    /// <param name="input">用户更改</param>
     [HttpPost]
     [LocalAuthorize("新增用户", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> CreateAsync([FromBody] ModifyUserDto userInput)
+    public async Task<ServiceResult> CreateAsync([FromBody] ModifyUserDto input)
     {
-        await _userService.CreateAsync(_mapper.Map<UserEntity>(userInput), userInput.RoleBIds, userInput.Password);
+        await _userService.CreateAsync(input);
         return ServiceResult.Successed("用户创建成功");
     }
 

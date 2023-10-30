@@ -2,7 +2,7 @@
 {
     public class ModifyUserBaseDto
     {
-        public long Id { get; set; }
+        public long BId { get; set; }
 
         /// <summary>
         /// 头像地址

@@ -12,21 +12,16 @@ namespace Mbill.Infrastructure.Repository.Core
             _currentUser = currentUser;
         }
 
-        /// <summary>
-        /// 根据条件得到用户信息
-        /// </summary>
-        /// <param name="expression"></param>
-        /// <returns></returns>
+        public Task<UserEntity> GetUserAsync(long bId)
+        {
+            return Select.Where(u=> u.BId == bId).ToOneAsync();
+        }
+
         public Task<UserEntity> GetUserAsync(Expression<Func<UserEntity, bool>> expression)
         {
             return Select.Where(expression).ToOneAsync();
         }
 
-        /// <summary>
-        /// 根据用户Id更新用户的最后登录时间
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
         public Task UpdateLastLoginTimeAsync(long userId)
         {
             return UpdateDiy.Set(r => new UserEntity()

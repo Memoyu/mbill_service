@@ -8,7 +8,7 @@ public class UserPagingDto : PagingDto
 
     public int IsEnable { get; set; }
 
-    public long RoleId { get; set; }
+    public long RoleBId { get; set; }
 
     public DateTime? CreateStartTime { get; set; }
 

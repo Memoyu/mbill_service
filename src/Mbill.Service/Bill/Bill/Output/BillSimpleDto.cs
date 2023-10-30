@@ -2,7 +2,7 @@
 
 public class BillSimpleDto
 {
-    public long Id { get; set; }
+    public long BId { get; set; }
 
     public string Category { get; set; }
 

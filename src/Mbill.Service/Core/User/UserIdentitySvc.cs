@@ -20,7 +20,7 @@ public class UserIdentitySvc : IUserIdentitySvc
 
     public async Task<UserIdentityEntity> VerifyWxOpenIdAsync(string openId)
     {
-        return await GetFirstByOpenIdAsync(openId); ;
+        return await GetFirstByOpenIdAsync(openId);
     }
 
     /// <summary>

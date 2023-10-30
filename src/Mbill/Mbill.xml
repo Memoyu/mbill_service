@@ -35,7 +35,7 @@
         </member>
         <member name="M:Mbill.Controllers.Core.AccountController.GetByIdAsync(System.Nullable{System.Int64})">
             <summary>
-            获取用户信息，By Id
+            获取用户信息，By bId
             </summary>
         </member>
         <member name="M:Mbill.Controllers.Core.AccountController.UpdateAsync(Mbill.Service.Core.User.Input.ModifyUserBaseDto)">
@@ -155,7 +155,7 @@
             <summary>
             超级管理员新增用户
             </summary>
-            <param name="userInput">用户更改</param>
+            <param name="input">用户更改</param>
         </member>
         <member name="M:Mbill.Controllers.Core.UserController.GetPagesAsync(Mbill.Service.Core.User.Input.UserPagingDto)">
             <summary>
@@ -236,13 +236,13 @@
             <summary>
             获取账单详情
             </summary>
-            <param name="id">账单id</param>
+            <param name="bId">账单bId</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.BillController.DeleteAsync(System.Int64)">
             <summary> 
             删除账单信息
             </summary>
-            <param name="id">账单id</param>
+            <param name="bId">账单bId</param>
         </member>
         <member name="M:Mbill.Controllers.Bill.BillController.UpdateAsync(Mbill.Service.Bill.Bill.Input.ModifyBillInput)">
             <summary>
