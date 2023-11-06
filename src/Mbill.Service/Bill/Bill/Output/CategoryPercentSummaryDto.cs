@@ -2,7 +2,7 @@
 
 public class CategoryPercentSummaryDto
 {
-    public long Id { get; set; }
+    public long BId { get; set; }
 
     public decimal Sum { get; set; } 
 }

@@ -16,10 +16,10 @@ public class PreOrderEntity : FullAduitEntity
     /// </summary>
     public long GroupBId { get; set; }
 
-    ///// <summary>
-    ///// 分组Id
-    ///// </summary>
-    //public long GroupId { get; set; }
+    /// <summary>
+    /// 分组Id
+    /// </summary>
+    public long GroupId { get; set; }
 
     /// <summary>
     /// 预购金额

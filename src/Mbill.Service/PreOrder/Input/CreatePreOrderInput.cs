@@ -4,7 +4,8 @@ public class CreatePreOrderInput
     /// <summary>
     /// 分组Id
     /// </summary>
-    public long GroupId { get; set; }
+    [Required(ErrorMessage = "预购分组BId不能为空")]
+    public long? GroupBId { get; set; }
 
     /// <summary>
     /// 金额

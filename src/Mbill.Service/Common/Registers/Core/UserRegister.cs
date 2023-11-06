@@ -8,7 +8,7 @@ public class UserRegister : IRegister
     {
         config.ForType<UserEntity, UserDto>()
             .Map(d => d.Address, s => $"{s.Province}{s.City}{s.District}{s.Street}")
-            .Map(d => d.Gender, s => MapGender(s.Gender));
+            .Map(d => d.GenderName, s => MapGender(s.Gender));
 
         config.ForType<UserEntity, LoginUserDto>()
              .Map(d => d.Gender, s => MapGender(s.Gender));

@@ -359,4 +359,12 @@ public class RunDataController : ApiControllerBase
 
         return ServiceResult.Successed("成功！");
     }
+
+    [HttpGet("refactor/migration/mongodb/bid")]
+    public async Task<ServiceResult> MigrationMongoDbBIdAsync()
+    {
+        var list = await _billRepo.Select.DisableGlobalFilter("IsDeleted").ToListAsync();
+        var s = await _billMongoRepo.InsertManyAsync(list);
+        return ServiceResult.Successed("成功！");
+    }
 }

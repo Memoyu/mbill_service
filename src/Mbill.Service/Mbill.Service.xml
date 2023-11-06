@@ -1254,7 +1254,7 @@
             分组描述
             </summary>
         </member>
-        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.GroupId">
+        <member name="P:Mbill.Service.PreOrder.Input.CreatePreOrderInput.GroupBId">
             <summary>
             分组Id
             </summary>

@@ -63,7 +63,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         Expression<Func<BillEntity, object>> ignoreExp = e => new { e.CreateUserBId, e.CreateTime };
         input.Adapt(entity);
         await _billRepo.UpdateAsync(entity);
-        var find = await _mongoRepo.FindOneAsync(entity.BId, false);
+        var find = await _mongoRepo.FindOneAsync(entity.Id, false);
         if (find is null)
         {
             var resMongo = await _mongoRepo.InsertOneAsync(entity);
@@ -244,9 +244,19 @@ public class BillSvc : ApplicationSvc, IBillSvc
     public async Task<ServiceResult<PagedDto<BillsByDayDto>>> GetByMonthPagesAsync(MonthBillPagingInput input)
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
+
+        var sql = _billRepo
+     .Select
+     .Where(s => s.CreateUserBId == CurrentUser.BId)
+     .Where(s => s.Time.Year == input.Month.Year && s.Time.Month == input.Month.Month)
+     .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
+     .WhereIf(input.CategoryBId.HasValue, s => s.CategoryBId == input.CategoryBId)
+     .WhereIf(input.AssetBId.HasValue, s => s.AssetBId == input.AssetBId)
+     .OrderBy(input.Sort)
+     .ToSql();
+
         var bills = await _billRepo
             .Select
-            .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time.Year == input.Month.Year && s.Time.Month == input.Month.Month)
             .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
@@ -518,18 +528,18 @@ public class BillSvc : ApplicationSvc, IBillSvc
         List<CategoryPercentSummaryDto> categoryGroups = null;
         if (input.SummaryType == 0)
         {
-            categoryGroups = await GetSelect().GroupBy((b, c) => c.ParentBId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
+            categoryGroups = await GetSelect().GroupBy((b, c) => c.ParentBId).ToListAsync(b => new CategoryPercentSummaryDto { BId = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
         }
         else
         {
-            categoryGroups = await GetSelect().GroupBy((b, c) => b.CategoryBId).ToListAsync(b => new CategoryPercentSummaryDto { Id = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
+            categoryGroups = await GetSelect().GroupBy((b, c) => b.CategoryBId).ToListAsync(b => new CategoryPercentSummaryDto { BId = b.Key, Sum = b.Sum(b.Value.Item1.Amount) });
         }
-        var catrgoryIds = categoryGroups.Select(c => c.Id).ToList();
-        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
+        var catrgoryBIds = categoryGroups.Select(c => c.BId).ToList();
+        var categories = await _categoryRepo.Select.Where(c => catrgoryBIds.Contains(c.BId)).DisableGlobalFilter("IsDeleted").ToListAsync();
 
         foreach (var category in categoryGroups)
         {
-            var ca = categories.FirstOrDefault(c => c.Id == category.Id);
+            var ca = categories.FirstOrDefault(c => c.BId == category.BId);
             dto.Series.Add(new RingSerie { Name = ca.Name, Value = category.Sum });
         }
 
@@ -550,21 +560,21 @@ public class BillSvc : ApplicationSvc, IBillSvc
               .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
               .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year);
 
-        var data = await GetSelect().GroupBy(s => s.CategoryBId).ToListAsync(s => new { Id = s.Key, Sum = s.Sum(s.Value.Amount) });
-        var catrgoryIds = data.Select(c => c.Id).ToList();
-        var categories = await _categoryRepo.Select.Where(c => catrgoryIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
+        var data = await GetSelect().GroupBy(s => s.CategoryBId).ToListAsync(s => new { BId = s.Key, Sum = s.Sum(s.Value.Amount) });
+        var catrgoryBIds = data.Select(c => c.BId).ToList();
+        var categories = await _categoryRepo.Select.Where(c => catrgoryBIds.Contains(c.BId)).DisableGlobalFilter("IsDeleted").ToListAsync();
         var parentIds = categories.Select(c => c.ParentBId).Distinct();
-        var categoryParents = await _categoryRepo.Select.Where(c => parentIds.Contains(c.Id)).DisableGlobalFilter("IsDeleted").ToListAsync();
+        var categoryParents = await _categoryRepo.Select.Where(c => parentIds.Contains(c.BId)).DisableGlobalFilter("IsDeleted").ToListAsync();
         var total = data.Sum(c => c.Sum);
 
         // 进行数据分组，并完善数据相关信息
         dtos = data.Select(cg =>
         {
-            var c = categories.FirstOrDefault(c => c.Id == cg.Id);
-            var g = categoryParents.FirstOrDefault(g => c.ParentBId == g.Id);
+            var c = categories.FirstOrDefault(c => c.BId == cg.BId);
+            var g = categoryParents.FirstOrDefault(g => c.ParentBId == g.BId);
             return new
             {
-                Id = cg.Id,
+                BId = cg.BId,
                 CategoryName = c.Name,
                 CategoryIcon = _fileRepo.GetFileUrl(c?.Icon),
                 Sum = cg.Sum,
@@ -581,7 +591,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             Amount = g.Sum(c => c.Sum).AmountFormat(),
             Items = g.Select(c => new CategoryPercentItemDto
             {
-                Id = c.Id,
+                BId = c.BId,
                 Category = c.CategoryName,
                 CategoryIcon = c.CategoryIcon,
                 Percent = c.Percent,
