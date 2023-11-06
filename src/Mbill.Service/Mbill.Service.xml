@@ -4,7 +4,7 @@
         <name>Mbill.Service</name>
     </assembly>
     <members>
-        <member name="P:Mbill.Service.Base.CrudApplicationSvc`6.Repository">
+        <member name="P:Mbill.Service.Base.CrudApplicationSvc`5.Repository">
             <summary>
             仓储
             </summary>
@@ -996,6 +996,16 @@
             获取角色信息
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Mbill.Service.Core.Permission.Output.RolePermissionDto.RoleBId">
+            <summary>
+            角色BId
+            </summary>
+        </member>
+        <member name="P:Mbill.Service.Core.Permission.Output.RolePermissionDto.PermissionBId">
+            <summary>
+            权限BId
+            </summary>
         </member>
         <member name="P:Mbill.Service.Core.User.Input.ModifyUserBaseDto.AvatarUrl">
             <summary>

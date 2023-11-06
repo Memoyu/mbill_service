@@ -1,13 +1,13 @@
 ﻿namespace Mbill.Service.PreOrder;
 
-public interface IPreOrderSvc : ICrudApplicationSvc<PreOrderDto, PreOrderSimpleDto, long, CreatePreOrderInput, UpdatePreOrderInput>
+public interface IPreOrderSvc : ICrudApplicationSvc<PreOrderDto, PreOrderSimpleDto, CreatePreOrderInput, UpdatePreOrderInput>
 {
     /// <summary>
     /// 更新预购状态
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<ServiceResult<int>> UpdateStatusAsync(UpdatePreOrderStatusInput input);
+    Task<ServiceResult> UpdateStatusAsync(UpdatePreOrderStatusInput input);
 
     /// <summary>
     /// 获取指定月份分页预购分组

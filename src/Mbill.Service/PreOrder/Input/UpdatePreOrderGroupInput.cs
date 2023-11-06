@@ -1,9 +1,7 @@
 ﻿namespace Mbill.Service.PreOrder.Input;
 
-public class UpdatePreOrderGroupInput
+public class UpdatePreOrderGroupInput : BaseUpdateInput
 {
-    public long Id { get; set; }
-
     public string Name { get; set; }
 
     public string Description { get; set; }

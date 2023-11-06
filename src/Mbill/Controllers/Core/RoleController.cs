@@ -26,8 +26,7 @@ public class RoleController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult> CreateAsync([FromBody] ModifyRoleDto dto)
     {
-        await _roleService.InsertAsync(dto);
-        return ServiceResult.Successed("角色创建成功");
+        return await _roleService.InsertAsync(dto);
     }
 
     /// <summary> 
@@ -38,9 +37,8 @@ public class RoleController : ApiControllerBase
     [LocalAuthorize("删除角色", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
-    {
-        await _roleService.DeleteAsync(id);
-        return ServiceResult.Successed("角色删除成功！");
+    {      
+        return await _roleService.DeleteAsync(id);
     }
 
     /// <summary>
@@ -51,9 +49,8 @@ public class RoleController : ApiControllerBase
     [LocalAuthorize("更新角色", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult> UpdateAsync([FromBody] ModifyRoleDto dto)
-    {
-        await _roleService.UpdateAsync(dto);
-        return ServiceResult.Successed("角色更新成功！");
+    {  
+        return await _roleService.UpdateAsync(dto);
     }
 
     /// <summary>
@@ -65,7 +62,7 @@ public class RoleController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
     public async Task<ServiceResult<List<RoleDto>>> GetAllAsync()
     {
-        return ServiceResult<List<RoleDto>>.Successed(await _roleService.GetAllAsync());
+        return await _roleService.GetAllAsync();
     }
 
     /// <summary>
@@ -75,8 +72,8 @@ public class RoleController : ApiControllerBase
     [HttpGet("{id}")]
     [LocalAuthorize("角色详情", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult<RolePermissionDto>> GetAsync(long id)
+    public async Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long id)
     {
-        return ServiceResult<RolePermissionDto>.Successed(await _roleService.GetAsync(id));
+        return await _roleService.GetAsync(id);
     }
 }

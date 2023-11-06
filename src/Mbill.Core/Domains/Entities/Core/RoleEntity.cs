@@ -62,6 +62,6 @@ public class RoleEntity : FullAduitEntity
     [Navigate(ManyToMany = typeof(UserRoleEntity))]
     public virtual ICollection<UserEntity> Users { get; set; }
 
-    [Navigate("RoleBId")]
+    [Navigate(nameof(RolePermissionEntity.RoleBId), TempPrimary = nameof(BId))]
     public virtual ICollection<RolePermissionEntity> RolePermissions { get; set; }
 }

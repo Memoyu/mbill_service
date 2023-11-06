@@ -19,7 +19,7 @@ public class MediaImageSvc : IMediaImageSvc
         var list = await _mediaImageRepo
            .Select
            .Include(r => r.File)
-            .Where(r => r.Type == pagingDto.Type)
+           .Where(r => r.Type == pagingDto.Type)
            .ToPageListAsync(pagingDto, out long totalCount);
 
         var dtos = list.Select(l => _mapper.Map<MediaImageDto>(l)).ToList();

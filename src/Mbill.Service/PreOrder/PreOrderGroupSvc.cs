@@ -1,6 +1,6 @@
 ﻿namespace Mbill.Service.PreOrder;
 
-public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrderGroupDto, PreOrderGroupWithStatDto, long, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>, IPreOrderGroupSvc
+public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrderGroupDto, PreOrderGroupWithStatDto, CreatePreOrderGroupInput, UpdatePreOrderGroupInput>, IPreOrderGroupSvc
 {
     private IPreOrderGroupRepo _groupRepo;
     private IPreOrderRepo _preOrderRepo;
@@ -26,9 +26,9 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         return result;
     }
 
-    public override async Task<ServiceResult<PreOrderGroupWithStatDto>> UpdateAsync(long id, UpdatePreOrderGroupInput input)
+    public override async Task<ServiceResult<PreOrderGroupWithStatDto>> UpdateAsync(UpdatePreOrderGroupInput input)
     {
-        var result = await base.UpdateAsync(id, input);
+        var result = await base.UpdateAsync(input);
         var dto = result.Result;
         var week = dto.CreateTime.GetWeek();
         dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
@@ -36,15 +36,14 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
     }
 
     [Transactional]
-    public override async Task DeleteAsync(long bId)
+    public override async Task<ServiceResult> DeleteAsync(long bId)
     {
-        var cnt = await _preOrderRepo.DeleteAsync(o => o.GroupBId == bId);
-        await base.DeleteAsync(bId);
+        return await base.DeleteAsync(bId);
     }
 
     public async Task<ServiceResult<PreOrderGroupDto>> GroupToBillAsync(GroupToBillInput input)
     {
-        var entity = await _groupRepo.Select.Where(g => g.Id == input.BId).FirstAsync();
+        var entity = await _groupRepo.Select.Where(g => g.BId == input.BId).FirstAsync();
         if (entity == null) ServiceResult<PreOrderGroupWithPreAmountDto>.Failed("预购分组不存在");
         entity.BillBId = input.BillBId;
         var cnt = await _groupRepo.UpdateAsync(entity);
@@ -55,7 +54,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
 
     public async Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync(long BId)
     {
-        var entity = await _groupRepo.Select.Where(g => g.Id == BId).FirstAsync();
+        var entity = await _groupRepo.Select.Where(g => g.BId == BId).FirstAsync();
         if (entity == null) ServiceResult<PreOrderGroupWithPreAmountDto>.Failed("预购分组不存在");
         var orders = await _preOrderRepo.Select
             .Where(s => s.GroupBId == BId).ToListAsync();
@@ -107,7 +106,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         var dto = new GroupPreOrderStatDto { BillId = group.BillBId };
         dto.GroupName = group.Name;
         var week = group.CreateTime.GetWeek();
-        dto.Time = $"{week}-{group.CreateTime.ToString("yyyy-MM-dd")}日";
+        dto.Time = $"{week}-{group.CreateTime:yyyy-MM-dd}日";
         dto.PreAmount = await _preOrderRepo.GetPreAmountByGroupAsync(new List<long> { input.BId });
         dto.RealAmount = await _preOrderRepo.GetRealAmountByGroupAsync(new List<long> { input.BId });
         var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { input.BId });

@@ -1,9 +1,7 @@
 ﻿namespace Mbill.Service.PreOrder.Input;
 
-public class UpdatePreOrderInput
+public class UpdatePreOrderInput : BaseUpdateInput
 {
-    public long Id { get; set; }
-
     /// <summary>
     /// 预购金额
     /// </summary>

@@ -1,4 +1,6 @@
-﻿namespace Mbill.Service.Core.Permission;
+﻿using Mbill.Core.Common;
+
+namespace Mbill.Service.Core.Permission;
 public class PermissionSvc : ApplicationSvc, IPermissionSvc
 {
     private readonly IPermissionRepo _permissionRepo;
@@ -21,7 +23,7 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
                       Children = permissions.Where(u => u.Module == r.Key)
                                             .Select(r => new TreePermissionDto
                                             {
-                                                Id = r.Id,
+                                                BId = r.BId,
                                                 Rowkey = index++.ToString(),
                                                 Name = r.Name,
                                                 Router = r.Router,
@@ -47,10 +49,10 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
     public async Task<bool> CheckAsync(string module, string permission)
     {
         // TODO: 缓存权限信息，从缓存中获取，并在更新权限时进行权限缓存更新
-        long[] roleIds = CurrentUser.Roles;
+        long[] roleBIds = CurrentUser.Roles;
         PermissionEntity permissionEntity = await _permissionRepo.Where(r => r.Module == module && r.Name == permission).FirstAsync();
         bool existPermission = await _rolePermissionRepo.Select
-            .AnyAsync(r => roleIds.Contains(r.RoleBId) && r.PermissionBId == permissionEntity.BId);
+            .AnyAsync(r => roleBIds.Contains(r.RoleBId) && r.PermissionBId == permissionEntity.BId);
         return existPermission;
     }
 
@@ -58,17 +60,18 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
     public async Task<bool> DispatchPermissionsAsync(DispatchPermissionsDto dto)
     {
         //去重
-        var distinctPers = dto.PermissionBIds.Distinct().ToList();
+        var permissionBIds = dto.PermissionBIds.Distinct().ToList();
 
         var pers = await _permissionRepo.Select.ToListAsync();
-        var notExist = distinctPers.Where(p => !pers.Any(per => per.Id == p));
+        var notExist = permissionBIds.Where(bId => !pers.Any(per => per.BId == bId));
         if (notExist.Any()) throw new KnownException($"Id：{string.Join(",", notExist)} 的权限不存在！", ServiceResultCode.NotFound, 200);
         var rolePers = await _rolePermissionRepo.Select.Where(rp => rp.RoleBId == dto.RoleBId).ToListAsync();
         //需要清除的权限   
-        var deletePers = rolePers.Where(r => !distinctPers.Any(p => p == r.PermissionBId)).ToList();
+        var deletePers = rolePers.Where(r => !permissionBIds.Any(p => p == r.PermissionBId)).ToList();
         //需要新增的权限
-        var addPers = distinctPers.Where(p => !rolePers.Any(r => r.PermissionBId == p)).Select(p => new RolePermissionEntity
+        var addPers = permissionBIds.Where(p => !rolePers.Any(r => r.PermissionBId == p)).Select(p => new RolePermissionEntity
         {
+            BId = SnowFlake.NextId(),
             RoleBId = dto.RoleBId,
             PermissionBId = p
         }).ToList();

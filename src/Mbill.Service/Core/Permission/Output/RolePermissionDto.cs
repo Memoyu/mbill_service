@@ -1,10 +1,15 @@
-﻿namespace Mbill.Service.Core.Permission.Output;
-
-public class RolePermissionDto : EntityDto
+﻿namespace Mbill.Service.Core.Permission.Output
 {
-    public List<RolePermissionEntity> RolePermissions { get; set; }
-    public string Name { get; set; }
-    public string Info { get; set; }
-    public bool IsStatic { get; set; }
-    public int Sort { get; set; }
+    public class RolePermissionDto : EntityDto
+    {
+        /// <summary>
+        /// 角色BId
+        /// </summary>
+        public long RoleBId { get; set; }
+
+        /// <summary>
+        /// 权限BId
+        /// </summary>
+        public long PermissionBId { get; set; }
+    }
 }

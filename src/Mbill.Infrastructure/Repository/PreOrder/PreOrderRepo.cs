@@ -11,6 +11,11 @@ public class PreOrderRepo : AuditBaseRepo<PreOrderEntity>, IPreOrderRepo
         _currentUser = currentUser;
     }
 
+    public async Task<PreOrderEntity> GetPreOrderAsync(long bId)
+    {
+        return await Select.Where(a => a.BId == bId).ToOneAsync();
+    }
+
     public async Task<(long done, long unDone)> GetCountByStatusAsync(List<long> groupBIds)
     {
         var results = await Select.Where(g => g.CreateUserBId == _currentUser.BId).Where(g => groupBIds.Contains(g.GroupBId)).ToListAsync();

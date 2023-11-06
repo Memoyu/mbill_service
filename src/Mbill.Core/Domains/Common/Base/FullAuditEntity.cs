@@ -1,5 +1,18 @@
 ﻿namespace Mbill.Core.Domains.Common.Base;
 
+# region Input
+
+public abstract class BaseUpdateInput
+{
+    /// <summary>
+    /// 业务主键Id(雪花Id)
+    /// </summary>
+    public long BId { get; set; }
+}
+
+
+#endregion
+
 #region EntityDto
 
 public interface IEntityDto
@@ -8,10 +21,10 @@ public interface IEntityDto
 
 public abstract class EntityDto : IEntityDto
 {
-    /// <summary>
-    /// 自增主键Id
-    /// </summary>
-    public long Id { get; set; }
+    ///// <summary>
+    ///// 自增主键Id
+    ///// </summary>
+    //public long Id { get; set; }
 
     /// <summary>
     /// 业务主键Id(雪花Id)

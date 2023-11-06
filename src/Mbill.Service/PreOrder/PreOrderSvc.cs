@@ -1,21 +1,18 @@
 ﻿namespace Mbill.Service.PreOrder;
 
-public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOrderSimpleDto, long, CreatePreOrderInput, UpdatePreOrderInput>, IPreOrderSvc
+public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOrderSimpleDto, CreatePreOrderInput, UpdatePreOrderInput>, IPreOrderSvc
 {
     private readonly IPreOrderRepo _orderRepo;
     private readonly IPreOrderGroupRepo _groupRepo;
-    private readonly IBillRepo _billRepo;
 
     public PreOrderSvc(
         IAuditBaseRepo<PreOrderEntity, long> repository,
         IPreOrderRepo orderRepo,
-        IPreOrderGroupRepo groupRepo,
-        IBillRepo billRepo
+        IPreOrderGroupRepo groupRepo
         ) : base(repository)
     {
         _orderRepo = orderRepo;
         _groupRepo = groupRepo;
-        _billRepo = billRepo;
     }
 
     public override async Task<ServiceResult<PreOrderSimpleDto>> CreateAsync(CreatePreOrderInput input)
@@ -30,9 +27,9 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         return result;
     }
 
-    public override async Task<ServiceResult<PreOrderSimpleDto>> UpdateAsync(long id, UpdatePreOrderInput input)
+    public override async Task<ServiceResult<PreOrderSimpleDto>> UpdateAsync(UpdatePreOrderInput input)
     {
-        var result = await base.UpdateAsync(id, input);
+        var result = await base.UpdateAsync(input);
         var dto = result.Result;
         var week = input.Time.GetWeek();
         dto.Time = $"{week}-{input.Time.ToString("yyyy年MM月dd日")}";
@@ -40,9 +37,9 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
     }
 
     [Transactional]
-    public async Task<ServiceResult<int>> UpdateStatusAsync(UpdatePreOrderStatusInput input)
+    public async Task<ServiceResult> UpdateStatusAsync(UpdatePreOrderStatusInput input)
     {
-        var order = await _orderRepo.GetAsync(input.Id);
+        var order = await _orderRepo.GetAsync(input.BId);
         order.Status = input.Status;
 
         ////如果将状态变更为未完成状态，则需要清空实际购买金额信息
@@ -56,8 +53,8 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         }
 
         var cnt = await _orderRepo.UpdateAsync(order);
-        if (cnt <= 0) return ServiceResult<int>.Failed("更新状态失败");
-        return ServiceResult<int>.Successed(1);
+        if (cnt <= 0) return ServiceResult.Failed("更新状态失败");
+        return ServiceResult.Successed();
     }
 
     public async Task<ServiceResult<PagedDto<PreOrderSimpleDto>>> GetByGroupPagesAsync(GroupPreOrderPagingInput input)
@@ -65,7 +62,6 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         input.Sort = input.Sort.IsNullOrEmpty() ? "create_time DESC" : input.Sort.Replace("-", " ");
         var orders = await _orderRepo
             .Select
-            .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.GroupBId == input.BId)
             .WhereIf(input.Status.HasValue, s => s.Status == input.Status)
@@ -86,7 +82,6 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
     {
         var groups = await _groupRepo
             .Select
-            .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
              .Where(s => s.CreateTime.Year == input.Month.Year && s.CreateTime.Month == input.Month.Month)
             .ToListAsync();

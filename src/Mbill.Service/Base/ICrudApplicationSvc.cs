@@ -1,13 +1,14 @@
 ﻿namespace Mbill.Service.Base;
 
-public interface ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, in TKey, in TCreateInput, in TUpdateInput>
+public interface ICrudApplicationSvc<TGetOutputDto, TSimpleOutputDto, in TCreateInput, in TUpdateInput>
     where TGetOutputDto : IEntityDto
+    where TUpdateInput : BaseUpdateInput
 {
-    Task<ServiceResult<TGetOutputDto>> GetAsync(TKey id);
+    Task<ServiceResult<TGetOutputDto>> GetAsync(long bId);
 
     Task<ServiceResult<TSimpleOutputDto>> CreateAsync(TCreateInput createInput);
 
-    Task<ServiceResult<TSimpleOutputDto>> UpdateAsync(TKey id, TUpdateInput updateInput);
+    Task<ServiceResult<TSimpleOutputDto>> UpdateAsync(TUpdateInput updateInput);
 
-    Task DeleteAsync(TKey id);
+    Task<ServiceResult> DeleteAsync(long bId);
 }

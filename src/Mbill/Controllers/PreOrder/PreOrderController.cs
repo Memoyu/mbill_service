@@ -64,7 +64,7 @@ public class PreOrderController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<PreOrderSimpleDto>> UpdateAsync([FromBody] UpdatePreOrderInput input)
     {
-        return await _preOrderSvc.UpdateAsync(input.Id, input);
+        return await _preOrderSvc.UpdateAsync(input);
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public class PreOrderController : ApiControllerBase
     [HttpPut("status")]
     [LocalAuthorize("更新状态", "预购")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<int>> UpdateStatusAsync([FromBody] UpdatePreOrderStatusInput input)
+    public async Task<ServiceResult> UpdateStatusAsync([FromBody] UpdatePreOrderStatusInput input)
     {
         return await _preOrderSvc.UpdateStatusAsync(input);
     }
@@ -178,7 +178,7 @@ public class PreOrderController : ApiControllerBase
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
     public async Task<ServiceResult<PreOrderGroupWithStatDto>> UpdateGroupAsync([FromBody] UpdatePreOrderGroupInput input)
     {
-        return await _preOrderGroupSvc.UpdateAsync(input.Id, input);
+        return await _preOrderGroupSvc.UpdateAsync(input);
     }
 
     /// <summary>

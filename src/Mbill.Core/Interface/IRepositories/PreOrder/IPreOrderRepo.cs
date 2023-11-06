@@ -3,6 +3,13 @@
 public interface IPreOrderRepo : IAuditBaseRepo<PreOrderEntity>
 {
     /// <summary>
+    /// 获取预购单
+    /// </summary>
+    /// <param name="bId"></param>
+    /// <returns></returns>
+    Task<PreOrderEntity> GetPreOrderAsync(long bId);
+
+    /// <summary>
     /// 获取指定用户、指定状态的预购清单总数
     /// </summary>
     /// <param name="groupBIds">分组</param>
