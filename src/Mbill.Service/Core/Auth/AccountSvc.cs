@@ -178,7 +178,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                       Name = c.Name,
                       Type = c.Type,
                       Sort = c.Sort,
-                      Childs = categories.FindAll(d => d.ParentBId == c.Id).ToList()
+                      Childs = categories.FindAll(d => d.ParentBId == c.BId).ToList()
                   };
               }).ToList();
 
@@ -191,7 +191,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                     Name = c.Name,
                     Type = c.Type,
                     Sort = c.Sort,
-                    Childs = assets.FindAll(d => d.ParentBId == c.Id).ToList()
+                    Childs = assets.FindAll(d => d.ParentBId == c.BId).ToList()
                 };
             }).ToList();
 
@@ -223,7 +223,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             assetEntities = new List<AssetEntity>();
             foreach (var g in groupsCategories)
             {
-                var p = userParentCategories.FirstOrDefault(c => c.Name == g.Name)?.Id;
+                var p = userParentCategories.FirstOrDefault(c => c.Name == g.Name)?.BId;
                 if (p == null) continue;
                 foreach (var item in g.Childs)
                 {
@@ -236,7 +236,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
 
             foreach (var g in groupsAssets)
             {
-                var p = userParentAssets.FirstOrDefault(c => c.Name == g.Name)?.Id;
+                var p = userParentAssets.FirstOrDefault(c => c.Name == g.Name)?.BId;
                 if (p == null) continue;
                 foreach (var item in g.Childs)
                 {

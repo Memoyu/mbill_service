@@ -2,7 +2,7 @@
 
 public class StatisticsDto
 {
-    public long Id { get; set; }
+    public long BId { get; set; }
 
     public string Name { get; set; }
 

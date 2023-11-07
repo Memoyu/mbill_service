@@ -114,7 +114,7 @@
             <summary> 
             删除角色
             </summary>
-            <param name="id">角色id</param>
+            <param name="bId">角色bId</param>
         </member>
         <member name="M:Mbill.Controllers.Core.RoleController.UpdateAsync(Mbill.Service.Core.Permission.Input.ModifyRoleDto)">
             <summary>
@@ -413,13 +413,13 @@
             <summary>
             获取预购详情
             </summary>
-            <param name="id">账单id</param>
+            <param name="bId">账单id</param>
         </member>
         <member name="M:Mbill.Controllers.PreOrder.PreOrderController.DeleteAsync(System.Int64)">
             <summary> 
             删除预购信息
             </summary>
-            <param name="id">账单id</param>
+            <param name="bId">账单id</param>
         </member>
         <member name="M:Mbill.Controllers.PreOrder.PreOrderController.UpdateAsync(Mbill.Service.PreOrder.Input.UpdatePreOrderInput)">
             <summary>
@@ -455,13 +455,13 @@
             <summary>
             获取预购分组详情
             </summary>
-            <param name="id">预购分组id</param>
+            <param name="bId">预购分组id</param>
         </member>
         <member name="M:Mbill.Controllers.PreOrder.PreOrderController.GetGroupWithAmountAsync(System.Int64)">
             <summary>
             获取预购分组详情(With 相关预购总金额)
             </summary>
-            <param name="id">预购分组id</param>
+            <param name="Ibd">预购分组id</param>
         </member>
         <member name="M:Mbill.Controllers.PreOrder.PreOrderController.GroupToBillAsync(Mbill.Service.PreOrder.Input.GroupToBillInput)">
             <summary>
@@ -473,7 +473,7 @@
             <summary> 
             删除预购分组信息
             </summary>
-            <param name="id">预购分组id</param>
+            <param name="bId">预购分组id</param>
         </member>
         <member name="M:Mbill.Controllers.PreOrder.PreOrderController.UpdateGroupAsync(Mbill.Service.PreOrder.Input.UpdatePreOrderGroupInput)">
             <summary>

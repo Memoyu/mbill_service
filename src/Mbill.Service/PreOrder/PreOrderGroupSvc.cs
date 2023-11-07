@@ -101,9 +101,9 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
 
     public async Task<ServiceResult<GroupPreOrderStatDto>> GetPreOrderStatAsync(GroupPreOrderStatInput input)
     {
-        var group = await _groupRepo.GetAsync(input.BId);
+        var group = await _groupRepo.GetPreOrderGroupAsync(input.BId);
         if (group == null) return ServiceResult<GroupPreOrderStatDto>.Failed("预购分组不存在");
-        var dto = new GroupPreOrderStatDto { BillId = group.BillBId };
+        var dto = new GroupPreOrderStatDto { BillBId = group.BillBId };
         dto.GroupName = group.Name;
         var week = group.CreateTime.GetWeek();
         dto.Time = $"{week}-{group.CreateTime:yyyy-MM-dd}日";

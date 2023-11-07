@@ -2,7 +2,7 @@
 
 public class PreOrderGroupDto : EntityDto
 {
-    public long BillId { get; set; }
+    public long BillBId { get; set; }
 
     public string Name { get; set; }
 

@@ -607,7 +607,7 @@
             <summary>
             删除账单分类信息
             </summary>
-            <param name="id"></param>
+            <param name="bId"></param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Category.ICategorySvc.EditAsync(Mbill.Service.Bill.Category.Input.EditCategoryInput)">
@@ -621,7 +621,7 @@
             <summary>
             获取分类
             </summary>
-            <param name="id"></param>
+            <param name="bId"></param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetsAsync(System.Int32)">
@@ -635,7 +635,7 @@
             <summary>
             获取父项 by 子项 id
             </summary>
-            <param name="id">分类子项Id</param>
+            <param name="bId">分类子项Id</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Bill.Category.ICategorySvc.GetParentsAsync">
@@ -975,7 +975,7 @@
             <summary>
             删除角色
             </summary>
-            <param name="id">角色Id</param>
+            <param name="bId">角色Id</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Core.Permission.IRoleSvc.UpdateAsync(Mbill.Service.Core.Permission.Input.ModifyRoleDto)">
@@ -1150,7 +1150,7 @@
             <summary>
             删除用户（软删除）
             </summary>
-            <param name="id"></param>
+            <param name="bId"></param>
             <returns></returns>
         </member>
         <member name="P:Mbill.Service.Core.User.Output.UserDto.Username">
@@ -1325,7 +1325,7 @@
             <summary>
             获取预购分组带组内预购总金额
             </summary>
-            <param name="id">预购分组Id</param>
+            <param name="bId">预购分组Id</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.PreOrder.IPreOrderGroupSvc.GetByMonthPagesAsync(Mbill.Service.Bill.Bill.Input.MonthPreOrderGroupPagingInput)">
@@ -1428,7 +1428,7 @@
             分组中未完成预购总数
             </summary>
         </member>
-        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.GroupId">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderSimpleDto.GroupBId">
             <summary>
             分组Id
             </summary>

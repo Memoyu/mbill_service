@@ -29,7 +29,7 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TSimpleOutputDt
 
     public async virtual Task<ServiceResult> DeleteAsync(long bId)
     {
-        TEntity entity = await Repository.GetAsync(bId);
+        TEntity entity = await GetEntityByIdAsync(bId);
         if (entity is null) return ServiceResult.Failed("要删除的数据不存在");
         await Repository.DeleteAsync(entity);
         return ServiceResult.Successed();
@@ -37,7 +37,7 @@ public abstract class CrudApplicationSvc<TEntity, TGetOutputDto, TSimpleOutputDt
 
     public virtual async Task<ServiceResult<TGetOutputDto>> GetAsync(long bId)
     {
-        TEntity entity = await Repository.GetAsync(bId);
+        TEntity entity = await GetEntityByIdAsync(bId);
         return ServiceResult<TGetOutputDto>.Successed(Mapper.Map<TGetOutputDto>(entity));
     }
 

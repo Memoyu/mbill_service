@@ -32,7 +32,7 @@ public interface IUserSvc
     /// <summary>
     /// 删除用户（软删除）
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="bId"></param>
     /// <returns></returns>
-    Task<ServiceResult> DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long bId);
 }

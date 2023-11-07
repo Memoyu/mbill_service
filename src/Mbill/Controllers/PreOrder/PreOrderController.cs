@@ -33,25 +33,25 @@ public class PreOrderController : ApiControllerBase
     /// <summary>
     /// 获取预购详情
     /// </summary>
-    /// <param name="id">账单id</param>
+    /// <param name="bId">账单id</param>
     [HttpGet]
     [LocalAuthorize("详情", "预购")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderDto>> GetAsync([FromQuery] long id)
+    public async Task<ServiceResult<PreOrderDto>> GetAsync([FromQuery] long bId)
     {
-        return await _preOrderSvc.GetAsync(id);
+        return await _preOrderSvc.GetAsync(bId);
     }
 
     /// <summary> 
     /// 删除预购信息
     /// </summary>
-    /// <param name="id">账单id</param>
+    /// <param name="bId">账单id</param>
     [HttpDelete]
     [LocalAuthorize("删除", "预购")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteAsync([FromBody] long id)
+    public async Task<ServiceResult> DeleteAsync([FromBody] long bId)
     {
-        await _preOrderSvc.DeleteAsync(id);
+        await _preOrderSvc.DeleteAsync(bId);
         return ServiceResult.Successed("预购删除成功！");
     }
 
@@ -123,25 +123,25 @@ public class PreOrderController : ApiControllerBase
     /// <summary>
     /// 获取预购分组详情
     /// </summary>
-    /// <param name="id">预购分组id</param>
+    /// <param name="bId">预购分组id</param>
     [HttpGet("group")]
     [LocalAuthorize("详情", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderGroupDto>> GetGroupAsync([FromQuery] long id)
+    public async Task<ServiceResult<PreOrderGroupDto>> GetGroupAsync([FromQuery] long bId)
     {
-        return await _preOrderGroupSvc.GetAsync(id);
+        return await _preOrderGroupSvc.GetAsync(bId);
     }
     
     /// <summary>
     /// 获取预购分组详情(With 相关预购总金额)
     /// </summary>
-    /// <param name="id">预购分组id</param>
+    /// <param name="Ibd">预购分组id</param>
     [HttpGet("group/amount")]
     [LocalAuthorize("详情带预购分组总金额", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync([FromQuery] long id)
+    public async Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync([FromQuery] long bId)
     {
-        return await _preOrderGroupSvc.GetGroupWithAmountAsync(id);
+        return await _preOrderGroupSvc.GetGroupWithAmountAsync(bId);
     }
 
     /// <summary>
@@ -159,13 +159,13 @@ public class PreOrderController : ApiControllerBase
     /// <summary> 
     /// 删除预购分组信息
     /// </summary>
-    /// <param name="id">预购分组id</param>
+    /// <param name="bId">预购分组id</param>
     [HttpDelete("group")]
     [LocalAuthorize("删除", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
-    public async Task<ServiceResult> DeleteGroupAsync([FromBody] long id)
+    public async Task<ServiceResult> DeleteGroupAsync([FromBody] long bId)
     {
-        await _preOrderGroupSvc.DeleteAsync(id);
+        await _preOrderGroupSvc.DeleteAsync(bId);
         return ServiceResult.Successed("预购分组删除成功！");
     }
 

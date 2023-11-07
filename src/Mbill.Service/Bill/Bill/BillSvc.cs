@@ -205,7 +205,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             foreach (var i in list)
             {
                 var dto = Mapper.Map<BillDetailDto>(i);
-                var category = await _categoryRepo.GetAsync(i.Id);
+                var category = await _categoryRepo.GetCategoryAsync(dto.CategoryBId);
                 var asset = await _assetRepo.GetAssetAsync(dto.AssetBId);
                 dto.Asset = asset?.Name;
                 dto.Category = category?.Name;
@@ -578,13 +578,13 @@ public class BillSvc : ApplicationSvc, IBillSvc
                 CategoryName = c.Name,
                 CategoryIcon = _fileRepo.GetFileUrl(c?.Icon),
                 Sum = cg.Sum,
-                GroupId = g.Id,
+                GroupBId = g.BId,
                 GroupName = g.Name,
                 Percent = Math.Round((float)(cg.Sum / total) * 100, 2), // 保留两位小数的分类占比
                 Amount = cg.Sum.AmountFormat()
             };
         })
-        .GroupBy(cg => new { cg.GroupId, cg.GroupName })
+        .GroupBy(cg => new { cg.GroupBId, cg.GroupName })
         .Select(g => new CategoryPercentGroupDto
         {
             Group = g.Key.GroupName,

@@ -12,9 +12,9 @@ public interface ICategorySvc
     /// <summary>
     /// 删除账单分类信息
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="bId"></param>
     /// <returns></returns>
-    Task<ServiceResult> DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long bId);
 
     /// <summary>
     /// 更新账单分类
@@ -26,9 +26,9 @@ public interface ICategorySvc
     /// <summary>
     /// 获取分类
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="bId"></param>
     /// <returns></returns>
-    Task<ServiceResult<CategoryDto>> GetAsync(long id);
+    Task<ServiceResult<CategoryDto>> GetAsync(long bId);
 
     /// <summary>
     /// 获取群不分类
@@ -40,9 +40,9 @@ public interface ICategorySvc
     /// <summary>
     /// 获取父项 by 子项 id
     /// </summary>
-    /// <param name="id">分类子项Id</param>
+    /// <param name="bId">分类子项Id</param>
     /// <returns></returns>
-    Task<ServiceResult<CategoryDto>> GetParentAsync(long id);
+    Task<ServiceResult<CategoryDto>> GetParentAsync(long bId);
 
     /// <summary>
     /// 获取账单分类父项集合

@@ -122,7 +122,7 @@ public class UserSvc : ApplicationSvc, IUserSvc
         return ServiceResult.Successed();
     }
 
-    public Task<ServiceResult> DeleteAsync(long id)
+    public Task<ServiceResult> DeleteAsync(long bId)
     {
         throw new NotImplementedException();
     }

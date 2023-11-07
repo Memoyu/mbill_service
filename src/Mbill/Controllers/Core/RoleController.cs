@@ -1,4 +1,5 @@
 ﻿using MapsterMapper;
+using System.Security.Cryptography;
 
 namespace Mbill.Controllers.Core;
 
@@ -32,13 +33,13 @@ public class RoleController : ApiControllerBase
     /// <summary> 
     /// 删除角色
     /// </summary>
-    /// <param name="id">角色id</param>
+    /// <param name="bId">角色bId</param>
     [HttpDelete]
     [LocalAuthorize("删除角色", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult> DeleteAsync([FromQuery] long id)
+    public async Task<ServiceResult> DeleteAsync([FromQuery] long bId)
     {      
-        return await _roleService.DeleteAsync(id);
+        return await _roleService.DeleteAsync(bId);
     }
 
     /// <summary>
@@ -69,11 +70,11 @@ public class RoleController : ApiControllerBase
     /// 获取角色信息
     /// </summary>
     /// <returns></returns>
-    [HttpGet("{id}")]
+    [HttpGet("{bId}")]
     [LocalAuthorize("角色详情", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
-    public async Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long id)
+    public async Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long bId)
     {
-        return await _roleService.GetAsync(id);
+        return await _roleService.GetAsync(bId);
     }
 }

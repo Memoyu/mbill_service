@@ -28,7 +28,7 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
 
     public async Task<ServiceResult> DeleteAsync(long bId)
     {
-        var category = await _categoryRepo.Select.Where(s => s.Id == bId && s.CreateUserBId == CurrentUser.BId).ToOneAsync();
+        var category = await _categoryRepo.Select.Where(s => s.BId == bId && s.CreateUserBId == CurrentUser.BId).ToOneAsync();
         if (category == null) return ServiceResult.Failed(ServiceResultCode.NotFound, "没有找到该账单分类信息");
         var cnt = await _categoryRepo.DeleteAsync(category);
         // 如果是分组，则删除分类

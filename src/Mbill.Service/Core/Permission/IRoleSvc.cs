@@ -12,9 +12,9 @@ public interface IRoleSvc
     /// <summary>
     /// 删除角色
     /// </summary>
-    /// <param name="id">角色Id</param>
+    /// <param name="bId">角色Id</param>
     /// <returns></returns>
-    Task<ServiceResult> DeleteAsync(long id);
+    Task<ServiceResult> DeleteAsync(long bId);
 
     /// <summary>
     /// 更新角色
@@ -33,5 +33,5 @@ public interface IRoleSvc
     /// 获取角色信息
     /// </summary>
     /// <returns></returns>
-    Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long id);
+    Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long bId);
 }

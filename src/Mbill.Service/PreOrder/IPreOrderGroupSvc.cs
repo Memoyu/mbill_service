@@ -12,9 +12,9 @@ public interface IPreOrderGroupSvc : ICrudApplicationSvc<PreOrderGroupDto, PreOr
     /// <summary>
     /// 获取预购分组带组内预购总金额
     /// </summary>
-    /// <param name="id">预购分组Id</param>
+    /// <param name="bId">预购分组Id</param>
     /// <returns></returns>
-    Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync(long id);
+    Task<ServiceResult<PreOrderGroupWithPreAmountDto>> GetGroupWithAmountAsync(long bId);
 
     /// <summary>
     /// 获取指定月份分页预购分组

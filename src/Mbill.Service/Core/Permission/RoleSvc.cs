@@ -60,12 +60,12 @@ public class RoleSvc : ApplicationSvc, IRoleSvc
         throw new System.NotImplementedException();
     }
 
-    public async Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long id)
+    public async Task<ServiceResult<RoleWithPermissionDto>> GetAsync(long bId)
     {
         var role = await _roleRepo
             .Select
             .IncludeMany(r => r.RolePermissions)
-            .Where(r => r.Id == id).FirstAsync();
+            .Where(r => r.BId == bId).FirstAsync();
         if (role == null)
             throw new KnownException("角色不存在！", ServiceResultCode.NotFound);
         var dto = Mapper.Map<RoleWithPermissionDto>(role);

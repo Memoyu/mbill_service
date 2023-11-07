@@ -2,12 +2,12 @@
 
 public class PreOrderSimpleDto
 {
-    public long Id { get; set; }
+    public long BId { get; set; }
 
     /// <summary>
     /// 分组Id
     /// </summary>
-    public long GroupId { get; set; }
+    public long GroupBId { get; set; }
 
     /// <summary>
     /// 预购金额

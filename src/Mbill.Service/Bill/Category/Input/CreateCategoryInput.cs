@@ -11,7 +11,8 @@ public class CreateCategoryInput
     /// <summary>
     /// 父级BId，默认0
     /// </summary>
-    public long ParentBId { get; set; }
+    [Required(ErrorMessage = "分类父BId不能为空")]
+    public long? ParentBId { get; set; }
 
     /// <summary>
     /// 分类类型：支出、收入

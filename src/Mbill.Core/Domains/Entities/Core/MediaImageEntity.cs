@@ -26,6 +26,6 @@ public class MediaImageEntity : FullAduitEntity
     public int Type { get; set; }
 
 
-    [Navigate("FileBId")]
+    [Navigate(nameof(FileBId), TempPrimary = nameof(BId))]
     public virtual FileEntity File { get; set; }
 }

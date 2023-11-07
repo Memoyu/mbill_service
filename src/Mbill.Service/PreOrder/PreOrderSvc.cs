@@ -39,7 +39,7 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
     [Transactional]
     public async Task<ServiceResult> UpdateStatusAsync(UpdatePreOrderStatusInput input)
     {
-        var order = await _orderRepo.GetAsync(input.BId);
+        var order = await _orderRepo.GetPreOrderAsync(input.BId);
         order.Status = input.Status;
 
         ////如果将状态变更为未完成状态，则需要清空实际购买金额信息
