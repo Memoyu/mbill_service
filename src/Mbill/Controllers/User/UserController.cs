@@ -38,7 +38,7 @@ public class UserController : ApiControllerBase
     [Authorize]
     [LocalAuthorize("获取用户分页数据", "管理员")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v3)]
-    public async Task<ServiceResult<PagedDto<UserDto>>> GetPagesAsync([FromQuery] UserPagingDto pagingDto)
+    public async Task<ServiceResult<PagedDto<UserWithRolesDto>>> GetPagesAsync([FromQuery] UserPagingDto pagingDto)
     {
         return await _userService.GetPagesAsync(pagingDto);
     }

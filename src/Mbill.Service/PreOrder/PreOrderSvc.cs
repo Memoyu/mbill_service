@@ -8,32 +8,10 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
     public PreOrderSvc(
         IAuditBaseRepo<PreOrderEntity, long> repository,
         IPreOrderRepo orderRepo,
-        IPreOrderGroupRepo groupRepo
-        ) : base(repository)
+        IPreOrderGroupRepo groupRepo) : base(repository)
     {
         _orderRepo = orderRepo;
         _groupRepo = groupRepo;
-    }
-
-    public override async Task<ServiceResult<PreOrderSimpleDto>> CreateAsync(CreatePreOrderInput input)
-    {
-        if (string.IsNullOrWhiteSpace(input.Color))
-            input.Color = $"#{ColorUtil.GetRandomColor()}";
-
-        var result = await base.CreateAsync(input);
-        var dto = result.Result;
-        var week = input.Time.GetWeek();
-        dto.Time = $"{week}-{input.Time.ToString("yyyy年MM月dd日")}";
-        return result;
-    }
-
-    public override async Task<ServiceResult<PreOrderSimpleDto>> UpdateAsync(UpdatePreOrderInput input)
-    {
-        var result = await base.UpdateAsync(input);
-        var dto = result.Result;
-        var week = input.Time.GetWeek();
-        dto.Time = $"{week}-{input.Time.ToString("yyyy年MM月dd日")}";
-        return result;
     }
 
     [Transactional]
@@ -67,14 +45,7 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
             .WhereIf(input.Status.HasValue, s => s.Status == input.Status)
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
-        var dtos = new List<PreOrderSimpleDto>();
-        foreach (var order in orders)
-        {
-            var dto = Mapper.Map<PreOrderSimpleDto>(order);
-            var week = order.Time.GetWeek();
-            dto.Time = $"{week}-{order.Time.ToString("yyyy年MM月dd日")}";
-            dtos.Add(dto);
-        }
+        var dtos = Mapper.Map<List<PreOrderSimpleDto>>(orders);
         return ServiceResult<PagedDto<PreOrderSimpleDto>>.Successed(new PagedDto<PreOrderSimpleDto>(dtos, totalCount));
     }
 

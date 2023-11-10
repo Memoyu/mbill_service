@@ -111,24 +111,15 @@ public class AssetSvc : ApplicationSvc, IAssetSvc
             parentBIds = pagingDto.ParentBIds.Split(",").ToList();
         var assets = await _assetRepo
             .Select
+            .Include(a => a.Parent)
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.AssetName), a => a.Name.Contains(pagingDto.AssetName))
             .WhereIf(parentBIds != null && parentBIds.Any(), a => parentBIds.Contains(a.ParentBId.ToString()))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
             .WhereIf(pagingDto.CreateStartTime != null, a => a.CreateTime >= pagingDto.CreateStartTime && a.CreateTime <= pagingDto.CreateEndTime)
             .OrderBy(pagingDto.Sort)
             .ToPageListAsync(pagingDto, out long totalCount);
-        var assetDtos = assets.Select( async a =>
-        {
-            var dto = Mapper.Map<AssetPageDto>(a);
-            AssetEntity category = null;
-            if (a.ParentBId != 0)
-                category = await _assetRepo.GetAssetAsync(a.ParentBId);
-            dto.ParentName = category?.Name;
-            dto.TypeName = Switcher.AssetType(a.Type);
-            dto.IconUrl = _fileRepo.GetFileUrl(a.Icon);
-            return dto;
-        }).Select(t => t.Result).ToList();
 
+        var assetDtos = Mapper.Map<List<AssetPageDto>>(assets).ToList();
         return ServiceResult<PagedDto<AssetPageDto>>.Successed(new PagedDto<AssetPageDto>(assetDtos, totalCount));
     }
 

@@ -35,7 +35,7 @@ public static class FreeSqlExtension
     /// <returns></returns>
     public static Task<List<TEntity>> ToPageListAsync<TEntity>(this ISelect<TEntity> source, PagingDto pageDto, out long count) where TEntity : class
     {
-        return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToListAsync();
+        return source.Count(out count).Page(pageDto.Page, pageDto.Size).ToListAsync(true);
     }
 
     /// <summary>

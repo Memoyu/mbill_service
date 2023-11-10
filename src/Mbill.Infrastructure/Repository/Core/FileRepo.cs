@@ -1,9 +1,7 @@
-﻿using Mbill.Core.Common.Configs;
-using Mbill.Core.Domains.Entities.Core;
+﻿using Mbill.Core.Domains.Entities.Core;
 using Mbill.Core.Interface.IRepositories.Core;
 using Mbill.ToolKits.Qiniu;
 using Microsoft.Extensions.Options;
-using System.IO;
 
 namespace Mbill.Infrastructure.Repository.Core
 {

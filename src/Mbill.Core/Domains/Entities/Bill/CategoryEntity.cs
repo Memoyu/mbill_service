@@ -55,4 +55,7 @@ public class CategoryEntity : FullAduitEntity
     [Description("排序")]
     public int Sort { get; set; }
 
+    [Navigate(nameof(ParentBId), TempPrimary =nameof(CategoryEntity.BId))]
+    public virtual CategoryEntity Parent { get; set; }
+
 }

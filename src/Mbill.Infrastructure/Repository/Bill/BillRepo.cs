@@ -11,6 +11,9 @@ public class BillRepo : AuditBaseRepo<BillEntity>, IBillRepo
 
     public async Task<BillEntity> GetBillAsync(long bId)
     {
-        return await Select.Where(a => a.BId == bId).ToOneAsync();
+        return await Select
+            .Include(b => b.Category)
+            .Include(b => b.Asset)
+            .Where(a => a.BId == bId).ToOneAsync();
     }
 }

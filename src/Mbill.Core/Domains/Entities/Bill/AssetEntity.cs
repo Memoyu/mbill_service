@@ -50,6 +50,6 @@ public class AssetEntity : FullAduitEntity
     /// </summary>
     public int Sort { get; set; }
 
-    [Navigate(nameof(BId))]
-    public virtual AssetEntity Asset { get; set; }
+    [Navigate(nameof(ParentBId), TempPrimary = nameof(AssetEntity.BId))]
+    public virtual AssetEntity Parent { get; set; }
 }

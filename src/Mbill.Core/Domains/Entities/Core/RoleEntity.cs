@@ -24,7 +24,6 @@ public class RoleEntity : FullAduitEntity
 
     public RoleEntity()
     {
-
     }
 
     public RoleEntity(string name, string info, bool isStatic, long createUserBId)

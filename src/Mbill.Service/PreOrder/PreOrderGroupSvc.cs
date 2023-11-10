@@ -20,25 +20,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         var exist = await _groupRepo.Select.AnyAsync(g => g.Name.Equals(input.Name));
         if (exist) return ServiceResult<PreOrderGroupWithStatDto>.Failed("已存在同名分组");
         var result = await base.CreateAsync(input);
-        var dto = result.Result;
-        var week = dto.CreateTime.GetWeek();
-        dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
         return result;
-    }
-
-    public override async Task<ServiceResult<PreOrderGroupWithStatDto>> UpdateAsync(UpdatePreOrderGroupInput input)
-    {
-        var result = await base.UpdateAsync(input);
-        var dto = result.Result;
-        var week = dto.CreateTime.GetWeek();
-        dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
-        return result;
-    }
-
-    [Transactional]
-    public override async Task<ServiceResult> DeleteAsync(long bId)
-    {
-        return await base.DeleteAsync(bId);
     }
 
     public async Task<ServiceResult<PreOrderGroupDto>> GroupToBillAsync(GroupToBillInput input)
@@ -88,10 +70,8 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         foreach (var group in groups)
         {
             var dto = Mapper.Map<PreOrderGroupWithStatDto>(group);
-            dto.Amount = await _preOrderRepo.GetPreAmountByGroupAsync(new List<long> { group.BId });
-            var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { group.BId });
-            var week = dto.CreateTime.GetWeek();
-            dto.Time = $"{week}-{dto.CreateTime.Day}日-{dto.CreateTime:HH:mm}";
+            dto.Amount = await _preOrderRepo.GetPreAmountByGroupAsync([group.BId]);
+            var count = await _preOrderRepo.GetCountByStatusAsync([group.BId]);
             dto.Done = count.done;
             dto.UnDone = count.unDone;
             dtos.Add(dto);
@@ -105,11 +85,9 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
         if (group == null) return ServiceResult<GroupPreOrderStatDto>.Failed("预购分组不存在");
         var dto = new GroupPreOrderStatDto { BillBId = group.BillBId };
         dto.GroupName = group.Name;
-        var week = group.CreateTime.GetWeek();
-        dto.Time = $"{week}-{group.CreateTime:yyyy-MM-dd}日";
-        dto.PreAmount = await _preOrderRepo.GetPreAmountByGroupAsync(new List<long> { input.BId });
-        dto.RealAmount = await _preOrderRepo.GetRealAmountByGroupAsync(new List<long> { input.BId });
-        var count = await _preOrderRepo.GetCountByStatusAsync(new List<long> { input.BId });
+        dto.PreAmount = await _preOrderRepo.GetPreAmountByGroupAsync([input.BId]);
+        dto.RealAmount = await _preOrderRepo.GetRealAmountByGroupAsync([input.BId]);
+        var count = await _preOrderRepo.GetCountByStatusAsync([input.BId]);
         dto.Done = count.done;
         dto.UnDone = count.unDone;
         return ServiceResult<GroupPreOrderStatDto>.Successed(dto);

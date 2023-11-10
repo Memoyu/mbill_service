@@ -72,16 +72,12 @@ public class UserSvc : ApplicationSvc, IUserSvc
     {
         var userBId = bId ?? CurrentUser.BId;
         var user = await _userRepo.GetUserAsync(userBId.Value);
-        var roles = await _userRoleRepo.Where(r => r.UserBId == user.BId).Include(r => r.Role).ToListAsync(r => r.Role);
-
-        user.AvatarUrl = _fileRepo.GetFileUrl(user.AvatarUrl);
         var dto = Mapper.Map<UserDto>(user);
-        dto.Roles = roles.Adapt<List<RoleDto>>();
 
         return ServiceResult<UserDto>.Successed(dto);
     }
 
-    public async Task<ServiceResult<PagedDto<UserDto>>> GetPagesAsync(UserPagingDto pagingDto)
+    public async Task<ServiceResult<PagedDto<UserWithRolesDto>>> GetPagesAsync(UserPagingDto pagingDto)
     {
         if (pagingDto.CreateStartTime != null && pagingDto.CreateEndTime == null) throw new KnownException("创建时间参数有误", ServiceResultCode.ParameterError);
         pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
@@ -93,7 +89,7 @@ public class UserSvc : ApplicationSvc, IUserSvc
         };
         var users = await _userRepo
             .Select
-            .IncludeMany(u => u.UserRoles)
+            .IncludeMany(u => u.UserRoles, then => then.Include(r => r.Role))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Username), u => u.Username.Contains(pagingDto.Username))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Nickname), u => u.Nickname.Contains(pagingDto.Nickname))
             .WhereIf(isEnable != null, u => u.IsEnable == isEnable)
@@ -101,14 +97,9 @@ public class UserSvc : ApplicationSvc, IUserSvc
             .WhereIf(pagingDto.RoleBId > 0, u => u.UserRoles.AsSelect().Any(r => r.RoleBId == pagingDto.RoleBId))
             .OrderBy(pagingDto.Sort)
             .ToPageListAsync(pagingDto, out long totalCount);
-        var userDtos = users.Select(u =>
-         {
-             var dto = Mapper.Map<UserDto>(u);
-             dto.AvatarUrl = _fileRepo.GetFileUrl(dto.AvatarUrl);
-             return dto;
-         }).ToList();
 
-        return ServiceResult<PagedDto<UserDto>>.Successed(new PagedDto<UserDto>(userDtos, totalCount));
+        var userDtos = Mapper.Map<List<UserWithRolesDto>>(users);
+        return ServiceResult<PagedDto<UserWithRolesDto>>.Successed(new PagedDto<UserWithRolesDto>(userDtos, totalCount));
     }
 
     public async Task<ServiceResult> UpdateAsync(ModifyUserBaseDto input)

@@ -2,18 +2,16 @@
 
 namespace Mbill.Service.Common.Registers.Bill;
 
-public class AssetRegister : IRegister
+public class AssetRegister : BaseRegister
 {
-    public void Register(TypeAdapterConfig config)
+    protected override void TypeRegister(TypeAdapterConfig config)
     {
         config.ForType<AssetEntity, AssetDto>()
-       .Map(d => d.IconUrl, s => StringUrlConverter(s.Icon));
-    }
+            .Map(d => d.IconUrl, s => UrlConverter(s.Icon));
 
-    public string StringUrlConverter(string url)
-    {
-        var fileRepo = MapContext.Current.GetService<IFileRepo>();
-        if (url.IsNullOrWhiteSpace()) return "";
-        return fileRepo.GetFileUrl(url);
+        config.ForType<AssetEntity, AssetPageDto>()
+             .Map(d => d.ParentName, s => s.Parent == null ? string.Empty : s.Parent.Name)
+             .Map(d => d.TypeName, s => CategoryTypeConverter(s.Type))
+             .Map(d => d.IconUrl, s => UrlConverter(s.Icon));
     }
 }

@@ -84,4 +84,11 @@ public class BillEntity : FullAduitEntity
     [Column(StringLength = 10)]
     public DateTime Time { get; set; }
 
+
+    [Navigate(nameof(CategoryBId), TempPrimary = nameof(CategoryEntity.BId))]
+    public virtual CategoryEntity Category { get; set; }
+
+    [Navigate(nameof(AssetBId), TempPrimary = nameof(AssetEntity.BId))]
+    public virtual AssetEntity Asset { get; set; }
+
 }

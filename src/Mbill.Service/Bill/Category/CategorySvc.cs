@@ -118,24 +118,15 @@ public class CategorySvc : ApplicationSvc, ICategorySvc
         pagingDto.Sort = pagingDto.Sort.IsNullOrEmpty() ? "id ASC" : pagingDto.Sort.Replace("-", " ");
         var categories = await _categoryRepo
             .Select
+            .Include(c => c.Parent)
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.CategoryName), c => c.Name.Contains(pagingDto.CategoryName))
             .WhereIf(parentBIds != null && parentBIds.Any(), c => parentBIds.Contains(c.ParentBId.ToString()))
             .WhereIf(!string.IsNullOrWhiteSpace(pagingDto.Type), c => c.Type.Equals(pagingDto.Type))
             .WhereIf(pagingDto.CreateStartTime != null, c => c.CreateTime >= pagingDto.CreateStartTime && c.CreateTime <= pagingDto.CreateEndTime)
             .OrderBy(pagingDto.Sort)
             .ToPageListAsync(pagingDto, out long totalCount);
-        var categoryDtos = categories.Select(async c =>
-        {
-            var dto = Mapper.Map<CategoryPageDto>(c);
-            CategoryEntity category = null;
-            if (c.ParentBId != 0)
-                category = await _categoryRepo.GetCategoryAsync(c.ParentBId);
-            dto.ParentName = category?.Name;
-            dto.TypeName = Switcher.CategoryType(c.Type);
-            dto.IconUrl = _fileRepo.GetFileUrl(c.Icon);
-            return dto;
-        }).Select(t => t.Result).ToList();
 
+        var categoryDtos = Mapper.Map<List<CategoryPageDto>>(categories);
         return ServiceResult<PagedDto<CategoryPageDto>>.Successed(new PagedDto<CategoryPageDto>(categoryDtos, totalCount));
     }
 

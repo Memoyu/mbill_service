@@ -39,9 +39,9 @@ public class UserRoleEntity : Entity
 
 
     [Navigate(nameof(UserBId), TempPrimary = nameof(UserEntity.BId))]
-    public UserEntity User { get; set; }
+    public virtual UserEntity User { get; set; }
 
     [Navigate(nameof(RoleBId), TempPrimary = nameof(RoleEntity.BId))]
-    public RoleEntity Role { get; set; }
+    public virtual RoleEntity Role { get; set; }
 
 }

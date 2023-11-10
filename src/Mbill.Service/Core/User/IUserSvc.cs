@@ -20,7 +20,7 @@ public interface IUserSvc
     /// </summary>
     /// <param name="pagingDto">分页数据</param>
     /// <returns></returns>
-    Task<ServiceResult<PagedDto<UserDto>>> GetPagesAsync(UserPagingDto pagingDto);
+    Task<ServiceResult<PagedDto<UserWithRolesDto>>> GetPagesAsync(UserPagingDto pagingDto);
 
     /// <summary>
     /// 更新用户信息

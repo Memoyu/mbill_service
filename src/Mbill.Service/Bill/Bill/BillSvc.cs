@@ -39,7 +39,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
         if (!resMongo)
             throw new OperationCanceledException("插入失败");
         if (entity == null) ServiceResult<BillSimpleDto>.Failed("新增账单失败！");
-        return ServiceResult<BillSimpleDto>.Successed(await MapToSimpleDto(entity));
+        return ServiceResult<BillSimpleDto>.Successed(Mapper.Map<BillSimpleDto>(entity));
     }
 
     [Transactional]
@@ -85,7 +85,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             if (resMongo is null)
                 throw new OperationCanceledException("更新失败");
         }
-        return ServiceResult<BillSimpleDto>.Successed(await MapToSimpleDto(entity));
+        return ServiceResult<BillSimpleDto>.Successed(Mapper.Map<BillSimpleDto>(entity));
     }
 
     public async Task<ServiceResult<BillDetailDto>> GetDetailAsync(long bId)
@@ -93,13 +93,13 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var bill = await _billRepo.GetBillAsync(bId);
         if (bill == null)
             return ServiceResult<BillDetailDto>.Failed("没有找到该账单信息");
-        var dto = Mapper.Map<BillDetailDto>(bill);
+
         var category = await _categoryRepo.GetCategoryAsync(bill.CategoryBId);
-        var asset = await _assetRepo.GetAssetAsync(dto.AssetBId);
-        dto.Asset = asset?.Name;
-        dto.Category = category?.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
-        dto.AssetIcon = _fileRepo.GetFileUrl(asset?.Icon);
+        var asset = await _assetRepo.GetAssetAsync(bill.AssetBId);
+        bill.Category = category;
+        bill.Asset = asset;
+
+        var dto = Mapper.Map<BillDetailDto>(bill);
         return ServiceResult<BillDetailDto>.Successed(dto);
     }
 
@@ -109,6 +109,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var end = begin.AddDays(1).AddSeconds(-1);
         var bills = await _billRepo
             .Select
+            .Include(b => b.Category)
+            .Include(b => b.Asset)
             .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time >= begin && s.Time <= end)
@@ -129,7 +131,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
                 expend += i.Amount;
             else
                 income += i.Amount;
-            dto.Items.Add(await MapToSimpleDto(i));
+            dto.Items.Add(Mapper.Map<BillSimpleDto>(i));
         }
         dto.Expend = expend.AmountFormat();
         dto.Income = income.AmountFormat();
@@ -200,17 +202,15 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var total = await _mongoRepo.CountAsync(filter);
         if (total != 0)
         {
-            var list = await _mongoRepo.FindListByPageAsync(filter, input.Page, input.Size, null, sort);
+            var bills = await _mongoRepo.FindListByPageAsync(filter, input.Page, input.Size, null, sort);
             List<BillDetailDto> dtos = new List<BillDetailDto>();
-            foreach (var i in list)
+            foreach (var bill in bills)
             {
-                var dto = Mapper.Map<BillDetailDto>(i);
-                var category = await _categoryRepo.GetCategoryAsync(dto.CategoryBId);
-                var asset = await _assetRepo.GetAssetAsync(dto.AssetBId);
-                dto.Asset = asset?.Name;
-                dto.Category = category?.Name;
-                dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
-                dto.AssetIcon = _fileRepo.GetFileUrl(asset?.Icon);
+                var category = await _categoryRepo.GetCategoryAsync(bill.CategoryBId);
+                var asset = await _assetRepo.GetAssetAsync(bill.AssetBId);
+                bill.Category = category;
+                bill.Asset = asset;
+                var dto = Mapper.Map<BillDetailDto>(bill);
                 dtos.Add(dto);
             }
 
@@ -225,6 +225,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
         var bills = await _billRepo
             .Select
+            .Include(b => b.Category)
+            .Include(b => b.Asset)
             .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .WhereIf(input.DateType == 0, s => s.Time.Year == input.Date.Year && s.Time.Month == input.Date.Month)
@@ -235,9 +237,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .OrderBy(input.Sort)
             .ToPageListAsync(input, out long totalCount);
 
-        List<BillSimpleDto> dtos = new List<BillSimpleDto>();
-        foreach (var i in bills)
-            dtos.Add(await MapToSimpleDto(i));
+        var dtos = Mapper.Map<List<BillSimpleDto>>(bills);
         return ServiceResult<PagedDto<BillSimpleDto>>.Successed(new PagedDto<BillSimpleDto>(dtos, totalCount));
     }
 
@@ -245,18 +245,10 @@ public class BillSvc : ApplicationSvc, IBillSvc
     {
         input.Sort = input.Sort.IsNullOrEmpty() ? "time DESC" : input.Sort.Replace("-", " ");
 
-        var sql = _billRepo
-     .Select
-     .Where(s => s.CreateUserBId == CurrentUser.BId)
-     .Where(s => s.Time.Year == input.Month.Year && s.Time.Month == input.Month.Month)
-     .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
-     .WhereIf(input.CategoryBId.HasValue, s => s.CategoryBId == input.CategoryBId)
-     .WhereIf(input.AssetBId.HasValue, s => s.AssetBId == input.AssetBId)
-     .OrderBy(input.Sort)
-     .ToSql();
-
         var bills = await _billRepo
             .Select
+            .Include(b => b.Category)
+            .Include(b => b.Asset)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time.Year == input.Month.Year && s.Time.Month == input.Month.Month)
             .WhereIf(input.Type.HasValue, s => s.Type == input.Type)
@@ -274,7 +266,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             dto.Week = group.Key.GetWeek();
             foreach (var i in group)
             {
-                dto.Items.Add(await MapToSimpleDto(i));
+                dto.Items.Add(Mapper.Map<BillSimpleDto>(i));
             }
             dtos.Add(dto);
         };
@@ -288,6 +280,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var end = input.EndDate.LastDayOfMonth().AddDays(1).AddSeconds(-1);
         var bills = await _billRepo
             .Select
+            .Include(b => b.Category)
+            .Include(b => b.Asset)
             .Where(s => s.IsDeleted == false)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .Where(s => s.Time <= end && s.Time >= begin)
@@ -525,6 +519,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
               .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
               .WhereIf(input.Type == 0, s => s.Time <= end && s.Time >= begin)
               .WhereIf(input.Type == 1, s => s.Time.Year == input.Date.Year));
+
         List<CategoryPercentSummaryDto> categoryGroups = null;
         if (input.SummaryType == 0)
         {
@@ -609,7 +604,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var sort = "amount DESC";
         var bills = await _billRepo
             .Select
-            .Where(s => s.IsDeleted == false)
+            .Include(b => b.Category)
+            .Include(b => b.Asset)
             .Where(s => s.CreateUserBId == CurrentUser.BId)
             .WhereIf(input.BillType == 0, s => s.Type == (int)BillTypeEnum.expend)
             .WhereIf(input.BillType == 1, s => s.Type == (int)BillTypeEnum.income)
@@ -619,29 +615,7 @@ public class BillSvc : ApplicationSvc, IBillSvc
             .OrderBy(sort)
             .ToPageListAsync(input, out long totalCount);
 
-        var dtos = bills.Select(b => MapToSimpleDto(b).GetAwaiter().GetResult()).ToList();
+        var dtos = Mapper.Map<List<BillSimpleDto>>(bills);
         return ServiceResult<PagedDto<BillSimpleDto>>.Successed(new PagedDto<BillSimpleDto>(dtos, totalCount));
     }
-
-    #region Private
-
-    /// <summary>
-    /// 映射Dto
-    /// </summary>
-    /// <param name="bill"></param>
-    /// <returns></returns>
-    private async Task<BillSimpleDto> MapToSimpleDto(BillEntity bill)
-    {
-        var dto = Mapper.Map<BillSimpleDto>(bill);
-        dto.Date = bill.Time.ToString("yyyy-MM-dd");
-        dto.Time = bill.Time.ToString("HH:mm");
-
-        var category = await _categoryRepo.GetCategoryAsync(bill.CategoryBId);
-        dto.Category = category?.Name;
-        dto.CategoryIcon = _fileRepo.GetFileUrl(category?.Icon);
-
-        return dto;
-    }
-
-    #endregion
 }
