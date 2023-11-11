@@ -39,6 +39,8 @@ public class BillSvc : ApplicationSvc, IBillSvc
         if (!resMongo)
             throw new OperationCanceledException("插入失败");
         if (entity == null) ServiceResult<BillSimpleDto>.Failed("新增账单失败！");
+
+        entity = await _billRepo.GetBillAsync(entity.BId);
         return ServiceResult<BillSimpleDto>.Successed(Mapper.Map<BillSimpleDto>(entity));
     }
 

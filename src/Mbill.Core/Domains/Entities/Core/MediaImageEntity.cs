@@ -15,10 +15,10 @@ public class MediaImageEntity : FullAduitEntity
     /// </summary>
     public long FileBId { get; set; }
 
-    ///// <summary>
-    ///// 文件Id
-    ///// </summary>
-    //public long FileId { get; set; }
+    /// <summary>
+    /// 文件Id
+    /// </summary>
+    public long FileId { get; set; }
 
     /// <summary>
     /// 图片类型：0 Icon, 1 background
