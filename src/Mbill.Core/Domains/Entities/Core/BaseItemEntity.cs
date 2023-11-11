@@ -24,10 +24,10 @@ public class BaseItemEntity : FullAduitEntity
     /// </summary>
     public long BaseTypeBId { get; set; }
 
-    /// <summary>
-    /// 字典项所属TypeId
-    /// </summary>
-    public long BaseTypeId { get; set; }
+    ///// <summary>
+    ///// 字典项所属TypeId
+    ///// </summary>
+    //public long BaseTypeId { get; set; }
 
     /// <summary>
     /// 字典项编码

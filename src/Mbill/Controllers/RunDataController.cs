@@ -151,7 +151,7 @@ public class RunDataController : ApiControllerBase
     {
         var orm = _billRepo.Orm;
 
-        var assets = await orm.Select<AssetEntity>().DisableGlobalFilter("IsDeleted").ToListAsync();
+        /*var assets = await orm.Select<AssetEntity>().DisableGlobalFilter("IsDeleted").ToListAsync();
         foreach (var item in assets)
         {
             if (item.ParentId == 0) continue;
@@ -229,8 +229,8 @@ public class RunDataController : ApiControllerBase
         {
             item.BillBId = bills.FirstOrDefault(a => a.Id == item.BillId)?.BId ?? 0;
             await orm.Update<PreOrderGroupEntity>().DisableGlobalFilter("IsDeleted").SetSource(item).ExecuteAffrowsAsync();
-        }
-
+        }*/
+        
 
         return ServiceResult.Successed("成功！");
     }
@@ -238,7 +238,7 @@ public class RunDataController : ApiControllerBase
     [HttpGet("refactor/migration/userbid")]
     public async Task<ServiceResult> MigrationUserIdToBIdAsync()
     {
-        var orm = _billRepo.Orm;
+        /*var orm = _billRepo.Orm;
         var users = await orm.Select<UserEntity>().DisableGlobalFilter("IsDeleted").ToListAsync();
 
         var assets = await orm.Select<AssetEntity>().DisableGlobalFilter("IsDeleted").ToListAsync();
@@ -355,7 +355,7 @@ public class RunDataController : ApiControllerBase
             item.UpdateUserBId = users.FirstOrDefault(a => a.Id == item.UpdateUserId)?.BId ?? 0;
             item.DeleteUserBId = users.FirstOrDefault(a => a.Id == item.DeleteUserId)?.BId ?? 0;
             await orm.Update<PreOrderGroupEntity>().DisableGlobalFilter("IsDeleted").SetSource(item).ExecuteAffrowsAsync();
-        }
+        }*/
 
         return ServiceResult.Successed("成功！");
     }

@@ -15,10 +15,10 @@ public class PreOrderGroupEntity : FullAduitEntity
     /// </summary>
     public long BillBId { get; set; }
 
-    /// <summary>
-    /// 账单Id
-    /// </summary>
-    public long BillId { get; set; }
+    ///// <summary>
+    ///// 账单Id
+    ///// </summary>
+    //public long BillId { get; set; }
 
     /// <summary>
     /// 分组名

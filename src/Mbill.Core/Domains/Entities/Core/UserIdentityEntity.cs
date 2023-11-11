@@ -35,10 +35,10 @@ public class UserIdentityEntity : FullAduitEntity
     /// </summary>
     public long UserBId { get; set; }
 
-    /// <summary>
-    /// 用户Id
-    /// </summary>
-    public long UserId { get; set; }
+    ///// <summary>
+    ///// 用户Id
+    ///// </summary>
+    //public long UserId { get; set; }
 
     /// <summary>
     ///认证类型， Password，GitHub、QQ、WeiXin等
