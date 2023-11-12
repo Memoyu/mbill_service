@@ -4,25 +4,8 @@
 /// 角色权限表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_role_permission")]
-[Index("index_role_permission_on_bid", "BId", false)]
 public class RolePermissionEntity : Entity
 {
-    public RolePermissionEntity()
-    {
-
-    }
-
-    public RolePermissionEntity(long roleBId, long permissionBId)
-    {
-        RoleBId = roleBId;
-        PermissionBId = permissionBId;
-    }
-
-    public RolePermissionEntity(long permissionBId)
-    {
-        PermissionBId = permissionBId;
-    }
-
     /// <summary>
     /// 角色BId
     /// </summary>

@@ -4,7 +4,6 @@
 /// 资产分类实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_asset")]
-[Index("index_asset_on_bid", "BId", false)]
 [Index("index_asset_on_amount", "Amount", false)]
 [Index("index_asset_on_sort", "false", false)]
 [Index("index_asset_on_parent_bid", "ParentBId", false)]

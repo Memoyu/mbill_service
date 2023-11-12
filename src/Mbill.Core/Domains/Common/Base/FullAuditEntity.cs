@@ -95,6 +95,7 @@ public interface IEntity
 }
 
 [Serializable]
+[Index("index_on_bid", nameof(BId), false)]
 public class Entity : IEntity
 {
     /// <summary>

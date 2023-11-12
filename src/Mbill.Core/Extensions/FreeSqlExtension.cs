@@ -1,4 +1,5 @@
-﻿using DataType = FreeSql.DataType;
+﻿using Serilog;
+using DataType = FreeSql.DataType;
 
 namespace Mbill.Core.Extensions;
 

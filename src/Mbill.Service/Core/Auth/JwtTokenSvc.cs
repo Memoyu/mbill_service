@@ -1,4 +1,7 @@
-﻿namespace Mbill.Service.Core.Auth;
+﻿using EasyCaching.Core;
+using Mbill.Core.Security.Dto;
+
+namespace Mbill.Service.Core.Auth;
 
 public class JwtTokenSvc : IJwtTokenSvc
 {
@@ -7,13 +10,22 @@ public class JwtTokenSvc : IJwtTokenSvc
     private readonly IUserRoleRepo _userRoleRepo;
     private readonly IUserIdentitySvc _userIdentityService;
     private readonly IJwtService _jsonWebTokenService;
-    public JwtTokenSvc(ILogger<JwtTokenSvc> logger, IUserRepo userRepo, IUserRoleRepo userRoleRepo, IUserIdentitySvc userIdentityService, IJwtService jsonWebTokenService)
+    private readonly IEasyCachingProvider _cachingProvider;
+
+    public JwtTokenSvc(
+        ILogger<JwtTokenSvc> logger,
+        IUserRepo userRepo,
+        IUserRoleRepo userRoleRepo,
+        IUserIdentitySvc userIdentityService,
+        IJwtService jsonWebTokenService,
+        IEasyCachingProvider cachingProvider)
     {
         _logger = logger;
         _userRepo = userRepo;
         _userRoleRepo = userRoleRepo;
         _userIdentityService = userIdentityService;
         _jsonWebTokenService = jsonWebTokenService;
+        _cachingProvider = cachingProvider;
     }
 
     public async Task<TokenDto> RefreshTokenAsync(string refreshToken)
@@ -47,12 +59,13 @@ public class JwtTokenSvc : IJwtTokenSvc
             };
 
         var userRoles = await _userRoleRepo.Where(r => r.UserBId == user.BId).Include(r => r.Role).ToListAsync() ?? new List<UserRoleEntity>();
-        foreach (var userRole in userRoles)
+        var userRoleCaches = userRoles.Select(ur => new UserRoleCacheDto
         {
-            if (userRole.Role is null) continue;
-            claims.Add(new Claim(ClaimTypes.Role, userRole.Role.Name));
-            claims.Add(new Claim(CoreClaimTypes.Roles, userRole.Role.BId.ToString()));
-        }
+            RoleBId = ur.RoleBId,
+            RoleType = ur.Role.Type,
+        }).ToList();
+
+        await _cachingProvider.SetAsync(CacheKeyConst.UserRole(user.BId), userRoleCaches, TimeSpan.FromHours(6));
 
         string token = _jsonWebTokenService.Encode(claims);
 

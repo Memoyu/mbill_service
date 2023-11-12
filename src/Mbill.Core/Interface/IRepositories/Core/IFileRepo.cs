@@ -1,12 +1,11 @@
-﻿namespace Mbill.Core.Interface.IRepositories.Core
+﻿namespace Mbill.Core.Interface.IRepositories.Core;
+
+public interface IFileRepo : IAuditBaseRepo<FileEntity>
 {
-    public interface IFileRepo : IAuditBaseRepo<FileEntity>
-    {
-        /// <summary>
-        /// 获取文件完整路径
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        string GetFileUrl(string path);
-    }
+    /// <summary>
+    /// 获取文件完整路径
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    string GetFileUrl(string path);
 }

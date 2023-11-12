@@ -4,7 +4,6 @@
 /// 图片媒体文件信息表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_media_image")]
-[Index("index_media_image_on_bid", "BId", false)]
 [Index("index_media_image_on_file_bid", "FileBId", false)]
 //[Index("index_media_image_on_file_id", "FileId", false)]
 [Index("index_media_image_on_type", "Type", false)]

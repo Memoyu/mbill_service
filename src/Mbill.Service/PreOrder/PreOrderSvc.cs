@@ -14,6 +14,15 @@ public class PreOrderSvc : CrudApplicationSvc<PreOrderEntity, PreOrderDto, PreOr
         _groupRepo = groupRepo;
     }
 
+    public override async Task<ServiceResult<PreOrderSimpleDto>> CreateAsync(CreatePreOrderInput input)
+    {
+        if (string.IsNullOrWhiteSpace(input.Color))
+            input.Color = $"#{ColorUtil.GetRandomColor()}";
+
+        var result = await base.CreateAsync(input);
+        return result;
+    }
+
     [Transactional]
     public async Task<ServiceResult> UpdateStatusAsync(UpdatePreOrderStatusInput input)
     {

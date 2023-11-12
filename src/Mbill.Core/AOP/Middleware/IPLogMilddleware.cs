@@ -1,4 +1,6 @@
-﻿using ILogger = Serilog.ILogger;
+﻿using Serilog;
+using Serilog.Events;
+using ILogger = Serilog.ILogger;
 
 namespace Mbill.Core.AOP.Middleware;
 

@@ -6,7 +6,6 @@ namespace Mbill.Core.Domains.Entities.Core;
 /// 用户身份认证登录表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_user_identity")]
-[Index("index_user_identity_on_bid", "BId", false)]
 [Index("index_user_identity_on_user_bid", "UserBId", false)]
 public class UserIdentityEntity : FullAduitEntity
 {

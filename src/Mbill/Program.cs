@@ -19,6 +19,9 @@ public class Program
             .CreateLogger();
         try
         {
+            // 配置雪花ID生成器
+            SnowFlake.SnowFlakeConfig();
+
             IHost webHost = CreateHostBuilder(args).Build();
             try
             {
@@ -26,10 +29,7 @@ public class Program
                 // get the IpPolicyStore instance
                 var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
                 // seed IP data from appsettings
-                await ipPolicyStore.SeedAsync();
-                
-                // 配置雪花ID生成器
-                SnowFlake.SnowFlakeConfig();
+                await ipPolicyStore.SeedAsync(); 
             }
             catch (Exception ex)
             {

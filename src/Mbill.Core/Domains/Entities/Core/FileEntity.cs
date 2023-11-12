@@ -4,7 +4,6 @@
 /// 上传文件表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_file")]
-[Index("index_file_on_bid", "BId", false)]
 public class FileEntity : FullAduitEntity
 {
     /// <summary>

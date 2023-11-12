@@ -37,8 +37,6 @@ global using Mbill.Core.Extensions;
 global using System.Net;
 global using AspNetCoreRateLimit;
 global using Microsoft.Extensions.Options;
-global using Serilog;
-global using Serilog.Events;
 global using System.IO;
 global using Mbill.Core.Domains.Common.Options;
 global using Microsoft.AspNetCore.Builder;

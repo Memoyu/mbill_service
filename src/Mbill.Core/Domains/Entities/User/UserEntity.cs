@@ -4,7 +4,6 @@
 /// 用户实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_user")]
-[Index("index_user_on_bid", "BId", false)]
 public class UserEntity : FullAduitEntity
 {
     /// <summary>
@@ -81,6 +80,11 @@ public class UserEntity : FullAduitEntity
     /// 是否启用
     /// </summary>
     public bool IsEnable { get; set; } = true;
+
+    /// <summary>
+    /// 是否初始化用户数据
+    /// </summary>
+    public bool IsInit { get; set; }
 
     [Navigate(nameof(UserRoleEntity.UserBId), TempPrimary = nameof(BId))]
     public virtual IEnumerable<UserRoleEntity> UserRoles { get; set; }

@@ -1,6 +1,5 @@
 ﻿using Mapster;
 using Mbill.Core.Common;
-using Mbill.Service.Core.User.Output;
 
 namespace Mbill.Service.Core.User;
 

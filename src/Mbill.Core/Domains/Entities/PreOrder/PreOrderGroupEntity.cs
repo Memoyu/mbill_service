@@ -4,7 +4,6 @@
 /// 预购清单分组实体
 /// </summary>
 [Table(Name = DbTablePrefix + "_pre_order_group")]
-[Index("index_preorder_group_on_bid", "BId", false)]
 [Index("index_preorder_group_on_category_id", "CategoryId", false)]
 //[Index("index_preorder_group_on_bill_id", "BillId", false)]
 [Index("index_preorder_group_on_bill_bid", "BillBId", false)]

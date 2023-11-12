@@ -712,7 +712,7 @@
             <summary>
             初始化新用户数据
             </summary>
-            <param name="id">用户Id</param>
+            <param name="userBId">用户BId</param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Core.Auth.IAccountSvc.AccountLoginAsync(Mbill.Service.Core.Auth.Input.AccountLoginDto)">
@@ -835,17 +835,23 @@
             用户是否已存在
             </summary>
         </member>
-        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedContributor.InitAdministratorPermissionAsync">
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitDataSeedAsync">
+            <summary>
+            初始化已知类型的种子数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitAdministratorPermissionAsync">
             <summary>
             初始化超级管理员角色权限
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedContributor.InitPermissionAsync(System.Collections.Generic.List{Mbill.Core.Security.PermissionDefinition})">
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitPermissionAsync(System.Collections.Generic.List{Mbill.Core.Security.PermissionDefinition})">
             <summary>
             初始化权限，根据PermissionAttribute生成权限，改变的则更新，否则新增
             </summary>
-            <param name="permissions"></param>
+            <param name="defPermissions"></param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Core.Files.IMediaImageSvc.GetPageAsync(Mbill.Service.Core.Files.Input.MediaImagePagingInput)">

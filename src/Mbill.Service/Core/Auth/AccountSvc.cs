@@ -1,4 +1,6 @@
 ﻿using Mbill.Core.Common;
+using Mbill.Service.Bill.Asset;
+using Mbill.Service.Core.DataSeed.Output;
 using System.Linq;
 
 namespace Mbill.Service.Core.Auth;
@@ -7,6 +9,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
 {
     private readonly ILogger<AccountSvc> _logger;
     private readonly IUserRepo _userRepo;
+    private readonly IRoleRepo _roleRepo;
     private readonly IUserRoleRepo _userRoleRepo;
     private readonly IUserIdentityRepo _userIdentityRepo;
     private readonly ICategoryRepo _categoryRepo;
@@ -14,19 +17,24 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     private readonly IUserIdentitySvc _userIdentityService;
     private readonly IJwtTokenSvc _jwtTokenService;
     private readonly IWxSvc _wxService;
+    private readonly IDataSeedRepo _dataSeedRepo;
+
     public AccountSvc(
         ILogger<AccountSvc> logger,
         IUserRepo userRepo,
+        IRoleRepo roleRepo,
         IUserRoleRepo userRoleRepo,
         IUserIdentityRepo userIdentityRepo,
         ICategoryRepo categoryRepo,
         IAssetRepo assetRepo,
         IUserIdentitySvc userIdentityService,
         IJwtTokenSvc jwtTokenService,
-        IWxSvc wxService)
+        IWxSvc wxService,
+        IDataSeedRepo dataSeedRepo)
     {
         _logger = logger;
         _userRepo = userRepo;
+        _roleRepo = roleRepo;
         _userRoleRepo = userRoleRepo;
         _userIdentityRepo = userIdentityRepo;
         _categoryRepo = categoryRepo;
@@ -34,6 +42,7 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         _userIdentityService = userIdentityService;
         _jwtTokenService = jwtTokenService;
         _wxService = wxService;
+        _dataSeedRepo = dataSeedRepo;
     }
 
     public async Task<ServiceResult<TokenDto>> AccountLoginAsync(AccountLoginDto loginDto)
@@ -85,12 +94,16 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
                 Street = string.Empty,
                 AvatarUrl = string.Empty,
             };
+
+            var role = await _roleRepo.Select.Where(r => r.Type == RoleType.User.GetHashCode()).FirstAsync();
+            if (role is null) throw new KnownException("普通用户角色为空，请联系管理员添加！");
             var userRoles = new List<UserRoleEntity>
             {
                 new UserRoleEntity()
                 {
+                    BId= SnowFlake.NextId(),
                     UserBId = entity.BId,
-                    RoleBId = Role.User
+                    RoleBId = role.BId,
                 }
             };
 
@@ -107,8 +120,6 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
             if (entity == null)
                 return ServiceResult<PreLoginUserDto>.Failed($"微信登录失败，请联系开发者！");
 
-            // TODO: 需要改造一下默认数据初始化实现
-            // _ = InitUserDataAsync(entity.Id);
             user = await _userRepo.GetUserAsync(entity.BId);
         }
         else
@@ -139,6 +150,12 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
         user.Nickname = input.Nickname;
         identity.Identifier = input.Nickname;
         await _userIdentityRepo.UpdateAsync(identity);
+
+        // 没有初始化则进行数据初始化
+        if (!user.IsInit)
+            await InitUserDataAsync(user.BId);
+
+        user.IsInit = true;
         await _userRepo.UpdateAsync(user);
 
         var token = await _jwtTokenService.CreateTokenAsync(user);
@@ -156,104 +173,82 @@ public class AccountSvc : ApplicationSvc, IAccountSvc
     /// <summary>
     /// 初始化新用户数据
     /// </summary>
-    /// <param name="id">用户Id</param>
+    /// <param name="userBId">用户BId</param>
     /// <returns></returns>
-    private async Task InitUserDataAsync(long id)
+    private async Task InitUserDataAsync(long userBId)
     {
         try
         {
-            // 初始化账单分类、资产数据
-            // 获取userid = 1 的用户所有相关数据
-            var categories = await _categoryRepo.Select.Where(c => c.CreateUserBId == 1).ToListAsync();
-            var assets = await _assetRepo.Select.Where(c => c.CreateUserBId == 1).ToListAsync();
+            // 获取分类种子数据
+            var categorySeed = await _dataSeedRepo.Select.Where(ds => ds.Type == DataSeedType.BillCategory.GetHashCode()).ToOneAsync();
+            var assetSeed = await _dataSeedRepo.Select.Where(ds => ds.Type == DataSeedType.AssetCategory.GetHashCode()).ToOneAsync();
 
-            // 获取父分类、子类分组
-            var parentCategories = categories.Where(c => c.Type == 1 && c.ParentBId == 0).ToList();
-            parentCategories.AddRange(categories.Where(c => c.Type == 0 && c.ParentBId == 0).Take(4).ToList());
-            var groupsCategories = parentCategories.Select(c =>
-              {
-                  return new
-                  {
-                      Id = 0,
-                      Name = c.Name,
-                      Type = c.Type,
-                      Sort = c.Sort,
-                      Childs = categories.FindAll(d => d.ParentBId == c.BId).ToList()
-                  };
-              }).ToList();
+            var categorySeeds = JsonConvert.DeserializeObject<List<BillCategoryDataSeedDto>>(categorySeed?.Data ?? string.Empty) ?? new List<BillCategoryDataSeedDto>();
+            var assetSeeds = JsonConvert.DeserializeObject<List<BillAssetDataSeedDto>>(assetSeed?.Data ?? string.Empty) ?? new List<BillAssetDataSeedDto>();
 
-            var parentAssets = assets.Where(c => c.ParentBId == 0).ToList();
-            var groupsAssets = parentAssets.Select(c =>
+            // 初始化用户账单分类数据
+            if (categorySeeds.Count != 0)
             {
-                return new
+                var userCategories = await _categoryRepo.Select.Where(c => c.CreateUserBId == userBId).DisableGlobalFilter("IsDeleted").ToListAsync();
+                var categories = new List<CategoryEntity>();
+                foreach (var category in categorySeeds)
                 {
-                    Id = 0,
-                    Name = c.Name,
-                    Type = c.Type,
-                    Sort = c.Sort,
-                    Childs = assets.FindAll(d => d.ParentBId == c.BId).ToList()
-                };
-            }).ToList();
+                    var exist = userCategories.FirstOrDefault(c => c.Name.Trim() == category.Name.Trim());
+                    var parentBId = SnowFlake.NextId();
+                    if (exist is null)
+                    {
+                        categories.Add(category.ToEntity(parentBId, null, userBId));
+                    }
+                    else
+                    {
+                        parentBId = exist.BId;
+                    }
 
-            // 构造父类实体
-            var categoryEntities = groupsCategories.Select(c => new CategoryEntity
-            {
-                Name = c.Name,
-                Type = c.Type,
-                Sort = c.Sort,
-                Icon = "",
-                CreateUserBId = id
-            }).ToList();
-
-            var assetEntities = groupsAssets.Select(c => new AssetEntity
-            {
-                Name = c.Name,
-                Type = c.Type,
-                Sort = c.Sort,
-                Icon = "",
-                CreateUserBId = id
-            }).ToList();
-
-            // 插入父类数据
-            var userParentCategories = await _categoryRepo.InsertAsync(categoryEntities);
-            var userParentAssets = await _assetRepo.InsertAsync(assetEntities);
-
-            // 构造子项实体
-            categoryEntities = new List<CategoryEntity>();
-            assetEntities = new List<AssetEntity>();
-            foreach (var g in groupsCategories)
-            {
-                var p = userParentCategories.FirstOrDefault(c => c.Name == g.Name)?.BId;
-                if (p == null) continue;
-                foreach (var item in g.Childs)
-                {
-                    item.Id = 0;
-                    item.ParentBId = p.Value;
-                    item.CreateUserBId = id;
-                    categoryEntities.Add(item);
+                    foreach (var child in category.Childs)
+                    {
+                        var childExist = userCategories.FirstOrDefault(c => c.Name.Trim() == child.Name.Trim());
+                        if (childExist is null)
+                            categories.Add(child.ToEntity(null, parentBId, userBId));
+                    }
                 }
+
+                if (categories.Count > 0)
+                    await _categoryRepo.InsertAsync(categories);
             }
 
-            foreach (var g in groupsAssets)
+            // 初始化用户资产分类数据源
+            if (assetSeeds.Count != 0)
             {
-                var p = userParentAssets.FirstOrDefault(c => c.Name == g.Name)?.BId;
-                if (p == null) continue;
-                foreach (var item in g.Childs)
+                var userAssets = await _assetRepo.Select.Where(c => c.CreateUserBId == userBId).DisableGlobalFilter("IsDeleted").ToListAsync();
+                var assets = new List<AssetEntity>();
+                foreach (var asset in assetSeeds)
                 {
-                    item.Id = 0;
-                    item.ParentBId = p.Value;
-                    item.CreateUserBId = id;
-                    assetEntities.Add(item);
+                    var exist = userAssets.FirstOrDefault(c => c.Name.Trim() == asset.Name.Trim());
+                    var parentBId = SnowFlake.NextId();
+                    if (exist is null)
+                    {
+                        assets.Add(asset.ToEntity(parentBId, null, userBId));
+                    }
+                    else
+                    {
+                        parentBId = exist.BId;
+                    }
+
+                    foreach (var child in asset.Childs)
+                    {
+                        var childExist = userAssets.FirstOrDefault(c => c.Name.Trim() == child.Name.Trim());
+                        if (childExist is null)
+                            assets.Add(child.ToEntity(null, parentBId, userBId));
+                    }
                 }
+
+                if (assets.Count > 0)
+                    await _assetRepo.InsertAsync(assets);
             }
-
-            _ = await _categoryRepo.InsertAsync(categoryEntities);
-            _ = await _assetRepo.InsertAsync(assetEntities);
-
         }
         catch (Exception ex)
         {
-            throw;
+            _logger.LogError(ex, $"写入用户:{userBId}初始化数据失败");
         }
 
     }

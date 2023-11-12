@@ -4,7 +4,6 @@
 /// 用户角色表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_user_role")]
-[Index("index_user_role_on_bid", "BId", false)]
 [Index("index_user_role_on_user_bid", "UserBId", false)]
 public class UserRoleEntity : Entity
 {

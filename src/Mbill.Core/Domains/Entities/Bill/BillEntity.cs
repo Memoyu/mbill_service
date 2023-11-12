@@ -8,7 +8,6 @@ namespace Mbill.Core.Domains.Entities.Bill;
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_bill")]
 [MongoCollection(Name = "bill")]
-[Index("index_bill_on_bid", "BId", false)]
 [Index("index_bill_on_type", "Type", false)]
 [Index("index_bill_on_create_user_id_and_type", "Sort,CreateUserId", false)]
 [Index("index_bill_on_create_user_id_and_category_bid", "CategoryBId,CreateUserId", false)]

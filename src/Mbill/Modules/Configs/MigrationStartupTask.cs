@@ -15,11 +15,12 @@ public class MigrationStartupTask
         try
         {
             using var scope = _serviceProvider.CreateScope();
-            IDataSeedContributor dataSeedContributor = scope.ServiceProvider.GetRequiredService<IDataSeedContributor>();
+            IDataSeedSvc dataSeedSvc = scope.ServiceProvider.GetRequiredService<IDataSeedSvc>();
 
-            var permissions = DomainReflexUtil.GetAssemblyPermissionAttributes();
-            await dataSeedContributor.InitPermissionAsync(permissions);
-            await dataSeedContributor.InitAdministratorPermissionAsync();
+            await dataSeedSvc.InitDataSeedAsync();
+            var defPermissions = DomainReflexUtil.GetAssemblyPermissionAttributes();
+            await dataSeedSvc.InitPermissionAsync(defPermissions);
+            await dataSeedSvc.InitAdministratorPermissionAsync();
         }
         catch (Exception ex)
         {

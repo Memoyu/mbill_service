@@ -2,6 +2,9 @@
 using Mbill.Core.Domains.Entities.Core;
 using Mbill.Core.Domains.Entities.PreOrder;
 using Mbill.Core.Interface.IRepositories.Bill;
+using Mbill.Infrastructure.Repository.Bill;
+using Mbill.Service.Core.DataSeed.Output;
+using System.Collections.Generic;
 
 namespace Mbill.Controllers;
 
@@ -26,6 +29,62 @@ public class RunDataController : ApiControllerBase
     //    var s = await _billMongoRepo.InsertManyAsync(list);
     //    return ServiceResult.Successed("成功！");
     //}
+
+    [HttpGet("dataseed/category")]
+    public async Task<ServiceResult<List<BillCategoryDataSeedDto>>> BuildBillCategoryDataSeedJsonAsync()
+    {
+        var orm = _billRepo.Orm;
+
+        var categories = await orm.Select<CategoryEntity>().Where(c => c.CreateUserId == 1).ToListAsync();
+
+        var parents = categories.Where(c => c.Type == 1 && c.ParentBId == 0).ToList();
+        parents.AddRange(categories.Where(c => c.Type == 0 && c.ParentBId == 0).Take(4).ToList());
+        var groups = parents.Select(c =>
+        {
+            return new BillCategoryDataSeedDto
+            {
+                Name = c.Name,
+                Type = c.Type,
+                Sort = c.Sort,
+                Childs = categories.FindAll(d => d.ParentBId == c.BId).Select(cc => new BillCategoryDataSeedDto
+                {
+                    Name = cc.Name,
+                    Type = cc.Type,
+                    Sort = cc.Sort,
+                    Icon = cc.Icon,
+                }).ToList()
+            };
+        }).ToList();
+        return ServiceResult<List<BillCategoryDataSeedDto>>.Successed(groups);
+    }
+
+    [HttpGet("dataseed/asset")]
+    public async Task<ServiceResult<List<BillAssetDataSeedDto>>> BuildBillAssetDataSeedJsonAsync()
+    {
+        var orm = _billRepo.Orm;
+
+        var assets = await orm.Select<AssetEntity>().Where(c => c.CreateUserId == 1).ToListAsync();
+
+        var parents = assets.Where(c => c.Type == 1 && c.ParentBId == 0).ToList();
+        parents.AddRange(assets.Where(c => c.Type == 0 && c.ParentBId == 0).Take(4).ToList());
+        var group = parents.Select(c =>
+        {
+            return new BillAssetDataSeedDto
+            {
+                Name = c.Name,
+                Type = c.Type,
+                Sort = c.Sort,
+                Childs = assets.FindAll(d => d.ParentBId == c.BId).Select(cc => new BillAssetDataSeedDto
+                {
+                    Name = cc.Name,
+                    Type = cc.Type,
+                    Sort = cc.Sort,
+                    Icon = cc.Icon,
+                }).ToList()
+            };
+        }).ToList();
+        return ServiceResult<List<BillAssetDataSeedDto>>.Successed(group);
+    }
 
     [HttpGet("refactor/migration/genbid")]
     public async Task<ServiceResult> MigrationGenTableBIdAsync()
@@ -230,7 +289,7 @@ public class RunDataController : ApiControllerBase
             item.BillBId = bills.FirstOrDefault(a => a.Id == item.BillId)?.BId ?? 0;
             await orm.Update<PreOrderGroupEntity>().DisableGlobalFilter("IsDeleted").SetSource(item).ExecuteAffrowsAsync();
         }
-        
+
 
         return ServiceResult.Successed("成功！");
     }

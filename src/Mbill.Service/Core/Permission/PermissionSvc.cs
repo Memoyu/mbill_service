@@ -48,11 +48,10 @@ public class PermissionSvc : ApplicationSvc, IPermissionSvc
 
     public async Task<bool> CheckAsync(string module, string permission)
     {
-        // TODO: 缓存权限信息，从缓存中获取，并在更新权限时进行权限缓存更新
-        long[] roleBIds = CurrentUser.Roles;
+        var userRoles = CurrentUser.Roles;
         PermissionEntity permissionEntity = await _permissionRepo.Where(r => r.Module == module && r.Name == permission).FirstAsync();
         bool existPermission = await _rolePermissionRepo.Select
-            .AnyAsync(r => roleBIds.Contains(r.RoleBId) && r.PermissionBId == permissionEntity.BId);
+            .AnyAsync(rp => userRoles.Any(ur => ur.RoleBId == rp.RoleBId) && rp.PermissionBId == permissionEntity.BId);
         return existPermission;
     }
 

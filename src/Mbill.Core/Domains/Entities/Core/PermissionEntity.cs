@@ -4,7 +4,6 @@
 /// 权限表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_permission")]
-[Index("index_permission_on_bid", "BId", false)]
 public class PermissionEntity : FullAduitEntity
 {
     public PermissionEntity()

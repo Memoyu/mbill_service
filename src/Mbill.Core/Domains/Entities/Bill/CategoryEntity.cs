@@ -4,7 +4,6 @@
 /// 账单分类实体
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_category")]
-[Index("index_category_on_bid", "BId", false)]
 [Index("index_category_on_parent_bid", "ParentBId", false)]
 [Index("index_category_on_type", "Type", false)]
 public class CategoryEntity : FullAduitEntity

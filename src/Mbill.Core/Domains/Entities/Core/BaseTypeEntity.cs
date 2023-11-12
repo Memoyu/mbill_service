@@ -4,7 +4,6 @@
 /// 字典类型表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_type")]
-[Index("index_type_on_bid", "BId", false)]
 public class BaseTypeEntity : FullAduitEntity
 {
     public BaseTypeEntity()

@@ -15,10 +15,10 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<ModuleAuthori
 
 #if DEBUG
         ICurrentUser currentUser = (ICurrentUser)filterContext.HttpContext.RequestServices.GetService(typeof(ICurrentUser));
-        if (currentUser.IsInGroup(SystemConst.Role.Administrator))//如果是超级管理员
-        {
+
+        if (currentUser.IsAdministrator())//如果是超级管理员
             return;
-        }
+
 #endif
 
         if (!context.User.Identity.IsAuthenticated)

@@ -1,4 +1,6 @@
-﻿namespace Mbill.Core.Security;
+﻿using Mbill.Core.Security.Dto;
+
+namespace Mbill.Core.Security;
 
 public interface ICurrentUser
 {
@@ -7,7 +9,7 @@ public interface ICurrentUser
     long? BId { get; }
 
     string UserName { get; }
-    long[] Roles { get; }
+    List<UserRoleCacheDto> Roles { get; }
 
 
     Claim FindClaim(string claimType);
@@ -16,6 +18,9 @@ public interface ICurrentUser
 
     Claim[] GetAllClaims();
 
-
-    bool IsInGroup(long groupId);
+    /// <summary>
+    /// 是否超级管理员
+    /// </summary>
+    /// <returns></returns>
+    bool IsAdministrator();
 }

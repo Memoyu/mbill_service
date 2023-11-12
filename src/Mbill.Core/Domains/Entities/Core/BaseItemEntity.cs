@@ -4,7 +4,6 @@
 /// 字典项详情表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_item")]
-[Index("index_item_on_bid", "BId", false)]
 public class BaseItemEntity : FullAduitEntity
 {
     public BaseItemEntity()

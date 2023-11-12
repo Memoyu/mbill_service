@@ -83,7 +83,7 @@ public class PreOrderGroupSvc : CrudApplicationSvc<PreOrderGroupEntity, PreOrder
     {
         var group = await _groupRepo.GetPreOrderGroupAsync(input.BId);
         if (group == null) return ServiceResult<GroupPreOrderStatDto>.Failed("预购分组不存在");
-        var dto = new GroupPreOrderStatDto { BillBId = group.BillBId };
+        var dto = Mapper.Map<GroupPreOrderStatDto>(group);
         dto.GroupName = group.Name;
         dto.PreAmount = await _preOrderRepo.GetPreAmountByGroupAsync([input.BId]);
         dto.RealAmount = await _preOrderRepo.GetRealAmountByGroupAsync([input.BId]);
