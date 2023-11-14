@@ -1,4 +1,6 @@
-﻿namespace Mbill.Core.Domains.Entities.Core;
+﻿using Mbill.Core.Common;
+
+namespace Mbill.Core.Domains.Entities.Core;
 
 /// <summary>
 /// 权限表
@@ -13,6 +15,7 @@ public class PermissionEntity : FullAduitEntity
 
     public PermissionEntity(string name, string module, string router)
     {
+        BId = SnowFlake.NextId();
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Module = module ?? throw new ArgumentNullException(nameof(module));
         Router = router ?? throw new ArgumentNullException(nameof(router));

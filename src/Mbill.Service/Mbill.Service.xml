@@ -926,6 +926,24 @@
             用户当时的昵称
             </summary>
         </member>
+        <member name="M:Mbill.Service.Core.Notice.INoticeSvc.InsertAsync(Mbill.Service.Core.Notice.Input.ModifyNoticeDto)">
+            <summary>
+            新增公告
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mbill.Service.Core.Notice.INoticeSvc.GetLatestAsync">
+            <summary>
+            获取最新的公告
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Mbill.Service.Core.Notice.Input.ModifyNoticeDto.Range">
+            <summary>
+            可见范围，用户BId 使用,分割
+            </summary>
+        </member>
         <member name="P:Mbill.Service.Core.Permission.Input.DispatchPermissionsDto.RoleBId">
             <summary>
             角色Id

@@ -76,6 +76,17 @@
             获取日志信息分页
             </summary>
         </member>
+        <member name="M:Mbill.Controllers.Core.NoticeController.CreateAsync(Mbill.Service.Core.Notice.Input.ModifyNoticeDto)">
+            <summary>
+            新增公告
+            </summary>
+            <param name="input">公告</param>
+        </member>
+        <member name="M:Mbill.Controllers.Core.NoticeController.GetLatestAsync">
+            <summary>
+            获取最新公告
+            </summary>
+        </member>
         <member name="T:Mbill.Controllers.Core.PermissionController">
             <summary>
             权限管理
