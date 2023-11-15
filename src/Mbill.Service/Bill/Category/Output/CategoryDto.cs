@@ -6,7 +6,7 @@ public class CategoryDto
 
     public string Name { get; set; }
 
-    public long ParentId { get; set; }
+    public long ParentBId { get; set; }
 
     public int Type { get; set; }
 

@@ -12,18 +12,7 @@ public class RolePermissionEntity : Entity
     public long RoleBId { get; set; }
 
     /// <summary>
-    /// 角色id
-    /// </summary>
-    public long RoleId { get; set; }
-
-    /// <summary>
     /// 权限BId
     /// </summary>
     public long PermissionBId { get; set; }
-
-    /// <summary>
-    /// 权限Id
-    /// </summary>
-    public long PermissionId { get; set; }
-
 }

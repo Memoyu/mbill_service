@@ -9,9 +9,9 @@ namespace Mbill.Core.Domains.Entities.Bill;
 [Table(Name = SystemConst.DbTablePrefix + "_bill")]
 [MongoCollection(Name = "bill")]
 [Index("index_bill_on_type", "Type", false)]
-[Index("index_bill_on_create_user_id_and_type", "Sort,CreateUserId", false)]
-[Index("index_bill_on_create_user_id_and_category_bid", "CategoryBId,CreateUserId", false)]
-[Index("index_bill_on_create_user_id_and_asset_bid", "AssetBId,CreateUserId", false)]
+[Index("index_bill_on_create_user_id_and_type", "Sort,CreateUserBId", false)]
+[Index("index_bill_on_create_user_id_and_category_bid", "CategoryBId,CreateUserBId", false)]
+[Index("index_bill_on_create_user_id_and_asset_bid", "AssetBId,CreateUserBId", false)]
 [Index("index_bill_on_time", "Time", false)]
 public class BillEntity : FullAduitEntity
 {
@@ -29,21 +29,6 @@ public class BillEntity : FullAduitEntity
     /// 目标资产BId
     /// </summary>
     public long? TargetAssetBId { get; set; }
-
-    /// <summary>
-    /// 分类Id
-    /// </summary>
-    public long CategoryId { get; set; }
-
-    /// <summary>
-    /// 资产Id
-    /// </summary>
-    public long AssetId { get; set; }
-
-    /// <summary>
-    /// 目标资产Id
-    /// </summary>
-    public long? TargetAssetId { get; set; }
 
     /// <summary>
     /// 金额

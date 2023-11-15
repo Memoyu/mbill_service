@@ -1390,7 +1390,7 @@
             转账单分组数
             </summary>
         </member>
-        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.GroupId">
+        <member name="P:Mbill.Service.PreOrder.Output.PreOrderDto.GroupBId">
             <summary>
             分组Id
             </summary>

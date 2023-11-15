@@ -5,7 +5,6 @@
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_media_image")]
 [Index("index_media_image_on_file_bid", "FileBId", false)]
-//[Index("index_media_image_on_file_id", "FileId", false)]
 [Index("index_media_image_on_type", "Type", false)]
 public class MediaImageEntity : FullAduitEntity
 {
@@ -13,11 +12,6 @@ public class MediaImageEntity : FullAduitEntity
     /// 文件BId
     /// </summary>
     public long FileBId { get; set; }
-
-    /// <summary>
-    /// 文件Id
-    /// </summary>
-    public long FileId { get; set; }
 
     /// <summary>
     /// 图片类型：0 Icon, 1 background

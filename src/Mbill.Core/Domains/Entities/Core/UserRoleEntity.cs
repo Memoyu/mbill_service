@@ -22,20 +22,9 @@ public class UserRoleEntity : Entity
     public long UserBId { get; set; }
 
     /// <summary>
-    /// 用户id
-    /// </summary>
-    public long UserId { get; set; }
-
-    /// <summary>
     /// 角色BId
     /// </summary>
     public long RoleBId { get; set; }
-
-    /// <summary>
-    /// 角色Id
-    /// </summary>
-    public long RoleId { get; set; }
-
 
     [Navigate(nameof(UserBId), TempPrimary = nameof(UserEntity.BId))]
     public virtual UserEntity User { get; set; }

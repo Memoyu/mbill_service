@@ -22,12 +22,6 @@ public class CategoryEntity : FullAduitEntity
     public long ParentBId { get; set; }
 
     /// <summary>
-    /// 父级Id
-    /// </summary>
-    [Description("父级BId")]
-    public long ParentId { get; set; }
-
-    /// <summary>
     /// 分类类型：0 支出，1 收入
     /// </summary>
     [Column(IsNullable = false)]

@@ -4,8 +4,6 @@
 /// 预购清单分组实体
 /// </summary>
 [Table(Name = DbTablePrefix + "_pre_order_group")]
-[Index("index_preorder_group_on_category_id", "CategoryId", false)]
-//[Index("index_preorder_group_on_bill_id", "BillId", false)]
 [Index("index_preorder_group_on_bill_bid", "BillBId", false)]
 public class PreOrderGroupEntity : FullAduitEntity
 {
@@ -13,11 +11,6 @@ public class PreOrderGroupEntity : FullAduitEntity
     /// 账单BId
     /// </summary>
     public long BillBId { get; set; }
-
-    /// <summary>
-    /// 账单Id
-    /// </summary>
-    public long BillId { get; set; }
 
     /// <summary>
     /// 分组名

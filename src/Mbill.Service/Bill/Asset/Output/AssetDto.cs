@@ -6,7 +6,7 @@ public class AssetDto
 
     public string Name { get; set; }
 
-    public long ParentId { get; set; }
+    public long ParentBId { get; set; }
 
     public string Type { get; set; }
 

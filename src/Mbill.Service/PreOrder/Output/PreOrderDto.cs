@@ -5,7 +5,7 @@ public class PreOrderDto : EntityDto
     /// <summary>
     /// 分组Id
     /// </summary>
-    public long GroupId { get; set; }
+    public long GroupBId { get; set; }
 
     /// <summary>
     /// 金额
