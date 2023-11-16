@@ -20,18 +20,21 @@ public class BaseTypeEntity : FullAduitEntity
     /// <summary>
     /// 字典类型编码
     /// </summary>
+    [Description("字典类型编码")]
     [Column(StringLength = 50)]
     public string TypeCode { get; set; }
 
     /// <summary>
     /// 字典类型名
     /// </summary>
+    [Description("字典类型名")]
     [Column(StringLength = 50)]
     public string FullName { get; set; }
 
     /// <summary>
     /// 排序码
     /// </summary>
+    [Description("排序码")]
     public int? Sort { get; set; }
 
     public virtual ICollection<BaseItemEntity> BaseItems { get; set; }

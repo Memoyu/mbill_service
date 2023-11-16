@@ -9,10 +9,12 @@ public class RolePermissionEntity : Entity
     /// <summary>
     /// 角色BId
     /// </summary>
+    [Description("角色BId")]
     public long RoleBId { get; set; }
 
     /// <summary>
     /// 权限BId
     /// </summary>
+    [Description("权限BId")]
     public long PermissionBId { get; set; }
 }
