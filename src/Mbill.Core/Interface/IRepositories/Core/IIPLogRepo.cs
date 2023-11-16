@@ -3,7 +3,7 @@ using Mbill.Core.Interface.IRepositories.Base;
 
 namespace Mbill.Core.Interface.IRepositories.Core
 {
-    public interface ILogRepo : IAuditBaseRepo<LogEntity>
+    public interface IIPLogRepo : IAuditBaseRepo<IPLogEntity>
     {
     }
 }

@@ -65,11 +65,6 @@ public class UserDto : FullEntityDto
     public DateTime LastLoginTime { get; set; }
 
     /// <summary>
-    /// 用户创建日期
-    /// </summary>
-    public DateTime CreateTime { get; set; }
-
-    /// <summary>
     /// 是否启用
     /// </summary>
     public bool IsEnable { get; set; }

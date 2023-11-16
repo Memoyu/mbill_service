@@ -1,6 +1,7 @@
-﻿using Serilog;
+﻿using Mbill.Core.Common;
+using Mbill.Core.Interface.IRepositories.Core;
+using Serilog;
 using Serilog.Events;
-using ILogger = Serilog.ILogger;
 
 namespace Mbill.Core.AOP.Middleware;
 
@@ -9,17 +10,18 @@ namespace Mbill.Core.AOP.Middleware;
 /// </summary>
 public class IPLogMilddleware
 {
+    private readonly Microsoft.Extensions.Logging.ILogger _logger;
     //***************请求代理需要先注入IHttpContextAccessor，否者报错********************//
     private readonly RequestDelegate _requestDelegate;
-    private static readonly ILogger IpLog = new LoggerConfiguration()
-        .MinimumLevel.Debug()
-        .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
-        .WriteTo.File(Path.Combine($"Logs/ip_log/", $"ip_log.log"), rollingInterval: RollingInterval.Infinite, outputTemplate: "{Message}{NewLine}{Exception}")
-        .CreateLogger();
+    private readonly IIPLogRepo _ipLogRepo;
 
-    public IPLogMilddleware(RequestDelegate requestDelegate)
+    public IPLogMilddleware(ILoggerFactory loggerFactory,
+        RequestDelegate requestDelegate,
+        IIPLogRepo ipLogRepo)
     {
+        _logger = loggerFactory.CreateLogger<IPLogMilddleware>();
         _requestDelegate = requestDelegate;
+        _ipLogRepo = ipLogRepo;
     }
 
     public async Task InvokeAsync(HttpContext context)
@@ -37,31 +39,24 @@ public class IPLogMilddleware
                 {
                     // 存储请求数据
                     var request = context.Request;
-                    var requestInfo = new RequestInfo()
+                    var visitEntity = new IPLogEntity
                     {
+                        BId = SnowFlake.NextId(),
                         Ip = GetClientIp(context),
-                        Url = request.Path.ToString().Trim().TrimEnd('/').ToLower(),
-                        Datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                        Date = DateTime.Now.ToString("yyyy-MM-dd"),
-                        Week = GetWeek(),
-                    }.ToJson();
+                        Path = request.Path.ToString().Trim().TrimEnd('/').ToLower(),
+                        VisitTime = DateTime.Now,
+                    };
 
-                    if (!string.IsNullOrEmpty(requestInfo))
+                    if (!string.IsNullOrWhiteSpace(visitEntity.Ip))
                     {
-                        // 自定义log输出
-                        Parallel.For(0, 1, e =>
-                        {
-                            WriteLog(new string[] { requestInfo + "," }, false);
-                        });
-
-                        request.Body.Position = 0;
+                        _ = _ipLogRepo.InsertAsync(visitEntity);
                     }
 
                     await _requestDelegate(context);
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    _logger.LogError(ex, "IP访问记录中间件异常");
                 }
             }
             else
@@ -85,65 +80,8 @@ public class IPLogMilddleware
         var ip = context.Request.Headers["X-Forwarded-For"].ToString();
         if (string.IsNullOrEmpty(ip))
         {
-            if (context.Connection.RemoteIpAddress != null) ip = context.Connection.RemoteIpAddress.ToString();
+            if (context.Connection.RemoteIpAddress != null) ip = context.Connection.RemoteIpAddress.MapToIPv4().ToString();
         }
         return ip;
-    }
-
-    /// <summary>
-    /// 获取当前星期
-    /// </summary>
-    /// <returns></returns>
-    private string GetWeek()
-    {
-        string week = string.Empty;
-        switch (DateTime.Now.DayOfWeek)
-        {
-            case DayOfWeek.Monday:
-                week = "周一";
-                break;
-            case DayOfWeek.Tuesday:
-                week = "周二";
-                break;
-            case DayOfWeek.Wednesday:
-                week = "周三";
-                break;
-            case DayOfWeek.Thursday:
-                week = "周四";
-                break;
-            case DayOfWeek.Friday:
-                week = "周五";
-                break;
-            case DayOfWeek.Saturday:
-                week = "周六";
-                break;
-            case DayOfWeek.Sunday:
-                week = "周日";
-                break;
-            default:
-                week = "N/A";
-                break;
-        }
-        return week;
-    }
-
-    /// <summary>
-    /// 记录日志
-    /// </summary>
-    /// <param name="messages">写入信息</param>
-    /// <param name="isHeader">是否加头部分割线</param>
-    private static void WriteLog(string[] messages, bool isHeader = true)
-    {
-        var now = DateTime.Now;
-        string logContent = String.Join("\r\n", messages);
-        if (isHeader)
-        {
-            logContent = (
-                "--------------------------------\r\n" +
-                now + "|\r\n" +
-                String.Join("\r\n", messages) + "\r\n"
-            );
-        }
-        IpLog.Information(logContent);
     }
 }

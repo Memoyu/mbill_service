@@ -48,7 +48,7 @@ public class RoleSvc : ApplicationSvc, IRoleSvc
     }
 
     [Transactional]
-    public async Task<ServiceResult> DeleteAsync(long id)
+    public Task<ServiceResult> DeleteAsync(long id)
     {
         throw new System.NotImplementedException();
         //var dto = await GetAsync(id);

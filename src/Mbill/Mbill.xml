@@ -71,11 +71,6 @@
             日志管理
             </summary>
         </member>
-        <member name="M:Mbill.Controllers.Core.LogController.GetPagesAsync(Mbill.Service.Core.Logger.Input.LogPagingDto)">
-            <summary>
-            获取日志信息分页
-            </summary>
-        </member>
         <member name="M:Mbill.Controllers.Core.NoticeController.CreateAsync(Mbill.Service.Core.Notice.Input.ModifyNoticeDto)">
             <summary>
             新增公告

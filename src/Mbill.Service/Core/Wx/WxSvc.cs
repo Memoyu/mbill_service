@@ -7,7 +7,7 @@ public class WxSvc : IWxSvc
     private readonly ILogger<WxSvc> _logger;
     private readonly IHttpClientFactory _httpClient;
 
-    public WxSvc(ILogger<WxSvc> logger, IHttpClientFactory httpClient, IUserRepo userRepo, IUserIdentityRepo userIdentityRepo, IJwtService jsonWebTokenService)
+    public WxSvc(ILogger<WxSvc> logger, IHttpClientFactory httpClient)
     {
         _logger = logger;
         _httpClient = httpClient;

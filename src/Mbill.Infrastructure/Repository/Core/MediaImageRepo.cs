@@ -7,8 +7,6 @@ namespace Mbill.Infrastructure.Repository.Core
 {
     public class MediaImageRepo : AuditBaseRepo<MediaImageEntity>, IMediaImageRepo
     {
-        private readonly QiniuClientOption _qiniuOption;
-
         public MediaImageRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
         {
         }
