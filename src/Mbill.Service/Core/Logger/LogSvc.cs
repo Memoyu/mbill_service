@@ -2,7 +2,9 @@
 
 public class LogSvc : ApplicationSvc, ILogSvc
 {
-    public LogSvc()
+    private readonly IIpLogRepo _ipLogRepo;
+    public LogSvc(IIpLogRepo ipLogRepo)
     {
+        _ipLogRepo = ipLogRepo;
     }
 }

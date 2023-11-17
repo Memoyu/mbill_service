@@ -1,12 +1,11 @@
 ﻿using Mbill.Core.Domains.Entities.Core;
 using Mbill.Core.Interface.IRepositories.Core;
 
-namespace Mbill.Infrastructure.Repository.Core
+namespace Mbill.Infrastructure.Repository.Core;
+
+public class IpLogRepo : AuditBaseRepo<IpLogEntity>, IIpLogRepo
 {
-    public class IPLogRepo : AuditBaseRepo<IPLogEntity>, IIPLogRepo
+    public IpLogRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
     {
-        public IPLogRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
-        {
-        }
     }
 }

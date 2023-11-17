@@ -4,7 +4,7 @@
 /// IP访问日志表
 /// </summary>
 [Table(Name = SystemConst.DbTablePrefix + "_ip_log")]
-public class IPLogEntity : FullAduitEntity
+public class IpLogEntity : FullAduitEntity
 {
     /// <summary>
     /// 客户端IP

@@ -7,8 +7,8 @@
 [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v2)]
 public class LogController : ApiControllerBase
 {
-    private readonly IIPLogSvc _logService;
-    public LogController(IIPLogSvc logService)
+    private readonly ILogSvc _logService;
+    public LogController(ILogSvc logService)
     {
         _logService = logService;
     }

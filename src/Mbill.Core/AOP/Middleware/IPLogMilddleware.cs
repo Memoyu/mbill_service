@@ -1,7 +1,5 @@
 ﻿using Mbill.Core.Common;
 using Mbill.Core.Interface.IRepositories.Core;
-using Serilog;
-using Serilog.Events;
 
 namespace Mbill.Core.AOP.Middleware;
 
@@ -10,14 +8,14 @@ namespace Mbill.Core.AOP.Middleware;
 /// </summary>
 public class IPLogMilddleware
 {
-    private readonly Microsoft.Extensions.Logging.ILogger _logger;
+    private readonly ILogger _logger;
     //***************请求代理需要先注入IHttpContextAccessor，否者报错********************//
     private readonly RequestDelegate _requestDelegate;
-    private readonly IIPLogRepo _ipLogRepo;
+    private readonly IIpLogRepo _ipLogRepo;
 
     public IPLogMilddleware(ILoggerFactory loggerFactory,
         RequestDelegate requestDelegate,
-        IIPLogRepo ipLogRepo)
+        IIpLogRepo ipLogRepo)
     {
         _logger = loggerFactory.CreateLogger<IPLogMilddleware>();
         _requestDelegate = requestDelegate;
@@ -39,7 +37,7 @@ public class IPLogMilddleware
                 {
                     // 存储请求数据
                     var request = context.Request;
-                    var visitEntity = new IPLogEntity
+                    var visitEntity = new IpLogEntity
                     {
                         BId = SnowFlake.NextId(),
                         Ip = GetClientIp(context),
