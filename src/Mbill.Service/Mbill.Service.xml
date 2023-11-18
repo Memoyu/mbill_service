@@ -890,6 +890,30 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:Mbill.Service.Core.Files.QiniuFileSvc.CreateUploadToken(System.String)">
+            <summary>
+            获取上传Token
+            </summary>
+            <param name="key">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mbill.Service.Core.Files.QiniuFileSvc.UploadStream(System.String,System.IO.Stream)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="path">文件上传路径 例如：xxxx/xxxxx/image.png</param>
+            <param name="file">文件流</param>
+        </member>
+        <member name="M:Mbill.Service.Core.Files.QiniuFileSvc.UploadStream(System.String,System.IO.Stream,Qiniu.Storage.Config,Qiniu.Storage.PutExtra)">
+            <summary>
+            
+            </summary>
+            <param name="path">文件路径 例如：xxxx/xxxxx/image.png</param>
+            <param name="file">文件流</param>
+            <param name="config">请求上传配置信息</param>
+            <param name="extra">请求上传拓展信息</param>
+            <returns></returns>
+        </member>
         <member name="P:Mbill.Service.Core.Logger.Output.LogDto.Authority">
             <summary>
             访问哪个权限

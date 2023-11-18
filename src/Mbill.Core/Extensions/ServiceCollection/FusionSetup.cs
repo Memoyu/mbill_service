@@ -3,7 +3,6 @@ using EasyCaching.Serialization.SystemTextJson.Configurations;
 using FreeRedis;
 using Mapster;
 using MapsterMapper;
-using Mbill.ToolKits.Qiniu;
 using MongoDB.Driver;
 
 namespace Mbill.Core.Extensions.ServiceCollection;
@@ -131,18 +130,18 @@ public static class FusionSetup
     }
 
     /// <summary>
-    /// 配置注册七牛云服务
+    /// 配置注册文件存储服务
     /// </summary>
     /// <param name="services"></param>
     /// <param name="configuration"></param>
     /// <param name="sectionName"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    public static IServiceCollection AddQiniuClient(this IServiceCollection services, IConfiguration configuration, string sectionName = "FileStorage:Qiniu")
+    public static IServiceCollection AddFileStorage(this IServiceCollection services, IConfiguration configuration, string sectionName = "FileStorage")
     {
         if (services == null) throw new ArgumentNullException($"{nameof(services)} is not null");
-        services.Configure<QiniuClientOption>(configuration.GetSection(sectionName));
-        return services.AddSingleton<IQiniuClient, QiniuClient>();
+        services.Configure<FileStorageOptions>(configuration.GetSection(sectionName));
+        return services;
     }
 
     /// <summary>

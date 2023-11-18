@@ -467,7 +467,7 @@
             <summary>
             获取预购分组详情(With 相关预购总金额)
             </summary>
-            <param name="Ibd">预购分组id</param>
+            <param name="bId">预购分组id</param>
         </member>
         <member name="M:Mbill.Controllers.PreOrder.PreOrderController.GroupToBillAsync(Mbill.Service.PreOrder.Input.GroupToBillInput)">
             <summary>

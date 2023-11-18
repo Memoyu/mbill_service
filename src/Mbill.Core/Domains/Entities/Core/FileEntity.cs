@@ -41,17 +41,8 @@ public class FileEntity : FullAduitEntity
     public long? Size { get; set; }
 
     /// <summary>
-    /// 1 七牛
+    /// 1 七牛, 99 自定义
     /// </summary>
-    [Description("1 七牛")]
+    [Description("1 七牛, 99 自定义")]
     public short? Type { get; set; }
-
-    public static string LocalFileService = "LocalFileService";
-    public static Dictionary<string, string> SourceFileDic = new Dictionary<string, string>
-        {
-            { "asset","core/images/asset"},
-            { "category","core/images/category"},
-            { "avatar","core/images/avatar"},
-            { "other","core/images/other"}
-        };
 }

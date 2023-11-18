@@ -23,7 +23,6 @@ public class Appsettings
 
     #endregion
 
-
     #region Cors
 
     public static class Cors
@@ -139,36 +138,6 @@ public class Appsettings
     public static bool IpRateLimitEnable => Convert.ToBoolean(_configuration["Middleware:IpRateLimit:Enabled"]);
     public static IConfigurationSection IpRateLimitingConfig => _configuration.GetSection("IpRateLimiting");
     public static IConfigurationSection IpRateLimitPoliciesConfig => _configuration.GetSection("IpRateLimitPolicies");
-
-    #endregion
-
-    #region CAP
-
-    /// <summary>
-    /// Cap默认存储表前缀
-    /// </summary>
-    public static string CapStorageTablePrefix => _configuration["CAP:TableNamePrefix"];
-
-    /// <summary>
-    /// Cap默认存储
-    /// </summary>
-    public static string CapDefaultStorage => _configuration["CAP:DefaultStorage"];
-
-    /// <summary>
-    /// Cap默认队列
-    /// </summary>
-    public static string CapDefaultMessageQueue => _configuration["CAP:DefaultMessageQueue"];
-
-    /// <summary>
-    /// Cap RabbitMq 连接信息
-    /// </summary>
-    public class CapRabbitMq
-    {
-        public static string HostName => _configuration["CAP:RabbitMQ:HostName"];
-        public static string UserName => _configuration["CAP:RabbitMQ:UserName"];
-        public static string Password => _configuration["CAP:RabbitMQ:Password"];
-        public static string VirtualHost => _configuration["CAP:RabbitMQ:VirtualHost"];
-    }
 
     #endregion
 

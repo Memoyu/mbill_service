@@ -20,7 +20,7 @@ public class Startup
         services.AddIpRateLimiting();//ÅäÖÃ×¢²áÏŞÁ÷
         services.AddHealthChecks();//ÅäÖÃ×¢²á½¡¿µ¼ì²é
         services.AddCorsConfig();//ÅäÖÃ¿çÓò
-        services.AddQiniuClient(Configuration); // ÅäÖÃÆßÅ£ÔÆ·şÎñ
+        services.AddFileStorage(Configuration); // ÅäÖÃÆßÅ£ÔÆ·şÎñ
         services.AddHttpClients();//ÅäÖÃHttpClient
     }
 

@@ -1,17 +1,17 @@
-﻿using Mbill.Core.Domains.Entities.Core;
+﻿using Mbill.Core.Common.Configs;
+using Mbill.Core.Domains.Entities.Core;
 using Mbill.Core.Interface.IRepositories.Core;
-using Mbill.ToolKits.Qiniu;
 using Microsoft.Extensions.Options;
 
 namespace Mbill.Infrastructure.Repository.Core
 {
     public class FileRepo : AuditBaseRepo<FileEntity>, IFileRepo
     {
-        private readonly QiniuClientOption _qiniuOption;
+        private readonly FileStorageOptions _fileStorageOption;
 
-        public FileRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser, IOptionsMonitor<QiniuClientOption> option) : base(unitOfWorkManager, currentUser)
+        public FileRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser, IOptionsMonitor<FileStorageOptions> option) : base(unitOfWorkManager, currentUser)
         {
-            _qiniuOption = option.CurrentValue;
+            _fileStorageOption = option.CurrentValue ?? throw new ArgumentNullException("FileStorage 配置为空");
         }
 
         public string GetFileUrl(string path)
@@ -26,7 +26,8 @@ namespace Mbill.Infrastructure.Repository.Core
             if (file == null) return path;
             return file.Type switch
             {
-                1 => _qiniuOption.Host + file.Path,
+                1 => _fileStorageOption?.Qiniu?.Host + file.Path,
+                99 => _fileStorageOption?.Local?.Host,
                 _ => file.Path,
             };
 

@@ -135,7 +135,7 @@ public class PreOrderController : ApiControllerBase
     /// <summary>
     /// 获取预购分组详情(With 相关预购总金额)
     /// </summary>
-    /// <param name="Ibd">预购分组id</param>
+    /// <param name="bId">预购分组id</param>
     [HttpGet("group/amount")]
     [LocalAuthorize("详情带预购分组总金额", "预购分组")]
     [ApiExplorerSettings(GroupName = SystemConst.Grouping.GroupName_v1)]
