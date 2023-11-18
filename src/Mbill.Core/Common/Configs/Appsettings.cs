@@ -7,7 +7,6 @@ public class Appsettings
     {
         _configuration = new ConfigurationBuilder()//配置配置文件
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile($"Configs/RateLimitConfig.json", optional: true, reloadOnChange: true)//添加限流配置
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
             .Build();

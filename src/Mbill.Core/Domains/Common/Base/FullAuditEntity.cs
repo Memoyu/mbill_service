@@ -36,7 +36,7 @@ public abstract class EntityDto : IEntityDto
 public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
 {
     /// <summary>
-    /// 创建者ID
+    /// 创建者BId
     /// </summary>
     public long CreateUserBId { get; set; }
 
@@ -51,7 +51,7 @@ public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, 
     public bool IsDeleted { get; set; }
 
     /// <summary>
-    /// 删除人id
+    /// 删除人BId
     /// </summary>
     public long? DeleteUserBId { get; set; }
 
@@ -61,7 +61,7 @@ public class FullEntityDto : EntityDto, IUpdateAuditEntity, IDeleteAduitEntity, 
     public DateTime? DeleteTime { get; set; }
 
     /// <summary>
-    /// 最后修改人Id
+    /// 最后修改人BId
     /// </summary>
     public long? UpdateUserBId { get; set; }
 
@@ -109,9 +109,11 @@ public class Entity : IEntity
 [Serializable]
 public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
 {
-
+    /// <summary>
+    /// 创建人BId
+    /// </summary>
     [Column(Position = -7)]
-    [Description("创建人Id")]
+    [Description("创建人BId")]
     public long CreateUserBId { get; set; }
 
     /// <summary>
@@ -128,8 +130,11 @@ public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, I
     [Description("是否删除 0 未删除，1 已删除")]
     public bool IsDeleted { get; set; }
 
+    /// <summary>
+    /// 删除人BId
+    /// </summary>
     [Column(Position = -4)]
-    [Description("删除人Id")]
+    [Description("删除人BId")]
     public long? DeleteUserBId { get; set; }
 
     /// <summary>
@@ -139,8 +144,11 @@ public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, I
     [Description("删除时间")]
     public DateTime? DeleteTime { get; set; }
 
+    /// <summary>
+    /// 修改人BId
+    /// </summary>
     [Column(Position = -2)]
-    [Description("修改人Id")]
+    [Description("修改人BId")]
     public long? UpdateUserBId { get; set; }
 
     /// <summary>
@@ -154,7 +162,7 @@ public class FullAduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, I
 public interface ICreateAduitEntity
 {
     /// <summary>
-    /// 创建者ID
+    /// 创建者BId
     /// </summary>
     long CreateUserBId { get; set; }
 
@@ -167,7 +175,7 @@ public interface ICreateAduitEntity
 public interface IUpdateAuditEntity
 {
     /// <summary>
-    /// 最后修改人Id
+    /// 最后修改人BId
     /// </summary>
     long? UpdateUserBId { get; set; }
 
@@ -185,7 +193,7 @@ public interface IDeleteAduitEntity
     bool IsDeleted { get; set; }
 
     /// <summary>
-    /// 删除人id
+    /// 删除人BId
     /// </summary>
     long? DeleteUserBId { get; set; }
 

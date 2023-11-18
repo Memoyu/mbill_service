@@ -841,17 +841,23 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitPermissionAsync(System.Collections.Generic.List{Mbill.Core.Security.PermissionDefinition})">
+            <summary>
+            初始化权限，根据PermissionAttribute生成权限，改变的则更新，否则新增
+            </summary>
+            <param name="defPermissions"></param>
+            <returns></returns>
+        </member>
         <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitAdministratorPermissionAsync">
             <summary>
             初始化超级管理员角色权限
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitPermissionAsync(System.Collections.Generic.List{Mbill.Core.Security.PermissionDefinition})">
+        <member name="M:Mbill.Service.Core.DataSeed.IDataSeedSvc.InitUserPermissionAsync">
             <summary>
-            初始化权限，根据PermissionAttribute生成权限，改变的则更新，否则新增
+            初始化普通用户角色权限
             </summary>
-            <param name="defPermissions"></param>
             <returns></returns>
         </member>
         <member name="M:Mbill.Service.Core.Files.IMediaImageSvc.GetPageAsync(Mbill.Service.Core.Files.Input.MediaImagePagingInput)">

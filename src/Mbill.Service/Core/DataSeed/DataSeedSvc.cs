@@ -47,34 +47,6 @@ public class DataSeedSvc : ApplicationSvc, IDataSeedSvc
         _logger.LogInformation($"完成种子数据初始化！");
     }
 
-    public async Task InitAdministratorPermissionAsync()
-    {
-        var roles = await _roleRepo.Select.Where(r => r.Type == RoleType.Administrator.GetHashCode()).ToListAsync();
-        if (!roles.Any()) return;
-
-        var roleBIds = roles.Select(r => r.BId).ToList();
-        List<PermissionEntity> pers = await _permissionRepo.Select.ToListAsync();//获取所有权限
-        List<RolePermissionEntity> rolePers = await _rolePermissionRepo.Select.Where(rp => roleBIds.Contains(rp.RoleBId)).ToListAsync();
-        var needAddRolePers = new List<RolePermissionEntity>();
-        foreach (var role in roles)
-        {
-            var currRolePers = rolePers.Where(rp => rp.RoleBId == role.BId).ToList();
-            var adds = pers.Where(p => !currRolePers.Any(crp => crp.PermissionBId == p.BId)).Select(p => new RolePermissionEntity
-            {
-                BId = SnowFlake.NextId(),
-                RoleBId = role.BId,
-                PermissionBId = p.BId,
-            }).ToList();
-            if (adds.Any())
-                needAddRolePers.AddRange(adds);
-        }
-
-        if (needAddRolePers.Any())
-            await _rolePermissionRepo.InsertAsync(needAddRolePers);//插入全部的超级管理员角色权限
-
-        _logger.LogInformation($"超级管理员权限：新增了{needAddRolePers.Count}条数据");
-    }
-
     public async Task InitPermissionAsync(List<PermissionDefinition> defPers)
     {
         List<PermissionEntity> insertPers = new List<PermissionEntity>();//新增权限集合
@@ -122,6 +94,62 @@ public class DataSeedSvc : ApplicationSvc, IDataSeedSvc
 
         var updateCount = await _permissionRepo.UpdateAsync(updatePers);
         _logger.LogInformation($"操 作 权 限 表：更新了{updateCount}条数据");
+    }
 
+    public async Task InitAdministratorPermissionAsync()
+    {
+        var roles = await _roleRepo.Select.Where(r => r.Type == RoleType.Administrator.GetHashCode()).ToListAsync();
+        if (!roles.Any()) return;
+
+        var roleBIds = roles.Select(r => r.BId).ToList();
+        List<PermissionEntity> pers = await _permissionRepo.Select.ToListAsync();//获取所有权限
+        List<RolePermissionEntity> rolePers = await _rolePermissionRepo.Select.Where(rp => roleBIds.Contains(rp.RoleBId)).ToListAsync();
+        var needAddRolePers = new List<RolePermissionEntity>();
+        foreach (var role in roles)
+        {
+            var currRolePers = rolePers.Where(rp => rp.RoleBId == role.BId).ToList();
+            var adds = pers.Where(p => !currRolePers.Any(crp => crp.PermissionBId == p.BId)).Select(p => new RolePermissionEntity
+            {
+                BId = SnowFlake.NextId(),
+                RoleBId = role.BId,
+                PermissionBId = p.BId,
+            }).ToList();
+            if (adds.Any())
+                needAddRolePers.AddRange(adds);
+        }
+
+        if (needAddRolePers.Any())
+            await _rolePermissionRepo.InsertAsync(needAddRolePers);//插入全部的超级管理员角色权限
+
+        _logger.LogInformation($"超级管理员权限：新增了{needAddRolePers.Count}条数据");
+    }
+
+
+    public async Task InitUserPermissionAsync()
+    {
+        var roles = await _roleRepo.Select.Where(r => r.Type == RoleType.User.GetHashCode()).ToListAsync();
+        if (!roles.Any()) return;
+
+        var roleBIds = roles.Select(r => r.BId).ToList();
+        List<PermissionEntity> pers = await _permissionRepo.Select.Where(p => p.Module != "管理员").ToListAsync();//获取所有权限
+        List<RolePermissionEntity> rolePers = await _rolePermissionRepo.Select.Where(rp => roleBIds.Contains(rp.RoleBId)).ToListAsync();
+        var needAddRolePers = new List<RolePermissionEntity>();
+        foreach (var role in roles)
+        {
+            var currRolePers = rolePers.Where(rp => rp.RoleBId == role.BId).ToList();
+            var adds = pers.Where(p => !currRolePers.Any(crp => crp.PermissionBId == p.BId)).Select(p => new RolePermissionEntity
+            {
+                BId = SnowFlake.NextId(),
+                RoleBId = role.BId,
+                PermissionBId = p.BId,
+            }).ToList();
+            if (adds.Any())
+                needAddRolePers.AddRange(adds);
+        }
+
+        if (needAddRolePers.Any())
+            await _rolePermissionRepo.InsertAsync(needAddRolePers);//插入全部的超级管理员角色权限
+
+        _logger.LogInformation($"普通用户权限：新增了{needAddRolePers.Count}条数据");
     }
 }

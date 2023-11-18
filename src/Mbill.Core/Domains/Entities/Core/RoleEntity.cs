@@ -36,7 +36,7 @@ public class RoleEntity : FullAduitEntity
     /// 排序码，升序
     /// </summary>
     [Description("排序码，升序")]
-    public int SortCode { get; set; }
+    public int Sort { get; set; }
 
     [Navigate(ManyToMany = typeof(UserRoleEntity))]
     public virtual ICollection<UserEntity> Users { get; set; }

@@ -326,10 +326,9 @@ public class BillSvc : ApplicationSvc, IBillSvc
              .Where(s => s.Type == (int)BillTypeEnum.income)
               .Where(s => s.Time <= end && s.Time >= begin).SumAsync(e => e.Amount);
 
-
         // 平均支出
         if (input.Opearte == 1)
-            expendAvg = (decimal)await GetExpendSelect().AvgAsync(e => e.Amount);
+            expendAvg = expend / DateTime.DaysInMonth(begin.Year, begin.Month);
 
 
         return ServiceResult<MonthTotalStatDto>.Successed(new MonthTotalStatDto

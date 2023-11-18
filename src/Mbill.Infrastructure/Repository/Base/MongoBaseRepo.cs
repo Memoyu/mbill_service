@@ -1,8 +1,8 @@
-﻿using FreeSql.DataAnnotations;
-using Mbill.Core.AOP.Attributes;
+﻿using Mbill.Core.AOP.Attributes;
 using Mbill.Core.Common.Configs;
 using Mbill.Core.Extensions;
 using Mbill.Core.Interface.IRepositories.Base;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -11,27 +11,30 @@ namespace Mbill.Infrastructure.Repository.Base;
 public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     where T : class, new()
 {
+    private readonly ILogger _logger;
     private readonly IMongoDatabase _database;
-
+    private readonly IMongoCollection<T> _collection;
     private readonly string _collName;
 
-    public MongoBaseRepo(MongoClient client)
+    public MongoBaseRepo(ILoggerFactory loggerFactory, MongoClient client)
     {
+        _logger = loggerFactory.CreateLogger<MongoBaseRepo<T>>();
         _database = client.GetDatabase(Appsettings.MongoDBName);
         _collName = typeof(T).GetAttributeValue((MongoCollectionAttribute m) => m.Name);
         _collName = _collName ?? typeof(T).Name;
+        _collection = _database.GetCollection<T>(_collName) ?? throw new ArgumentNullException($"The MongoDB collection named '{_collName}' is null ");
     }
 
     public async Task<bool> InsertOneAsync(T t)
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            await client.InsertOneAsync(t);
+            await _collection.InsertOneAsync(t);
             return true;
         }
-        catch
+        catch(Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(InsertOneAsync)} 异常");
             return false;
         }
     }
@@ -40,12 +43,12 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            await client.InsertManyAsync(t);
+            await _collection.InsertManyAsync(t);
             return true;
         }
-        catch
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(InsertManyAsync)} 异常");
             return false;
         }
     }
@@ -54,11 +57,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            return await client.ReplaceOneAsync(filter, replacement);
+            return await _collection.ReplaceOneAsync(filter, replacement);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(ReplaceOneAsync)} 异常");
             throw;
         }
     }
@@ -67,11 +70,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            return await client.UpdateOneAsync(filter, update);
+            return await _collection.UpdateOneAsync(filter, update);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(UpdateOneAsync)} 异常");
             throw;
         }
     }
@@ -80,11 +83,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            return await client.UpdateManyAsync(filter, update);
+            return await _collection.UpdateManyAsync(filter, update);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(UpdateManayAsync)} 异常");
             throw;
         }
     }
@@ -93,11 +96,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            return await client.DeleteOneAsync(filter);
+            return await _collection.DeleteOneAsync(filter);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(DeleteOneAsync)} 异常");
             throw;
         }
 
@@ -107,11 +110,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            return await client.DeleteManyAsync(filter);
+            return await _collection.DeleteManyAsync(filter);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(DeleteManyAsync)} 异常");
             throw;
         }
 
@@ -121,7 +124,6 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
             FilterDefinition<T> filter;
             if (isObjectId)
             {
@@ -135,7 +137,7 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
             //不指定查询字段
             if (field == null || field.Length == 0)
             {
-                return await client.Find(filter).FirstOrDefaultAsync();
+                return await _collection.Find(filter).FirstOrDefaultAsync();
             }
 
             //制定查询字段
@@ -146,10 +148,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
             }
             var projection = Builders<T>.Projection.Combine(fieldList);
             fieldList?.Clear();
-            return await client.Find(filter).Project<T>(projection).FirstOrDefaultAsync();
+            return await _collection.Find(filter).Project<T>(projection).FirstOrDefaultAsync();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(FindOneAsync)} 异常");
             throw;
         }
     }
@@ -158,13 +161,12 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
             //不指定查询字段
             if (field == null || field.Length == 0)
             {
                 //return await client.Find(new BsonDocument()).ToListAsync();
-                if (sort == null) return await client.Find(filter).ToListAsync();
-                return await client.Find(filter).Sort(sort).ToListAsync();
+                if (sort == null) return await _collection.Find(filter).ToListAsync();
+                return await _collection.Find(filter).Sort(sort).ToListAsync();
             }
 
             //制定查询字段
@@ -175,12 +177,13 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
             }
             var projection = Builders<T>.Projection.Combine(fieldList);
             fieldList?.Clear();
-            if (sort == null) return await client.Find(filter).Project<T>(projection).ToListAsync();
+            if (sort == null) return await _collection.Find(filter).Project<T>(projection).ToListAsync();
             //排序查询
-            return await client.Find(filter).Sort(sort).Project<T>(projection).ToListAsync();
+            return await _collection.Find(filter).Sort(sort).Project<T>(projection).ToListAsync();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(FindListAsync)} 异常");
             throw;
         }
     }
@@ -189,13 +192,12 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
             //不指定查询字段
             if (field == null || field.Length == 0)
             {
-                if (sort == null) return await client.Find(filter).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
+                if (sort == null) return await _collection.Find(filter).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
                 //进行排序
-                return await client.Find(filter).Sort(sort).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
+                return await _collection.Find(filter).Sort(sort).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
             }
 
             //制定查询字段
@@ -208,14 +210,15 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
             fieldList?.Clear();
 
             //不排序
-            if (sort == null) return await client.Find(filter).Project<T>(projection).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
+            if (sort == null) return await _collection.Find(filter).Project<T>(projection).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
 
             //排序查询
-            return await client.Find(filter).Sort(sort).Project<T>(projection).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
+            return await _collection.Find(filter).Sort(sort).Project<T>(projection).Skip((pageInd - 1) * pageSize).Limit(pageSize).ToListAsync();
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(FindListByPageAsync)} 异常");
             throw;
         }
     }
@@ -224,11 +227,11 @@ public class MongoBaseRepo<T> : IMongoBaseRepo<T>
     {
         try
         {
-            var client = _database.GetCollection<T>(_collName);
-            return await client.CountDocumentsAsync(filter);
+            return await _collection.CountDocumentsAsync(filter);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex, $"{nameof(CountAsync)} 异常");
             throw;
         }
     }

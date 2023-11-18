@@ -21,6 +21,7 @@ public class MigrationStartupTask
             var defPermissions = DomainReflexUtil.GetAssemblyPermissionAttributes();
             await dataSeedSvc.InitPermissionAsync(defPermissions);
             await dataSeedSvc.InitAdministratorPermissionAsync();
+            await dataSeedSvc.InitUserPermissionAsync();
         }
         catch (Exception ex)
         {
