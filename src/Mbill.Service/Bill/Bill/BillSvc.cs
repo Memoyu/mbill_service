@@ -391,24 +391,20 @@ public class BillSvc : ApplicationSvc, IBillSvc
         var expend = await GetSelect().Where(s => s.Type == (int)BillTypeEnum.expend).GroupBy(s => s.Time.Month).ToListAsync(s => new { Month = s.Key, Sum = s.Sum(s.Value.Amount) });
         var income = await GetSelect().Where(s => s.Type == (int)BillTypeEnum.income).GroupBy(s => s.Time.Month).ToListAsync(s => new { Month = s.Key, Sum = s.Sum(s.Value.Amount) });
 
-        // 计算收入总额
-        var totalIncome = income.Sum(i => i.Sum);
-
         var month = 12;
         var curYear = DateTime.Now.Year;
         if (curYear == year) month = DateTime.Now.Month;
-        var curExpend = 0m;
         // 构建返回Dto
         for (int m = 1; m <= month; m++)
         {
             var e = expend.FirstOrDefault(e => e.Month == m)?.Sum ?? 0;
-            curExpend += e;
+            var i = income.FirstOrDefault(e => e.Month == m)?.Sum ?? 0;
             dtos.Add(new YearSurplusStatDto
             {
                 Month = m,
-                Surplus = (totalIncome - curExpend).AmountFormat(),
+                Surplus = (i - e).AmountFormat(),
                 Expend = e.AmountFormat(),
-                Income = (income.FirstOrDefault(e => e.Month == m)?.Sum ?? 0).AmountFormat(),
+                Income = i.AmountFormat(),
             });
         }
         return ServiceResult<List<YearSurplusStatDto>>.Successed(dtos);
