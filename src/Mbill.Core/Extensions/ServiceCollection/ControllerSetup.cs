@@ -1,4 +1,6 @@
-﻿namespace Mbill.Core.Extensions.ServiceCollection;
+﻿using Mbill.Core.Extensions.Converters;
+
+namespace Mbill.Core.Extensions.ServiceCollection;
 
 /// <summary>
 /// 控制器配置注册
@@ -16,19 +18,7 @@ public static class ControllerSetup
             {
                 opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
                 opt.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
-                    //设置自定义时间戳格式
-                    //opt.SerializerSettings.Converters = new List<JsonConverter>()
-                    //{
-                    //    new LinCmsTimeConverter()
-                    //};
-                    // 设置下划线方式，首字母是小写
-                    //opt.SerializerSettings.ContractResolver = new DefaultContractResolver()
-                    //{
-                    //    NamingStrategy = new SnakeCaseNamingStrategy()
-                    //    {
-                    //        ProcessDictionaryKeys = true
-                    //    }
-                    //};
+                opt.SerializerSettings.Converters.Add(new JsonLongToStringConverter());
             })
             .ConfigureApiBehaviorOptions(options =>
             {
