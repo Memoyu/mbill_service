@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/solution-items/">
+    <File Path=".dockerignore" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Memo.Bill.Api/Memo.Bill.Api.csproj" />
+    <Project Path="src/Memo.Bill.Application/Memo.Bill.Application.csproj" />
+    <Project Path="src/Memo.Bill.Domain/Memo.Bill.Domain.csproj" />
+    <Project Path="src/Memo.Bill.Infrastructure/Memo.Bill.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="../../CoreMe/tests/CoreMe.Base.Test/CoreMe.Base.Test.csproj" />
+    <Project Path="tests/Memo.Bill.Application.Test/Memo.Bill.Application.Test.csproj" />
+    <Project Path="tests/Memo.Bill.Infrastructure.Test/Memo.Bill.Infrastructure.Test.csproj" Id="a87cd7c5-83fa-4dbd-aebe-2b7c1085ed2d" />
+  </Folder>
+</Solution>
