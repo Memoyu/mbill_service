@@ -13,5 +13,8 @@ public static partial class Permissions
 
         [Description("删除账单")]
         public const string Delete = "delete:bill";
+
+        [Description("获取账单")]
+        public const string Get = "get:bill";
     }
 }

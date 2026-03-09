@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Memo.Bill.Base.Test\Memo.Bill.Base.Test.csproj" />
     <ProjectReference Include="..\..\src\Memo.Bill.Infrastructure\Memo.Bill.Infrastructure.csproj" />
+    <ProjectReference Include="..\Memo.Bill.Base.Test\Memo.Bill.Base.Test.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Memo.Bill.Application\Memo.Bill.Application.csproj" />
+    <ProjectReference Include="..\..\src\Memo.Bill.Application\Memo.Bill.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,5 @@
-﻿using Memo.Bill.Application.Roles.Commands.Create;
-using Memo.Bill.Application.Roles.Commands.Delete;
-using Memo.Bill.Application.Roles.Commands.Update;
-using Memo.Bill.Application.Roles.Queries.Get;
-using Memo.Bill.Application.Roles.Queries.List;
+﻿using Memo.Bill.Application.Roles.Commands;
+using Memo.Bill.Application.Roles.Queries;
 
 namespace Memo.Bill.Api.Controllers;
 

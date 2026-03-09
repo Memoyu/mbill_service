@@ -1,4 +1,4 @@
-﻿using Memo.Bill.Application.Tokens.Commands.Create;
+﻿using Memo.Bill.Application.Tokens.Commands;
 
 namespace Memo.Bill.Api.Controllers;
 
@@ -15,7 +15,7 @@ public class TokensController(ISender mediator) : ApiControllerBase
     /// <param name="request">用户账户、密码</param>
     /// <returns></returns>
     [HttpPost("create")]
-    public async Task<Result> CreateAsync(CreateTokenQuery request)
+    public async Task<Result> CreateAsync(CreateTokenCommand request)
     {
         return await mediator.Send(request);
     }

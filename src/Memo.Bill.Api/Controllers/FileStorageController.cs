@@ -1,4 +1,4 @@
-﻿using Memo.Bill.Application.FileStorages.Queries.Generate;
+﻿using Memo.Bill.Application.FileStorages.Command;
 
 namespace Memo.Bill.Api.Controllers;
 

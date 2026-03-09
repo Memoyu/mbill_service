@@ -1,5 +1,4 @@
-﻿using Memo.Bill.Application.Permissions.Queries.Group;
-using Memo.Bill.Application.Permissions.Queries.List;
+﻿using Memo.Bill.Application.Permissions.Queries;
 
 namespace Memo.Bill.Api.Controllers;
 

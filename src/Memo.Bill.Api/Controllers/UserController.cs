@@ -1,9 +1,5 @@
-﻿using Memo.Bill.Application.Users.Commands.Create;
-using Memo.Bill.Application.Users.Commands.Delete;
-using Memo.Bill.Application.Users.Commands.Update;
-using Memo.Bill.Application.Users.Queries.Get;
-using Memo.Bill.Application.Users.Queries.List;
-using Memo.Bill.Application.Users.Queries.Page;
+﻿using Memo.Bill.Application.Users.Commands;
+using Memo.Bill.Application.Users.Queries;
 
 namespace Memo.Bill.Api.Controllers;
 
