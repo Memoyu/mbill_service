@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Bills.Commands;
+﻿using Memo.Bill.Domain.Events.Bills;
+
+namespace Memo.Bill.Application.Bills.Commands;
 
 [Authorize(Permissions = ApiPermission.Bill.Delete)]
 [Transactional]
@@ -15,12 +17,17 @@ public class DeleteBillCommandValidator : AbstractValidator<DeleteBillCommand>
 }
 
 public class DeleteBillCommandHandler(
-    IMapper mapper,
     IBaseDefaultRepository<Billing> billRepo
     ) : IRequestHandler<DeleteBillCommand, Result>
 {
     public async Task<Result> Handle(DeleteBillCommand request, CancellationToken cancellationToken)
     {
-        return Result.Success();
+        var bill = await billRepo.Select.Where(t => t.BillId == request.BillId).FirstAsync(cancellationToken)
+            ?? throw new ApplicationException("账单不存在或已删除");
+
+        bill.AddDomainEvent(new DeleteBillEvent(bill.BillId));
+        var row = await billRepo.DeleteAsync(bill, cancellationToken);
+
+        return row > 0 ? Result.Success() : throw new ApplicationException("删除账单失败");
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Memo.Bill.Application.Categories.Common;
 
-public record CategoryGroupResult
+internal record CategoryGroupResult
 {
     public long CategoryId { get; set; }
 

@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Bills.Queries;
+﻿using Memo.Bill.Application.Bills.Common;
+
+namespace Memo.Bill.Application.Bills.Queries;
 
 [Authorize(Permissions = ApiPermission.Bill.Get)]
 public record GetBillQuery(long BillId) : IAuthorizeableRequest<Result>;
@@ -20,6 +22,11 @@ public class GetBillQueryHandler(
 {
     public async Task<Result> Handle(GetBillQuery request, CancellationToken cancellationToken)
     {
-        return Result.Success();
+        var entity = await billRepo.Select
+            .Include(a => a.Category)
+            .Include(a => a.Account)
+            .Where(t => t.BillId == request.BillId).FirstAsync(cancellationToken) ?? throw new ApplicationException("账单不存在或已删除");
+
+        return Result.Success(mapper.Map<BillResult>(entity));
     }
 }

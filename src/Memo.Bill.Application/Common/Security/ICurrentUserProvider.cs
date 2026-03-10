@@ -3,6 +3,11 @@
 public interface ICurrentUserProvider
 {
     /// <summary>
+    /// 获取当前登录用户Id
+    /// </summary>
+    long UserId => GetCurrentUser().Id;
+
+    /// <summary>
     /// 获取当前登录用户
     /// </summary>
     /// <returns></returns>

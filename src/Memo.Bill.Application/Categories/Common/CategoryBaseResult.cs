@@ -1,16 +1,11 @@
 ﻿namespace Memo.Bill.Application.Categories.Common;
 
-internal record CategoryResult: CategoryBaseResult
+internal record CategoryBaseResult
 {
     /// <summary>
     /// 分类Id
     /// </summary>
     public long CategoryId { get; set; }
-
-    /// <summary>
-    /// 父级Id
-    /// </summary>
-    public CategoryResult? Parent { get; set; }
 
     /// <summary>
     /// 名称
@@ -21,14 +16,4 @@ internal record CategoryResult: CategoryBaseResult
     /// 图标
     /// </summary>
     public string Icon { get; set; } = string.Empty;
-
-    /// <summary>
-    /// 是否默认
-    /// </summary>
-    public bool IsDefault { get; set; }
-
-    /// <summary>
-    /// 排序
-    /// </summary>
-    public int Sort { get; set; }
 }

@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Domain.Entities;
+﻿using Memo.Bill.Domain.Enums;
+
+namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
 /// 账单表
@@ -6,7 +8,7 @@
 [Table(Name = "billing")]
 [Index("idx_billing_bill_id", nameof(BillId), false)]
 [Index("idx_billing_category_id", nameof(CategoryId), false)]
-[Index("idx_billing_asset_id", nameof(AssetId), false)]
+[Index("idx_billing_account_id", nameof(AccountId), false)]
 public class Billing : BaseAuditEntity
 {
     /// <summary>
@@ -24,10 +26,10 @@ public class Billing : BaseAuditEntity
     public long CategoryId { get; set; }
 
     /// <summary>
-    /// 资产Id
+    /// 账户Id
     /// </summary>
-    [Description("资产Id")]
-    public long AssetId { get; set; }
+    [Description("账户Id")]
+    public long AccountId { get; set; }
 
     /// <summary>
     /// 金额
@@ -40,7 +42,7 @@ public class Billing : BaseAuditEntity
     /// 类型：0-支出、1-收入
     /// </summary>
     [Description("类型：0-支出、1-收入")]
-    public int Type { get; set; }
+    public BillType Type { get; set; }
 
     /// <summary>
     /// 备注
@@ -68,4 +70,16 @@ public class Billing : BaseAuditEntity
     /// </summary>
     [Description("日期")]
     public DateTime Date { get; set; }
+
+    /// <summary>
+    /// 账单分类
+    /// </summary>
+    [Navigate(nameof(CategoryId), TempPrimary = nameof(Category.CategoryId))]
+    public virtual Category Category { get; set; } = new();
+
+    /// <summary>
+    /// 账单账户
+    /// </summary>
+    [Navigate(nameof(AccountId), TempPrimary = nameof(Account.AccountId))]
+    public virtual Account Account { get; set; } = new();
 }

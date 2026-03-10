@@ -49,5 +49,34 @@ namespace Memo.Bill.Api.Controllers
             return await mediator.Send(request);
         }
 
+        /// <summary>
+        /// 获取指定日期账单
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("list/date")]
+        public async Task<Result> GetBillDateAsync([FromQuery] GetBillDateQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 搜索账单
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("search")]
+        public async Task<Result> SearchRecordAsync([FromQuery] SearchBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取搜索账单记录
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("search/record")]
+        public async Task<Result> SearchBillRecordAsync([FromQuery] SearchBillRecordQuery request)
+        {
+            return await mediator.Send(request);
+        }
     }
 }

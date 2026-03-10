@@ -16,11 +16,11 @@ public class GetAccountGroupQueryHandler(
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
 
-        var entities = await accountRepo.Select.Where(c => c.CreateUserId == userId).ToListAsync(cancellationToken);
-        var dtos = mapper.Map<List<AccountGroupResult>>(entities.Where(c => !c.ParentId.HasValue).OrderByDescending(d => d.Sort));
+        var entities = await accountRepo.Select.Where(x => x.CreateUserId == userId).ToListAsync(cancellationToken);
+        var dtos = mapper.Map<List<AccountGroupResult>>(entities.Where(x => !x.ParentId.HasValue).OrderByDescending(x => x.Sort));
         dtos.ForEach(d =>
         {
-            d.Childs = mapper.Map<List<AccountResult>>(entities.Where(d => d.ParentId == d.AccountId).OrderByDescending(d => d.Sort));
+            d.Childs = mapper.Map<List<AccountResult>>(entities.Where(x => x.ParentId == d.AccountId).OrderByDescending(x => x.Sort));
         });
         return Result.Success(dtos);
     }

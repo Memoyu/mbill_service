@@ -16,5 +16,14 @@ public static partial class Permissions
 
         [Description("获取账单")]
         public const string Get = "get:bill";
+
+        [Description("获取指定日期账单")]
+        public const string GetDate = "get:date:bill";
+
+        [Description("账单搜索")]
+        public const string Search = "search:bill";
+
+        [Description("获取搜索账单记录")]
+        public const string SearchRecord = "search:record:bill";
     }
 }

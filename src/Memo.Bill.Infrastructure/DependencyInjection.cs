@@ -5,7 +5,6 @@ using IP2Region.Net.XDB;
 using Memo.Bill.Application.Common.Interfaces.Services.Amap;
 using Memo.Bill.Application.Common.Interfaces.Services.Region;
 using Memo.Bill.Application.Common.Models.Settings;
-using Memo.Bill.Application.Common.Security;
 using Memo.Bill.Infrastructure.Persistence.Cache;
 using Memo.Bill.Infrastructure.Security.TokenGenerator;
 using Memo.Bill.Infrastructure.Services.Amap;

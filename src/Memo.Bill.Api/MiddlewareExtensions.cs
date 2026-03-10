@@ -40,12 +40,12 @@ public static class MiddlewareExtensions
     /// 初始化应用数据（如权限数据同步）
     /// </summary>
     /// <param name="app"></param>
-    private static void InitializeAppData(WebApplication app)
+    private static async Task InitializeAppData(WebApplication app)
     {
         // 依赖容器构建完成，做数权限数据同步
         using var scope = app.Services.CreateScope();
         var services = scope.ServiceProvider;
         var publisher = services.GetRequiredService<IPublisher>();
-        _ = publisher.Publish(new SyncPermissionEvent());
+        await publisher.Publish(new SyncPermissionEvent());
     }
 }

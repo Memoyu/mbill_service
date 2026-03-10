@@ -1,6 +1,6 @@
 ﻿namespace Memo.Bill.Application.Accounts.Common;
 
-public record AccountGroupResult
+internal record AccountGroupResult
 {
     public long AccountId { get; set; }
 

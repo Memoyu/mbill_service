@@ -1,42 +1,34 @@
-﻿using Memo.Bill.Domain.Constants;
-using Memo.Bill.Domain.Enums;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using Memo.Bill.Application.Accounts.Common;
+using Memo.Bill.Application.Categories.Common;
 
-namespace Memo.Bill.Domain.Entities.Mongo;
+namespace Memo.Bill.Application.Bills.Common;
 
-/// <summary>
-/// 账单记录
-/// </summary>
-[MongoCollection(AppConst.BillCollectionName)]
-public class BillingCollection
+internal record BillResult
 {
     /// <summary>
     /// 账单Id
     /// </summary>
-    [BsonId]
     public long BillId { get; set; }
 
     /// <summary>
     /// 分类Id
     /// </summary>
-    public long CategoryId { get; set; }
+    public CategoryBaseResult Category { get; set; } = new();
 
     /// <summary>
     /// 账户Id
     /// </summary>
-    public long AccountId { get; set; }
+    public AccountBaseResult Account { get; set; } = new();
 
     /// <summary>
     /// 金额
     /// </summary>
-    [BsonRepresentation(BsonType.Decimal128)]
     public decimal Amount { get; set; }
 
     /// <summary>
     /// 类型：0-支出、1-收入
     /// </summary>
-    public BillType Type { get; set; }
+    public int Type { get; set; }
 
     /// <summary>
     /// 备注
@@ -62,9 +54,4 @@ public class BillingCollection
     /// 创建时间
     /// </summary>
     public DateTime CreateTime { get; set; }
-
-    /// <summary>
-    /// 创建人UserId
-    /// </summary>
-    public long CreateUserId { get; set; }
 }

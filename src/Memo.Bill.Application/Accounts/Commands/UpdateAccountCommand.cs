@@ -25,7 +25,6 @@ public class UpdateAccountCommandValidator : AbstractValidator<UpdateAccountComm
 }
 
 public class UpdateBillCommandHandler(
-    IMapper mapper,
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Account> accountRepo
     ) : IRequestHandler<UpdateAccountCommand, Result>
@@ -40,9 +39,8 @@ public class UpdateBillCommandHandler(
         var exist = await accountRepo.Select.AnyAsync(x => x.Name == request.Name && x.AccountId != request.AccountId && x.CreateUserId == userId, cancellationToken);
         if (exist) return Result.Failure("账户已存在");
 
-        var update = mapper.Map<Account>(request);
-        update.Id = entity.Id;
-        var row = await accountRepo.UpdateAsync(update, cancellationToken);
+        request.Adapt(entity);
+        var row = await accountRepo.UpdateAsync(entity, cancellationToken);
 
         return row > 0 ? Result.Success() : throw new ApplicationException("更新账户失败");
     }

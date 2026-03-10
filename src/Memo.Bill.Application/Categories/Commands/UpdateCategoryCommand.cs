@@ -25,7 +25,6 @@ public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCo
 }
 
 public class UpdateBillCommandHandler(
-    IMapper mapper,
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Category> categoryRepo
     ) : IRequestHandler<UpdateCategoryCommand, Result>
@@ -40,9 +39,8 @@ public class UpdateBillCommandHandler(
         var exist = await categoryRepo.Select.AnyAsync(x => x.Name == request.Name && x.CategoryId != request.CategoryId && x.CreateUserId == userId, cancellationToken);
         if (exist) return Result.Failure("分类已存在");
 
-        var update = mapper.Map<Category>(request);
-        update.Id = entity.Id;
-        var row = await categoryRepo.UpdateAsync(update, cancellationToken);
+        request.Adapt(entity);
+        var row = await categoryRepo.UpdateAsync(entity, cancellationToken);
 
         return row > 0 ? Result.Success() : throw new ApplicationException("更新分类失败");
     }
