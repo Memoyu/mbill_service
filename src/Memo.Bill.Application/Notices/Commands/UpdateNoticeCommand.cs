@@ -1,4 +1,4 @@
-﻿namespace Memo.Bill.Application.Notices.Commands.Update;
+﻿namespace Memo.Bill.Application.Notices.Commands;
 
 [Authorize(Permissions = ApiPermission.Notice.Update)]
 public record UpdateNoticeCommand(long NoticeId, string Content, string Range) : IAuthorizeableRequest<Result>;
@@ -15,5 +15,16 @@ public class UpdateNoticeCommandValidator : AbstractValidator<UpdateNoticeComman
             .MinimumLength(1)
             .MaximumLength(250)
             .WithMessage("公告内容长度在1-250个字符之间");
+    }
+}
+
+public class UpdateNoticeCommandHandler(
+    IMapper mapper,
+    IBaseDefaultRepository<Notice> noticeRepo
+    ) : IRequestHandler<UpdateNoticeCommand, Result>
+{
+    public async Task<Result> Handle(UpdateNoticeCommand request, CancellationToken cancellationToken)
+    {
+        return Result.Success();
     }
 }

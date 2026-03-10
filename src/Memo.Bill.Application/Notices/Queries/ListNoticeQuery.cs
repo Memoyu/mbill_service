@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Notices.Queries.List;
+﻿namespace Memo.Bill.Application.Notices.Queries;
+
+public record ListNoticeQuery() : IAuthorizeableRequest<Result>;
 
 public class ListNoticeQueryHandler(
     IMapper mapper,

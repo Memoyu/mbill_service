@@ -2,8 +2,33 @@
 using Memo.Bill.Domain.Entities.Mongo;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Serilog.Events;
+namespace Memo.Bill.Application.Loggers.Queries.System;
 
-namespace Memo.Bill.Application.Logger.Queries.System.Page;
+[Authorize(Permissions = ApiPermission.LoggerSystem.Page)]
+public record PageLoggerSystemQuery : PaginationQuery, IAuthorizeableRequest<Result>
+{
+    public string? Id { get; set; }
+
+    public LogEventLevel? Level { get; set; }
+
+    public string? Message { get; set; }
+
+    public string? Source { get; set; }
+
+    public string? RequestParamterName { get; set; }
+
+    public string? RequestParamterValue { get; set; }
+
+    public string? RequestId { get; set; }
+
+    public string? RequestPath { get; set; }
+
+    public DateTime? DateBegin { get; set; }
+
+    public DateTime? DateEnd { get; set; }
+}
+
 
 public class PageLoggerSystemQueryHandler(
     IMapper mapper,
@@ -16,7 +41,7 @@ public class PageLoggerSystemQueryHandler(
         if (!string.IsNullOrWhiteSpace(request.Id))
             f &= Builders<LoggerSystemCollection>.Filter.Eq(nameof(LoggerSystemCollection.Id), ObjectId.Parse(request.Id));
 
-            if (request.Level.HasValue)
+        if (request.Level.HasValue)
             f &= Builders<LoggerSystemCollection>.Filter.Eq(nameof(LoggerSystemCollection.Level), request.Level.Value);
 
         if (!string.IsNullOrWhiteSpace(request.Message))
@@ -53,7 +78,7 @@ public class PageLoggerSystemQueryHandler(
                 );
         }
 
-        var sort = Builders< LoggerSystemCollection >.Sort.Descending( x => x.UtcTimeStamp );
+        var sort = Builders<LoggerSystemCollection>.Sort.Descending(x => x.UtcTimeStamp);
 
         var total = await systemLogMongoRepo.CountAsync(f, cancellationToken: cancellationToken);
         var logs = await systemLogMongoRepo.FindListByPageAsync(f, request.Page, request.Size, sort: sort, cancellationToken: cancellationToken);

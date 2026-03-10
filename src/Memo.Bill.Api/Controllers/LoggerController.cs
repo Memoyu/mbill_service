@@ -1,5 +1,4 @@
-﻿using Memo.Bill.Application.Logger.Queries.System.Get;
-using Memo.Bill.Application.Logger.Queries.System.Page;
+﻿using Memo.Bill.Application.Loggers.Queries.System;
 
 namespace Memo.Bill.Api.Controllers;
 

@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Notices.Queries.Get;
+﻿namespace Memo.Bill.Application.Notices.Queries;
+
+public record LatestNoticeQuery() : IAuthorizeableRequest<Result>;
 
 public class LatestNoticeQueryHandler(
     IMapper mapper,
