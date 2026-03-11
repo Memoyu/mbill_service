@@ -1,7 +1,5 @@
 ﻿using Memo.Bill.Application.Bills.Common;
 using Memo.Bill.Application.Bills.Queries;
-using Memo.Bill.Application.Common.Attributes;
-using Memo.Bill.Application.Common.Interfaces.Services.App;
 using Memo.Bill.Application.Common.Security;
 
 namespace Memo.Bill.Application.Common.Services.App;

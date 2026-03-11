@@ -5,9 +5,11 @@ global using MediatR;
 global using MapsterMapper;
 global using Mapster;
 
+global using Memo.Bill.Application.Common.Interfaces.Services.App;
 global using Memo.Bill.Application.Common.Interfaces.Security;
 global using Memo.Bill.Application.Common.Models;
 global using Memo.Bill.Application.Common.Behaviours;
+global using Memo.Bill.Application.Common.Attributes;
 global using Memo.Bill.Domain.Constants;
 global using Memo.Bill.Application.Common.Interfaces.Persistence.Repositories;
 global using Memo.Bill.Application.Tokens.Common;

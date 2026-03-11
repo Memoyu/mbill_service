@@ -7,7 +7,7 @@ namespace Memo.Bill.Api.Controllers;
 /// </summary>
 /// <param name="mediator"></param>
 [AllowAnonymous]
-public class TokensController(ISender mediator) : ApiControllerBase
+public class TokenController(ISender mediator) : ApiControllerBase
 {
     /// <summary>
     /// 生成用户Token

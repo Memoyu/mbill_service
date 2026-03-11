@@ -3,13 +3,9 @@ using EasyCaching.Serialization.SystemTextJson.Configurations;
 using IP2Region.Net.Abstractions;
 using IP2Region.Net.XDB;
 using Memo.Bill.Application;
-using Memo.Bill.Application.Common.Interfaces.Services.Amap;
-using Memo.Bill.Application.Common.Interfaces.Services.Region;
 using Memo.Bill.Application.Common.Models.Settings;
 using Memo.Bill.Infrastructure.Persistence.Cache;
 using Memo.Bill.Infrastructure.Security.TokenGenerator;
-using Memo.Bill.Infrastructure.Services.Amap;
-using Memo.Bill.Infrastructure.Services.Region;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,7 +35,6 @@ public static class DependencyInjection
             .AddPersistenceForMyql(configuration) // 注册MySql数据持久化组件（FreeSql）
             .AddPersistenceForMongo(configuration) // 注册MongoDb持久化组件（MongoDB.Driver）
             .AddAddEasyCaching(configuration) // 注册缓存组件
-            .InitIp2Region() // 初始化IP地址定位
             .AddExternalServices(); // 注册外部服务
 
         return services;
@@ -183,21 +178,6 @@ public static class DependencyInjection
     }
 
     /// <summary>
-    /// 注册IP地址定位
-    /// </summary>
-    /// <param name="services"></param>
-    /// <returns></returns>
-    private static IServiceCollection InitIp2Region(this IServiceCollection services)
-    {
-        var sp = services.BuildServiceProvider();
-        var env = sp.GetRequiredService<IWebHostEnvironment>();
-        string xdbPath = Path.Combine(env.WebRootPath, "Assets", "ip2region.xdb");
-        services.AddSingleton<ISearcher>(new Searcher(CachePolicy.Content, xdbPath));
-
-        return services;
-    }
-
-    /// <summary>
     /// 注册缓存组件
     /// </summary>
     /// <param name="services"></param>
@@ -221,17 +201,6 @@ public static class DependencyInjection
         return services;
     }
 
-    ///// <summary>
-    ///// 注册高德地图服务
-    ///// </summary>
-    ///// <param name="services"></param>
-    ///// <returns></returns>
-    //private static IServiceCollection AddAmap(this IServiceCollection services)
-    //{
-    //    services.AddSingleton<IAmapService, AmapService>();
-    //    return services;
-    //}
-
     /// <summary>
     /// 注册外部服务
     /// </summary>
@@ -239,9 +208,28 @@ public static class DependencyInjection
     /// <returns></returns>
     private static IServiceCollection AddExternalServices(this IServiceCollection services)
     {
+        // 初始化IP地址定位组件
+        InitIp2Region(services);
+
         var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
         services.AddAssemblyServices(assemblyName ?? string.Empty);
 
         return services;
     }
+
+    /// <summary>
+    /// 注册IP地址定位
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+    private static IServiceCollection InitIp2Region(IServiceCollection services)
+    {
+        var sp = services.BuildServiceProvider();
+        var env = sp.GetRequiredService<IWebHostEnvironment>();
+        string xdbPath = Path.Combine(env.WebRootPath, "Assets", "ip2region.xdb");
+        services.AddSingleton<ISearcher>(new Searcher(CachePolicy.Content, xdbPath));
+
+        return services;
+    }
+
 }
