@@ -339,5 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-
-/src/mbill_service/Logs/
+/src/Memo.Bill/Logs/
