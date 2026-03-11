@@ -5,6 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Services\Amap\AmapService.cs~RF18e82bc.TMP" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="FreeSql.Provider.MySql" Version="3.5.306" />

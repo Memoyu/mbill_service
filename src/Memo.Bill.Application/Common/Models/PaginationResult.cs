@@ -1,5 +1,5 @@
 ﻿namespace Memo.Bill.Application.Common.Models;
-public class PaginationResult<T>
+public record PaginationResult<T>
 {
     public PaginationResult(IReadOnlyList<T> items)
     {

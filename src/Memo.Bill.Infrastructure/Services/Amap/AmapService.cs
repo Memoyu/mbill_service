@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace Memo.Bill.Infrastructure.Services.Amap;
 
+[AppService(ServiceLifeType = ServiceLifeType.Singleton)]
 public class AmapService : IAmapService
 {
     private readonly AmapOptions? _options;

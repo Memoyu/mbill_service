@@ -2,6 +2,7 @@
 using EasyCaching.Serialization.SystemTextJson.Configurations;
 using IP2Region.Net.Abstractions;
 using IP2Region.Net.XDB;
+using Memo.Bill.Application;
 using Memo.Bill.Application.Common.Interfaces.Services.Amap;
 using Memo.Bill.Application.Common.Interfaces.Services.Region;
 using Memo.Bill.Application.Common.Models.Settings;
@@ -21,6 +22,7 @@ using MongoDB.Driver;
 using Serilog;
 using Serilog.Events;
 using System.Configuration;
+using System.Reflection;
 
 namespace Memo.Bill.Infrastructure;
 
@@ -37,8 +39,8 @@ public static class DependencyInjection
             .AddPersistenceForMyql(configuration) // 注册MySql数据持久化组件（FreeSql）
             .AddPersistenceForMongo(configuration) // 注册MongoDb持久化组件（MongoDB.Driver）
             .AddAddEasyCaching(configuration) // 注册缓存组件
-            .AddIp2Region() // 注册IP地址定位
-            .AddAmap(); // 注册高德地图服务
+            .InitIp2Region() // 初始化IP地址定位
+            .AddExternalServices(); // 注册外部服务
 
         return services;
     }
@@ -185,14 +187,12 @@ public static class DependencyInjection
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>
-    private static IServiceCollection AddIp2Region(this IServiceCollection services)
+    private static IServiceCollection InitIp2Region(this IServiceCollection services)
     {
         var sp = services.BuildServiceProvider();
         var env = sp.GetRequiredService<IWebHostEnvironment>();
         string xdbPath = Path.Combine(env.WebRootPath, "Assets", "ip2region.xdb");
-
         services.AddSingleton<ISearcher>(new Searcher(CachePolicy.Content, xdbPath));
-        services.AddSingleton<IRegionSearchService, RegionSearchService>();
 
         return services;
     }
@@ -221,14 +221,27 @@ public static class DependencyInjection
         return services;
     }
 
+    ///// <summary>
+    ///// 注册高德地图服务
+    ///// </summary>
+    ///// <param name="services"></param>
+    ///// <returns></returns>
+    //private static IServiceCollection AddAmap(this IServiceCollection services)
+    //{
+    //    services.AddSingleton<IAmapService, AmapService>();
+    //    return services;
+    //}
+
     /// <summary>
-    /// 注册高德地图服务
+    /// 注册外部服务
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>
-    private static IServiceCollection AddAmap(this IServiceCollection services)
+    private static IServiceCollection AddExternalServices(this IServiceCollection services)
     {
-        services.AddSingleton<IAmapService, AmapService>();
+        var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+        services.AddAssemblyServices(assemblyName ?? string.Empty);
+
         return services;
     }
 }

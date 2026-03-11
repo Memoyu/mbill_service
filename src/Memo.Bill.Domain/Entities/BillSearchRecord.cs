@@ -1,6 +1,4 @@
-﻿using Memo.Bill.Domain.Enums;
-
-namespace Memo.Bill.Domain.Entities;
+﻿namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
 /// 账单搜索记录表
@@ -9,22 +7,25 @@ namespace Memo.Bill.Domain.Entities;
 public class BillSearchRecord : BaseAuditEntity
 {
     /// <summary>
-    /// 账单类型
+    /// 账单类型 JSON
     /// </summary>
-    [Description("账单类型")]
-    public BillType? Type { get; set; }
+    [Description("账单类型 JSON")]
+    [Column(StringLength = 100)]
+    public string? Types { get; set; }
 
     /// <summary>
-    /// 账单分类Id
+    /// 账单分类Id JSON
     /// </summary>
-    [Description("账单分类Id")]
-    public long? CategoryId { get; set; }
+    [Description("账单分类Id JSON")]
+    [Column(StringLength = 500)]
+    public string? CategoryIds { get; set; }
 
     /// <summary>
-    /// 账单账户Id
+    /// 账单账户Id JSON
     /// </summary>
-    [Description("账单账户Id")]
-    public long? AccountId { get; set; }
+    [Description("账单账户Id JSON")]
+    [Column(StringLength = 500)]
+    public string? AccountIds { get; set; }
 
     /// <summary>
     /// 金额区间最小值

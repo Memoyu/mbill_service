@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Memo.Bill.Application.Common.Background;
+namespace Memo.Bill.Application.Common.Services.Background;
 
 internal abstract class BaseTaskService : BackgroundService
 {

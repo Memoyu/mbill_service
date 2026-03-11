@@ -50,11 +50,21 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 获取指定日期账单
+        /// 获取账单分页
         /// </summary>
         /// <returns></returns>
-        [HttpGet("list/date")]
-        public async Task<Result> GetBillDateAsync([FromQuery] GetBillDateQuery request)
+        [HttpGet("page")]
+        public async Task<Result> PageBillAsync([FromQuery] PageBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取账单分页日期分组
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("page/group/date")]
+        public async Task<Result> PageBillGroupByDateAsync([FromQuery] PageBillGroupByDateQuery request)
         {
             return await mediator.Send(request);
         }

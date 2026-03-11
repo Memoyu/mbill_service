@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Memo.Bill.Application.Common.Background;
+namespace Memo.Bill.Application.Common.Services.Background;
 
 /// <summary>
 /// 定时任务演示

@@ -4,6 +4,7 @@ global using System.Text;
 
 global using Microsoft.Extensions.Configuration;
 
+global using Memo.Bill.Application.Common.Attributes;
 global using Memo.Bill.Application.Common.Security;
 global using Memo.Bill.Application.Common.Utils;
 global using Memo.Bill.Application.Common.Interfaces.Security;

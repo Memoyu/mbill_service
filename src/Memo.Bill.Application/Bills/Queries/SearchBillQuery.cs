@@ -1,4 +1,7 @@
-﻿using Memo.Bill.Application.Common.Security;
+﻿using Memo.Bill.Application.Accounts.Common;
+using Memo.Bill.Application.Bills.Common;
+using Memo.Bill.Application.Categories.Common;
+using Memo.Bill.Application.Common.Security;
 using Memo.Bill.Domain.Entities.Mongo;
 using MongoDB.Driver;
 
@@ -7,7 +10,7 @@ namespace Memo.Bill.Application.Bills.Queries;
 /// <summary>
 /// 搜索账单
 /// </summary>
-[Authorize(Permissions = ApiPermission.Bill.SearchRecord)]
+[Authorize(Permissions = ApiPermission.Bill.Search)]
 public record SearchBillQuery : PaginationQuery, IAuthorizeableRequest<Result>
 {
     /// <summary>
@@ -18,12 +21,12 @@ public record SearchBillQuery : PaginationQuery, IAuthorizeableRequest<Result>
     /// <summary>
     /// 账单分类Id
     /// </summary>
-    public long? CategoryId { get; set; }
+    public List<long>? CategoryIds { get; set; }
 
     /// <summary>
     /// 账单账户Id
     /// </summary>
-    public long? AccountId { get; set; }
+    public List<long>? AccountIds { get; set; }
 
     /// <summary>
     /// 金额区间最小值
@@ -55,81 +58,87 @@ internal class SearchBillQueryHandler(
     IMapper mapper,
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<BillSearchRecord> billSearchRecordRepo,
-    IBaseMongoRepository<BillingCollection> billMongoRepo
+    IBaseMongoRepository<BillingCollection> billMongoRepo,
+    IBaseDefaultRepository<Category> categoryRepo,
+    IBaseDefaultRepository<Account> accountRepo
     ) : IRequestHandler<SearchBillQuery, Result>
 {
     public async Task<Result> Handle(SearchBillQuery request, CancellationToken cancellationToken)
     {
+        // 记录搜索记录
         var userId = currentUserProvider.UserId;
         var record = mapper.Map<BillSearchRecord>(request);
         await billSearchRecordRepo.InsertAsync(record, cancellationToken);
 
+        // 组装Mongo查询
+        var sort = Builders<BillingCollection>.Sort.Descending("Date");
+        var whereFilter = Builders<BillingCollection>.Filter;
+        List<FilterDefinition<BillingCollection>> filters = new List<FilterDefinition<BillingCollection>>();
 
-        //var sort = Builders<BillingCollection>.Sort.Descending("Time");
-        //var bFilter = Builders<BillingCollection>.Filter;
-        //List<FilterDefinition<BillingCollection>> filters = new List<FilterDefinition<BillingCollection>>();
+        // 账单类型
+        if (request.Types?.Count > 0)
+            filters.Add(whereFilter.And(whereFilter.In(b => b.Type, request.Types)));
 
-        //// 账单类型
-        //if (request.Types != null && request.Types.Any())
-        //    filters.Add(bFilter.And(bFilter.In(b => b.Type, request.Types)));
+        // 账单分类
+        if (request.CategoryIds?.Count > 0)
+            filters.Add(whereFilter.And(whereFilter.In(b => b.CategoryId, request.CategoryIds)));
 
-        //// 账单分类
-        //if (request.CategoryBIds != null && request.CategoryBIds.Any())
-        //    filters.Add(bFilter.And(bFilter.In(b => b.CategoryBId, request.CategoryBIds)));
+        // 账单账户
+        if (request.AccountIds?.Count > 0)
+            filters.Add(whereFilter.And(whereFilter.In(b => b.AccountId, request.AccountIds)));
 
-        //// 账单账户
-        //if (request.AssetBIds != null && request.AssetBIds.Any())
-        //    filters.Add(bFilter.And(bFilter.In(b => b.AssetBId, request.AssetBIds)));
+        // 金额区间
+        // 有最大值，没有最小值
+        if (request.AmountMax.HasValue && !request.AmountMin.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Lte(b => b.Amount, request.AmountMax.Value)));
+        // 没有最大值，有最小值
+        else if (!request.AmountMax.HasValue && request.AmountMin.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Amount, request.AmountMin.Value)));
+        // 有最大值，有最小值
+        else if (request.AmountMax.HasValue && request.AmountMin.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Amount, request.AmountMin.Value), whereFilter.Lte(b => b.Amount, request.AmountMax.Value)));
 
-        //// 金额区间
-        //if (request.Amount != null)
-        //{
-        //    if (request.Amount.Max.HasValue && !request.Amount.Min.HasValue)
-        //        filters.Add(bFilter.And(bFilter.Lte(b => b.Amount, request.Amount.Max.Value)));
-        //    else if (!request.Amount.Max.HasValue && request.Amount.Min.HasValue)
-        //        filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, request.Amount.Min.Value)));
-        //    else if (request.Amount.Max.HasValue && request.Amount.Min.HasValue)
-        //        filters.Add(bFilter.And(bFilter.Gte(b => b.Amount, request.Amount.Min.Value), bFilter.Lte(b => b.Amount, request.Amount.Max.Value)));
-        //}
-        //// 金额区间
-        //if (request.Date != null && request.Date.Begin.HasValue && request.Date.End.HasValue)
-        //    filters.Add(bFilter.And(bFilter.Gte(b => b.Time, request.Date.Begin.Value), bFilter.Lte(b => b.Time, request.Date.End.Value.AddDays(1).AddSeconds(-1))));
+        // 时间区间
+        // 有起始时间，没有截止时间
+        if (request.DateBegin.HasValue && !request.DateEnd.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Date, request.DateBegin.Value)));
+        // 没有起始时间，有截止时间
+        else if (!request.DateBegin.HasValue && request.DateEnd.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Lte(b => b.Date, request.DateEnd.Value.AddDays(1).AddSeconds(-1))));
+        // 有起始时间，有截止时间
+        else if (request.DateBegin.HasValue && request.DateEnd.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Date, request.DateBegin.Value), whereFilter.Lte(b => b.Date, request.DateEnd.Value.AddDays(1).AddSeconds(-1))));
 
-        //// 地址
-        //if (!string.IsNullOrWhiteSpace(request.Address))
-        //    filters.Add(bFilter.And(bFilter.Where(b => b.Address.Contains(request.Address))));
+        // 关键词
+        if (!string.IsNullOrWhiteSpace(request.KeyWord))
+        {
+            filters.Add(whereFilter.And(whereFilter.Or(
+                whereFilter.Where(b => b.Address.Contains(request.KeyWord)),
+                whereFilter.Where(b => b.Remark.Contains(request.KeyWord))
+            )));
+        }
 
-        //// 备注
-        //if (!string.IsNullOrWhiteSpace(request.Remark))
-        //    filters.Add(bFilter.And(bFilter.Where(b => b.Description.Contains(request.Remark))));
+        var filter = whereFilter.And(whereFilter.Eq(b => b.CreateUserId, userId), whereFilter.And(filters));//时间段条件用OR拼在一起
+        var dtos = new List<BillResult>();
+        var pageRes = new PaginationResult<BillResult>(dtos, 0);
+        var total = await billMongoRepo.CountAsync(filter, null, cancellationToken);
+        if (total != 0)
+        {
+            var bills = await billMongoRepo.FindListByPageAsync(filter, request.Page, request.Size, null, sort, cancellationToken);
+            foreach (var bill in bills)
+            {
+                var dto = mapper.Map<BillResult>(bill);
+                var category = await categoryRepo.Select.Where(c => c.CategoryId == bill.CategoryId).FirstAsync(cancellationToken);
+                var account = await accountRepo.Select.Where(c => c.AccountId == bill.AccountId).FirstAsync(cancellationToken);          
+                dto.Category = mapper.Map<CategoryBaseResult>(category);
+                dto.Account = mapper.Map<AccountBaseResult>(account);
+                dtos.Add(dto);
+            }
 
-        //// 关键词
-        //if (string.IsNullOrWhiteSpace(request.Address) && string.IsNullOrWhiteSpace(request.Remark) && !string.IsNullOrWhiteSpace(request.KeyWord))
-        //    filters.Add(bFilter.And(bFilter.Or(bFilter.Where(b => b.Address.Contains(request.KeyWord)),
-        //        bFilter.Where(b => b.Description.Contains(request.KeyWord)))));
+            pageRes.Total = total;
+            pageRes.Items = dtos;
+        }
 
-        //var filter = bFilter.And(bFilter.Eq(b => b.CreateUserBId, CurrentUser.BId), bFilter.And(filters));//时间段条件用OR拼在一起
-        //var paged = new PagedDto<BillDetailDto>();
-
-        //var total = await _mongoRepo.CountAsync(filter);
-        //if (total != 0)
-        //{
-        //    var bills = await _mongoRepo.FindListByPageAsync(filter, request.Page, request.Size, null, sort);
-        //    List<BillDetailDto> dtos = new List<BillDetailDto>();
-        //    foreach (var bill in bills)
-        //    {
-        //        var category = await _categoryRepo.GetCategoryAsync(bill.CategoryBId);
-        //        var asset = await _assetRepo.GetAssetAsync(bill.AssetBId);
-        //        bill.Category = category;
-        //        bill.Asset = asset;
-        //        var dto = Mapper.Map<BillDetailDto>(bill);
-        //        dtos.Add(dto);
-        //    }
-
-        //    paged.Total = total;
-        //    paged.Items = dtos;
-        //}
-
-        return Result.Success();
+        return Result.Success(pageRes);
     }
 }
