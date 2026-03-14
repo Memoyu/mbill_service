@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Common.Extensions;
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Memo.Bill.Application.Common.Extensions;
 
 public static class DateTimeExtensions
 {
@@ -77,9 +79,54 @@ public static class DateTimeExtensions
         {
             begin = begin.AddDays(1);
             dates.Add(begin);
-        };
+        }
 
         return dates;
     }
 
+    /// <summary>
+    /// 获取指定日期的年份第一天
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime FirstDayOfYear(this DateTime date) => DateTime.Parse($"{date.Year}-01-01");
+
+    /// <summary>
+    /// 获取指定日期的年份最后一天
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime LastDayOfYear(this DateTime date) => date.FirstDayOfYear().AddYears(1).AddSeconds(-1);
+
+    /// <summary>
+    /// 获取指定日期的月份第一天
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime FirstDayOfMonth(this DateTime date) => DateTime.Parse($"{date.Year}-{date.Month}-01");
+
+    /// <summary>
+    /// 获取指定日期的月份最后一天
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime LastDayOfMonth(this DateTime date)
+    {
+        var begin = date.FirstDayOfMonth();
+        return begin.AddDays(1 - begin.Day).Date.AddMonths(1).AddSeconds(-1);
+    }
+
+    /// <summary>
+    /// 获取指定日期当天起始时间
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime FirstTimeOfDay(this DateTime date) => date.Date;
+
+    /// <summary>
+    /// 获取指定日期当天截止时间
+    /// </summary>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    public static DateTime LastTimeOfDay(this DateTime date) => date.FirstTimeOfDay().AddDays(1).AddSeconds(-1);
 }

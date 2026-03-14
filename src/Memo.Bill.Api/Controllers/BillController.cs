@@ -88,5 +88,45 @@ namespace Memo.Bill.Api.Controllers
         {
             return await mediator.Send(request);
         }
+
+        /// <summary>
+        /// 获取账单日历
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("calendar")]
+        public async Task<Result> CalendarAsync([FromQuery] CalendarBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取账单汇总金额
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("summary/amount")]
+        public async Task<Result> SummaryAmountAsync([FromQuery] SummaryBillAmountQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取账单汇总分类
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("summary/category")]
+        public async Task<Result> SummaryCategoryAsync([FromQuery] SummaryBillCategoryQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取账单排行榜
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("ranking")]
+        public async Task<Result> RankingAsync([FromQuery] RankingBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
     }
 }

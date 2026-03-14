@@ -1,14 +1,14 @@
 ﻿namespace Memo.Bill.Application.Bills.Common;
 
-internal record BillPageResult : PaginationResult<BillResult>
+internal record BillPageResult<T> : PaginationResult<T>
 {
-    public BillPageResult(IReadOnlyList<BillResult> items, long total) : base(items, total)
+    public BillPageResult(IReadOnlyList<T> items, long total) : base(items, total)
     {
     }
 
     public DateTime Date { get; set; }
 
-    public string Expend { get; set; }
+    public decimal Expend { get; set; }
 
-    public string Income { get; set; }
+    public decimal Income { get; set; }
 }

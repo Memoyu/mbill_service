@@ -1,5 +1,4 @@
 ﻿using Memo.Bill.Application.Categories.Common;
-using Memo.Bill.Application.Common.Security;
 
 namespace Memo.Bill.Application.Categories.Queries;
 
@@ -17,7 +16,7 @@ public class GetCategoryGroupQueryHandler(
         var userId = currentUserProvider.GetCurrentUser().Id;
 
         var entities = await categoryRepo.Select.Where(x => x.CreateUserId == userId).ToListAsync(cancellationToken);
-        var dtos = mapper.Map<List<CategoryGroupResult>>(entities.Where(x => x.ParentId.HasValue).OrderByDescending(x => x.Sort));
+        var dtos = mapper.Map<List<CategoryGroupResult>>(entities.Where(x => !x.ParentId.HasValue).OrderByDescending(x => x.Sort));
         dtos.ForEach(d =>
         {
             d.Childs = mapper.Map<List<CategoryResult>>(entities.Where(x => x.ParentId == d.CategoryId).OrderByDescending(x => x.Sort));

@@ -1,21 +1,19 @@
-﻿using Memo.Bill.Application.Common.Interfaces.Services.App;
-
-namespace Memo.Bill.Application.Bills.Queries;
+﻿namespace Memo.Bill.Application.Bills.Queries;
 
 /// <summary>
 /// 获取账单分页基础属性
 /// </summary>
 public record PageBillBaseQuery : PaginationQuery
-{
+{  
     /// <summary>
-    /// 指定的日期
-    /// </summary>
-    public DateTime Date { get; set; }
+     /// 账单时间起始
+     /// </summary>
+    public DateTime BeginDate { get; set; }
 
     /// <summary>
-    /// 查询时间类型：0-查当日，1-查询当月，2-查询当年
+    /// 账单时间截止
     /// </summary>
-    public int DateType { get; set; }
+    public DateTime EndDate { get; set; }
 
     /// <summary>
     /// 账单类型
@@ -33,12 +31,20 @@ public record PageBillBaseQuery : PaginationQuery
     public long? AccountId { get; set; }
 }
 
-
 /// <summary>
 /// 获取账单分页
 /// </summary>
 [Authorize(Permissions = ApiPermission.Bill.Page)]
 public record PageBillQuery : PageBillBaseQuery, IAuthorizeableRequest<Result>;
+
+public class PageBillQueryValidator : AbstractValidator<PageBillQuery>
+{
+    public PageBillQueryValidator()
+    {
+        RuleFor(x => x.EndDate)
+            .GreaterThan(x => x.BeginDate).WithMessage("结束时间必须晚于开始时间");
+    }
+}
 
 internal class PageBillQueryHandler(
     IBillService billService

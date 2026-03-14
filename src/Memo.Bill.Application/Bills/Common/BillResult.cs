@@ -11,12 +11,12 @@ internal record BillResult
     public long BillId { get; set; }
 
     /// <summary>
-    /// 分类Id
+    /// 分类
     /// </summary>
     public CategoryBaseResult Category { get; set; } = new();
 
     /// <summary>
-    /// 账户Id
+    /// 账户
     /// </summary>
     public AccountBaseResult Account { get; set; } = new();
 

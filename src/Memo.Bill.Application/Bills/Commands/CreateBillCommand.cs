@@ -1,5 +1,4 @@
 ﻿using Memo.Bill.Application.Bills.Common;
-using Memo.Bill.Domain.Entities.Mongo;
 using Memo.Bill.Domain.Events.Bills;
 
 namespace Memo.Bill.Application.Bills.Commands;

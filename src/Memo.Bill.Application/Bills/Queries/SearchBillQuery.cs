@@ -1,7 +1,6 @@
 ﻿using Memo.Bill.Application.Accounts.Common;
 using Memo.Bill.Application.Bills.Common;
 using Memo.Bill.Application.Categories.Common;
-using Memo.Bill.Application.Common.Security;
 using Memo.Bill.Domain.Entities.Mongo;
 using MongoDB.Driver;
 
@@ -41,12 +40,12 @@ public record SearchBillQuery : PaginationQuery, IAuthorizeableRequest<Result>
     /// <summary>
     /// 账单时间起始
     /// </summary>
-    public DateTime? DateBegin { get; set; }
+    public DateTime? BeginDate { get; set; }
 
     /// <summary>
     /// 账单时间截止
     /// </summary>
-    public DateTime? DateEnd { get; set; }
+    public DateTime? EndDate { get; set; }
 
     /// <summary>
     /// 搜索关键字
@@ -100,14 +99,14 @@ internal class SearchBillQueryHandler(
 
         // 时间区间
         // 有起始时间，没有截止时间
-        if (request.DateBegin.HasValue && !request.DateEnd.HasValue)
-            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Date, request.DateBegin.Value)));
+        if (request.BeginDate.HasValue && !request.EndDate.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Date, request.BeginDate.Value)));
         // 没有起始时间，有截止时间
-        else if (!request.DateBegin.HasValue && request.DateEnd.HasValue)
-            filters.Add(whereFilter.And(whereFilter.Lte(b => b.Date, request.DateEnd.Value.AddDays(1).AddSeconds(-1))));
+        else if (!request.BeginDate.HasValue && request.EndDate.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Lte(b => b.Date, request.EndDate.Value.AddDays(1).AddSeconds(-1))));
         // 有起始时间，有截止时间
-        else if (request.DateBegin.HasValue && request.DateEnd.HasValue)
-            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Date, request.DateBegin.Value), whereFilter.Lte(b => b.Date, request.DateEnd.Value.AddDays(1).AddSeconds(-1))));
+        else if (request.BeginDate.HasValue && request.EndDate.HasValue)
+            filters.Add(whereFilter.And(whereFilter.Gte(b => b.Date, request.BeginDate.Value), whereFilter.Lte(b => b.Date, request.EndDate.Value.AddDays(1).AddSeconds(-1))));
 
         // 关键词
         if (!string.IsNullOrWhiteSpace(request.KeyWord))
