@@ -1,8 +1,9 @@
 ﻿namespace Memo.Bill.Application.Tokens.Common;
 
-public record CreateTokenResult(
+public record LoginResult(
     long UserId,
     string Username,
     string AccessToken,
-    string RefreshToken
+    string RefreshToken,
+    long AccessExpiresIn
 );

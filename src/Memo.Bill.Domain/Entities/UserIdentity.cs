@@ -1,4 +1,5 @@
 ﻿using Memo.Bill.Domain.Enums;
+using System.Net.NetworkInformation;
 
 namespace Memo.Bill.Domain.Entities;
 

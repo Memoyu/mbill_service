@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Domain.Entities;
+﻿using Memo.Bill.Domain.Enums;
+
+namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
 /// 用户表
@@ -55,6 +57,12 @@ public class User : BaseAuditEntity
     /// </summary>
     [Description("最后一次登录的时间")]
     public DateTime LastLoginTime { get; set; }
+
+    /// <summary>
+    /// 用户状态
+    /// </summary>
+    [Description("用户状态")]
+    public UserStatus Status { get; set; }
 
     /// <summary>
     /// 角色

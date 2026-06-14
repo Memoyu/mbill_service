@@ -20,3 +20,15 @@ public enum UserIdentityType
     [Description("Gitee认证")]
     Gitee = 4,
 }
+
+/// <summary>
+/// 用户状态
+/// </summary>
+public enum UserStatus
+{
+    [Description("正常")]
+    Normal = 0,
+
+    [Description("禁用")]
+    Disabled = 1,
+}
