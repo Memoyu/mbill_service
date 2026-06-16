@@ -1,5 +1,4 @@
-﻿using Memo.Bill.Application.Common.Security;
-using Memo.Bill.Application.Roles.Common;
+﻿using Memo.Bill.Application.Roles.Common;
 using Memo.Bill.Application.Users.Common;
 
 namespace Memo.Bill.Application.Users.Queries;
@@ -15,7 +14,7 @@ public class GetUserQueryHandler(
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<User> userRepo,
     IBaseDefaultRepository<UserRole> userRoleRepo,
-     IBaseDefaultRepository<UserIdentity> userIdentityRepo
+    IBaseDefaultRepository<Billing> billRepo
     ) : IRequestHandler<GetUserQuery, Result>
 {
     public async Task<Result> Handle(GetUserQuery request, CancellationToken cancellationToken)
@@ -32,11 +31,11 @@ public class GetUserQueryHandler(
             .Include(u => u.Role)
             .Where(u => u.UserId == userId).ToListAsync(cancellationToken) ?? [];
 
-        var userIdentity = await userIdentityRepo.Select.Where(ui => ui.UserId == userId).FirstAsync(cancellationToken);
-
-        var dto = mapper.Map<UserWithUserIdentityResult>(user);
+        var dto = mapper.Map<UserResult>(user);
         dto.Roles = userRoles.Select(ur => mapper.Map<RoleListResult>(ur.Role)).ToList();
-        dto.UserIdentity = mapper.Map<UserIdentityResult>(userIdentity);
+        var days = (int)(DateTime.Now.Date - dto.CreateTime.Date).TotalDays;
+        dto.BillDay = days  <= 0 ? 1 : days;
+        dto.BillCount = await billRepo.Select.Where(b => b.CreateUserId == userId).CountAsync(cancellationToken);
 
         return Result.Success(dto);
     }

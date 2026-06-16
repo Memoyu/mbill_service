@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Users.Common;
+﻿using Memo.Bill.Application.Roles.Common;
+
+namespace Memo.Bill.Application.Users.Common;
 
 public class UserResult
 {
@@ -30,7 +32,7 @@ public class UserResult
     /// <summary>
     /// 手机号
     /// </summary>
-    public string PhoneNumber { get; set; } = string.Empty;
+    public string Mobile { get; set; } = string.Empty;
 
     /// <summary>
     /// 最后一次登录的时间
@@ -41,4 +43,19 @@ public class UserResult
     /// 创建时间
     /// </summary>
     public DateTime CreateTime { get; set; }
+
+    /// <summary>
+    /// 累计记账天数
+    /// </summary>
+    public int BillDay { get; set; }
+
+    /// <summary>
+    /// 累计账单条数
+    /// </summary>
+    public long BillCount { get; set; }
+
+    /// <summary>
+    /// 用户角色
+    /// </summary>
+    public List<RoleListResult> Roles { get; set; } = [];
 }

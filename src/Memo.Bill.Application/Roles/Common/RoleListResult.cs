@@ -1,6 +1,4 @@
-﻿using Memo.Bill.Domain.Enums;
-
-namespace Memo.Bill.Application.Roles.Common;
+﻿namespace Memo.Bill.Application.Roles.Common;
 
 public class RoleListResult
 {

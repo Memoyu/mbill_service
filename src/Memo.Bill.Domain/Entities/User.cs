@@ -50,7 +50,7 @@ public class User : BaseAuditEntity
     /// </summary>
     [Description("手机号")]
     [Column(StringLength = 100, IsNullable = false)]
-    public string PhoneNumber { get; set; } = string.Empty;
+    public string Mobile { get; set; } = string.Empty;
 
     /// <summary>
     /// 最后一次登录的时间

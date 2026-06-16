@@ -14,7 +14,7 @@ public record PageUserQuery : PaginationQuery, IAuthorizeableRequest<Result>
 
     public string? Email { get; set; }
 
-    public string? PhoneNumber { get; set; }
+    public string? Mobile { get; set; }
 
     public List<long>? Roles { get; set; }
 
@@ -35,7 +35,7 @@ public class PageUserQueryHandler(
             .WhereIf(!string.IsNullOrWhiteSpace(request.Username), u => u.Username.Contains(request.Username!))
             .WhereIf(!string.IsNullOrWhiteSpace(request.Nickname), u => u.Nickname.Contains(request.Nickname!))
             .WhereIf(!string.IsNullOrWhiteSpace(request.Email), u => u.Email.Contains(request.Email!))
-            .WhereIf(!string.IsNullOrWhiteSpace(request.PhoneNumber), u => u.PhoneNumber.Contains(request.PhoneNumber!))
+            .WhereIf(!string.IsNullOrWhiteSpace(request.Mobile), u => u.Mobile.Contains(request.Mobile!))
             .WhereIf(request.Roles != null && request.Roles.Count > 0, u => u.UserRoles.Any(ur => request.Roles!.Contains(ur.RoleId)))
             .OrderByDescending(u => u.CreateTime)
             .ToPageListAsync(request, out var total, cancellationToken);
