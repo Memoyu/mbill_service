@@ -6,7 +6,7 @@ namespace Memo.Bill.Domain.Entities;
 /// 用户表
 /// </summary>
 [Table(Name = "user")]
-[Index("idx_user_user_id", nameof(UserId), false)]
+[Index("idx_user_id", nameof(UserId), false)]
 public class User : BaseAuditEntity
 {
     /// <summary>

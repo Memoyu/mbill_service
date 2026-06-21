@@ -5,6 +5,6 @@ public static partial class Permissions
     public static class FileStorage
     {
         [Description("生成七牛上传Token")]
-        public const string GenerateQiniuUploadToken = "generate:token:qiniu:filestorage";
+        public const string CreateQiniuUploadToken = "create:token:qiniu:filestorage";
     }
 }

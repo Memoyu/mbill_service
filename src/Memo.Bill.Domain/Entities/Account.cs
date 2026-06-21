@@ -4,7 +4,7 @@
 /// 账单账户表
 /// </summary>
 [Table(Name = "account")]
-[Index("idx_account_asset_id", nameof(AccountId), false)]
+[Index("idx_account_id", nameof(AccountId), false)]
 [Index("idx_account_parent_id", nameof(ParentId), false)]
 public class Account : BaseAuditEntity
 {

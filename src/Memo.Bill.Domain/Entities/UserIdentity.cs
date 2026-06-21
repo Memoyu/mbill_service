@@ -7,7 +7,7 @@ namespace Memo.Bill.Domain.Entities;
 /// 用户身份认证表
 /// </summary>
 [Table(Name = "user_identity")]
-[Index("idx_user_identity_identity_id", nameof(IdentityId), false)]
+[Index("idx_user_identity_id", nameof(IdentityId), false)]
 [Index("idx_user_identity_user_id", nameof(UserId), false)]
 public class UserIdentity : BaseAuditEntity
 {

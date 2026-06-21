@@ -6,12 +6,12 @@ using Microsoft.Extensions.Options;
 
 namespace Memo.Bill.Application.FileStorages.Command;
 
-[Authorize(Permissions = ApiPermission.FileStorage.GenerateQiniuUploadToken)]
-public record GenerateQiniuUploadTokenQuery(string Path) : IAuthorizeableRequest<Result>;
+[Authorize(Permissions = ApiPermission.FileStorage.CreateQiniuUploadToken)]
+public record CreateQiniuUploadTokenCommand(string Path) : IAuthorizeableRequest<Result>;
 
-public class GenerateQiniuUploadTokenQueryValidator : AbstractValidator<GenerateQiniuUploadTokenQuery>
+public class CreateQiniuUploadTokenCommandValidator : AbstractValidator<CreateQiniuUploadTokenCommand>
 {
-    public GenerateQiniuUploadTokenQueryValidator()
+    public CreateQiniuUploadTokenCommandValidator()
     {
         RuleFor(x => x.Path)
             .NotEmpty()
@@ -19,9 +19,9 @@ public class GenerateQiniuUploadTokenQueryValidator : AbstractValidator<Generate
     }
 }
 
-public class GenerateQiniuUploadTokenQueryHandler(IOptionsMonitor<AuthorizationSettings> authOptions) : IRequestHandler<GenerateQiniuUploadTokenQuery, Result>
+public class CreateQiniuUploadTokenCommandHandler(IOptionsMonitor<AuthorizationSettings> authOptions) : IRequestHandler<CreateQiniuUploadTokenCommand, Result>
 {
-    public async Task<Result> Handle(GenerateQiniuUploadTokenQuery request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CreateQiniuUploadTokenCommand request, CancellationToken cancellationToken)
     {
         var options = authOptions.CurrentValue?.Qiniu ?? throw new Exception("未配置七牛云授权信息");
         var sign = new QiniuSignature(options.AK, options.SK);

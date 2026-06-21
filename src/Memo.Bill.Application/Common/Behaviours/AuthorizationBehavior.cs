@@ -20,13 +20,13 @@ public class AuthorizationBehavior<TRequest, TResponse>(IAuthorizationService _a
             return await next();
         }
 
+        // 接口定义权限
         var requiredPermissions = authorizationAttributes
             .SelectMany(authorizationAttribute => authorizationAttribute.Permissions?.Split(',') ?? [])
             .ToList();
 
-        var authorizationResult = await _authorizationService.AuthorizeCurrentUserAsync(
-            request,
-            requiredPermissions);
+        // 比对权限
+        var authorizationResult = await _authorizationService.AuthorizeCurrentUserAsync(request, requiredPermissions);
 
         return authorizationResult.IsSuccess
             ? await next()

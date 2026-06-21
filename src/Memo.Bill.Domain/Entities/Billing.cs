@@ -6,9 +6,10 @@ namespace Memo.Bill.Domain.Entities;
 /// 账单表
 /// </summary>
 [Table(Name = "billing")]
-[Index("idx_billing_bill_id", nameof(BillId), false)]
+[Index("idx_billing_id", nameof(BillId), false)]
 [Index("idx_billing_category_id", nameof(CategoryId), false)]
 [Index("idx_billing_account_id", nameof(AccountId), false)]
+[Index("idx_billing_ledger_id", nameof(LedgerId), false)]
 public class Billing : BaseAuditEntity
 {
     /// <summary>
@@ -30,6 +31,12 @@ public class Billing : BaseAuditEntity
     /// </summary>
     [Description("账户Id")]
     public long AccountId { get; set; }
+
+    /// <summary>
+    /// 账本Id
+    /// </summary>
+    [Description("账本Id")]
+    public long LedgerId { get; set; }
 
     /// <summary>
     /// 金额
@@ -82,4 +89,10 @@ public class Billing : BaseAuditEntity
     /// </summary>
     [Navigate(nameof(AccountId), TempPrimary = nameof(Account.AccountId))]
     public virtual Account Account { get; set; } = new();
+
+    /// <summary>
+    /// 账本账户
+    /// </summary>
+    [Navigate(nameof(LedgerId), TempPrimary = nameof(Ledger.LedgerId))]
+    public virtual Ledger Ledger { get; set; } = new();
 }

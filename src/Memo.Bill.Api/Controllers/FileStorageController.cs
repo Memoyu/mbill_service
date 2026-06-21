@@ -8,12 +8,12 @@ namespace Memo.Bill.Api.Controllers;
 public class FileStorageController(ISender mediator) : ApiControllerBase
 {
     /// <summary>
-    /// 生成七牛云Token
+    /// 生成七牛云上传Token
     /// </summary>
     /// <param name="request">存储路径</param>
     /// <returns></returns>
-    [HttpGet("qiniu/generate")]
-    public async Task<Result> QiniuGenerateAsync([FromQuery] GenerateQiniuUploadTokenQuery request)
+    [HttpGet("qiniu/upload/token")]
+    public async Task<Result> CreateQiniuUploadTokenAsync([FromQuery] CreateQiniuUploadTokenCommand request)
     {
         return await mediator.Send(request);
     }

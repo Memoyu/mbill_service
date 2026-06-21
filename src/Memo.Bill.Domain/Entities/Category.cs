@@ -4,7 +4,7 @@
 /// 账单分类表
 /// </summary>
 [Table(Name = "category")]
-[Index("idx_category_category_id", nameof(CategoryId), false)]
+[Index("idx_category_id", nameof(CategoryId), false)]
 [Index("idx_category_parent_id", nameof(ParentId), false)]
 public class Category : BaseAuditEntity
 {

@@ -19,9 +19,7 @@ public class AuthorizationService(
             .ToListAsync(rp => rp.Permission!.Signature);
 
         if (requiredPermissions.Except(rolePermissions).Any())
-        {
-            return Result.Failure( "当前用户无权发起该操作", ResultCode.Forbidden);
-        }
+            return Result.Failure( "当前用户无权发起该操作", ResultCode.Forbidden);  
 
         return Result.Success();
     }

@@ -26,6 +26,11 @@ public class BillingCollection
     /// 账户Id
     /// </summary>
     public long AccountId { get; set; }
+ 
+    /// <summary>
+    /// 账本Id
+    /// </summary>
+    public long LedgerId { get; set; }
 
     /// <summary>
     /// 金额

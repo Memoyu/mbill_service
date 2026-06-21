@@ -3,7 +3,6 @@ using System.Linq.Expressions;
 using MediatR;
 using System.Reflection;
 using System.Collections.Concurrent;
-using Memo.Bill.Application.Common.Security;
 
 namespace Memo.Bill.Infrastructure.Persistence.Repositories;
 

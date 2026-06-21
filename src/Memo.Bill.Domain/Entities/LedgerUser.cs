@@ -1,12 +1,12 @@
 ﻿namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
-/// 用户与角色关联表
+/// 账单账本表
 /// </summary>
-[Table(Name = "user_role")]
-[Index("idx_user_role_user_id", nameof(UserId), false)]
-[Index("idx_user_role_role_id", nameof(RoleId), false)]
-public class UserRole : BaseAuditEntity
+[Table(Name = "ledger_user")]
+[Index("idx_ledger_user_user_id", nameof(UserId), false)]
+[Index("idx_ledger_user_ledger_id", nameof(LedgerId), false)]
+public class LedgerUser : BaseAuditEntity
 {
     /// <summary>
     /// 用户Id
@@ -18,7 +18,7 @@ public class UserRole : BaseAuditEntity
     /// 角色Id
     /// </summary>
     [Description("角色Id")]
-    public long RoleId { get; set; }
+    public long LedgerId { get; set; }
 
     /// <summary>
     /// 用户
@@ -29,6 +29,6 @@ public class UserRole : BaseAuditEntity
     /// <summary>
     /// 角色
     /// </summary>
-    [Navigate(nameof(Role.RoleId), TempPrimary = nameof(RoleId))]
-    public virtual Role Role { get; set; } = new();
+    [Navigate(nameof(Ledger.LedgerId), TempPrimary = nameof(LedgerId))]
+    public virtual Ledger Ledger { get; set; } = new();
 }

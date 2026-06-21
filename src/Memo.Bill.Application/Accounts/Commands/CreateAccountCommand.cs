@@ -1,6 +1,4 @@
-﻿using Memo.Bill.Application.Common.Security;
-
-namespace Memo.Bill.Application.Accounts.Commands;
+﻿namespace Memo.Bill.Application.Accounts.Commands;
 
 [Authorize(Permissions = ApiPermission.Account.Create)]
 [Transactional]

@@ -12,7 +12,7 @@ public static partial class Permissions
         public const string Update = "update:account";
 
         [Description("更新账户排序")]
-        public const string UpdateSort = "update:Sort:account";
+        public const string UpdateSort = "update:sort:account";
 
         [Description("删除账户")]
         public const string Delete = "delete:account";
