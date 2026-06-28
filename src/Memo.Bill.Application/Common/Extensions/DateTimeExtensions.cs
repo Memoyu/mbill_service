@@ -1,9 +1,11 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Memo.Bill.Application.Common.Extensions;
+﻿namespace Memo.Bill.Application.Common.Extensions;
 
 public static class DateTimeExtensions
 {
+    private const long unixEpochSec = 62135596800;
+    private const long unixEpochMil = 62135596800000;
+    private const long unixEpochTicks = 621355968000000000;
+
     public enum DataTimeRangeType
     {
         Week,
@@ -11,6 +13,34 @@ public static class DateTimeExtensions
         Season,
         Year
     }
+
+    /// <summary>
+    /// 将时间转为秒级时间戳
+    /// </summary>
+    /// <param name="time">传入时间</param>
+    /// <returns>时间戳</returns>
+    public static long ToUnixStampSec(this DateTime time) => (time.ToUniversalTime().Ticks / TimeSpan.TicksPerSecond) - unixEpochSec;
+
+    /// <summary>
+    /// 将时间转为毫秒级时间戳
+    /// </summary>
+    /// <param name="time">传入时间</param>
+    /// <returns>时间戳</returns>
+    public static long ToUnixStampMil(this DateTime time) => (time.ToUniversalTime().Ticks / TimeSpan.TicksPerMillisecond) - unixEpochMil;
+
+    /// <summary>
+    /// 秒级时间戳转为DateTime
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
+    public static DateTime FromUnixStampSec(this long time) => new DateTime(unixEpochTicks + time * TimeSpan.TicksPerSecond).ToLocalTime();
+
+    /// <summary>
+    /// 毫秒级时间戳转为DateTime
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
+    public static DateTime FromUnixStampMil(this long time) => new DateTime(unixEpochTicks + time * TimeSpan.TicksPerMillisecond).ToLocalTime();
 
     /// <summary>
     /// 获取指定时间范围类型的起止日期

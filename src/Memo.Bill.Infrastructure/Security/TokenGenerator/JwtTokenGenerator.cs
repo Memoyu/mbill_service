@@ -19,27 +19,32 @@ public class JwtTokenGenerator(
 
         var claims = new List<Claim>()
         {
-            new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-            new Claim(JwtRegisteredClaimNames.Name, user.Username),
+            new(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+            new(JwtRegisteredClaimNames.Name, user.Username),
             new(JwtRegisteredClaimNames.Email, user.Email),
         };
 
-        var expiryInMin = Convert.ToDouble(_jwtOptions.ExpiryInMin);
-        var expiredAt = DateTime.UtcNow.AddMinutes(expiryInMin);
+        var now = DateTime.UtcNow;
+        var expiryInMin = Convert.ToInt32(_jwtOptions.ExpiryInMin);
+        // 转换成秒
+        var accessExpiresIn = expiryInMin * 60;
         var securityToken = new JwtSecurityToken(
             issuer: _jwtOptions.Issuer,
             audience: _jwtOptions.Audience,
             claims: claims,
-            expires: expiredAt,
+            expires: now.AddSeconds(accessExpiresIn),
             signingCredentials: signingCredentials);
 
+        // 生成access token
         var accessToken = new JwtSecurityTokenHandler().WriteToken(securityToken);
+
+        // 生成 refresh token
+        // 在 access token 过期后的两天后过期
+        var refreshExpiresIn = accessExpiresIn + (2 * 24 * 60 * 60);
         string refreshToken = GenerateRefreshToken();
-        await ecProvider.SetAsync(CacheKeyConst.UserRefreshToken(refreshToken), user.UserId, TimeSpan.FromMinutes(expiryInMin).Add(TimeSpan.FromDays(5)), cancellationToken);
+        await ecProvider.SetAsync(CacheKeyConst.UserRefreshToken(refreshToken), user.UserId, TimeSpan.FromSeconds(refreshExpiresIn), cancellationToken);
 
-        var expiredAtSec = (expiredAt.ToUniversalTime().Ticks / TimeSpan.TicksPerSecond) - 62135596800;
-
-        return new JwtTokenDto(accessToken, refreshToken, expiredAtSec);
+        return new JwtTokenDto(accessToken, refreshToken, accessExpiresIn, refreshExpiresIn);
     }
 
     public async Task<JwtTokenDto> RefreshTokenAsync(User user, CancellationToken cancellationToken)

@@ -1,7 +1,7 @@
 ﻿using Memo.Bill.Domain.Entities.Mongo;
 using Memo.Bill.Domain.Events.Bills;
 
-namespace Memo.Bill.Application.Bills.Events;
+namespace Memo.Bill.Application.Bills.Handlers;
 
 public class CreateBillMongoEventHandler(IMapper mapper, IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<CreateBillEvent>
 {

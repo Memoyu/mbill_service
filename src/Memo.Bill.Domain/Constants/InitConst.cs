@@ -5,24 +5,19 @@ public class InitConst
     #region 用户
 
     /// <summary>
-    /// 管理员UserId
+    /// 管理员UserId/RoleId
     /// </summary>
-    public const long InitAdminUserId = 1;
+    public const long DefaultAdminId = 1;
 
     /// <summary>
-    /// 管理角色RoleId
+    /// 游客UserId/RoleId
     /// </summary>
-    public const long InitAdminRoleId = 1;
+    public const long DefaultVisitorId = 2;
 
     /// <summary>
-    /// 游客UserId
+    /// 用户UserId/RoleId
     /// </summary>
-    public const long InitVisitorUserId = 2;
-
-    /// <summary>
-    /// 游客角色RoleId
-    /// </summary>
-    public const long InitVisitorRoleId = 2;
+    public const long DefaultUserId = 3;
 
     #endregion
 }

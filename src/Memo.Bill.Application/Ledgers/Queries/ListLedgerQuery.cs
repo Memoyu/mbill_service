@@ -9,30 +9,42 @@ public record ListLedgerQuery : IAuthorizeableRequest<Result>;
 public class CreateAccountCommandHandler(
     IMapper mapper,
     ICurrentUserProvider currentUserProvider,
-    IBaseDefaultRepository<Ledger> ledgerRepo,
     IBaseDefaultRepository<LedgerUser> ledgerUserRepo,
-    IBaseDefaultRepository<Billing> billRepo
+    IBaseDefaultRepository<Billing> billRepo,
+    IBaseDefaultRepository<User> userRepo
     ) : IRequestHandler<ListLedgerQuery, Result>
 {
     public async Task<Result> Handle(ListLedgerQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-        var entities = await ledgerRepo.Select.Where(x => x.CreateUserId == userId).OrderBy(x => x.Sort).ToListAsync(cancellationToken) ?? [];
+
+        var userLedgers = await ledgerUserRepo.Select
+            .Include(l => l.Ledger)
+            .Where(l => l.UserId == userId)
+            .OrderBy(l => l.Sort).ToListAsync(cancellationToken) ?? [];
+        var ledgers = userLedgers.Select(l => l.Ledger).ToList();
 
         var result = new List<LedgerResult>();
-        if (entities.Count > 0)
+        if (ledgers.Count > 0)
         {
-            var ledgerIds = entities.Select(l => l.LedgerId).ToList();
-            var ledgerUsers = await ledgerUserRepo.Select.Include(l => l.User).Where(l => ledgerIds.Contains(l.LedgerId)).ToListAsync(cancellationToken);
+            // 账单加入用户数据
+            var allLedgerIds = ledgers.Select(l => l.LedgerId).ToList();
+            var allLedgerUsers = await ledgerUserRepo.Select.Where(l => allLedgerIds.Contains(l.LedgerId)).ToListAsync(cancellationToken) ?? [];
+            var joinUserIds = allLedgerUsers.Select(l => l.UserId).Distinct().ToList();
+            var users = await userRepo.Select.Where(u => joinUserIds.Contains(u.UserId)).ToListAsync(cancellationToken);
 
-            foreach (var e in entities)
+            // 响应数据组装
+            foreach (var ledger in ledgers)
             {
-                var dto = mapper.Map<LedgerResult>(e);
-                dto.Users = mapper.Map<List<UserBaseResult>>(ledgerUsers.Where(lu => lu.LedgerId == e.LedgerId).Select(lu => lu.User).ToList());
-
-                dto.Expend = await billRepo.Select.Where(b => b.LedgerId == e.LedgerId && b.Type == BillType.Expend ).SumAsync(b => b.Amount, cancellationToken);
-                dto.Income = await billRepo.Select.Where(b => b.LedgerId == e.LedgerId && b.Type == BillType.Income).SumAsync(b => b.Amount, cancellationToken);
-
+                var dto = mapper.Map<LedgerResult>(ledger);
+                var ledgerUsers = allLedgerUsers
+                    .Where(l => l.LedgerId == ledger.LedgerId && l.UserId != userId)
+                    .Select(l => users.FirstOrDefault(u => u.UserId == l.UserId ))
+                    .Where(u => u != null).ToList();
+                dto.Users = mapper.Map<List<UserBaseResult>>(ledgerUsers);
+                dto.Expend = await billRepo.Select.Where(b => b.LedgerId == ledger.LedgerId && b.Type == BillType.Expend).SumAsync(b => b.Amount, cancellationToken);
+                dto.Income = await billRepo.Select.Where(b => b.LedgerId == ledger.LedgerId && b.Type == BillType.Income).SumAsync(b => b.Amount, cancellationToken);
+                dto.Sort = userLedgers.FirstOrDefault(l => l.LedgerId == ledger.LedgerId)?.Sort ?? 0;
                 result.Add(dto);
             }
         }

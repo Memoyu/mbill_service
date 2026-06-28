@@ -22,14 +22,16 @@ public class WeixinService : IWeixinService
     public async Task<WeixinCode2SessionResponse> Code2SessionAsync(string code)
     {
 
-#if !DEBUG
+
         var url = $"sns/jscode2session?appid={_options.AppId}&secret={_options.AppSecret}&js_code={code}&grant_type=authorization_code";
         var httpResponse = await _client.GetAsync(url);//请求获取
         httpResponse.EnsureSuccessStatusCode();
         var content = await httpResponse.Content.ReadAsStringAsync();//获取响应内容
-#else
-        var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4-QEB2eprYBLllCNf425J80\"}";
-#endif
+
+//#if !DEBUG
+//#else
+//        var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4-QEB2eprYBLllCNf425J80\"}";
+//#endif
 
         var code2Session = content.ToDesJson<WeixinCode2SessionResponse>();
         if (code2Session?.ErrCode != 0 || string.IsNullOrEmpty(code2Session.OpenId))

@@ -1,6 +1,6 @@
 ﻿using Memo.Bill.Domain.Events.Roles;
 
-namespace Memo.Bill.Application.Roles.Events;
+namespace Memo.Bill.Application.Roles.Handlers;
 
 public class DeletedRoleEventHadler(
     IBaseDefaultRepository<RolePermission> rolePermissionRepo,

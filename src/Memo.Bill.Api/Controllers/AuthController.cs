@@ -1,5 +1,4 @@
 ﻿using Memo.Bill.Application.Auths.Commands;
-using Memo.Bill.Application.Tokens.Commands;
 
 namespace Memo.Bill.Api.Controllers;
 

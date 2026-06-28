@@ -2,7 +2,7 @@
 using Memo.Bill.Domain.Events.Bills;
 using MongoDB.Driver;
 
-namespace Memo.Bill.Application.Bills.Events;
+namespace Memo.Bill.Application.Bills.Handlers;
 
 internal class UpdateBillMongoEventHandler(IMapper mapper, IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<UpdateBillEvent>
 {

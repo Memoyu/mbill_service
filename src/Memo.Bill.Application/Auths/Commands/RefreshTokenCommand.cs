@@ -30,6 +30,6 @@ public class RefreshTokenCommandHandler(
                 throw new ApplicationException("用户不存在");
 
         var token = await jwtTokenGenerator.GenerateTokenAsync(user, cancellationToken);
-        return Result.Success(new LoginResult(user.UserId, user.Username, token.AccessToken, token.RefreshToken, token.ExpiredAt));
+        return Result.Success(new LoginResult(user.UserId, user.Username, token));
     }
 }

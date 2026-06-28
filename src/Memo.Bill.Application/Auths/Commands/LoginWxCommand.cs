@@ -1,7 +1,9 @@
 ﻿using Memo.Bill.Application.Common.Interfaces.Services.Weixin;
+using Memo.Bill.Domain.Events.Users;
 
-namespace Memo.Bill.Application.Tokens.Commands;
+namespace Memo.Bill.Application.Auths.Commands;
 
+[Transactional]
 public record LoginWxCommand(string Code) : IRequest<Result>;
 
 public class LoginWxCommandValidator : AbstractValidator<LoginWxCommand>
@@ -17,6 +19,7 @@ public class LoginWxCommandValidator : AbstractValidator<LoginWxCommand>
 public class LoginWxCommandHandler(
     IBaseDefaultRepository<User> userRepo,
     IBaseDefaultRepository<UserIdentity> userIdentityRepo,
+     IBaseDefaultRepository<UserRole> userRoleRepo,
     IJwtTokenGenerator jwtTokenGenerator,
     IWeixinService weixinService
     ) : IRequestHandler<LoginWxCommand, Result>
@@ -30,24 +33,30 @@ public class LoginWxCommandHandler(
         if (userIdentity == null)
         {
             // 生成用户、认证信息
+            var userId = SnowFlakeUtil.NextId();
             user = new User
             {
-                UserId = SnowFlakeUtil.NextId(),
-                Username = "微信用户",
+                UserId = userId,
+                Username = userId.ToString(),
                 Nickname = "微信用户",
                 LastLoginTime = DateTime.Now,
                 Status = UserStatus.Normal,
             };
-            var ui = new UserIdentity
+
+            // 创建用户事件
+            user.AddDomainEvent(new CreateUserEvent(userId));
+
+            // 写入用户信息
+            await userRepo.InsertAsync(user, cancellationToken);
+            await userIdentityRepo.InsertAsync(new UserIdentity
             {
-                UserId = user.UserId,
+                UserId = userId,
                 IdentityType = UserIdentityType.WeiXin,
                 Identifier = user.Nickname,
                 Credential = session.OpenId,
-            };
-            // 写入用户信息
-            await userRepo.InsertAsync(user, cancellationToken);
-            await userIdentityRepo.InsertAsync(ui, cancellationToken);
+            }, cancellationToken);
+            // 用户角色
+            await userRoleRepo.InsertAsync(new UserRole { UserId = userId, RoleId = InitConst.DefaultUserId }, cancellationToken);
         }
         else
         {
@@ -58,6 +67,6 @@ public class LoginWxCommandHandler(
 
         var token = await jwtTokenGenerator.GenerateTokenAsync(user, cancellationToken);
 
-        return Result.Success(new LoginResult(user.UserId, user.Username, token.AccessToken, token.RefreshToken, token.ExpiredAt));
+        return Result.Success(new LoginResult(user.UserId, user.Username, token));
     }
 }

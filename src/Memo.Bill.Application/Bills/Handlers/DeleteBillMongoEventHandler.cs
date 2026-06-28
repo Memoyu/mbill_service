@@ -2,7 +2,7 @@
 using Memo.Bill.Domain.Events.Bills;
 using MongoDB.Driver;
 
-namespace Memo.Bill.Application.Bills.Events;
+namespace Memo.Bill.Application.Bills.Handlers;
 
 public class DeleteBillMongoEventHandler(IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<DeleteBillEvent>
 {

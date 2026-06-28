@@ -1,6 +1,6 @@
 ﻿using Memo.Bill.Domain.Events.Users;
 
-namespace Memo.Bill.Application.Users.Events;
+namespace Memo.Bill.Application.Users.Handlers;
 
 public class DeletedUserEventHadler() : INotificationHandler<DeletedUserEvent>
 {

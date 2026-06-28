@@ -4,10 +4,16 @@
 /// 账单账本表
 /// </summary>
 [Table(Name = "ledger_user")]
-[Index("idx_ledger_user_user_id", nameof(UserId), false)]
 [Index("idx_ledger_user_ledger_id", nameof(LedgerId), false)]
+[Index("idx_ledger_user_user_id", nameof(UserId), false)]
 public class LedgerUser : BaseAuditEntity
 {
+    /// <summary>
+    /// 账本Id
+    /// </summary>
+    [Description("账本Id")]
+    public long LedgerId { get; set; }
+
     /// <summary>
     /// 用户Id
     /// </summary>
@@ -15,10 +21,10 @@ public class LedgerUser : BaseAuditEntity
     public long UserId { get; set; }
 
     /// <summary>
-    /// 角色Id
+    /// 排序
     /// </summary>
-    [Description("角色Id")]
-    public long LedgerId { get; set; }
+    [Description("排序")]
+    public int Sort { get; set; }
 
     /// <summary>
     /// 用户
@@ -27,7 +33,7 @@ public class LedgerUser : BaseAuditEntity
     public virtual User User { get; set; } = new();
 
     /// <summary>
-    /// 角色
+    /// 账本
     /// </summary>
     [Navigate(nameof(Ledger.LedgerId), TempPrimary = nameof(LedgerId))]
     public virtual Ledger Ledger { get; set; } = new();

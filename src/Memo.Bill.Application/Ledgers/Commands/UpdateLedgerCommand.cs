@@ -26,14 +26,13 @@ public class UpdateLedgerCommandHandler(
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
         var entity = await ledgerRepo.Select.Where(x => x.LedgerId == request.LedgerId && x.CreateUserId == userId).FirstAsync(cancellationToken)
-            ?? throw new ApplicationException("账本已存在");
+            ?? throw new ApplicationException("账本不存在或已删除");
 
         entity.Color = request.Color;
         entity.Name = request.Name;
         var rows = await ledgerRepo.UpdateAsync(entity, cancellationToken);
-        if (rows < 1) throw new ApplicationException("保存账本失败");
 
-        return Result.Success();
+        return rows > 0 ? Result.Success() : throw new ApplicationException("更新账本失败");
     }
 }
 

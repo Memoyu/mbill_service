@@ -18,6 +18,11 @@ public record LedgerBaseResult
     public int Color { get; set; }
 
     /// <summary>
+    /// 默认账本
+    /// </summary>
+    public bool Default { get; set; }
+
+    /// <summary>
     /// 创建时间
     /// </summary>
     public DateTime CreateTime { get; set; }

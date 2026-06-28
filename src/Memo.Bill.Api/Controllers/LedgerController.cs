@@ -1,6 +1,5 @@
 ﻿using Memo.Bill.Application.Ledgers.Commands;
 using Memo.Bill.Application.Ledgers.Queries;
-using Memo.Bill.Application.Users.Queries;
 
 namespace Memo.Bill.Api.Controllers;
 
@@ -44,8 +43,8 @@ public class LedgerController(ISender mediator) : ApiControllerBase
     /// 更新账本排序
     /// </summary>
     /// <returns></returns>
-    [HttpPut("update/sort")]
-    public async Task<Result> UpdateSortAsync(UpdateLedgerSortCommand request)
+    [HttpPut("sort")]
+    public async Task<Result> UpdateSortAsync(SortLedgerCommand request)
     {
         return await mediator.Send(request);
     }
@@ -56,6 +55,16 @@ public class LedgerController(ISender mediator) : ApiControllerBase
     /// <returns></returns>
     [HttpPut("join")]
     public async Task<Result> JoinAsync(JoinLedgerUserCommand request)
+    {
+        return await mediator.Send(request);
+    }
+
+    /// <summary>
+    /// 获取账本
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("get")]
+    public async Task<Result> GetAsync([FromQuery] GetLedgerQuery request)
     {
         return await mediator.Send(request);
     }

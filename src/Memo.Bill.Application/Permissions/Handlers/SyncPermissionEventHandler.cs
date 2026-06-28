@@ -3,7 +3,7 @@ using System.Reflection;
 using Memo.Bill.Domain.Events.Permissions;
 using Microsoft.Extensions.Logging;
 
-namespace Memo.Bill.Application.Permissions.Events;
+namespace Memo.Bill.Application.Permissions.Handlers;
 
 public class SyncPermissionEventHandler(
     ILogger<SyncPermissionEventHandler> logger,

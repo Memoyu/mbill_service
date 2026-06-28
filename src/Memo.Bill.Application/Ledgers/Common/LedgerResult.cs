@@ -14,5 +14,10 @@ public record LedgerResult : LedgerBaseResult
     /// </summary>
     public decimal Income { get; set; }
 
+    /// <summary>
+    /// 排序
+    /// </summary>
+    public int Sort { get; set; }
+
     public List<UserBaseResult> Users { get; set; } = [];
 }

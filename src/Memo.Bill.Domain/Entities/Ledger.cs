@@ -29,8 +29,7 @@ public class Ledger : BaseAuditEntity
     public int Color { get; set; }
 
     /// <summary>
-    /// 排序
+    /// 默认账本
     /// </summary>
-    [Description("排序")]
-    public int Sort { get; set; }
+    public bool Default { get; set; }
 }

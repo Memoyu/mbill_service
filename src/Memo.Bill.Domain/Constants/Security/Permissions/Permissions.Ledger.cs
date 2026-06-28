@@ -14,8 +14,8 @@ public static partial class Permissions
         [Description("更新账本颜色")]
         public const string UpdateColor = "update:color:ledger";
 
-        [Description("更新账本排序")]
-        public const string UpdateSort = "update:sort:ledger";
+        [Description("排序账本")]
+        public const string Sort = "sort:ledger";
 
         [Description("加入账本")]
         public const string Join = "join:ledger";

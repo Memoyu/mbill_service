@@ -1,6 +1,6 @@
 ﻿using Memo.Bill.Domain.Events.Aggregations;
 
-namespace Memo.Bill.Application.Users.Events;
+namespace Memo.Bill.Application.Users.Handlers;
 
 public class CreateUserLocationEventHandler(
     IBaseDefaultRepository<UserLocation> userLocationRepo

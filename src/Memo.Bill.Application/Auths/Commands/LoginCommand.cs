@@ -1,4 +1,4 @@
-﻿namespace Memo.Bill.Application.Tokens.Commands;
+﻿namespace Memo.Bill.Application.Auths.Commands;
 
 public record LoginCommand(string Username, string Password) : IRequest<Result>;
 
@@ -37,6 +37,6 @@ public class LoginCommandHandler(
         user.LastLoginTime = DateTime.Now;
         await userRepo.UpdateAsync(user, cancellationToken);
 
-        return Result.Success(new LoginResult(user.UserId, user.Username, token.AccessToken, token.RefreshToken, token.ExpiredAt));
+        return Result.Success(new LoginResult(user.UserId, user.Username, token));
     }
 }
