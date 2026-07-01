@@ -1,5 +1,4 @@
 ﻿using Memo.Bill.Application.Categories.Common;
-using Memo.Bill.Application.Common.Security;
 
 namespace Memo.Bill.Application.Categories.Queries;
 
@@ -33,7 +32,7 @@ public class GetCategoryQueryHandler(
         var entity = await categorytRepo.Select.Where(x => x.CategoryId == request.CategoryId).FirstAsync(cancellationToken)
            ?? throw new ApplicationException("分类不存在或已删除");
 
-        var dto = mapper.Map<CategoryResult>(entity);
+        var dto = mapper.Map<CategoryWithParentResult>(entity);
         if (request.Parent == true)
         {
             var parent = await categorytRepo.Select.Where(x => x.CategoryId == entity.ParentId).FirstAsync(cancellationToken)

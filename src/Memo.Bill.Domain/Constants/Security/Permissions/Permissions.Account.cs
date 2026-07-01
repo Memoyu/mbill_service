@@ -12,7 +12,7 @@ public static partial class Permissions
         public const string Update = "update:account";
 
         [Description("更新账户排序")]
-        public const string UpdateSort = "update:sort:account";
+        public const string Sort = "sort:account";
 
         [Description("删除账户")]
         public const string Delete = "delete:account";
@@ -20,7 +20,7 @@ public static partial class Permissions
         [Description("获取账户")]
         public const string Get = "get:account";
 
-        [Description("获取账户分组")]
-        public const string GetGroup = "get:group:account";
+        [Description("获取账户分组列表")]
+        public const string ListGroup = "list:group:account";
     }
 }

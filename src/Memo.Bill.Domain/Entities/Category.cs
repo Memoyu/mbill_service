@@ -48,7 +48,7 @@ public class Category : BaseAuditEntity
     /// </summary>
     [Description("是否默认")]
     [Column(IsNullable = false)]
-    public bool IsDefault { get; set; }
+    public bool Default { get; set; }
 
     /// <summary>
     /// 排序

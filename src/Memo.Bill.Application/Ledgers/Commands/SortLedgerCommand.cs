@@ -25,9 +25,8 @@ public class SortLedgerCommandHandler(
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
 
-        var ledgerUsers = await ledgerUserRepo.Select.Where(l => l.UserId == userId).ToListAsync(cancellationToken) ?? [];
-
         // 更新排序
+        var ledgerUsers = await ledgerUserRepo.Select.Where(l => l.UserId == userId).ToListAsync(cancellationToken) ?? [];
         ledgerUsers.ForEach(l =>
         {
             l.Sort = request.Sorts.FirstOrDefault(s => s.LedgerId == l.LedgerId)?.Sort ?? l.Sort;

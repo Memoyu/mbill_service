@@ -2,16 +2,16 @@
 
 namespace Memo.Bill.Application.Categories.Queries;
 
-[Authorize(Permissions = ApiPermission.Category.GetGroup)]
-public record GetCategoryGroupQuery() : IAuthorizeableRequest<Result>;
+[Authorize(Permissions = ApiPermission.Category.ListGroup)]
+public record ListGroupCategoryQuery() : IAuthorizeableRequest<Result>;
 
-public class GetCategoryGroupQueryHandler(
+public class ListGroupCategoryQueryHandler(
     IMapper mapper,
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Category> categoryRepo
-    ) : IRequestHandler<GetCategoryGroupQuery, Result>
+    ) : IRequestHandler<ListGroupCategoryQuery, Result>
 {
-    public async Task<Result> Handle(GetCategoryGroupQuery request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(ListGroupCategoryQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
 

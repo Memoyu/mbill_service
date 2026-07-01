@@ -44,7 +44,7 @@ public class LedgerController(ISender mediator) : ApiControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpPut("sort")]
-    public async Task<Result> UpdateSortAsync(SortLedgerCommand request)
+    public async Task<Result> SortAsync(SortLedgerCommand request)
     {
         return await mediator.Send(request);
     }

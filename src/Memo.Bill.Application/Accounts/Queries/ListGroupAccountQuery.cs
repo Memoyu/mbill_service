@@ -1,18 +1,17 @@
 ﻿using Memo.Bill.Application.Accounts.Common;
-using Memo.Bill.Application.Common.Security;
 
 namespace Memo.Bill.Application.Accounts.Queries;
 
-[Authorize(Permissions = ApiPermission.Account.GetGroup)]
-public record GetAccountGroupQuery() : IAuthorizeableRequest<Result>;
+[Authorize(Permissions = ApiPermission.Account.ListGroup)]
+public record ListGroupAccountQuery() : IAuthorizeableRequest<Result>;
 
-public class GetAccountGroupQueryHandler(
+public class ListGroupAccountQueryHandler(
     IMapper mapper,
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Account> accountRepo
-    ) : IRequestHandler<GetAccountGroupQuery, Result>
+    ) : IRequestHandler<ListGroupAccountQuery, Result>
 {
-    public async Task<Result> Handle(GetAccountGroupQuery request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(ListGroupAccountQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
 

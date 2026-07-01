@@ -12,7 +12,7 @@ public static partial class Permissions
         public const string Update = "update:category";
 
         [Description("更新分类排序")]
-        public const string UpdateSort = "update:Sort:category";
+        public const string Sort = "sort:category";
 
         [Description("删除分类")]
         public const string Delete = "delete:category";
@@ -20,7 +20,7 @@ public static partial class Permissions
         [Description("获取分类")]
         public const string Get = "get:category";
 
-        [Description("获取分类分组")]
-        public const string GetGroup = "get:group:category";
+        [Description("获取分类分组列表")]
+        public const string ListGroup = "list:group:category";
     }
 }

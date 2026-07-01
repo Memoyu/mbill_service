@@ -33,8 +33,8 @@ namespace Memo.Bill.Api.Controllers
         /// 更新账户排序
         /// </summary>
         /// <returns></returns>
-        [HttpPut("update/sort")]
-        public async Task<Result> UpdateSortAsync(UpdateAccountSortCommand request)
+        [HttpPut("sort")]
+        public async Task<Result> SortAsync(SortAccountCommand request)
         {
             return await mediator.Send(request);
         }
@@ -63,8 +63,8 @@ namespace Memo.Bill.Api.Controllers
         /// 获取账户分组
         /// </summary>
         /// <returns></returns>
-        [HttpGet("get/group")]
-        public async Task<Result> GetGroupAsync([FromQuery] GetAccountGroupQuery request)
+        [HttpGet("list/group")]
+        public async Task<Result> ListGroupAsync([FromQuery] ListGroupAccountQuery request)
         {
             return await mediator.Send(request);
         }

@@ -1,5 +1,4 @@
 ﻿using Memo.Bill.Application.Accounts.Common;
-using Memo.Bill.Application.Common.Security;
 
 namespace Memo.Bill.Application.Accounts.Queries;
 
@@ -33,7 +32,7 @@ public class GetAccountQueryHandler(
         var entity = await accountRepo.Select.Where(x => x.AccountId == request.AccountId).FirstAsync(cancellationToken)
            ?? throw new ApplicationException("账户不存在或已删除");
 
-        var dto = mapper.Map<AccountResult>(entity);
+        var dto = mapper.Map<AccountWithParentResult>(entity);
         if (request.Parent == true)
         {
             var parent = await accountRepo.Select.Where(x => x.AccountId == entity.ParentId).FirstAsync(cancellationToken)

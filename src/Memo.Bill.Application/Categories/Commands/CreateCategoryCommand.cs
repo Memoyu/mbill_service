@@ -1,8 +1,9 @@
-﻿namespace Memo.Bill.Application.Categories.Commands;
+﻿using Memo.Bill.Application.Categories.Common;
+
+namespace Memo.Bill.Application.Categories.Commands;
 
 [Authorize(Permissions = ApiPermission.Category.Create)]
-[Transactional]
-public record CreateCategoryCommand(string Name, string Icon, bool IsDefault, long? ParentId) : IAuthorizeableRequest<Result>;
+public record CreateCategoryCommand(long? ParentId, string Name, string Icon) : IAuthorizeableRequest<Result>;
 
 public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 {
@@ -29,9 +30,10 @@ public class CreateCategoryCommandHandler(
         if (exist) return Result.Failure("分类已存在");
 
         var entity = mapper.Map<Category>(request);
+        entity.Default = false;
         entity = await categoryRepo.InsertAsync(entity, cancellationToken);
         if (entity.Id <= 0) throw new ApplicationException("保存分类失败");
 
-        return Result.Success(entity.CategoryId);
+        return Result.Success(mapper.Map<CategoryResult>(entity));
     }
 }

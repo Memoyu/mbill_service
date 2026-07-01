@@ -1,8 +1,10 @@
-﻿namespace Memo.Bill.Application.Accounts.Commands;
+﻿using Memo.Bill.Application.Accounts.Common;
+
+namespace Memo.Bill.Application.Accounts.Commands;
 
 [Authorize(Permissions = ApiPermission.Account.Create)]
 [Transactional]
-public record CreateAccountCommand(string Name, string Icon, bool IsDefault, long? ParentId) : IAuthorizeableRequest<Result>;
+public record CreateAccountCommand(long? ParentId, string Name, string Icon) : IAuthorizeableRequest<Result>;
 
 public class CreateAccountCommandValidator : AbstractValidator<CreateAccountCommand>
 {
@@ -35,6 +37,6 @@ public class CreateAccountCommandHandler(
         entity = await accountRepo.InsertAsync(entity, cancellationToken);
         if (entity.Id <= 0) throw new ApplicationException("保存账户失败");
 
-        return Result.Success(entity.AccountId);
+        return Result.Success(mapper.Map<AccountResult>(entity));
     }
 }
