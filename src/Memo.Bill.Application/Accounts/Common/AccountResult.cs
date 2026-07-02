@@ -27,11 +27,6 @@ internal record AccountBaseResult
 internal record AccountResult : AccountBaseResult
 {
     /// <summary>
-    /// 父级Id
-    /// </summary>
-    public long? ParentId { get; set; }
-
-    /// <summary>
     /// 是否默认
     /// </summary>
     public bool Default { get; set; }

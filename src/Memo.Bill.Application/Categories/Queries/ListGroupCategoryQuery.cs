@@ -16,10 +16,10 @@ public class ListGroupCategoryQueryHandler(
         var userId = currentUserProvider.GetCurrentUser().Id;
 
         var entities = await categoryRepo.Select.Where(x => x.CreateUserId == userId).ToListAsync(cancellationToken);
-        var dtos = mapper.Map<List<CategoryGroupResult>>(entities.Where(x => !x.ParentId.HasValue).OrderByDescending(x => x.Sort));
+        var dtos = mapper.Map<List<CategoryGroupResult>>(entities.Where(x => !x.ParentId.HasValue).OrderBy(x => x.Sort));
         dtos.ForEach(d =>
         {
-            d.Childs = mapper.Map<List<CategoryResult>>(entities.Where(x => x.ParentId == d.CategoryId).OrderByDescending(x => x.Sort));
+            d.Childs = mapper.Map<List<CategoryResult>>(entities.Where(x => x.ParentId == d.CategoryId).OrderBy(x => x.Sort));
         });
         return Result.Success(dtos);
     }
