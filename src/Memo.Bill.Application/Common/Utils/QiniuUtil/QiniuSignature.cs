@@ -14,6 +14,13 @@ namespace Memo.Bill.Application.Common.Utils.QiniuUtil
             secretKey = sk;
         }
 
+        public string Sign(string str)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(str);
+            string text = UrlSafeBase64Encode(bytes);
+            return $"{accessKey}:{encodedSign(text)}";
+        }
+
         public string SignWithData(string str)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(str);
