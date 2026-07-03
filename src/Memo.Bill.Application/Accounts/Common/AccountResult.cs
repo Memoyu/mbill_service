@@ -40,7 +40,7 @@ internal record AccountResult : AccountBaseResult
 internal record AccountWithParentResult : AccountResult
 {
     /// <summary>
-    /// 父级Id
+    /// 父账户
     /// </summary>
     public AccountResult? Parent { get; set; }
 

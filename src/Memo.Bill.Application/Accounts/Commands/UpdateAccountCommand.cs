@@ -1,7 +1,6 @@
 ﻿namespace Memo.Bill.Application.Accounts.Commands;
 
 [Authorize(Permissions = ApiPermission.Account.Update)]
-[Transactional]
 public record UpdateAccountCommand(long AccountId, string Name, string Icon, bool IsDefault, long? ParentId) : IAuthorizeableRequest<Result>;
 
 public class UpdateAccountCommandValidator : AbstractValidator<UpdateAccountCommand>
@@ -22,7 +21,7 @@ public class UpdateAccountCommandValidator : AbstractValidator<UpdateAccountComm
     }
 }
 
-public class UpdateBillCommandHandler(
+public class UpdateCategoryCommandHandler(
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Account> accountRepo
     ) : IRequestHandler<UpdateAccountCommand, Result>

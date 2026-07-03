@@ -12,7 +12,7 @@ public class SortCategoryCommandValidator : AbstractValidator<SortCategoryComman
     {
         RuleFor(x => x.Sorts)
              .NotEmpty()
-            .WithMessage("排序账单分类不能为空");
+            .WithMessage("排序分类不能为空");
     }
 }
 
@@ -31,6 +31,6 @@ public class SortCategoryCommandHandler(
         });
         var rows = await categoryRepo.UpdateAsync(categories, cancellationToken);
 
-        return rows > 0 ? Result.Success() : throw new ApplicationException("更新账单分类排序失败");
+        return rows > 0 ? Result.Success() : throw new ApplicationException("更新分类排序失败");
     }
 }

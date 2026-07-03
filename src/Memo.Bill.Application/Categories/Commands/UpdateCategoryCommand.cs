@@ -1,9 +1,6 @@
-﻿using Memo.Bill.Application.Common.Security;
-
-namespace Memo.Bill.Application.Categories.Commands;
+﻿namespace Memo.Bill.Application.Categories.Commands;
 
 [Authorize(Permissions = ApiPermission.Category.Update)]
-[Transactional]
 public record UpdateCategoryCommand(long CategoryId, string Name, string Icon, bool IsDefault, long? ParentId) : IAuthorizeableRequest<Result>;
 
 public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCommand>
@@ -24,7 +21,7 @@ public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCo
     }
 }
 
-public class UpdateBillCommandHandler(
+public class UpdateCategoryCommandHandler(
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Category> categoryRepo
     ) : IRequestHandler<UpdateCategoryCommand, Result>

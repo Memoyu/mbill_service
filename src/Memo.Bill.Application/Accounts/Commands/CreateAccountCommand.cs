@@ -3,7 +3,6 @@
 namespace Memo.Bill.Application.Accounts.Commands;
 
 [Authorize(Permissions = ApiPermission.Account.Create)]
-[Transactional]
 public record CreateAccountCommand(long? ParentId, string Name, string Icon) : IAuthorizeableRequest<Result>;
 
 public class CreateAccountCommandValidator : AbstractValidator<CreateAccountCommand>

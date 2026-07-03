@@ -44,7 +44,7 @@ internal record CategoryResult: CategoryBaseResult
 internal record CategoryWithParentResult : CategoryResult
 {
     /// <summary>
-    /// 父级Id
+    /// 父分类
     /// </summary>
     public CategoryResult? Parent { get; set; }
 

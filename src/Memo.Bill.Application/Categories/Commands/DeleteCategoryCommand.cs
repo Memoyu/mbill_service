@@ -1,6 +1,4 @@
-﻿using Memo.Bill.Application.Common.Security;
-
-namespace Memo.Bill.Application.Categories.Commands;
+﻿namespace Memo.Bill.Application.Categories.Commands;
 
 [Authorize(Permissions = ApiPermission.Category.Delete)]
 [Transactional]
