@@ -10,20 +10,20 @@ public class Icon : BaseAuditEntity
     /// 目录
     /// </summary>
     [Description("目录")]
-    [Column(StringLength = 20, IsNullable = false)]
+    [Column(StringLength = 30, IsNullable = false)]
     public string Catalog { get; set; } = string.Empty;
 
     /// <summary>
-    /// 目录名
+    /// 域名
     /// </summary>
-    [Description("目录名")]
-    [Column(StringLength = 20, IsNullable = false)]
-    public string CatalogName { get; set; } = string.Empty;
+    [Description("域名")]
+    [Column(StringLength = 50, IsNullable = false)]
+    public string Host { get; set; } = string.Empty;
 
     /// <summary>
-    /// 图标URL
+    /// 图标路径
     /// </summary>
-    [Description("URL")]
+    [Description("图标路径")]
     [Column(StringLength = 100, IsNullable = false)]
-    public string Url { get; set; } = string.Empty;
+    public string Path { get; set; } = string.Empty;
 }

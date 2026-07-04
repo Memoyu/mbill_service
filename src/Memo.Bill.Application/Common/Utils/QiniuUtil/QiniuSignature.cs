@@ -16,9 +16,7 @@ namespace Memo.Bill.Application.Common.Utils.QiniuUtil
 
         public string Sign(string str)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(str);
-            string text = UrlSafeBase64Encode(bytes);
-            return $"{accessKey}:{encodedSign(text)}";
+            return $"{accessKey}:{encodedSign(str)}";
         }
 
         public string SignWithData(string str)
