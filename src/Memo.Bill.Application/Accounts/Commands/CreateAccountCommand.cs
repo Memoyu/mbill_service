@@ -3,7 +3,7 @@
 namespace Memo.Bill.Application.Accounts.Commands;
 
 [Authorize(Permissions = ApiPermission.Account.Create)]
-public record CreateAccountCommand(long? ParentId, string Name, string Icon) : IAuthorizeableRequest<Result>;
+public record CreateAccountCommand(long? ParentId, string Name, string? Icon) : IAuthorizeableRequest<Result>;
 
 public class CreateAccountCommandValidator : AbstractValidator<CreateAccountCommand>
 {
@@ -12,10 +12,6 @@ public class CreateAccountCommandValidator : AbstractValidator<CreateAccountComm
         RuleFor(x => x.Name)
            .NotEmpty()
            .WithMessage("账户名称不能为空");
-
-        RuleFor(x => x.Icon)
-          .NotEmpty()
-          .WithMessage("账户图标不能为空");
     }
 }
 
@@ -33,6 +29,7 @@ public class CreateAccountCommandHandler(
         if (exist) return Result.Failure("账户已存在");
 
         var entity = mapper.Map<Account>(request);
+        entity.Icon = entity.Icon ?? string.Empty;
         entity = await accountRepo.InsertAsync(entity, cancellationToken);
         if (entity.Id <= 0) throw new ApplicationException("保存账户失败");
 

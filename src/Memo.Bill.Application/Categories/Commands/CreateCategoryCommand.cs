@@ -3,7 +3,7 @@
 namespace Memo.Bill.Application.Categories.Commands;
 
 [Authorize(Permissions = ApiPermission.Category.Create)]
-public record CreateCategoryCommand(long? ParentId, string Name, string Icon) : IAuthorizeableRequest<Result>;
+public record CreateCategoryCommand(long? ParentId, string Name, string? Icon) : IAuthorizeableRequest<Result>;
 
 public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 {
@@ -12,10 +12,6 @@ public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCo
         RuleFor(x => x.Name)
             .NotEmpty()
             .WithMessage("分类名称不能为空");
-
-        RuleFor(x => x.Icon)
-            .NotEmpty()
-            .WithMessage("分类图标不能为空");
     }
 }
 
@@ -30,6 +26,7 @@ public class CreateCategoryCommandHandler(
         if (exist) return Result.Failure("分类已存在");
 
         var entity = mapper.Map<Category>(request);
+        entity.Icon = entity.Icon ?? string.Empty;
         entity.Default = false;
         entity = await categoryRepo.InsertAsync(entity, cancellationToken);
         if (entity.Id <= 0) throw new ApplicationException("保存分类失败");
