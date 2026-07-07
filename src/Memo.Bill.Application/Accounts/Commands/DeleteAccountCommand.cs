@@ -26,7 +26,7 @@ public class DeleteAccountCommandHandler(
         var entity = await accountRepo.Select.Where(x => x.AccountId == request.AccountId && x.CreateUserId == userId).FirstAsync(cancellationToken)
             ?? throw new ApplicationException("账户不存在或已删除");
 
-        var row = await accountRepo.DeleteAsync(entity.AccountId, cancellationToken);
+        var row = await accountRepo.DeleteAsync(entity, cancellationToken);
         if (row < 1) return Result.Failure("删除账户失败");
         // 删除账户为父级账户，需要删除子级账户
         if (!entity.ParentId.HasValue)

@@ -28,8 +28,13 @@ public class CreateAccountCommandHandler(
         var exist = await accountRepo.Select.AnyAsync(x => x.Name == request.Name && x.CreateUserId == userId, cancellationToken);
         if (exist) return Result.Failure("账户已存在");
 
+        var maxSort = await accountRepo.Select
+            .Where(a => a.CreateUserId == userId)
+            .Where(a => a.ParentId == request.ParentId)
+            .MaxAsync(a => a.Sort + 1, cancellationToken);
         var entity = mapper.Map<Account>(request);
         entity.Icon = entity.Icon ?? string.Empty;
+        entity.Sort = maxSort;
         entity = await accountRepo.InsertAsync(entity, cancellationToken);
         if (entity.Id <= 0) throw new ApplicationException("保存账户失败");
 

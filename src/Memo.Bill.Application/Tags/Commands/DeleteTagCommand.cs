@@ -26,7 +26,7 @@ public class DeleteTagCommandHandler(
         var entity = await tagRepo.Select.Where(x => x.TagId == request.TagId && x.CreateUserId == userId).FirstAsync(cancellationToken)
             ?? throw new ApplicationException("标签不存在或已删除");
 
-        var row = await tagRepo.DeleteAsync(entity.TagId, cancellationToken);
+        var row = await tagRepo.DeleteAsync(entity, cancellationToken);
         if (row < 1) return Result.Failure("删除标签失败");
         // 删除标签为父级，需要删除子级标签
         if (!entity.ParentId.HasValue)

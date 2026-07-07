@@ -27,8 +27,12 @@ public class CreateTagCommandHandler(
 
         var exist = await tagRepo.Select.AnyAsync(x => x.Name == request.Name && x.CreateUserId == userId, cancellationToken);
         if (exist) return Result.Failure("标签已存在");
-
+        var maxSort = await tagRepo.Select
+            .Where(t => t.CreateUserId == userId)
+            .Where(t => t.ParentId == request.ParentId)
+            .MaxAsync(t => t.Sort + 1, cancellationToken);
         var entity = mapper.Map<Tag>(request);
+        entity.Sort = maxSort;
         entity = await tagRepo.InsertAsync(entity, cancellationToken);
         if (entity.Id <= 0) throw new ApplicationException("保存标签失败");
 
