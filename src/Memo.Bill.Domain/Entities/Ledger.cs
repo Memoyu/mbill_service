@@ -23,12 +23,6 @@ public class Ledger : BaseAuditEntity
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// 颜色
-    /// </summary>
-    [Description("颜色")]
-    public int Color { get; set; }
-
-    /// <summary>
     /// 默认账本
     /// </summary>
     public bool Default { get; set; }

@@ -20,9 +20,15 @@ public class GetWeatherInfoQueryHandler(
             return Result.Success(ecProvider.GetAsync<WeatherInfoResult>(key, cancellationToken));
         
         var res = await amapService.GetWeatherInfoAsync(city, cancellationToken);
-        var dto = mapper.Map<WeatherInfoResult>(res);
-        // 将天气信息缓存6小时
-        await ecProvider.SetAsync(key, dto, TimeSpan.FromHours(6), cancellationToken);
+
+        var dto = new WeatherInfoResult();
+        if (res.Lives != null && res.Lives.Count > 0)
+        {
+            dto = mapper.Map<WeatherInfoResult>(res.Lives.First());
+            // 将天气信息缓存6小时
+            await ecProvider.SetAsync(key, dto, TimeSpan.FromHours(6), cancellationToken);
+        }
+       
         return Result.Success(dto);
     }
 }

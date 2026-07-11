@@ -17,13 +17,13 @@ public class UpdateLedgerColorCommandValidator : AbstractValidator<UpdateLedgerC
 
 public class UpdateLedgerColorCommandHandler(
     ICurrentUserProvider currentUserProvider,
-    IBaseDefaultRepository<Ledger> ledgerRepo
+    IBaseDefaultRepository<LedgerUser> ledgerUserRepo
     ) : IRequestHandler<UpdateLedgerColorCommand, Result>
 {
     public async Task<Result> Handle(UpdateLedgerColorCommand request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-        var entities = await ledgerRepo.Select.Where(x => request.Items.Any(i => i.LedgerId == x.LedgerId) && x.CreateUserId == userId).ToListAsync(cancellationToken) ?? new();
+        var entities = await ledgerUserRepo.Select.Where(x => request.Items.Any(i => i.LedgerId == x.LedgerId) && x.UserId == userId).ToListAsync(cancellationToken) ?? [];
 
         if (entities.Count > 0)
         {
@@ -34,7 +34,7 @@ public class UpdateLedgerColorCommandHandler(
                 e.Color = item.Color;
             }
 
-            var rows = await ledgerRepo.UpdateAsync(entities, cancellationToken);
+            var rows = await ledgerUserRepo.UpdateAsync(entities, cancellationToken);
             if (rows < 1) throw new ApplicationException("保存账本颜色失败");
         }
         return Result.Success();

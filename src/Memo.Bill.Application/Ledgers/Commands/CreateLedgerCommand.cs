@@ -32,7 +32,7 @@ public class CreateAccountCommandHandler(
 
         var ledger = mapper.Map<Ledger>(request);
         ledger.LedgerId = SnowFlakeUtil.NextId();
-        ledger.AddDomainEvent(new CreateLedgerEvent(ledger.LedgerId, userId));
+        ledger.AddDomainEvent(new CreateLedgerEvent(ledger.LedgerId, userId, request.Color));
         ledger = await ledgerRepo.InsertAsync(ledger, cancellationToken);
         if (ledger.Id <= 0) throw new ApplicationException("保存账本失败");
 

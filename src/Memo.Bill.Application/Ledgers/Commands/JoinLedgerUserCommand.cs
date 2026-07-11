@@ -36,7 +36,8 @@ public class JoinLedgerUserCommandHandler(
         if (ledgerUsers.Any(lu => lu.UserId == userId))
             throw new ApplicationException("你已是账本成员，无需再加入");
 
-        await publisher.Publish(new CreateLedgerEvent(ledger.LedgerId, userId), cancellationToken);
+        // 使用默认颜色
+        await publisher.Publish(new CreateLedgerEvent(ledger.LedgerId, userId, 0), cancellationToken);
 
         var dto = mapper.Map<LedgerResult>(ledger);
         dto.Expend = await billRepo.Select.Where(b => b.LedgerId == ledger.LedgerId && b.Type == BillType.Expend).SumAsync(b => b.Amount, cancellationToken);

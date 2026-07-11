@@ -11,7 +11,7 @@ namespace Memo.Bill.Api.Controllers
         /// 获取经纬度对应地理位置信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet("address/get")]
+        [HttpGet("address")]
         public async Task<Result> GetAddressnAsync([FromQuery] GetAddressQuery request)
         {
             return await mediator.Send(request);
@@ -21,7 +21,7 @@ namespace Memo.Bill.Api.Controllers
         /// 获取天气预报信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet("weatherinfo/get")]
+        [HttpGet("weatherinfo")]
         public async Task<Result> GetWeatherInfoAsync([FromQuery] GetWeatherInfoQuery request)
         {
             return await mediator.Send(request);

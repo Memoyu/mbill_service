@@ -14,6 +14,13 @@ public static class CacheKeyConst
     public static string UserRefreshToken(string refreshToken) => $"{prefix}:user:refresh-token:{refreshToken}";
 
     /// <summary>
+    /// 地址信息缓存
+    /// </summary>
+    /// <param name="location">经纬度</param>
+    /// <returns></returns>
+    public static string AddressInfo(string location) => $"{prefix}:aggregation:location:{location}";
+
+    /// <summary>
     /// 天气信息缓存
     /// </summary>
     /// <param name="city">区域编码</param>

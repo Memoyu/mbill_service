@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Application.Ledgers.Commands;
+﻿using SharpCompress.Common;
+
+namespace Memo.Bill.Application.Ledgers.Commands;
 
 [Authorize(Permissions = ApiPermission.Ledger.Delete)]
 [Transactional]
@@ -23,8 +25,10 @@ public class DeleteLedgerCommanddHandler(
     public async Task<Result> Handle(DeleteLedgerCommand request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-        var ledger = await ledgerRepo.Select.Where(l => l.LedgerId == request.LedgerId && l.CreateUserId == userId).FirstAsync(cancellationToken)
+        var ledger = await ledgerRepo.Select.Where(l => l.LedgerId == request.LedgerId).FirstAsync(cancellationToken)
             ?? throw new ApplicationException("账本不存在或已删除");
+        if (ledger.CreateUserId != userId)
+            throw new ApplicationException("非账本创建者，无法删除");
 
         if (ledger.Default)
             throw new ApplicationException("默认账本无法删除");

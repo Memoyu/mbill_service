@@ -27,6 +27,12 @@ public class LedgerUser : BaseAuditEntity
     public int Sort { get; set; }
 
     /// <summary>
+    /// 颜色
+    /// </summary>
+    [Description("颜色")]
+    public int Color { get; set; }
+
+    /// <summary>
     /// 用户
     /// </summary>
     [Navigate(nameof(User.UserId), TempPrimary = nameof(UserId))]

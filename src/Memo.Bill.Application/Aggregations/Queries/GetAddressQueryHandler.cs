@@ -1,6 +1,6 @@
-﻿using Memo.Bill.Application.Aggregations.Common;
+﻿using EasyCaching.Core;
+using Memo.Bill.Application.Aggregations.Common;
 using Memo.Bill.Application.Common.Interfaces.Services.Amap;
-using Memo.Bill.Application.Common.Security;
 using Memo.Bill.Domain.Events.Aggregations;
 
 namespace Memo.Bill.Application.Aggregations.Queries;
@@ -22,14 +22,23 @@ public class GetAddressQueryHandler(
     IMapper mapper,
     IPublisher publisher,
     IAmapService amapService,
+    IEasyCachingProvider ecProvider,
     ICurrentUserProvider currentUserProvider) : IRequestHandler<GetAddressQuery, Result>
 {
     public async Task<Result> Handle(GetAddressQuery request, CancellationToken cancellationToken)
     {
         var location = request.Location.Trim();
+
+        var key = CacheKeyConst.AddressInfo(location);
+        var cacheValue = await ecProvider.GetAsync<AddressResult>(key, cancellationToken);
+        if (cacheValue.HasValue)
+            return Result.Success(cacheValue.Value);
+
         var userId = currentUserProvider.GetCurrentUser().Id;
+
         var res = await amapService.GetGeocodeRegeoAsync(location, cancellationToken);
         var address = mapper.Map<AddressResult>(res);
+        await ecProvider.SetAsync(key, address, TimeSpan.FromMinutes(3), cancellationToken);
         var userLocation = mapper.Map<UserLocation>(address);
 
         userLocation.UserId = userId;

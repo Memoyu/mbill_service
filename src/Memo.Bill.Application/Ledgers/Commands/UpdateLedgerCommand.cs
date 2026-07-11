@@ -1,7 +1,7 @@
 ﻿namespace Memo.Bill.Application.Ledgers.Commands;
 
 [Authorize(Permissions = ApiPermission.Ledger.Update)]
-public record UpdateLedgerCommand(long LedgerId, string Name, int Color) : IAuthorizeableRequest<Result>;
+public record UpdateLedgerCommand(long LedgerId, string Name) : IAuthorizeableRequest<Result>;
 
 public class UpdateLedgerCommandValidator : AbstractValidator<UpdateLedgerCommand>
 {
@@ -25,10 +25,12 @@ public class UpdateLedgerCommandHandler(
     public async Task<Result> Handle(UpdateLedgerCommand request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-        var entity = await ledgerRepo.Select.Where(x => x.LedgerId == request.LedgerId && x.CreateUserId == userId).FirstAsync(cancellationToken)
+        var entity = await ledgerRepo.Select.Where(x => x.LedgerId == request.LedgerId).FirstAsync(cancellationToken)
             ?? throw new ApplicationException("账本不存在或已删除");
 
-        entity.Color = request.Color;
+        if (entity.CreateUserId != userId)
+            throw new ApplicationException("非账本创建者，无法编辑");
+
         entity.Name = request.Name;
         var rows = await ledgerRepo.UpdateAsync(entity, cancellationToken);
 

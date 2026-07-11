@@ -12,11 +12,10 @@ public class CreateUserEventHandler(IBaseDefaultRepository<Ledger> ledgerRepo) :
         {
             LedgerId = ledgerId,
             Name = "日常账本",
-            Color = 0,
             Default = true,
             CreateUserId = notification.UserId,
         };
-        ledger.AddDomainEvent(new CreateLedgerEvent(ledgerId, notification.UserId));
+        ledger.AddDomainEvent(new CreateLedgerEvent(ledgerId, notification.UserId, 0));
         await ledgerRepo.InsertAsync(ledger, cancellationToken);
     }
 }

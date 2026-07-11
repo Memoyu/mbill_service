@@ -33,7 +33,7 @@ public class AmapService : IAmapService
     {
         var response = await _client.GetAsync(url, cancellationToken);
         response.EnsureSuccessStatusCode();
-        var content = await response.Content.ReadAsStringAsync();
+        var content = await response.Content.ReadAsStringAsync(cancellationToken);
         var resp = content?.ToDesJson<T>() ?? throw new Exception("反序列化高德地图api响应失败");
         if (!resp.IsSuccess) throw new Exception($"高德地图api响应失败：{resp.Info}");
         return resp;
