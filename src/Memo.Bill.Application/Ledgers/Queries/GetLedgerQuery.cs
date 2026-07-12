@@ -18,6 +18,7 @@ public class GetLedgerQueryValidator : AbstractValidator<GetLedgerQuery>
 
 public class GetLedgerQueryHandler(
     IMapper mapper,
+    ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Ledger> ledgerRepo,
     IBaseDefaultRepository<LedgerUser> ledgerUserRepo,
     IBaseDefaultRepository<User> userRepo
@@ -25,6 +26,7 @@ public class GetLedgerQueryHandler(
 {
     public async Task<Result> Handle(GetLedgerQuery request, CancellationToken cancellationToken)
     {
+        var userId = currentUserProvider.GetCurrentUser().Id;
         var ledger = await ledgerRepo.Select.Where(l => l.LedgerId == request.LedgerId).FirstAsync(cancellationToken)
             ?? throw new ApplicationException("账本不存在或已删除");
 
@@ -33,6 +35,7 @@ public class GetLedgerQueryHandler(
         var dto = mapper.Map<LedgerWithCreaterResult>(ledger);
         dto.Creater = mapper.Map<UserBaseResult>(user);
         dto.Users = mapper.Map<List<UserBaseResult>>(ledgerUsers);
+        dto.Color = ledgerUsers.FirstOrDefault(lu => lu.UserId == userId)?.Color ?? 0;
 
         return Result.Success(dto);
     }

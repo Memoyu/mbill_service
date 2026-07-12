@@ -30,21 +30,7 @@ internal class BillService(
             .OrderBy(sort)
             .ToPageListAsync(request, out var total, cancellationToken);
 
-        var expend = 0m;
-        var income = 0m;
-        foreach (var bill in bills)
-        {
-            if (bill.Type == BillType.Expend)
-                expend += bill.Amount;
-            else
-                income += bill.Amount;
-        }
 
-        return new BillPageResult<BillResult>(mapper.Map<List<BillResult>>(bills), total)
-        {
-            Date = begin,
-            Expend = expend,
-            Income = income,
-        };
+        return new BillPageResult<BillResult>(mapper.Map<List<BillResult>>(bills), total);
     }
 }

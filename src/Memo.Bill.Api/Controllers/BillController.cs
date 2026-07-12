@@ -64,7 +64,7 @@ namespace Memo.Bill.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("page/group/date")]
-        public async Task<Result> PageBillGroupByDateAsync([FromQuery] PageBillGroupByDateQuery request)
+        public async Task<Result> PageGroupDateBillAsync([FromQuery] PageGroupDateBillQuery request)
         {
             return await mediator.Send(request);
         }

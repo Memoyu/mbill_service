@@ -7,9 +7,9 @@ namespace Memo.Bill.Domain.Entities;
 /// </summary>
 [Table(Name = "billing")]
 [Index("idx_billing_id", nameof(BillId), false)]
+[Index("idx_billing_ledger_id", nameof(LedgerId), false)]
 [Index("idx_billing_category_id", nameof(CategoryId), false)]
 [Index("idx_billing_account_id", nameof(AccountId), false)]
-[Index("idx_billing_ledger_id", nameof(LedgerId), false)]
 public class Billing : BaseAuditEntity
 {
     /// <summary>
@@ -19,6 +19,12 @@ public class Billing : BaseAuditEntity
     [Description("账单Id")]
     [Column(CanUpdate = false)]
     public long BillId { get; set; }
+
+    /// <summary>
+    /// 账本Id
+    /// </summary>
+    [Description("账本Id")]
+    public long LedgerId { get; set; }
 
     /// <summary>
     /// 分类Id
@@ -31,12 +37,6 @@ public class Billing : BaseAuditEntity
     /// </summary>
     [Description("账户Id")]
     public long AccountId { get; set; }
-
-    /// <summary>
-    /// 账本Id
-    /// </summary>
-    [Description("账本Id")]
-    public long LedgerId { get; set; }
 
     /// <summary>
     /// 金额
@@ -62,14 +62,14 @@ public class Billing : BaseAuditEntity
     /// 坐标
     /// </summary>
     [Description("坐标")]
-    [Column(StringLength = 100)]
+    [Column(StringLength = 100, IsNullable = false)]
     public string Location { get; set; } = string.Empty;
 
     /// <summary>
     /// 地点
     /// </summary>
     [Description("地点")]
-    [Column(StringLength = 200)]
+    [Column(StringLength = 200, IsNullable = false)]
     public string Address { get; set; } = string.Empty;
 
     /// <summary>

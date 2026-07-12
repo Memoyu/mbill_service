@@ -8,9 +8,10 @@ public class DeleteBillMongoEventHandler(IBaseMongoRepository<BillingCollection>
 {
     public async Task Handle(DeleteBillEvent notification, CancellationToken cancellationToken)
     {
-        FilterDefinitionBuilder<BillingCollection> buildFilter = Builders<BillingCollection>.Filter;
-        var filter = buildFilter.Eq(a => a.BillId, notification.BillId);
-        var res = await billMongoRepo.DeleteOneAsync(filter, null, cancellationToken);
-        if (res?.IsAcknowledged != true) throw new ApplicationException("删除Mongo账单失败");
+        // TODO Mongo数据操作后续处理
+        //FilterDefinitionBuilder<BillingCollection> buildFilter = Builders<BillingCollection>.Filter;
+        //var filter = buildFilter.Eq(a => a.BillId, notification.BillId);
+        //var res = await billMongoRepo.DeleteOneAsync(filter, null, cancellationToken);
+        //if (res?.IsAcknowledged != true) throw new ApplicationException("删除Mongo账单失败");
     }
 }

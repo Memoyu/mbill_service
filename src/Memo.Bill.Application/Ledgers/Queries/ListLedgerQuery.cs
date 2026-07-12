@@ -17,7 +17,7 @@ public class CreateAccountCommandHandler(
     public async Task<Result> Handle(ListLedgerQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-
+        // 当前用户加入的所有账单
         var userLedgers = await ledgerUserRepo.Select
             .Include(l => l.Ledger)
             .Where(l => l.UserId == userId)
@@ -29,6 +29,7 @@ public class CreateAccountCommandHandler(
         {
             // 账单加入用户数据
             var allLedgerIds = ledgers.Select(l => l.LedgerId).ToList();
+            // 获取账单所有加入的成员
             var allLedgerUsers = await ledgerUserRepo.Select.Where(l => allLedgerIds.Contains(l.LedgerId)).ToListAsync(cancellationToken) ?? [];
             var joinUserIds = allLedgerUsers.Select(l => l.UserId).Distinct().ToList();
             var users = await userRepo.Select.Where(u => joinUserIds.Contains(u.UserId)).ToListAsync(cancellationToken);
@@ -44,7 +45,9 @@ public class CreateAccountCommandHandler(
                 dto.Users = mapper.Map<List<UserBaseResult>>(ledgerUsers);
                 dto.Expend = await billRepo.Select.Where(b => b.LedgerId == ledger.LedgerId && b.Type == BillType.Expend).SumAsync(b => b.Amount, cancellationToken);
                 dto.Income = await billRepo.Select.Where(b => b.LedgerId == ledger.LedgerId && b.Type == BillType.Income).SumAsync(b => b.Amount, cancellationToken);
-                dto.Sort = userLedgers.FirstOrDefault(l => l.LedgerId == ledger.LedgerId)?.Sort ?? 0;
+                var userLedger = userLedgers.FirstOrDefault(l => l.LedgerId == ledger.LedgerId) ?? new();
+                dto.Sort = userLedger.Sort;
+                dto.Color = userLedger.Color;
                 result.Add(dto);
             }
         }

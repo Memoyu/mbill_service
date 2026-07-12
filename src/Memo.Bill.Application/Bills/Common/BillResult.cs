@@ -1,5 +1,7 @@
 ﻿using Memo.Bill.Application.Accounts.Common;
 using Memo.Bill.Application.Categories.Common;
+using Memo.Bill.Application.Ledgers.Common;
+using Memo.Bill.Application.Tags.Common;
 
 namespace Memo.Bill.Application.Bills.Common;
 
@@ -11,6 +13,11 @@ internal record BillResult
     public long BillId { get; set; }
 
     /// <summary>
+    /// 账本
+    /// </summary>
+    public LedgerBaseResult Ledger { get; set; } = new();
+
+    /// <summary>
     /// 分类
     /// </summary>
     public CategoryBaseResult Category { get; set; } = new();
@@ -19,6 +26,11 @@ internal record BillResult
     /// 账户
     /// </summary>
     public AccountBaseResult Account { get; set; } = new();
+
+    /// <summary>
+    /// 标签
+    /// </summary>
+    public List<TagBaseResult> Tags { get; set; } = [];
 
     /// <summary>
     /// 金额
