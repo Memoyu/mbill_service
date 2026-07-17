@@ -16,6 +16,11 @@ public record PageBillBaseQuery : PaginationQuery
     public DateTime EndDate { get; set; }
 
     /// <summary>
+    /// 账单分类
+    /// </summary>
+    public List<long> LedgerIds { get; set; }
+
+    /// <summary>
     /// 账单类型
     /// </summary>
     public BillType? Type { get; set; }

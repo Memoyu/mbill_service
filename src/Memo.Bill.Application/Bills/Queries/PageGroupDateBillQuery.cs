@@ -12,8 +12,13 @@ public class PageGroupDateBillQueryValidator : AbstractValidator<PageGroupDateBi
 {
     public PageGroupDateBillQueryValidator()
     {
+        RuleFor(x => x.LedgerIds)
+           .NotEmpty()
+           .WithMessage("账本Id不能为空");
+
         RuleFor(x => x.EndDate)
-            .GreaterThan(x => x.BeginDate).WithMessage("结束时间必须晚于开始时间");
+            .GreaterThan(x => x.BeginDate)
+            .WithMessage("结束时间必须晚于开始时间");
     }
 }
 
@@ -27,7 +32,9 @@ internal class PageGroupDateBillQueryHandler(
         var result = await billService.GetBillPageAsync(request, cancellationToken);
 
         var groupRes = new List<PageGroupDateBillResult>();
+
         var dateGroup = result.Items.GroupBy(b => b.Date.Date).ToList();
+
         foreach (var gm in dateGroup)
         {
             var date = gm.Key;

@@ -41,7 +41,7 @@ internal record CategoryResult: CategoryBaseResult
     public int Sort { get; set; }
 }
 
-internal record CategoryWithParentResult : CategoryResult
+internal record CategoryWithParentResult : CategoryBaseResult
 {
     /// <summary>
     /// 父分类

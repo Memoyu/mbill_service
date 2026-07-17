@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Domain.Entities;
+﻿using static Memo.Bill.Domain.Constants.Security.Permissions.Permissions;
+
+namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
 /// 账单关联标签表
@@ -19,4 +21,10 @@ public class BillTag : BaseAuditEntity
     /// </summary>
     [Description("标签Id")]
     public long TagId { get; set; }
+
+    /// <summary>
+    /// 标签
+    /// </summary>
+    [Navigate(nameof(Tag.TagId), TempPrimary = nameof(TagId))]
+    public virtual Tag Tag { get; set; } = new();
 }
