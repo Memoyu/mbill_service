@@ -30,6 +30,26 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
+        /// 账单退款
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("refund")]
+        public async Task<Result> RelationAsync(RefundBillCommand request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 关联账单
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("relation")]
+        public async Task<Result> RelationAsync(RelationBillCommand request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
         /// 删除账单
         /// </summary>
         /// <returns></returns>
@@ -45,6 +65,16 @@ namespace Memo.Bill.Api.Controllers
         /// <returns></returns>
         [HttpGet("get")]
         public async Task<Result> GetAsync([FromQuery] GetBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取关联账单
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("related")]
+        public async Task<Result> RelatedAsync([FromQuery] RelatedBillQuery request)
         {
             return await mediator.Send(request);
         }

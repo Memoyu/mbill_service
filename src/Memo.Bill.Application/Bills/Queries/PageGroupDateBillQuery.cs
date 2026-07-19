@@ -30,21 +30,22 @@ internal class PageGroupDateBillQueryHandler(
     public async Task<Result> Handle(PageGroupDateBillQuery request, CancellationToken cancellationToken)
     {
         var result = await billService.GetBillPageAsync(request, cancellationToken);
-
         var groupRes = new List<PageGroupDateBillResult>();
-
         var dateGroup = result.Items.GroupBy(b => b.Date.Date).ToList();
 
         foreach (var gm in dateGroup)
         {
             var date = gm.Key;
             var dateEnd = date.AddDays(1).AddSeconds(-1);
-            var allBill = await billRepo.Select.Where(b => b.Date >= date && b.Date <= dateEnd).ToListAsync(b => new { b.Type, b.Amount }, cancellationToken) ?? [];
+            var dateBills = await billRepo.Select
+                .Where(s => request.LedgerIds.Contains(s.LedgerId))
+                .Where(b => b.Date >= date && b.Date <= dateEnd)
+                .ToListAsync(b => new { b.Type, b.Amount }, cancellationToken) ?? [];
             groupRes.Add(new PageGroupDateBillResult
             {
                 Date = date,
-                Expend = allBill.Where(b => b.Type == BillType.Expend).Sum(b => b.Amount),
-                Income = allBill.Where(b => b.Type == BillType.Income).Sum(b => b.Amount),
+                Expend = dateBills.Where(b => b.Type == BillType.Expend).Sum(b => b.Amount),
+                Income = dateBills.Where(b => b.Type == BillType.Income).Sum(b => b.Amount),
                 Items = [.. result.Items.Where(b => b.Date >= date && b.Date <= dateEnd)]
             });
         }

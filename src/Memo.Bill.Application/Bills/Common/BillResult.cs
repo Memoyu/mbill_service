@@ -38,6 +38,11 @@ internal record BillResult
     public decimal Amount { get; set; }
 
     /// <summary>
+    /// 退款金额
+    /// </summary>
+    public decimal RefundAmount { get; set; }
+
+    /// <summary>
     /// 类型：0-支出、1-收入
     /// </summary>
     public BillType Type { get; set; }

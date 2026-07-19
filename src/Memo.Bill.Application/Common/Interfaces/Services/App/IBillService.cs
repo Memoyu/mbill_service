@@ -11,5 +11,5 @@ internal interface IBillService
     /// <param name="query"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    Task<BillPageResult<BillResult>> GetBillPageAsync(PageBillBaseQuery query, CancellationToken cancellationToken);
+    Task<BillPageResult<BillPageItemResult>> GetBillPageAsync(PageBillBaseQuery query, CancellationToken cancellationToken);
 }

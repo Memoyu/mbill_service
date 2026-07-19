@@ -62,7 +62,9 @@ public class CreateBillCommandHandler(
         var account = await accountRepo.Select.Where(x => x.AccountId == request.AccountId).FirstAsync(cancellationToken)
            ?? throw new ApplicationException("账户不存在或已删除");
 
-        var tags = await tagRepo.Select.WhereIf(request.TagIds != null && request.TagIds.Count > 0, t => request.TagIds!.Contains(t.TagId)).ToListAsync(cancellationToken);
+        var tags = new List<Tag>();
+        if (request.TagIds != null && request.TagIds.Count > 0)
+            tags = await tagRepo.Select.Where(t => request.TagIds!.Contains(t.TagId)).ToListAsync(cancellationToken) ?? [];
 
         var bill = mapper.Map<Billing>(request);
         bill.AddDomainEvent(new CreateBillEvent(bill));
@@ -70,7 +72,6 @@ public class CreateBillCommandHandler(
         // 写入账单标签
         if (tags.Count > 0)
             await billTagRepo.InsertAsync(tags.Select(t => new BillTag { BillId = bill.BillId, TagId = t.TagId }), cancellationToken);
-
 
         return bill.Id > 0 ? Result.Success(bill.AccountId) : throw new ApplicationException("保存账单失败");
     }

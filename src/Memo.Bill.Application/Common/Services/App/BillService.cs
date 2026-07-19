@@ -1,6 +1,5 @@
 ﻿using Memo.Bill.Application.Bills.Common;
 using Memo.Bill.Application.Bills.Queries;
-using Memo.Bill.Application.Categories.Common;
 using Memo.Bill.Application.Tags.Common;
 
 namespace Memo.Bill.Application.Common.Services.App;
@@ -10,12 +9,13 @@ internal class BillService(
     IMapper mapper,
     ICurrentUserProvider currentUserProvider,
     IBaseDefaultRepository<Billing> billRepo,
+    IBaseDefaultRepository<BillRefund> billRefundRepo,
     IBaseDefaultRepository<BillTag> billTagRepo,
     IBaseDefaultRepository<Category> categoryRepo,
     IBaseDefaultRepository<Account> accountRepo
     ) : IBillService
 {
-    public async Task<BillPageResult<BillResult>> GetBillPageAsync(PageBillBaseQuery request, CancellationToken cancellationToken = default)
+    public async Task<BillPageResult<BillPageItemResult>> GetBillPageAsync(PageBillBaseQuery request, CancellationToken cancellationToken = default)
     {
         var userId = currentUserProvider.UserId;
         var (begin, end) = (request.BeginDate.FirstTimeOfDay(), request.EndDate.LastTimeOfDay());
@@ -36,24 +36,26 @@ internal class BillService(
             .OrderBy(sort)
             .ToPageListAsync(request, out var total, cancellationToken);
 
+        var billIds = new HashSet<long>();
+        var parCaIds = new HashSet<long>();
+        var parAcIds = new HashSet<long>();
 
-        var parCaIds = bills.Select(b => b.Category.ParentId).Where(p => p.HasValue).Distinct().ToList();
-        var parCas = await categoryRepo.Select
-            .Where(t => parCaIds.Contains(t.CategoryId))
-            .ToListAsync(cancellationToken);
+        foreach (var rb in bills)
+        {
+            billIds.Add(rb.BillId);
 
-        var parAcIds = bills.Select(b => b.Account.ParentId).Where(p => p.HasValue).Distinct().ToList();
-        var parAcs = await accountRepo.Select
-            .Where(t => parAcIds.Contains(t.AccountId))
-            .ToListAsync(cancellationToken);
+            if (rb.Category.ParentId.HasValue)
+                parCaIds.Add(rb.Category.ParentId.Value);
+            if (rb.Account.ParentId.HasValue)
+                parAcIds.Add(rb.Account.ParentId.Value);
+        }
 
-        var billIds = bills.Select(b => b.BillId).ToList();
-        var tags = await billTagRepo.Select
-            .Include(t => t.Tag)
-            .Where(t => billIds.Contains(t.BillId))
-            .ToListAsync(cancellationToken);
+        var parCas = await categoryRepo.Select.Where(t => parCaIds.Contains(t.CategoryId)).ToListAsync(cancellationToken);
+        var parAcs = await accountRepo.Select.Where(t => parAcIds.Contains(t.AccountId)).ToListAsync(cancellationToken);
+        var tags = await billTagRepo.Select.Include(t => t.Tag).Where(t => billIds.Contains(t.BillId)).ToListAsync(cancellationToken);
+        var refunds = await billRefundRepo.Select.Where(t => billIds.Contains(t.BillId)).ToListAsync(cancellationToken);
 
-        var dtos = mapper.Map<List<BillResult>>(bills);
+        var dtos = mapper.Map<List<BillPageItemResult>>(bills);
         dtos.ForEach(b =>
         {
             var parAc = parAcs.FirstOrDefault(c => c.AccountId == b.Account.ParentId);
@@ -61,8 +63,9 @@ internal class BillService(
             b.Category.Name = parCa == null ? b.Category.Name : $"{parCa.Name}-{b.Category.Name}";
             b.Account.Name = parAc == null ? b.Account.Name : $"{parAc.Name}-{b.Account.Name}";
             b.Tags = [.. tags.Where(t => t.BillId == b.BillId).Select(t => mapper.Map<TagBaseResult>(t.Tag))];
+            b.RefundAmount = refunds.Where(r => r.BillId == b.BillId).Sum(r => r.Amount);
         });
 
-        return new BillPageResult<BillResult>(dtos, total);
+        return new BillPageResult<BillPageItemResult>(dtos, total);
     }
 }

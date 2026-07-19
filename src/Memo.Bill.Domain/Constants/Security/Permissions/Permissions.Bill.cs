@@ -11,11 +11,20 @@ public static partial class Permissions
         [Description("更新账单")]
         public const string Update = "update:bill";
 
+        [Description("账单退款")]
+        public const string Refund = "refund:bill";
+
+        [Description("关联账单")]
+        public const string Relation = "relation:bill";
+
         [Description("删除账单")]
         public const string Delete = "delete:bill";
 
         [Description("获取账单")]
         public const string Get = "get:bill";
+
+        [Description("获取关联账单")]
+        public const string Related = "related:bill";
 
         [Description("账单搜索")]
         public const string Search = "search:bill";

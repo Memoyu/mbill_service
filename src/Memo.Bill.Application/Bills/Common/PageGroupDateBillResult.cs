@@ -20,6 +20,10 @@ internal record PageGroupDateBillResult
     /// <summary>
     /// 账单
     /// </summary>
-    public List<BillResult> Items { get; set; } = [];
+    public List<BillPageItemResult> Items { get; set; } = [];
 }
 
+internal record BillPageItemResult : BillResult
+{
+
+}

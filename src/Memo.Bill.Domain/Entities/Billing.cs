@@ -39,9 +39,9 @@ public class Billing : BaseAuditEntity
     public long AccountId { get; set; }
 
     /// <summary>
-    /// 金额
+    /// 记账金额
     /// </summary>
-    [Description("金额")]
+    [Description("记账金额")]
     [Column(Precision = 12, Scale = 2)]
     public decimal Amount { get; set; }
 
