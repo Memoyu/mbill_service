@@ -10,7 +10,16 @@ internal record AccountBaseResult
     /// <summary>
     /// 名称
     /// </summary>
-    public string Name { get; set; } = string.Empty;
+    public string Name
+    {
+        get
+        {
+            if (Parent != null)
+                return $"{Parent.Name}-{field}";
+            return field;
+        }
+        set;
+    } = string.Empty;
 
     /// <summary>
     /// 图标
@@ -21,6 +30,9 @@ internal record AccountBaseResult
     /// 父级Id
     /// </summary>
     public long? ParentId { get; set; }
+
+    [JsonIgnore]
+    public Account? Parent { get; set; }
 }
 
 

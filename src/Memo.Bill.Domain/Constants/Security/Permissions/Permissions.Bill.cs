@@ -14,6 +14,9 @@ public static partial class Permissions
         [Description("账单退款")]
         public const string Refund = "refund:bill";
 
+        [Description("更新账单退款")]
+        public const string UpdateRefund = "update:refund:bill";
+
         [Description("关联账单")]
         public const string Relation = "relation:bill";
 
@@ -49,5 +52,24 @@ public static partial class Permissions
         
         [Description("获取账单排行榜")]
         public const string Ranking = "ranking:bill";
+
+        #region 账单退款
+
+        [Description("创建账单退款")]
+        public const string RefundCreate = "create:bill:refund";
+
+        [Description("更新账单退款")]
+        public const string RefundUpdate = "update:bill:refund";
+
+        [Description("删除账单退款")]
+        public const string RefundDelete = "delete:bill:refund";
+
+        [Description("获取账单退款")]
+        public const string RefundGet = "get:bill:refund";
+
+        [Description("获取账单退款列表")]
+        public const string RefundList = "list:bill:refund";
+
+        #endregion
     }
 }

@@ -1,8 +1,11 @@
-﻿namespace Memo.Bill.Application.Bills.Commands;
+﻿using Memo.Bill.Application.Accounts.Common;
+using Memo.Bill.Application.Bills.Common;
 
-[Authorize(Permissions = ApiPermission.Bill.Refund)]
+namespace Memo.Bill.Application.Bills.Commands;
+
+[Authorize(Permissions = ApiPermission.Bill.RefundCreate)]
 [Transactional]
-public record RefundBillCommand(
+public record CreateRefundBillCommand(
     long BillId,
     long AccountId,
     decimal Amount,
@@ -10,7 +13,7 @@ public record RefundBillCommand(
     string? Remark
     ) : IAuthorizeableRequest<Result>;
 
-public class RefundBillCommandValidator : AbstractValidator<RefundBillCommand>
+public class RefundBillCommandValidator : AbstractValidator<CreateRefundBillCommand>
 {
     public RefundBillCommandValidator()
     {
@@ -20,39 +23,49 @@ public class RefundBillCommandValidator : AbstractValidator<RefundBillCommand>
 
         RuleFor(x => x.AccountId)
             .NotEmpty()
-            .WithMessage("账户Id不能为空");
+            .WithMessage("退回账户Id不能为空");
 
         RuleFor(x => x.Amount)
             .NotEmpty()
-            .WithMessage("金额不能为0");
+            .WithMessage("退款金额不能为0");
     }
 }
 
 public class RefundBillCommandHandler(
+    IMapper mapper,
     IBaseDefaultRepository<BillRefund> billRefundRepo,
     IBaseDefaultRepository<Billing> billRepo,
     IBaseDefaultRepository<Account> accountRepo
-    ) : IRequestHandler<RefundBillCommand, Result>
+    ) : IRequestHandler<CreateRefundBillCommand, Result>
 {
-    public async Task<Result> Handle(RefundBillCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CreateRefundBillCommand request, CancellationToken cancellationToken)
     {
         var bill = await billRepo.Select.Where(t => t.BillId == request.BillId).FirstAsync(cancellationToken)
           ?? throw new ApplicationException("账单不存在或已删除");
         var account = await accountRepo.Select.Where(x => x.AccountId == request.AccountId).FirstAsync(cancellationToken)
          ?? throw new ApplicationException("账户不存在或已删除");
 
-        bill.Amount -= request.Amount;
-        await billRepo.UpdateAsync(bill, cancellationToken);
-
         var refund = await billRefundRepo.InsertAsync(new BillRefund
         {
             BillId = bill.BillId,
             AccountId = account.AccountId,
             Amount = request.Amount,
+            AmountBefore = bill.Amount,
             Remark = request.Remark ?? string.Empty,
             Date = request.Date
         }, cancellationToken);
 
-        return refund.Id > 0 ? Result.Success(bill.BillId) : throw new ApplicationException("新增账单退款失败");
+        if (refund.Id <= 0)
+            throw new ApplicationException("新增账单退款失败");
+
+        bill.Amount -= request.Amount;
+        await billRepo.UpdateAsync(bill, cancellationToken);
+
+        var dto = mapper.Map<BillRefundResult>(refund);
+        dto.Account = mapper.Map<AccountBaseResult>(account);
+        // 账户补全
+        if (dto.Account.ParentId.HasValue)
+            dto.Account.Parent = await accountRepo.Select.Where(t => dto.Account.ParentId == t.AccountId).FirstAsync(cancellationToken);
+        return Result.Success(dto);
     }
 }

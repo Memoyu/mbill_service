@@ -4,6 +4,7 @@ global using FluentValidation;
 global using MediatR;
 global using MapsterMapper;
 global using Mapster;
+global using System.Text.Json.Serialization;
 
 global using Memo.Bill.Application.Common.Interfaces.Services.App;
 global using Memo.Bill.Application.Common.Interfaces.Security;

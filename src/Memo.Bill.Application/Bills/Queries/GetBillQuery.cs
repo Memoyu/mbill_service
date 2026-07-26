@@ -22,7 +22,7 @@ public class GetBillQueryHandler(
     IBaseDefaultRepository<BillTag> billTagRepo,
     IBaseDefaultRepository<BillRefund> billRefundRepo,
     IBaseDefaultRepository<Category> categoryRepo,
-    IBaseDefaultRepository<Account> accountRepo 
+    IBaseDefaultRepository<Account> accountRepo
     ) : IRequestHandler<GetBillQuery, Result>
 {
     public async Task<Result> Handle(GetBillQuery request, CancellationToken cancellationToken)
@@ -39,17 +39,11 @@ public class GetBillQueryHandler(
 
         // 分类补全
         if (dto.Category.ParentId.HasValue)
-        {
-            var parentCa = await categoryRepo.Select.Where(t => dto.Category.ParentId == t.CategoryId).FirstAsync(cancellationToken);
-            dto.Category.Name = parentCa == null ? dto.Category.Name : $"{parentCa.Name}-{dto.Category.Name}";
-        }
+            dto.Category.Parent = await categoryRepo.Select.Where(t => dto.Category.ParentId == t.CategoryId).FirstAsync(cancellationToken);
 
         // 账户补全
         if (dto.Account.ParentId.HasValue)
-        {
-            var parentAc = await accountRepo.Select.Where(t => dto.Account.ParentId == t.AccountId).FirstAsync(cancellationToken);
-            dto.Account.Name = parentAc == null ? dto.Account.Name : $"{parentAc.Name}-{dto.Account.Name}";
-        }
+            dto.Account.Parent = await accountRepo.Select.Where(t => dto.Account.ParentId == t.AccountId).FirstAsync(cancellationToken);
 
         // 标签
         var tags = await billTagRepo.Select

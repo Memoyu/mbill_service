@@ -30,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="BillRefunds\Commands\" />
+    <Folder Include="BillRefunds\Common\" />
+    <Folder Include="BillRefunds\Queries\" />
     <Folder Include="Permissions\Commands\" />
   </ItemGroup>
 

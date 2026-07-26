@@ -56,10 +56,8 @@ public class RelatedBillQueryHandler(
         var dtos = mapper.Map<List<BillResult>>(relatedBills);
         dtos.ForEach(b =>
         {
-            var parAc = parAcs.FirstOrDefault(c => c.AccountId == b.Account.ParentId);
-            var parCa = parCas.FirstOrDefault(c => c.CategoryId == b.Category.ParentId);
-            b.Category.Name = parCa == null ? b.Category.Name : $"{parCa.Name}-{b.Category.Name}";
-            b.Account.Name = parAc == null ? b.Account.Name : $"{parAc.Name}-{b.Account.Name}";
+            b.Category.Parent = parCas.FirstOrDefault(c => c.CategoryId == b.Category.ParentId);
+            b.Account.Parent = parAcs.FirstOrDefault(c => c.AccountId == b.Account.ParentId);
             b.Tags = [.. tags.Where(t => t.BillId == b.BillId).Select(t => mapper.Map<TagBaseResult>(t.Tag))];
         });
 

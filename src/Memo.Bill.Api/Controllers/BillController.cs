@@ -30,26 +30,6 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 账单退款
-        /// </summary>
-        /// <returns></returns>
-        [HttpPut("refund")]
-        public async Task<Result> RelationAsync(RefundBillCommand request)
-        {
-            return await mediator.Send(request);
-        }
-
-        /// <summary>
-        /// 关联账单
-        /// </summary>
-        /// <returns></returns>
-        [HttpPut("relation")]
-        public async Task<Result> RelationAsync(RelationBillCommand request)
-        {
-            return await mediator.Send(request);
-        }
-
-        /// <summary>
         /// 删除账单
         /// </summary>
         /// <returns></returns>
@@ -158,5 +138,74 @@ namespace Memo.Bill.Api.Controllers
         {
             return await mediator.Send(request);
         }
+
+        #region 关联账单
+
+        /// <summary>
+        /// 关联账单
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("relation")]
+        public async Task<Result> RelationAsync(RelationBillCommand request)
+        {
+            return await mediator.Send(request);
+        }
+
+        #endregion
+
+
+        #region 账单退款
+
+        /// <summary>
+        /// 创建账单退款
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("refund/create")]
+        public async Task<Result> CreateRefundAsync(CreateRefundBillCommand request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 更新账单退款
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("refund/update")]
+        public async Task<Result> UpdateRefundAsync(UpdateRefundBillCommand request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 删除账单退款
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete("refund/delete")]
+        public async Task<Result> DeleteRefundAsync([FromQuery] DeleteRefundBillCommand request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取账单退款
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("refund/get")]
+        public async Task<Result> GetRefundAsync([FromQuery] GetBillRefundQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 获取账单退款列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("refund/list")]
+        public async Task<Result> ListRefundAsync([FromQuery] ListBillRefundQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        #endregion
     }
 }
