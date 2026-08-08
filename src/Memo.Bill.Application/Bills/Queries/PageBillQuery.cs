@@ -16,11 +16,6 @@ public record PageBillBaseQuery : PaginationQuery
     public DateTime EndDate { get; set; }
 
     /// <summary>
-    /// 账单分类
-    /// </summary>
-    public List<long> LedgerIds { get; set; }
-
-    /// <summary>
     /// 账单类型
     /// </summary>
     public BillType? Type { get; set; }
@@ -28,12 +23,22 @@ public record PageBillBaseQuery : PaginationQuery
     /// <summary>
     /// 账单分类
     /// </summary>
-    public long? CategoryId { get; set; }
+    public List<long>? LedgerIds { get; set; }
+
+    /// <summary>
+    /// 账单分类
+    /// </summary>
+    public List<long>? CategoryIds { get; set; }
 
     /// <summary>
     /// 账单账户
     /// </summary>
-    public long? AccountId { get; set; }
+    public List<long>? AccountIds { get; set; }
+
+    /// <summary>
+    /// 账单标签
+    /// </summary>
+    public List<long>? TagIds { get; set; }
 }
 
 /// <summary>

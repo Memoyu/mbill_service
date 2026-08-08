@@ -64,7 +64,7 @@ namespace Memo.Bill.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("page")]
-        public async Task<Result> PageBillAsync([FromQuery] PageBillQuery request)
+        public async Task<Result> PageAsync([FromQuery] PageBillQuery request)
         {
             return await mediator.Send(request);
         }

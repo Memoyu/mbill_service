@@ -73,6 +73,6 @@ public class CreateBillCommandHandler(
         if (tags.Count > 0)
             await billTagRepo.InsertAsync(tags.Select(t => new BillTag { BillId = bill.BillId, TagId = t.TagId }), cancellationToken);
 
-        return bill.Id > 0 ? Result.Success(bill.AccountId) : throw new ApplicationException("保存账单失败");
+        return bill.Id > 0 ? Result.Success(bill.BillId) : throw new ApplicationException("保存账单失败");
     }
 }

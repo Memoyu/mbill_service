@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BillRefunds\**" />
+    <EmbeddedResource Remove="BillRefunds\**" />
+    <None Remove="BillRefunds\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EasyCaching.FreeRedis" Version="1.9.0" />
     <PackageReference Include="EasyCaching.Serialization.SystemTextJson" Version="1.9.2" />
 	<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
@@ -30,9 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BillRefunds\Commands\" />
-    <Folder Include="BillRefunds\Common\" />
-    <Folder Include="BillRefunds\Queries\" />
     <Folder Include="Permissions\Commands\" />
   </ItemGroup>
 
