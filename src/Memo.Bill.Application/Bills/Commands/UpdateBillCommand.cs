@@ -69,11 +69,12 @@ public class UpdateBillCommandHandler(
         var account = await accountRepo.Select.Where(x => x.AccountId == request.AccountId).FirstAsync(cancellationToken)
            ?? throw new ApplicationException("账户不存在或已删除");
 
-        var tags = await tagRepo.Select.WhereIf(request.TagIds != null && request.TagIds.Count > 0, t => request.TagIds!.Contains(t.TagId)).ToListAsync(cancellationToken);
-
         request.Adapt(bill);
         bill.AddDomainEvent(new UpdateBillEvent(bill));
         var row = await billRepo.UpdateAsync(bill, cancellationToken);
+
+        var reqTagIds = request.TagIds ?? [];
+        var tags = await tagRepo.Select.Where(t => reqTagIds.Contains(t.TagId)).ToListAsync(cancellationToken);
         var billTags = await billTagRepo.Select.Where(bt => bt.BillId == bill.BillId).ToListAsync(cancellationToken);
         var addTags = new List<BillTag>();
         foreach (var tag in tags)

@@ -28,10 +28,9 @@ public class WeixinService : IWeixinService
         httpResponse.EnsureSuccessStatusCode();
         var content = await httpResponse.Content.ReadAsStringAsync();//获取响应内容
 
-//#if !DEBUG
-//#else
-//        var content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4-QEB2eprYBLllCNf425J80\"}";
-//#endif
+#if DEBUG
+        content = "{\"session_key\":\"cKAHh5rUtZqAryHAS1i7Og == \",\"openid\":\"otPIb4-QEB2eprYBLllCNf425J80\"}";
+#endif
 
         var code2Session = content.ToDesJson<WeixinCode2SessionResponse>();
         if (code2Session?.ErrCode != 0 || string.IsNullOrEmpty(code2Session.OpenId))

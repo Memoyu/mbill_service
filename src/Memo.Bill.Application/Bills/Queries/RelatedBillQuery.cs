@@ -30,15 +30,26 @@ public class RelatedBillQueryHandler(
         var bill = await billRepo.Select.Where(t => t.BillId == request.BillId).FirstAsync(cancellationToken)
            ?? throw new ApplicationException("账单不存在或已删除");
 
-        var relatedBills = await billRelationRepo.Select
-            .Include(br => br.RelatedBill)
-            .Where(br => br.BillId == bill.BillId)
-            .ToListAsync(br => br.RelatedBill, cancellationToken);
+        var dto = new BillRelationResult();
+
+        var rbs = await billRelationRepo.Select
+            .Where(br => br.BillId == bill.BillId || br.RelationId == bill.BillId) // 关联的、被关联的
+            .ToListAsync(cancellationToken);
+        if (rbs.Count < 1)
+            return Result.Success(dto);
+
+        var relatedBillIds = rbs.Select(r => new List<long> { r.BillId, r.RelationId }).SelectMany(r => r).ToList();
+        var relatedBills = await billRepo
+           .Select
+           .Include(t => t.Category)
+           .Include(t => t.Account)
+           .Include(t => t.Ledger)
+           .Where(s => relatedBillIds.Contains(s.BillId))
+           .ToListAsync(cancellationToken);
 
         var billIds = new HashSet<long>();
         var parCaIds = new HashSet<long>();
         var parAcIds = new HashSet<long>();
-
         foreach (var rb in relatedBills)
         {
             billIds.Add(rb.BillId);
@@ -53,14 +64,18 @@ public class RelatedBillQueryHandler(
         var parAcs = await accountRepo.Select.Where(t => parAcIds.Contains(t.AccountId)).ToListAsync(cancellationToken);
         var tags = await billTagRepo.Select.Include(t => t.Tag).Where(t => billIds.Contains(t.BillId)).ToListAsync(cancellationToken);
 
-        var dtos = mapper.Map<List<BillResult>>(relatedBills);
-        dtos.ForEach(b =>
+        dto.Expend = relatedBills.Where(b => b.Type == BillType.Expend).Sum(b => b.Amount);
+        dto.Income = relatedBills.Where(b => b.Type == BillType.Income).Sum(b => b.Amount);
+     
+        var items = mapper.Map<List<BillResult>>(relatedBills);
+        items.ForEach(b =>
         {
             b.Category.Parent = parCas.FirstOrDefault(c => c.CategoryId == b.Category.ParentId);
             b.Account.Parent = parAcs.FirstOrDefault(c => c.AccountId == b.Account.ParentId);
             b.Tags = [.. tags.Where(t => t.BillId == b.BillId).Select(t => mapper.Map<TagBaseResult>(t.Tag))];
         });
+        dto.Items = items;
 
-        return Result.Success(dtos);
+        return Result.Success(dto);
     }
 }

@@ -38,6 +38,7 @@ public static class DependencyInjection
         ).AddJsonOptions(opts => {
             opts.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
             opts.JsonSerializerOptions.Converters.Insert(0, new AutoLongToStringConverter());
+            opts.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter());
         });
 
 

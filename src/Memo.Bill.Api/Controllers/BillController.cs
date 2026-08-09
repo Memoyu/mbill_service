@@ -50,16 +50,6 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 获取关联账单
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("related")]
-        public async Task<Result> RelatedAsync([FromQuery] RelatedBillQuery request)
-        {
-            return await mediator.Send(request);
-        }
-
-        /// <summary>
         /// 获取账单分页
         /// </summary>
         /// <returns></returns>
@@ -150,6 +140,18 @@ namespace Memo.Bill.Api.Controllers
         {
             return await mediator.Send(request);
         }
+
+
+        /// <summary>
+        /// 获取关联账单
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("related")]
+        public async Task<Result> RelatedAsync([FromQuery] RelatedBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
 
         #endregion
 

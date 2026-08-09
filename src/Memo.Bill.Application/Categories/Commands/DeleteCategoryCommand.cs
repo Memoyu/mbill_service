@@ -32,6 +32,8 @@ public class DeleteCategoryCommandHandler(
         if (!entity.ParentId.HasValue)
             await categoryRepo.DeleteAsync(x => x.ParentId == entity.ParentId, cancellationToken);
 
+        // TODO: 删除常用项
+
         return Result.Success();
     }
 }

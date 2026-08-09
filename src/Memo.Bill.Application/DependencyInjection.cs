@@ -103,9 +103,7 @@ public static class DependencyInjection
         if (string.IsNullOrWhiteSpace(assemblyName)) throw new ArgumentNullException("注册AppService异常，传入的assemblyName为空");
 
         // 获取需要注入的类
-        List<Type> types = Assembly.Load(assemblyName).GetTypes()
-            .Where(t => t.IsClass && !t.IsAbstract&& t.GetCustomAttributes(typeof(AppServiceAttribute), false).Length > 0)
-            .ToList();
+        List<Type> types = [.. Assembly.Load(assemblyName).GetTypes().Where(t => t.IsClass && !t.IsAbstract&& t.GetCustomAttributes(typeof(AppServiceAttribute), false).Length > 0)];
 
         // 注册类型
         types.ForEach(impl =>

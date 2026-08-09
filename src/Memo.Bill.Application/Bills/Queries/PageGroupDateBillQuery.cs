@@ -30,7 +30,7 @@ internal class PageGroupDateBillQueryHandler(
     public async Task<Result> Handle(PageGroupDateBillQuery request, CancellationToken cancellationToken)
     {
         var result = await billService.GetBillPageAsync(request, cancellationToken);
-        var groupRes = new List<PageGroupDateBillResult>();
+        var groupRes = new List<BillPageGroupDateResult>();
         var dateGroup = result.Items.GroupBy(b => b.Date.Date).ToList();
 
         foreach (var gm in dateGroup)
@@ -41,7 +41,7 @@ internal class PageGroupDateBillQueryHandler(
                 .Where(s => request.LedgerIds.Contains(s.LedgerId))
                 .Where(b => b.Date >= date && b.Date <= dateEnd)
                 .ToListAsync(b => new { b.Type, b.Amount }, cancellationToken) ?? [];
-            groupRes.Add(new PageGroupDateBillResult
+            groupRes.Add(new BillPageGroupDateResult
             {
                 Date = date,
                 Expend = dateBills.Where(b => b.Type == BillType.Expend).Sum(b => b.Amount),
@@ -50,6 +50,6 @@ internal class PageGroupDateBillQueryHandler(
             });
         }
 
-        return Result.Success(new BillPageResult<PageGroupDateBillResult>(groupRes, result.Total));
+        return Result.Success(new BillPageResult<BillPageGroupDateResult>(groupRes, result.Total));
     }
 }

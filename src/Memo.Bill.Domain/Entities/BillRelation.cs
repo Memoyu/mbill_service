@@ -23,6 +23,6 @@ public class BillRelation : BaseAuditEntity
     /// <summary>
     /// 关联账单
     /// </summary>
-    [Navigate(nameof(Billing.BillId), TempPrimary = nameof(RelationId))]
+    [Navigate(nameof(RelationId), TempPrimary = nameof(RelatedBill.BillId))]
     public virtual Billing RelatedBill { get; set; } = new();
 }

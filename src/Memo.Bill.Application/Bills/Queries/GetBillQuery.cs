@@ -30,6 +30,7 @@ public class GetBillQueryHandler(
         var bill = await billRepo.Select
             .Include(a => a.Category)
             .Include(a => a.Account)
+            .Include(a => a.Ledger)
             .Where(t => t.BillId == request.BillId).FirstAsync(cancellationToken) ?? throw new ApplicationException("账单不存在或已删除");
 
         var dto = mapper.Map<BillResult>(bill);
