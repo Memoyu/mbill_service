@@ -38,7 +38,10 @@ public class RelatedBillQueryHandler(
         if (rbs.Count < 1)
             return Result.Success(dto);
 
-        var relatedBillIds = rbs.Select(r => new List<long> { r.BillId, r.RelationId }).SelectMany(r => r).ToList();
+        var relatedBillIds = rbs
+            .Select(r => new List<long> { r.BillId, r.RelationId })
+            .SelectMany(r => r)
+            .Where(i => i != bill.BillId).Distinct().ToList();
         var relatedBills = await billRepo
            .Select
            .Include(t => t.Category)
