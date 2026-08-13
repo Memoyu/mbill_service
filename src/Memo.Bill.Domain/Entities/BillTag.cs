@@ -1,6 +1,4 @@
-﻿using static Memo.Bill.Domain.Constants.Security.Permissions.Permissions;
-
-namespace Memo.Bill.Domain.Entities;
+﻿namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
 /// 账单关联标签表

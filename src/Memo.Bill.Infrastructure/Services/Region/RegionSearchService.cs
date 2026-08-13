@@ -7,8 +7,6 @@ namespace Memo.Bill.Infrastructure.Services.Region;
 [AppService(ServiceLifeType = ServiceLifeType.Singleton)]
 public class RegionSearchService(ISearcher searcher) : IRegionSearchService
 {
-
-
     public string Search(string ipStr)
     {
         return searcher.Search(ipStr) ?? string.Empty;

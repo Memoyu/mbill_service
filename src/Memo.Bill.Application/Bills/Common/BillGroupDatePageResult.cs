@@ -1,6 +1,6 @@
 ﻿namespace Memo.Bill.Application.Bills.Common;
 
-internal record BillPageGroupDateResult
+internal record BillGroupDatePageResult
 {
     /// <summary>
     /// 日期

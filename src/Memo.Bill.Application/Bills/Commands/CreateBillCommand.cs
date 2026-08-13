@@ -67,6 +67,13 @@ public class CreateBillCommandHandler(
             tags = await tagRepo.Select.Where(t => request.TagIds!.Contains(t.TagId)).ToListAsync(cancellationToken) ?? [];
 
         var bill = mapper.Map<Billing>(request);
+
+        // 赋值关联数据
+        bill.Category = category;
+        bill.Account = account;
+        bill.Ledger = ledger;
+        bill.Tags = tags;
+        
         bill.AddDomainEvent(new CreateBillEvent(bill));
         bill = await billRepo.InsertAsync(bill, cancellationToken);
         // 写入账单标签

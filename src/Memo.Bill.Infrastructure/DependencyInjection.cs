@@ -2,10 +2,13 @@
 using EasyCaching.Serialization.SystemTextJson.Configurations;
 using IP2Region.Net.Abstractions;
 using IP2Region.Net.XDB;
+using JiebaNet.Segmenter;
 using Memo.Bill.Application;
+using Memo.Bill.Application.Common.Interfaces.Services.Text;
 using Memo.Bill.Application.Common.Models.Settings;
 using Memo.Bill.Infrastructure.Persistence.Cache;
 using Memo.Bill.Infrastructure.Security.TokenGenerator;
+using Memo.Bill.Infrastructure.Services.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +38,8 @@ public static class DependencyInjection
             .AddPersistenceForMyql(configuration) // 注册MySql数据持久化组件（FreeSql）
             .AddPersistenceForMongo(configuration) // 注册MongoDb持久化组件（MongoDB.Driver）
             .AddAddEasyCaching(configuration) // 注册缓存组件
-            .AddExternalServices(); // 注册外部服务
+            .AddExternalServices() // 注册外部服务
+            .AddSegmenterService(); // 注册分词服务
 
         return services;
     }
@@ -232,4 +236,17 @@ public static class DependencyInjection
         return services;
     }
 
+    /// <summary>
+    /// 注册分词服务
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+    private static IServiceCollection AddSegmenterService(this IServiceCollection services)
+    {
+        // 注册结巴分词处理
+        services.AddSingleton(new JiebaSegmenter());
+        services.AddScoped<ISegmenterService, SegmenterService>();
+
+        return services;
+    }
 }

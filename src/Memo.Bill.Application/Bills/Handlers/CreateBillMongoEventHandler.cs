@@ -7,8 +7,7 @@ public class CreateBillMongoEventHandler(IMapper mapper, IBaseMongoRepository<Bi
 {
     public async Task Handle(CreateBillEvent notification, CancellationToken cancellationToken)
     {
-        // TODO Mongo数据操作后续处理
-        //var res = await billMongoRepo.InsertOneAsync(mapper.Map<BillingCollection>(notification.Bill), null, cancellationToken);
-        //if (!res) throw new ApplicationException("保存账单到Mongo失败");
+        var success = await billMongoRepo.InsertOneAsync(mapper.Map<BillingCollection>(notification.Bill), null, cancellationToken);
+        if (!success) throw new ApplicationException("保存账单到Mongo失败");
     }
 }

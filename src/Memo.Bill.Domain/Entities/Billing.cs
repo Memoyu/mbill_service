@@ -95,4 +95,9 @@ public class Billing : BaseAuditEntity
     /// </summary>
     [Navigate(nameof(LedgerId), TempPrimary = nameof(Ledger.LedgerId))]
     public virtual Ledger Ledger { get; set; } = new();
+
+    /// <summary>
+    /// 标签
+    /// </summary>
+    public virtual List<Tag> Tags { get; set; } = new();
 }

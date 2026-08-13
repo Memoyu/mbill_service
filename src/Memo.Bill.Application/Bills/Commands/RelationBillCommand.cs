@@ -27,6 +27,11 @@ public class RelationBillCommandHandler(
         var bill = await billRepo.Select.Where(t => t.BillId == request.BillId).FirstAsync(cancellationToken)
           ?? throw new ApplicationException("账单不存在或已删除");
 
+        // 移除当前账单
+        request.RelationIds.Remove(bill.BillId);
+        if (request.RelationIds.Count < 1)
+            throw new ApplicationException("关联账单Id不能为空");
+
         // 插入关联数据
         await billRelationRepo.InsertAsync(request.RelationIds.Select(i => new BillRelation { BillId = bill.BillId, RelationId = i }), cancellationToken);
 

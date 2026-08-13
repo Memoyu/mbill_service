@@ -1,15 +1,31 @@
 ﻿using Memo.Bill.Application.Bills.Common;
-using Memo.Bill.Application.Bills.Queries;
+using Memo.Bill.Domain.Entities.Mongo;
 
 namespace Memo.Bill.Application.Common.Interfaces.Services.App;
 
 internal interface IBillService 
 {
     /// <summary>
-    /// 获取账单分页
+    /// 账单分页
     /// </summary>
-    /// <param name="query"></param>
+    /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    Task<BillPageResult<BillPageItemResult>> GetBillPageAsync(PageBillBaseQuery query, CancellationToken cancellationToken);
+    Task<PaginationResult<BillPageItemResult>> PageAsync(BillQueryRequest request, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// 账单搜索
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<PaginationResult<BillingCollection>> SearchAsync(BillSearchRequest request, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// 账单搜索分页（分页补全实体数据）
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<PaginationResult<BillPageItemResult>> SearchPageAsync(BillSearchRequest request, CancellationToken cancellationToken);
 }

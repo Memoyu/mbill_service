@@ -18,19 +18,24 @@ public class BillingCollection
     public long BillId { get; set; }
 
     /// <summary>
-    /// 分类Id
+    /// 分类
     /// </summary>
-    public long CategoryId { get; set; }
+    public BillingCollCategory Category { get; set; } = new();
 
     /// <summary>
-    /// 账户Id
+    /// 账户
     /// </summary>
-    public long AccountId { get; set; }
- 
+    public BillingCollAccount Account { get; set; } = new();
+
     /// <summary>
-    /// 账本Id
+    /// 账本
     /// </summary>
-    public long LedgerId { get; set; }
+    public BillingCollLedger Ledger { get; set; } = new();
+
+    /// <summary>
+    /// 标签
+    /// </summary>
+    public List<BillingCollTag> Tags { get; set; } = new();
 
     /// <summary>
     /// 金额
@@ -44,19 +49,10 @@ public class BillingCollection
     public BillType Type { get; set; }
 
     /// <summary>
-    /// 备注
+    /// 关键字
+    /// 备注、地址 分词
     /// </summary>
-    public string Remark { get; set; } = string.Empty;
-
-    /// <summary>
-    /// 坐标
-    /// </summary>
-    public string Location { get; set; } = string.Empty;
-
-    /// <summary>
-    /// 地点
-    /// </summary>
-    public string Address { get; set; } = string.Empty;
+    public string Keyword { get; set; } = string.Empty;
 
     /// <summary>
     /// 日期
@@ -73,3 +69,72 @@ public class BillingCollection
     /// </summary>
     public long CreateUserId { get; set; }
 }
+
+public class BillingCollCategory
+{
+    /// <summary>
+    /// 分类Id
+    /// </summary>
+    public long CategoryId { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 父级Id
+    /// </summary>
+    public long? ParentId { get; set; }
+}
+
+public class BillingCollAccount
+{
+    /// <summary>
+    /// 账户Id
+    /// </summary>
+    public long AccountId { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 父级Id
+    /// </summary>
+    public long? ParentId { get; set; }
+}
+
+
+public class BillingCollLedger
+{
+    /// <summary>
+    /// 账本Id
+    /// </summary>
+    public long LedgerId { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+}
+
+public class BillingCollTag
+{
+    /// <summary>
+    /// 标签Id
+    /// </summary>
+    public long TagId { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 父级Id
+    /// </summary>
+    public long? ParentId { get; set; }
+}
+

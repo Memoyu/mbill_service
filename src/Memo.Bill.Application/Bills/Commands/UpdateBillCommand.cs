@@ -49,7 +49,6 @@ public class UpdateBillCommandValidator : AbstractValidator<UpdateBillCommand>
 }
 
 public class UpdateBillCommandHandler(
-    IMapper mapper,
     IBaseDefaultRepository<Billing> billRepo,
     IBaseDefaultRepository<Ledger> ledgerRepo,
     IBaseDefaultRepository<Category> categoryRepo,
@@ -69,9 +68,8 @@ public class UpdateBillCommandHandler(
         var account = await accountRepo.Select.Where(x => x.AccountId == request.AccountId).FirstAsync(cancellationToken)
            ?? throw new ApplicationException("账户不存在或已删除");
 
+        // 映射请求数据
         request.Adapt(bill);
-        bill.AddDomainEvent(new UpdateBillEvent(bill));
-        var row = await billRepo.UpdateAsync(bill, cancellationToken);
 
         var reqTagIds = request.TagIds ?? [];
         var tags = await tagRepo.Select.Where(t => reqTagIds.Contains(t.TagId)).ToListAsync(cancellationToken);
@@ -96,6 +94,15 @@ public class UpdateBillCommandHandler(
         // 删除账单标签
         if (billTags.Count > 0)
             await billTagRepo.DeleteAsync(billTags, cancellationToken);
+
+        // 赋值关联数据
+        bill.Category = category;
+        bill.Account = account;
+        bill.Ledger = ledger;
+        bill.Tags = tags;
+
+        bill.AddDomainEvent(new UpdateBillEvent(bill));
+        var row = await billRepo.UpdateAsync(bill, cancellationToken);
 
         return row > 0 ? Result.Success(bill.BillId) : throw new ApplicationException("更新账单失败");
     }

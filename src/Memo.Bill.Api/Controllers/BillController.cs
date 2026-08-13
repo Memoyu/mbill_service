@@ -50,7 +50,7 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 获取账单分页
+        /// 账单分页
         /// </summary>
         /// <returns></returns>
         [HttpGet("page")]
@@ -60,21 +60,11 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 获取账单分页日期分组
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("page/group/date")]
-        public async Task<Result> PageGroupDateBillAsync([FromQuery] PageGroupDateBillQuery request)
-        {
-            return await mediator.Send(request);
-        }
-
-        /// <summary>
         /// 搜索账单
         /// </summary>
         /// <returns></returns>
         [HttpGet("search")]
-        public async Task<Result> SearchRecordAsync([FromQuery] SearchBillQuery request)
+        public async Task<Result> SearchAsync([FromQuery] SearchBillQuery request)
         {
             return await mediator.Send(request);
         }

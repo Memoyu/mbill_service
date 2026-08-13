@@ -38,9 +38,6 @@ public static partial class Permissions
         [Description("获取账单分页")]
         public const string Page = "page:bill";
 
-        [Description("获取账单分页日期分组")]
-        public const string PageGroupDate = "page:group:date:bill";
-
         [Description("获取账单日历")]
         public const string Calendar = "calendar:bill";
 
