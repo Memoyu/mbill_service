@@ -1,33 +1,28 @@
 ﻿using Memo.Bill.Application.Bills.Common;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Memo.Bill.Application.Bills.Queries;
 
 /// <summary>
-/// 获取账单汇总金额
+/// 账单金额汇总
 /// </summary>
 [Authorize(Permissions = ApiPermission.Bill.SummaryAmount)]
-public record SummaryBillAmountQuery : IAuthorizeableRequest<Result>
-{
-    /// <summary>
-    /// 账单时间起始
-    /// </summary>
-    public DateTime BeginDate { get; set; }
-
-    /// <summary>
-    /// 账单时间截止
-    /// </summary>
-    public DateTime EndDate { get; set; }
-
-    /// <summary>
-    /// 分组方式 0-按月，1-按天
-    /// </summary>
-    public int Group { get; set; }
-}
+public record SummaryBillAmountQuery(
+    int Series // 分组汇总: 0：不分组，1：按月，2：按日
+) : BillQueryRequest, IAuthorizeableRequest<Result>;
 
 public class SummaryBillAmountQueryValidator : AbstractValidator<SummaryBillAmountQuery>
 {
     public SummaryBillAmountQueryValidator()
     {
+        RuleFor(x => x.BeginDate)
+            .NotEmpty()
+            .WithMessage("开始时间不能为空");
+
+        RuleFor(x => x.EndDate)
+             .NotEmpty()
+            .WithMessage("结束时间不能为空");
+
         RuleFor(x => x.EndDate)
             .GreaterThan(x => x.BeginDate).WithMessage("结束时间必须晚于开始时间");
     }
@@ -35,20 +30,28 @@ public class SummaryBillAmountQueryValidator : AbstractValidator<SummaryBillAmou
 
 internal class SummaryBillAmountQueryHandler(
     ICurrentUserProvider currentUserProvider,
+    IBillService billService,
     IBaseDefaultRepository<Billing> billRepo
     ) : IRequestHandler<SummaryBillAmountQuery, Result>
 {
     public async Task<Result> Handle(SummaryBillAmountQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.UserId;
-        var (begin, end) = (request.BeginDate.FirstTimeOfDay(), request.EndDate.LastTimeOfDay());
+        var (begin, end) = (request.BeginDate!.Value.FirstTimeOfDay(), request.EndDate!.Value.LastTimeOfDay());
+
+        var result = new BillSummaryAmountResult();
+        // 账本为空，则不需要继续进行查询
+        request.LedgerIds = await billService.FilterLedgerAsync(request.LedgerIds, cancellationToken);
+        if (request.LedgerIds.Count < 1)
+            return Result.Success(result);
 
         var bills = await billRepo.Select
-            .Where(s => s.CreateUserId == userId)
+            .WhereIf(request.Type.HasValue, s => s.Type == request.Type)
+            .Where(s => request.LedgerIds.Contains(s.LedgerId))
             .Where(s => s.Date <= end && s.Date >= begin)
             .ToListAsync(cancellationToken);
 
-        var items = new List<BillSummaryAmountWithDateItem>();
+        // 时间范围内汇总
         var totalExpend = 0M;
         var totalIncome = 0M;
         foreach (var bill in bills)
@@ -58,7 +61,6 @@ internal class SummaryBillAmountQueryHandler(
             else
                 totalIncome += bill.Amount;
         }
-
         var totalDays = end.Subtract(begin).Days;
         var summary = new BillSummaryAmountItem
         {
@@ -69,40 +71,42 @@ internal class SummaryBillAmountQueryHandler(
             Surplus = totalIncome - totalExpend,
         };
 
-        Func<Billing, string> groupBy = request.Group == 0 ? b => $"{b.Date.Year}-{b.Date.Month}" : b => $"{b.Date.Year}-{b.Date.Month}-{b.Date.Day}";
-        var groups = bills.GroupBy(groupBy);
-        foreach (var group in groups)
+        // 时间范围内分组汇总
+        var series = new List<BillSummaryAmountWithDateItem>();
+        if (request.Series > 0)
         {
-            var days = GetDays(group.Key);
-            var expend = 0M;
-            var income = 0M;
-            foreach (var bill in bills)
+            var dates = request.Series == 1 ?  begin.GetMonthRanges(end) : begin.GetDateRanges(end);
+            foreach (var date in dates)
             {
-                if (bill.Type == BillType.Expend)
-                    expend += bill.Amount;
-                else
-                    income += bill.Amount;
-            }
-            items.Add(new BillSummaryAmountWithDateItem(group.Key)
-            {
-                Expend = expend,
-                Income = income,
-                ExpendAvg = expend / days,
-                IncomeAvg = income / days,
-                Surplus = income - expend,
-            });
+                // 当前天数
+                var days = request.Series == 1 ? DateTime.DaysInMonth(date.Year, date.Month) : 1;
+                var dateBills = bills
+                    .Where(b => request.Series == 1 ?  (b.Date.Year == date.Date.Year && b.Date.Month == date.Date.Month) : b.Date.Date == date.Date)
+                    .ToList();
+                var expend = 0M;
+                var income = 0M;
+                foreach (var bill in dateBills)
+                {
+                    if (bill.Type == BillType.Expend)
+                        expend += bill.Amount;
+                    else
+                        income += bill.Amount;
+                }
 
-            int GetDays(string key)
-            {
-                var date = DateTime.Parse(key);
-                return request.Group == 0 ? DateTime.DaysInMonth(date.Year, date.Month) : 1;
+                var d = request.Series == 1 ? date.ToString("yyyy-MM") : date.ToString("yyyy-MM-dd");
+                series.Add(new BillSummaryAmountWithDateItem(d)
+                {
+                    Expend = expend,
+                    Income = income,
+                    ExpendAvg = expend / days,
+                    IncomeAvg = income / days,
+                    Surplus = income - expend,
+                });
             }
         }
 
-        return Result.Success(new BillSummaryAmountResult
-        {
-            Summary = summary,
-            Items = items
-        });
+        result.Summary = summary;
+        result.Series = series;
+        return Result.Success(result);
     }
 }

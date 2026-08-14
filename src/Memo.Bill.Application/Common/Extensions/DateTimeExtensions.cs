@@ -93,7 +93,7 @@ public static class DateTimeExtensions
     public static List<DateTime> GetRanges(this DateTime date, DataTimeRangeType type)
     {
         var (begin, end) = date.GetRange(type);
-        return begin.GetRanges(end);
+        return begin.GetDateRanges(end);
     }
 
     /// <summary>
@@ -102,12 +102,38 @@ public static class DateTimeExtensions
     /// <param name="begin"></param>
     /// <param name="end"></param>
     /// <returns></returns>
-    public static List<DateTime> GetRanges(this DateTime begin, DateTime end)
+    public static List<DateTime> GetDateRanges(this DateTime begin, DateTime end)
     {
         var dates = new List<DateTime> { begin };
-        while (begin < end)
+
+        if (begin > end)
+            return dates;
+
+        while (begin.Date < end.Date)
         {
             begin = begin.AddDays(1);
+            dates.Add(begin);
+        }
+
+        return dates;
+    }
+
+    /// <summary>
+    /// 获取指定时间范围的月份集合
+    /// </summary>
+    /// <param name="begin"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    public static List<DateTime> GetMonthRanges(this DateTime begin, DateTime end)
+    {
+        var dates = new List<DateTime> { begin };
+
+        if (begin > end)
+            return dates;
+
+        while (begin.Year < end.Year && begin.Month < end.Month)
+        {
+            begin = begin.AddMonths(1);
             dates.Add(begin);
         }
 

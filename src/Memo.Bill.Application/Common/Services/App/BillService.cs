@@ -20,13 +20,7 @@ internal class BillService(
     IBaseMongoRepository<BillingCollection> billMongoRepo
     ) : IBillService
 {
-    /// <summary>
-    /// 过滤账本
-    /// </summary>
-    /// <param name="ledgerIds">请求传入账本</param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    private async Task<List<long>> FilterLedgerAsync(List<long>? ledgerIds, CancellationToken cancellationToken = default)
+    public async Task<List<long>> FilterLedgerAsync(List<long>? ledgerIds, CancellationToken cancellationToken = default)
     {
         var userId = currentUserProvider.UserId;
 

@@ -60,11 +60,21 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 搜索账单
+        /// 账单搜索
         /// </summary>
         /// <returns></returns>
         [HttpGet("search")]
         public async Task<Result> SearchAsync([FromQuery] SearchBillQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 账单金额汇总
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("summary/amount")]
+        public async Task<Result> SummaryAmountAsync([FromQuery] SummaryBillAmountQuery request)
         {
             return await mediator.Send(request);
         }
@@ -79,6 +89,7 @@ namespace Memo.Bill.Api.Controllers
             return await mediator.Send(request);
         }
 
+
         /// <summary>
         /// 获取账单日历
         /// </summary>
@@ -89,15 +100,6 @@ namespace Memo.Bill.Api.Controllers
             return await mediator.Send(request);
         }
 
-        /// <summary>
-        /// 获取账单汇总金额
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("summary/amount")]
-        public async Task<Result> SummaryAmountAsync([FromQuery] SummaryBillAmountQuery request)
-        {
-            return await mediator.Send(request);
-        }
 
         /// <summary>
         /// 获取账单汇总分类
