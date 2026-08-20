@@ -4,13 +4,17 @@ internal record BillSummaryAmountResult
 {
     public BillSummaryAmountItem Summary { get; set; } = new();
 
-    public List<BillSummaryAmountWithDateItem> Series { get; set; } = [];
+    public List<BillSummaryAmountItem> Series { get; set; } = [];
 }
 
-internal record BillSummaryAmountWithDateItem(string Date) : BillSummaryAmountItem;
 
 internal record BillSummaryAmountItem
 {
+    /// <summary>
+    /// 日期
+    /// </summary>
+    public string Date { get; set; } = string.Empty;
+
     /// <summary>
     /// 收入
     /// </summary>

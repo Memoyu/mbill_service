@@ -55,6 +55,7 @@ internal class BillService(
             .Select
             .Include(t => t.Category)
             .Include(t => t.Account)
+            .Include(t => t.Ledger)
             .Where(s => request.LedgerIds.Contains(s.LedgerId))
             .WhereIf(begin.HasValue, s => s.Date >= begin!.Value)
             .WhereIf(end.HasValue, s => s.Date <= end!.Value)

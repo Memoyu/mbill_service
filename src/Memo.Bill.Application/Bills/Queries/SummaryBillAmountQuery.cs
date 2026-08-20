@@ -1,7 +1,8 @@
 ﻿using Memo.Bill.Application.Bills.Common;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Memo.Bill.Application.Bills.Queries;
+
+internal record BillAmountSummaryDto(BillType Type, decimal Amount, DateTime Date);
 
 /// <summary>
 /// 账单金额汇总
@@ -46,67 +47,75 @@ internal class SummaryBillAmountQueryHandler(
             return Result.Success(result);
 
         var bills = await billRepo.Select
-            .WhereIf(request.Type.HasValue, s => s.Type == request.Type)
+            .Where(s => s.CreateUserId == userId) // 统计时，只统计个人的
             .Where(s => request.LedgerIds.Contains(s.LedgerId))
             .Where(s => s.Date <= end && s.Date >= begin)
-            .ToListAsync(cancellationToken);
+            .WhereIf(request.Type.HasValue, s => s.Type == request.Type)
+            .ToListAsync(b => new BillAmountSummaryDto(b.Type, b.Amount, b.Date), cancellationToken);
 
-        // 时间范围内汇总
-        var totalExpend = 0M;
-        var totalIncome = 0M;
-        foreach (var bill in bills)
-        {
-            if (bill.Type == BillType.Expend)
-                totalExpend += bill.Amount;
-            else
-                totalIncome += bill.Amount;
-        }
-        var totalDays = end.Subtract(begin).Days;
-        var summary = new BillSummaryAmountItem
-        {
-            Expend = totalExpend,
-            Income = totalIncome,
-            ExpendAvg = totalExpend / totalDays,
-            IncomeAvg = totalIncome / totalDays,
-            Surplus = totalIncome - totalExpend,
-        };
+        var summary = GetSummary(bills, end.Subtract(begin).Days);
 
         // 时间范围内分组汇总
-        var series = new List<BillSummaryAmountWithDateItem>();
+        var series = new List<BillSummaryAmountItem>();
         if (request.Series > 0)
         {
-            var dates = request.Series == 1 ?  begin.GetMonthRanges(end) : begin.GetDateRanges(end);
+            var dates = request.Series == 1 ? begin.GetMonthRanges(end) : begin.GetDateRanges(end);
             foreach (var date in dates)
             {
                 // 当前天数
                 var days = request.Series == 1 ? DateTime.DaysInMonth(date.Year, date.Month) : 1;
                 var dateBills = bills
-                    .Where(b => request.Series == 1 ?  (b.Date.Year == date.Date.Year && b.Date.Month == date.Date.Month) : b.Date.Date == date.Date)
+                    .Where(b => request.Series == 1 ? (b.Date.Year == date.Date.Year && b.Date.Month == date.Date.Month) : b.Date.Date == date.Date)
                     .ToList();
-                var expend = 0M;
-                var income = 0M;
-                foreach (var bill in dateBills)
-                {
-                    if (bill.Type == BillType.Expend)
-                        expend += bill.Amount;
-                    else
-                        income += bill.Amount;
-                }
 
-                var d = request.Series == 1 ? date.ToString("yyyy-MM") : date.ToString("yyyy-MM-dd");
-                series.Add(new BillSummaryAmountWithDateItem(d)
-                {
-                    Expend = expend,
-                    Income = income,
-                    ExpendAvg = expend / days,
-                    IncomeAvg = income / days,
-                    Surplus = income - expend,
-                });
+                var sm = GetSummary(dateBills, days);
+                sm.Date = request.Series == 1 ? date.ToString("yyyy-MM") : date.ToString("yyyy-MM-dd");
+                series.Add(sm);
             }
         }
 
         result.Summary = summary;
         result.Series = series;
         return Result.Success(result);
+    }
+
+    private BillSummaryAmountItem GetSummary(List<BillAmountSummaryDto> bills, int days)
+    {
+        // 时间范围内汇总
+        var expend = 0M;
+        var income = 0M;
+        var expendHighest = 0M;
+        var expendLowst = 0M;
+        var incomeHighest = 0M;
+        var incomeLowst = 0M;
+        foreach (var bill in bills)
+        {
+            var amount = bill.Amount;
+            if (bill.Type == BillType.Expend)
+            {
+                expendHighest = Math.Max(amount, expendHighest);
+                expendLowst = Math.Min(amount, expendHighest);
+                expend += amount;
+            }
+            else
+            {
+                incomeHighest = Math.Max(amount, incomeHighest);
+                incomeLowst = Math.Min(amount, incomeLowst);
+                income += amount;
+            }
+        }
+
+        return new BillSummaryAmountItem
+        {
+            Expend = expend,
+            Income = income,
+            ExpendAvg = expend / days,
+            IncomeAvg = income / days,
+            Surplus = income - expend,
+            ExpendHighest = expendHighest,
+            ExpendLowst = expendLowst,
+            IncomeHighest = incomeHighest,
+            IncomeLowst = incomeLowst,
+        };
     }
 }
