@@ -105,6 +105,8 @@ internal class SummaryBillAmountQueryHandler(
             }
         }
 
+        // 查一天时，days为0
+        days = days == 0 ? 1 : days;
         return new BillSummaryAmountItem
         {
             Expend = expend,

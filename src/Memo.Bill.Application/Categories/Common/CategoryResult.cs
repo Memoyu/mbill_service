@@ -37,7 +37,7 @@ internal record CategoryBaseResult
     /// <summary>
     /// 类型：0 支出，1 收入
     /// </summary>
-    public int Type { get; set; }
+    public BillType Type { get; set; }
 
 }
 

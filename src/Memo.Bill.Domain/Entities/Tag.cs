@@ -30,6 +30,12 @@ public class Tag : BaseAuditEntity
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
+    /// 是否常用
+    /// </summary>
+    [Description("是否常用")]
+    public bool Top { get; set; }
+
+    /// <summary>
     /// 排序
     /// </summary>
     [Description("排序")]

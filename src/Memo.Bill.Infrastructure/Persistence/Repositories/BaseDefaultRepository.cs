@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 
 namespace Memo.Bill.Infrastructure.Persistence.Repositories;
 
-public class BaseDefaultRepository<TEntity> : DefaultRepository<TEntity, long>, IBaseDefaultRepository<TEntity> where TEntity : BaseAuditEntity
+public class BaseDefaultRepository<TEntity> : DefaultRepository<TEntity, long>, IBaseDefaultRepository<TEntity> where TEntity : BaseEntity
 {
     private ConcurrentDictionary<Type, DbContext> _dicDbProp = new();
 

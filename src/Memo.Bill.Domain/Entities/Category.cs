@@ -1,4 +1,6 @@
-﻿namespace Memo.Bill.Domain.Entities;
+﻿using Memo.Bill.Domain.Enums;
+
+namespace Memo.Bill.Domain.Entities;
 
 /// <summary>
 /// 账单分类表
@@ -33,8 +35,7 @@ public class Category : BaseAuditEntity
     /// 类型：0 支出，1 收入
     /// </summary>
     [Description("类型：0-支出，1-收入")]
-    [Column(IsNullable = false)]
-    public int Type { get; set; }
+    public BillType Type { get; set; }
 
     /// <summary>
     /// 图标
@@ -47,8 +48,13 @@ public class Category : BaseAuditEntity
     /// 是否默认
     /// </summary>
     [Description("是否默认")]
-    [Column(IsNullable = false)]
     public bool Default { get; set; }
+
+    /// <summary>
+    /// 是否常用
+    /// </summary>
+    [Description("是否常用")]
+    public bool Top { get; set; }
 
     /// <summary>
     /// 排序
