@@ -68,5 +68,15 @@ namespace Memo.Bill.Api.Controllers
         {
             return await mediator.Send(request);
         }
+
+        /// <summary>
+        /// 获取常用账户
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("list/top")]
+        public async Task<Result> ListTopAsync([FromQuery] ListTopAccountQuery request)
+        {
+            return await mediator.Send(request);
+        }
     }
 }

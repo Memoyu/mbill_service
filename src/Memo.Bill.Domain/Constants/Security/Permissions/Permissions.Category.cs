@@ -22,5 +22,8 @@ public static partial class Permissions
 
         [Description("获取分类分组列表")]
         public const string ListGroup = "list:group:category";
+
+        [Description("获取常用分类列表")]
+        public const string ListTop = "list:top:category";
     }
 }

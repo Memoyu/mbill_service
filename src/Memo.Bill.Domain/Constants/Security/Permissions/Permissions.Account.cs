@@ -22,5 +22,8 @@ public static partial class Permissions
 
         [Description("获取账户分组列表")]
         public const string ListGroup = "list:group:account";
+
+        [Description("获取常用账户列表")]
+        public const string ListTop = "list:top:account";
     }
 }

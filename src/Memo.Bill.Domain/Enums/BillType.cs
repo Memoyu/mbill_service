@@ -14,7 +14,7 @@ public enum BillType
 }
 
 
-public enum BillPropUsageRecordType
+public enum FrequencyRecordType
 {
     /// <summary>
     /// 分类
