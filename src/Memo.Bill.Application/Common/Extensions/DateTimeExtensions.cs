@@ -145,30 +145,30 @@ public static class DateTimeExtensions
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
-    public static DateTime FirstDayOfYear(this DateTime date) => DateTime.Parse($"{date.Year}-01-01");
+    public static DateTime StartOfYear(this DateTime date) => DateTime.Parse($"{date.Year}-01-01");
 
     /// <summary>
     /// 获取指定日期的年份最后一天
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
-    public static DateTime LastDayOfYear(this DateTime date) => date.FirstDayOfYear().AddYears(1).AddSeconds(-1);
+    public static DateTime EndOfYear(this DateTime date) => date.StartOfYear().AddYears(1).AddSeconds(-1);
 
     /// <summary>
     /// 获取指定日期的月份第一天
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
-    public static DateTime FirstDayOfMonth(this DateTime date) => DateTime.Parse($"{date.Year}-{date.Month}-01");
+    public static DateTime StartOfMonth(this DateTime date) => DateTime.Parse($"{date.Year}-{date.Month}-01");
 
     /// <summary>
     /// 获取指定日期的月份最后一天
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
-    public static DateTime LastDayOfMonth(this DateTime date)
+    public static DateTime EndOfMonth(this DateTime date)
     {
-        var begin = date.FirstDayOfMonth();
+        var begin = date.StartOfMonth();
         return begin.AddDays(1 - begin.Day).Date.AddMonths(1).AddSeconds(-1);
     }
 
@@ -177,12 +177,12 @@ public static class DateTimeExtensions
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
-    public static DateTime FirstTimeOfDay(this DateTime date) => date.Date;
+    public static DateTime StartOfDay(this DateTime date) => date.Date;
 
     /// <summary>
     /// 获取指定日期当天截止时间
     /// </summary>
     /// <param name="date"></param>
     /// <returns></returns>
-    public static DateTime LastTimeOfDay(this DateTime date) => date.FirstTimeOfDay().AddDays(1).AddSeconds(-1);
+    public static DateTime EndOfDay(this DateTime date) => date.StartOfDay().AddDays(1).AddSeconds(-1);
 }

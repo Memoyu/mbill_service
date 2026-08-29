@@ -39,7 +39,7 @@ internal class BillService(
         if (request.LedgerIds.Count < 1)
             return new PaginationResult<BillPageItemResult>();
 
-        var (begin, end) = (request.BeginDate?.FirstTimeOfDay(), request.EndDate?.LastTimeOfDay());
+        var (begin, end) = (request.BeginDate?.StartOfDay(), request.EndDate?.EndOfDay());
         // 标签过滤
         var tagBillIds = new List<long>();
         var tagIds = request.TagIds ?? [];

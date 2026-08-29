@@ -38,7 +38,7 @@ internal class SummaryBillAmountQueryHandler(
     public async Task<Result> Handle(SummaryBillAmountQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.UserId;
-        var (begin, end) = (request.BeginDate!.Value.FirstTimeOfDay(), request.EndDate!.Value.LastTimeOfDay());
+        var (begin, end) = (request.BeginDate!.Value.StartOfDay(), request.EndDate!.Value.EndOfDay());
 
         var result = new BillSummaryAmountResult();
         // 账本为空，则不需要继续进行查询

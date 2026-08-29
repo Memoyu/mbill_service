@@ -25,8 +25,8 @@ internal class CalendarBillQueryHandler(
     public async Task<Result> Handle(CalendarBillQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.UserId;
-        var begin = request.BeginDate.FirstDayOfMonth();
-        var end = request.EndDate.LastDayOfMonth().LastTimeOfDay();
+        var begin = request.BeginDate.StartOfMonth();
+        var end = request.EndDate.EndOfMonth().EndOfDay();
 
         var bills = await billRepo.Select
             .Where(s => s.CreateUserId == userId)

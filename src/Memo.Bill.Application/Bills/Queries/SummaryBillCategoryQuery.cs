@@ -39,7 +39,7 @@ internal class SummaryBillCategoryQueryHandler(
     public async Task<Result> Handle(SummaryBillCategoryQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.UserId;
-        var (begin, end) = (request.BeginDate.FirstTimeOfDay(), request.EndDate.LastTimeOfDay());
+        var (begin, end) = (request.BeginDate.StartOfDay(), request.EndDate.EndOfDay());
 
         var bills = await billRepo.Select
             .Include(s => s.Category)
