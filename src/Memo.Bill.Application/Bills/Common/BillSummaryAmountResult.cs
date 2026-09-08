@@ -26,6 +26,11 @@ internal record BillSummaryAmountItem
     public decimal Expend { get; set; }
 
     /// <summary>
+    /// 结余
+    /// </summary>
+    public decimal Surplus { get; set; }
+
+    /// <summary>
     /// 平均收入
     /// </summary>
     public decimal IncomeAvg { get => field.ToRound(); set; }
@@ -36,9 +41,9 @@ internal record BillSummaryAmountItem
     public decimal ExpendAvg { get => field.ToRound(); set; }
 
     /// <summary>
-    /// 结余
+    /// 平均结余
     /// </summary>
-    public decimal Surplus { get; set; } 
+    public decimal SurplusAvg { get => field.ToRound(); set; }
 
     /// <summary>
     /// 最高支出
