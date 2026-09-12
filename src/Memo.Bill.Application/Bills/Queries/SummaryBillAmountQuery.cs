@@ -57,7 +57,7 @@ internal class SummaryBillAmountQueryHandler(
         var series = new List<BillSummaryAmountItem>();
         if (request.Series > 0)
         {
-            var dates = request.Series == 1 ? begin.GetMonthRanges(end) : begin.GetDateRanges(end);
+            var dates = request.Series == 1 ? begin.GetRanges(end, 1) : begin.GetRanges(end);
             foreach (var date in dates)
             {
                 // 当前天数
