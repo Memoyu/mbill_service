@@ -2,8 +2,6 @@
 
 namespace Memo.Bill.Application.Bills.Queries;
 
-internal record BillAmountSummaryDto(BillType Type, decimal Amount, DateTime Date);
-
 /// <summary>
 /// 账单金额汇总
 /// </summary>
@@ -51,7 +49,7 @@ internal class SummaryBillAmountQueryHandler(
             .Where(s => request.LedgerIds.Contains(s.LedgerId))
             .Where(s => s.Date <= end && s.Date >= begin)
             .WhereIf(request.Type.HasValue, s => s.Type == request.Type)
-            .ToListAsync(b => new BillAmountSummaryDto(b.Type, b.Amount, b.Date), cancellationToken);
+            .ToListAsync(b => new BillAmountSummaryDto(b.BillId, b.Type, b.Amount, b.Date), cancellationToken);
 
         var summary = GetSummary(bills, end.Subtract(begin).Days);
 

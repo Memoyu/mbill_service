@@ -3,16 +3,16 @@
 namespace Memo.Bill.Application.Bills.Queries;
 
 /// <summary>
-/// 获取账单汇总分类
+/// 获取账单汇总账户
 /// </summary>
-[Authorize(Permissions = ApiPermission.Bill.SummaryCategory)]
-public record SummaryBillCategoryQuery : BillQueryRequest, IAuthorizeableRequest<Result>
+[Authorize(Permissions = ApiPermission.Bill.SummaryAccount)]
+public record SummaryBillAccountQuery : BillQueryRequest, IAuthorizeableRequest<Result>
 {
 }
 
-public class SummaryBillCategoryQueryValidator : AbstractValidator<SummaryBillCategoryQuery>
+public class SummaryBillAccountQueryValidator : AbstractValidator<SummaryBillAccountQuery>
 {
-    public SummaryBillCategoryQueryValidator()
+    public SummaryBillAccountQueryValidator()
     {
         RuleFor(x => x.BeginDate)
             .NotEmpty()
@@ -27,29 +27,29 @@ public class SummaryBillCategoryQueryValidator : AbstractValidator<SummaryBillCa
     }
 }
 
-internal class SummaryBillCategoryQueryHandler(
+internal class SummaryBillAccountQueryHandler(
     ICurrentUserProvider currentUserProvider,
     IBillService billService,
     IBaseDefaultRepository<Billing> billRepo
-    ) : IRequestHandler<SummaryBillCategoryQuery, Result>
+    ) : IRequestHandler<SummaryBillAccountQuery, Result>
 {
-    public async Task<Result> Handle(SummaryBillCategoryQuery request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(SummaryBillAccountQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.UserId;
         var (begin, end) = (request.BeginDate!.Value.StartOfDay(), request.EndDate!.Value.EndOfDay());
 
-        var result = new BillSummaryCategoryResult();
+        var result = new BillSummaryAccountResult();
         request.LedgerIds = await billService.FilterLedgerAsync(request.LedgerIds, cancellationToken);
         if (request.LedgerIds.Count < 1)
             return Result.Success(result);
 
         var bills = await billRepo.Select
-            .Include(s => s.Category)
+            .Include(s => s.Account)
             .Where(s => s.CreateUserId == userId) // 统计时，只统计个人的
             .Where(s => request.LedgerIds.Contains(s.LedgerId))
             .Where(s => s.Date <= end && s.Date >= begin)
             .WhereIf(request.Type.HasValue, s => s.Type == request.Type)
-            .ToListAsync(b => new { Bill = new BillAmountSummaryDto(b.BillId, b.Type, b.Amount, b.Date), b.Category }, cancellationToken);
+            .ToListAsync(b => new { Bill = new BillAmountSummaryDto(b.BillId, b.Type, b.Amount, b.Date), b.Account }, cancellationToken);
 
         var bGroups = bills.GroupBy(b => b.Bill.Type).ToList();
 
@@ -57,18 +57,18 @@ internal class SummaryBillCategoryQueryHandler(
         var totalIncome = 0M;
         foreach (var bg in bGroups)
         {
-            var caGroups = bg.GroupBy(b => b.Category.CategoryId).ToList();
-            foreach (var cg in caGroups)
+            var acGroups = bg.GroupBy(b => b.Account.AccountId).ToList();
+            foreach (var ag in acGroups)
             {
-                var cgs = cg.ToList();
-                var category = cgs.First().Category;
-                var amount = cgs.Sum(b => b.Bill.Amount);
-                var item = new BillSummaryCategoryItem
+                var ags = ag.ToList();
+                var account = ags.First().Account;
+                var amount = ags.Sum(b => b.Bill.Amount);
+                var item = new BillSummaryAccountItem
                 {
-                    CategoryId = category.CategoryId,
-                    Name = category.Name,
-                    Icon = category.Icon,
-                    Count = cgs.Count,
+                    AccountId = account.AccountId,
+                    Name = account.Name,
+                    Icon = account.Icon,
+                    Count = ags.Count,
                     Amount = amount,
                 };
 

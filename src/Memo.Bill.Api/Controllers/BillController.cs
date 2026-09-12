@@ -70,6 +70,16 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
+        /// 获取搜索账单记录
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("search/record")]
+        public async Task<Result> SearchBillRecordAsync([FromQuery] SearchBillRecordQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
         /// 账单金额汇总
         /// </summary>
         /// <returns></returns>
@@ -80,33 +90,31 @@ namespace Memo.Bill.Api.Controllers
         }
 
         /// <summary>
-        /// 获取搜索账单记录
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("search/record")]
-        public async Task<Result> SearchBillRecordAsync([FromQuery] SearchBillRecordQuery request)
-        {
-            return await mediator.Send(request);
-        }
-
-
-        /// <summary>
-        /// 获取账单日历
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("calendar")]
-        public async Task<Result> CalendarAsync([FromQuery] CalendarBillQuery request)
-        {
-            return await mediator.Send(request);
-        }
-
-
-        /// <summary>
-        /// 获取账单汇总分类
+        /// 账单汇总分类
         /// </summary>
         /// <returns></returns>
         [HttpGet("summary/category")]
         public async Task<Result> SummaryCategoryAsync([FromQuery] SummaryBillCategoryQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 账单汇总账户
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("summary/account")]
+        public async Task<Result> SummaryAccountAsync([FromQuery] SummaryBillAccountQuery request)
+        {
+            return await mediator.Send(request);
+        }
+
+        /// <summary>
+        /// 账单汇总标签
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("summary/tag")]
+        public async Task<Result> SummaryTagAsync([FromQuery] SummaryBillTagQuery request)
         {
             return await mediator.Send(request);
         }
@@ -146,7 +154,6 @@ namespace Memo.Bill.Api.Controllers
 
 
         #endregion
-
 
         #region 账单退款
 

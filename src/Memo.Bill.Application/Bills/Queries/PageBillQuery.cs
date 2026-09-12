@@ -12,9 +12,6 @@ public class PageBillQueryValidator : AbstractValidator<PageBillQuery>
 {
     public PageBillQueryValidator()
     {
-        RuleFor(x => x.LedgerIds)
-           .NotEmpty()
-           .WithMessage("账本Id不能为空");
     }
 }
 

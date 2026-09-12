@@ -1,26 +1,26 @@
 ﻿namespace Memo.Bill.Application.Bills.Common;
 
-internal record BillSummaryCategoryResult
+internal record BillSummaryAccountResult
 {
-    public List<BillSummaryCategoryItem> Expends { get; set; } = [];
+    public List<BillSummaryAccountItem> Expends { get; set; } = [];
 
-    public List<BillSummaryCategoryItem> Incomes { get; set; } = [];
+    public List<BillSummaryAccountItem> Incomes { get; set; } = [];
 }
 
-internal record BillSummaryCategoryItem
+internal record BillSummaryAccountItem
 {
     /// <summary>
-    /// 分类Id
+    /// 账户Id
     /// </summary>
-    public long CategoryId { get; set; }
+    public long AccountId { get; set; }
 
     /// <summary>
-    /// 分类名称
+    /// 账户名称
     /// </summary>
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// 分类图标
+    /// 账户图标
     /// </summary>
     public string Icon { get; set; } = string.Empty;
 
