@@ -1,4 +1,5 @@
 ﻿using Memo.Bill.Application.Bills.Common;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Memo.Bill.Application.Bills.Queries;
 
@@ -7,7 +8,7 @@ namespace Memo.Bill.Application.Bills.Queries;
 /// </summary>
 [Authorize(Permissions = ApiPermission.Bill.SummaryAmount)]
 public record SummaryBillAmountQuery(
-    int Series // 分组汇总: 0：不分组，1：按月，2：按日
+    int Series // 分组汇总: 0：不分组，1：按月，2：按日，3：按月、日
 ) : BillQueryRequest, IAuthorizeableRequest<Result>;
 
 public class SummaryBillAmountQueryValidator : AbstractValidator<SummaryBillAmountQuery>
@@ -51,33 +52,55 @@ internal class SummaryBillAmountQueryHandler(
             .WhereIf(request.Type.HasValue, s => s.Type == request.Type)
             .ToListAsync(b => new BillAmountSummaryDto(b.BillId, b.Type, b.Amount, b.Date), cancellationToken);
 
-        var summary = GetSummary(bills, end.Subtract(begin).Days);
+        var summary = GetSummary(bills, end.Subtract(begin).Days, request.Series, begin);
 
         // 时间范围内分组汇总
-        var series = new List<BillSummaryAmountItem>();
+        var series = new List<BillSummaryAmountResult>();
         if (request.Series > 0)
         {
-            var dates = request.Series == 1 ? begin.GetRanges(end, 1) : begin.GetRanges(end);
-            foreach (var date in dates)
+            if (request.Series == 3)
             {
-                // 当前天数
-                var days = request.Series == 1 ? DateTime.DaysInMonth(date.Year, date.Month) : 1;
-                var dateBills = bills
-                    .Where(b => request.Series == 1 ? (b.Date.Year == date.Date.Year && b.Date.Month == date.Date.Month) : b.Date.Date == date.Date)
-                    .ToList();
+                var dates = begin.GetRanges(end);
+                // 按月分组
+                var mgs = dates.GroupBy(d => new { d.Year, d.Month }).ToList();
+                foreach (var g in mgs)
+                {
+                    var mg = g.Key;
+                    var m = DateTime.Parse($"{mg.Year}-{mg.Month}-01");
+                    // 当前天数
+                    var days = DateTime.DaysInMonth(mg.Year, mg.Month);
+                    var mBills = bills.Where(b => b.Date >= m.StartOfMonth() && b.Date <= m.EndOfMonth()).ToList();
+                    var res = new BillSummaryAmountResult { Summary = GetSummary(mBills, days, 2, m) };
+                    foreach (var d in g)
+                    {
+                        var dBills = mBills.Where(b => b.Date >= d.StartOfDay() && b.Date <= d.EndOfDay()).ToList();
+                        res.Items.Add(new BillSummaryAmountResult { Summary = GetSummary(dBills, 1, 1, d) });
+                    }
+                    series.Add(res);
+                }
+            }
+            else
+            {
+                var dates = request.Series == 1 ? begin.GetRanges(end, 1) : begin.GetRanges(end);
+                foreach (var date in dates)
+                {
+                    // 当前天数
+                    var days = request.Series == 1 ? DateTime.DaysInMonth(date.Year, date.Month) : 1;
+                    var dateBills = bills
+                        .Where(b => request.Series == 1 ? (b.Date.Year == date.Date.Year && b.Date.Month == date.Date.Month) : b.Date.Date == date.Date)
+                        .ToList();
 
-                var sm = GetSummary(dateBills, days);
-                sm.Date = request.Series == 1 ? date.ToString("yyyy-MM") : date.ToString("yyyy-MM-dd");
-                series.Add(sm);
+                    series.Add(new BillSummaryAmountResult { Summary = GetSummary(dateBills, days, request.Series, date) });
+                }
             }
         }
 
         result.Summary = summary;
-        result.Series = series;
+        result.Items = series;
         return Result.Success(result);
     }
 
-    private BillSummaryAmountItem GetSummary(List<BillAmountSummaryDto> bills, int days)
+    private BillSummaryAmountItem GetSummary(List<BillAmountSummaryDto> bills, int days, int series, DateTime date)
     {
         // 时间范围内汇总
         var expend = 0M;
@@ -107,8 +130,10 @@ internal class SummaryBillAmountQueryHandler(
         days = days == 0 ? 1 : days;
         var expendAvg = expend / days;
         var incomeAvg = income / days;
+        
         return new BillSummaryAmountItem
         {
+            Date = series == 1 ? date.ToString("yyyy-MM") : date.ToString("yyyy-MM-dd"),
             Expend = expend,
             Income = income,
             Surplus = income - expend,

@@ -4,7 +4,7 @@ internal record BillSummaryAmountResult
 {
     public BillSummaryAmountItem Summary { get; set; } = new();
 
-    public List<BillSummaryAmountItem> Series { get; set; } = [];
+    public List<BillSummaryAmountResult> Items { get; set; } = [];
 }
 
 
