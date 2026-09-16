@@ -70,11 +70,11 @@ internal class SummaryBillAmountQueryHandler(
                     // 当前天数
                     var days = DateTime.DaysInMonth(mg.Year, mg.Month);
                     var mBills = bills.Where(b => b.Date >= m.StartOfMonth() && b.Date <= m.EndOfMonth()).ToList();
-                    var res = new BillSummaryAmountResult { Summary = GetSummary(mBills, days, 2, m) };
+                    var res = new BillSummaryAmountResult { Summary = GetSummary(mBills, days, 1, m) };
                     foreach (var d in g)
                     {
                         var dBills = mBills.Where(b => b.Date >= d.StartOfDay() && b.Date <= d.EndOfDay()).ToList();
-                        res.Items.Add(new BillSummaryAmountResult { Summary = GetSummary(dBills, 1, 1, d) });
+                        res.Items.Add(new BillSummaryAmountResult { Summary = GetSummary(dBills, 1, 2, d) });
                     }
                     series.Add(res);
                 }
