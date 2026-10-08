@@ -28,7 +28,7 @@ public class UserIdentity : BaseAuditEntity
     /// <summary>
     /// 认证类型
     /// </summary>
-    [Description("认证类型， Password，GitHub、QQ、WeiXin等")]
+    [Description("认证类型， 0：密码，1：微信认证")]
     public UserIdentityType IdentityType { get; set; }
 
     /// <summary>

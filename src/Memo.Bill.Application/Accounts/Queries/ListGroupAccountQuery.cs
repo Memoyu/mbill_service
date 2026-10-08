@@ -14,7 +14,7 @@ public class ListGroupAccountQueryHandler(
     public async Task<Result> Handle(ListGroupAccountQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-        var entities = await accountRepo.Select.Where(x => x.CreateUserId == userId).OrderBy(x => x.Sort).ToListAsync(cancellationToken) ?? [];
+        var entities = await accountRepo.Select.Where(x => x.CreateUserId == userId).OrderBy(x => new { x.Sort, x.CreateTime }).ToListAsync(cancellationToken) ?? [];
 
         var dto = new AccountGroupResult();
         if (entities.Count > 0)

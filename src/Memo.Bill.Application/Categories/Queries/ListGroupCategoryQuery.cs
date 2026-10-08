@@ -14,7 +14,7 @@ public class ListGroupCategoryQueryHandler(
     public async Task<Result> Handle(ListGroupCategoryQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
-        var entities = await categoryRepo.Select.Where(x => x.CreateUserId == userId).OrderBy(x => x.Sort).ToListAsync(cancellationToken) ?? [];
+        var entities = await categoryRepo.Select.Where(x => x.CreateUserId == userId).OrderBy(x => new { x.Sort, x.CreateTime }).ToListAsync(cancellationToken) ?? [];
 
         var dto = new CategoryGroupsResult();
         if (entities.Count > 0)

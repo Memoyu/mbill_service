@@ -25,5 +25,6 @@ public class Ledger : BaseAuditEntity
     /// <summary>
     /// 默认账本
     /// </summary>
+    [Description("默认账本")]
     public bool Default { get; set; }
 }
