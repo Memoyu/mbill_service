@@ -22,4 +22,10 @@ public enum ResultCode
     /// </summary>
     [Description("未授权")]
     Unauthorized = 401,
+
+    /// <summary>
+    /// 禁止访问
+    /// </summary>
+    [Description("禁止访问")]
+    Forbidden = 403,
 }
