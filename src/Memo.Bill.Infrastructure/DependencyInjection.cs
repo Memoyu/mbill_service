@@ -135,31 +135,31 @@ public static class DependencyInjection
                     {
                         context.HandleResponse();
 
-                        string message;
-                        ResultCode code;
+                        //string message;
+                        //ResultCode code;
 
-                        if (context.Error == "invalid_token"
-                            && !string.IsNullOrWhiteSpace(context.ErrorDescription)
-                            && context.ErrorDescription.StartsWith("The token expired at"))//Token过期
-                        {
-                            message = "令牌过期";
-                            code = ResultCode.TokenExpired;
-                        }
-                        else if (context.Error == "invalid_token"
-                            && string.IsNullOrWhiteSpace(context.ErrorDescription))//Token失效
-                        {
-                            message = "令牌失效";
-                            code = ResultCode.TokenInvalidation;
-                        }
-                        else
-                        {
-                            message = "认证失败，请先登录！";
-                            code = ResultCode.AuthenticationFailure;
-                        }
+                        //if (context.Error == "invalid_token"
+                        //    && !string.IsNullOrWhiteSpace(context.ErrorDescription)
+                        //    && context.ErrorDescription.StartsWith("The token expired at"))//Token过期
+                        //{
+                        //    message = "令牌过期";
+                        //    code = ResultCode.TokenExpired;
+                        //}
+                        //else if (context.Error == "invalid_token"
+                        //    && string.IsNullOrWhiteSpace(context.ErrorDescription))//Token失效
+                        //{
+                        //    message = "令牌失效";
+                        //    code = ResultCode.TokenInvalidation;
+                        //}
+                        //else
+                        //{
+                        //    message = "认证失败，请先登录！";
+                        //    code = ResultCode.Unauthorized;
+                        //}
 
                         context.Response.ContentType = "application/json";
                         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                        await context.Response.WriteAsync(Result.Failure(message, code).ToString()!);
+                        await context.Response.WriteAsync(Result.Failure("认证失败，请先登录！", ResultCode.Unauthorized).ToString()!);
                     },
 
                     OnMessageReceived = context =>
