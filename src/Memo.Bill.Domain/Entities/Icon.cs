@@ -7,6 +7,13 @@
 public class Icon : BaseAuditEntity
 {
     /// <summary>
+    /// 名称
+    /// </summary>
+    [Description("名称")]
+    [Column(StringLength = 30, IsNullable = false)]
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
     /// 目录
     /// </summary>
     [Description("目录")]
