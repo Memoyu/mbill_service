@@ -62,3 +62,9 @@ internal record CategoryWithParentResult : CategoryBaseResult
     public CategoryResult? Parent { get; set; }
 
 }
+
+internal record CategoryWithChildsResult : CategoryBaseResult
+{
+    public List<CategoryResult> Childs { get; set; } = [];
+}
+

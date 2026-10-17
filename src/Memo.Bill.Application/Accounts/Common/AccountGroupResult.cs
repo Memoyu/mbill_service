@@ -2,11 +2,7 @@
 
 internal record AccountGroupResult
 {
-    public List<AccountGroupItem> Items { get; set; } = [];
-}
+    public List<AccountWithChildResult> Tops { get; set; } = [];
 
-
-internal record AccountGroupItem : AccountBaseResult
-{
-    public List<AccountResult> Childs { get; set; } = [];
+    public List<AccountWithChildResult> List { get; set; } = [];
 }

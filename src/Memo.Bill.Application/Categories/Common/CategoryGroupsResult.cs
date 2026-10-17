@@ -2,13 +2,16 @@
 
 internal record CategoryGroupsResult
 {
-    public List<CategoryGroupItem> Expends { get; set; } = [];
+    public CategoryGroupItem Expends { get; set; } = new();
 
-    public List<CategoryGroupItem> Incomes { get; set; } = [];
+    public CategoryGroupItem Incomes { get; set; } = new();
 }
 
-
-internal record CategoryGroupItem : CategoryBaseResult
+internal record CategoryGroupItem
 {
-    public List<CategoryResult> Childs { get; set; } = [];
+    public List<CategoryWithChildsResult> Tops { get; set; } = [];
+
+    public List<CategoryWithChildsResult> List { get; set; } = [];
 }
+
+

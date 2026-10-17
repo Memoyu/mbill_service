@@ -57,3 +57,8 @@ internal record AccountWithParentResult : AccountResult
     public AccountResult? Parent { get; set; }
 
 }
+
+internal record AccountWithChildResult : AccountBaseResult
+{
+    public List<AccountResult> Childs { get; set; } = [];
+}
