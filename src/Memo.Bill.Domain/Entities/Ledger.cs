@@ -4,6 +4,7 @@
 /// 账单账本表
 /// </summary>
 [Table(Name = "ledger")]
+[Description("账本")]
 [Index("idx_ledger_id", nameof(LedgerId), false)]
 public class Ledger : BaseAuditEntity
 {

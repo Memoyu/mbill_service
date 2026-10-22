@@ -4,6 +4,7 @@
 /// 图标资源表
 /// </summary>
 [Table(Name = "icon")]
+[Description("图标")]
 public class Icon : BaseAuditEntity
 {
     /// <summary>

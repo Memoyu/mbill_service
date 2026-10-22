@@ -4,6 +4,7 @@
 /// 账单关联标签表
 /// </summary>
 [Table(Name = "bill_tag")]
+[Description("账单标签")]
 [Index("idx_bill_tag_bill_id", nameof(BillId), false)]
 [Index("idx_bill_tag_tag_id", nameof(TagId), false)]
 public class BillTag : BaseAuditEntity

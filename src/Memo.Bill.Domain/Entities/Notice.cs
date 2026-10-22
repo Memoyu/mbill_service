@@ -4,6 +4,7 @@
 /// 公告表
 /// </summary>
 [Table(Name = "notice")]
+[Description("通知")]
 public class Notice: BaseAuditEntity
 {
     /// <summary>

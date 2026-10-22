@@ -4,6 +4,7 @@
 /// 账单标签表
 /// </summary>
 [Table(Name = "tag")]
+[Description("标签")]
 [Index("idx_tag_id", nameof(TagId), false)]
 [Index("idx_tag_parent_id", nameof(ParentId), false)]
 public class Tag : BaseAuditEntity

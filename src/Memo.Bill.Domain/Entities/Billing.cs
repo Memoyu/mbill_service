@@ -6,6 +6,7 @@ namespace Memo.Bill.Domain.Entities;
 /// 账单表
 /// </summary>
 [Table(Name = "billing")]
+[Description("账单")]
 [Index("idx_billing_id", nameof(BillId), false)]
 [Index("idx_billing_ledger_id", nameof(LedgerId), false)]
 [Index("idx_billing_category_id", nameof(CategoryId), false)]

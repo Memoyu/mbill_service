@@ -4,6 +4,7 @@
 /// 权限表
 /// </summary>
 [Table(Name = "permission")]
+[Description("权限")]
 [Index("idx_permission_id", nameof(PermissionId), false)]
 public class Permission : BaseAuditEntity
 {

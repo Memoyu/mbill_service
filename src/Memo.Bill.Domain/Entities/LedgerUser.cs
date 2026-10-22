@@ -4,6 +4,7 @@
 /// 账单账本表
 /// </summary>
 [Table(Name = "ledger_user")]
+[Description("账本用户")]
 [Index("idx_ledger_user_ledger_id", nameof(LedgerId), false)]
 [Index("idx_ledger_user_user_id", nameof(UserId), false)]
 public class LedgerUser : BaseAuditEntity

@@ -4,6 +4,7 @@
 /// 图标目录表
 /// </summary>
 [Table(Name = "icon_catalog")]
+[Description("图标分类")]
 public class IconCatalog : BaseAuditEntity
 {
     /// <summary>

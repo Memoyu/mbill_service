@@ -6,6 +6,7 @@ namespace Memo.Bill.Domain.Entities;
 /// 账单分类表
 /// </summary>
 [Table(Name = "category")]
+[Description("账单分类")]
 [Index("idx_category_id", nameof(CategoryId), false)]
 [Index("idx_category_parent_id", nameof(ParentId), false)]
 public class Category : BaseAuditEntity

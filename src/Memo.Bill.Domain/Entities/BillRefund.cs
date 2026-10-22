@@ -4,6 +4,7 @@
 /// 账单退款表
 /// </summary>
 [Table(Name = "bill_refund")]
+[Description("账单退款")]
 [Index("idx_bill_refund_refund_id", nameof(RefundId), false)]
 [Index("idx_bill_refund_bill_id", nameof(BillId), false)]
 public class BillRefund : BaseAuditEntity

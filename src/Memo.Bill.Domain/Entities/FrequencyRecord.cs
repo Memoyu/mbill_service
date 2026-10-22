@@ -7,6 +7,7 @@ namespace Memo.Bill.Domain.Entities;
 /// 账单分类、账单账户、账单标签等
 /// </summary>
 [Table(Name = "frequency_record")]
+[Description("频次记录")]
 [Index("idx_frequency_record_record_id", nameof(RecordId), false)]
 public class FrequencyRecord : BaseEntity
 {

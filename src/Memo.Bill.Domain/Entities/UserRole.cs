@@ -4,6 +4,7 @@
 /// 用户与角色关联表
 /// </summary>
 [Table(Name = "user_role")]
+[Description("用户角色")]
 [Index("idx_user_role_user_id", nameof(UserId), false)]
 [Index("idx_user_role_role_id", nameof(RoleId), false)]
 public class UserRole : BaseAuditEntity

@@ -4,6 +4,7 @@
 /// 关联账单表
 /// </summary>
 [Table(Name = "bill_relation")]
+[Description("关联账单")]
 [Index("idx_bill_relation_bill_id", nameof(BillId), false)]
 [Index("idx_bill_relation_relation_id", nameof(RelationId), false)]
 public class BillRelation : BaseAuditEntity

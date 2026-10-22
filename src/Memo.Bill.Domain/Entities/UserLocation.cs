@@ -4,6 +4,7 @@
 /// 用户地址记录表
 /// </summary>
 [Table(Name = "user_location")]
+[Description("用户位置")]
 [Index("idx_user_location_user_id", nameof(UserId), false)]
 public class UserLocation : BaseAuditEntity
 {
