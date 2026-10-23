@@ -3,6 +3,11 @@
 public record IconResult
 {
     /// <summary>
+    /// 自增ID
+    /// </summary>
+    public long Id { get; set; }
+
+    /// <summary>
     /// 目录
     /// </summary>
     public string Catalog { get; set; } = string.Empty;

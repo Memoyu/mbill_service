@@ -26,6 +26,7 @@ public class ListCatalogIconQueryHandler(
                 {
                     return new IconResult
                     {
+                        Id = i.Id,
                         Catalog = i.Catalog,
                         Path = i.Path,
                         Url = i.Host + i.Path,
