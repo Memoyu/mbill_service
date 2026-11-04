@@ -25,7 +25,7 @@ public class CreateAccountCommandHandler(
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
 
-        var exist = await accountRepo.Select.AnyAsync(x => x.Name == request.Name && x.CreateUserId == userId, cancellationToken);
+        var exist = await accountRepo.Select.AnyAsync(x => x.Name == request.Name && x.ParentId == request.ParentId && x.CreateUserId == userId, cancellationToken);
         if (exist) return Result.Failure("账户已存在");
 
         var maxSort = await accountRepo.Select

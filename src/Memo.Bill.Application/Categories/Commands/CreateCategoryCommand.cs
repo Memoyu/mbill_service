@@ -29,7 +29,7 @@ public class CreateCategoryCommandHandler(
     {
         var userId = currentUserProvider.GetCurrentUser().Id;
 
-        var exist = await categoryRepo.Select.AnyAsync(x => x.Name == request.Name && x.CreateUserId == userId, cancellationToken);
+        var exist = await categoryRepo.Select.AnyAsync(x => x.Name == request.Name && x.ParentId == request.ParentId && x.CreateUserId == userId, cancellationToken);
         if (exist) return Result.Failure("分类已存在");
 
         var maxSort = await categoryRepo.Select

@@ -16,3 +16,5 @@ INSERT INTO memo_bill.user_identity (identity_id, user_id, identity_type, identi
 -- 初始化用户角色
 INSERT INTO memo_bill.user_role (user_id, role_id, create_user_id, create_time, update_user_id, update_time, is_deleted, delete_user_id, delete_time) VALUES(1, 1, 0, '2024-02-01 19:01:00', 0, '2024-02-01 19:01:00', 0, NULL, NULL);
 INSERT INTO memo_bill.user_role (user_id, role_id, create_user_id, create_time, update_user_id, update_time, is_deleted, delete_user_id, delete_time) VALUES(2, 2, 0, '2024-02-01 19:01:01', 0, '2024-02-01 19:01:01', 0, NULL, NULL);
+
+-- 初始化默认分类
