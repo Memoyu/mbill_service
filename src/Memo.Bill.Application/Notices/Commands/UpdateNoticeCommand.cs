@@ -1,7 +1,7 @@
 ﻿namespace Memo.Bill.Application.Notices.Commands;
 
 [Authorize(Permissions = ApiPermission.Notice.Update)]
-public record UpdateNoticeCommand(long NoticeId, string Content, string Range) : IAuthorizeableRequest<Result>;
+public record UpdateNoticeCommand(long NoticeId, string Title, string Content, string Range) : IAuthorizeableRequest<Result>;
 
 public class UpdateNoticeCommandValidator : AbstractValidator<UpdateNoticeCommand>
 {

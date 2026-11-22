@@ -13,5 +13,8 @@ public static partial class Permissions
         
         [Description("删除公告")]
         public const string Delete = "delete:notice";
+
+        [Description("获取公告列表")]
+        public const string List = "list:notice";
     }
 }

@@ -40,7 +40,7 @@ public class BaseDefaultRepository<TEntity> : DefaultRepository<TEntity, long>, 
         if (entity is BaseAuditEntity createAudit)
         {
             createAudit.CreateTime = DateTime.Now;
-            createAudit.CreateUserId = CurrentUser.Id;
+            createAudit.CreateUserId = createAudit.CreateUserId <= 0 ? CurrentUser.Id : createAudit.CreateUserId;
         }
 
         BeforeUpdate(entity);
@@ -51,7 +51,7 @@ public class BaseDefaultRepository<TEntity> : DefaultRepository<TEntity, long>, 
         if (entity is BaseAuditEntity updateAudit)
         {
             updateAudit.UpdateTime = DateTime.Now;
-            updateAudit.UpdateUserId = CurrentUser.Id;
+            updateAudit.UpdateUserId = updateAudit.UpdateUserId <= 0 ? CurrentUser.Id : updateAudit.UpdateUserId;
         }
     }
 
@@ -60,7 +60,7 @@ public class BaseDefaultRepository<TEntity> : DefaultRepository<TEntity, long>, 
         if (entity is BaseAuditEntity deleteAudit)
         {
             deleteAudit.IsDeleted = true;
-            deleteAudit.DeleteUserId = CurrentUser.Id;
+            deleteAudit.DeleteUserId = deleteAudit.DeleteUserId <= 0 ? CurrentUser.Id : deleteAudit.DeleteUserId;
             deleteAudit.DeleteTime = DateTime.Now;
         }
     }

@@ -1,7 +1,7 @@
 ﻿namespace Memo.Bill.Application.Notices.Commands;
 
 [Authorize(Permissions = ApiPermission.Notice.Create)]
-public record CreateNoticeCommand(string Content, string Range) : IAuthorizeableRequest<Result>;
+public record CreateNoticeCommand(string Title, string Content, string Range) : IAuthorizeableRequest<Result>;
 
 public class CreateUserCommandValidator : AbstractValidator<CreateNoticeCommand>
 {

@@ -4,9 +4,16 @@
 /// 公告表
 /// </summary>
 [Table(Name = "notice")]
-[Description("通知")]
+[Description("公告")]
 public class Notice: BaseAuditEntity
 {
+    /// <summary>
+    /// 标题
+    /// </summary>
+    [Description("标题")]
+    [Column(StringLength = 50)]
+    public string Title { get; set; } = string.Empty;
+
     /// <summary>
     /// 内容
     /// </summary>
