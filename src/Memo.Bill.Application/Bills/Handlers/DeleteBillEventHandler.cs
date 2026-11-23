@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace Memo.Bill.Application.Bills.Handlers;
 
-public class DeleteBillMongoEventHandler(IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<DeleteBillEvent>
+public class DeleteBillEventHandler(IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<DeleteBillEvent>
 {
     public async Task Handle(DeleteBillEvent notification, CancellationToken cancellationToken)
     {

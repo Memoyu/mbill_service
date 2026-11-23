@@ -3,7 +3,7 @@ using Memo.Bill.Domain.Events.Bills;
 
 namespace Memo.Bill.Application.Bills.Handlers;
 
-public class CreateBillMongoEventHandler(
+public class CreateBillEventHandler(
     IMapper mapper,
     IBaseMongoRepository<BillingCollection> billMongoRepo,
     IBaseDefaultRepository<FrequencyRecord> frequencyRecordRepo) : INotificationHandler<CreateBillEvent>
@@ -11,7 +11,8 @@ public class CreateBillMongoEventHandler(
     public async Task Handle(CreateBillEvent notification, CancellationToken cancellationToken)
     {
         var bill = notification.Bill;
-        var success = await billMongoRepo.InsertOneAsync(mapper.Map<BillingCollection>(bill), null, cancellationToken);
+        var mdata = mapper.Map<BillingCollection>(bill);
+        var success = await billMongoRepo.InsertOneAsync(mdata, null, cancellationToken);
         if (!success) throw new ApplicationException("保存账单到Mongo失败");
 
         // 记录分类使用记录

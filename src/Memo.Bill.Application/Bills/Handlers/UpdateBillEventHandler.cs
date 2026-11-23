@@ -4,14 +4,14 @@ using MongoDB.Driver;
 
 namespace Memo.Bill.Application.Bills.Handlers;
 
-internal class UpdateBillMongoEventHandler(IMapper mapper, IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<UpdateBillEvent>
+internal class UpdateBillEventHandler(IMapper mapper, IBaseMongoRepository<BillingCollection> billMongoRepo) : INotificationHandler<UpdateBillEvent>
 {
     public async Task Handle(UpdateBillEvent notification, CancellationToken cancellationToken)
     {
         var update = mapper.Map<BillingCollection>(notification.Bill);
 
         var success = false;
-        var bill = await billMongoRepo.FindOneAsync(notification.Bill.BillId, false);
+        var bill = await billMongoRepo.FindOneAsync(notification.Bill.BillId, false, null, cancellationToken);
         if (bill == null)
         {
             success = await billMongoRepo.InsertOneAsync(update, null, cancellationToken);   

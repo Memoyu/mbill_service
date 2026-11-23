@@ -1,13 +1,15 @@
-﻿using System.Configuration;
-using System.Reflection;
-using FreeSql;
+﻿using FreeSql;
 using FreeSql.DataAnnotations;
 using FreeSql.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using MySql.Data.MySqlClient;
 using Serilog;
+using System.Configuration;
+using System.Reflection;
 
 namespace Memo.Bill.Infrastructure.Persistence;
 
@@ -111,6 +113,9 @@ public static class FreeSqlPersistenceExtension
 
         // 批量注册复合主键的 Repository
         services.TryAddScoped(typeof(IBaseMongoRepository<>), typeof(BaseMongoRepository<>));
+
+        // 注册支持 UTF-8 的字符串序列化器（需在 MongoDB 连接初始化前调用）
+        BsonSerializer.RegisterSerializer(new StringSerializer());
 
         return services;
     }

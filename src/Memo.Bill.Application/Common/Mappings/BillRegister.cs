@@ -23,10 +23,11 @@ public class BillRegister : IRegister
             segmenter.CutWithSplitForSearch(bill.Category.Name),
             segmenter.CutWithSplitForSearch(bill.Account.Name),
             segmenter.CutWithSplitForSearch(bill.Ledger.Name),
-            segmenter.CutWithSplitForSearch(bill.Category.Name),
         };
         keywords.AddRange(bill.Tags.Select(t => segmenter.CutWithSplitForSearch(t.Name)));
 
-        return string.Join(";", keywords);
+        var result = string.Join(";", keywords);
+        // 移除 jieba 分词拆散 emoji 代理对产生的孤立代理字符
+        return new string([.. result.Where(c => !char.IsSurrogate(c))]);
     }
 }
