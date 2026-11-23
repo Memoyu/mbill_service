@@ -1,0 +1,91 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  tags: 
+    include:
+      - v*
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+  containerName: memo.bill
+  imageName: memoyu/memo-bill
+  appsettings: src/Memo.Bill.Api/appsettings.Production.json
+
+stages:
+- stage: Build
+  displayName: build
+  jobs:
+  - job: Build
+    displayName: build image
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - script:  |
+        echo ready to execute command
+        ls
+        sed -i 's/{mysql-conn}/$(mysql-conn)/g' $(appsettings)
+        sed -i 's/{redis-conn}/$(redis-conn)/g' $(appsettings)
+        sed -i 's/{mongodb-conn}/$(mongodb-conn)/g' $(appsettings)
+        sed -i 's/{jwt-secret}/$(jwt-secret)/g' $(appsettings)
+        sed -i 's/{qiniu-ak}/$(qiniu-ak)/g' $(appsettings)
+        sed -i 's/{qiniu-sk}/$(qiniu-sk)/g' $(appsettings)
+        sed -i 's/{amap-key}/$(amap-key)/g' $(appsettings)
+        sed -i 's/{mp-app-id}/$(mp-app-id)/g' $(appsettings)
+        sed -i 's/{mp-app-secret}/$(mp-app-secret)/g' $(appsettings)
+        echo "================= print file $(appsettings) start ===================="
+        cat $(appsettings) | while read line; do echo $line ; done
+        echo "================= print file $(appsettings) end ===================="
+        echo command executed
+    - task: Docker@2
+      displayName: 'build docker image and push'
+      inputs:
+        containerRegistry: 'aliyun-docker'
+        repository: $(imageName)
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        buildContext: $(Build.Repository.LocalPath)
+        tags: 'latest'
+    - task: SSH@0
+      displayName: 'run memo.bill service container'
+      inputs:
+        sshEndpoint: 'cloud_service'
+        runOptions: 'inline'
+        inline: |
+          echo "================= to del container ===================="
+          # 判断是否存在容器
+          docker ps | grep $(containerName) &> /dev/null
+          # 如果不存在，则Remove
+          if [ $? -ne 0 ]
+          then
+              echo "$(containerName) container not exist continue.. "
+          else
+              echo "remove $(containerName) container"
+              docker kill $(containerName)
+              docker rm $(containerName)
+          fi
+
+          echo "================= to rm image ===================="
+          # 判断是否存在镜像
+          docker images | grep registry.cn-shenzhen.aliyuncs.com/$(imageName) &> /dev/null
+          # 如果不存在，不做操作
+          if [ $? -ne 0 ]
+          then
+              echo "image does not exist , continue..."
+          else
+              echo "image exists !!! remove it"
+              docker rmi registry.cn-shenzhen.aliyuncs.com/$(imageName)
+          fi
+
+          echo "================= to pull image ===================="
+          docker pull registry.cn-shenzhen.aliyuncs.com/$(imageName)
+
+          echo "================= to run container ===================="
+          # 进行时区同步: 设置环境变量 -e "TZ=Asia/Shanghai"
+          docker run --restart=always --name $(containerName) -d -p 11010:8080 -e "TZ=Asia/Shanghai" registry.cn-shenzhen.aliyuncs.com/$(imageName)
+          echo "================= publish success ===================="
+        readyTimeout: '20000'
