@@ -18,6 +18,12 @@ public class BillingCollection
     public long BillId { get; set; }
 
     /// <summary>
+    /// 关键字
+    /// 备注、地址 分词
+    /// </summary>
+    public string Keyword { get; set; } = string.Empty;
+
+    /// <summary>
     /// 分类
     /// </summary>
     public BillingCollCategory Category { get; set; } = new();
@@ -49,10 +55,19 @@ public class BillingCollection
     public BillType Type { get; set; }
 
     /// <summary>
-    /// 关键字
-    /// 备注、地址 分词
+    /// 备注
     /// </summary>
-    public string Keyword { get; set; } = string.Empty;
+    public string Remark { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 坐标
+    /// </summary>
+    public string Location { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 地点
+    /// </summary>
+    public string Address { get; set; } = string.Empty;
 
     /// <summary>
     /// 日期
