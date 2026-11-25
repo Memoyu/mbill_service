@@ -63,6 +63,9 @@ public class LoginWxCommandHandler(
             // 登录返回token
             user = await userRepo.Where(u => u.UserId == userIdentity.UserId && u.Status == UserStatus.Normal).FirstAsync(cancellationToken) ??
                 throw new ApplicationException("用户不存在或已禁用");
+            // 更新登录时间
+            user.LastLoginTime = DateTime.Now;
+            await userRepo.UpdateAsync(user, cancellationToken);
         }
 
         var token = await jwtTokenGenerator.GenerateTokenAsync(user, cancellationToken);
